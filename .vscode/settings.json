@@ -1,0 +1,100 @@
+{
+    /*
+
+    Extensions requises :
+
+    ESLint
+    https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+
+    SCSS Formatter
+    https://marketplace.visualstudio.com/items?itemName=sibiraj-s.vscode-scss-formatter
+
+    TypeScript Import Sorter
+    https://marketplace.visualstudio.com/items?itemName=mike-co.import-sorter
+
+    vscode-icons
+    https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
+
+    */
+    // Paramètres concernant la recherche de l'éditeur
+    "search.exclude": {
+        "**/dist-dev/*": true,
+        "**/dist-prod/*": true,
+        "**/dist/*": true,
+        "**/documentation/*": true,
+        "**/node_modules/*": true,
+        "**/src_commun_savs/*": true
+    },
+    // Paramètres pour le formattage à la sauvegarde (ESLint et SCSS Formatter)
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+    },
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.codeAction.showDocumentation": {
+        "enable": true
+    },
+    "eslint.codeActionsOnSave.mode": "problems",
+    "eslint.format.enable": true,
+    "eslint.lintTask.enable": true,
+    "eslint.packageManager": "npm",
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features",
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter",
+    },
+    // Paramètres de customisation (VSCode Icons)
+    "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}${separator}",
+    "workbench.iconTheme": "vscode-icons",
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.colorCustomizations": {
+        "tab.activeBorder": "#ffffff",
+        "tab.activeBorderTop": "#ffffff",
+        "tab.activeBackground": "#000000",
+        "tab.activeForeground": "#ffffff",
+        "list.inactiveSelectionBackground": "#000000",
+        "list.inactiveSelectionForeground": "#ffffff",
+        "list.inactiveFocusOutline": "#ffffff",
+        "list.focusOutline": "#ffffff"
+    },
+    // Paramètres pour les imports (TypeScript Import Sorter)
+    "importSorter.generalConfiguration.sortOnBeforeSave": true,
+    "importSorter.importStringConfiguration.quoteMark": "double",
+    // --- Sur les nouvelles lignes d'import
+    "importSorter.importStringConfiguration.tabSize": 2,
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "maxLineLength",
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 150,
+    // --- Pour les groupes
+    "importSorter.sortConfiguration.customOrderingRules.defaultNumberOfEmptyLinesAfterGroup": 1,
+    "importSorter.sortConfiguration.customOrderingRules.rules": [
+        {
+            "type": "importMember",
+            "regex": "^$",
+            "orderLevel": 10,
+            "disableSort": true
+        },
+        {
+            "regex": "^[@]",
+            "orderLevel": 20
+        },
+        {
+            "regex": "^(projects)+[\/]",
+            "orderLevel": 25
+        },
+        {
+            "regex": "^(commun)+[\/]",
+            "orderLevel": 30
+        },
+        {
+            "regex": "^(shared)+[\/]",
+            "orderLevel": 35
+        },
+        {
+            "regex": "^[.]",
+            "orderLevel": 40
+        }
+    ]
+}

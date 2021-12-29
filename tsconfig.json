@@ -9,6 +9,33 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+
+    // ...
+    // Options intéressantes pour le code
+    // Allow Unreachable Code (par défaut : undefined)
+    "allowUnreachableCode": false,
+    // Allow Unused Labels  (par défaut : undefined)
+    "allowUnusedLabels": false,
+    // No Implicit Any (par défaut: true if strict)
+    "noImplicitAny": true,
+    // No Implicit Returns (par défaut : false)
+    "noImplicitReturns": true,
+    // No Implicit This (différence entre this de la classe, et this des fonctions) (par défaut: true if strict)
+    "noImplicitThis": true,
+    // No Unused Locals (par défaut : false)
+    "noUnusedLocals": true,
+    // No Unused Parameters (par défaut : false)
+    "noUnusedParameters": true,
+    // Strict Bind Call Apply (par défaut: true if strict)
+    "strictBindCallApply": true,
+    // Strict Function Types (par défaut: true if strict)
+    "strictFunctionTypes": true,
+    // Strict Null Checks (par défaut: true if strict)
+    "strictNullChecks": true,
+    // Strict Property Initialization  (par défaut: true if strict)
+    "strictPropertyInitialization": true,
+    // ...
+
     "sourceMap": true,
     "baseUrl": ".",
     "types": [

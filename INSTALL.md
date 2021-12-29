@@ -13,7 +13,7 @@ Vue CLI v4.5.15
 ? Use Babel alongside TypeScript (required for modern mode, auto-detected polyfills, transpiling JSX)? `Yes`
 ? Use history mode for router? (Requires proper server setup for index fallback in production) `Yes`
 ? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default): `Sass/SCSS (with node-sass)`
-? Pick a linter / formatter config: `Prettier`
+? Pick a linter / formatter config: `ESLint seulement`
 ? Pick additional lint features: `Lint on save`
 ? Where do you prefer placing config for Babel, ESLint, etc.? `In dedicated config files`
 ? Save this as a preset for future projects? (y/N) `No`
@@ -57,16 +57,35 @@ Vue CLI v4.5.15
 3) On ajoute cette configuration dans le `.eslintrc.js` à la racine.
 
 ```js
+  extends: {
+	// ....
+	'plugin:vue/vue3-strongly-recommended',
+	// ....
+  },
   rules: {
+	// ....
     "semi": ["error", "always"],
     "quotes": ["error", "double"],
-    "no-console": "warn",
-    "no-debugger": "warn",
+	"indent": ["error", 2],
+    "vue/html-closing-bracket-newline": ["error", {
+      "singleline": "never",
+      "multiline": "never"
+    }],
+    /*"vue/first-attribute-linebreak": ["error", {
+      "singleline": "beside",
+      "multiline": "beside"
+    }],*/
+    'vue/singleline-html-element-content-newline': 'off',
+    'vue/multiline-html-element-content-newline': 'off',
+    "vue/no-multi-spaces": ["error", {
+      "ignoreProperties": false
+    }]
+	// ....
   },
 ```
 
 4) On ajoute les extensions suivantes :
-- ESLint, Prettier, SCSS Formatter
+- ESLint, SCSS Formatter
 - TypeScript Import Sorter
 - Vetur
 
