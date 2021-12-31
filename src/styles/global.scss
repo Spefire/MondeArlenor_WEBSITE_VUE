@@ -1,0 +1,58 @@
+@import "@/styles/variables.scss";
+
+* {
+  box-sizing: border-box !important;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Serif", serif;
+}
+
+body {
+  z-index: 1;
+  color: $white-color;
+  background: $black-color;
+}
+
+// Titres
+
+h1 {
+  margin: 0;
+  font-size: 100px;
+  text-align: center;
+  font-weight: normal;
+
+  @include mobile-only {
+    font-size: 50px;
+  }
+}
+
+h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+h3 {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+p {
+  margin: 15px 0;
+  line-height: 135%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $white-color;
+  text-decoration: none;
+}
