@@ -1,4 +1,4 @@
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 
 import ArrowButton from "../arrow-button/ArrowButton.vue";
 import FooterLink from "../footer-link/FooterLink.vue";
@@ -10,10 +10,11 @@ export default defineComponent({
     FooterLink,
   },
   setup: () => {
-    const displayLarge = ref(true);
-
-    return {
-      displayLarge
-    };
+    return {};
+  },
+  computed: {
+    displayLarge() {
+      return this.$route.path !== "/";
+    }
   }
 });
