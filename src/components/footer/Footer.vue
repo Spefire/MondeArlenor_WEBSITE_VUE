@@ -14,7 +14,7 @@
           <p>
             Le Monde d'Arlénor a été créé en Janvier 2015, et je ne sais pas quoi dire plus... Voici une autre phrase en attendant.
           </p>
-          <span routerLink="about"><i class="fas fa-chevron-right" />En savoir plus</span>
+          <ArrowButton :link-page="'/about'" />
         </div>
       </div>
       <div class="footer-right">

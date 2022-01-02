@@ -28,25 +28,6 @@ footer {
 
 				img {
 					width: 100%;
-					cursor: pointer;
-				}
-
-				span {
-					color: $light-secondary-color;
-					cursor: pointer;
-
-					i {
-						transition: 0.5s;
-						width: 0px;
-						margin-right: 0;
-						transform: scaleX(0);
-					}
-
-					&:hover i {
-						width: 16px;
-						margin-right: 4px;
-						transform: scaleX(1);
-					}
 				}
 			}
 		}

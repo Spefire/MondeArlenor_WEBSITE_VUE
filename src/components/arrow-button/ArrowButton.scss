@@ -1,0 +1,22 @@
+@import "../../styles/variables.scss";
+
+a {
+	display: flex;
+	align-items: center;
+	color: $light-secondary-color;
+	text-transform: uppercase;
+	cursor: pointer;
+
+	i {
+		margin-right: 0;
+		font-size: 0;
+		transform: scaleX(0);
+		transition: 0.5s;
+	}
+
+	&:hover i {
+		margin-right: 10px;
+		font-size: 16px;
+		transform: scaleX(1);
+	}
+}

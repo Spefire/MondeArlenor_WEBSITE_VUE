@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?5lih3y');
-  src:  url('fonts/icomoon.eot?5lih3y#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?5lih3y') format('truetype'),
-    url('fonts/icomoon.woff?5lih3y') format('woff'),
-    url('fonts/icomoon.svg?5lih3y#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?6yefhu');
+  src:  url('fonts/icomoon.eot?6yefhu#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?6yefhu') format('truetype'),
+    url('fonts/icomoon.woff?6yefhu') format('woff'),
+    url('fonts/icomoon.svg?6yefhu#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -36,4 +36,7 @@
 }
 .icon-github:before {
   content: "\eab0";
+}
+.icon-arrow-right2:before {
+  content: "\ea3c";
 }
