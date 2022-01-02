@@ -5,16 +5,22 @@
     <div class="header-section">
       <div class="header-main">
         <router-link
-          class="header-icon logo"
+          class="header-icon link logo"
           to="/" />
         <router-link
-          class="header-title"
+          class="header-title link"
           to="/">Le Monde d'Arlénor</router-link>
       </div>
       <nav>
-        <router-link to="/universe">L'Univers</router-link>
-        <router-link to="/roleplay">Le Jeu de Rôles</router-link>
-        <router-link to="/celestia">L'Île Célestia</router-link>
+        <router-link
+          class="link"
+          to="/universe">L'Univers</router-link>
+        <router-link
+          class="link"
+          to="/roleplay">Le Jeu de Rôles</router-link>
+        <router-link
+          class="link"
+          to="/celestia">L'Île Célestia</router-link>
       </nav>
     </div>
     <div
@@ -22,16 +28,16 @@
       :class="{ active : onUniverseRoute}">
       <nav class="header-subnav">
         <router-link
-          class="header-subtitle exact-link"
+          class="header-subtitle link exact-link"
           to="/universe">La Carte du Monde</router-link>
         <router-link
-          class="exact-link"
+          class="link exact-link"
           to="/universe/crystals">Les Cristaux</router-link>
         <router-link
-          class="exact-link"
+          class="link exact-link"
           to="/universe/population">Les Peuples</router-link>
         <router-link
-          class="exact-link"
+          class="link exact-link"
           to="/universe/religion">La Religion</router-link>
       </nav>
     </div>
@@ -41,10 +47,10 @@
     <div class="header-mobile-section">
       <div class="header-main">
         <router-link
-          class="header-icon logo"
+          class="header-icon link logo"
           to="/" />
         <a
-          class="header-icon list"
+          class="header-icon link list"
           @click="toggleList()" />
       </div>
     </div>
@@ -52,22 +58,28 @@
       v-if="showSubmenu"
       class="header-mobile-subsection">
       <nav>
-        <router-link to="/universe">L'Univers</router-link>
-        <router-link to="/roleplay">Le Jeu de Rôles</router-link>
-        <router-link to="/celestia">L'Île Célestia</router-link>
+        <router-link
+          class="link"
+          to="/universe">L'Univers</router-link>
+        <router-link
+          class="link"
+          to="/roleplay">Le Jeu de Rôles</router-link>
+        <router-link
+          class="link"
+          to="/celestia">L'Île Célestia</router-link>
       </nav>
       <nav v-if="onUniverseRoute">
         <router-link
-          class="exact-link"
+          class="link exact-link"
           to="/universe">La Carte du Monde</router-link>
         <router-link
-          class="exact-link"
+          class="link exact-link"
           to="/universe/crystals">Les Cristaux</router-link>
         <router-link
-          class="exact-link"
+          class="link exact-link"
           to="/universe/population">Les Peuples</router-link>
         <router-link
-          class="exact-link"
+          class="link exact-link"
           to="/universe/religion">La Religion</router-link>
       </nav>
     </div>

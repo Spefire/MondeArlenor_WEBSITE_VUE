@@ -1,23 +1,6 @@
 @import "../../styles/variables.scss";
 
 header {
-	a {
-		position: relative;
-		display: inline-block;
-		height: 40px;
-		line-height: 40px;
-		padding: 0 20px;
-		font-size: 14px;
-		font-family: "Montserrat", sans-serif;
-		text-transform: uppercase;
-		transition: 0.5s;
-
-		&:not(.exact-link).router-link-active,
-		&.exact-link.router-link-exact-active {
-			color: $secondary-color;
-		}
-	}
-
 	.header-icon {
 		height: 46px;
 		width: 46px;

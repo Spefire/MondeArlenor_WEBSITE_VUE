@@ -1,0 +1,133 @@
+@import "../../styles/variables.scss";
+
+footer {
+	.footer-infos {
+		display: flex;
+		height: 250px;
+		border-top: 1px solid $secondary-color;
+		background-color: $black-color;
+
+		@include mobile-only {
+			height: auto;
+			flex-direction: column;
+		}
+
+		.footer-left {
+			display: flex;
+			width: 50%;
+			margin: 20px 0;
+
+			@include mobile-only {
+				width: 100%;
+			}
+
+			.footer-container {
+				width: 50%;
+				padding: 0 20px;
+				margin: auto;
+
+				img {
+					width: 100%;
+					cursor: pointer;
+				}
+
+				span {
+					color: $light-secondary-color;
+					cursor: pointer;
+
+					i {
+						transition: 0.5s;
+						width: 0px;
+						margin-right: 0;
+						transform: scaleX(0);
+					}
+
+					&:hover i {
+						width: 16px;
+						margin-right: 4px;
+						transform: scaleX(1);
+					}
+				}
+			}
+		}
+
+		.footer-right {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 50%;
+			margin: 20px 0;
+			border-left: 1px solid $secondary-color;
+
+			@include mobile-only {
+				width: 100%;
+				margin: 0;
+				border-top: 1px solid $secondary-color;
+				border-left: none;
+			}
+		}
+	}
+
+	.footer-navigation {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 50px;
+		border-top: 1px solid $secondary-color;
+		background-color: $black-color;
+
+		nav {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+		}
+	}
+
+	//////////////////////////////////////////////////////////////
+
+	.footer-small {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 50px;
+
+		@include mobile-only {
+			flex-direction: column;
+		}
+
+		.footer-section-mobile {
+			display: none;
+
+			@include mobile-only {
+				display: flex;
+				justify-content: center;
+				width: 100%;
+				border-top: 1px solid $secondary-color;
+				background-color: $black-color;
+			}
+		}
+
+		nav {
+			display: flex;
+			width: 100%;
+			border-top: 1px solid $secondary-color;
+			background-color: $black-color;
+
+			@include mobile-only {
+				justify-content: space-between;
+			}
+		}
+
+		.footer-section {
+			position: relative;
+			display: flex;
+			width: 240px;
+			border-top: 1px solid $secondary-color;
+			background-color: $black-color;
+
+			@include mobile-only {
+				display: none;
+			}
+		}
+	}
+}

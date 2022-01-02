@@ -1,0 +1,104 @@
+@import "../../styles/variables.scss";
+
+a {
+	position: relative;
+	display: block;
+	height: 80px;
+	width: 80px;
+	margin: 0 20px;
+	line-height: 80px;
+	font-size: 36px;
+	text-align: center;
+	transition: 0.5s;
+
+	&:hover {
+		color: $light-secondary-color;
+	}
+
+	@include mobile-only {
+		height: 40px;
+		width: 40px;
+		margin: 20px 40px;
+		line-height: 40px;
+	}
+
+	&.small {
+		height: 40px;
+		width: 40px;
+		margin: 0 20px;
+		line-height: 40px;
+		font-size: 24px;
+	}
+
+	span {
+		position: absolute;
+		transition: transform 0.5s;
+		background-color: $secondary-color;
+
+		@include mobile-only {
+			display: none;
+		}
+	}
+
+	span:nth-child(1),
+	span:nth-child(3) {
+		height: 1px;
+		width: 100%;
+	}
+
+	span:nth-child(1) {
+		top: 0;
+		left: 0;
+		transform-origin: right;
+	}
+
+	&:hover span:nth-child(1) {
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.5s;
+	}
+
+	span:nth-child(3) {
+		bottom: 0;
+		right: 0;
+		transform-origin: left;
+	}
+
+	&:hover span:nth-child(3) {
+		transform: scaleX(0);
+		transform-origin: right;
+		transition: transform 0.5s;
+	}
+
+	span:nth-child(2),
+	span:nth-child(4) {
+		height: 100%;
+		width: 1px;
+	}
+
+	span:nth-child(2) {
+		top: 0;
+		left: 0;
+		transform: scaleY(0);
+		transform-origin: bottom;
+	}
+
+	&:hover span:nth-child(2) {
+		transform: scaleY(1);
+		transform-origin: top;
+		transition: transform 0.5s;
+	}
+
+	span:nth-child(4) {
+		top: 0;
+		right: 0;
+		transform: scaleY(0);
+		transform-origin: top;
+	}
+
+	&:hover span:nth-child(4) {
+		transform: scaleY(1);
+		transform-origin: bottom;
+		transition: transform 0.5s;
+	}
+}
