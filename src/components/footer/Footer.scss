@@ -68,9 +68,7 @@ footer {
 
 	.footer-small {
 		display: flex;
-		align-items: center;
 		justify-content: space-between;
-		height: 50px;
 
 		@include mobile-only {
 			flex-direction: column;
@@ -82,6 +80,7 @@ footer {
 			@include mobile-only {
 				display: flex;
 				justify-content: center;
+				height: 80px;
 				width: 100%;
 				border-top: 1px solid $secondary-color;
 				background-color: $black-color;
@@ -90,6 +89,8 @@ footer {
 
 		nav {
 			display: flex;
+			align-items: center;
+			height: 50px;
 			width: 100%;
 			border-top: 1px solid $secondary-color;
 			background-color: $black-color;
@@ -100,8 +101,9 @@ footer {
 		}
 
 		.footer-section {
-			position: relative;
 			display: flex;
+			align-items: center;
+			height: 50px;
 			width: 240px;
 			border-top: 1px solid $secondary-color;
 			background-color: $black-color;

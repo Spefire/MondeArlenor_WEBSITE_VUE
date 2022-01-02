@@ -1,5 +1,15 @@
 @import "@/styles/variables.scss";
 
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#app-content {
+  height: 100%;
+}
+
 .link {
   position: relative;
   display: inline-block;
