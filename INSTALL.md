@@ -93,3 +93,6 @@ On ajoute la configuration / préférences dans le `.vscode/settings.json` à la
 
 5) On vérifie les erreurs possibles et on teste l'application
 `npm run serve`
+
+6) (optionnel) On peut visualiser les différentes cOn vérifie les erreurs possibles et on teste l'application
+`vue ui`
