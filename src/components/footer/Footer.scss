@@ -1,6 +1,9 @@
 @import "../../styles/variables.scss";
 
 footer {
+	position: relative;
+	z-index: 10;
+
 	.footer-infos {
 		display: flex;
 		height: 250px;

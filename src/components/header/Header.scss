@@ -1,6 +1,9 @@
 @import "../../styles/variables.scss";
 
 header {
+	position: relative;
+	z-index: 10;
+
 	.header-icon {
 		height: 46px;
 		width: 46px;
