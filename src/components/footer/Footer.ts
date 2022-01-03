@@ -1,4 +1,5 @@
-import { defineComponent } from "vue";
+import { PageTitles } from "@/models/PagesTitles";
+import { defineComponent, ref } from "vue";
 
 import ArrowButton from "../arrow-button/ArrowButton.vue";
 import FooterLink from "../footer-link/FooterLink.vue";
@@ -10,7 +11,10 @@ export default defineComponent({
     FooterLink,
   },
   setup: () => {
-    return {};
+    const pages = ref(PageTitles);
+    return {
+      pages
+    };
   },
   computed: {
     displayLarge() {

@@ -1,12 +1,15 @@
+import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "Header",
   setup: () => { 
     const showSubmenu = ref(false);
+    const pages = ref(PageTitles);
 
     return {
-      showSubmenu
+      showSubmenu,
+      pages
     };
   },
   computed: {

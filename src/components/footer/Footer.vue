@@ -37,10 +37,10 @@
       <nav>
         <router-link
           class="link"
-          to="/legacy">Mentions Légales</router-link>
+          to="/legacy">{{ pages.legacy }}</router-link>
         <router-link
           class="link"
-          to="/about">A propos</router-link>
+          to="/about">{{ pages.about }}</router-link>
       </nav>
     </div>
   </footer>
@@ -63,10 +63,10 @@
       <nav>
         <router-link
           class="link"
-          to="/legacy">Mentions Légales</router-link>
+          to="/legacy">{{ pages.legacy }}</router-link>
         <router-link
           class="link"
-          to="/about">A propos</router-link>
+          to="/about">{{ pages.about }}</router-link>
       </nav>
       <div class="footer-section">
         <FooterLink

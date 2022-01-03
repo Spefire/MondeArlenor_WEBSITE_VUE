@@ -1,7 +1,10 @@
+import { PageTitles } from "@/models/PagesTitles";
 import { ref } from "vue";
 
 export default {
   name: "HomeView",
+  title: PageTitles.home,
+  components: {},
 
   // eslint-disable-next-line
   setup() {

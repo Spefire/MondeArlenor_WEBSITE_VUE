@@ -9,18 +9,18 @@
           to="/" />
         <router-link
           class="header-title link"
-          to="/">Le Monde d'Arlénor</router-link>
+          to="/">{{ pages.home }}</router-link>
       </div>
       <nav>
         <router-link
           class="link"
-          to="/universe">L'Univers</router-link>
+          to="/universe">{{ pages.universe }}</router-link>
         <router-link
           class="link"
-          to="/roleplay">Le Jeu de Rôles</router-link>
+          to="/roleplay">{{ pages.roleplay }}</router-link>
         <router-link
           class="link"
-          to="/celestia">L'Île Célestia</router-link>
+          to="/celestia">{{ pages.celestia }}</router-link>
       </nav>
     </div>
     <div
@@ -29,16 +29,16 @@
       <nav class="header-subnav">
         <router-link
           class="header-subtitle link exact-link"
-          to="/universe">La Carte du Monde</router-link>
+          to="/universe">{{ pages.universe }}</router-link>
         <router-link
           class="link exact-link"
-          to="/universe/crystals">Les Cristaux</router-link>
+          to="/universe/crystals">{{ pages.crystals }}</router-link>
         <router-link
           class="link exact-link"
-          to="/universe/population">Les Peuples</router-link>
+          to="/universe/population">{{ pages.population }}</router-link>
         <router-link
           class="link exact-link"
-          to="/universe/religion">La Religion</router-link>
+          to="/universe/religion">{{ pages.religion }}</router-link>
       </nav>
     </div>
 
@@ -60,27 +60,27 @@
       <nav>
         <router-link
           class="link"
-          to="/universe">L'Univers</router-link>
+          to="/universe">{{ pages.universe }}</router-link>
         <router-link
           class="link"
-          to="/roleplay">Le Jeu de Rôles</router-link>
+          to="/roleplay">{{ pages.roleplay }}</router-link>
         <router-link
           class="link"
-          to="/celestia">L'Île Célestia</router-link>
+          to="/celestia">{{ pages.celestia }}</router-link>
       </nav>
       <nav v-if="onUniverseRoute">
         <router-link
           class="link exact-link"
-          to="/universe">La Carte du Monde</router-link>
+          to="/universe">{{ pages.universe }}</router-link>
         <router-link
           class="link exact-link"
-          to="/universe/crystals">Les Cristaux</router-link>
+          to="/universe/crystals">{{ pages.crystals }}</router-link>
         <router-link
           class="link exact-link"
-          to="/universe/population">Les Peuples</router-link>
+          to="/universe/population">{{ pages.population }}</router-link>
         <router-link
           class="link exact-link"
-          to="/universe/religion">La Religion</router-link>
+          to="/universe/religion">{{ pages.religion }}</router-link>
       </nav>
     </div>
   </header>
