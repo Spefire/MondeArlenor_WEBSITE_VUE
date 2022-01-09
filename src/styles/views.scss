@@ -146,8 +146,9 @@
     }
 }
 
-.about-view {
+.layout-view {
     display: flex;
+    justify-content: center;
     padding: 50px 0;
     background-image: linear-gradient(
             135deg,
@@ -161,16 +162,21 @@
 
     @include tablet-only {
         flex-direction: column;
+        align-items: center;
         height: auto;
         width: 100%;
         padding: 25px 0;
-        align-items: center;
     }
 
-    .about-left {
-        width: 50%;
+    .layout-center {
+        width: 80%;
         text-align: center;
+    }
+
+    .layout-left {
+        width: 50%;
         margin: auto 0;
+        text-align: center;
 
         @include tablet-only {
             width: 100%;
@@ -185,13 +191,14 @@
         }
     }
 
-    .about-right {
+    .layout-right {
         width: 40%;
+        margin: auto 10% auto 0;
         text-align: left;
-        margin: auto 0;
 
         @include tablet-only {
             width: 80%;
+            margin: auto 0;
             text-align: center;
         }
     }

@@ -1,11 +1,11 @@
 <template>
-  <div class="about-view">
-    <div class="about-left">
+  <div class="layout-view">
+    <div class="layout-left">
       <img
         src="./../../assets/images/about.png"
         alt="">
     </div>
-    <div class="about-right">
+    <div class="layout-right">
       <h1>A propos</h1>
       <div separator />
       <h2>Présentation</h2>
