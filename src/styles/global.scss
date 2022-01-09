@@ -23,18 +23,23 @@ body {
 
 h1 {
   margin: 0;
-  font-size: 100px;
-  text-align: center;
+  font-size: 65px;
+  line-height: 65px;
   font-weight: normal;
+  text-transform: uppercase;
+  color: $light-secondary-color;
 
   @include mobile-only {
-    font-size: 50px;
+    font-size: 30px;
+    line-height: 30px;
   }
 }
 
 h2 {
   margin: 0;
-  font-size: 24px;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
 }
 
 h3 {
@@ -55,4 +60,18 @@ ul {
 a {
   color: $white-color;
   text-decoration: none;
+}
+
+button {
+  padding: 5px 15px;
+  color: $light-secondary-color;
+  border-radius: 5px;
+  border: 1px solid $secondary-color;
+  background: none;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background-color: rgba($white-color, 0.1);
+  }
 }

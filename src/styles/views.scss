@@ -121,10 +121,10 @@
 
         .dot {
             display: inline-block;
-            height: 15px;
-            width: 15px;
+            height: 20px;
+            width: 20px;
             margin: 0;
-            padding: 3px;
+            padding: 4px;
             cursor: pointer;
 
             background-color: none;
@@ -139,7 +139,7 @@
         }
 
         .dotline {
-            height: 50px;
+            height: 60px;
             width: 1px;
             background-color: $white-color;
         }
