@@ -4,6 +4,10 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+
+  &.without-height {
+    height: auto;
+  }
 }
 
 #app-content {

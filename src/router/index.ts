@@ -58,4 +58,14 @@ const router = createRouter({
   routes
 });
 
+router.afterEach((to, from) => {
+  if (to.path === "/") {
+    const app = document.getElementById("app");
+    if (app) app.classList.remove("without-height");
+  } else if (from.path === "/"){
+    const app = document.getElementById("app");
+    if (app) app.classList.add("without-height");
+  }
+});
+
 export default router;
