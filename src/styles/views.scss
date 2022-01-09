@@ -145,3 +145,54 @@
         }
     }
 }
+
+.about-view {
+    display: flex;
+    padding: 50px 0;
+    background-image: linear-gradient(
+            135deg,
+            rgba($black-color, 1),
+            rgba($black-color, 0.75),
+            rgba($black-color, 0.5),
+            rgba($primary-color, 0.5),
+            rgba($primary-color, 0.5)
+        ),
+        url("/assets/images/home_00.png");
+
+    @include tablet-only {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        padding: 25px 0;
+        align-items: center;
+    }
+
+    .about-left {
+        width: 50%;
+        text-align: center;
+        margin: auto 0;
+
+        @include tablet-only {
+            width: 100%;
+        }
+
+        img {
+            height: 550px;
+
+            @include tablet-only {
+                height: 350px;
+            }
+        }
+    }
+
+    .about-right {
+        width: 40%;
+        text-align: left;
+        margin: auto 0;
+
+        @include tablet-only {
+            width: 80%;
+            text-align: center;
+        }
+    }
+}

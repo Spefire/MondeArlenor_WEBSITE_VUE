@@ -23,28 +23,32 @@ body {
 
 h1 {
   margin: 0;
-  font-size: 65px;
-  line-height: 65px;
+  font-size: 64px;
+  line-height: 64px;
   font-weight: normal;
   text-transform: uppercase;
   color: $light-secondary-color;
 
   @include mobile-only {
-    font-size: 30px;
-    line-height: 30px;
+    font-size: 32px;
+    line-height: 32px;
   }
 }
 
 h2 {
+  margin: 15px 0;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: $light-secondary-color;
+}
+
+h3 {
   margin: 0;
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
-}
-
-h3 {
-  margin: 10px 0;
-  font-size: 16px;
 }
 
 p {
@@ -60,4 +64,26 @@ ul {
 a {
   color: $white-color;
   text-decoration: none;
+}
+
+img {
+  outline: none;
+}
+
+// Scrollbar
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: $black-color;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $white-color;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $light-secondary-color;
 }
