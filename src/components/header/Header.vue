@@ -50,8 +50,9 @@
           class="header-icon link logo"
           to="/" />
         <a
-          class="header-icon link list"
-          @click="toggleList()" />
+          class="header-menu-icon link list"
+          @click="toggleList()">
+          <i class="icon icon-stack" /></a>
       </div>
     </div>
     <div

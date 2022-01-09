@@ -5,9 +5,9 @@ header {
 	z-index: 10;
 
 	.header-icon {
-		height: 46px;
-		width: 46px;
-		margin: 2px;
+		height: 42px;
+		width: 42px;
+		margin: 4px;
 		padding: 0;
 		cursor: pointer;
 		background-size: cover;
@@ -19,13 +19,18 @@ header {
 				background-image: url("../../assets/images/icon_logo_hover.svg");
 			}
 		}
+	}
 
-		&.list {
-			background-image: url("../../assets/images/icon_list.png");
+	.header-menu-icon {
+		height: 42px;
+		width: 42px;
+		margin: 4px;
+		font-size: 32px;
+		line-height: 42px;
+		padding: 3px 0;
 
-			&:hover {
-				background-image: url("../../assets/images/icon_list_hover.png");
-			}
+		i {
+			cursor: pointer;
 		}
 	}
 
