@@ -29,8 +29,24 @@ footer {
 				padding: 0 20px;
 				margin: auto;
 
+				&:first-child {
+					text-align: center;
+
+					@include mobile-only {
+						display: none;
+					}
+				}
+
+				&:last-child {
+					@include mobile-only {
+						width: 80%;
+					}
+				}
+
 				img {
-					width: 100%;
+					text-align: center;
+					max-height: 150px;
+					max-width: 100%;
 				}
 			}
 		}
