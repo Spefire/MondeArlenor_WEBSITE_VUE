@@ -12,7 +12,11 @@
         <p>
           Découvrez l'univers du Monde d'Arlénor, la religion dominante, la magie omni-présente, les différents peuples y vivant et les conflits y règnant...
         </p>
-        <button routerLink="universe">Découvrir</button>
+        <router-link
+          class="link-button"
+          to="/universe">
+          Découvrir
+        </router-link>
       </div>
     </div>
     <div
@@ -24,7 +28,11 @@
         <p>
           Vivez une histoire épique à travers de jeunes héros, découvrant la notion du Destin et de l'effet papillon...
         </p>
-        <button routerLink="roleplay">Osez l'aventure</button>
+        <router-link
+          class="link-button"
+          to="/roleplay">
+          Osez l'aventure
+        </router-link>
       </div>
     </div>
     <div
@@ -36,7 +44,11 @@
         <p>
           Chaque personnage a une histoire. Découvrez celles de Romain, Elisa, Jérémy... et de tous les autres, sur l'île de Célestia.
         </p>
-        <button>Prochainement disponible</button>
+        <router-link
+          class="link-button"
+          to="/celestia">
+          Prochainement disponible
+        </router-link>
       </div>
     </div>
     <ul class="selection-container">

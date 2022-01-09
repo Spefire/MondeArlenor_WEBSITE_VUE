@@ -28,3 +28,17 @@
     color: $secondary-color;
   }
 }
+
+.link-button {
+  padding: 5px 15px;
+  color: $light-secondary-color;
+  border-radius: 5px;
+  border: 1px solid $secondary-color;
+  background: none;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background-color: rgba($white-color, 0.1);
+  }
+}
