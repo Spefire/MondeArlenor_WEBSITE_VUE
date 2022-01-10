@@ -34,7 +34,11 @@
 }
 
 .link-button {
+  display: inline-block;
+  width: fit-content;
   padding: 5px 15px;
+  text-align: center;
+  text-transform: uppercase;
   color: $light-secondary-color;
   border-radius: 5px;
   border: 1px solid $secondary-color;

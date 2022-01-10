@@ -1,0 +1,63 @@
+@import "../../styles/variables.scss";
+
+.glyphe-view {
+	height: 300px;
+	width: 300px;
+	perspective: 600px;
+
+	@include tablet-only {
+		height: 200px;
+		width: 200px;
+		perspective: 300px;
+	}
+
+	@include mobile-only {
+		right: 20%;
+		height: 100px;
+		width: 100px;
+		perspective: 200px;
+	}
+
+	&.little {
+		height: 250px;
+		width: 250px;
+		perspective: 500px;
+
+		@include tablet-only {
+			height: 125px;
+			width: 125px;
+			perspective: 250px;
+		}
+
+		@include mobile-only {
+			right: 20%;
+			height: 100px;
+			width: 100px;
+			perspective: 200px;
+		}
+	}
+
+	&.inversed-container {
+		right: 0%;
+		left: 25%;
+		transform: translateX(-50%) translateY(-50%);
+
+		@include mobile-only {
+			left: 20%;
+		}
+	}
+
+	.glyphe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		border-radius: 50%;
+		box-shadow: 0px 0px 5px $primary-color, inset 0px 0px 5px $primary-color;
+
+		@include mobile-only {
+			box-shadow: 0px 0px 2px $primary-color, inset 0px 0px 2px $primary-color;
+		}
+	}
+}

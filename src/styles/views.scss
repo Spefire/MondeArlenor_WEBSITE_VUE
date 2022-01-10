@@ -146,6 +146,142 @@
     }
 }
 
+.roleplay-view {
+    position: relative;
+    height: 400px;
+    background-position: center;
+    background-size: cover;
+    background-image: linear-gradient(
+            -45deg,
+            rgba($black-color, 1),
+            rgba($black-color, 0.75),
+            rgba($black-color, 0.5),
+            rgba($primary-color, 0.5),
+            rgba($primary-color, 0.5)
+        ),
+        url("./assets/images/home_02.png");
+
+    @media screen and (max-width: 1000px) {
+        height: 500px;
+    }
+
+    &.little {
+        height: 310px;
+        background-image: linear-gradient(
+                135deg,
+                rgba($black-color, 1),
+                rgba($black-color, 0.75),
+                rgba($black-color, 0.5),
+                rgba($primary-color, 0.5),
+                rgba($primary-color, 0.5)
+            ),
+            url("/assets/images/home_00.png");
+
+        @media screen and (max-width: 1000px) {
+            height: 350px;
+        }
+    }
+
+    .title-container {
+        position: absolute;
+        top: 50%;
+        left: 25%;
+        width: 25%;
+        text-align: left;
+        transform: translateX(-50%) translateY(-50%);
+
+        @media screen and (max-width: 1000px) {
+            left: 30%;
+            width: 50%;
+        }
+
+        &.inversed-container {
+            left: auto;
+            right: 25%;
+            text-align: right;
+            transform: translateX(50%) translateY(-50%);
+
+            @media screen and (max-width: 1000px) {
+                right: 30%;
+            }
+        }
+    }
+
+    .glyphe-container {
+        position: absolute;
+        top: 50%;
+        right: 25%;
+        transform: translateX(50%) translateY(-50%);
+    }
+}
+
+.roleplay-view:hover {
+    .glyphe01 {
+        animation: anim01 4s infinite ease-in-out;
+
+        @keyframes anim01 {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+    }
+
+    .glyphe02 {
+        animation: anim02 4s infinite ease-in-out;
+
+        @keyframes anim02 {
+            0% {
+                transform: rotateY(0deg) rotateX(0deg);
+            }
+            100% {
+                transform: rotateY(360deg) rotateX(360deg);
+            }
+        }
+    }
+
+    .glyphe03 {
+        animation: anim03 4s infinite ease-in-out;
+
+        @keyframes anim03 {
+            0% {
+                transform: rotateY(0deg) rotateX(360deg);
+            }
+            100% {
+                transform: rotateY(360deg) rotateX(0deg);
+            }
+        }
+    }
+
+    .glyphe04 {
+        animation: anim04 4s infinite ease-in-out;
+
+        @keyframes anim04 {
+            0% {
+                transform: rotateY(360deg);
+            }
+            100% {
+                transform: rotateY(0deg);
+            }
+        }
+    }
+
+    .glyphe05 {
+        animation: anim05 4s infinite ease-in-out;
+
+        @keyframes anim05 {
+            0% {
+                transform: rotateX(360deg);
+            }
+            100% {
+                transform: rotateX(0deg);
+            }
+        }
+    }
+}
+
 .layout-view {
     display: flex;
     justify-content: center;
