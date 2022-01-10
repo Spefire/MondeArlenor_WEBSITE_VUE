@@ -1,7 +1,7 @@
 <template>
   <div class="roleplay-view">
     <div class="title-container">
-      <h2>La Carte du Monde, et ses habitants</h2>
+      <h2>La Carte du Monde,<br>et ses habitants</h2>
       <p>
         Avant de créer son personnage, ou même de lire les règles du jeu de rôles...
         découvrez l'univers du Monde d'Arlénor : la religion dominante, la magie omni-présente, les différents peuples y vivant et les conflits y règnant...
@@ -12,15 +12,17 @@
         Voir le Monde
       </router-link>
     </div>
-    <Glyphe
-      class="glyphe-container"
-      :icon="'map'" />
+    <div class="glyphe-container">
+      <Glyphe :icon="'map'" />
+    </div>
   </div>
+  <div little-separator />
   <div class="roleplay-view little">
-    <div little-separator />
-    <Glyphe
-      class="glyphe-container inversed-container little"
-      :icon="'perso'" />
+    <div class="glyphe-container">
+      <Glyphe
+        class="little"
+        :icon="'perso'" />
+    </div>
     <div class="title-container inversed-container">
       <h2>La création de personnage</h2>
       <p>
@@ -34,15 +36,15 @@
       </router-link>
     </div>
   </div>
+  <div little-separator />
   <div class="roleplay-view">
-    <div little-separator />
     <div class="title-container">
       <h2>Les règles du jeu</h2>
       <p>
         Trouvez ici tous les éléments permettant de comprendre la création de personnage en profondeur ainsi que le système de jeu et des propositions de pouvoirs.
       </p>
       <a
-        class="link-button"
+        class="link-button margin-bottom-1"
         href="./assets/files/Manuel_Joueur.pdf"
         download>
         Télécharger le Manuel du Joueur V2.1 (Pas à jour)
@@ -57,9 +59,9 @@
         Télécharger le Manuel du MJ V2.1 (Pas à jour)
       </a>
     </div>
-    <Glyphe
-      class="glyphe-container"
-      :icon="'book'" />
+    <div class="glyphe-container">
+      <Glyphe :icon="'book'" />
+    </div>
   </div>
 </template>
 

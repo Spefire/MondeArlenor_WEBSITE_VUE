@@ -148,7 +148,8 @@
 
 .roleplay-view {
     position: relative;
-    height: 400px;
+    display: flex;
+    padding: 50px 0;
     background-position: center;
     background-size: cover;
     background-image: linear-gradient(
@@ -161,12 +162,7 @@
         ),
         url("./assets/images/home_02.png");
 
-    @media screen and (max-width: 1000px) {
-        height: 500px;
-    }
-
     &.little {
-        height: 310px;
         background-image: linear-gradient(
                 135deg,
                 rgba($black-color, 1),
@@ -176,42 +172,41 @@
                 rgba($primary-color, 0.5)
             ),
             url("/assets/images/home_00.png");
-
-        @media screen and (max-width: 1000px) {
-            height: 350px;
-        }
     }
 
     .title-container {
-        position: absolute;
-        top: 50%;
-        left: 25%;
-        width: 25%;
+        width: 40%;
+        margin: auto 0 auto 10%;
         text-align: left;
-        transform: translateX(-50%) translateY(-50%);
-
-        @media screen and (max-width: 1000px) {
-            left: 30%;
-            width: 50%;
-        }
 
         &.inversed-container {
-            left: auto;
-            right: 25%;
+            width: 40%;
+            margin: auto 10% auto 0;
             text-align: right;
-            transform: translateX(50%) translateY(-50%);
 
-            @media screen and (max-width: 1000px) {
-                right: 30%;
+            @include mobile-only {
+                width: 80%;
+                margin: auto 10%;
+                text-align: center;
             }
+        }
+
+        @include mobile-only {
+            width: 80%;
+            margin: auto 10%;
+            text-align: center;
         }
     }
 
     .glyphe-container {
-        position: absolute;
-        top: 50%;
-        right: 25%;
-        transform: translateX(50%) translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+
+        @include mobile-only {
+            display: none;
+        }
     }
 }
 
