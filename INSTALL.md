@@ -6,17 +6,17 @@
 `vue create my-app-name`
 
 Vue CLI v4.5.15
-? Please pick a preset: `Manually select features`
-? Check the features needed for your project: `Choose Vue version, Babel, TS, Router, Vuex, CSS Pre-processors, Linter`
-? Choose a version of Vue.js that you want to start the project with `3.x`
-? Use class-style component syntax? `No`
-? Use Babel alongside TypeScript (required for modern mode, auto-detected polyfills, transpiling JSX)? `Yes`
-? Use history mode for router? (Requires proper server setup for index fallback in production) `Yes`
-? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default): `Sass/SCSS (with node-sass)`
-? Pick a linter / formatter config: `ESLint seulement`
-? Pick additional lint features: `Lint on save`
-? Where do you prefer placing config for Babel, ESLint, etc.? `In dedicated config files`
-? Save this as a preset for future projects? (y/N) `No`
+- ? Please pick a preset: `Manually select features`
+- ? Check the features needed for your project: `Choose Vue version, Babel, TS, Router, Vuex, CSS Pre-processors, Linter`
+- ? Choose a version of Vue.js that you want to start the project with `3.x`
+- ? Use class-style component syntax? `No`
+- ? Use Babel alongside TypeScript (required for modern mode, auto-detected polyfills, transpiling JSX)? `Yes`
+- ? Use history mode for router? (Requires proper server setup for index fallback in production) `Yes`
+- ? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default): `Sass/SCSS (with node-sass)`
+- ? Pick a linter / formatter config: `ESLint seulement`
+- ? Pick additional lint features: `Lint on save`
+- ? Where do you prefer placing config for Babel, ESLint, etc.? `In dedicated config files`
+- ? Save this as a preset for future projects? (y/N) `No`
 
 `cd my-app-name`
 
@@ -84,15 +84,23 @@ Vue CLI v4.5.15
   },
 ```
 
+3) (optionnel) Pour tester les règles en cours d'application :
+`./node_modules/.bin/eslint --print-config ./views/App.ts `
+
+Pour en ajouter :
+https://eslint.org/docs/rules/
+https://eslint.vuejs.org/rules/
+
 4) On ajoute les extensions suivantes :
 - ESLint, SCSS Formatter
 - TypeScript Import Sorter
 - Vetur
+- Auto Close Tag
 
-On ajoute la configuration / préférences dans le `.vscode/settings.json` à la racine.
+5) On ajoute la configuration / préférences dans le `.vscode/settings.json` à la racine.
 
-5) On vérifie les erreurs possibles et on teste l'application
+6) On vérifie les erreurs possibles et on teste l'application
 `npm run serve`
 
-6) (optionnel) On peut visualiser les différentes cOn vérifie les erreurs possibles et on teste l'application
+6) (optionnel) On peut visualiser les différentes configurations ici :
 `vue ui`
