@@ -108,42 +108,6 @@
             }
         }
     }
-
-    .selection-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        position: absolute;
-        top: 50%;
-        right: 5%;
-        transform: translateY(-50%);
-
-        .dot {
-            display: inline-block;
-            height: 20px;
-            width: 20px;
-            margin: 0;
-            padding: 4px;
-            cursor: pointer;
-
-            background-color: none;
-            border-radius: 50%;
-            border: 1px solid $white-color;
-            transition: 1s ease;
-
-            &.active {
-                background-clip: content-box;
-                background-color: $light-secondary-color;
-            }
-        }
-
-        .dotline {
-            height: 60px;
-            width: 1px;
-            background-color: $white-color;
-        }
-    }
 }
 
 .roleplay-view {
@@ -171,7 +135,7 @@
                 rgba($primary-color, 0.5),
                 rgba($primary-color, 0.5)
             ),
-            url("/assets/images/home_00.png");
+            url("./assets/images/home_00.png");
     }
 
     .title-container {
@@ -282,6 +246,8 @@
     justify-content: center;
     min-height: calc(100vh - 350px);
     padding: 50px 0;
+    background-position: center;
+    background-size: cover;
     background-image: linear-gradient(
             135deg,
             rgba($black-color, 1),
@@ -290,7 +256,19 @@
             rgba($primary-color, 0.5),
             rgba($primary-color, 0.5)
         ),
-        url("/assets/images/home_00.png");
+        url("./assets/images/home_00.png");
+
+    &.creation {
+        background-image: linear-gradient(
+                135deg,
+                rgba($black-color, 1),
+                rgba($black-color, 0.75),
+                rgba($black-color, 0.5),
+                rgba($primary-color, 0.5),
+                rgba($primary-color, 0.5)
+            ),
+            url("./assets/images/home_02.png");
+    }
 
     @include tablet-only {
         flex-direction: column;
