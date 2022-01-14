@@ -1,18 +1,40 @@
 import { ArlenorCharacter } from "@/models/Character";
-import { defineComponent, ref } from "vue";
+import useVuelidate from "@vuelidate/core";
+import { maxLength, required } from "@vuelidate/validators";
+import { defineComponent } from "vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
   name: "IdentityForm",
   components: {},
 
-  setup() {
+  data () {
     const store = useStore();
-    const avatar = ref(store.state.character.avatar);
-    const name = ref(store.state.character.name);
-    const description = ref(store.state.character.description);
+    return {
+      store,
+      form: {
+        avatar: store.state.character.avatar,
+        name: store.state.character.name,
+        description: store.state.character.description,
+      },
+      isModified: false,
+    };
+  },
 
-    return { avatar, name, description, store };
+  setup () {
+    return { v$: useVuelidate() };
+  },
+
+  validations: {
+    form: {
+      name: {
+        required
+      },
+      description: {
+        required,
+        max: maxLength(440)
+      },
+    },
   },
 
   methods: {
@@ -36,17 +58,22 @@ export default defineComponent({
           };
         });
         Promise.all([promiseGetImage64]).then(() => {
-          this.avatar = image64;
+          this.form.avatar = image64;
         });
       }
     },
 
+    update () {
+      this.isModified = true;
+    },
+
     submitForm() {
       const newCharacter = new ArlenorCharacter();
-      newCharacter.name = this.name;
-      newCharacter.description = this.description;
-      newCharacter.avatar = this.avatar;
+      newCharacter.name = this.form.name;
+      newCharacter.description = this.form.description;
+      newCharacter.avatar = this.form.avatar;
       this.store.commit("changeCharacterIdentity", newCharacter);
+      this.isModified = false;
     }
   }
 });

@@ -50,12 +50,20 @@
   color: $light-secondary-color;
   border-radius: 5px;
   border: 1px solid $secondary-color;
-  background: none;
+  background-color: rgba($black-color, 0.2);
   cursor: pointer;
   outline: none;
 
   &:hover {
     background-color: rgba($white-color, 0.1);
+  }
+
+  &:disabled,
+  &:disabled:hover {
+    color: $warning-color;
+    border: 1px solid $warning-color;
+    background-color: rgba($black-color, 0.2) !important;
+    cursor: default;
   }
 }
 
