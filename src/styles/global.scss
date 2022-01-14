@@ -88,3 +88,67 @@ img {
 ::-webkit-scrollbar-thumb:hover {
   background: $light-secondary-color;
 }
+
+// Inputs
+
+input[type="file"] {
+  display: none;
+}
+
+input[type="text"] {
+  width: 200px;
+}
+
+input[type="number"] {
+  width: 50px;
+  -moz-appearance: textfield;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input::-o-inner-spin-button,
+input::-o-outer-spin-button {
+  -o-appearance: none;
+  margin: 0;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  border: 1px solid $secondary-color;
+  border-radius: 5px;
+  font-size: 12px;
+  font-family: "Noto Serif", serif;
+
+  color: $white-color;
+  background: $black-color;
+}
+
+input[type="text"],
+input[type="number"] {
+  height: 30px;
+  padding: 0 10px;
+  overflow: hidden;
+
+  @include mobile-only {
+    width: 100%;
+  }
+}
+
+textarea {
+  height: 150px;
+  width: 100%;
+  padding: 10px;
+
+  @include tablet-only {
+    width: 50%;
+  }
+
+  @include mobile-only {
+    width: 100%;
+  }
+}

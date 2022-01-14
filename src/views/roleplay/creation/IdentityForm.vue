@@ -1,21 +1,40 @@
 <template>
-  <div class="layout-left">
-    <img
-      src="./../../../assets/images/about.png"
-      alt="">
-  </div>
-  <div class="layout-right">
-    <h2>Choix de la race</h2>
-    <p>
-      Merci à mes joueurs Laetitia, Jérôme, Jonathan et Sylvain qui m'ont accompagné lors de la création d'Arlénor.
-      Merci à mes MJs d'autres univers qui m'ont énormément apporté en terme de conseils et de soutien.
-      Et puis merci à ce qui m'ont soutenu durant ce projet et ce site : Estelle, Alice, Audrey et mes amis testeurs...
-      et puis merci à toi de t'intéresser au Monde d'Arlénor !
-    </p>
-    <input
-      v-model="name"
-      placeholder="Nom du personnage">
-    <button @click="submitForm()">Continuez</button>
+  <div class="layout-center">
+    <h2>Identité du personnage</h2>
+    <div class="creation-element">
+      <span>Nom du personnage</span>
+      <input
+        type="text"
+        v-model="name">
+    </div>
+    <div class="creation-element">
+      <span>Description du personnage (max : 440 caract.)</span>
+      <textarea
+        v-model="description"
+        maxlength="440" />
+    </div>
+    <div class="creation-element">
+      <span>Avatar du personnage</span>
+      <label
+        for="avatar"
+        class="creation-avatar">
+        <span v-if="!avatar">Importer une image<br>(ratio 1:1 | JPG, PNG | max 2Mo)</span>
+        <img
+          v-if="avatar"
+          alt=""
+          :src="avatar">
+      </label>
+      <input
+        type="file"
+        name="avatar"
+        id="avatar"
+        accept="image/png, image/jpeg"
+        @change="changeAvatar">
+
+    </div>
+    <button
+      class="margin-top-1 link-button"
+      @click="submitForm()">Terminer</button>
   </div>
 </template>
 

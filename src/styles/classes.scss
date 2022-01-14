@@ -15,6 +15,10 @@
   overflow: auto;
 }
 
+.margin-top-1 {
+  margin-top: 15px;
+}
+
 .margin-bottom-1 {
   margin-bottom: 15px;
 }
@@ -67,15 +71,27 @@
   transform: translateY(-50%);
 
   &.inverted {
-    position: relative;
-    right: auto;
-    top: auto;
-    flex-direction: row;
-    transform: none;
+    top: 40%;
 
-    .dotline {
-      height: 1px;
-      width: 60px;
+    @include tablet-only {
+      position: relative;
+      right: auto;
+      top: auto;
+      margin-top: 20px;
+      flex-direction: row;
+      transform: none;
+
+      .dotline {
+        height: 1px;
+        width: 60px;
+      }
+    }
+
+    @include mobile-only {
+      .dotline {
+        height: 1px;
+        width: 20px;
+      }
     }
   }
 
@@ -102,5 +118,34 @@
       background-clip: content-box;
       background-color: $light-secondary-color;
     }
+  }
+}
+
+.creation-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+
+  span {
+    margin-bottom: 5px;
+  }
+}
+
+.creation-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  width: 200px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid $secondary-color;
+  overflow: hidden;
+  cursor: pointer;
+
+  img {
+    height: 200px;
+    width: 200px;
   }
 }
