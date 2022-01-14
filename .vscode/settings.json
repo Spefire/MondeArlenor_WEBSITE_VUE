@@ -23,7 +23,8 @@
         "**/dist/*": true,
         "**/documentation/*": true,
         "**/node_modules/*": true,
-        "**/src_commun_savs/*": true
+        "**/src_commun_savs/*": true,
+        "**/package-lock.json": true
     },
     // Paramètres pour le formattage à la sauvegarde (ESLint et SCSS Formatter)
     "editor.codeActionsOnSave": {
