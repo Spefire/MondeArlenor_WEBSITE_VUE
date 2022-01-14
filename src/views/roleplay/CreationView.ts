@@ -1,5 +1,6 @@
 import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
+import { useStore } from "vuex";
 
 import CaractsForm from "./creation/CaractsForm.vue";
 import Crystal01Form from "./creation/Crystal01Form.vue";
@@ -19,23 +20,22 @@ export default defineComponent({
   },
 
   setup() {
+    const store = useStore();
     const selection = ref(0);
-    return { selection };
+    return { selection, store };
   },
   
   methods: {
     increaseSelection(): void {
-      if (this.selection == 0) this.selection = 1;
-      else if (this.selection == 1) this.selection = 2;
-    },
-
-    decreaseSelection(): void {
-      if (this.selection == 1) this.selection = 0;
-      else if (this.selection == 2) this.selection = 1;
+      this.selection++;
     },
 
     setSelection(newSelection: number): void {
       this.selection = newSelection;
     },
+  },
+
+  unmounted() {
+    this.store.commit("resetCharacter");
   }
 });

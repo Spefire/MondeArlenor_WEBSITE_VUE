@@ -1,7 +1,20 @@
-export default {
+import { defineComponent } from "vue";
+import { useStore } from "vuex";
+
+export default defineComponent({
   name: "CaractsForm",
   components: {},
+  emits: ["nextStep"],
+  
+  setup() {
+    const store = useStore();
 
-  // eslint-disable-next-line
-  setup() {},
-};
+    return { store };
+  },
+
+  methods: {
+    submitForm() {
+      this.$emit("nextStep");
+    }
+  }
+});

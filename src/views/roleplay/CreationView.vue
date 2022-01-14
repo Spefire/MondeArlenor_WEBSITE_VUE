@@ -1,9 +1,17 @@
 <template>
   <div class="layout-view creation">
-    <RaceForm v-if="selection == 0" />
-    <CaractsForm v-if="selection == 1" />
-    <Crystal01Form v-if="selection == 2" />
-    <Crystal02Form v-if="selection == 3" />
+    <RaceForm
+      v-if="selection == 0"
+      @nextStep="increaseSelection()" />
+    <CaractsForm
+      v-if="selection == 1"
+      @nextStep="increaseSelection()" />
+    <Crystal01Form
+      v-if="selection == 2"
+      @nextStep="increaseSelection()" />
+    <Crystal02Form
+      v-if="selection == 3"
+      @nextStep="increaseSelection()" />
     <IdentityForm v-if="selection == 4" />
 
     <ul class="selection-container inverted">

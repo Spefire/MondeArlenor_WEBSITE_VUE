@@ -12,6 +12,9 @@
       Et puis merci à ce qui m'ont soutenu durant ce projet et ce site : Estelle, Alice, Audrey et mes amis testeurs...
       et puis merci à toi de t'intéresser au Monde d'Arlénor !
     </p>
+    <button
+      class="margin-top-1 link-button"
+      @click="submitForm()">Suivant</button>
   </div>
 </template>
 
