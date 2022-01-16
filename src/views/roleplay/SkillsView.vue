@@ -5,17 +5,23 @@
 
       <h2>Liste des compétences</h2>
 
-      <!--div class="creation-element">
-        <span>{{ "CREATION.INDICS.ARMOR" | translate }} : </span>
+      <div class="creation-element">
+        <span>Groupe : </span>
         <div class="dropdown">
-          <select class="dropdown-select" [value]="perso.armor?.id" (change)="changeArmor($event.target)">
-            <option value=""></option>
-            <option *ngFor="let a of listArmors" [value]="a.id">{{ a.name }}</option>
+          <select
+            class="dropdown-select"
+            v-model="selectedGroup"
+            @change="changeFilteredSkills">
+            <option :value="null">-</option>
+            <option
+              v-for="(grp, index) in allGroups"
+              :value="grp.code"
+              :key="index">{{ grp.name }}</option>
           </select>
         </div>
-      </div-->
+      </div>
 
-      <table>
+      <table class="margin-top-1">
         <thead>
           <tr>
             <th colspan="2">Nom</th>

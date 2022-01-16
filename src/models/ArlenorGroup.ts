@@ -5,6 +5,13 @@ export class ArlenorGroup {
   public role: RoleEnum;
   public description: string;
 
+  get code(): string {
+    let code = this.name;
+    code = code.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+    code = code.replace(/\s/g, "");
+    return code.toUpperCase();
+  }
+
   constructor(name: string, role: RoleEnum) {
     this.name = name;
     this.role = role;

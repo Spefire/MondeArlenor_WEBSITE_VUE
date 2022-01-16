@@ -5,6 +5,13 @@ export class ArlenorClass {
   public description: string;
   public arlenorGroup: ArlenorGroup;
 
+  get code(): string {
+    let code = this.name;
+    code = code.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+    code = code.replace(/\s/g, "");
+    return code.toUpperCase();
+  }
+
   constructor(name: string, arlenorGroup: ArlenorGroup) {
     this.name = name;
     this.description = "";
