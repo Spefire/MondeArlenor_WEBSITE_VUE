@@ -282,6 +282,10 @@
         width: 50%;
         text-align: center;
 
+        &.large {
+            width: 80%;
+        }
+
         @include tablet-only {
             width: 80%;
         }

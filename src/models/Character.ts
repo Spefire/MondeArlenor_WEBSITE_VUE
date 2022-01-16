@@ -1,3 +1,4 @@
+import { ArlenorEnum } from "./ArlenorEnum";
 
 class ArlenorCaracts {
   public vig: number;
@@ -21,6 +22,14 @@ class ArlenorCaracts {
     this.cha = 1;
     this.pou = 5;
   }
+}
+
+export class CaractEnum {
+  static Vigueur: ArlenorEnum = { Code: "VIG", Libelle: "Vigueur" };
+  static Habilete: ArlenorEnum = { Code: "HAB", Libelle: "Habileté" };
+  static Intellect: ArlenorEnum = { Code: "INT", Libelle: "Intellect" };
+  static Charisme: ArlenorEnum = { Code: "CHA", Libelle: "Charisme" };
+  static Pouvoir: ArlenorEnum = { Code: "POU", Libelle: "Pouvoir" };
 }
 
 export class ArlenorCharacter {

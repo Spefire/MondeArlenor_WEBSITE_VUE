@@ -152,3 +152,28 @@ textarea {
     width: 100%;
   }
 }
+
+// Table
+
+table {
+  margin: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: $secondary-color;
+  border-spacing: 0;
+  background: $black-color;
+
+  thead > tr > th {
+    border-bottom: 1px solid $secondary-color;
+  }
+
+  tr {
+    vertical-align: middle;
+    border: none;
+  }
+
+  th,
+  td {
+    padding: 5px;
+  }
+}

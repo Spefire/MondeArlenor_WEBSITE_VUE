@@ -8,5 +8,6 @@ export class PageTitles {
   public static population = "Les Peuples";
   public static religion = "La Religion";
   public static roleplay = "Le Jeu de Rôle";
+  public static skills = "Les Compétences";
   public static universe = "L'Univers";
 }

@@ -4,6 +4,7 @@ import HomeView from "@/views/home/HomeView.vue";
 import LegacyView from "@/views/legacy/LegacyView.vue";
 import CreationView from "@/views/roleplay/CreationView.vue";
 import RoleplayView from "@/views/roleplay/RoleplayView.vue";
+import SkillsView from "@/views/roleplay/SkillsView.vue";
 import CrystalsView from "@/views/universe/CrystalsView.vue";
 import PopulationView from "@/views/universe/PopulationView.vue";
 import ReligionView from "@/views/universe/ReligionView.vue";
@@ -20,6 +21,7 @@ const routes: Array<RouteRecordRaw> = [
 
   { path: "/roleplay", component: RoleplayView },
   { path: "/roleplay/creation", component: CreationView },
+  { path: "/roleplay/skills", component: SkillsView },
 
   { path: "/celestia", component: CelestiaView },
 

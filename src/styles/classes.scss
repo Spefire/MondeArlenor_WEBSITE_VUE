@@ -157,3 +157,23 @@
     width: 200px;
   }
 }
+
+.line-table {
+  &:hover {
+    background-color: rgba($white-color, 0.2) !important;
+  }
+
+  &.to-select {
+    cursor: pointer;
+  }
+
+  &.selected {
+    background-color: rgba($white-color, 0.2) !important;
+  }
+
+  p {
+    text-align: left;
+    font-style: italic;
+    margin: 10px;
+  }
+}

@@ -34,6 +34,11 @@
         to="/roleplay/creation">
         Passer à la création !
       </router-link>
+      <router-link
+        class="margin-top-1 link-button"
+        to="/roleplay/skills">
+        Liste des compétences
+      </router-link>
     </div>
   </div>
   <div little-separator />
