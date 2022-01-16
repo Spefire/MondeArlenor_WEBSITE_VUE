@@ -40,7 +40,7 @@
               </td>
               <td>{{ skill.name }}</td>
               <td>{{ getLibGroups(skill.arlenorGroups) }}</td>
-              <td>{{ getLibClasses(skill.arlenorClasses) }}</td>
+              <td>{{ getLibClasses(skill) }}</td>
               <td>{{ getCodCaracts(skill.caracts) }}</td>
             </tr>
             <tr

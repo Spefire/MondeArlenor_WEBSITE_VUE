@@ -33,3 +33,8 @@ export class RoleEnum {
   static DPSMagique: ArlenorEnum = { Code: "DPSMAG", Libelle: "DPS Magique" };
   static Soutien: ArlenorEnum = { Code: "SOUTIEN", Libelle: "Soutien" };
 }
+
+export function getListGroups(): ArlenorGroup[] {
+  const arlenorListGroups = new ArlenorListGroups();
+  return Object.values(arlenorListGroups);
+}

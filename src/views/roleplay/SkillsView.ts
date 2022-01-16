@@ -1,4 +1,4 @@
-import { ArlenorClass } from "@/models/ArlenorClass";
+import { ArlenorClass, getListClasses } from "@/models/ArlenorClass";
 import { ArlenorEnum } from "@/models/ArlenorEnum";
 import { ArlenorGroup } from "@/models/ArlenorGroup";
 import { ArlenorSkill, getListSkills } from "@/models/ArlenorSkill";
@@ -34,16 +34,32 @@ export default defineComponent({
         lib += grp.name;
         if (index < arlenorGroups.length-1) lib += ", ";
       });
-      return lib;
+      return lib ? lib : "-";
     },
     
-    getLibClasses(arlenorClasses: ArlenorClass[]) {
+    getLibClasses(skill: ArlenorSkill) {
+      const list:ArlenorClass[] = [];
+      if (skill.arlenorClasses.length > 0) {
+        skill.arlenorClasses.forEach(cls => list.push(cls));
+      } else {
+        const listClasses = getListClasses();
+        skill.arlenorGroups.forEach(grp => {
+          const arlenorClasses = listClasses.filter(cls => cls.arlenorGroup.name === grp.name);
+          arlenorClasses.forEach(cls => list.push(cls));
+        });
+      }
+
       let lib = "";
-      arlenorClasses.forEach((cls, index) => {
-        lib += cls.name;
-        if (index < arlenorClasses.length-1) lib += ", ";
-      });
-      return lib;
+      if (list.length > 3) {
+        lib = "" + list.length + " classes concernées";
+      } else {
+        list.forEach((cls, index) => {
+          lib += cls.name;
+          if (index < list.length-1) lib += ", ";
+        });
+      }
+
+      return lib ? lib : "-";
     },
 
     getCodCaracts(caracts: ArlenorEnum[]) {

@@ -40,3 +40,8 @@ export class ArlenorListClasses {
     this.Escrimeur = new ArlenorClass("Escrimeur", groups.Bretteur);
   }
 }
+
+export function getListClasses(): ArlenorClass[] {
+  const arlenorListClasses = new ArlenorListClasses();
+  return Object.values(arlenorListClasses);
+}

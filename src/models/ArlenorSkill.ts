@@ -22,6 +22,23 @@ export class ArlenorSkill {
     this.arlenorClasses = arlenorClasses;
     this.caracts = [];
     this.effect = "";
+
+    this.setImage();
+  }
+
+  public setImage(): void {
+    if (this.typeSkill.Code === SkillsEnum.CompetenceArme.Code) {
+      this.image = require("./../assets/icons-skills/armes.png");
+    }
+    else if (this.typeSkill.Code === SkillsEnum.CompetenceArmure.Code) {
+      this.image = require("./../assets/icons-skills/armures.png");
+    }
+    else if (this.typeSkill.Code === SkillsEnum.TempsIncantation.Code) {
+      this.image = require("./../assets/icons-skills/incantation.png");
+    }
+    else if (this.typeSkill.Code === SkillsEnum.TempsRechargement.Code) {
+      this.image = require("./../assets/icons-skills/rechargement.png");
+    }
   }
 }
 
