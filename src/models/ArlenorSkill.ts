@@ -15,7 +15,7 @@ export class ArlenorSkill {
 
   constructor(name: string, typeSkill: ArlenorEnum, arlenorGroups: ArlenorGroup[], arlenorClasses: ArlenorClass[]) {
     this.name = name;
-    this.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies nisi non erat faucibus auctor. Aenean pellentesque commodo eros nec egestas. Pellentesque tincidunt vehicula quam ac interdum. Aenean tristique ac diam nec pretium. Mauris tellus lacus, tincidunt ac porttitor vitae, pulvinar eget quam.";
+    this.description = "";
     this.image = "";
     this.typeSkill = typeSkill;
     this.arlenorGroups = arlenorGroups;

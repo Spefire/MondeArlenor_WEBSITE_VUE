@@ -154,6 +154,7 @@ textarea {
 }
 
 // Select / Dropdown
+
 .dropdown {
   position: relative;
   overflow: hidden;
@@ -222,8 +223,24 @@ table {
   border-spacing: 0;
   background: $black-color;
 
-  thead > tr > th {
-    border-bottom: 1px solid $secondary-color;
+  thead > tr {
+    display: flex;
+    overflow: hidden;
+
+    th {
+      border-bottom: 1px solid $secondary-color;
+    }
+  }
+
+  thead,
+  tbody {
+    display: block;
+    width: 100%;
+  }
+
+  tbody {
+    height: 50vh;
+    overflow: auto;
   }
 
   tr {
@@ -234,5 +251,21 @@ table {
   th,
   td {
     padding: 5px;
+  }
+
+  .col-05 {
+    width: 5%;
+  }
+
+  .col-20 {
+    width: 20%;
+  }
+
+  .col-35 {
+    width: 35%;
+  }
+
+  .col-40 {
+    width: 40%;
   }
 }

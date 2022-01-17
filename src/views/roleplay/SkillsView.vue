@@ -5,29 +5,61 @@
 
       <h2>Liste des compétences</h2>
 
-      <div class="creation-element">
-        <span>Groupe : </span>
-        <div class="dropdown">
-          <select
-            class="dropdown-select"
-            v-model="selectedGroup"
-            @change="changeFilteredSkills">
-            <option :value="null">-</option>
-            <option
-              v-for="(grp, index) in allGroups"
-              :value="grp.code"
-              :key="index">{{ grp.name }}</option>
-          </select>
+      <div class="creation-elements-line">
+        <div class="creation-element">
+          <span>Groupe :</span>
+          <div class="dropdown">
+            <select
+              class="dropdown-select"
+              v-model="selectedGroup"
+              @change="changeFilteredSkills">
+              <option :value="null">-</option>
+              <option
+                v-for="(grp, index) in allGroups"
+                :value="grp.code"
+                :key="index">{{ grp.name }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="creation-element">
+          <span>Classe :</span>
+          <div class="dropdown">
+            <select
+              class="dropdown-select"
+              v-model="selectedClass"
+              @change="changeFilteredSkills">
+              <option :value="null">-</option>
+              <option
+                v-for="(cls, index) in allClasses"
+                :value="cls.code"
+                :key="index">{{ cls.name }}</option>
+            </select>
+          </div>
+        </div>
+      
+        <div class="creation-element">
+          <span>Recherche par nom :</span>
+          <input
+            type="text"
+            v-model="searchName"
+            @keyup="changeFilteredSkills">
         </div>
       </div>
 
-      <table class="margin-top-1">
+      <div class="table-large-alert margin-top-1">
+        La liste ne peut pas être parcourue sur un écran mobile.
+      </div>
+
+      <table class="table-large margin-top-1">
         <thead>
           <tr>
-            <th colspan="2">Nom</th>
-            <th>Groupes</th>
-            <th>Classes</th>
-            <th>Caractéristiques</th>
+            <th
+              colspan="2"
+              class="col-40">Nom</th>
+            <th class="col-20">Groupes</th>
+            <th class="col-20">Classes</th>
+            <th class="col-20">Caractéristiques</th>
           </tr>
         </thead>
         <tbody>
@@ -38,22 +70,22 @@
               class="line-table to-select"
               :class="{ selected : selectedSkill === skill }"
               @click="seeMore(skill)">
-              <td>
+              <td class="col-05">
                 <img
                   v-if="skill.image"
                   :src="skill.image"
                   :alt="getLibType(skill.typeSkill)">
               </td>
-              <td>{{ skill.name }}</td>
-              <td>{{ getLibGroups(skill.arlenorGroups) }}</td>
-              <td>{{ getLibClasses(skill) }}</td>
-              <td>{{ getCodCaracts(skill.caracts) }}</td>
+              <td class="col-35">{{ skill.name }}</td>
+              <td class="col-20">{{ getLibGroups(skill.arlenorGroups) }}</td>
+              <td class="col-20">{{ getLibClasses(skill) }}</td>
+              <td class="col-20">{{ getCodCaracts(skill.caracts) }}</td>
             </tr>
             <tr
               v-if="selectedSkill === skill"
               class="line-table selected">
               <td colspan="5">
-                <p>{{ skill.description }}</p>
+                <p>{{ skill.description ? skill.description : "Aucune description disponible" }}</p>
               </td>
             </tr>
           </template>

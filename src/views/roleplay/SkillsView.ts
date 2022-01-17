@@ -17,8 +17,18 @@ export default defineComponent({
 
     const allGroups = getListGroups();
     const selectedGroup: Ref<string | null> = ref(null);
+    
+    const allClasses = getListClasses();
+    const selectedClass: Ref<string | null> = ref(null);
 
-    return { skills, selectedSkill, filteredSkills, allGroups, selectedGroup };
+    const searchName = ref("");
+
+    return {
+      skills, selectedSkill, filteredSkills,
+      allGroups, selectedGroup,
+      allClasses, selectedClass,
+      searchName
+    };
   },
 
   mounted() {
@@ -28,7 +38,9 @@ export default defineComponent({
   methods: {
     changeFilteredSkills() {
       this.filteredSkills = this.skills;
-      if (this.selectedGroup) this.filteredSkills = this.skills.filter(skill => skill.arlenorGroups.find(arlGrp => arlGrp.code === this.selectedGroup));
+      if (this.selectedGroup) this.filteredSkills = this.filteredSkills.filter(skill => skill.arlenorGroups.find(arlGrp => arlGrp.code === this.selectedGroup));
+      if (this.selectedClass) this.filteredSkills = this.filteredSkills.filter(skill => skill.arlenorClasses.find(arlCls => arlCls.code === this.selectedClass));
+      if (this.searchName) this.filteredSkills = this.filteredSkills.filter(skill => skill.name.toLowerCase().indexOf(this.searchName.toLowerCase()) !== -1);
     },
     
     getLibType(typeSkill: ArlenorEnum) {
@@ -51,7 +63,7 @@ export default defineComponent({
       } else {
         const listClasses = getListClasses();
         skill.arlenorGroups.forEach(grp => {
-          const arlenorClasses = listClasses.filter(cls => cls.arlenorGroup.name === grp.name);
+          const arlenorClasses = listClasses.filter(cls => cls.arlenorGroup.code === grp.code);
           arlenorClasses.forEach(cls => list.push(cls));
         });
       }
@@ -75,7 +87,7 @@ export default defineComponent({
         lib += caract.Code;
         if (index < caracts.length-1) lib += ", ";
       });
-      return lib;
+      return lib ? lib : "-";
     },
 
     seeMore(skill: ArlenorSkill) {
