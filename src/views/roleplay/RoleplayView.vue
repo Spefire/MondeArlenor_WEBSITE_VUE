@@ -36,8 +36,8 @@
       </router-link>
       <router-link
         class="margin-top-1 link-button"
-        to="/roleplay/skills">
-        Liste des compétences
+        to="/roleplay/docs">
+        Voir la documentation
       </router-link>
     </div>
   </div>

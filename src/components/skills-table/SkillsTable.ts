@@ -6,6 +6,13 @@ import { defineComponent, Ref, ref } from "vue";
 
 export default defineComponent({
   name: "SkillsTable",
+  props: {
+    currentClass: {
+      type: ArlenorClass,
+      default: null,
+      required: false,
+    }
+  },
   components: {},
 
   setup() {

@@ -1,6 +1,8 @@
 <template>
   <div class="creation-elements-line">
-    <div class="creation-element">
+    <div
+      v-if="!currentClass"
+      class="creation-element">
       <span>Groupe :</span>
       <div class="dropdown">
         <select
@@ -16,7 +18,9 @@
       </div>
     </div>
 
-    <div class="creation-element">
+    <div
+      v-if="!currentClass"
+      class="creation-element">
       <span>Classe :</span>
       <div class="dropdown">
         <select
