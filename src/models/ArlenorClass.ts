@@ -1,9 +1,9 @@
-import { ArlenorGroup, ArlenorListGroups } from "./ArlenorGroup";
+import { ArlenorGroup, ArlenorGroups } from "./ArlenorGroup";
 
 export class ArlenorClass {
   public name: string;
   public description: string;
-  public arlenorGroup: ArlenorGroup;
+  public group: ArlenorGroup;
 
   get code(): string {
     let code = this.name;
@@ -12,14 +12,14 @@ export class ArlenorClass {
     return code.toUpperCase();
   }
 
-  constructor(name: string, arlenorGroup: ArlenorGroup) {
+  constructor(name: string, group: ArlenorGroup) {
     this.name = name;
     this.description = "";
-    this.arlenorGroup = arlenorGroup;
+    this.group = group;
   }
 }
 
-export class ArlenorListClasses {
+export class ArlenorClasses {
   public Paladin: ArlenorClass;
   public Chevalier: ArlenorClass;
   public DanseurMartial: ArlenorClass;
@@ -31,7 +31,7 @@ export class ArlenorListClasses {
   public Escrimeur: ArlenorClass;
 
   constructor() {
-    const groups = new ArlenorListGroups();
+    const groups = new ArlenorGroups();
 
     this.Paladin = new ArlenorClass("Paladin", groups.Gardien);
     this.Chevalier = new ArlenorClass("Chevalier", groups.Gardien);
@@ -49,6 +49,6 @@ export class ArlenorListClasses {
 }
 
 export function getListClasses(): ArlenorClass[] {
-  const arlenorListClasses = new ArlenorListClasses();
-  return Object.values(arlenorListClasses);
+  const arlenorClasses = new ArlenorClasses();
+  return Object.values(arlenorClasses);
 }

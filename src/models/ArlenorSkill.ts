@@ -1,6 +1,6 @@
-import { ArlenorClass, ArlenorListClasses } from "./ArlenorClass";
+import { ArlenorClass, ArlenorClasses } from "./ArlenorClass";
 import { ArlenorEnum } from "./ArlenorEnum";
-import { ArlenorGroup, ArlenorListGroups } from "./ArlenorGroup";
+import { ArlenorGroup, ArlenorGroups } from "./ArlenorGroup";
 import { CaractEnum } from "./Character";
 
 export class ArlenorSkill {
@@ -8,18 +8,18 @@ export class ArlenorSkill {
   public description: string;
   public image: string;
   public typeSkill: ArlenorEnum;
-  public arlenorGroups: ArlenorGroup[];
-  public arlenorClasses: ArlenorClass[];
+  public group: ArlenorGroup;
+  public classes: ArlenorClass[];
   public caracts: ArlenorEnum[];
   public effect: string;
 
-  constructor(name: string, typeSkill: ArlenorEnum, arlenorGroups: ArlenorGroup[], arlenorClasses: ArlenorClass[]) {
+  constructor(name: string, typeSkill: ArlenorEnum, group: ArlenorGroup | null, classes: ArlenorClass[]) {
     this.name = name;
     this.description = "";
     this.image = "";
     this.typeSkill = typeSkill;
-    this.arlenorGroups = arlenorGroups;
-    this.arlenorClasses = arlenorClasses;
+    this.classes = classes;
+    this.group = (group ? group : classes[0].group);
     this.caracts = [];
     this.effect = "";
 
@@ -56,102 +56,105 @@ export class SkillsEnum {
 }
 
 export function getListSkills(): ArlenorSkill[] {
-  const listSkills: ArlenorSkill[] = [];
-  const groups = new ArlenorListGroups();
-  const classes = new ArlenorListClasses();
+  let listSkills: ArlenorSkill[] = [];
+  const groups = new ArlenorGroups();
+  const classes = new ArlenorClasses();
 
   // Temps de rechargement
-  listSkills.push(new ArlenorSkill(
+  listSkills = createSkill(listSkills,
     "Pas de temps de rechargement",
     SkillsEnum.TempsRechargement,
-    [],
-    [classes.DanseurMartial],
-  ));
-  listSkills.push(new ArlenorSkill(
+    [], [classes.DanseurMartial]
+  );
+  listSkills = createSkill(listSkills,
     "Temps de rechargement rapide",
     SkillsEnum.TempsRechargement,
-    [],
-    [classes.Derviche],
-  ));
-  listSkills.push(new ArlenorSkill(
+    [], [classes.Derviche]
+  );
+  listSkills = createSkill(listSkills,
     "Temps de rechargement normal",
     SkillsEnum.TempsRechargement,
-    [groups.Gardien, groups.Bretteur],
-    [],
-  ));
-  listSkills.push(new ArlenorSkill(
+    [groups.Gardien, groups.Bretteur], [],
+  );
+  listSkills = createSkill(listSkills,
     "Temps de rechargement long",
     SkillsEnum.TempsRechargement,
-    [groups.Assassin],
-    [],
-  ));
+    [groups.Assassin], [],
+  );
 
   // Temps d'incantation
-  listSkills.push(new ArlenorSkill(
+  listSkills = createSkill(listSkills,
     "Pas de temps d'incantation",
     SkillsEnum.TempsIncantation,
-    [groups.Gardien, groups.Moine, groups.Assassin, groups.Bretteur],
-    [],
-  ));
-  listSkills.push(new ArlenorSkill(
+    [groups.Gardien, groups.Moine, groups.Assassin, groups.Bretteur], [],
+  );
+  listSkills = createSkill(listSkills,
     "Temps d'incantation rapide",
     SkillsEnum.TempsIncantation,
-    [],
-    [],
-  ));
-  listSkills.push(new ArlenorSkill(
+    [], [],
+  );
+  listSkills = createSkill(listSkills,
     "Temps d'incantation normal",
     SkillsEnum.TempsIncantation,
-    [groups.Gardien],
-    [],
-  ));
-  listSkills.push(new ArlenorSkill(
+    [groups.Gardien], [],
+  );
+  listSkills = createSkill(listSkills,
     "Temps d'incantation long",
     SkillsEnum.TempsIncantation,
-    [],
-    [],
-  ));
+    [], [],
+  );
 
   // Armes
-  const arme01 = new ArlenorSkill(getLibArme("à une main, avec bouclier"), SkillsEnum.CompetenceArme, [], [classes.Paladin]);
+  const arme01 = new ArlenorSkill(getLibArme("à une main, avec bouclier"), SkillsEnum.CompetenceArme, null, [classes.Paladin]);
   arme01.caracts = [CaractEnum.Vigueur];
   listSkills.push(arme01);
   
-  const arme02 = new ArlenorSkill(getLibArme("épées à deux mains"), SkillsEnum.CompetenceArme, [], [classes.Chevalier]);
+  const arme02 = new ArlenorSkill(getLibArme("épées à deux mains"), SkillsEnum.CompetenceArme, null, [classes.Chevalier]);
   arme02.caracts = [CaractEnum.Vigueur];
   listSkills.push(arme02);
 
-  const arme03 = new ArlenorSkill(getLibArme("mains nues"), SkillsEnum.CompetenceArme, [], [classes.DanseurMartial]);
+  const arme03 = new ArlenorSkill(getLibArme("mains nues"), SkillsEnum.CompetenceArme, null, [classes.DanseurMartial]);
   arme03.caracts = [CaractEnum.Vigueur];
   listSkills.push(arme03);
 
-  const arme04 = new ArlenorSkill(getLibArme("d'hast"), SkillsEnum.CompetenceArme, [], [classes.Derviche]);
+  const arme04 = new ArlenorSkill(getLibArme("d'hast"), SkillsEnum.CompetenceArme, null, [classes.Derviche]);
   arme04.caracts = [CaractEnum.Habilete];
   listSkills.push(arme04);
 
-  const arme05 = new ArlenorSkill(getLibArme("dagues / armes de jets"), SkillsEnum.CompetenceArme, [], [classes.LameOmbre]);
+  const arme05 = new ArlenorSkill(getLibArme("dagues / armes de jets"), SkillsEnum.CompetenceArme, null, [classes.LameOmbre]);
   arme05.caracts = [CaractEnum.Habilete];
   listSkills.push(arme05);
 
-  const arme06 = new ArlenorSkill(getLibArme("arcs / arbalètes"), SkillsEnum.CompetenceArme, [], [classes.Chasseur]);
+  const arme06 = new ArlenorSkill(getLibArme("arcs / arbalètes"), SkillsEnum.CompetenceArme, null, [classes.Chasseur]);
   arme06.caracts = [CaractEnum.Habilete];
   listSkills.push(arme06);
 
-  const arme07 = new ArlenorSkill(getLibArme("sabres"), SkillsEnum.CompetenceArme, [], [classes.DanseurSabre]);
+  const arme07 = new ArlenorSkill(getLibArme("sabres"), SkillsEnum.CompetenceArme, null, [classes.DanseurSabre]);
   arme07.caracts = [CaractEnum.Habilete];
   listSkills.push(arme07);
 
-  const arme08 = new ArlenorSkill(getLibArme("ambidextrie"), SkillsEnum.CompetenceArme, [], [classes.DoubleLame]);
+  const arme08 = new ArlenorSkill(getLibArme("ambidextrie"), SkillsEnum.CompetenceArme, null, [classes.DoubleLame]);
   arme08.caracts = [CaractEnum.Vigueur];
   listSkills.push(arme08);
 
-  const arme09 = new ArlenorSkill(getLibArme("épées à une main"), SkillsEnum.CompetenceArme, [], [classes.Escrimeur]);
+  const arme09 = new ArlenorSkill(getLibArme("épées à une main"), SkillsEnum.CompetenceArme, null, [classes.Escrimeur]);
   arme09.caracts = [CaractEnum.Vigueur];
   listSkills.push(arme09);
 
   return listSkills;
 }
 
-function getLibArme(lib: string) {
+function getLibArme(lib: string): string {
   return "Armes (" + lib + ")";
+}
+
+function createSkill(listSkills: ArlenorSkill[], name: string, typeSkill: ArlenorEnum, groups: ArlenorGroup[], classes: ArlenorClass[]): ArlenorSkill[] {
+  if (groups.length > 0) {
+    groups.forEach(grp => {
+      listSkills.push(new ArlenorSkill(name, typeSkill, grp, classes));
+    });
+  } else if (classes[0]) {
+    listSkills.push(new ArlenorSkill(name, typeSkill, classes[0].group, classes));
+  }
+  return listSkills;
 }

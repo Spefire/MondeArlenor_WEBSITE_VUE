@@ -19,7 +19,7 @@ export class ArlenorGroup {
   }
 }
 
-export class ArlenorListGroups {
+export class ArlenorGroups {
   public Gardien: ArlenorGroup;
   public Moine: ArlenorGroup;
   public Assassin: ArlenorGroup;
@@ -42,6 +42,6 @@ export class RoleEnum {
 }
 
 export function getListGroups(): ArlenorGroup[] {
-  const arlenorListGroups = new ArlenorListGroups();
-  return Object.values(arlenorListGroups);
+  const arlenorGroups = new ArlenorGroups();
+  return Object.values(arlenorGroups);
 }
