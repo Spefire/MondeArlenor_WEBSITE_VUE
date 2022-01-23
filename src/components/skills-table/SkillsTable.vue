@@ -1,6 +1,8 @@
 <template>
   <div class="creation-elements-line">
-    <div class="creation-element">
+    <div
+      v-if="!currentClass"
+      class="creation-element">
       <span>Groupe :</span>
       <div class="dropdown">
         <select
@@ -11,12 +13,16 @@
           <option
             v-for="(grp, index) in allGroups"
             :value="grp.code"
-            :key="index">{{ grp.name }}</option>
+            :key="index">
+            {{ grp.name }}
+          </option>
         </select>
       </div>
     </div>
 
-    <div class="creation-element">
+    <div
+      v-if="!currentClass"
+      class="creation-element">
       <span>Classe :</span>
       <div class="dropdown">
         <select
@@ -71,7 +77,12 @@
               :alt="skill.typeSkill.Libelle">
           </td>
           <td class="col-35">{{ skill.name }}</td>
-          <td class="col-20">{{ skill.group.name }}</td>
+          <td class="col-20">
+            {{ skill.group.name }}
+            <i
+              class="margin-left-05"
+              :class="skill.group.role.icon" />
+          </td>
           <td class="col-20">{{ getLibClasses(skill) }}</td>
           <td class="col-20">{{ getCodCaracts(skill.caracts) }}</td>
         </tr>
