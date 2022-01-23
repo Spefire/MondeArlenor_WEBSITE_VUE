@@ -16,14 +16,14 @@ export default defineComponent({
   components: {},
 
   setup() {
-    const skills = ref(getListSkills());
+    const skills = ref(getListSkills().sort((a, b) => a.name.localeCompare(b.name)));
     const selectedSkill: Ref<ArlenorSkill | null> = ref(null);
     const filteredSkills: Ref<ArlenorSkill[]> = ref([]);
 
-    const allGroups = getListGroups();
+    const allGroups = ref(getListGroups().sort((a, b) => a.name.localeCompare(b.name)));
     const selectedGroup: Ref<string | null> = ref(null);
     
-    const allClasses = getListClasses();
+    const allClasses = ref(getListClasses().sort((a, b) => a.name.localeCompare(b.name)));
     const selectedClass: Ref<string | null> = ref(null);
 
     const searchName = ref("");
@@ -44,7 +44,9 @@ export default defineComponent({
     changeFilteredSkills() {
       this.filteredSkills = this.skills;
       if (this.selectedGroup) this.filteredSkills = this.filteredSkills.filter(skill => skill.group.code === this.selectedGroup);
-      if (this.selectedClass) this.filteredSkills = this.filteredSkills.filter(skill => skill.classes.find(cls => cls.code === this.selectedClass));
+      if (this.selectedClass) this.filteredSkills = this.filteredSkills.filter(skill => {
+        return skill.classes.find(cls => cls.code === this.selectedClass) || (skill.classes.length === 0 && skill.group.code === this.selectedGroup);
+      });
       if (this.searchName) this.filteredSkills = this.filteredSkills.filter(skill => skill.name.toLowerCase().indexOf(this.searchName.toLowerCase()) !== -1);
     },
 
@@ -62,19 +64,17 @@ export default defineComponent({
     getLibClasses(skill: ArlenorSkill) {
       const list:ArlenorClass[] = [];
       if (skill.classes.length > 0) {
-        skill.classes.forEach(cls => list.push(cls));
-
         let lib = "";
-        list.forEach((cls, index) => {
+        skill.classes.forEach((cls, index) => {
           lib += cls.name;
           if (index < list.length-1) lib += ", ";
         });
-        return lib ? lib : "-";
+        return lib;
       } else {
         const listClasses = getListClasses();
         const arlenorClasses = listClasses.filter(cls => cls.group.code === skill.group.code);
         arlenorClasses.forEach(cls => list.push(cls));
-        return "-";
+        return "Toutes les classes";
       }
     },
 
