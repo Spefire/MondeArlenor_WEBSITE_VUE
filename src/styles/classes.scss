@@ -16,11 +16,15 @@
 }
 
 .margin-top-1 {
-  margin-top: 15px;
+  margin-top: 16px;
 }
 
 .margin-bottom-1 {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
+}
+
+.margin-left-05 {
+  margin-left: 8px;
 }
 
 .text-bold {
@@ -29,6 +33,22 @@
 
 .text-italic {
   font-style: italic;
+}
+
+.text-cyan {
+  color: $cyan-color;
+}
+
+.text-green {
+  color: $green-color;
+}
+
+.text-yellow {
+  color: $yellow-color;
+}
+
+.text-red {
+  color: $red-color;
 }
 
 .link {

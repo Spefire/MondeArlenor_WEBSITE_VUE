@@ -13,7 +13,9 @@
           <option
             v-for="(grp, index) in allGroups"
             :value="grp.code"
-            :key="index">{{ grp.name }}</option>
+            :key="index">
+            {{ grp.name }}
+          </option>
         </select>
       </div>
     </div>
@@ -75,7 +77,12 @@
               :alt="skill.typeSkill.Libelle">
           </td>
           <td class="col-35">{{ skill.name }}</td>
-          <td class="col-20">{{ skill.group.name }}</td>
+          <td class="col-20">
+            {{ skill.group.name }}
+            <i
+              class="margin-left-05"
+              :class="skill.group.role.icon" />
+          </td>
           <td class="col-20">{{ getLibClasses(skill) }}</td>
           <td class="col-20">{{ getCodCaracts(skill.caracts) }}</td>
         </tr>

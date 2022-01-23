@@ -8,7 +8,12 @@ $primary-color: #247899;
 $secondary-color: #dad090;
 $light-secondary-color: #fcf8b0;
 
-$warning-color: #f05f5f;
+$red-color: #f03f3f;
+$yellow-color: #f0f03f;
+$green-color: #3ff03f;
+$cyan-color: #3ff0f0;
+
+$warning-color: $red-color;
 
 // Variables pour le responsive
 $breakpoints: (

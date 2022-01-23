@@ -28,16 +28,16 @@ export class ArlenorSkill {
 
   public setImage(): void {
     if (this.typeSkill.Code === SkillsEnum.CompetenceArme.Code) {
-      this.image = require("./../assets/icons-skills/armes.png");
+      this.image = require("./../assets/icons/armes.png");
     }
     else if (this.typeSkill.Code === SkillsEnum.CompetenceArmure.Code) {
-      this.image = require("./../assets/icons-skills/armures.png");
+      this.image = require("./../assets/icons/armures.png");
     }
     else if (this.typeSkill.Code === SkillsEnum.TempsIncantation.Code) {
-      this.image = require("./../assets/icons-skills/incantation.png");
+      this.image = require("./../assets/icons/incantation.png");
     }
     else if (this.typeSkill.Code === SkillsEnum.TempsRechargement.Code) {
-      this.image = require("./../assets/icons-skills/rechargement.png");
+      this.image = require("./../assets/icons/rechargement.png");
     }
   }
 }
