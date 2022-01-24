@@ -241,6 +241,81 @@
     }
 }
 
+.population-view {
+    .link-button:first-child {
+        transform: scaleX(-1);
+    }
+
+    .population-imgs {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 70%;
+        margin: 0 auto 24px auto;
+
+        @include tablet-only {
+            width: 100%;
+        }
+    }
+
+    .population-img {
+        height: 125px;
+        width: 125px;
+        border-radius: 50%;
+        border: 2px solid $secondary-color;
+        background-color: rgba($black-color, 0.4);
+        cursor: pointer;
+
+        @include mobile-only {
+            display: none;
+        }
+
+        &.main {
+            height: 200px;
+            width: 200px;
+            border: 10px double $secondary-color;
+            cursor: default;
+
+            @include tablet-only {
+                height: auto;
+                width: 25%;
+            }
+
+            @include mobile-only {
+                display: block;
+                height: 125px;
+                width: 125px;
+                border: 2px solid $secondary-color;
+            }
+        }
+    }
+
+    .population-description {
+        display: flex;
+        flex-direction: column;
+        height: 300px;
+        max-height: 300px;
+        width: 70%;
+        margin: auto;
+        padding: 10px 25px;
+        overflow: auto;
+        text-align: center;
+        border: 1px solid;
+        border-radius: 5px;
+        border-color: $secondary-color;
+        background: $black-color;
+
+        @include tablet-only {
+            width: 100%;
+        }
+
+        .population-location {
+            font-style: italic;
+            color: $secondary-color;
+        }
+    }
+}
+
 .layout-view {
     display: flex;
     justify-content: center;
@@ -258,7 +333,19 @@
         ),
         url("./assets/images/home_00.png");
 
-    &.creation {
+    &.universe-background {
+        background-image: linear-gradient(
+                135deg,
+                rgba($black-color, 1),
+                rgba($black-color, 0.75),
+                rgba($black-color, 0.5),
+                rgba($primary-color, 0.5),
+                rgba($primary-color, 0.5)
+            ),
+            url("./assets/images/home_01.png");
+    }
+
+    &.roleplay-background {
         background-image: linear-gradient(
                 135deg,
                 rgba($black-color, 1),
