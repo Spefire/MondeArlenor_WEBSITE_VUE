@@ -51,6 +51,10 @@
   color: $red-color;
 }
 
+.img-rounded {
+  border-radius: 50%;
+}
+
 .link {
   position: relative;
   display: inline-block;
@@ -92,6 +96,14 @@
     border: 1px solid $warning-color;
     background-color: rgba($black-color, 0.2) !important;
     cursor: default;
+  }
+
+  &:not(:first-child) {
+    margin-left: 16px;
+
+    @include mobile-only {
+      margin-left: 0;
+    }
   }
 }
 
