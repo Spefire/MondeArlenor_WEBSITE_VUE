@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-view roleplay-background">
+  <div class="layout-view background roleplay-diagonal">
     <div class="layout-center large">
       <h2>Les races jouables</h2>
 
@@ -29,7 +29,7 @@
 
   <div little-separator />
 
-  <div class="layout-view roleplay-background">
+  <div class="layout-view background roleplay-diagonal">
     <div class="layout-center large">
       <h2>Les cristaux évolutifs : groupes</h2>
 
@@ -58,7 +58,7 @@
 
   <div little-separator />
 
-  <div class="layout-view roleplay-background">
+  <div class="layout-view background roleplay-diagonal">
     <div class="layout-center large">
       <h2>Les cristaux évolutifs : classes</h2>
 
@@ -89,7 +89,7 @@
 
   <div little-separator />
 
-  <div class="layout-view roleplay-background">
+  <div class="layout-view background roleplay-diagonal">
     <div class="layout-center large">
       <h2>Les cristaux évolutifs : compétences</h2>
 

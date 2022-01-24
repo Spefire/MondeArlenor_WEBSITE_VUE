@@ -1,12 +1,28 @@
 <template>
-  <div class="population-view layout-view universe-background">
+  <HeadLayout
+    :title="title"
+    :image-left="imageLeft"
+    :image-right="imageRight">
+    <p>
+      Lors de la Création, seuls les humains étaient présents dans le Monde d'Arlénor.
+      "Cependant, à l'An 0, les humains ont découvert ce qui allait changer radicalement leur vie : les cristaux.
+      <br><br>La manipulation et la présence de ces derniers aux côtés des humains, ont altéré au fil du temps leur code génétique, donnant vie à de nouvelles races.
+      Des relations se sont créées alors entre les différences races, certaines amicales, neutres, et d'autres... meurtrières.
+      <br><br>Les elfes et les humains vivent en toute liberté alors que les nains et les mutants essayent de survivre du mieux qu'ils le peuvent.
+      Les pans et les arléniens restent cachés, observant le monde de loin...
+    </p>
+  </HeadLayout>
+
+  <div little-separator />
+
+  <div class="population-view layout-view background universe-vertical">
     <div class="layout-center large">
       <div class="population-imgs">
-        <button
-          class="link-button"
+        <div
+          class="population-button inverted"
           @click="previousSelection()">
           <i class="icon icon-arrow-right2" />
-        </button>
+        </div>
 
         <img
           @click="previousSelection()"
@@ -23,16 +39,18 @@
           :src="nextImage"
           alt="">
 
-        <button
-          class="link-button"
+        <div
+          class="population-button"
           @click="nextSelection()">
           <i class="icon icon-arrow-right2" />
-        </button>
+        </div>
       </div>
       <div class="population-description">
         <h2>{{ currentRace.name }}</h2>
         <p>{{ currentRace.description }}</p>
         <p class="population-location">
+          <span>Localisations</span>
+          <br>
           <span
             v-for="(location, index) in currentRace.locations"
             :key="index">

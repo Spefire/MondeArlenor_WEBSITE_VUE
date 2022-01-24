@@ -1,0 +1,80 @@
+.background {
+    &::after {
+        content: "";
+        position: absolute;
+        opacity: 1;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+
+        background-position: center;
+        background-size: cover;
+    }
+
+    &.base-diagonal::after {
+        background-image: linear-gradient(
+                135deg,
+                rgba($black-color, 1),
+                rgba($black-color, 0.75),
+                rgba($black-color, 0.5),
+                rgba($primary-color, 0.5),
+                rgba($primary-color, 0.5)
+            ),
+            url("./assets/images/home_00.png");
+    }
+
+    &.universe-black::after {
+        background-image: linear-gradient(0deg, rgba($black-color, 0.8), rgba($black-color, 0.8)),
+            url("./assets/images/home_01.png");
+    }
+
+    &.universe-vertical::after {
+        background-image: linear-gradient(
+                0deg,
+                rgba($black-color, 1),
+                rgba($black-color, 0.75),
+                rgba($black-color, 0.5),
+                rgba($primary-color, 0.5),
+                rgba($primary-color, 0.5)
+            ),
+            url("./assets/images/home_01.png");
+    }
+
+    &.universe-diagonal::after {
+        background-image: linear-gradient(
+                135deg,
+                rgba($black-color, 1),
+                rgba($black-color, 0.75),
+                rgba($black-color, 0.5),
+                rgba($primary-color, 0.5),
+                rgba($primary-color, 0.5)
+            ),
+            url("./assets/images/home_01.png");
+    }
+
+    &.roleplay-diagonal::after {
+        background-image: linear-gradient(
+                -45deg,
+                rgba($black-color, 1),
+                rgba($black-color, 0.75),
+                rgba($black-color, 0.5),
+                rgba($primary-color, 0.5),
+                rgba($primary-color, 0.5)
+            ),
+            url("./assets/images/home_02.png");
+    }
+
+    &.celestia-diagonal::after {
+        background-image: linear-gradient(
+                135deg,
+                rgba($black-color, 1),
+                rgba($black-color, 0.75),
+                rgba($black-color, 0.5),
+                rgba($primary-color, 0.5),
+                rgba($primary-color, 0.5)
+            ),
+            url("./assets/images/home_03.png");
+    }
+}

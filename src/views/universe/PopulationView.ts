@@ -1,3 +1,4 @@
+import HeadLayout from "@/components/head-layout/HeadLayout.vue";
 import { ArlenorRace, getListRaces } from "@/models/ArlenorRace";
 import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
@@ -5,7 +6,9 @@ import { defineComponent, ref } from "vue";
 export default defineComponent({
   name: "PopulationView",
   title: PageTitles.population,
-  components: {},
+  components: {
+    HeadLayout,
+  },
 
   setup() {
     const currentIndex = ref(0);
@@ -15,7 +18,8 @@ export default defineComponent({
     const currentImage = ref("");
     const nextImage = ref("");
 
-    return { allRaces, currentIndex, previousImage, currentImage, nextImage };
+    const title = PageTitles.population;
+    return { title, allRaces, currentIndex, previousImage, currentImage, nextImage };
   },
 
   mounted() {
@@ -23,6 +27,12 @@ export default defineComponent({
   },
 
   computed: {
+    imageLeft() {
+      return require("./../../assets/images/population/adn_left.png");
+    },
+    imageRight() {
+      return require("./../../assets/images/population/adn_right.png");
+    },
     previousIndex(): number {
       if (this.currentIndex === 0) return this.allRaces.length - 1;
       else return this.currentIndex - 1;

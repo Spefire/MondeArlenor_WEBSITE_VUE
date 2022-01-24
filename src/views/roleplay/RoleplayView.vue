@@ -1,5 +1,5 @@
 <template>
-  <div class="roleplay-view">
+  <div class="roleplay-view background roleplay-diagonal">
     <div class="title-container">
       <h2>La Carte du Monde,<br>et ses habitants</h2>
       <p>
@@ -19,7 +19,7 @@
     </div>
   </div>
   <div little-separator />
-  <div class="roleplay-view little">
+  <div class="roleplay-view background base-diagonal">
     <div class="glyphe-container">
       <Glyphe
         class="little"
@@ -46,7 +46,7 @@
     </div>
   </div>
   <div little-separator />
-  <div class="roleplay-view">
+  <div class="roleplay-view background roleplay-diagonal">
     <div class="title-container">
       <h2>Les règles du jeu</h2>
       <p>

@@ -10,58 +10,13 @@
         }
 
         &::after {
-            content: "";
-            position: absolute;
-            opacity: 1;
             top: 50px;
-            left: 0;
             bottom: 51px;
-            right: 0;
-            z-index: -1;
 
             @include mobile-only {
                 top: 51px;
                 bottom: 101px;
             }
-
-            background-position: center;
-            background-size: cover;
-        }
-
-        &.container01::after {
-            background-image: linear-gradient(
-                    135deg,
-                    rgba($black-color, 1),
-                    rgba($black-color, 0.75),
-                    rgba($black-color, 0.5),
-                    rgba($primary-color, 0.5),
-                    rgba($primary-color, 0.5)
-                ),
-                url("./assets/images/home_01.png");
-        }
-
-        &.container02::after {
-            background-image: linear-gradient(
-                    -45deg,
-                    rgba($black-color, 1),
-                    rgba($black-color, 0.75),
-                    rgba($black-color, 0.5),
-                    rgba($primary-color, 0.5),
-                    rgba($primary-color, 0.5)
-                ),
-                url("./assets/images/home_02.png");
-        }
-
-        &.container03::after {
-            background-image: linear-gradient(
-                    135deg,
-                    rgba($black-color, 1),
-                    rgba($black-color, 0.75),
-                    rgba($black-color, 0.5),
-                    rgba($primary-color, 0.5),
-                    rgba($primary-color, 0.5)
-                ),
-                url("./assets/images/home_03.png");
         }
 
         .home-subcontainer {
@@ -114,29 +69,6 @@
     position: relative;
     display: flex;
     padding: 50px 0;
-    background-position: center;
-    background-size: cover;
-    background-image: linear-gradient(
-            -45deg,
-            rgba($black-color, 1),
-            rgba($black-color, 0.75),
-            rgba($black-color, 0.5),
-            rgba($primary-color, 0.5),
-            rgba($primary-color, 0.5)
-        ),
-        url("./assets/images/home_02.png");
-
-    &.little {
-        background-image: linear-gradient(
-                135deg,
-                rgba($black-color, 1),
-                rgba($black-color, 0.75),
-                rgba($black-color, 0.5),
-                rgba($primary-color, 0.5),
-                rgba($primary-color, 0.5)
-            ),
-            url("./assets/images/home_00.png");
-    }
 
     .title-container {
         width: 40%;
@@ -242,14 +174,10 @@
 }
 
 .population-view {
-    .link-button:first-child {
-        transform: scaleX(-1);
-    }
-
     .population-imgs {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         width: 70%;
         margin: 0 auto 24px auto;
 
@@ -258,9 +186,26 @@
         }
     }
 
+    .population-button {
+        height: 40px;
+        width: 40px;
+        margin: 0 10px;
+        //font-size: 40px;
+        line-height: 40px;
+        border-radius: 50%;
+        border: 2px solid $white-color;
+        background-color: rgba($black-color, 0.4);
+        cursor: pointer;
+
+        &.inverted {
+            transform: scaleX(-1);
+        }
+    }
+
     .population-img {
         height: 125px;
         width: 125px;
+        margin: 0 20px;
         border-radius: 50%;
         border: 2px solid $secondary-color;
         background-color: rgba($black-color, 0.4);
@@ -273,6 +218,7 @@
         &.main {
             height: 200px;
             width: 200px;
+            margin: 0 10px;
             border: 10px double $secondary-color;
             cursor: default;
 
@@ -293,8 +239,7 @@
     .population-description {
         display: flex;
         flex-direction: column;
-        height: 300px;
-        max-height: 300px;
+        max-height: 275px;
         width: 70%;
         margin: auto;
         padding: 10px 25px;
@@ -317,45 +262,11 @@
 }
 
 .layout-view {
+    position: relative;
     display: flex;
     justify-content: center;
     min-height: calc(100vh - 350px);
     padding: 50px 0;
-    background-position: center;
-    background-size: cover;
-    background-image: linear-gradient(
-            135deg,
-            rgba($black-color, 1),
-            rgba($black-color, 0.75),
-            rgba($black-color, 0.5),
-            rgba($primary-color, 0.5),
-            rgba($primary-color, 0.5)
-        ),
-        url("./assets/images/home_00.png");
-
-    &.universe-background {
-        background-image: linear-gradient(
-                135deg,
-                rgba($black-color, 1),
-                rgba($black-color, 0.75),
-                rgba($black-color, 0.5),
-                rgba($primary-color, 0.5),
-                rgba($primary-color, 0.5)
-            ),
-            url("./assets/images/home_01.png");
-    }
-
-    &.roleplay-background {
-        background-image: linear-gradient(
-                135deg,
-                rgba($black-color, 1),
-                rgba($black-color, 0.75),
-                rgba($black-color, 0.5),
-                rgba($primary-color, 0.5),
-                rgba($primary-color, 0.5)
-            ),
-            url("./assets/images/home_02.png");
-    }
 
     @include tablet-only {
         flex-direction: column;
