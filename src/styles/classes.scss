@@ -97,14 +97,6 @@
     background-color: rgba($black-color, 0.2) !important;
     cursor: default;
   }
-
-  &:not(:first-child) {
-    margin-left: 16px;
-
-    @include mobile-only {
-      margin-left: 0;
-    }
-  }
 }
 
 .selection-container {

@@ -37,8 +37,10 @@
           to="/roleplay/creation">
           Passer à la création !
         </router-link>
+      </div>
+      <div class="margin-top-1">
         <router-link
-          class="margin-top-1 link-button"
+          class="link-button"
           to="/roleplay/docs">
           Voir la documentation
         </router-link>
