@@ -4,15 +4,19 @@ export class ArlenorRace {
   public name: string;
   public description: string;
   public difficulty: string;
+  public ratioWorld: number;
+  public ratioMagic: number;
   public image: string;
   public locations: string[];
   public avantages: string[];
   public disavantages: string[];
-
-  constructor(name: string, difficulty: string) {
+ 
+  constructor(name: string, difficulty: string, ratioWorld: number, ratioMagic: number) {
     this.name = name;
     this.description = "";
     this.difficulty = difficulty;
+    this.ratioWorld = ratioWorld;
+    this.ratioMagic = ratioMagic;
     this.image = "";
     this.locations = [];
     this.avantages = [];
@@ -31,7 +35,7 @@ export function getListRaces(): ArlenorRace[] {
   const listRaces: ArlenorRace[] = [];
 
   // Race des humains
-  const humain = new ArlenorRace("Humain", DifficultyEnum.Facile.Code);
+  const humain = new ArlenorRace("Humain", DifficultyEnum.Facile.Code, 45, 20);
   humain.description = `Les Humains étaient les premiers à vivre sur le monde d'Arlénor.
   Les autres races sont des humains ayant subit des mutations au fil des générations, dû à l'exposition et utilisation quotidienne des cristaux.
   L'Humain aime construire autant que détruire, est aussi savant qu'ignorant...
@@ -42,7 +46,7 @@ export function getListRaces(): ArlenorRace[] {
   listRaces.push(humain);
 
   // Race des elfes
-  const elfe = new ArlenorRace("Elfe", DifficultyEnum.Facile.Code);
+  const elfe = new ArlenorRace("Elfe", DifficultyEnum.Facile.Code, 25, 80);
   elfe.description = `Les Elfes sont les premiers humains à avoir muté dans le Monde d'Arlénor.
   Au fur et à mesure des siècles, ils ont vu leurs oreilles pousser, leurs poils disparaître...
   mais aussi leur affiliation aux cristaux s'agrandir, ce qui a fait d'eux une race dite 'supérieure' aux Humains.
@@ -60,7 +64,7 @@ export function getListRaces(): ArlenorRace[] {
   listRaces.push(elfe);
 
   // Race des nains
-  const nain = new ArlenorRace("Nain", DifficultyEnum.Normale.Code);
+  const nain = new ArlenorRace("Nain", DifficultyEnum.Normale.Code, 15, 40);
   nain.description = `Les Nains furent les premiers à être discriminés, par leur taille, par leur pilosité abondante...
   Cependant, ils sont aussi craints car les nains peuvent très vite être dangereux. Ils possèdent en eux une force, une soif de sang, et une envie de...
   de manger de la viande crue, fraîchement découpée.
@@ -78,7 +82,7 @@ export function getListRaces(): ArlenorRace[] {
   listRaces.push(nain);
 
   // Race des mutants
-  const mutant = new ArlenorRace("Mutant", DifficultyEnum.Normale.Code);
+  const mutant = new ArlenorRace("Mutant", DifficultyEnum.Normale.Code, 20, 90);
   mutant.description = `Le peuple des Mutants, lui, n’est pas reconnu officiellement.
   C’est le seul peuple où la mutation physique n’est pas clairement définie :
   une ou plusieurs parties de leur corps sont confondues avec celle d’un animal.
@@ -95,7 +99,7 @@ export function getListRaces(): ArlenorRace[] {
   listRaces.push(mutant);
 
   // Race des pans
-  const pan = new ArlenorRace("Pan", DifficultyEnum.Difficile.Code);
+  const pan = new ArlenorRace("Pan", DifficultyEnum.Difficile.Code, 1, 100);
   pan.description = `Les Pans sont des enfants humains choisis et appelés dans la forêt de Miryden par une puissante entité magique nommée Nebulys.
   Contrairement aux autres peuples, ils subissent leur mutation génétique lorsqu'ils entrent dans cette forêt et deviennent des Pans à part entière.
   Par ce processus, Nebulys les a lié à la nuit : le soir leur peau prend la couleur du ciel, plus claire lors de pleines lunes et plus sombre lors de nouvelles lunes.
@@ -113,7 +117,7 @@ export function getListRaces(): ArlenorRace[] {
   listRaces.push(pan);
 
   // Race des arléniens
-  const arlenien = new ArlenorRace("Arlénien", DifficultyEnum.Difficile.Code);
+  const arlenien = new ArlenorRace("Arlénien", DifficultyEnum.Difficile.Code, 3, 60);
   arlenien.description = `Les Arléniens sont un autre peuple caché dans le Monde d'Arlénor.
   Ce sont des humains qui ont été choisis à une époque lointaine, par l'entité Nebulys.
   Mais contrairement aux Pans, les Arléniens peuvent se reproduire car ils grandissent.
@@ -136,7 +140,7 @@ export function getListRaces(): ArlenorRace[] {
   listRaces.push(arlenien);
 
   // Race des célestiens
-  const celestien = new ArlenorRace("Célestien", DifficultyEnum.Impossible.Code);
+  const celestien = new ArlenorRace("Célestien", DifficultyEnum.Impossible.Code, 1, 10);
   celestien.description = "";
   celestien.image = require("./../assets/images/population/p_humain.png");
   celestien.locations = ["L'Empire Faradélien", "Le Régime Jirakanien"];

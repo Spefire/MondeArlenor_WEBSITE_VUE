@@ -48,15 +48,23 @@
       <div class="population-description">
         <h2>{{ currentRace.name }}</h2>
         <p>{{ currentRace.description }}</p>
-        <p class="population-location">
-          <span>Localisations</span>
-          <br>
-          <span
-            v-for="(location, index) in currentRace.locations"
-            :key="index">
-            - {{ location }}<br>
-          </span>
-        </p>
+        <div class="population-moreinfos">
+          <p>
+            <span class="text-bold">{{ currentRace.ratioWorld }}%</span> du monde sont des {{ currentRace.name.toLowerCase() }}s
+          </p>
+          <p>
+            <span>Localisations</span>
+            <br>
+            <span
+              v-for="(location, index) in currentRace.locations"
+              :key="index">
+              - {{ location }}<br>
+            </span>
+          </p>
+          <p>
+            <span class="text-bold">{{ currentRace.ratioMagic }}%</span> des {{ currentRace.name.toLowerCase() }}s peuvent utiliser la magie
+          </p>
+        </div>
       </div>
     </div>
   </div>

@@ -189,6 +189,7 @@
     .population-button {
         height: 40px;
         width: 40px;
+        min-width: 40px;
         margin: 0 10px;
         //font-size: 40px;
         line-height: 40px;
@@ -239,7 +240,7 @@
     .population-description {
         display: flex;
         flex-direction: column;
-        max-height: 275px;
+        max-height: 325px;
         width: 70%;
         margin: auto;
         padding: 10px 25px;
@@ -254,9 +255,21 @@
             width: 100%;
         }
 
-        .population-location {
+        .population-moreinfos {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-grow: 3;
             font-style: italic;
             color: $secondary-color;
+
+            @include mobile-only {
+                flex-direction: column;
+            }
+
+            p {
+                flex: 1;
+            }
         }
     }
 }
