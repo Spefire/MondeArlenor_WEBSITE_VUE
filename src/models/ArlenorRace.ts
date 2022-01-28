@@ -4,23 +4,23 @@ export class ArlenorRace {
   public name: string;
   public description: string;
   public difficulty: string;
+  public infoAge: string;
+  public infoAppareance: string;
   public ratioWorld: number;
   public ratioMagic: number;
   public image: string;
   public locations: string[];
-  public avantages: string[];
-  public disavantages: string[];
  
   constructor(name: string, difficulty: string, ratioWorld: number, ratioMagic: number) {
     this.name = name;
     this.description = "";
     this.difficulty = difficulty;
+    this.infoAge = "";
+    this.infoAppareance = "";
     this.ratioWorld = ratioWorld;
     this.ratioMagic = ratioMagic;
     this.image = "";
     this.locations = [];
-    this.avantages = [];
-    this.disavantages = [];
   }
 }
 

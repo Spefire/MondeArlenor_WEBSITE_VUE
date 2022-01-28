@@ -47,6 +47,11 @@
       </div>
       <div class="population-description">
         <h2>{{ currentRace.name }}</h2>
+        <p class="text-italic">
+          {{ currentRace.infoAge }}
+          <br>
+          Apparence : {{ currentRace.infoAppareance }}
+        </p>
         <p>{{ currentRace.description }}</p>
         <div class="population-moreinfos">
           <p>
