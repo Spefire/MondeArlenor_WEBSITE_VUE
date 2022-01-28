@@ -32,13 +32,13 @@
           to="/universe">{{ pages.universe }}</router-link>
         <router-link
           class="link exact-link"
+          to="/universe/religion">{{ pages.religion }}</router-link>
+        <router-link
+          class="link exact-link"
           to="/universe/crystals">{{ pages.crystals }}</router-link>
         <router-link
           class="link exact-link"
           to="/universe/population">{{ pages.population }}</router-link>
-        <router-link
-          class="link exact-link"
-          to="/universe/religion">{{ pages.religion }}</router-link>
       </nav>
     </div>
 
@@ -75,13 +75,13 @@
           to="/universe">{{ pages.universe }}</router-link>
         <router-link
           class="link exact-link"
+          to="/universe/religion">{{ pages.religion }}</router-link>
+        <router-link
+          class="link exact-link"
           to="/universe/crystals">{{ pages.crystals }}</router-link>
         <router-link
           class="link exact-link"
           to="/universe/population">{{ pages.population }}</router-link>
-        <router-link
-          class="link exact-link"
-          to="/universe/religion">{{ pages.religion }}</router-link>
       </nav>
     </div>
   </header>
