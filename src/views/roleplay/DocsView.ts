@@ -1,7 +1,8 @@
 import SkillsTable from "@/components/skills-table/SkillsTable.vue";
-import { getListClasses } from "@/models/ArlenorClass";
-import { getListGroups } from "@/models/ArlenorGroup";
-import { ArlenorRace, DifficultyEnum, getListRaces } from "@/models/ArlenorRace";
+import { ArlenorRace, DifficultyEnum } from "@/models/ArlenorRace";
+import { getListClasses } from "@/models/data/ListClasses";
+import { getListGroups } from "@/models/data/ListGroups";
+import { getListRaces } from "@/models/data/ListRaces";
 import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
 

@@ -1,4 +1,4 @@
-import { ArlenorCharacter } from "@/models/Character";
+import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { createStore } from "vuex";
 
 export default createStore({

@@ -1,7 +1,9 @@
-import { ArlenorClass, getListClasses } from "@/models/ArlenorClass";
+import { ArlenorClass } from "@/models/ArlenorClass";
 import { ArlenorEnum } from "@/models/ArlenorEnum";
-import { getListGroups } from "@/models/ArlenorGroup";
-import { ArlenorSkill, getListSkills } from "@/models/ArlenorSkill";
+import { ArlenorSkill } from "@/models/ArlenorSkill";
+import { getListClasses } from "@/models/data/ListClasses";
+import { getListGroups } from "@/models/data/ListGroups";
+import { getListSkills } from "@/models/data/ListSkills";
 import { defineComponent, Ref, ref } from "vue";
 
 export default defineComponent({

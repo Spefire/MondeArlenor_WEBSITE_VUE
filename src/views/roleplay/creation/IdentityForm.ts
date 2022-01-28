@@ -1,4 +1,4 @@
-import { ArlenorCharacter } from "@/models/Character";
+import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import useVuelidate from "@vuelidate/core";
 import { maxLength, required } from "@vuelidate/validators";
 import { defineComponent } from "vue";

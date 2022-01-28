@@ -1,5 +1,6 @@
 import HeadLayout from "@/components/head-layout/HeadLayout.vue";
-import { ArlenorRace, getListRaces } from "@/models/ArlenorRace";
+import { ArlenorRace } from "@/models/ArlenorRace";
+import { getListRaces } from "@/models/data/ListRaces";
 import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
 
