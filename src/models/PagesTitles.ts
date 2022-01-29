@@ -12,4 +12,5 @@ export class PageTitles {
   public static roleplay = "Le Jeu de Rôle";
   public static skills = "Les Compétences";
   public static universe = "L'Univers";
+  public static worldmap = "La Carte du Monde";
 }
