@@ -2,7 +2,7 @@
   <div class="home-view">
     <div
       :class="{'active': selection == 0 }"
-      class="home-container background universe-diagonal">
+      class="home-container background-universe">
       <div class="home-subcontainer">
         <img
           src="../../assets/images/logo.png"
@@ -21,7 +21,7 @@
     </div>
     <div
       :class="{'active': selection == 1 }"
-      class="home-container background roleplay-diagonal">
+      class="home-container background-roleplay">
       <div class="home-subcontainer inversed-container">
         <h3>{{ pages.home }}</h3>
         <h1>{{ pages.roleplay }}</h1>
@@ -37,7 +37,7 @@
     </div>
     <div
       :class="{'active': selection == 2 }"
-      class="home-container background celestia-diagonal">
+      class="home-container background-celestia">
       <div class="home-subcontainer">
         <h3>{{ pages.home }}</h3>
         <h1>{{ pages.celestia }}</h1>

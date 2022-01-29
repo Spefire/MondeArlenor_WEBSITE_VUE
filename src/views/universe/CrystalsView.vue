@@ -14,7 +14,7 @@
 
   <div little-separator />
 
-  <div class="crystals-view layout-view background universe-vertical">
+  <div class="crystals-view layout-view background-universe-vertical">
     <div class="layout-center large crystals-container">
       <div class="crystals-zone-imgs">
         <div class="crystal-imgs">

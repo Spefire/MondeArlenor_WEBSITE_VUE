@@ -15,7 +15,7 @@
 
   <div little-separator />
 
-  <div class="population-view layout-view background universe-vertical">
+  <div class="population-view layout-view background-universe-vertical">
     <div class="layout-center large">
       <div class="population-imgs">
         <div

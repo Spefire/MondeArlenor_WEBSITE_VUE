@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-view roleplay-background">
+  <div class="layout-view background-roleplay">
     
     <div class="layout-center large">
       

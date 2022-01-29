@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-view roleplay-background">
+  <div class="layout-view background-roleplay">
     <RaceForm
       v-if="selection == 0"
       @nextStep="increaseSelection()" />

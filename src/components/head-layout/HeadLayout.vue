@@ -1,5 +1,5 @@
 <template>
-  <div class="head-layout-view background universe-black">
+  <div class="head-layout-view background-universe-black">
     <img
       :src="imageLeft"
       alt="">
@@ -11,7 +11,7 @@
       :src="imageRight"
       alt="">
   </div>
-  <div class="head-layout-view-mobile background universe-black">
+  <div class="head-layout-view-mobile background-universe-black">
     <div class="head-title">
       <img
         :src="imageLeft"

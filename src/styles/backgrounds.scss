@@ -1,4 +1,10 @@
-.background {
+.background,
+.background-universe,
+.background-universe-black,
+.background-universe-vertical,
+.background-roleplay,
+.background-roleplay-black,
+.background-celestia {
     &::after {
         content: "";
         position: absolute;
@@ -12,69 +18,74 @@
         background-position: center;
         background-size: cover;
     }
+}
 
-    &.base-diagonal::after {
-        background-image: linear-gradient(
-                135deg,
-                rgba($black-color, 1),
-                rgba($black-color, 0.75),
-                rgba($black-color, 0.5),
-                rgba($primary-color, 0.5),
-                rgba($primary-color, 0.5)
-            ),
-            url("./assets/images/home_00.png");
-    }
+.background::after {
+    background-image: linear-gradient(
+            135deg,
+            rgba($black-color, 1),
+            rgba($black-color, 0.75),
+            rgba($black-color, 0.5),
+            rgba($primary-color, 0.5),
+            rgba($primary-color, 0.5)
+        ),
+        url("./assets/images/home_00.png");
+}
 
-    &.universe-black::after {
-        background-image: linear-gradient(0deg, rgba($black-color, 0.8), rgba($black-color, 0.8)),
-            url("./assets/images/home_01.png");
-    }
+.background-universe::after {
+    background-image: linear-gradient(
+            135deg,
+            rgba($black-color, 1),
+            rgba($black-color, 0.75),
+            rgba($black-color, 0.5),
+            rgba($primary-color, 0.5),
+            rgba($primary-color, 0.5)
+        ),
+        url("./assets/images/home_01.png");
+}
 
-    &.universe-vertical::after {
-        background-image: linear-gradient(
-                0deg,
-                rgba($black-color, 1),
-                rgba($black-color, 0.75),
-                rgba($black-color, 0.5),
-                rgba($primary-color, 0.5),
-                rgba($primary-color, 0.5)
-            ),
-            url("./assets/images/home_01.png");
-    }
+.background-universe-black::after {
+    background-image: linear-gradient(0deg, rgba($black-color, 0.8), rgba($black-color, 0.8)),
+        url("./assets/images/home_01.png");
+}
 
-    &.universe-diagonal::after {
-        background-image: linear-gradient(
-                135deg,
-                rgba($black-color, 1),
-                rgba($black-color, 0.75),
-                rgba($black-color, 0.5),
-                rgba($primary-color, 0.5),
-                rgba($primary-color, 0.5)
-            ),
-            url("./assets/images/home_01.png");
-    }
+.background-universe-vertical::after {
+    background-image: linear-gradient(
+            0deg,
+            rgba($black-color, 1),
+            rgba($black-color, 0.75),
+            rgba($black-color, 0.5),
+            rgba($primary-color, 0.5),
+            rgba($primary-color, 0.5)
+        ),
+        url("./assets/images/home_01.png");
+}
 
-    &.roleplay-diagonal::after {
-        background-image: linear-gradient(
-                -45deg,
-                rgba($black-color, 1),
-                rgba($black-color, 0.75),
-                rgba($black-color, 0.5),
-                rgba($primary-color, 0.5),
-                rgba($primary-color, 0.5)
-            ),
-            url("./assets/images/home_02.png");
-    }
+.background-roleplay::after {
+    background-image: linear-gradient(
+            -45deg,
+            rgba($black-color, 1),
+            rgba($black-color, 0.75),
+            rgba($black-color, 0.5),
+            rgba($primary-color, 0.5),
+            rgba($primary-color, 0.5)
+        ),
+        url("./assets/images/home_02.png");
+}
 
-    &.celestia-diagonal::after {
-        background-image: linear-gradient(
-                135deg,
-                rgba($black-color, 1),
-                rgba($black-color, 0.75),
-                rgba($black-color, 0.5),
-                rgba($primary-color, 0.5),
-                rgba($primary-color, 0.5)
-            ),
-            url("./assets/images/home_03.png");
-    }
+.background-roleplay-black::after {
+    background-image: linear-gradient(0deg, rgba($black-color, 0.8), rgba($black-color, 0.8)),
+        url("./assets/images/home_02.png");
+}
+
+.background-celestia::after {
+    background-image: linear-gradient(
+            135deg,
+            rgba($black-color, 1),
+            rgba($black-color, 0.75),
+            rgba($black-color, 0.5),
+            rgba($primary-color, 0.5),
+            rgba($primary-color, 0.5)
+        ),
+        url("./assets/images/home_03.png");
 }

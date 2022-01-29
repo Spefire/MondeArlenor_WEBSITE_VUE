@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-view">
+  <div class="layout-view background">
     <div class="layout-center">
       <h1>Mentions légales</h1>
       <div separator />

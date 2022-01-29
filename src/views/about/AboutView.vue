@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-view">
+  <div class="layout-view background">
     <div class="layout-left">
       <img
         src="./../../assets/images/about.png"

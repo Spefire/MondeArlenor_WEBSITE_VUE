@@ -17,7 +17,7 @@
 
   <div little-separator />
 
-  <div class="religion-view layout-view background universe-vertical">
+  <div class="religion-view layout-view background-universe-vertical">
     <div class="layout-center large">
       <div class="religion-list">
         <img
