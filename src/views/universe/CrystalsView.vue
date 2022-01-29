@@ -39,7 +39,7 @@
       <div class="crystals-zone-text">
         <h3>Le cristal arlénien</h3>
         <h2>Propriétés connues par tous</h2>
-        <p>
+        <p class="bloc-text">
           Ils mesurent entre 1 cm et 2 m.<br>
           La couleur d'un cristal est liée à son effet, à son pouvoir.<br>
           Un cristal est très solide, résistant.<br>

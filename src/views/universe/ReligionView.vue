@@ -27,7 +27,7 @@
           :alt="angel.name"
           @click="changeSelection(angel)">
       </div>
-      <div class="religion-description margin-top-1 margin-bottom-1">
+      <div class="religion-description bloc-text margin-top-1 margin-bottom-1">
         <h3 class="margin-top-1">{{ currentDivinity.isInversed ? "La Cabale Inversée" : "La Sainte Cabale" }}</h3>
         <h2>
           {{ currentDivinity.libNum }}<span class="text-lower">{{ currentDivinity.isInversed ? "i" : "" }}</span>

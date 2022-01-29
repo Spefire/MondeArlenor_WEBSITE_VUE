@@ -47,11 +47,11 @@
     </div>
   </div>
 
-  <div class="table-large-alert margin-top-1">
+  <div class="table-large-alert bloc-text margin-top-1">
     La liste ne peut pas être parcourue sur un écran mobile.
   </div>
 
-  <table class="table-large margin-top-1">
+  <table class="table-large bloc-text margin-top-1">
     <thead>
       <tr>
         <th

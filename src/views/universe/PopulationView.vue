@@ -45,7 +45,7 @@
           <i class="icon icon-arrow-right2" />
         </div>
       </div>
-      <div class="population-description">
+      <div class="population-description bloc-text">
         <h2>{{ currentRace.name }}</h2>
         <p class="text-italic">
           {{ currentRace.infoAge }}
