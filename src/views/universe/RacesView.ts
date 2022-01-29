@@ -5,8 +5,8 @@ import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
-  name: "PopulationView",
-  title: PageTitles.population,
+  name: "RacesView",
+  title: PageTitles.races,
   components: {
     HeadLayout,
   },
@@ -19,7 +19,7 @@ export default defineComponent({
     const currentImage = ref("");
     const nextImage = ref("");
 
-    const title = PageTitles.population;
+    const title = PageTitles.races;
     return { title, allRaces, currentIndex, previousImage, currentImage, nextImage };
   },
 
@@ -29,10 +29,10 @@ export default defineComponent({
 
   computed: {
     imageLeft() {
-      return require("./../../assets/images/population/adn_left.png");
+      return require("./../../assets/images/races/adn_left.png");
     },
     imageRight() {
-      return require("./../../assets/images/population/adn_right.png");
+      return require("./../../assets/images/races/adn_right.png");
     },
     previousIndex(): number {
       if (this.currentIndex === 0) return this.allRaces.length - 1;

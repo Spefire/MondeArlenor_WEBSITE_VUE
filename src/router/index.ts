@@ -6,7 +6,7 @@ import CreationView from "@/views/roleplay/CreationView.vue";
 import DocsView from "@/views/roleplay/DocsView.vue";
 import RoleplayView from "@/views/roleplay/RoleplayView.vue";
 import CrystalsView from "@/views/universe/CrystalsView.vue";
-import PopulationView from "@/views/universe/PopulationView.vue";
+import RacesView from "@/views/universe/RacesView.vue";
 import ReligionView from "@/views/universe/ReligionView.vue";
 import UniverseView from "@/views/universe/UniverseView.vue";
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
@@ -17,7 +17,7 @@ const routes: Array<RouteRecordRaw> = [
   { path: "/universe", component: UniverseView },
   { path: "/universe/crystals", component: CrystalsView },
   { path: "/universe/religion", component: ReligionView },
-  { path: "/universe/population", component: PopulationView },
+  { path: "/universe/races", component: RacesView },
 
   { path: "/roleplay", component: RoleplayView },
   { path: "/roleplay/creation", component: CreationView },

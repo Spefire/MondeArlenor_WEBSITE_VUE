@@ -180,8 +180,8 @@
     }
 }
 
-.population-view {
-    .population-imgs {
+.races-view {
+    .races-imgs {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -193,7 +193,7 @@
         }
     }
 
-    .population-button {
+    .races-button {
         height: 40px;
         width: 40px;
         min-width: 40px;
@@ -210,7 +210,7 @@
         }
     }
 
-    .population-img {
+    .races-img {
         height: 125px;
         width: 125px;
         margin: 0 20px;
@@ -244,7 +244,7 @@
         }
     }
 
-    .population-description {
+    .races-description {
         display: flex;
         flex-direction: column;
         max-height: 325px;
@@ -257,7 +257,7 @@
             width: 100%;
         }
 
-        .population-moreinfos {
+        .races-moreinfos {
             display: flex;
             flex-direction: row;
             justify-content: space-around;

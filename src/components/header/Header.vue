@@ -38,7 +38,7 @@
           to="/universe/crystals">{{ pages.crystals }}</router-link>
         <router-link
           class="link exact-link"
-          to="/universe/population">{{ pages.population }}</router-link>
+          to="/universe/races">{{ pages.races }}</router-link>
       </nav>
     </div>
 
@@ -81,7 +81,7 @@
           to="/universe/crystals">{{ pages.crystals }}</router-link>
         <router-link
           class="link exact-link"
-          to="/universe/population">{{ pages.population }}</router-link>
+          to="/universe/races">{{ pages.races }}</router-link>
       </nav>
     </div>
   </header>

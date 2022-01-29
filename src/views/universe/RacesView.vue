@@ -15,37 +15,37 @@
 
   <div little-separator />
 
-  <div class="population-view layout-view background-universe-vertical">
+  <div class="races-view layout-view background-universe-vertical">
     <div class="layout-center large">
-      <div class="population-imgs">
+      <div class="races-imgs">
         <div
-          class="population-button inverted"
+          class="races-button inverted"
           @click="previousSelection()">
           <i class="icon icon-arrow-right2" />
         </div>
 
         <img
           @click="previousSelection()"
-          class="population-img"
+          class="races-img"
           :src="previousImage"
           alt="">
         <img
-          class="population-img main"
+          class="races-img main"
           :src="currentImage"
           alt="">
         <img
           @click="nextSelection()"
-          class="population-img"
+          class="races-img"
           :src="nextImage"
           alt="">
 
         <div
-          class="population-button"
+          class="races-button"
           @click="nextSelection()">
           <i class="icon icon-arrow-right2" />
         </div>
       </div>
-      <div class="population-description bloc-text">
+      <div class="races-description bloc-text">
         <h2>{{ currentRace.name }}</h2>
         <p class="text-italic">
           {{ currentRace.infoAge }}
@@ -53,7 +53,7 @@
           Apparence : {{ currentRace.infoAppareance }}
         </p>
         <p>{{ currentRace.description }}</p>
-        <div class="population-moreinfos">
+        <div class="races-moreinfos">
           <p>
             <span class="text-bold">{{ currentRace.ratioWorld }}%</span> du monde sont des {{ currentRace.name.toLowerCase() }}s
           </p>
@@ -75,4 +75,4 @@
   </div>
 </template>
 
-<script lang="ts" src="./PopulationView.ts"></script>
+<script lang="ts" src="./RacesView.ts"></script>

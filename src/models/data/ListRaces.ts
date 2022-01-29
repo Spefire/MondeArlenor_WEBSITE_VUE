@@ -11,7 +11,7 @@ export function getListRaces(): ArlenorRace[] {
   Les autres races sont des humains ayant subit des mutations au fil des générations, dû à l'exposition et utilisation quotidienne des cristaux.
   L'Humain aime construire autant que détruire, est aussi savant qu'ignorant...
   Les humains ne sont ni aimés, ni détestés des autres peuples : ils se sont concentrés dans les plaines de Terfil, et vivent principalement dans la cité de Faradel`;
-  humain.image = require("./../../assets/images/population/p_humain.png");
+  humain.image = require("./../../assets/images/races/p_humain.png");
   humain.locations = ["L'Empire Faradélien", "Le Régime Jirakanien"];
   listRaces.push(humain);
 
@@ -25,7 +25,7 @@ export function getListRaces(): ArlenorRace[] {
   Les Elfes se sont habitués à ce statut, si bien que lorsque d'autres races sont apparues, une foule de discriminations envers ces dernières,
   ont commencé. De plus, leur affinité aux cristaux est devenue au fil des siècles un problème d'addiction...
   Ils sont eux aussi concentrés dans les plaines de Terfil, et vivent dans les hauts quartiers de la cité de Faradel.`;
-  elfe.image = require("./../../assets/images/population/p_elfe.png");
+  elfe.image = require("./../../assets/images/races/p_elfe.png");
   elfe.locations = ["L'Empire Faradélien", "Le Régime Jirakanien"];
   listRaces.push(elfe);
 
@@ -40,7 +40,7 @@ export function getListRaces(): ArlenorRace[] {
   La rumeur dit qu'ils y cachent un grand secret...
   Il n'est pas rare de voir des Nains dans la cité de Jirakan, mais le plus souvent, les quelques Nains qui naissent en dehors des montagnes,
   les rejoignent souvent en étant adulte... et rares sont ceux qui souhaitent ensuite les quitter.`;
-  nain.image = require("./../../assets/images/population/p_nain.png");
+  nain.image = require("./../../assets/images/races/p_nain.png");
   nain.locations = ["Le Régime Jirakanien", "Les Montagnes de Kazador"];
   listRaces.push(nain);
 
@@ -54,7 +54,7 @@ export function getListRaces(): ArlenorRace[] {
   Les Humains et les Elfes les considèrent comme des bêtes, des sauvages, et la loi même... condamnent leur existence.
   Les Mutants ont peu souvent confiance en eux, et finissent par vivre cachés, seuls, camouflant du mieux qu’ils le peuvent leur partie animale...
   Cependant un groupe de résistants a commencé à se fonder dans les souterrains de la cité de Faradel, ce qui leur redonne espoir.`;
-  mutant.image = require("./../../assets/images/population/p_mutant.png");
+  mutant.image = require("./../../assets/images/races/p_mutant.png");
   mutant.locations = ["L'Empire Faradélien", "Le Régime Jirakanien", "La Forêt d'Imerys"];
   listRaces.push(mutant);
 
@@ -68,7 +68,7 @@ export function getListRaces(): ArlenorRace[] {
   Les Pans accordent respect et protection de la faune et de la flore.
   De plus, dans la forêt de Miryden, les Pans sont comme connectés entre eux via Nebulys : résultant une intelligence collective.
   Le fait de s'éloigner de la forêt, sans oublier la nature craintive et technophobe des Pans, les déconnecterait et rendrait certains vulnérables, déprimés, voire fous.`;
-  pan.image = require("./../../assets/images/population/p_pan.png");
+  pan.image = require("./../../assets/images/races/p_pan.png");
   pan.locations = ["Inconnue"];
   listRaces.push(pan);
 
@@ -85,14 +85,14 @@ export function getListRaces(): ArlenorRace[] {
   Ils ont alors un rituel, sur une semaine au minimum, qui transforme un cristal en encre puis en tatouage.
   Et de leur côté, les Arléniens n'ont pas de liens mentaux entre eux, mais un lien direct avec Nebulys :
   ils ressentent le besoin et le devoir de rester dans la forêt pour protéger leur créateur.`;
-  arlenien.image = require("./../../assets/images/population/p_arlenien.png");
+  arlenien.image = require("./../../assets/images/races/p_arlenien.png");
   arlenien.locations = ["Inconnue"];
   listRaces.push(arlenien);
 
   // Race des célestiens
   const celestien = new ArlenorRace("Célestien", DifficultyEnum.Impossible.Code, 1, 10);
   celestien.description = "";
-  celestien.image = require("./../../assets/images/population/p_humain.png");
+  celestien.image = require("./../../assets/images/races/p_humain.png");
   celestien.locations = ["L'Empire Faradélien", "Le Régime Jirakanien"];
   listRaces.push(celestien);
 
