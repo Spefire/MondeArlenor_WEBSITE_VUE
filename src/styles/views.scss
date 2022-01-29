@@ -274,9 +274,57 @@
     }
 }
 
+.religion-view {
+    .religion-list {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-row-gap: 20px;
+        justify-content: center;
+
+        @include mobile-only {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        img {
+            height: 9vw;
+            max-height: 140px;
+            width: 9vw;
+            max-width: 140px;
+            margin: auto;
+            cursor: pointer;
+        }
+    }
+
+    .religion-description {
+        display: flex;
+        flex-direction: column;
+        max-height: 325px;
+        width: 70%;
+        margin: auto;
+        padding: 10px 25px;
+        overflow: auto;
+        text-align: center;
+        border: 1px solid;
+        border-radius: 5px;
+        border-color: $secondary-color;
+        background: $black-color;
+
+        @include tablet-only {
+            width: 100%;
+        }
+
+        p {
+            margin-top: 10px;
+            color: $secondary-color;
+            font-style: italic;
+        }
+    }
+}
+
 .layout-view {
     position: relative;
     display: flex;
+    align-items: center;
     justify-content: center;
     min-height: calc(100vh - 350px);
     padding: 50px 0;

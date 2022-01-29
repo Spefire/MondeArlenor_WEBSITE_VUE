@@ -16,11 +16,11 @@
 }
 
 .margin-top-1 {
-  margin-top: 16px;
+  margin-top: 16px !important;
 }
 
 .margin-bottom-1 {
-  margin-bottom: 16px;
+  margin-bottom: 16px !important;
 }
 
 .margin-left-05 {
@@ -33,6 +33,10 @@
 
 .text-italic {
   font-style: italic;
+}
+
+.text-lower {
+  text-transform: lowercase;
 }
 
 .text-cyan {

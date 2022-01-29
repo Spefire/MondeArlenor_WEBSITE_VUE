@@ -17,8 +17,34 @@
 
   <div little-separator />
 
-  <div class="population-view layout-view background universe-vertical">
-    <div class="layout-center large" />
+  <div class="religion-view layout-view background universe-vertical">
+    <div class="layout-center large">
+      <div class="religion-list">
+        <img
+          v-for="(angel, index) in allAngels"
+          :key="index"
+          :src="(currentDivinity.name === angel.name) ? angel.imageSelected : angel.image"
+          :alt="angel.name"
+          @click="changeSelection(angel)">
+      </div>
+      <div class="religion-description margin-top-1 margin-bottom-1">
+        <h3 class="margin-top-1">{{ currentDivinity.isInversed ? "La Cabale Inversée" : "La Sainte Cabale" }}</h3>
+        <h2>
+          {{ currentDivinity.libNum }}<span class="text-lower">{{ currentDivinity.isInversed ? "i" : "" }}</span>
+          - {{ currentDivinity.name }}, {{ currentDivinity.title }}
+        </h2>
+        <h3>{{ currentDivinity.symbols }}</h3>
+        <p>"{{ currentDivinity.comment }}"<br>- {{ currentDivinity.commentName }}</p>
+      </div>
+      <div class="religion-list">
+        <img
+          v-for="(demon, index) in allDemons"
+          :key="index"
+          :src="(currentDivinity.name === demon.name) ? demon.imageSelected : demon.image"
+          :alt="demon.name"
+          @click="changeSelection(demon)">
+      </div>
+    </div>
   </div>
 </template>
 

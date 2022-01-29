@@ -1,6 +1,8 @@
 import HeadLayout from "@/components/head-layout/HeadLayout.vue";
+import { ArlenorDivinity } from "@/models/ArlenorDivinity";
+import { getListAngels, getListDemons } from "@/models/data/ListDivinities";
 import { PageTitles } from "@/models/PagesTitles";
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "ReligionView",
@@ -11,7 +13,12 @@ export default defineComponent({
 
   setup() {
     const title = PageTitles.religion;
-    return { title };
+    const allAngels = ref(getListAngels());
+    const allDemons = ref(getListDemons());
+
+    const currentDivinity = ref(getListAngels()[0]);
+
+    return { allAngels, allDemons, currentDivinity, title };
   },
   
   computed: {
@@ -22,4 +29,10 @@ export default defineComponent({
       return require("./../../assets/images/religion/demon.png");
     },
   },
+
+  methods: {
+    changeSelection(divinity: ArlenorDivinity) {
+      this.currentDivinity = divinity;
+    }
+  }
 });
