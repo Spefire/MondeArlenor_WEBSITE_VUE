@@ -18,9 +18,9 @@
         <router-link
           class="link"
           to="/roleplay">{{ pages.roleplay }}</router-link>
-        <router-link
+        <!--router-link
           class="link"
-          to="/celestia">{{ pages.celestia }}</router-link>
+          to="/celestia">{{ pages.celestia }}</!--router-link-->
       </nav>
     </div>
     <div
@@ -29,7 +29,7 @@
       <nav class="header-subnav">
         <router-link
           class="header-subtitle link exact-link"
-          to="/universe">{{ pages.universe }}</router-link>
+          to="/universe">{{ pages.worldmap }}</router-link>
         <router-link
           class="link exact-link"
           to="/universe/religion">{{ pages.religion }}</router-link>
@@ -65,14 +65,14 @@
         <router-link
           class="link"
           to="/roleplay">{{ pages.roleplay }}</router-link>
-        <router-link
+        <!--router-link
           class="link"
-          to="/celestia">{{ pages.celestia }}</router-link>
+          to="/celestia">{{ pages.celestia }}</router-link-->
       </nav>
       <nav v-if="onUniverseRoute">
         <router-link
           class="link exact-link"
-          to="/universe">{{ pages.universe }}</router-link>
+          to="/universe">{{ pages.worldmap }}</router-link>
         <router-link
           class="link exact-link"
           to="/universe/religion">{{ pages.religion }}</router-link>

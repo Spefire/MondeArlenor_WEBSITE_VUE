@@ -46,7 +46,7 @@
         </p>
         <router-link
           class="link-button"
-          to="/celestia">
+          to="/">
           Prochainement disponible
         </router-link>
       </div>

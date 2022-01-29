@@ -38,13 +38,6 @@
           Passer à la création !
         </router-link>
       </div>
-      <div class="margin-top-1">
-        <router-link
-          class="link-button"
-          to="/roleplay/docs">
-          Voir la documentation
-        </router-link>
-      </div>
     </div>
   </div>
   <div little-separator />
@@ -54,7 +47,12 @@
       <p>
         Trouvez ici tous les éléments permettant de comprendre la création de personnage en profondeur ainsi que le système de jeu et des propositions de pouvoirs.
       </p>
-      <div>
+      <router-link
+        class="link-button"
+        to="/roleplay/docs">
+        Voir la documentation
+      </router-link>
+      <div class="margin-top-1">
         <a
           class="link-button margin-bottom-1"
           href="./assets/files/Manuel_Joueur.pdf"
