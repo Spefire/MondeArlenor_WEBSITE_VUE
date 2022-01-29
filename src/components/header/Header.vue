@@ -35,7 +35,7 @@
           to="/universe/religion">{{ pages.religion }}</router-link>
         <router-link
           class="link exact-link"
-          to="/universe/crystals">{{ pages.crystals }}</router-link>
+          to="/universe/magic">{{ pages.magic }}</router-link>
         <router-link
           class="link exact-link"
           to="/universe/races">{{ pages.races }}</router-link>
@@ -78,7 +78,7 @@
           to="/universe/religion">{{ pages.religion }}</router-link>
         <router-link
           class="link exact-link"
-          to="/universe/crystals">{{ pages.crystals }}</router-link>
+          to="/universe/magic">{{ pages.magic }}</router-link>
         <router-link
           class="link exact-link"
           to="/universe/races">{{ pages.races }}</router-link>

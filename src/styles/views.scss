@@ -318,8 +318,8 @@
     }
 }
 
-.crystals-view {
-    .crystals-container {
+.magic-view {
+    .magic-container {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -329,7 +329,7 @@
         }
     }
 
-    .crystals-zone-imgs {
+    .magic-zone-imgs {
         width: 50%;
 
         @include mobile-only {
@@ -338,7 +338,7 @@
         }
     }
 
-    .crystals-zone-text {
+    .magic-zone-text {
         width: 50%;
         text-align: left;
 
@@ -353,7 +353,7 @@
         }
     }
 
-    .crystal-imgs {
+    .magic-imgs {
         position: relative;
         height: 35vw !important;
         width: 35vw !important;

@@ -39,9 +39,6 @@ export class ArlenorCharacter {
   public race: number;
   public caracts: ArlenorCaracts;
   
-  /*public crystalPrimary: ArlenorCrystal;
-  public crystalSecondary: ArlenorCrystal;*/
-
   get initiative(): number {
     return this.caracts.hab + this.caracts.int;
   }

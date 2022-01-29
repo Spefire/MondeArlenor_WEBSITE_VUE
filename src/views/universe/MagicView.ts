@@ -3,23 +3,23 @@ import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "CrystalsView",
-  title: PageTitles.crystals,
+  name: "MagicView",
+  title: PageTitles.magic,
   components: {
     HeadLayout,
   },
 
   setup() {
-    const title = PageTitles.crystals;
+    const title = PageTitles.magic;
     return { title };
   },
   
   computed: {
     imageLeft() {
-      return require("./../../assets/images/crystals/crystals_left.png");
+      return require("./../../assets/images/magic/magic_left.png");
     },
     imageRight() {
-      return require("./../../assets/images/crystals/crystals_right.png");
+      return require("./../../assets/images/magic/magic_right.png");
     },
   },
 });

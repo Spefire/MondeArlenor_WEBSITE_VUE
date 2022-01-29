@@ -14,29 +14,29 @@
 
   <div little-separator />
 
-  <div class="crystals-view layout-view background-universe-vertical">
-    <div class="layout-center large crystals-container">
-      <div class="crystals-zone-imgs">
-        <div class="crystal-imgs">
+  <div class="magic-view layout-view background-universe-vertical">
+    <div class="layout-center large magic-container">
+      <div class="magic-zone-imgs">
+        <div class="magic-imgs">
           <img
             class="crystal-main"
-            src="./../../assets/images/crystals/crystal.png"
+            src="./../../assets/images/magic/crystal.png"
             alt="">
           <img
             class="crystal-data01"
-            src="./../../assets/images/crystals/crystal_data01.png"
+            src="./../../assets/images/magic/crystal_data01.png"
             alt="">
           <img
             class="crystal-data02"
-            src="./../../assets/images/crystals/crystal_data02.png"
+            src="./../../assets/images/magic/crystal_data02.png"
             alt="">
           <img
             class="crystal-data03"
-            src="./../../assets/images/crystals/crystal_data03.png"
+            src="./../../assets/images/magic/crystal_data03.png"
             alt="">
         </div>
       </div>
-      <div class="crystals-zone-text">
+      <div class="magic-zone-text">
         <h3>Le cristal arlénien</h3>
         <h2>Propriétés connues par tous</h2>
         <p class="bloc-text">
@@ -57,4 +57,4 @@
   </div>
 </template>
 
-<script lang="ts" src="./CrystalsView.ts"></script>
+<script lang="ts" src="./MagicView.ts"></script>
