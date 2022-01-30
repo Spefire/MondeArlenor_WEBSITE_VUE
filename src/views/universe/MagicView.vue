@@ -16,41 +16,60 @@
 
   <div class="magic-view layout-view background-universe-vertical">
     <div class="layout-center large magic-container">
-      <div class="magic-zone-imgs">
+      <div class="magic-left">
         <div class="magic-imgs">
           <img
             class="crystal-main"
-            src="./../../assets/images/magic/crystal.png"
+            :src="currentMagic.image"
             alt="">
           <img
+            v-if="currentMagic.image01"
             class="crystal-data01"
-            src="./../../assets/images/magic/crystal_data01.png"
+            :src="currentMagic.image01"
             alt="">
           <img
+            v-if="currentMagic.image02"
             class="crystal-data02"
-            src="./../../assets/images/magic/crystal_data02.png"
+            :src="currentMagic.image02"
             alt="">
           <img
+            v-if="currentMagic.image03"
             class="crystal-data03"
-            src="./../../assets/images/magic/crystal_data03.png"
+            :src="currentMagic.image03"
             alt="">
         </div>
       </div>
-      <div class="magic-zone-text">
-        <h3>Le cristal arlénien</h3>
-        <h2>Propriétés connues par tous</h2>
-        <p class="bloc-text">
-          Ils mesurent entre 1 cm et 2 m.<br>
-          La couleur d'un cristal est liée à son effet, à son pouvoir.<br>
-          Un cristal est très solide, résistant.<br>
-          L'utilisateur se lie à un cristal, avec une limite de 3 cristaux de rang (B ou supérieur) à la fois.<br>
-          Le lien peut se briser, mais il ne pourra pas se reformer entièrement par la suite.<br>
-          Plus l'utilisateur utilise ses cristaux, plus le lien entre eux s'intensifie.<br>
-          Plus l'utilisateur est loin de son cristal, plus il lui est difficile de l'utiliser.<br>
-          Les cristaux viennent principalement des mines de la cité désertique Jirakan.<br>
-          Seuls les cristalliens (métier complexe) peuvent les retravailler en leur donnant une forme précise.<br>
-          Les cristaux ne peuvent pas être séparés en plusieurs parties. Cassés, ils perdent leur pouvoir.<br>
-          Il existerait des cristaux uniques, dits 'légendaires', aux puissances incommensurables..."
+      <div class="magic-right">
+        <div class="magic-header">
+          <div
+            class="select-button inverted"
+            @click="previousSelection()">
+            <i class="icon icon-arrow-right2" />
+          </div>
+          <div>
+            <h3>Type de magie</h3>
+            <h2>{{ currentMagic.name }}</h2>
+            <p class="bloc-text">{{ currentMagic.description }}</p>
+          </div>
+          <div
+            class="select-button"
+            @click="nextSelection()">
+            <i class="icon icon-arrow-right2" />
+          </div>
+        </div>
+        
+        <p class="magic-crystals bloc-text margin-top-1">
+          Propriétés globales au cristaux :<br><br>
+          - Ils mesurent entre 1 cm et 2 m.<br>
+          - La couleur d'un cristal est liée à son effet, à son pouvoir.<br>
+          - Un cristal est très solide, résistant.<br>
+          - L'utilisateur se lie à un cristal évolutif à la fois.<br>
+          - Plus l'utilisateur utilise ses cristaux, plus le lien entre eux s'intensifie.<br>
+          - Plus l'utilisateur est loin de son cristal, plus il lui est difficile de l'utiliser.<br>
+          - Les cristaux viennent principalement des mines de la cité désertique Jirakan.<br>
+          - Seuls les cristalliens (métier complexe) peuvent les retravailler en leur donnant une forme précise.<br>
+          - Les cristaux ne peuvent pas être séparés en plusieurs parties. Cassés, ils perdent leur pouvoir.<br>
+          - Il existerait des cristaux uniques, dits 'légendaires', aux puissances incommensurables...
         </p>
       </div>
     </div>
