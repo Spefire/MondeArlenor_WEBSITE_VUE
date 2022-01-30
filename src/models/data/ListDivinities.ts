@@ -167,7 +167,6 @@ export function getListDivinites(): ArlenorDivinity[] {
   });
 
   arlenorDivinities = arlenorAngels.concat(arlenorDemons);
-  console.warn(arlenorDivinities);
 
   return arlenorDivinities;
 }

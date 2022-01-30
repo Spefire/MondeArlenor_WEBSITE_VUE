@@ -1,12 +1,13 @@
-import { ArlenorSector } from "../ArlenorSector";
 import { ArlenorZone } from "../ArlenorZone";
+import { ArlenorSectors } from "./ListSectors";
 
 export function getListZones(): ArlenorZone[] {
   const arlenorZones: ArlenorZone[]= [];
+  const sectors = new ArlenorSectors();
 
   const faradel = new ArlenorZone(
     "La Cité de Faradel",
-    new ArlenorSector("L'Empire Faradélien", "Paisible", "Tempéré"),
+    sectors.PlainesTerfil,
     `Située dans la zone paisible des Plaines de Terfil, Faradel fait partie des trois plus grandes cités du Monde d'Arlénor.
     Les elfes et les humains la considèrent comme la capitale du monde d'Arlénor, fortement développée militairement et technologiquement.
     Sa construction se base sur le principe suivant :"
@@ -25,7 +26,7 @@ export function getListZones(): ArlenorZone[] {
 
   const tour = new ArlenorZone(
     "La Tour du Savoir",
-    new ArlenorSector("L'Empire Faradélien", "Paisible", "Tempéré"),
+    sectors.PlainesTerfil,
     `La Tour du Savoir est l'emblème de l'Empire Faradélien.
     Situé en son centre, c'est aussi le centre des opérations économiques et politiques ainsi que le centre de recherche des meilleurs mages et artisans du monde.
     La Tour du Savoir est découpée en plusieurs étages et sous-sols.
@@ -43,7 +44,7 @@ export function getListZones(): ArlenorZone[] {
   
   const jirakan = new ArlenorZone(
     "Le Commerce de Jirakan",
-    new ArlenorSector("Le Régime Jirakanien", "Risqué", "Désertique"),
+    sectors.DesertSanderten,
     `Jirakan est la principale ville marchande du monde d'Arlénor.
     On y trouve en majorité des cristaux de tout genre, d'autres ressources minières,
     mais aussi de la location de main d'oeuvre voire même de la vente d'esclaves.
@@ -63,7 +64,7 @@ export function getListZones(): ArlenorZone[] {
 
   const revolte = new ArlenorZone(
     "La Grande Révolte",
-    new ArlenorSector("Le Régime Jirakanien", "Risqué", "Désertique"),
+    sectors.DesertSanderten,
     `En l'An 666 du calendrier arlénien, un groupe d'esclaves et de partisans pour leur libération, ont monté une révolte contre les Superviseurs.
     Et, une nuit, ils sont passés à l'action en exterminant la majorité de leurs maitres.
     Cependant, l'armée de Faradel est arrivée le lendemain pour soutenir les Superviseurs et les marchands de Jirakan...
@@ -83,7 +84,7 @@ export function getListZones(): ArlenorZone[] {
 
   const lumeck = new ArlenorZone(
     "L'Ile de Lumeck",
-    new ArlenorSector("La Mer de Shivazen", "Infernal", "Tropical"),
+    sectors.MerShivazen,
     `L'Ile de Lumeck est considérée comme une zone maudite :
     les marins qui s'aventurent dans la mer de Shivazen sont rares à survivre...
     mais ceux qui essayent de mettre un pied à terre sur cette île, n'en sont pas ressortis vivants.
