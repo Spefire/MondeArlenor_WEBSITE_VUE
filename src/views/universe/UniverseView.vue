@@ -6,27 +6,39 @@
         <div class="world-left">
           <img
             class="fact-image"
-            :src="selectedZone.image"
-            :alt="selectedZone.name">
-          <div class="fact-title margin-bottom-1">
-            <h2>{{ selectedZone.name }}</h2>
-            <h3>{{ selectedZone.sector.name }}</h3>
+            :src="currentZone.image"
+            :alt="currentZone.name">
+          <div class="map-header">
+            <div
+              class="select-button inverted"
+              @click="previousSelection()">
+              <i class="icon icon-arrow-right2" />
+            </div>
+            <div class="text-center margin-bottom-1">
+              <h2>{{ currentZone.name }}</h2>
+              <h3>{{ currentZone.sector.name }}</h3>
+            </div>
+            <div
+              class="select-button"
+              @click="previousSelection()">
+              <i class="icon icon-arrow-right2" />
+            </div>
           </div>
           <div class="fact-description">
-            <p>{{ selectedZone.description }}</p>
+            <p>{{ currentZone.description }}</p>
           </div>
           <p class="fact-comment margin-top-1">
-            "{{ selectedZone.comment }}"
+            "{{ currentZone.comment }}"
             <br>
-            - {{ selectedZone.commentName }}
+            - {{ currentZone.commentName }}
           </p>
         </div>
         <div class="world-right">
           <div class="map-title margin-bottom-1">
-            <h2>{{ selectedZone.sector.name }}</h2>
+            <h2>{{ currentZone.sector.name }}</h2>
             <h3>
-              Niveau de danger : <span class="text-capitalize">{{ selectedZone.sector.danger }}</span>
-              / Climat : <span class="text-capitalize">{{ selectedZone.sector.climate }}</span>
+              Niveau de danger&nbsp;:&nbsp;<span class="text-capitalize">{{ currentZone.sector.danger }}</span>
+              / Climat&nbsp;:&nbsp;<span class="text-capitalize">{{ currentZone.sector.climate }}</span>
             </h3>
           </div>
           <div class="map-icons">

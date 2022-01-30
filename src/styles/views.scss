@@ -71,7 +71,7 @@
         flex-direction: row;
         align-items: center;
 
-        @include mobile-only {
+        @include tablet-only {
             flex-direction: column-reverse;
         }
     }
@@ -80,7 +80,7 @@
         width: 35%;
         text-align: left;
 
-        @include mobile-only {
+        @include tablet-only {
             width: 100%;
             margin-top: 20px;
         }
@@ -91,10 +91,16 @@
             border-top: 1px solid $secondary-color;
             border-bottom: 1px solid $secondary-color;
             mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+
+            @include tablet-only {
+                display: none;
+            }
         }
 
-        .fact-title {
-            text-align: center;
+        .map-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             border-top: 1px solid $secondary-color;
         }
 
@@ -131,12 +137,13 @@
         width: 60%;
         margin-left: 5%;
 
-        @include mobile-only {
+        @include tablet-only {
             width: 100%;
             margin-left: 0;
         }
 
         .map-title {
+            margin: 0 10px;
             text-align: center;
         }
 
@@ -310,23 +317,6 @@
 
         @include tablet-only {
             width: 100%;
-        }
-    }
-
-    .races-button {
-        height: 40px;
-        width: 40px;
-        min-width: 40px;
-        margin: 0 10px;
-        //font-size: 40px;
-        line-height: 40px;
-        border-radius: 50%;
-        border: 2px solid $white-color;
-        background-color: rgba($black-color, 0.4);
-        cursor: pointer;
-
-        &.inverted {
-            transform: scaleX(-1);
         }
     }
 

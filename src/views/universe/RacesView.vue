@@ -19,7 +19,7 @@
     <div class="layout-center large">
       <div class="races-imgs">
         <div
-          class="races-button inverted"
+          class="select-button inverted"
           @click="previousSelection()">
           <i class="icon icon-arrow-right2" />
         </div>
@@ -40,7 +40,7 @@
           alt="">
 
         <div
-          class="races-button"
+          class="select-button"
           @click="nextSelection()">
           <i class="icon icon-arrow-right2" />
         </div>
