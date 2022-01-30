@@ -20,7 +20,7 @@
             </div>
             <div
               class="select-button"
-              @click="previousSelection()">
+              @click="nextSelection()">
               <i class="icon icon-arrow-right2" />
             </div>
           </div>

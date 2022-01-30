@@ -43,7 +43,7 @@ export function getListZones(): ArlenorZone[] {
   
   const jirakan = new ArlenorZone(
     "Le Commerce de Jirakan",
-    new ArlenorSector("le Régime Jirakanien", "Risqué", "Désertique"),
+    new ArlenorSector("Le Régime Jirakanien", "Risqué", "Désertique"),
     `Jirakan est la principale ville marchande du monde d'Arlénor.
     On y trouve en majorité des cristaux de tout genre, d'autres ressources minières,
     mais aussi de la location de main d'oeuvre voire même de la vente d'esclaves.
@@ -60,27 +60,43 @@ export function getListZones(): ArlenorZone[] {
   );
   jirakan.image =  require("./../../assets/images/world/jirakan.jpg");
   arlenorZones.push(jirakan);
-  
+
+  const revolte = new ArlenorZone(
+    "La Grande Révolte",
+    new ArlenorSector("Le Régime Jirakanien", "Risqué", "Désertique"),
+    `En l'An 666 du calendrier arlénien, un groupe d'esclaves et de partisans pour leur libération, ont monté une révolte contre les Superviseurs.
+    Et, une nuit, ils sont passés à l'action en exterminant la majorité de leurs maitres.
+    Cependant, l'armée de Faradel est arrivée le lendemain pour soutenir les Superviseurs et les marchands de Jirakan...
+    Pour contrer à cela, les esclaves se sont alors réfugiés dans les mines du Sud, près des montagnes de Kazador :
+    les connaissant comme leur poche, ils en tiraient donc un grand avantage.
+    Au bout de quelques jours de batailles dans les mines, certains ont commencé à avoir des hallucinations,
+    entendre des grognements et sentir de légères secousses...
+    La folie a alors atteint les deux camps et beaucoup ont fuit le combat dans les mines.
+    Puis le jour fatal arriva. Un dernier grondement, audible par tous, a déclenché l'effrondrement de la mine alors qu'une bataille y faisait rage.
+    Les peu de personnes ayant survécu, ont perdu toute magie et disaient qu'une entité les avait touchés.
+    Aujourd'hui, ces mines sont inaccessibles et définies comme étant maudites...`,
+    "C'était terrifiant. Le genre de moment où il n'y avait plus de camps : juste des personnes essayant de survivre... Quand nos cristaux n'ont plus fonctionné, on a su alors ce qu'était l'Impuissance.",
+    "Survivant de la Grande Révolte"
+  );
+  revolte.image =  require("./../../assets/images/world/revolte.jpg");
+  arlenorZones.push(revolte);
+
+  const lumeck = new ArlenorZone(
+    "L'Ile de Lumeck",
+    new ArlenorSector("La Mer de Shivazen", "Infernal", "Tropical"),
+    `L'Ile de Lumeck est considérée comme une zone maudite :
+    les marins qui s'aventurent dans la mer de Shivazen sont rares à survivre...
+    mais ceux qui essayent de mettre un pied à terre sur cette île, n'en sont pas ressortis vivants.
+    La faune et ainsi que la flore y sont des dangers permanents.
+    De plus, que ce soit les voies aériennes ou maritimes, la météo et les récifs empêchent toute procédure d'atterrissage ou d'amarrage impossible.
+    Certains disent que l'île est vivante, avalant tout âme pour se nourrir...
+    Des cartographes ont quand même pu délimiter cette zone au bout de quelques années et aujourd'hui,
+    seuls les fous continuent d'essayer de percer le mystère de l'île.`,
+    "Douloureux... Affreux... Puant... Effrayant... La mort la plus belle ne se trouve pas en ces lieux.",
+    "Cartographe, poète dans l'âme"
+  );
+  lumeck.image =  require("./../../assets/images/world/lumeck.jpg");
+  arlenorZones.push(lumeck);
+
   return arlenorZones;
 }
-
-/*export const facts = [
-  {
-    "id": 3,
-    "title": "La Grande Révolte",
-    "zone": "Jirakan",
-    "backgroundSrc": "assets/images/world/revolte.jpg",
-    "texte01": "En l'An 666 du calendrier arlénien, un groupe d'esclaves et de partisans pour leur libération, ont monté une révolte contre les Superviseurs. Et, une nuit, ils sont passés à l'action en exterminant la majorité de leurs maitres.</p><p>Cependant, l'armée de Faradel est arrivée le lendemain pour soutenir les Superviseurs et les marchands de Jirakan... Pour contrer à cela, les esclaves se sont alors réfugiés dans les mines du Sud, près des montagnes de Kazador : les connaissant comme leur poche, ils en tiraient donc un grand avantage.",
-    "texte02": "Au bout de quelques jours de batailles dans les mines, certains ont commencé à avoir des hallucinations, entendre des grognements et sentir de légères secousses... La folie a alors atteint les deux camps et beaucoup ont fuit le combat dans les mines.</p><p>Puis le jour fatal arriva. Un dernier grondement, audible par tous, a déclenché l'effrondrement de la mine alors qu'une bataille y faisait rage. Les peu de personnes ayant survécu, ont perdu toute magie et disaient qu'une entité les avait touchés.</p><p>Aujourd'hui, ces mines sont inaccessibles et définies comme étant maudites...",
-    "comments": "\"C'était terrifiant. Le genre de moment où il n'y avait plus de camps : juste des personnes essayant de survivre... Quand nos cristaux n'ont plus fonctionné, on a su alors ce qu'était l'Impuissance.\"<br>- Survivant de la Grande Révolte"
-  },
-  {
-    "id": 4,
-    "title": "L'Ile de Lumeck",
-    "zone": "Shivazen",
-    "backgroundSrc": "assets/images/world/lumeck.jpg",
-    "texte01": "L'Ile de Lumeck est considérée comme une zone maudite : les marins qui s'aventurent dans la mer de Shivazen sont rares à survivre... mais ceux qui essayent de mettre un pied à terre sur cette île, n'en sont pas ressortis vivants. La faune et ainsi que la flore y sont des dangers permanents.",
-    "texte02": "De plus, que ce soit les voies aériennes ou maritimes, la météo et les récifs empêchent toute procédure d'atterrissage ou d'amarrage impossible. Certains disent que l'île est vivante, avalant tout âme pour se nourrir...</p><p>Des cartographes ont quand même pu délimiter cette zone au bout de quelques années et aujourd'hui, seuls les fous continuent d'essayer de percer le mystère de l'île.",
-    "comments": "\"Douloureux... Affreux... Puant... Effrayant...<br>La mort la plus belle ne se trouve pas en ces lieux.\"<br>- Cartographe, poète dans l'âme"
-  }
-];*/
