@@ -31,8 +31,16 @@
   font-weight: bold;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .text-italic {
   font-style: italic;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
 }
 
 .text-lower {

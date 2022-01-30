@@ -1,10 +1,17 @@
+import { getListZones } from "@/models/data/ListZones";
 import { PageTitles } from "@/models/PagesTitles";
+import { defineComponent, ref } from "vue";
 
-export default {
+export default defineComponent({
   name: "UniverseView",
   title: PageTitles.worldmap,
   components: {},
 
-  // eslint-disable-next-line
-  setup() {},
-};
+  setup() {
+    const allZones = ref(getListZones());
+    const selectedZone = ref(getListZones()[0]);
+
+    return { allZones, selectedZone };
+  },
+
+});

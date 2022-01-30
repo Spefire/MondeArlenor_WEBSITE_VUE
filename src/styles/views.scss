@@ -66,9 +66,129 @@
 }
 
 .universe-view {
-    .universe-map {
-        width: 80%;
-        padding: 0;
+    .world-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        @include mobile-only {
+            flex-direction: column-reverse;
+        }
+    }
+
+    .world-left {
+        width: 35%;
+        text-align: left;
+
+        @include mobile-only {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .fact-image {
+            height: 100%;
+            width: 100%;
+            border-top: 1px solid $secondary-color;
+            border-bottom: 1px solid $secondary-color;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+        }
+
+        .fact-title {
+            text-align: center;
+            border-top: 1px solid $secondary-color;
+        }
+
+        .fact-description {
+            max-height: 350px;
+            padding: 10px 0;
+            overflow-y: auto;
+            border-top: 1px solid $secondary-color;
+            border-bottom: 1px solid $secondary-color;
+
+            @include tablet-only {
+                max-height: 250px;
+            }
+        }
+
+        .fact-comment {
+            color: $secondary-color;
+            text-align: center;
+            font-style: italic;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: none;
+        }
+        ::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+        }
+    }
+
+    .world-right {
+        width: 60%;
+        margin-left: 5%;
+
+        @include mobile-only {
+            width: 100%;
+            margin-left: 0;
+        }
+
+        .map-title {
+            text-align: center;
+        }
+
+        .universe-map {
+            width: 100%;
+            padding: 0;
+        }
+
+        /*.map-icons {
+            position: relative;
+        }
+
+        .map-icon {
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            margin-top: -25px;
+            margin-left: -25px;
+            cursor: pointer;
+
+            @media screen and (max-width: 700px) {
+                height: 30px;
+                width: 30px;
+                margin-top: -15px;
+                margin-left: -15px;
+            }
+        }
+
+        .map-icon-00 {
+            top: 45%;
+            left: 76%;
+        }
+
+        .map-icon-01 {
+            top: 42%;
+            left: 72%;
+        }
+
+        .map-icon-02 {
+            top: 69%;
+            left: 73%;
+        }
+
+        .map-icon-03 {
+            top: 76%;
+            left: 76%;
+        }
+
+        .map-icon-04 {
+            top: 20%;
+            left: 20%;
+        }*/
     }
 }
 
