@@ -1,14 +1,14 @@
 <template>
-  <div class="universe-view layout-view background-universe">
+  <div class="world-view layout-view background-universe">
     <div class="layout-center large">
 
       <div class="world-container">
         <div class="world-left">
           <img
-            class="fact-image"
+            class="zone-image"
             :src="currentZone.image"
             :alt="currentZone.name">
-          <div class="map-header">
+          <div class="zone-header">
             <div
               class="select-button inverted"
               @click="previousSelection()">
@@ -24,26 +24,26 @@
               <i class="icon icon-arrow-right2" />
             </div>
           </div>
-          <div class="fact-description">
+          <div class="zone-description">
             <p>{{ currentZone.description }}</p>
           </div>
-          <p class="fact-comment margin-top-1">
+          <p class="zone-comment margin-top-1">
             "{{ currentZone.comment }}"
             <br>
             - {{ currentZone.commentName }}
           </p>
         </div>
         <div class="world-right">
-          <div class="map-title margin-bottom-1">
+          <div class="world-title margin-bottom-1">
             <h2>{{ currentZone.sector.name }}</h2>
             <h3>
               Niveau de danger&nbsp;:&nbsp;<span class="text-capitalize">{{ currentZone.sector.danger }}</span>
               / Climat&nbsp;:&nbsp;<span class="text-capitalize">{{ currentZone.sector.climate }}</span>
             </h3>
           </div>
-          <div class="map-icons">
+          <div class="world-icons">
             <img
-              class="universe-map bloc-text"
+              class="world-map bloc-text"
               src="./../../assets/images/world/worldmap.jpg"
               alt="">
             <!--img

@@ -65,7 +65,7 @@
     }
 }
 
-.universe-view {
+.world-view {
     .world-container {
         display: flex;
         flex-direction: row;
@@ -85,7 +85,7 @@
             margin-top: 20px;
         }
 
-        .fact-image {
+        .zone-image {
             height: 100%;
             width: 100%;
             border-top: 1px solid $secondary-color;
@@ -97,14 +97,14 @@
             }
         }
 
-        .map-header {
+        .zone-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
             border-top: 1px solid $secondary-color;
         }
 
-        .fact-description {
+        .zone-description {
             max-height: 350px;
             padding: 10px 0;
             overflow-y: auto;
@@ -116,7 +116,7 @@
             }
         }
 
-        .fact-comment {
+        .zone-comment {
             color: $secondary-color;
             text-align: center;
             font-style: italic;
@@ -142,12 +142,12 @@
             margin-left: 0;
         }
 
-        .map-title {
+        .world-title {
             margin: 0 10px;
             text-align: center;
         }
 
-        .universe-map {
+        .world-map {
             width: 100%;
             padding: 0;
         }
