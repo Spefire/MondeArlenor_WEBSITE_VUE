@@ -16,7 +16,7 @@
             </div>
             <div class="text-center margin-bottom-1">
               <h2>{{ currentZone.name }}</h2>
-              <h3>{{ currentZone.sector.name }}</h3>
+              <h3>{{ showCities ? currentZone.sector.city : currentZone.sector.name }}</h3>
             </div>
             <div
               class="select-button"
@@ -35,82 +35,31 @@
         </div>
         <div class="world-right">
           <div class="world-title margin-bottom-1">
-            <h2>{{ currentZone.sector.name }}</h2>
-            <h3>
+            <h2>{{ showCities ? currentZone.sector.city : currentZone.sector.name }}</h2>
+            <h3 v-if="!showCities">
+              Climat&nbsp;:&nbsp;<span class="text-capitalize">{{ currentZone.sector.climate }}</span>
+            </h3>
+            <h3 v-if="showCities">
               Niveau de danger&nbsp;:&nbsp;<span class="text-capitalize">{{ currentZone.sector.danger }}</span>
-              / Climat&nbsp;:&nbsp;<span class="text-capitalize">{{ currentZone.sector.climate }}</span>
             </h3>
           </div>
           <div class="world-icons">
             <img
+              v-show="!showCities"
               class="world-map bloc-text"
-              src="./../../assets/images/world/worldmap.jpg"
-              alt="">
-            <!--img
-              *ngIf="select == 0"
-              class="map-icon map-icon-00"
-              src="assets/images/world/icon_map_selected.svg"
-              alt="">
+              src="./../../assets/images/world/worldmap_climates.jpg"
+              alt="Carte des Climats">
             <img
-              *ngIf="select != 0"
-              class="map-icon map-icon-00"
-              src="assets/images/world/icon_map.svg"
-              alt=""
-              (click)="setSelection(0)"
-              (mouseover)="hoverIcon(0)"
-              (mouseout)="unhoverIcon(0)">
-            <img
-              *ngIf="select == 1"
-              class="map-icon map-icon-01"
-              src="assets/images/world/icon_map_selected.svg"
-              alt="">
-            <img
-              *ngIf="select != 1"
-              class="map-icon map-icon-01"
-              src="assets/images/world/icon_map.svg"
-              alt=""
-              (click)="setSelection(1)"
-              (mouseover)="hoverIcon(1)"
-              (mouseout)="unhoverIcon(1)">
-            <img
-              *ngIf="select == 2"
-              class="map-icon map-icon-02"
-              src="assets/images/world/icon_map_selected.svg"
-              alt="">
-            <img
-              *ngIf="select != 2"
-              class="map-icon map-icon-02"
-              src="assets/images/world/icon_map.svg"
-              alt=""
-              (click)="setSelection(2)"
-              (mouseover)="hoverIcon(2)"
-              (mouseout)="unhoverIcon(2)">
-            <img
-              *ngIf="select == 3"
-              class="map-icon map-icon-03"
-              src="assets/images/world/icon_map_selected.svg"
-              alt="">
-            <img
-              *ngIf="select != 3"
-              class="map-icon map-icon-03"
-              src="assets/images/world/icon_map.svg"
-              alt=""
-              (click)="setSelection(3)"
-              (mouseover)="hoverIcon(3)"
-              (mouseout)="unhoverIcon(3)">
-            <img
-              *ngIf="select == 4"
-              class="map-icon map-icon-04"
-              src="assets/images/world/icon_map_selected.svg"
-              alt="">
-            <img
-              *ngIf="select != 4"
-              class="map-icon map-icon-04"
-              src="assets/images/world/icon_map.svg"
-              alt=""
-              (click)="setSelection(4)"
-              (mouseover)="hoverIcon(4)"
-              (mouseout)="unhoverIcon(4)"-->
+              v-show="showCities"
+              class="world-map bloc-text"
+              src="./../../assets/images/world/worldmap_cities.jpg"
+              alt="Carte des Cités">
+          </div>
+          <div class="world-title margin-top-1">
+            <ToggleButton
+              :text="'Voir la version des cités et les niveaux de danger'"
+              :value="showCities"
+              @change="toggleMap" />
           </div>
         </div>
       </div>

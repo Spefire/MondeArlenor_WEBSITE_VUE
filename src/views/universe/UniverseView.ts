@@ -1,3 +1,4 @@
+import ToggleButton from "@/components/toggle-button/ToggleButton.vue";
 import { ArlenorZone } from "@/models/ArlenorZone";
 import { getListZones } from "@/models/data/ListZones";
 import { PageTitles } from "@/models/PagesTitles";
@@ -6,13 +7,16 @@ import { defineComponent, ref } from "vue";
 export default defineComponent({
   name: "UniverseView",
   title: PageTitles.worldmap,
-  components: {},
+  components: {
+    ToggleButton
+  },
 
   setup() {
     const currentIndex = ref(0);
     const allZones = ref(getListZones());
+    const showCities = ref(false);
 
-    return { currentIndex, allZones };
+    return { currentIndex, allZones, showCities };
   },
 
   computed: {
@@ -38,6 +42,10 @@ export default defineComponent({
     nextSelection() {
       if (this.currentIndex === this.allZones.length - 1) this.currentIndex = 0;
       else this.currentIndex = this.currentIndex + 1;
+    },
+
+    toggleMap(value: boolean) {
+      this.showCities = value;
     }
   }
 });

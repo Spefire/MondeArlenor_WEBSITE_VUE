@@ -10,13 +10,34 @@ export class ArlenorSectors {
   public MerShivazen: ArlenorSector;
 
   constructor() {
-    this.PlainesTerfil = new ArlenorSector("Les Plaines de Terfil", "Paisible", "Tempéré");
-    this.DesertSanderten = new ArlenorSector("Le Désert de Sanderten", "Risqué", "Désertique");
-    this.ForetImerys = new ArlenorSector("La Forêt d'Imerys", "Risqué", "Tempéré");
-    this.ForetMiryden = new ArlenorSector("La Forêt de Miryden", "Mortel", "Tropical");
-    this.MontagnesKazador = new ArlenorSector("Les Montagnes de Kazador", "Mortel", "Hivernal");
-    this.MontagnesHabivel = new ArlenorSector("Les Montagnes de Habivel", "Mortel", "Tropical");
-    this.MerShivazen = new ArlenorSector("La Mer de Shivazen", "Infernal", "Tropical");
+    this.PlainesTerfil = new ArlenorSector(
+      "Les Plaines de Terfil",
+      "L'Empire Faradélien",
+      "Paisible", "Tempéré");
+    this.DesertSanderten = new ArlenorSector(
+      "Le Désert de Sanderten",
+      "Le Régime Jirakanien",
+      "Risqué", "Désertique");
+    this.ForetImerys = new ArlenorSector(
+      "La Forêt d'Imerys",
+      "Une Zone de Non-droit",
+      "Risqué", "Tempéré");
+    this.ForetMiryden = new ArlenorSector(
+      "La Forêt de Miryden",
+      "Le Territoire de Nébulys",
+      "Mortel", "Tropical");
+    this.MontagnesKazador = new ArlenorSector(
+      "Les Montagnes de Kazador",
+      "Le Royaume de Dakaros",
+      "Mortel", "Hivernal");
+    this.MontagnesHabivel = new ArlenorSector(
+      "Les Montagnes de Habivel",
+      "Une Zone de Non-droit",
+      "Mortel", "Tropical");
+    this.MerShivazen = new ArlenorSector(
+      "La Mer de Shivazen",
+      "Une Zone de Non-droit",
+      "Infernal", "Tropical");
   }
 }
 
