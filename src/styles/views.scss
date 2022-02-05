@@ -357,6 +357,7 @@
     .races-description {
         display: flex;
         flex-direction: column;
+        height: 325px;
         max-height: 325px;
         width: 70%;
         margin: auto;
@@ -410,7 +411,9 @@
     .religion-description {
         display: flex;
         flex-direction: column;
-        max-height: 325px;
+        justify-content: center;
+        height: 225px;
+        max-height: 225px;
         width: 70%;
         margin: auto;
         overflow: auto;
@@ -418,6 +421,11 @@
 
         @include tablet-only {
             width: 100%;
+        }
+
+        @include mobile-only {
+            height: auto;
+            max-height: fit-content;
         }
 
         p {

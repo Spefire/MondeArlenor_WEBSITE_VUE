@@ -92,7 +92,7 @@ export function getListRaces(): ArlenorRace[] {
   // Race des célestiens
   const celestien = new ArlenorRace("Célestien", DifficultyEnum.Impossible.Code, 1, 10);
   celestien.description = "";
-  celestien.image = require("./../../assets/images/races/p_humain.png");
+  celestien.image = require("./../../assets/images/races/p_celestien.png");
   celestien.locations = ["L'Empire Faradélien", "Le Régime Jirakanien"];
   listRaces.push(celestien);
 
