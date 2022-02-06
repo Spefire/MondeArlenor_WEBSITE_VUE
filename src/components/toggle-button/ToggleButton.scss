@@ -8,8 +8,9 @@
 	.switch {
 		position: relative;
 		display: inline-block;
-		width: 48px;
 		height: 28px;
+		min-width: 48px;
+		width: 48px;
 	}
 
 	/* Hide default HTML checkbox */
