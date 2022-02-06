@@ -3,7 +3,8 @@
 #app {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
 
   &.without-height {
     height: auto;
