@@ -35,7 +35,7 @@
         <router-link
           class="link-button"
           to="/roleplay/creation">
-          Passer à la création !
+          Passer à la création ! (A venir)
         </router-link>
       </div>
     </div>
@@ -50,27 +50,8 @@
       <router-link
         class="link-button"
         to="/roleplay/docs">
-        Voir la documentation
+        Voir la documentation (A venir)
       </router-link>
-      <div class="margin-top-1">
-        <a
-          class="link-button margin-bottom-1"
-          href="./assets/files/Manuel_Joueur.pdf"
-          download>
-          Télécharger le Manuel du Joueur V2.1 (Pas à jour)
-        </a>
-      </div>
-      <p>
-        Pour les Maitres du Jeu seulement : un guide sur la campagne et le premier scénario d'introduction.
-      </p>
-      <div>
-        <a
-          class="link-button"
-          href="./assets/files/Manuel_MaitreDuJeu.pdf"
-          download>
-          Télécharger le Manuel du MJ V2.1 (Pas à jour)
-        </a>
-      </div>
     </div>
     <div class="glyphe-container">
       <Glyphe :icon="'book'" />

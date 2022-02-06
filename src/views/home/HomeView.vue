@@ -47,7 +47,7 @@
         <router-link
           class="link-button"
           to="/">
-          Prochainement disponible
+          Volez vers Célestia (A venir)
         </router-link>
       </div>
     </div>
