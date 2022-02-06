@@ -440,10 +440,25 @@
     .magic-container {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
 
         @include mobile-only {
             flex-direction: column;
+        }
+    }
+
+    .magic-top {
+        width: 100%;
+
+        @include mobile-only {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .magic-grid {
+            margin: -10px;
+            margin-top: 10px !important;
         }
     }
 
@@ -467,9 +482,7 @@
 
         .magic-header {
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
+            flex-direction: column;
             text-align: center;
         }
 

@@ -20,46 +20,31 @@
         <div class="magic-imgs">
           <img
             class="crystal-main"
-            :src="currentMagic.image"
+            src="./../../assets/images/magic/crystal.png"
             alt="">
           <img
-            v-if="currentMagic.image01"
             class="crystal-data01"
-            :src="currentMagic.image01"
+            src="./../../assets/images/magic/crystal_data01.png"
             alt="">
           <img
-            v-if="currentMagic.image02"
             class="crystal-data02"
-            :src="currentMagic.image02"
+            src="./../../assets/images/magic/crystal_data02.png"
             alt="">
           <img
-            v-if="currentMagic.image03"
             class="crystal-data03"
-            :src="currentMagic.image03"
+            src="./../../assets/images/magic/crystal_data03.png"
             alt="">
         </div>
       </div>
       <div class="magic-right">
         <div class="magic-header">
-          <div
-            class="select-button inverted"
-            @click="previousSelection()">
-            <i class="icon icon-arrow-right2" />
-          </div>
-          <div>
-            <h3>Type de magie</h3>
-            <h2>{{ currentMagic.name }}</h2>
-            <p class="bloc-text">{{ currentMagic.description }}</p>
-          </div>
-          <div
-            class="select-button"
-            @click="nextSelection()">
-            <i class="icon icon-arrow-right2" />
-          </div>
+          <h2>Propriétés globales aux cristaux</h2>
+          <p class="bloc-text">
+            Ces propriétés s'appliquent pour les cristaux :<br>
+            énergétiques, instantannés et évolutifs.
+          </p>
         </div>
-        
-        <p class="magic-crystals bloc-text margin-top-1">
-          Propriétés globales au cristaux :<br><br>
+        <p class="magic-crystals bloc-text">
           - Ils mesurent entre 1 cm et 2 m.<br>
           - La couleur d'un cristal est liée à son effet, à son pouvoir.<br>
           - Un cristal est très solide, résistant.<br>
@@ -67,10 +52,28 @@
           - Plus l'utilisateur utilise ses cristaux, plus le lien entre eux s'intensifie.<br>
           - Plus l'utilisateur est loin de son cristal, plus il lui est difficile de l'utiliser.<br>
           - Les cristaux viennent principalement des mines de la cité désertique Jirakan.<br>
-          - Seuls les cristalliens (métier complexe) peuvent les retravailler en leur donnant une forme précise.<br>
-          - Les cristaux ne peuvent pas être séparés en plusieurs parties. Cassés, ils perdent leur pouvoir.<br>
+          - Seuls les cristalliens (métier rare et complexe) peuvent les retravailler en leur donnant une forme précise.<br>
+          - Les cristaux ne peuvent pas être séparés en plusieurs parties. Cassés, ils perdent totalement leur pouvoir.<br>
           - Il existerait des cristaux uniques, dits 'légendaires', aux puissances incommensurables...
         </p>
+      </div>
+      <div class="magic-top">
+        <div class="magic-grid docs-grid-list">
+          <div
+            v-for="(magic, index) in allMagics"
+            class="docs-grid-element"
+            :key="index">
+            <img
+              :src="magic.image"
+              :alt="magic.name">
+            <div class="docs-grid-infos">
+              <div class="margin-bottom-1">
+                <span class="text-bold">{{ magic.name }}</span>
+              </div>
+              <p v-html="magic.description" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
