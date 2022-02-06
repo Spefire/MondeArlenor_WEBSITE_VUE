@@ -12,11 +12,6 @@
         &::after {
             top: 50px;
             bottom: 51px;
-
-            @include mobile-only {
-                top: 51px;
-                bottom: 101px;
-            }
         }
 
         .home-subcontainer {
