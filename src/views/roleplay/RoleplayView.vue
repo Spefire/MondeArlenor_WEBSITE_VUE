@@ -34,7 +34,7 @@
       <div>
         <router-link
           class="link-button"
-          to="/roleplay/creation">
+          to="/roleplay">
           Passer à la création ! (A venir)
         </router-link>
       </div>
@@ -49,7 +49,7 @@
       </p>
       <router-link
         class="link-button"
-        to="/roleplay/docs">
+        to="/roleplay">
         Voir la documentation (A venir)
       </router-link>
     </div>
