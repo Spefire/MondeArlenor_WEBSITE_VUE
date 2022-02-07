@@ -3,13 +3,20 @@
     :title="title"
     :image-left="imageLeft"
     :image-right="imageRight">
-    <p>
-      Lors de la Création, seuls les humains étaient présents dans le Monde d'Arlénor.
-      "Cependant, à l'An 0, les humains ont découvert ce qui allait changer radicalement leur vie : les cristaux.
-      <br><br>La manipulation et la présence de ces derniers aux côtés des humains, ont altéré au fil du temps leur code génétique, donnant vie à de nouvelles races.
-      Des relations se sont créées alors entre les différences races, certaines amicales, neutres, et d'autres... meurtrières.
-      <br><br>Les elfes et les humains vivent en toute liberté alors que les nains et les mutants essayent de survivre du mieux qu'ils le peuvent.
-      Les pans et les arléniens restent cachés, observant le monde de loin...
+    <p class="bloc-text">
+      Après avoir bâti une base solide dans les plaines, tout en se familiarisant avec les cristaux, les humains se sont alors mis en quête d’aventure&nbsp;:&nbsp;
+      explorer le monde qui leur avait été donné, tout en recherchant de nouvelles sources d’énergies ou de pouvoirs…<br>
+      <br>
+      Très attachés aux préceptes d’Arlénor, les explorateurs et nouveaux colons, partirent chacun avec <b>une retranscription des tablettes de cristal</b>.<br>
+      Ils furent 19 groupes à s’élancer dans cette <b>quête de l’Expansion</b>...<br>
+      à l'<b>An 0 du calendrier Arlénien</b>.<br>
+      <br>
+      La manipulation et la présence des cristaux aux côtés des humains, ont au fil du temps <b>altéré leur code génétique</b>, donnant vie à de nouvelles races.<br>
+      Des relations se sont créées alors entre les différences races, certaines amicales, neutres, et d'autres... meurtrières.<br>
+      <br>
+      Les <b>humains</b> et les <b>elfes</b> vivent en toute liberté alors que les <b>nains</b> et les <b>mutants</b> essayent de survivre du mieux qu'ils le peuvent.
+      Les <b>pans</b> et les <b>arléniens</b>, eux, restent cachés, observant le monde de loin.<br>
+      Et les <b>célestiens</b>, coupés de tout, vivent leur propre aventure...
     </p>
   </HeadLayout>
 

@@ -61,6 +61,8 @@
 }
 
 .world-view {
+    min-height: 85vh !important;
+
     .world-container {
         display: flex;
         flex-direction: row;
@@ -100,7 +102,8 @@
         }
 
         .zone-description {
-            max-height: 350px;
+            min-height: 300px;
+            max-height: 300px;
             padding: 10px 0;
             overflow-y: auto;
             border-top: 1px solid $secondary-color;

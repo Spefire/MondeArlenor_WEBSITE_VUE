@@ -3,15 +3,25 @@
     :title="title"
     :image-left="imageLeft"
     :image-right="imageRight">
-    <p>
-      Selon la légende connue par tous, la Divinité de l'Existence et du Destin, Arlénor, a façonné le monde en y instaurant un équilibre entre le Bien et le Mal.
-      Pour se faire, Arlénor enfanta 10 anges et 10 démons. Les anges forment la Sainte Cabale et les démons, la Cabale Inversée.
-      <br><br>Ces entités de l'équilibre ont aidé Arlénor lors de la Création du Monde, et sont devenu un symbole dans leur domaine respectif...
-      On dit qu'à la fin de leur travail, ils retournèrent tous auprès d'Arlénor, au cœur de son monde :
-      un endroit où seules les âmes pures peuvent entrer à leur mort. Les âmes qui sont jugées encore impures, subissent la réincarnation.
-      <br><br>Aujourd'hui, des temples d'Arlénor existent un peu partout.
-      Les peuples vénèrent dans chaque temple : Arlénor et l'un de ses enfants.
-      La religion se base sur le maintien d'un équilibre entre le Bien et le Mal, et appuie sur le fait qu'il faut autant vénérer les anges que les démons.
+    <p class="bloc-text">
+      Avant, il n'existait Rien. Seul le <b>Rien</b> était présent.<br>
+      Il se refermait sur lui-même, en boule, en boucle...<br>
+      Un jour, pour alors le combler, le <b>Tout</b> exista.<br>
+      <br>
+      Le Tout et le Rien s’entremêlèrent ensuite pour former une nouvelle entité se suffisant à iel-même&nbsp;:&nbsp;<br>
+      <b>Arlénor, la Divinité de l'Existence</b>.<br>
+      Arlénor voyant le vaste univers du Tout et du Rien, se décida à le remplir de mondes.
+      C'est alors qu'iel créa son tout premier monde, nommé aujourd'hui&nbsp;:&nbsp;Le Monde d'Arlénor.<br>
+      <br>
+      Lors de la <b>Création</b>, Arlénor donna naissance à dix Anges et dix Démons afin de l'aider dans sa quête&nbsp;:&nbsp;
+      les anges formèrent alors la <b>Sainte Cabale</b>, et les démons, la <b>Cabale Inversée</b>.
+      Les deux Cabales avaient pour but de concevoir certains éléments du Monde tout en veillant sur son <b>Équilibre</b>&nbsp;:&nbsp;
+      chaque entité des Cabales devint ainsi maître dans leur domaine respectif.<br>
+      Une fois la Création terminée (dont la naissance des humains et d’autres créatures...),
+      Arlénor rappela ses anges et démons auprès d'iel, en vue de réaliser d'autres mondes.<br>
+      <br>
+      Aujourd'hui, après des années, voire des milliers d'années, Arlénor contemple ses œuvres et les supervise depuis son dernier monde créé&nbsp;:&nbsp;le <b>Paradis</b>.
+      Chacun espère l'y retrouver, après sa vie passée...
     </p>
   </HeadLayout>
 
@@ -44,6 +54,15 @@
           :alt="demon.name"
           @click="changeSelection(demon)">
       </div>
+      <p class="bloc-text margin-top-1">
+        Les informations sur Arlénor, ses divinités et leurs domaines sont tirées des retranscriptions réalisées des tablettes de cristal.<br>
+        <br>
+        <b>Leur existence même, n’est pas considérée comme un mythe.</b><br>
+        <br>
+        Cependant, leur psychologie et leurs caractéristiques physiques peuvent être remises en question ou soumises à interprétation
+        (n’étant pas décrites dans les tablettes).<br>
+        Chaque ange et chaque démon possède un titre lié à sa place dans la Cabale (lié à leur personnalité) et des domaines dans lesquels ils sont maîtres.
+      </p>
     </div>
   </div>
 </template>
