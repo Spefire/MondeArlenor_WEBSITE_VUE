@@ -48,8 +48,8 @@
         <div class="magic-header">
           <h2>Propriétés globales aux cristaux</h2>
           <p class="bloc-text">
-            Ces propriétés s'appliquent pour les cristaux :<br>
-            énergétiques, instantannés et évolutifs.
+            Ces propriétés s'appliquent pour les cristaux&nbsp;:<br>
+            énergétiques, instantanés et évolutifs.
           </p>
         </div>
         <p class="magic-crystals bloc-text">

@@ -22,15 +22,15 @@ export function getListMagics(): ArlenorMagic[] {
   const magic03 = new ArlenorMagic(
     "Les cristaux évolutifs",
     `Ces cristaux donnent au porteur des pouvoirs qui évoluent au fur et à mesure du temps et de l’expérience,
-    en fonction de la personnalité du porteur.`,
+    en fonction de la personnalité du porteur.
+    Particularité pour les arléniens  : leurs tatouages grandissent en même temps que leur évolution.`,
   );
   magic03.image =  require("./../../assets/icons/cristal03.png");
   arlenorMagics.push(magic03);
 
   const magic04 = new ArlenorMagic(
-    "Les tatouages évolutifs",
-    `Particularité des cristaux évolutifs pour les arléniens qui les tranforment en tatouages:
-    ils grandissent en même temps que leur évolution.`,
+    "Les capacités magiques innées",
+    "Non liées aux cristaux, ces capacités sont majoritairement présentes chez les créatures, et non sur les peuples.",
   );
   magic04.image =  require("./../../assets/icons/cristal04.png");
   arlenorMagics.push(magic04);
@@ -45,8 +45,10 @@ export function getListMagics(): ArlenorMagic[] {
   arlenorMagics.push(magic05);
 
   const magic06 = new ArlenorMagic(
-    "Les capacités magiques innées",
-    "Non liées aux cristaux, ces capacités sont majoritairement présentes chez les créatures, et non sur les peuples.",
+    "Les coeurs de cristal",
+    `Sur Célestia, des mages pratiquent la magie sans cristal.
+    C'est dû à leur coeur si particulier qui génère de la magie.
+    Cependant leur magie est seulement élémentaire !`,
   );
   magic06.image =  require("./../../assets/icons/cristal06.png");
   arlenorMagics.push(magic06);
