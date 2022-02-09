@@ -25,9 +25,11 @@
             </div>
           </div>
           <div class="zone-description">
-            <p>{{ currentZone.description }}</p>
+            <p v-html="currentZone.description" />
           </div>
-          <p class="zone-comment margin-top-1">
+          <p
+            class="zone-comment margin-top-1"
+            :title="currentZone.comment + '\n - ' + currentZone.commentName">
             "{{ currentZone.comment }}"
             <br>
             - {{ currentZone.commentName }}

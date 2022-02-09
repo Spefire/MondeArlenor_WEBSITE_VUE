@@ -54,9 +54,10 @@
           :alt="demon.name"
           @click="changeSelection(demon)">
       </div>
-      <p class="bloc-text margin-top-1">
+      <p class="bloc-text religion-text margin-top-1">
+        <b>Données complémentaires</b>
+        <br><br>
         Les informations sur Arlénor, ses divinités et leurs domaines sont tirées des retranscriptions réalisées des tablettes de cristal.<br>
-        <br>
         <b>Leur existence même, n’est pas considérée comme un mythe.</b><br>
         <br>
         Cependant, leur psychologie et leurs caractéristiques physiques peuvent être remises en question ou soumises à interprétation
