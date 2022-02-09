@@ -23,7 +23,7 @@
           <div class="world-icons">
             <img
               class="world-map bloc-text"
-              src="./../../assets/images/world/worldmap_climates.jpg"
+              src="./../../assets/images/celestia/perso03.jpg"
               alt="Carte des Climats">
           </div>
         </div>
@@ -59,5 +59,5 @@
   </div>
 </template>
 
-<style lang="scss" scoped src="./CelestiaView.scss"></style>
+<style lang="scss" src="./CelestiaView.scss"></style>
 <script lang="ts" src="./CelestiaView.ts"></script>

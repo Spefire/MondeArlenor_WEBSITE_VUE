@@ -1,5 +1,10 @@
 @import "../../styles/variables.scss";
 
+.head-layout-view::after {
+  background-image: linear-gradient(0deg, rgba($black-color, 0.8), rgba($black-color, 0.8)),
+    url("./../../assets/images/home_03c.png") !important;
+}
+
 iframe {
   // Format 16/9
   height: 28vw;
