@@ -46,8 +46,8 @@
         </p>
         <router-link
           class="link-button"
-          to="/">
-          Volez vers Célestia (A venir)
+          to="/celestia">
+          Volez vers Célestia
         </router-link>
       </div>
     </div>
@@ -72,4 +72,5 @@
   </div>
 </template>
 
+<style lang="scss" scoped src="./HomeView.scss"></style>
 <script lang="ts" src="./HomeView.ts"></script>

@@ -21,10 +21,10 @@ export default defineComponent({
   
   computed: {
     imageLeft() {
-      return require("./../../assets/images/magic/magic_left.png");
+      return require("./../../../assets/images/magic/magic_left.png");
     },
     imageRight() {
-      return require("./../../assets/images/magic/magic_right.png");
+      return require("./../../../assets/images/magic/magic_right.png");
     },
     previousIndex(): number {
       if (this.currentIndex === 0) return this.allMagics.length - 1;

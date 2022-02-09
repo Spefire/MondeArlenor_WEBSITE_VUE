@@ -1,0 +1,150 @@
+@import "../../../styles/variables.scss";
+
+.magic-view {
+  .magic-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @include mobile-only {
+      flex-direction: column;
+    }
+  }
+
+  .magic-top {
+    width: 100%;
+
+    @include mobile-only {
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .magic-grid {
+      margin: -10px;
+      margin-top: 10px !important;
+    }
+  }
+
+  .magic-left {
+    width: 40%;
+
+    @include mobile-only {
+      margin-top: 20px;
+      width: 80%;
+    }
+  }
+
+  .magic-right {
+    width: 60%;
+    text-align: left;
+
+    @include mobile-only {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .magic-header {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .magic-crystals {
+      color: $secondary-color;
+      font-style: italic;
+    }
+
+    .select-button {
+      margin: 0;
+
+      &:first-child {
+        margin-right: 10px;
+      }
+
+      &:last-child {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .magic-imgs {
+    position: relative;
+    height: 30vw !important;
+    width: 30vw !important;
+    max-height: 460px;
+    max-width: 460px;
+    margin: auto;
+
+    @include mobile-only {
+      height: 50vw !important;
+      width: 50vw !important;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 30vw !important;
+      width: 30vw !important;
+      max-height: 460px;
+      max-width: 460px;
+
+      @include mobile-only {
+        height: 50vw !important;
+        width: 50vw !important;
+      }
+    }
+
+    .crystal-main {
+      animation: 3s infinite alternate animMain;
+    }
+
+    .crystal-data01 {
+      opacity: 0;
+      animation: 3s infinite alternate animMain, 6s infinite alternate animData;
+    }
+
+    .crystal-data02 {
+      opacity: 0;
+      animation: 3s infinite alternate animMain, 4s 2s infinite alternate animData;
+    }
+
+    .crystal-data03 {
+      opacity: 0;
+      animation: 3s infinite alternate animMain, 6s 4s infinite alternate animData;
+    }
+
+    @keyframes animMain {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-50px);
+      }
+    }
+
+    @keyframes animData {
+      0% {
+        opacity: 0;
+      }
+      20% {
+        opacity: 0;
+      }
+      40% {
+        opacity: 0;
+      }
+      60% {
+        opacity: 1;
+      }
+      80% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+}

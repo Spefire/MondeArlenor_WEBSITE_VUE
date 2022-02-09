@@ -1,0 +1,109 @@
+@import "../../styles/variables.scss";
+
+.roleplay-view {
+  position: relative;
+  display: flex;
+  padding: 50px 0;
+
+  .title-container {
+    width: 40%;
+    margin: auto 0 auto 10%;
+    text-align: left;
+
+    &.inversed-container {
+      width: 40%;
+      margin: auto 10% auto 0;
+      text-align: right;
+
+      @include mobile-only {
+        width: 80%;
+        margin: auto 10%;
+        text-align: center;
+      }
+    }
+
+    @include mobile-only {
+      width: 80%;
+      margin: auto 10%;
+      text-align: center;
+    }
+  }
+
+  .glyphe-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+
+    @include mobile-only {
+      display: none;
+    }
+  }
+}
+
+.roleplay-view:hover {
+  .glyphe01 {
+    animation: anim01 4s infinite ease-in-out;
+
+    @keyframes anim01 {
+      0% {
+        transform: rotateY(0deg);
+      }
+      100% {
+        transform: rotateY(360deg);
+      }
+    }
+  }
+
+  .glyphe02 {
+    animation: anim02 4s infinite ease-in-out;
+
+    @keyframes anim02 {
+      0% {
+        transform: rotateY(0deg) rotateX(0deg);
+      }
+      100% {
+        transform: rotateY(360deg) rotateX(360deg);
+      }
+    }
+  }
+
+  .glyphe03 {
+    animation: anim03 4s infinite ease-in-out;
+
+    @keyframes anim03 {
+      0% {
+        transform: rotateY(0deg) rotateX(360deg);
+      }
+      100% {
+        transform: rotateY(360deg) rotateX(0deg);
+      }
+    }
+  }
+
+  .glyphe04 {
+    animation: anim04 4s infinite ease-in-out;
+
+    @keyframes anim04 {
+      0% {
+        transform: rotateY(360deg);
+      }
+      100% {
+        transform: rotateY(0deg);
+      }
+    }
+  }
+
+  .glyphe05 {
+    animation: anim05 4s infinite ease-in-out;
+
+    @keyframes anim05 {
+      0% {
+        transform: rotateX(360deg);
+      }
+      100% {
+        transform: rotateX(0deg);
+      }
+    }
+  }
+}

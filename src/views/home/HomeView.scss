@@ -1,0 +1,63 @@
+@import "../../styles/variables.scss";
+
+.home-view {
+  .home-container {
+    opacity: 0;
+    visibility: hidden;
+    transition: 1s ease;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &::after {
+      top: 50px;
+      bottom: 51px;
+    }
+
+    .home-subcontainer {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 35%;
+      text-align: left;
+      transform: translateX(40%) translateY(-50%);
+
+      @include mobile-only {
+        left: 0;
+        width: 50%;
+        transform: translateX(20%) translateY(-50%);
+
+        p {
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+      }
+
+      &.inversed-container {
+        left: auto;
+        right: 0;
+        text-align: right;
+        transform: translateX(-25%) translateY(-50%);
+
+        @include mobile-only {
+          right: 0;
+          transform: translateX(-35%) translateY(-50%);
+        }
+      }
+
+      img {
+        height: 200px;
+        width: 375px;
+        margin-left: -30px;
+
+        @include mobile-only {
+          height: 125px;
+          width: 250px;
+          margin-left: -20px;
+        }
+      }
+    }
+  }
+}

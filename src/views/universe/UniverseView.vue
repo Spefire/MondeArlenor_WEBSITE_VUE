@@ -70,4 +70,5 @@
   </div>
 </template>
 
+<style lang="scss" scoped src="./UniverseView.scss"></style>
 <script lang="ts" src="./UniverseView.ts"></script>

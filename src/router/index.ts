@@ -6,9 +6,9 @@ import LegacyView from "@/views/legacy/LegacyView.vue";
 import CreationView from "@/views/roleplay/CreationView.vue";
 import DocsView from "@/views/roleplay/DocsView.vue";
 import RoleplayView from "@/views/roleplay/RoleplayView.vue";
-import MagicView from "@/views/universe/MagicView.vue";
-import RacesView from "@/views/universe/RacesView.vue";
-import ReligionView from "@/views/universe/ReligionView.vue";
+import MagicView from "@/views/universe/magic/MagicView.vue";
+import RacesView from "@/views/universe/races/RacesView.vue";
+import ReligionView from "@/views/universe/religion/ReligionView.vue";
 import UniverseView from "@/views/universe/UniverseView.vue";
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 

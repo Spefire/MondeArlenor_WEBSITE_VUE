@@ -1,0 +1,81 @@
+@import "../../../styles/variables.scss";
+
+.races-view {
+  .races-imgs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto 24px auto;
+
+    @include tablet-only {
+      width: 100%;
+    }
+  }
+
+  .races-img {
+    height: 125px;
+    width: 125px;
+    margin: 0 20px;
+    border-radius: 50%;
+    border: 2px solid $secondary-color;
+    background-color: rgba($black-color, 0.4);
+    cursor: pointer;
+
+    @include mobile-only {
+      display: none;
+    }
+
+    &.main {
+      height: 200px;
+      width: 200px;
+      margin: 0 10px;
+      border: 10px double $secondary-color;
+      cursor: default;
+
+      @include tablet-only {
+        height: auto;
+        width: 25%;
+      }
+
+      @include mobile-only {
+        display: block;
+        height: 125px;
+        width: 125px;
+        border: 2px solid $secondary-color;
+      }
+    }
+  }
+
+  .races-description {
+    display: flex;
+    flex-direction: column;
+    height: 325px;
+    max-height: 325px;
+    width: 70%;
+    margin: auto;
+    overflow: auto;
+    text-align: center;
+
+    @include tablet-only {
+      width: 100%;
+    }
+
+    .races-moreinfos {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-grow: 3;
+      font-style: italic;
+      color: $secondary-color;
+
+      @include mobile-only {
+        flex-direction: column;
+      }
+
+      p {
+        flex: 1;
+      }
+    }
+  }
+}

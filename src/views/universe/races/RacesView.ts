@@ -29,10 +29,10 @@ export default defineComponent({
 
   computed: {
     imageLeft() {
-      return require("./../../assets/images/races/adn_left.png");
+      return require("./../../../assets/images/races/adn_left.png");
     },
     imageRight() {
-      return require("./../../assets/images/races/adn_right.png");
+      return require("./../../../assets/images/races/adn_right.png");
     },
     previousIndex(): number {
       if (this.currentIndex === 0) return this.allRaces.length - 1;

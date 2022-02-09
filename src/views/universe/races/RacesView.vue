@@ -82,4 +82,5 @@
   </div>
 </template>
 
+<style lang="scss" scoped src="./RacesView.scss"></style>
 <script lang="ts" src="./RacesView.ts"></script>

@@ -23,10 +23,10 @@ export default defineComponent({
   
   computed: {
     imageLeft() {
-      return require("./../../assets/images/religion/angel.png");
+      return require("./../../../assets/images/religion/angel.png");
     },
     imageRight() {
-      return require("./../../assets/images/religion/demon.png");
+      return require("./../../../assets/images/religion/demon.png");
     },
   },
 

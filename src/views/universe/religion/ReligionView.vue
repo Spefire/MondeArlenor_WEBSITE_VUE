@@ -68,4 +68,5 @@
   </div>
 </template>
 
+<style lang="scss" scoped src="./ReligionView.scss"></style>
 <script lang="ts" src="./ReligionView.ts"></script>

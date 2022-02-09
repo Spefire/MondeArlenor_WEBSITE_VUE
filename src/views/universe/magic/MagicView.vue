@@ -28,19 +28,19 @@
         <div class="magic-imgs">
           <img
             class="crystal-main"
-            src="./../../assets/images/magic/crystal.png"
+            src="./../../../assets/images/magic/crystal.png"
             alt="">
           <img
             class="crystal-data01"
-            src="./../../assets/images/magic/crystal_data01.png"
+            src="./../../../assets/images/magic/crystal_data01.png"
             alt="">
           <img
             class="crystal-data02"
-            src="./../../assets/images/magic/crystal_data02.png"
+            src="./../../../assets/images/magic/crystal_data02.png"
             alt="">
           <img
             class="crystal-data03"
-            src="./../../assets/images/magic/crystal_data03.png"
+            src="./../../../assets/images/magic/crystal_data03.png"
             alt="">
         </div>
       </div>
@@ -87,4 +87,5 @@
   </div>
 </template>
 
+<style lang="scss" scoped src="./MagicView.scss"></style>
 <script lang="ts" src="./MagicView.ts"></script>

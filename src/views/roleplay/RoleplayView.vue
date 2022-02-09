@@ -59,4 +59,5 @@
   </div>
 </template>
 
+<style lang="scss" scoped src="./RoleplayView.scss"></style>
 <script lang="ts" src="./RoleplayView.ts"></script>

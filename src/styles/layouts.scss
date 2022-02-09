@@ -1,0 +1,59 @@
+.layout-view {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 350px);
+    padding: 50px 0;
+
+    @include tablet-only {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        width: 100%;
+        padding: 25px 0;
+    }
+
+    .layout-center {
+        width: 50%;
+        text-align: center;
+
+        &.large {
+            width: 80%;
+        }
+
+        @include tablet-only {
+            width: 80%;
+        }
+    }
+
+    .layout-left {
+        width: 50%;
+        margin: auto 0;
+        text-align: center;
+
+        @include tablet-only {
+            width: 100%;
+        }
+
+        img {
+            height: 550px;
+
+            @include tablet-only {
+                height: 350px;
+            }
+        }
+    }
+
+    .layout-right {
+        width: 40%;
+        margin: auto 10% auto 0;
+        text-align: left;
+
+        @include tablet-only {
+            width: 80%;
+            margin: auto 0;
+            text-align: center;
+        }
+    }
+}
