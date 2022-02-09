@@ -18,9 +18,9 @@
         <router-link
           class="link"
           to="/roleplay">{{ pages.roleplay }}</router-link>
-        <!--router-link
+        <router-link
           class="link"
-          to="/celestia">{{ pages.celestia }}</!--router-link-->
+          to="/celestia">{{ pages.celestia }}</router-link>
       </nav>
     </div>
     <div
@@ -65,9 +65,9 @@
         <router-link
           class="link"
           to="/roleplay">{{ pages.roleplay }}</router-link>
-        <!--router-link
+        <router-link
           class="link"
-          to="/celestia">{{ pages.celestia }}</router-link-->
+          to="/celestia">{{ pages.celestia }}</router-link>
       </nav>
       <nav v-if="onUniverseRoute">
         <router-link

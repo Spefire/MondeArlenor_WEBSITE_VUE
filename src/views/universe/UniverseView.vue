@@ -3,7 +3,7 @@
     <div class="layout-center large">
 
       <div class="world-container">
-        <div class="world-left">
+        <div class="world-left zone-element">
           <img
             class="zone-image"
             :src="currentZone.image"

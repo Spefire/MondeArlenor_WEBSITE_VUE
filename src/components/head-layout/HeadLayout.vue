@@ -1,6 +1,7 @@
 <template>
   <div class="head-layout-view background-universe-black">
     <img
+      v-if="imageLeft"
       :src="imageLeft"
       alt="">
     <div class="head-text">
@@ -8,16 +9,19 @@
       <slot />
     </div>
     <img
+      v-if="imageRight"
       :src="imageRight"
       alt="">
   </div>
   <div class="head-layout-view-mobile background-universe-black">
     <div class="head-title">
       <img
+        v-if="imageLeft"
         :src="imageLeft"
         alt="">
       <h1>{{ title }}</h1>
       <img
+        v-if="imageRight"
         :src="imageRight"
         alt="">
     </div>

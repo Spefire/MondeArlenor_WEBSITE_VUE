@@ -9,11 +9,13 @@ export default defineComponent({
     },
     imageLeft: {
       type: String,
-      required: true
+      required: false,
+      default: null
     },
     imageRight: {
       type: String,
-      required: true
+      required: false,
+      default: null
     }
   },
 

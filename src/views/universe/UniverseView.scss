@@ -23,63 +23,10 @@
     background: $black-color;
 
     @include tablet-only {
+      min-height: auto;
+      max-height: auto;
       width: 100%;
       margin-top: 20px;
-    }
-
-    .zone-image {
-      height: 100%;
-      width: 100%;
-      border-bottom: 1px solid $secondary-color;
-      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-
-      @include tablet-only {
-        display: none;
-      }
-    }
-
-    .zone-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid $secondary-color;
-
-      @include tablet-only {
-        border-top: none;
-
-        h2 {
-          margin-top: 0;
-        }
-      }
-    }
-
-    .zone-description {
-      min-height: 300px;
-      max-height: 300px;
-      padding: 10px;
-      overflow-y: auto;
-      border-top: 1px solid $secondary-color;
-      border-bottom: 1px solid $secondary-color;
-
-      @include tablet-only {
-        max-height: 250px;
-      }
-    }
-
-    .zone-comment {
-      color: $secondary-color;
-      text-align: center;
-      font-style: italic;
-    }
-
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: none;
-    }
-    ::-webkit-scrollbar-thumb {
-      border-radius: 5px;
     }
   }
 
