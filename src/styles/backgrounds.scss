@@ -5,7 +5,8 @@
 .background-roleplay,
 .background-roleplay-black,
 .background-celestia,
-.background-celestia-black {
+.background-celestia-black,
+.background-celestia-maxblack {
     &::after {
         content: "";
         position: absolute;
@@ -94,4 +95,9 @@
 .background-celestia-black::after {
     background-image: linear-gradient(0deg, rgba($black-color, 0.8), rgba($black-color, 0.8)),
         url("./assets/images/home_03.png");
+}
+
+.background-celestia-maxblack::after {
+    background-image: linear-gradient(0deg, rgba($black-color, 0), rgba($black-color, 0), rgba($black-color, 1)),
+        url("./assets/images/home_03c.png") !important;
 }

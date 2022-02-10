@@ -1,21 +1,19 @@
 @import "../../styles/variables.scss";
 
-.head-layout-view::after {
-  background-image: linear-gradient(0deg, rgba($black-color, 0.8), rgba($black-color, 0.8)),
-    url("./../../assets/images/home_03c.png") !important;
-}
-
 iframe {
   // Format 16/9
   height: 28vw;
   width: 50vw;
+  margin-top: 10px;
   margin-bottom: 20px;
   border-radius: 5px;
-  border: 1px solid $black-color;
+  border: 2px solid $black-color;
+  background: $black-color;
 
   @include tablet-only {
     height: 45vw;
     width: calc(80vw - 12px); // 80% - scrollbar
+    margin-top: 0;
   }
 }
 
@@ -43,15 +41,29 @@ iframe {
       width: 100%;
       margin-top: 20px;
     }
+
+    &.zone-element {
+      width: 50vh;
+      max-width: 440px;
+
+      @include tablet-only {
+        width: 100%;
+        max-width: none;
+      }
+    }
   }
 
   .world-right {
-    width: 50%;
-    margin-right: 5%;
+    width: 45%;
+    margin-right: 10%;
 
     @include tablet-only {
       width: 100%;
       margin-right: 0;
+    }
+
+    .world-icons {
+      text-align: right;
     }
 
     .world-map {

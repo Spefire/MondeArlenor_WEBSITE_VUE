@@ -20,7 +20,10 @@
           to="/roleplay">{{ pages.roleplay }}</router-link>
         <router-link
           class="link"
-          to="/celestia">{{ pages.celestia }}</router-link>
+          to="/celestia">
+          <span class="text-bold margin-right-05">•</span>
+          {{ pages.celestia }}
+        </router-link>
       </nav>
     </div>
     <div
@@ -67,7 +70,10 @@
           to="/roleplay">{{ pages.roleplay }}</router-link>
         <router-link
           class="link"
-          to="/celestia">{{ pages.celestia }}</router-link>
+          to="/celestia">
+          <span class="text-bold margin-right-05">•</span>
+          {{ pages.celestia }}
+        </router-link>
       </nav>
       <nav v-if="onUniverseRoute">
         <router-link

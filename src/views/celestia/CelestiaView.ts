@@ -1,6 +1,6 @@
 import HeadLayout from "@/components/head-layout/HeadLayout.vue";
-import { ArlenorMagic } from "@/models/ArlenorMagic";
-import { getListMagics } from "@/models/data/ListMagics";
+import { ArlenorCelestia } from "@/models/ArlenorCelestia";
+import { getListCelestias } from "@/models/data/ListCelestia";
 import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
 
@@ -14,9 +14,9 @@ export default defineComponent({
   setup() {
     const title = PageTitles.celestia;
     const currentIndex = ref(0);
-    const allMagics = ref(getListMagics());
+    const allCelestias = ref(getListCelestias());
 
-    return { currentIndex, allMagics, title };
+    return { currentIndex, allCelestias, title };
   },
   
   computed: {
@@ -27,27 +27,36 @@ export default defineComponent({
       return require("./../../assets/images/magic/magic_right.png");
     },
     previousIndex(): number {
-      if (this.currentIndex === 0) return this.allMagics.length - 1;
+      if (this.currentIndex === 0) return this.allCelestias.length - 1;
       else return this.currentIndex - 1;
     },
     nextIndex(): number {
-      if (this.currentIndex === this.allMagics.length - 1) return 0;
+      if (this.currentIndex === this.allCelestias.length - 1) return 0;
       else return this.currentIndex + 1;
     },
-    currentMagic(): ArlenorMagic {
-      return this.allMagics[this.currentIndex];
+    currentCelestia(): ArlenorCelestia {
+      return this.allCelestias[this.currentIndex];
     }
   },
 
   methods: {    
     previousSelection() {
-      if (this.currentIndex === 0) this.currentIndex = this.allMagics.length - 1;
+      if (this.currentIndex === 0) this.currentIndex = this.allCelestias.length - 1;
       else this.currentIndex = this.currentIndex - 1;
     },
     
     nextSelection() {
-      if (this.currentIndex === this.allMagics.length - 1) this.currentIndex = 0;
+      if (this.currentIndex === this.allCelestias.length - 1) this.currentIndex = 0;
       else this.currentIndex = this.currentIndex + 1;
+    },
+
+    getLibArray(arr: string[]) {
+      let lib = "";
+      arr.forEach((ele, index) => {
+        lib += ele;
+        if (index < arr.length - 1) lib += ", ";
+      });
+      return lib;
     }
   }
 });

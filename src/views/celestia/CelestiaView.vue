@@ -1,5 +1,7 @@
 <template>
-  <HeadLayout :title="title">
+  <HeadLayout
+    :title="title"
+    :use-class="'background-celestia-maxblack'">
     <iframe
       src="https://www.youtube.com/embed/Plk1gRTv4jA"
       title="Trailer - Etincelles : Premières étincelles de Célestia"
@@ -23,8 +25,8 @@
           <div class="world-icons">
             <img
               class="world-map bloc-text"
-              src="./../../assets/images/celestia/perso03.jpg"
-              alt="Carte des Climats">
+              :src="currentCelestia.image"
+              alt="">
           </div>
         </div>
         
@@ -36,8 +38,8 @@
               <i class="icon icon-arrow-right2" />
             </div>
             <div class="text-center margin-bottom-1">
-              <h2>Romain Divernn</h2>
-              <h3>Mage de Glace</h3>
+              <h2>{{ currentCelestia.firstname }} {{ currentCelestia.lastname }}</h2>
+              <h3>{{ currentCelestia.grade }}</h3>
             </div>
             <div
               class="select-button"
@@ -46,12 +48,34 @@
             </div>
           </div>
           <div class="zone-description">
-            <p v-html="'Cest un tres bon mage'" />
+            <div class="zone-description-bloc text-center">
+              <span />
+              <span>{{ currentCelestia.age }}ans - {{ currentCelestia.astro }} - {{ currentCelestia.mbti }}</span>
+            </div>
+            <div class="zone-description-bloc">
+              <span>Emotion dominante</span><br>
+              <span>{{ currentCelestia.emotion }}</span>
+            </div>
+            <div class="zone-description-bloc">
+              <span>Grade - Familier</span><br>
+              <span>{{ currentCelestia.grade }} - {{ currentCelestia.animal }}</span>
+            </div>
+            <div class="zone-description-bloc">
+              <span>Situation amoureuse</span><br>
+              <span>{{ currentCelestia.orientation }} - {{ currentCelestia.situation }}</span>
+            </div>
+            <div class="zone-description-bloc">
+              <span /><br>
+              <span class="text-bold">Qualités : </span>
+              <span>{{ getLibArray(currentCelestia.qualities) }}</span><br>
+              <span class="text-bold">Défauts : </span>
+              <span>{{ getLibArray(currentCelestia.defaults) }}</span>
+            </div>
           </div>
           <p
             class="zone-comment margin-top-1"
-            title="Ceci est un commentairee">
-            "Ceci est un commentaire"
+            :title="currentCelestia.comment">
+            "{{ currentCelestia.comment }}"
           </p>
         </div>
       </div>
@@ -59,5 +83,5 @@
   </div>
 </template>
 
-<style lang="scss" src="./CelestiaView.scss"></style>
+<style lang="scss" scoped src="./CelestiaView.scss"></style>
 <script lang="ts" src="./CelestiaView.ts"></script>

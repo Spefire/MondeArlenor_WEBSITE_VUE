@@ -7,6 +7,11 @@ export default defineComponent({
       type: String,
       required: true
     },
+    useClass: {
+      type: String,
+      required: false,
+      default: null
+    },
     imageLeft: {
       type: String,
       required: false,

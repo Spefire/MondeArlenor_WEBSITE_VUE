@@ -1,5 +1,7 @@
 <template>
-  <div class="head-layout-view background-universe-black">
+  <div
+    class="head-layout-view"
+    :class="useClass ? useClass : 'background-universe-black'">
     <img
       v-if="imageLeft"
       :src="imageLeft"
@@ -13,7 +15,9 @@
       :src="imageRight"
       alt="">
   </div>
-  <div class="head-layout-view-mobile background-universe-black">
+  <div
+    class="head-layout-view-mobile"
+    :class="useClass ? useClass : 'background-universe-black'">
     <div class="head-title">
       <img
         v-if="imageLeft"

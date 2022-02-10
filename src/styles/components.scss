@@ -169,7 +169,16 @@
     border-bottom: 1px solid $secondary-color;
 
     @include tablet-only {
-      max-height: 250px;
+      min-height: auto;
+      max-height: 350px;
+    }
+
+    .zone-description-bloc {
+      margin-bottom: 10px;
+
+      span:first-child {
+        font-weight: bold;
+      }
     }
   }
 
