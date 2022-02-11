@@ -50,15 +50,19 @@
   .races-description {
     display: flex;
     flex-direction: column;
-    height: 325px;
-    max-height: 325px;
+    height: 350px;
     width: 70%;
     margin: auto;
     overflow: auto;
     text-align: center;
 
     @include tablet-only {
+      height: 425px;
       width: 100%;
+    }
+
+    @include mobile-only {
+      height: auto;
     }
 
     .races-moreinfos {

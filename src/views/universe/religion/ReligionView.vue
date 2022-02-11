@@ -61,7 +61,7 @@
         <b>Leur existence même, n’est pas considérée comme un mythe.</b><br>
         <br>
         Cependant, leur psychologie et leurs caractéristiques physiques peuvent être remises en question ou soumises à interprétation
-        (n’étant pas décrites dans les tablettes).<br>
+        (n’étant pas décrites dans les tablettes).
         Chaque ange et chaque démon possède un titre lié à sa place dans la Cabale (lié à leur personnalité) et des domaines dans lesquels ils sont maîtres.
       </p>
     </div>

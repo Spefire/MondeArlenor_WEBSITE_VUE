@@ -67,6 +67,16 @@
   border-radius: 5px;
   border-color: $secondary-color;
   background: $black-color;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+  }
 }
 
 .selection-container {
