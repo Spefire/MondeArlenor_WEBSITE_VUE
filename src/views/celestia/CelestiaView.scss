@@ -29,7 +29,7 @@ iframe {
 
   .world-left {
     width: 45%;
-    padding: 20px;
+    padding: 0 20px;
     text-align: left;
     overflow: hidden;
     border-radius: 5px;
@@ -63,6 +63,10 @@ iframe {
 
     .world-icons {
       text-align: right;
+
+      @include tablet-only {
+        text-align: center;
+      }
     }
 
     .world-map {
@@ -75,9 +79,9 @@ iframe {
       @include tablet-only {
         height: auto;
         width: 100%;
-        max-height: none;
-        max-width: none;
-        margin-right: 0;
+        max-height: 440px;
+        max-width: 440px;
+        margin: auto;
       }
     }
   }

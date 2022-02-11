@@ -6,6 +6,7 @@ export class ArlenorCelestia {
   public mbti: string;
   public orientation: string;
   public situation: string;
+  public relations: string;
   public emotion: string;
   public grade: string;
   public animal: string;
@@ -22,6 +23,7 @@ export class ArlenorCelestia {
     this.mbti = "";
     this.orientation = "";
     this.situation = "";
+    this.relations = "";
     this.emotion = "";
     this.grade = "";
     this.animal = "";

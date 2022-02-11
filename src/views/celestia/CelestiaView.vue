@@ -9,9 +9,12 @@
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen />
     <p class="bloc-text">
-      On raconte que l’<b>Humanité</b> a commencé avec un millier d’humains, tenant entre leurs mains, les <b>tablettes de cristal</b>.
-      Comme si Arlénor les avait créé en leur donnant une voie à suivre dans leur développement.<br>
-      Ils n’avaient pas encore acquis le langage, qu’ils comprenaient déjà le sens des écritures de ces tablettes…
+      Sur une île céleste, éloignée de tout le reste... sans la religion d'Arlénor, sans les cristaux habituels...
+      Un petit peuple se développait tranquillement jusqu'à l'arrivé des <b>Wendigos</b> dans leur vie.
+      Des célestiens sont devenus des mages en même temps que leur apparition, et entre eux se mène un combat de longue durée...
+      <br><br>
+      Un jeune groupe de mages s'entraine actuellement afin d'affronter leur <b>Destin</b>.<br>
+      Et l'une d'entre eux, <b>Elisa Felnéris</b>, semble avoir la clé pour mettre fin à ces tueries.
     </p>
   </HeadLayout>
 
@@ -61,8 +64,9 @@
               <span>{{ currentCelestia.grade }} - {{ currentCelestia.animal }}</span>
             </div>
             <div class="zone-description-bloc">
-              <span>Situation amoureuse</span><br>
+              <span>Orientation - Relations</span><br>
               <span>{{ currentCelestia.orientation }} - {{ currentCelestia.situation }}</span>
+              <span v-html="currentCelestia.relations" />
             </div>
             <div class="zone-description-bloc">
               <span /><br>
