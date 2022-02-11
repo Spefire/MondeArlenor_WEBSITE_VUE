@@ -36,7 +36,7 @@ export function getListRaces(): ArlenorRace[] {
   listRaces.push(elfe);
 
   // Race des nains
-  const nain = new ArlenorRace("Nain", DifficultyEnum.Normale.Code, 15, 40);
+  const nain = new ArlenorRace("Nain", DifficultyEnum.Normale.Code, 10, 40);
   nain.infoAge = "Longévité normale (~100ans)";
   nain.infoAppareance = "Humaine, de très petite taille (< 1.5m) et de forte pilosité";
   nain.description = `
@@ -54,7 +54,7 @@ export function getListRaces(): ArlenorRace[] {
   listRaces.push(nain);
 
   // Race des mutants
-  const mutant = new ArlenorRace("Mutant", DifficultyEnum.Normale.Code, 20, 90);
+  const mutant = new ArlenorRace("Mutant", DifficultyEnum.Normale.Code, 15, 90);
   mutant.infoAge = "Faible longévité (~50ans)";
   mutant.infoAppareance = "Humaine, ayant une partie du corps animale";
   mutant.description = `
