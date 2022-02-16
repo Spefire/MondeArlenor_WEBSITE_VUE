@@ -24,8 +24,9 @@ export default defineComponent({
   },
 
   methods: {
-    getDescription(description: string, length = 80) {
-      return description.slice(0, length) + "..."; 
+    getDescription(description: string, length = 0) {
+      if (length) return description.replace("&emsp;","").slice(0, length) + "...";
+      return description.replace("&emsp;","");
     },
 
     getDifficultyColor(race: ArlenorRace) {

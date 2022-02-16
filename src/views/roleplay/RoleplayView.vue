@@ -34,8 +34,8 @@
       <div>
         <router-link
           class="link-button"
-          to="/roleplay">
-          Passer à la création ! (A venir)
+          to="/roleplay/creation">
+          Passer à la création !
         </router-link>
       </div>
     </div>
@@ -49,8 +49,8 @@
       </p>
       <router-link
         class="link-button"
-        to="/roleplay">
-        Voir la documentation (A venir)
+        to="/roleplay/docs">
+        Voir la documentation
       </router-link>
     </div>
     <div class="glyphe-container">

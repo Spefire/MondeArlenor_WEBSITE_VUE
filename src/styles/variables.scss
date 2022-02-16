@@ -8,10 +8,27 @@ $primary-color: #247899;
 $secondary-color: #dad090;
 $light-secondary-color: #fcf8b0;
 
-$red-color: #f03f3f;
-$yellow-color: #f0f03f;
-$green-color: #3ff03f;
-$cyan-color: #3ff0f0;
+// White thème
+/*$white-color: #020408;
+$grey-color: #c4c4c3;
+$black-color: #e2e2e2;
+
+$dark-primary-color: #dad090;
+$primary-color: #fcf8b0;
+
+$secondary-color: #134457;
+$light-secondary-color: #247899;*/
+
+$red-color: hsl(0, 80%, 50%);
+$orange-color: hsl(30, 80%, 50%);
+$yellow-color: hsl(60, 80%, 50%);
+$green-color: hsl(100, 80%, 50%);
+$turquoise-color: hsl(150, 70%, 40%);
+$cyan-color: hsl(180, 80%, 50%);
+$ocean-color: hsl(210, 80%, 50%);
+$blue-color: hsl(250, 80%, 50%);
+$violet-color: hsl(290, 90%, 60%);
+$pink-color: hsla(320, 80%, 50%);
 
 $warning-color: $red-color;
 
