@@ -32,6 +32,17 @@ $pink-color: hsla(320, 80%, 50%);
 
 $warning-color: $red-color;
 
+// Variables pour la police d'écriture
+$serif-font: "Noto Serif", Georgia, serif;
+$sans-serif-font: "Montserrat", Helvetica, sans-serif;
+
+$font-size-xxl: 64px;
+$font-size-xl: 32px;
+$font-size-l: 24px;
+$font-size-ml: 18px;
+$font-size-m: 14px;
+$font-size-s: 12px;
+
 // Variables pour le responsive
 $breakpoints: (
     tablet: 1023px,

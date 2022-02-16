@@ -6,8 +6,8 @@
   height: 40px;
   padding: 0 20px;
   line-height: 40px;
-  font-size: 14px;
-  font-family: "Montserrat", sans-serif;
+  font-size: $font-size-m;
+  font-family: $sans-serif-font;
   text-transform: uppercase;
   transition: 0.5s;
 
@@ -391,9 +391,17 @@
       border: 1px solid $secondary-color;
     }
 
-    p {
+    .docs-grid-header {
+      margin-bottom: 10px;
+      font-family: $serif-font;
+      color: $secondary-color;
+      text-transform: uppercase;
+    }
+
+    .docs-grid-body {
       margin: 0;
-      font-size: 14px;
+      font-size: $font-size-m;
+      // text-align: justify;
     }
   }
 }

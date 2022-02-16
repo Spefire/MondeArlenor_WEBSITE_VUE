@@ -13,14 +13,16 @@
             :src="race.image"
             :alt="race.name">
           <div class="docs-grid-infos">
-            <div class="margin-bottom-1">
+            <div class="docs-grid-header">
               <span class="text-bold">{{ race.name }}</span>
               <span
                 class="text-bold margin-left-05"
                 :class="getDifficultyColor(race)"
                 :title="getDifficultyLibelle(race)">•</span>
             </div>
-            <p v-html="getDescription(race.description, 200)" />
+            <p
+              class="docs-grid-body"
+              v-html="getDescription(race.description, 200)" />
           </div>
         </div>
       </div>
@@ -43,14 +45,14 @@
             :src="grp.image"
             :alt="grp.name">
           <div class="docs-grid-infos">
-            <div class="margin-bottom-1">
+            <div class="docs-grid-header">
               <span class="text-bold">{{ grp.name }}</span>
               <i
                 class="margin-left-05"
                 :class="grp.role.icon + ' ' + grp.color"
                 :title="grp.role.name" />
             </div>
-            <p>{{ getDescription(grp.description) }}</p>
+            <p class="docs-grid-body">{{ getDescription(grp.description) }}</p>
           </div>
         </div>
       </div>
@@ -72,7 +74,7 @@
             :src="cls.image"
             :alt="cls.name">
           <div>
-            <div class="margin-bottom-1">
+            <div class="docs-grid-header">
               <span class="text-bold">{{ cls.name }}</span>
               -
               <span class="text-italic">{{ cls.group.name }}</span>
@@ -81,7 +83,7 @@
                 :class="cls.group.role.icon + ' ' + cls.group.color"
                 :title="cls.group.role.name" />
             </div>
-            <p>{{ getDescription(cls.description) }}</p>
+            <p class="docs-grid-body">{{ getDescription(cls.description) }}</p>
           </div>
         </div>
       </div>

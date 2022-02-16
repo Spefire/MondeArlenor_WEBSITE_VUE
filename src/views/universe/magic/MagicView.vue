@@ -75,10 +75,12 @@
               :src="magic.image"
               :alt="magic.name">
             <div class="docs-grid-infos">
-              <div class="margin-bottom-1">
+              <div class="docs-grid-header">
                 <span class="text-bold">{{ magic.name }}</span>
               </div>
-              <p v-html="magic.description" />
+              <p
+                class="docs-grid-body"
+                v-html="magic.description" />
             </div>
           </div>
         </div>

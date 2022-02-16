@@ -15,14 +15,14 @@ a {
 
 		@include mobile-only {
 			margin-right: 10px;
-			font-size: 16px;
+			font-size: $font-size-m;
 			transform: scaleX(1);
 		}
 	}
 
 	&:hover i {
 		margin-right: 10px;
-		font-size: 16px;
+		font-size: $font-size-m;
 		transform: scaleX(1);
 	}
 }

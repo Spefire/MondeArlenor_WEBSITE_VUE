@@ -7,7 +7,7 @@ a {
 	width: 80px;
 	margin: 0 20px;
 	line-height: 80px;
-	font-size: 36px;
+	font-size: $font-size-xl;
 	text-align: center;
 	transition: 0.5s;
 
@@ -27,7 +27,7 @@ a {
 		width: 40px;
 		margin: 0 20px;
 		line-height: 40px;
-		font-size: 24px;
+		font-size: $font-size-l;
 	}
 
 	span {

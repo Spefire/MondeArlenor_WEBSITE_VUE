@@ -10,8 +10,8 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  font-size: 14px;
-  font-family: "Noto Serif", serif;
+  font-size: $font-size-m;
+  font-family: $sans-serif-font;
 }
 
 body {
@@ -24,22 +24,24 @@ body {
 
 h1 {
   margin: 0;
-  font-size: 64px;
-  line-height: 64px;
+  font-size: $font-size-xxl;
+  line-height: $font-size-xxl;
+  font-family: $serif-font;
   font-weight: normal;
   text-transform: uppercase;
   color: $light-secondary-color;
 
   @include mobile-only {
-    font-size: 32px;
-    line-height: 32px;
+    font-size: $font-size-xl;
+    line-height: $font-size-xl;
   }
 }
 
 h2 {
   margin: 15px 0;
-  font-size: 24px;
-  line-height: 24px;
+  font-size: $font-size-l;
+  line-height: $font-size-l;
+  font-family: $serif-font;
   font-weight: normal;
   text-transform: uppercase;
   color: $light-secondary-color;
@@ -47,8 +49,7 @@ h2 {
 
 h3 {
   margin: 0;
-  font-size: 16px;
-  font-family: "Montserrat", sans-serif;
+  font-size: $font-size-ml;
   text-transform: uppercase;
 }
 
@@ -121,8 +122,8 @@ input[type="number"],
 textarea {
   border: 1px solid $secondary-color;
   border-radius: 5px;
-  font-size: 12px;
-  font-family: "Noto Serif", serif;
+  font-size: $font-size-s;
+  font-family: $sans-serif-font;
 
   color: $white-color;
   background: $black-color;
@@ -191,8 +192,8 @@ textarea {
   margin: 0;
   padding: 0px 30px 0px 10px;
   line-height: 30px;
-  font-size: 12px;
-  font-family: "Noto Serif", serif;
+  font-size: $font-size-s;
+  font-family: $sans-serif-font;
   color: $white-color;
   border: 0;
   border-radius: 0;
