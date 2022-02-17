@@ -31,7 +31,7 @@ export class ArlenorGroups {
     this.Assassin.image = require("./../../assets/icons/groups/assassin.png");
 
     this.Bretteur = new ArlenorGroup("Bretteur", roles.DPSPhysique, "text-orange");
-    //this.Bretteur.description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+    this.Bretteur.description = "Le Bretteur est un mage qui aime battre le fer avec ses ennemis. Peu importe le nombre, il enchaine ses coups d'épée.";
     this.Bretteur.image = require("./../../assets/icons/groups/bretteur.png");
     
     ///
@@ -41,7 +41,7 @@ export class ArlenorGroups {
     this.Sorcier.image = require("./../../assets/icons/groups/sorcier.png");
 
     this.Invocateur = new ArlenorGroup("Invocateur", roles.DPSMagique, "text-turquoise");
-    //this.Invocateur.description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+    this.Invocateur.description = "L'Invocateur est un mage qui invoque des entités afin de l'aider tant à combattre qu'en dehors des combats.";
     this.Invocateur.image = require("./../../assets/icons/groups/invocateur.png");
 
     this.Enchanteur = new ArlenorGroup("Enchanteur", roles.DPSMagique, "text-violet");

@@ -81,7 +81,7 @@
             {{ skill.group.name }}
             <i
               class="margin-left-05"
-              :class="skill.group.role.icon" />
+              :class="skill.group.role.icon + ' ' + skill.group.color" />
           </td>
           <td class="col-20">{{ getLibClasses(skill) }}</td>
           <td class="col-20">{{ getCodCaracts(skill.caracts) }}</td>

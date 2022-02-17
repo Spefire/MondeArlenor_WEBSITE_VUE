@@ -63,11 +63,11 @@ export class ArlenorClasses {
 
     this.DoubleLame = new ArlenorClass("Double Lame", groups.Bretteur);
     this.DoubleLame.image = require("./../../assets/icons/classes/double_lame.png");
-    //this.Bretteur.description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+    this.DoubleLame.description = "La Double Lame utilise des capacités d'ambidextrie pour faire passer le plus ennemis sous son courroux. Et à haut-niveau, la Double Lame ressemble à une vraie tornade.";
 
     this.Escrimeur = new ArlenorClass("Escrimeur", groups.Bretteur);
     this.Escrimeur.image = require("./../../assets/icons/classes/escrimeur.png");
-    //this.Bretteur.description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+    this.Escrimeur.description = "L'Escrimeur utilise des sorts pour renforcer ses coups en un contre un. Il préfère les duels équitables ce qui augmente son potentiel de dégâts.";
 
     ///
 
@@ -81,11 +81,11 @@ export class ArlenorClasses {
 
     this.Pelerin = new ArlenorClass("Pèlerin", groups.Invocateur);
     this.Pelerin.image = require("./../../assets/icons/classes/pelerin.png");
-    //this.Bretteur.description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+    this.Pelerin.description = "Le Pèlerin utilise des sorts d'invocation d'entités divines liées à la Lumière et au Destin.";
 
     this.Dompteur = new ArlenorClass("Dompteur de bêtes", groups.Invocateur);
     this.Dompteur.image = require("./../../assets/icons/classes/dompteur.png");
-    //this.Bretteur.description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+    this.Dompteur.description = "Le Dompteur de Bêtes utilise des capacités de convocation d'animaux existants en tant que familiers. A haut-niveau, il peut même les posséder.";
 
     this.Illusionniste = new ArlenorClass("Illusionniste", groups.Enchanteur);
     this.Illusionniste.image = require("./../../assets/icons/classes/illusionniste.png");
