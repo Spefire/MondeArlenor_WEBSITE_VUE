@@ -16,11 +16,11 @@ export class ArlenorGroups {
   constructor() {
     const roles = new ArlenorRoles();
 
-    this.Gardien = new ArlenorGroup("Gardien", roles.Tank, "text-cyan");
+    this.Gardien = new ArlenorGroup("Gardien", roles.Tank, "text-yellow");
     this.Gardien.description = "Le Gardien est un mage qui est là pour encaisser les coups sur la durée et maintenir ses cibles concentrées sur lui.";
     this.Gardien.image = require("./../../assets/icons/groups/gardien.png");
 
-    this.Moine = new ArlenorGroup("Moine", roles.Tank, "text-turquoise");
+    this.Moine = new ArlenorGroup("Moine", roles.Tank, "text-cyan");
     this.Moine.description = "Le Moine est un mage qui n'encaisse pas les coups mais les esquive pour en renvoyer. Il est là pour foncer directement en première ligne lors d'un combat.";
     this.Moine.image = require("./../../assets/icons/groups/moine.png");
 
@@ -40,7 +40,7 @@ export class ArlenorGroups {
     this.Sorcier.description = "Le Sorcier est un mage qui fait des dégâts magiques sur plusieurs cibles.";
     this.Sorcier.image = require("./../../assets/icons/groups/sorcier.png");
 
-    this.Invocateur = new ArlenorGroup("Invocateur", roles.DPSMagique, "text-blue");
+    this.Invocateur = new ArlenorGroup("Invocateur", roles.DPSMagique, "text-turquoise");
     //this.Invocateur.description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
     this.Invocateur.image = require("./../../assets/icons/groups/invocateur.png");
 
@@ -54,7 +54,7 @@ export class ArlenorGroups {
     this.Druide.description = "Le Druide est un mage de soutien qui lie ses sorts à l'énergie de la nature, et pouvant se transformer partiellement ou complètement en un animal.";
     this.Druide.image = require("./../../assets/icons/groups/druide.png");
 
-    this.Pretre = new ArlenorGroup("Prêtre", roles.Soutien, "text-yellow");
+    this.Pretre = new ArlenorGroup("Prêtre", roles.Soutien, "text-grey");
     this.Pretre.description = "Le Prêtre est un mage de soutien qui adresse des prières pour aider et soigner ses alliés.";
     this.Pretre.image = require("./../../assets/icons/groups/pretre.png");
 
