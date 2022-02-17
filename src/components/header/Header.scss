@@ -81,6 +81,16 @@ header {
 		}
 	}
 
+	.header-section,
+	.header-subsection {
+		nav {
+			flex-flow: nowrap;
+			display: flex;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+	}
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	.header-mobile-section {

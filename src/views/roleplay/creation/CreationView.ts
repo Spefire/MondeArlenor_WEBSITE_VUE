@@ -2,11 +2,11 @@ import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
 
-import CaractsForm from "./creation/CaractsForm.vue";
-import Crystal01Form from "./creation/Crystal01Form.vue";
-import Crystal02Form from "./creation/Crystal02Form.vue";
-import IdentityForm from "./creation/IdentityForm.vue";
-import RaceForm from "./creation/RaceForm.vue";
+import CaractsForm from "./CaractsForm.vue";
+import Crystal01Form from "./Crystal01Form.vue";
+import Crystal02Form from "./Crystal02Form.vue";
+import IdentityForm from "./IdentityForm.vue";
+import RaceForm from "./RaceForm.vue";
 
 export default defineComponent({
   name: "CreationView",

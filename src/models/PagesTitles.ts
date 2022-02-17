@@ -1,5 +1,6 @@
 export class PageTitles {
   public static about = "A propos";
+  public static beginning = "Le Commencement";
   public static celestia = "L'Île Célestia";
   public static classes = "Les Classes";
   public static creation = "La Création de personnage";
@@ -11,6 +12,7 @@ export class PageTitles {
   public static religion = "La Religion";
   public static roleplay = "Le Jeu de Rôle";
   public static skills = "Les Compétences";
+  public static system = "Le Système de Jeu";
   public static universe = "L'Univers";
   public static worldmap = "La Carte du Monde";
 }

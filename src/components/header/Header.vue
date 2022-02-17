@@ -29,7 +29,7 @@
     <div
       class="header-subsection"
       :class="{ active : onUniverseRoute}">
-      <nav class="header-subnav">
+      <nav>
         <router-link
           class="header-subtitle link exact-link"
           to="/universe">{{ pages.worldmap }}</router-link>
@@ -42,6 +42,24 @@
         <router-link
           class="link exact-link"
           to="/universe/races">{{ pages.races }}</router-link>
+      </nav>
+    </div>
+    <div
+      class="header-subsection"
+      :class="{ active : onRoleplayRoute}">
+      <nav>
+        <router-link
+          class="header-subtitle link exact-link"
+          to="/roleplay">{{ pages.beginning }}</router-link>
+        <router-link
+          class="link exact-link"
+          to="/roleplay/system">{{ pages.system }}</router-link>
+        <router-link
+          class="link exact-link"
+          to="/roleplay/documentation">{{ pages.documentation }}</router-link>
+        <router-link
+          class="link exact-link"
+          to="/roleplay/creation">{{ pages.creation }}</router-link>
       </nav>
     </div>
 
@@ -88,6 +106,20 @@
         <router-link
           class="link exact-link"
           to="/universe/races">{{ pages.races }}</router-link>
+      </nav>
+      <nav v-if="onRoleplayRoute">
+        <router-link
+          class="link exact-link"
+          to="/roleplay">{{ pages.beginning }}</router-link>
+        <router-link
+          class="link exact-link"
+          to="/roleplay/system">{{ pages.system }}</router-link>
+        <router-link
+          class="link exact-link"
+          to="/roleplay/documentation">{{ pages.documentation }}</router-link>
+        <router-link
+          class="link exact-link"
+          to="/roleplay/creation">{{ pages.creation }}</router-link>
       </nav>
     </div>
   </header>

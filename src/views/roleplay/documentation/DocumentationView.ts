@@ -7,7 +7,7 @@ import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
-  name: "DocsView",
+  name: "DocumentationView",
   title: PageTitles.documentation,
   components: {
     SkillsTable,

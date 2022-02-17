@@ -101,4 +101,4 @@
   </div>
 </template>
 
-<script lang="ts" src="./DocsView.ts"></script>
+<script lang="ts" src="./DocumentationView.ts"></script>

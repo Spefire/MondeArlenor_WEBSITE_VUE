@@ -15,6 +15,9 @@ export default defineComponent({
   computed: {
     onUniverseRoute() {
       return this.$route.path.includes("/universe");
+    },
+    onRoleplayRoute() {
+      return this.$route.path.includes("/roleplay");
     }
   },
   methods: {
