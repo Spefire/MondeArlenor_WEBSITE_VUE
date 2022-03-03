@@ -33,7 +33,7 @@
 
   <div class="layout-view background-roleplay">
     <div class="layout-center large">
-      <h2>Les cristaux évolutifs : groupes</h2>
+      <h2>Les cristaux évolutifs : classes</h2>
 
       <div class="docs-grid-list">
         <div
@@ -75,7 +75,11 @@
             :alt="spe.name">
           <div>
             <div class="docs-grid-header">
-              <span class="text-bold">{{ spe.name }}</span>
+              <span class="text-bold">
+                <router-link :to="{ path: 'speciality/' + spe.code }">
+                  {{ spe.name }}
+                </router-link>
+              </span>
               -
               <span class="text-italic">{{ spe.group.name }}</span>
               <i

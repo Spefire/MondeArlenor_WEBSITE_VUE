@@ -1,9 +1,9 @@
 <template>
   <div class="creation-elements-line">
     <div
-      v-if="!currentSpeciality"
+      v-if="!lockSpe"
       class="creation-element">
-      <span>Groupe :</span>
+      <span>Classe :</span>
       <div class="dropdown">
         <select
           class="dropdown-select"
@@ -21,7 +21,7 @@
     </div>
 
     <div
-      v-if="!currentSpeciality"
+      v-if="!lockSpe"
       class="creation-element">
       <span>Spécialité :</span>
       <div class="dropdown">
@@ -57,7 +57,7 @@
         <th
           colspan="2"
           class="col-40">Nom</th>
-        <th class="col-20">Groupe</th>
+        <th class="col-20">Classe</th>
         <th class="col-20">Spécialités</th>
         <th class="col-20">Caractéristiques</th>
       </tr>

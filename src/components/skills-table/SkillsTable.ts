@@ -17,16 +17,19 @@ export default defineComponent({
   },
   components: {},
 
-  setup() {
+  setup(props) {
+    let lockSpe = false;
+    if (props.currentSpeciality) lockSpe = true;
+
     const skills = ref(getListSkills().sort((a, b) => a.name.localeCompare(b.name)));
     const selectedSkill: Ref<ArlenorSkill | null> = ref(null);
     const filteredSkills: Ref<ArlenorSkill[]> = ref([]);
 
     const allGroups = ref(getListGroups().sort((a, b) => a.name.localeCompare(b.name)));
-    const selectedGroup: Ref<string | null> = ref(null);
+    const selectedGroup: Ref<string | null> = ref(lockSpe ? props.currentSpeciality.group.code : null);
     
     const allSpecialities = ref(getListSpecialities().sort((a, b) => a.name.localeCompare(b.name)));
-    const selectedSpeciality: Ref<string | null> = ref(null);
+    const selectedSpeciality: Ref<string | null> = ref(lockSpe ? props.currentSpeciality.code : null);
 
     const searchName = ref("");
 
@@ -34,7 +37,7 @@ export default defineComponent({
       skills, selectedSkill, filteredSkills,
       allGroups, selectedGroup,
       allSpecialities, selectedSpeciality,
-      searchName
+      lockSpe, searchName
     };
   },
 
@@ -64,18 +67,14 @@ export default defineComponent({
     },
             
     getLibSpecialities(skill: ArlenorSkill) {
-      const list: ArlenorSpeciality[] = [];
       if (skill.specialities.length > 0) {
         let lib = "";
         skill.specialities.forEach((spe: ArlenorSpeciality, index: number) => {
           lib += spe.name;
-          if (index < list.length-1) lib += ", ";
+          if (index < skill.specialities.length-1) lib += ", ";
         });
         return lib;
       } else {
-        const listSpecialities = getListSpecialities();
-        const arlenorSpecialities = listSpecialities.filter(spe => spe.group.code === skill.group.code);
-        arlenorSpecialities.forEach(spe => list.push(spe));
         return "Toutes les spécialités";
       }
     },
