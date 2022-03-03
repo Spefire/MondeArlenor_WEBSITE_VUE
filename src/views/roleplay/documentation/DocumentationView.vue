@@ -63,27 +63,27 @@
 
   <div class="layout-view background-roleplay">
     <div class="layout-center large">
-      <h2>Les cristaux évolutifs : classes</h2>
+      <h2>Les cristaux évolutifs : spécialités</h2>
 
       <div class="docs-grid-list">
         <div
-          v-for="(cls, index) in allClasses"
+          v-for="(spe, index) in allSpecialities"
           class="docs-grid-element"
           :key="index">
           <img
-            :src="cls.image"
-            :alt="cls.name">
+            :src="spe.image"
+            :alt="spe.name">
           <div>
             <div class="docs-grid-header">
-              <span class="text-bold">{{ cls.name }}</span>
+              <span class="text-bold">{{ spe.name }}</span>
               -
-              <span class="text-italic">{{ cls.group.name }}</span>
+              <span class="text-italic">{{ spe.group.name }}</span>
               <i
                 class="margin-left-05"
-                :class="cls.group.role.icon + ' ' + cls.group.color"
-                :title="cls.group.role.name" />
+                :class="spe.group.role.icon + ' ' + spe.group.color"
+                :title="spe.group.role.name" />
             </div>
-            <p class="docs-grid-body">{{ getDescription(cls.description) }}</p>
+            <p class="docs-grid-body">{{ getDescription(spe.description) }}</p>
           </div>
         </div>
       </div>

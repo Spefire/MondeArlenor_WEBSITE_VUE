@@ -1,6 +1,6 @@
-import { ArlenorClass } from "./ArlenorClass";
 import { ArlenorEnum } from "./ArlenorEnum";
 import { ArlenorGroup } from "./ArlenorGroup";
+import { ArlenorSpeciality } from "./ArlenorSpeciality";
 
 export class ArlenorSkill {
   public name: string;
@@ -8,17 +8,17 @@ export class ArlenorSkill {
   public image: string;
   public typeSkill: ArlenorEnum;
   public group: ArlenorGroup;
-  public classes: ArlenorClass[];
+  public specialities: ArlenorSpeciality[];
   public caracts: ArlenorEnum[];
   public effect: string;
 
-  constructor(name: string, typeSkill: ArlenorEnum, group: ArlenorGroup | null, classes: ArlenorClass[]) {
+  constructor(name: string, typeSkill: ArlenorEnum, group: ArlenorGroup | null, specialities: ArlenorSpeciality[]) {
     this.name = name;
     this.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar justo a facilisis aliquet. In justo libero, tempor a ipsum id, pellentesque semper est. Nam elit ex, pulvinar eu libero nec, sagittis fringilla lorem. Curabitur consequat nulla elit, nec tincidunt risus rhoncus vitae. In hac habitasse platea dictumst.";
     this.image = "";
     this.typeSkill = typeSkill;
-    this.classes = classes;
-    this.group = (group ? group : classes[0].group);
+    this.specialities = specialities;
+    this.group = (group ? group : specialities[0].group);
     this.caracts = [];
     this.effect = "";
 

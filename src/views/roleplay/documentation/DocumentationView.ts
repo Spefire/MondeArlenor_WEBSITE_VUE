@@ -1,8 +1,8 @@
 import SkillsTable from "@/components/skills-table/SkillsTable.vue";
 import { ArlenorRace, DifficultyEnum } from "@/models/ArlenorRace";
-import { getListClasses } from "@/models/data/ListClasses";
 import { getListGroups } from "@/models/data/ListGroups";
 import { getListRaces } from "@/models/data/ListRaces";
+import { getListSpecialities } from "@/models/data/ListSpecialities";
 import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
 
@@ -15,11 +15,11 @@ export default defineComponent({
 
   setup() {
     const allRaces = ref(getListRaces().filter(race => race.difficulty !== DifficultyEnum.Impossible.Code));
-    const allClasses = ref(getListClasses());
+    const allSpecialities = ref(getListSpecialities());
     const allGroups = ref(getListGroups());
 
     return {
-      allRaces, allClasses, allGroups
+      allRaces, allSpecialities, allGroups
     };
   },
 

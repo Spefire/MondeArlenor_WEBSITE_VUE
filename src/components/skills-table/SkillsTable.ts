@@ -1,16 +1,16 @@
-import { ArlenorClass } from "@/models/ArlenorClass";
 import { ArlenorEnum } from "@/models/ArlenorEnum";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
-import { getListClasses } from "@/models/data/ListClasses";
+import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
 import { getListGroups } from "@/models/data/ListGroups";
 import { getListSkills } from "@/models/data/ListSkills";
+import { getListSpecialities } from "@/models/data/ListSpecialities";
 import { defineComponent, Ref, ref } from "vue";
 
 export default defineComponent({
   name: "SkillsTable",
   props: {
-    currentClass: {
-      type: ArlenorClass,
+    currentSpeciality: {
+      type: ArlenorSpeciality,
       default: null,
       required: false,
     }
@@ -25,15 +25,15 @@ export default defineComponent({
     const allGroups = ref(getListGroups().sort((a, b) => a.name.localeCompare(b.name)));
     const selectedGroup: Ref<string | null> = ref(null);
     
-    const allClasses = ref(getListClasses().sort((a, b) => a.name.localeCompare(b.name)));
-    const selectedClass: Ref<string | null> = ref(null);
+    const allSpecialities = ref(getListSpecialities().sort((a, b) => a.name.localeCompare(b.name)));
+    const selectedSpeciality: Ref<string | null> = ref(null);
 
     const searchName = ref("");
 
     return {
       skills, selectedSkill, filteredSkills,
       allGroups, selectedGroup,
-      allClasses, selectedClass,
+      allSpecialities, selectedSpeciality,
       searchName
     };
   },
@@ -46,37 +46,37 @@ export default defineComponent({
     changeFilteredSkills() {
       this.filteredSkills = this.skills;
       if (this.selectedGroup) this.filteredSkills = this.filteredSkills.filter(skill => skill.group.code === this.selectedGroup);
-      if (this.selectedClass) this.filteredSkills = this.filteredSkills.filter(skill => {
-        return skill.classes.find(cls => cls.code === this.selectedClass) || (skill.classes.length === 0 && skill.group.code === this.selectedGroup);
+      if (this.selectedSpeciality) this.filteredSkills = this.filteredSkills.filter(skill => {
+        return skill.specialities.find((spe: ArlenorSpeciality) => spe.code === this.selectedSpeciality) || (skill.specialities.length === 0 && skill.group.code === this.selectedGroup);
       });
       if (this.searchName) this.filteredSkills = this.filteredSkills.filter(skill => skill.name.toLowerCase().indexOf(this.searchName.toLowerCase()) !== -1);
     },
 
     changeGroup() {
-      this.selectedClass = null;
+      this.selectedSpeciality = null;
       this.changeFilteredSkills();
     },
 
-    changeClass() {
-      const targetClass = this.selectedClass ? this.allClasses.find(cls => cls.code == this.selectedClass) : null;
-      this.selectedGroup = targetClass ? targetClass.group.code : null;
+    changeSpeciality() {
+      const targetSpeciality = this.selectedSpeciality ? this.allSpecialities.find(spe => spe.code == this.selectedSpeciality) : null;
+      this.selectedGroup = targetSpeciality ? targetSpeciality.group.code : null;
       this.changeFilteredSkills();
     },
             
-    getLibClasses(skill: ArlenorSkill) {
-      const list:ArlenorClass[] = [];
-      if (skill.classes.length > 0) {
+    getLibSpecialities(skill: ArlenorSkill) {
+      const list: ArlenorSpeciality[] = [];
+      if (skill.specialities.length > 0) {
         let lib = "";
-        skill.classes.forEach((cls, index) => {
-          lib += cls.name;
+        skill.specialities.forEach((spe: ArlenorSpeciality, index: number) => {
+          lib += spe.name;
           if (index < list.length-1) lib += ", ";
         });
         return lib;
       } else {
-        const listClasses = getListClasses();
-        const arlenorClasses = listClasses.filter(cls => cls.group.code === skill.group.code);
-        arlenorClasses.forEach(cls => list.push(cls));
-        return "Toutes les classes";
+        const listSpecialities = getListSpecialities();
+        const arlenorSpecialities = listSpecialities.filter(spe => spe.group.code === skill.group.code);
+        arlenorSpecialities.forEach(spe => list.push(spe));
+        return "Toutes les spécialités";
       }
     },
 

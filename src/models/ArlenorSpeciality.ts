@@ -1,6 +1,6 @@
 import { ArlenorGroup } from "./ArlenorGroup";
 
-export class ArlenorClass {
+export class ArlenorSpeciality {
   public name: string;
   public image: string;
   public description: string;

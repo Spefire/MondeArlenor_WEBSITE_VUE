@@ -1,7 +1,7 @@
 <template>
   <div class="creation-elements-line">
     <div
-      v-if="!currentClass"
+      v-if="!currentSpeciality"
       class="creation-element">
       <span>Groupe :</span>
       <div class="dropdown">
@@ -21,17 +21,17 @@
     </div>
 
     <div
-      v-if="!currentClass"
+      v-if="!currentSpeciality"
       class="creation-element">
-      <span>Classe :</span>
+      <span>Spécialité :</span>
       <div class="dropdown">
         <select
           class="dropdown-select"
-          v-model="selectedClass"
-          @change="changeClass">
+          v-model="selectedSpeciality"
+          @change="changeSpeciality">
           <option :value="null">-</option>
           <option
-            v-for="(cls, index) in allClasses"
+            v-for="(cls, index) in allSpecialities"
             :value="cls.code"
             :key="index">{{ cls.name }}</option>
         </select>
@@ -58,7 +58,7 @@
           colspan="2"
           class="col-40">Nom</th>
         <th class="col-20">Groupe</th>
-        <th class="col-20">Classes</th>
+        <th class="col-20">Spécialités</th>
         <th class="col-20">Caractéristiques</th>
       </tr>
     </thead>
@@ -83,7 +83,7 @@
               class="margin-left-05"
               :class="skill.group.role.icon + ' ' + skill.group.color" />
           </td>
-          <td class="col-20">{{ getLibClasses(skill) }}</td>
+          <td class="col-20">{{ getLibSpecialities(skill) }}</td>
           <td class="col-20">{{ getCodCaracts(skill.caracts) }}</td>
         </tr>
         <tr
