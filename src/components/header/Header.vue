@@ -56,7 +56,7 @@
           to="/roleplay/system">{{ pages.system }}</router-link>
         <router-link
           class="link exact-link"
-          to="/roleplay/documentation">{{ pages.documentation }}</router-link>
+          to="/roleplay/speciality">{{ pages.speciality }}</router-link>
         <router-link
           class="link exact-link"
           to="/roleplay/creation">{{ pages.creation }}</router-link>
@@ -116,7 +116,7 @@
           to="/roleplay/system">{{ pages.system }}</router-link>
         <router-link
           class="link exact-link"
-          to="/roleplay/documentation">{{ pages.documentation }}</router-link>
+          to="/roleplay/speciality">{{ pages.speciality }}</router-link>
         <router-link
           class="link exact-link"
           to="/roleplay/creation">{{ pages.creation }}</router-link>

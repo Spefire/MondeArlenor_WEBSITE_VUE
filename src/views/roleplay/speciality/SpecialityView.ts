@@ -31,6 +31,11 @@ export default defineComponent({
     changeSpe(code:string) {
       const targetSpeciality = getListSpecialities().find(spe => spe.code === code);
       this.currentSpeciality = targetSpeciality ? targetSpeciality : null;
-    }
+    },
+
+    getDescription(description: string, length = 0) {
+      if (length) return description.replace("&emsp;","").slice(0, length) + "...";
+      return description.replace("&emsp;","");
+    },
   }
 });
