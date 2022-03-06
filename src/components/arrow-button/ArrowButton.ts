@@ -5,7 +5,18 @@ export default defineComponent({
   props: {
     linkPage: {
       type: String,
-      required: true
+      required: false,
+      default: null
+    },
+    linkPath: {
+      type: String,
+      required: false,
+      default: null
+    },
+    linkQuery: {
+      type: Object,
+      required: false,
+      default: null
     },
   },
   setup: () => {
