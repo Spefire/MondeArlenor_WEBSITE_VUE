@@ -1,0 +1,15 @@
+@import "../../../styles/variables.scss";
+
+.speciality-view {
+  min-height: calc(75vh + 100px);
+
+  .group-img {
+    height: 150px;
+    border: 1px solid $secondary-color;
+    background: $black-color;
+
+    @include mobile-only {
+      height: 100px;
+    }
+  }
+}

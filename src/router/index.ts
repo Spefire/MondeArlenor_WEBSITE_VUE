@@ -25,7 +25,7 @@ const routes: Array<RouteRecordRaw> = [
   { path: "/roleplay", component: RoleplayView, meta: { title: PageTitles.roleplay }},
   { path: "/roleplay/system", component: SystemView, meta: { title: PageTitles.system }},
   { path: "/roleplay/documentation", component: DocumentationView, meta: { title: PageTitles.documentation }},
-  { path: "/roleplay/speciality/:code", component: SpecialityView, meta: { title: PageTitles.speciality }},
+  { path: "/roleplay/speciality", component: SpecialityView, meta: { title: PageTitles.speciality }},
   { path: "/roleplay/creation", component: CreationView, meta: { title: PageTitles.creation }},
 
   { path: "/celestia", component: CelestiaView, meta: { title: PageTitles.celestia }},

@@ -76,7 +76,7 @@
           <div>
             <div class="docs-grid-header">
               <span class="text-bold">
-                <router-link :to="{ path: 'speciality/' + spe.code }">
+                <router-link :to="{ path: 'speciality', query: { code: spe.code }}">
                   {{ spe.name }}
                 </router-link>
               </span>

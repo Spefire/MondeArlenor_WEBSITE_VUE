@@ -23,7 +23,7 @@ export default defineComponent({
   },
 
   mounted() {    
-    const targetSpeciality = getListSpecialities().find(spe => spe.code === this.$route.params.code);
+    const targetSpeciality = getListSpecialities().find(spe => spe.code === this.$route.query.code);
     this.currentSpeciality = targetSpeciality ? targetSpeciality : null;
   },
 
