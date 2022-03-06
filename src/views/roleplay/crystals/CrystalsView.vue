@@ -4,7 +4,7 @@
     v-if="!currentSpeciality"
     class="layout-view background-roleplay">
     <div class="layout-center large">
-      <h2>Les cristaux évolutifs : classes</h2>
+      <h2>Les cristaux évolutifs : classes principales</h2>
 
       <div class="docs-grid-list">
         <div
@@ -53,7 +53,7 @@
               <span
                 class="text-bold"
                 @click="changeSpe(spe.code)">
-                <router-link :to="{ path: 'speciality', query: { code: spe.code }}">
+                <router-link :to="{ path: 'crystals', query: { code: spe.code }}">
                   {{ spe.name }}
                 </router-link>
               </span>
@@ -75,7 +75,7 @@
 
   <div
     v-if="currentSpeciality"
-    class="layout-view background-roleplay speciality-view">
+    class="layout-view background-roleplay crystals-view">
 
     <div class="side-menu left">
       <div class="docs-grid-list">
@@ -109,7 +109,7 @@
           class="docs-grid-element"
           :class="{ 'selected' : spe.code === currentSpeciality?.code }"
           :key="index">
-          <router-link :to="{ path: 'speciality', query: { code: spe.code }}">
+          <router-link :to="{ path: 'crystals', query: { code: spe.code }}">
             <img
               :src="spe.image"
               :title="spe.name"
@@ -122,5 +122,5 @@
   </div>
 </template>
 
-<style lang="scss" scoped src="./SpecialityView.scss"></style>
-<script lang="ts" src="./SpecialityView.ts"></script>
+<style lang="scss" scoped src="./CrystalsView.scss"></style>
+<script lang="ts" src="./CrystalsView.ts"></script>
