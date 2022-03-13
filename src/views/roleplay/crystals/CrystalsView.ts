@@ -1,8 +1,10 @@
 import ArrowButton from "@/components/arrow-button/ArrowButton.vue";
 import SkillsTable from "@/components/skills-table/SkillsTable.vue";
 import { ArlenorGroup } from "@/models/ArlenorGroup";
+import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
 import { getListGroups } from "@/models/data/ListGroups";
+import { getGroupSkills, getSpecialitySkills } from "@/models/data/ListSkills";
 import { getListSpecialities } from "@/models/data/ListSpecialities";
 import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, Ref, ref } from "vue";
@@ -32,6 +34,23 @@ export default defineComponent({
 
   mounted() {
     this.updatePage();
+  },
+
+  computed: {
+    groupSkills(): ArlenorSkill[] {
+      if (this.currentGroup) {
+        return getGroupSkills(this.currentGroup?.code, true);
+      } else if (this.currentSpeciality) {
+        return getGroupSkills(this.currentSpeciality?.group.code, true);
+      }
+      return [];
+    },
+    specialitySkills(): ArlenorSkill[] {
+      if (this.currentSpeciality) {
+        return getSpecialitySkills(this.currentSpeciality?.code, true);
+      }
+      return [];
+    }
   },
 
   methods: {

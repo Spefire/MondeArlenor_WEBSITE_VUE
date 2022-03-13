@@ -12,13 +12,23 @@ export class ArlenorSkill {
   public caracts: ArlenorEnum[];
   public effect: string;
 
+  public get isGrpSpeSkill():boolean {
+    if (this.typeSkill) {
+      return (this.typeSkill === SkillsEnum.CompetenceArme
+        || this.typeSkill === SkillsEnum.CompetenceArmure
+        || this.typeSkill === SkillsEnum.TempsIncantation
+        || this.typeSkill === SkillsEnum.TempsRechargement);
+    }
+    return false;
+  }
+
   constructor(name: string, typeSkill: ArlenorEnum, group: ArlenorGroup | null, specialities: ArlenorSpeciality[]) {
     this.name = name;
-    this.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar justo a facilisis aliquet. In justo libero, tempor a ipsum id, pellentesque semper est. Nam elit ex, pulvinar eu libero nec, sagittis fringilla lorem. Curabitur consequat nulla elit, nec tincidunt risus rhoncus vitae. In hac habitasse platea dictumst.";
+    this.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar justo a facilisis aliquet.";
     this.image = "";
     this.typeSkill = typeSkill;
-    this.specialities = specialities;
     this.group = (group ? group : specialities[0].group);
+    this.specialities = specialities;
     this.caracts = [];
     this.effect = "";
 
@@ -42,10 +52,13 @@ export class ArlenorSkill {
 }
 
 export class SkillsEnum {
+  // Compétences de groupe/classe et de spécialité
   static CompetenceArme: ArlenorEnum = { Code: "COMP_ARME", Libelle: "Compétence d'arme" };
   static CompetenceArmure: ArlenorEnum = { Code: "COMP_ARMURE", Libelle: "Compétence d'armure" };
   static TempsRechargement: ArlenorEnum = { Code: "TEMPS_RECH", Libelle: "Temps de rechargement" };
   static TempsIncantation: ArlenorEnum = { Code: "TEMPS_INC", Libelle: "Temps d'incantation" };
+
+  // Compétences à choisir
   static CompetenceSpeBonus: ArlenorEnum = { Code: "SPE_BONUS", Libelle: "Compétence spéciale Bonus sur soi" };
   static CompetenceSpeMalus: ArlenorEnum = { Code: "SPE_MALUS", Libelle: "Compétence spéciale Malus sur soi" };
   static CompetenceSpeAttaque: ArlenorEnum = { Code: "SPE_ATK", Libelle: "Compétence spéciale d'Attaque" };

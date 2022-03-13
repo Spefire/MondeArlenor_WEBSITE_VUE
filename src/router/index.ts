@@ -44,7 +44,7 @@ const router = createRouter({
     }
     if (_to.hash) {
       return { el: _to.hash, behavior: "smooth" };
-    } else {
+    } else if (_to.path !== _from.path) {
       window.scrollTo(0, 0);
     }
   },

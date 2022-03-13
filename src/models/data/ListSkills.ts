@@ -144,6 +144,24 @@ export function getListSkills(): ArlenorSkill[] {
   return listSkills;
 }
 
+export function getGroupSkills(code: string, isGrpSpeSkill: boolean | null = null): ArlenorSkill[] {
+  const listSkills = getListSkills().filter(skill => skill.group.code === code && skill.specialities.length === 0);
+  if (isGrpSpeSkill !== null) {
+    return listSkills.filter(skill => skill.isGrpSpeSkill === isGrpSpeSkill);
+  } else {
+    return listSkills;
+  }
+}
+
+export function getSpecialitySkills(code: string, isGrpSpeSkill: boolean | null = null): ArlenorSkill[] {
+  const listSkills = getListSkills().filter(skill => skill.specialities.find(spe => spe.code === code));
+  if (isGrpSpeSkill !== null) {
+    return listSkills.filter(skill => skill.isGrpSpeSkill === isGrpSpeSkill);
+  } else {
+    return listSkills;
+  }
+}
+
 function getLibArme(lib: string): string {
   return "Armes (" + lib + ")";
 }

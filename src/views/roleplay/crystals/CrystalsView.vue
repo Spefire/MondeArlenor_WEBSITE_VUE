@@ -85,6 +85,7 @@
     v-if="currentGroup || currentSpeciality"
     class="layout-view background-roleplay crystals-view">
 
+    <!-- Menu à gauche -->
     <div class="side-menu left">
       <div class="docs-grid-list">
         <div
@@ -102,29 +103,87 @@
       </div>
     </div>
 
-    <div
-      v-if="currentGroup"
-      class="layout-center large">
-      <img
-        class="group-img rounded"
-        :src="currentGroup.image"
-        :alt="currentGroup.name">
-      <h2>{{ currentGroup.name }}</h2>
-      <p class="bloc-text">{{ currentGroup.description }}</p>
+    <div class="layout-center large">
+      <!-- Icone et titre -->
+      <template v-if="currentGroup">
+        <img
+          class="group-img rounded"
+          :src="currentGroup.image"
+          :alt="currentGroup.name">
+        <h2>{{ currentGroup.name }}</h2>
+        <p class="crystals-main-description bloc-text">{{ currentGroup.description }}</p>
+      </template>
+      <template v-if="currentSpeciality">
+        <img
+          class="group-img"
+          :src="currentSpeciality.image"
+          :alt="currentSpeciality.name">
+        <h2>{{ currentSpeciality.name }}</h2>
+        <p class="crystals-main-description bloc-text">{{ currentSpeciality.description }}</p>
+      </template>
+
+      <!-- Compétences acquises par la classe -->
+      <h3 class="margin-top-2">Compétences acquises par la classe</h3>
+      <div
+        v-if="groupSkills.length > 0"
+        class="crystals-docs docs-grid-list">
+        <div
+          v-for="(skill, index) in groupSkills"
+          class="docs-grid-element"
+          :key="index">
+          <img
+            class="img"
+            :src="skill.image"
+            :alt="skill.name">
+          <div class="docs-grid-infos">
+            <div class="docs-grid-header">
+              <span class="text-bold">{{ skill.name }}</span>
+            </div>
+            <p
+              class="docs-grid-body"
+              v-html="getDescription(skill.description, 200)" />
+          </div>
+        </div>
+      </div>
+      <p
+        v-if="groupSkills.length === 0"
+        class="crystals-main-description bloc-text margin-top-1">
+        Aucune compétence n'est acquise par cette classe.
+      </p>
+
+      <!-- Compétences acquises par la spécialité -->
+      <h3
+        v-if="currentSpeciality"
+        class="margin-top-2">Compétences acquises par la spécialité</h3>
+      <div
+        v-if="currentSpeciality && specialitySkills.length > 0"
+        class="crystals-docs docs-grid-list">
+        <div
+          v-for="(skill, index) in specialitySkills"
+          class="docs-grid-element"
+          :key="index">
+          <img
+            class="img"
+            :src="skill.image"
+            :alt="skill.name">
+          <div class="docs-grid-infos">
+            <div class="docs-grid-header">
+              <span class="text-bold">{{ skill.name }}</span>
+            </div>
+            <p
+              class="docs-grid-body"
+              v-html="getDescription(skill.description, 200)" />
+          </div>
+        </div>
+      </div>
+      <p
+        v-if="currentSpeciality && specialitySkills.length === 0"
+        class="crystals-main-description bloc-text margin-top-1">
+        Aucune compétence n'est acquise par cette spécialité.
+      </p>
     </div>
 
-    <div
-      v-if="currentSpeciality"
-      class="layout-center large">
-      <img
-        class="group-img"
-        :src="currentSpeciality.image"
-        :alt="currentSpeciality.name">
-      <h2>{{ currentSpeciality.name }}</h2>
-      <p class="bloc-text">{{ currentSpeciality.description }}</p>
-      <!--SkillsTable :current-speciality="currentSpeciality" -->
-    </div>
-
+    <!-- Menu à droite -->
     <div class="side-menu right">
       <div class="docs-grid-list">
         <div

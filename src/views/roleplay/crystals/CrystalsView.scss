@@ -16,4 +16,14 @@
       height: 100px;
     }
   }
+
+  .crystals-main-description {
+    width: 50%;
+    margin: auto;
+  }
+
+  .crystals-docs {
+    margin: 0 -10px -10px -10px;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
