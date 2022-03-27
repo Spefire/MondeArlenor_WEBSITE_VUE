@@ -4,6 +4,7 @@ import CelestiaView from "@/views/celestia/CelestiaView.vue";
 import HomeView from "@/views/home/HomeView.vue";
 import LegacyView from "@/views/legacy/LegacyView.vue";
 import CreationView from "@/views/roleplay/creation/CreationView.vue";
+import CrystalSingleView from "@/views/roleplay/crystal-single/CrystalSingleView.vue";
 import CrystalsView from "@/views/roleplay/crystals/CrystalsView.vue";
 import DocumentationView from "@/views/roleplay/documentation/DocumentationView.vue";
 import RoleplayView from "@/views/roleplay/RoleplayView.vue";
@@ -26,6 +27,7 @@ const routes: Array<RouteRecordRaw> = [
   { path: "/roleplay/system", component: SystemView, meta: { title: PageTitles.system }},
   { path: "/roleplay/documentation", component: DocumentationView, meta: { title: PageTitles.documentation }},
   { path: "/roleplay/crystals", component: CrystalsView, meta: { title: PageTitles.crystals }},
+  { path: "/roleplay/crystal", component: CrystalSingleView, meta: { title: PageTitles.crystals }},
   { path: "/roleplay/creation", component: CreationView, meta: { title: PageTitles.creation }},
 
   { path: "/celestia", component: CelestiaView, meta: { title: PageTitles.celestia }},
