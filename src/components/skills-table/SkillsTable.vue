@@ -47,7 +47,7 @@
     </div>
   </div>
 
-  <div class="table-large-alert bloc-text margin-top-1">
+  <div class="show-on-mobile-alert bloc-text margin-top-1">
     La liste ne peut pas être parcourue sur un écran mobile.
   </div>
 

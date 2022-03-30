@@ -114,3 +114,29 @@
 .img-rounded {
   border-radius: 50%;
 }
+
+.hide-on-mobile {
+  @include mobile-only {
+    display: none !important;
+  }
+}
+
+.show-on-mobile {
+  display: none !important;
+
+  @include mobile-only {
+    display: block !important;
+  }
+}
+
+.show-on-mobile-alert {
+  display: none !important;
+
+  @include mobile-only {
+    display: block !important;
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    color: $warning-color;
+  }
+}

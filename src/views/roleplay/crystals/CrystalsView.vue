@@ -25,7 +25,7 @@
                 :title="grp.role.name" />
             </div>
             <p class="docs-grid-body">{{ getDescription(grp.description) }}</p>
-            <div class="margin-top-05 margin-bottom-05">
+            <div class="margin-top-05 margin-bottom-05 hide-on-mobile">
               <ArrowButton
                 :link-path="'crystal'"
                 :link-query="{ grp: grp.code }" />
@@ -65,7 +65,7 @@
                 :title="spe.group.role.name" />
             </div>
             <p class="docs-grid-body">{{ getDescription(spe.description) }}</p>
-            <div class="margin-top-05 margin-bottom-05">
+            <div class="margin-top-05 margin-bottom-05 hide-on-mobile">
               <ArrowButton
                 :link-path="'crystal'"
                 :link-query="{ spe: spe.code }" />

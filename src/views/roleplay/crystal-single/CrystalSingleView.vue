@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="currentGroup || currentSpeciality"
-    class="layout-view background-roleplay crystal-single-view">
+    class="layout-view background-roleplay crystal-single-view hide-on-mobile">
 
     <!-- Menu à gauche -->
     <div class="side-menu left">
@@ -95,12 +95,13 @@
               v-html="getDescription(skill.description, 200)" />
           </div>
         </div>
+          
+        <p
+          v-if="currentSpeciality && specialitySkills.length === 0"
+          class="crystals-main-description bloc-text margin-top-1">
+          Aucune compétence n'est acquise par cette spécialité.
+        </p>
       </div>
-      <p
-        v-if="currentSpeciality && specialitySkills.length === 0"
-        class="crystals-main-description bloc-text margin-top-1">
-        Aucune compétence n'est acquise par cette spécialité.
-      </p>
     </div>
 
     <!-- Menu à droite -->
@@ -118,6 +119,12 @@
             @click="changeSpe(spe.code)">
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="layout-view background-roleplay show-on-mobile">
+    <div class="show-on-mobile-alert bloc-text">
+      Cette page ne peut pas être parcourue sur un écran mobile.
     </div>
   </div>
 </template>
