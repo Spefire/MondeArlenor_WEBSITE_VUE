@@ -406,6 +406,27 @@
   border-spacing: 0;
   background: $black-color;
 
+  &.top {
+    top: 0;
+    padding: 0;
+    max-height: none;
+    max-width: 75vw;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 0 0 5px 5px;
+    }
+
+    .docs-grid-list {
+      flex-direction: row;
+    }
+  }
+
   &.left {
     left: 0;
     border-left: none;

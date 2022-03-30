@@ -4,7 +4,7 @@
     class="layout-view background-roleplay speciality-view hide-on-mobile">
 
     <!-- Menu à droite -->
-    <div class="side-menu right">
+    <div class="side-menu top">
       <div class="docs-grid-list">
         <div
           v-for="(spe, index) in allSpecialities"
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="layout-center large">
+    <div class="layout-center large margin-top-3">
       <!-- Icone et titre -->
       <img
         class="group-img"
@@ -68,13 +68,11 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="layout-view background-roleplay show-on-mobile">
-      <div class="layout-center large">
-        <div class="show-on-mobile-alert bloc-text">
-          Cette page ne peut pas être parcourue sur un écran mobile.
-        </div>
-      </div>
+  <div class="layout-view background-roleplay show-on-mobile">
+    <div class="show-on-mobile-alert bloc-text">
+      Cette page ne peut pas être parcourue sur un écran mobile.
     </div>
   </div>
 </template>
