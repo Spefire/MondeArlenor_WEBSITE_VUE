@@ -3,12 +3,43 @@
 .speciality-view {
   min-height: calc(75vh + 100px);
 
+  .speciality-layout {
+    display: flex;
+
+    .speciality-center {
+      display: flex;
+      align-items: center;
+
+      > * {
+        width: 33.33%;
+        margin: 10px 0;
+      }
+    }
+
+    .speciality-separator {
+      height: 100%;
+      width: 1px;
+      margin: 0 25px;
+      background: $secondary-color;
+    }
+
+    .speciality-left {
+      width: calc(75% - 10px);
+      margin-right: 10px;
+    }
+
+    .speciality-right {
+      width: 25%;
+    }
+  }
+
   .group-img {
-    height: 150px;
+    height: 125px;
     border: 1px solid $secondary-color;
     background: $black-color;
 
     &.rounded {
+      height: 75px;
       border-radius: 50%;
     }
 
@@ -17,13 +48,17 @@
     }
   }
 
-  .crystals-main-description {
-    width: 50%;
-    margin: auto;
-  }
+  .skill-line {
+    display: flex;
+    align-items: center;
 
-  .crystals-docs {
-    margin: 0 -10px -10px -10px;
-    grid-template-columns: repeat(2, 1fr);
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    img {
+      height: 40px;
+      margin-right: 10px;
+    }
   }
 }

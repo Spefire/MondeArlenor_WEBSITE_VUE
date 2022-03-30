@@ -20,51 +20,62 @@
       </div>
     </div>
 
-    <div class="layout-center large margin-top-3">
+    <div class="layout-center large">
       <!-- Icone et titre -->
-      <img
-        class="group-img"
-        :src="currentSpeciality.image"
-        :alt="currentSpeciality.name">
-      <h2>{{ currentSpeciality.name }}</h2>
-      <p class="crystals-main-description bloc-text">{{ currentSpeciality.description }}</p>
-
-      <!-- Compétences acquises -->
-      <h3 class="margin-top-2">Compétences acquises de base</h3>
-      <div class="crystals-docs docs-grid-list">
-        <div
-          v-for="(skill, index) in groupSkills"
-          class="docs-grid-element"
-          :key="index">
-          <img
-            class="img"
-            :src="skill.image"
-            :alt="skill.name">
-          <div class="docs-grid-infos">
-            <div class="docs-grid-header">
-              <span class="text-bold">{{ skill.name }}</span>
+      <div class="speciality-layout margin-top-2">
+        <div class="bloc-text speciality-center">
+          <div class="speciality-section-top">
+            <h3 class="margin-bottom-1">Classe : {{ currentSpeciality.group.name }}</h3>
+            <img
+              class="group-img margin-bottom-1 rounded"
+              :src="currentSpeciality.group.image"
+              :alt="currentSpeciality.group.name">
+            <p class="crystals-main-description">{{ currentSpeciality.group.description }}</p>
+          </div>
+          <div class="speciality-separator" />
+          <div class="speciality-section-top">
+            <img
+              class="group-img"
+              :src="currentSpeciality.image"
+              :alt="currentSpeciality.name">
+            <h2>{{ currentSpeciality.name }}</h2>
+            <p class="crystals-main-description">{{ currentSpeciality.description }}</p>
+          </div>
+          <div class="speciality-separator" />
+          <div class="speciality-section-top">
+            <h3 class="margin-bottom-1">Compétences : acquises de base</h3>
+            <div
+              v-for="(skill, index) in groupSkills"
+              class="skill-line"
+              :key="index">
+              <img
+                class="group-img"
+                :src="skill.image"
+                :alt="skill.name">
+              <div>{{ skill.name }}</div>
             </div>
-            <p
-              class="docs-grid-body"
-              v-html="getDescription(skill.description, 200)" />
+            <div
+              v-for="(skill, index) in specialitySkills"
+              class="skill-line"
+              :key="index">
+              <img
+                class="group-img"
+                :src="skill.image"
+                :alt="skill.name">
+              <div>{{ skill.name }}</div>
+            </div>
           </div>
         </div>
-        <div
-          v-for="(skill, index) in specialitySkills"
-          class="docs-grid-element"
-          :key="index">
-          <img
-            class="img"
-            :src="skill.image"
-            :alt="skill.name">
-          <div class="docs-grid-infos">
-            <div class="docs-grid-header">
-              <span class="text-bold">{{ skill.name }}</span>
-            </div>
-            <p
-              class="docs-grid-body"
-              v-html="getDescription(skill.description, 200)" />
-          </div>
+      </div>
+
+      <!-- Compétences -->
+      <div class="speciality-layout margin-top-1">
+        <div class="bloc-text speciality-left">
+          Arbre de compétences
+        </div>
+      
+        <div class="bloc-text speciality-right">
+          Détail de la compétence
         </div>
       </div>
     </div>
