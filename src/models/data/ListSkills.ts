@@ -19,12 +19,14 @@ export function getListSkills(): ArlenorSkill[] {
   return listSkills;
 }
 
-export function getGroupSkills(code: string): ArlenorSkill[] {
-  return getListSkills().filter(skill => skill.group.code === code && skill.specialities.length === 0);
-}
-
-export function getSpecialitySkills(code: string): ArlenorSkill[] {
-  return getListSkills().filter(skill => skill.specialities.find(spe => spe.code === code));
+export function getSpecialitySkills(grpCode: string, speCode: string): ArlenorSkill[] {
+  const listGrp = getListSkills().filter(skill => skill.group.code === grpCode && skill.specialities.length === 0);
+  const listSpe = getListSkills().filter(skill => skill.specialities.find(spe => spe.code === speCode));
+  const list = listGrp.concat(listSpe);
+  list.sort((a, b) => {
+    return a.name.localeCompare(b.name);
+  });
+  return list;
 }
 
 function createSkill(listSkills: ArlenorSkill[], name: string, typeSkill: ArlenorEnum, groups: ArlenorGroup[], specialities: ArlenorSpeciality[]): ArlenorSkill[] {

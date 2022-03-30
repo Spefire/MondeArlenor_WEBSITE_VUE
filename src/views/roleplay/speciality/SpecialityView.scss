@@ -33,20 +33,9 @@
         padding: 10px;
       }
 
-      > * {
+      .speciality-section-top {
         width: 33.33%;
         margin: 10px 0;
-      }
-    }
-
-    .speciality-separator {
-      height: 100%;
-      width: 1px;
-      margin: 0 25px;
-      background: $secondary-color;
-
-      @include tablet-only {
-        margin: 0 10px;
       }
     }
 
@@ -60,6 +49,25 @@
     }
   }
 
+  .speciality-separator {
+    height: 100%;
+    width: 1px;
+    margin: 0 25px;
+    background: $secondary-color;
+
+    @include tablet-only {
+      margin: 0 10px;
+    }
+  }
+
+  .skill-separator {
+    height: 1px;
+    width: 100%;
+    margin: 15px 0;
+    background: $secondary-color;
+  }
+
+  .ability-line,
   .skill-line {
     display: flex;
     align-items: center;
@@ -68,13 +76,30 @@
       margin-bottom: 10px;
     }
 
+    .ability-img,
     .skill-img {
       height: 40px;
       margin-right: 10px;
     }
 
+    .ability-txt,
     .skill-txt {
       text-align: left;
+    }
+  }
+
+  .skills-content {
+    display: flex;
+
+    .skill-line {
+      width: 50%;
+      padding: 10px;
+      margin-bottom: 0;
+
+      &.selected {
+        color: $black-color;
+        background: $secondary-color;
+      }
     }
   }
 }

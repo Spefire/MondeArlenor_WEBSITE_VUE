@@ -12,9 +12,16 @@ export class ArlenorSkill {
   public caracts: ArlenorEnum[];
   public effect: string;
 
+  get code(): string {
+    let code = this.name;
+    code = code.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+    code = code.replace(/\s/g, "");
+    return code.toUpperCase();
+  }
+
   constructor(name: string, typeSkill: ArlenorEnum, group: ArlenorGroup | null, specialities: ArlenorSpeciality[]) {
     this.name = name;
-    this.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar justo a facilisis aliquet.";
+    this.description = "";
     this.image = "";
     this.typeSkill = typeSkill;
     this.group = (group ? group : specialities[0].group);

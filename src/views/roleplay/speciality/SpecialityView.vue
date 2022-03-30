@@ -25,7 +25,7 @@
       <div class="speciality-layout margin-top-2">
         <div class="bloc-text speciality-center">
           <div class="speciality-section-top">
-            <h3 class="margin-bottom-1">Classe de la spécialité :<br>{{ currentSpeciality.group.name }}</h3>
+            <h3 class="margin-bottom-1">Classe de la spécialité&nbsp;:<br>{{ currentSpeciality.group.name }}</h3>
             <img
               class="margin-bottom-1 rounded"
               :src="currentSpeciality.group.image"
@@ -45,13 +45,13 @@
             <h3 class="margin-bottom-1">Abilités de la spécialité</h3>
             <div
               v-for="(ability, index) in crystalAbilities"
-              class="skill-line"
+              class="ability-line"
               :key="index">
               <img
-                class="skill-img"
+                class="ability-img"
                 :src="ability.image"
                 :alt="ability.name">
-              <span class="skill-txt">{{ ability.name }}</span>
+              <span class="ability-txt">{{ ability.name }}</span>
             </div>
           </div>
         </div>
@@ -60,31 +60,45 @@
       <!-- Compétences -->
       <div class="speciality-layout margin-top-1">
         <div class="bloc-text speciality-left">
-          <h3 class="margin-bottom-1">Arbre de compétences</h3>
-          <div
-            v-for="(skill, index) in groupSkills"
-            class="skill-line"
-            :key="index">
-            <img
-              class="skill-img"
-              :src="skill.image"
-              :alt="skill.name">
-            <span class="skill-txt">{{ skill.name }}</span>
-          </div>
-          <div
-            v-for="(skill, index) in specialitySkills"
-            class="skill-line"
-            :key="index">
-            <img
-              class="skill-img"
-              :src="skill.image"
-              :alt="skill.name">
-            <span class="skill-txt">{{ skill.name }}</span>
+          <h3 class="margin-bottom-1">Liste de compétences possibles</h3>
+          <div class="skills-content">
+            <div
+              v-for="(skill, index) in specialitySkills"
+              class="skill-line pointer"
+              :class="{ 'selected' : skill.code === selectedSkill?.code }"
+              @click="selectSkill(skill)"
+              :key="index">
+              <img
+                class="skill-img"
+                :src="skill.image"
+                :alt="skill.name">
+              <span class="skill-txt">{{ skill.name }}</span>
+            </div>
           </div>
         </div>
       
         <div class="bloc-text speciality-right">
           <h3 class="margin-bottom-1">Détail de la compétence</h3>
+          <div class="skill-separator" />
+          <template v-if="selectedSkill">
+            <img
+              :src="selectedSkill.image"
+              :alt="selectedSkill.name">
+            <div class="margin-top-05">{{ selectedSkill.name }}</div>
+            <div class="skill-separator" />
+            <div>
+              {{ selectedSkill.specialities.length > 0 ? 'Compétence dûe à la spécialité' : 'Compétence dûe à la classe' }}
+            </div>
+            <div class="margin-top-05">
+              {{ selectedSkill.description ? selectedSkill.description : 'Aucune description' }}
+            </div>
+            <div class="skill-separator" />
+            <div>Caracts&nbsp;:&nbsp;{{ getCodCaracts(selectedSkill.caracts) }}</div>
+            <div>Effet&nbsp;:&nbsp;{{ selectedSkill.effect ? selectedSkill.effect : '-' }}</div>
+          </template>
+          <template v-if="!selectedSkill">
+            <div>Pas de compétence sélectionnée.</div>
+          </template>
         </div>
       </div>
     </div>
