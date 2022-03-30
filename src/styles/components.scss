@@ -410,9 +410,13 @@
     top: 0;
     padding: 0;
     max-height: none;
-    max-width: 75vw;
+    max-width: calc(100% - 100px);
     border-top: none;
     border-radius: 0 0 5px 5px;
+
+    @include tablet-only {
+      max-width: calc(100% - 50px);
+    }
 
     &::-webkit-scrollbar {
       height: 6px;
@@ -424,6 +428,10 @@
 
     .docs-grid-list {
       flex-direction: row;
+
+      .docs-grid-element {
+        padding: 5px 10px 10px 10px;
+      }
     }
   }
 

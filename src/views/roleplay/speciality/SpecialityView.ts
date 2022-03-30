@@ -1,5 +1,7 @@
+import { ArlenorAbility } from "@/models/ArlenorAbility";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
+import { getCrystalAbilities } from "@/models/data/ListAbilities";
 import { getGroupSkills, getSpecialitySkills } from "@/models/data/ListSkills";
 import { getListSpecialities } from "@/models/data/ListSpecialities";
 import { PageTitles } from "@/models/PagesTitles";
@@ -28,15 +30,21 @@ export default defineComponent({
   },
 
   computed: {
+    crystalAbilities(): ArlenorAbility[] {
+      if (this.currentSpeciality) {
+        return getCrystalAbilities(this.currentSpeciality?.group.code, this.currentSpeciality?.code);
+      }
+      return [];
+    },
     groupSkills(): ArlenorSkill[] {
       if (this.currentSpeciality) {
-        return getGroupSkills(this.currentSpeciality?.group.code, true);
+        return getGroupSkills(this.currentSpeciality?.group.code);
       }
       return [];
     },
     specialitySkills(): ArlenorSkill[] {
       if (this.currentSpeciality) {
-        return getSpecialitySkills(this.currentSpeciality?.code, true);
+        return getSpecialitySkills(this.currentSpeciality?.code);
       }
       return [];
     }

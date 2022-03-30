@@ -3,12 +3,35 @@
 .speciality-view {
   min-height: calc(75vh + 100px);
 
+  img {
+    height: 125px;
+    border: 1px solid $secondary-color;
+    background: $black-color;
+
+    &.rounded {
+      height: 75px;
+      border-radius: 50%;
+
+      @include tablet-only {
+        height: 50px;
+      }
+    }
+
+    @include tablet-only {
+      height: 75px;
+    }
+  }
+
   .speciality-layout {
     display: flex;
 
     .speciality-center {
       display: flex;
       align-items: center;
+
+      @include tablet-only {
+        padding: 10px;
+      }
 
       > * {
         width: 33.33%;
@@ -21,6 +44,10 @@
       width: 1px;
       margin: 0 25px;
       background: $secondary-color;
+
+      @include tablet-only {
+        margin: 0 10px;
+      }
     }
 
     .speciality-left {
@@ -33,21 +60,6 @@
     }
   }
 
-  .group-img {
-    height: 125px;
-    border: 1px solid $secondary-color;
-    background: $black-color;
-
-    &.rounded {
-      height: 75px;
-      border-radius: 50%;
-    }
-
-    @include mobile-only {
-      height: 100px;
-    }
-  }
-
   .skill-line {
     display: flex;
     align-items: center;
@@ -56,9 +68,13 @@
       margin-bottom: 10px;
     }
 
-    img {
+    .skill-img {
       height: 40px;
       margin-right: 10px;
+    }
+
+    .skill-txt {
+      text-align: left;
     }
   }
 }

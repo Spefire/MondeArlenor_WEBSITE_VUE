@@ -25,9 +25,9 @@
       <div class="speciality-layout margin-top-2">
         <div class="bloc-text speciality-center">
           <div class="speciality-section-top">
-            <h3 class="margin-bottom-1">Classe : {{ currentSpeciality.group.name }}</h3>
+            <h3 class="margin-bottom-1">Classe de la spécialité :<br>{{ currentSpeciality.group.name }}</h3>
             <img
-              class="group-img margin-bottom-1 rounded"
+              class="margin-bottom-1 rounded"
               :src="currentSpeciality.group.image"
               :alt="currentSpeciality.group.name">
             <p class="crystals-main-description">{{ currentSpeciality.group.description }}</p>
@@ -35,7 +35,6 @@
           <div class="speciality-separator" />
           <div class="speciality-section-top">
             <img
-              class="group-img"
               :src="currentSpeciality.image"
               :alt="currentSpeciality.name">
             <h2>{{ currentSpeciality.name }}</h2>
@@ -43,26 +42,16 @@
           </div>
           <div class="speciality-separator" />
           <div class="speciality-section-top">
-            <h3 class="margin-bottom-1">Compétences : acquises de base</h3>
+            <h3 class="margin-bottom-1">Abilités de la spécialité</h3>
             <div
-              v-for="(skill, index) in groupSkills"
+              v-for="(ability, index) in crystalAbilities"
               class="skill-line"
               :key="index">
               <img
-                class="group-img"
-                :src="skill.image"
-                :alt="skill.name">
-              <div>{{ skill.name }}</div>
-            </div>
-            <div
-              v-for="(skill, index) in specialitySkills"
-              class="skill-line"
-              :key="index">
-              <img
-                class="group-img"
-                :src="skill.image"
-                :alt="skill.name">
-              <div>{{ skill.name }}</div>
+                class="skill-img"
+                :src="ability.image"
+                :alt="ability.name">
+              <span class="skill-txt">{{ ability.name }}</span>
             </div>
           </div>
         </div>
@@ -71,11 +60,31 @@
       <!-- Compétences -->
       <div class="speciality-layout margin-top-1">
         <div class="bloc-text speciality-left">
-          Arbre de compétences
+          <h3 class="margin-bottom-1">Arbre de compétences</h3>
+          <div
+            v-for="(skill, index) in groupSkills"
+            class="skill-line"
+            :key="index">
+            <img
+              class="skill-img"
+              :src="skill.image"
+              :alt="skill.name">
+            <span class="skill-txt">{{ skill.name }}</span>
+          </div>
+          <div
+            v-for="(skill, index) in specialitySkills"
+            class="skill-line"
+            :key="index">
+            <img
+              class="skill-img"
+              :src="skill.image"
+              :alt="skill.name">
+            <span class="skill-txt">{{ skill.name }}</span>
+          </div>
         </div>
       
         <div class="bloc-text speciality-right">
-          Détail de la compétence
+          <h3 class="margin-bottom-1">Détail de la compétence</h3>
         </div>
       </div>
     </div>
