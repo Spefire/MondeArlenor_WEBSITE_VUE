@@ -12,16 +12,6 @@ export class ArlenorSkill {
   public caracts: ArlenorEnum[];
   public effect: string;
 
-  public get isGrpSpeSkill():boolean {
-    if (this.typeSkill) {
-      return (this.typeSkill === SkillsEnum.CompetenceArme
-        || this.typeSkill === SkillsEnum.CompetenceArmure
-        || this.typeSkill === SkillsEnum.TempsIncantation
-        || this.typeSkill === SkillsEnum.TempsRechargement);
-    }
-    return false;
-  }
-
   constructor(name: string, typeSkill: ArlenorEnum, group: ArlenorGroup | null, specialities: ArlenorSpeciality[]) {
     this.name = name;
     this.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar justo a facilisis aliquet.";
@@ -36,17 +26,23 @@ export class ArlenorSkill {
   }
 
   public setImage(): void {
-    if (this.typeSkill.Code === SkillsEnum.CompetenceArme.Code) {
-      this.image = require("./../assets/icons/armes.png");
+    if (this.typeSkill.Code === SkillsEnum.CompetenceSpeBonus.Code) {
+      this.image = require("./../assets/icons/comp_bonus.png");
     }
-    else if (this.typeSkill.Code === SkillsEnum.CompetenceArmure.Code) {
-      this.image = require("./../assets/icons/armures.png");
+    else if (this.typeSkill.Code === SkillsEnum.CompetenceSpeMalus.Code) {
+      this.image = require("./../assets/icons/comp_malus.png");
     }
-    else if (this.typeSkill.Code === SkillsEnum.TempsIncantation.Code) {
-      this.image = require("./../assets/icons/incantation.png");
+    else if (this.typeSkill.Code === SkillsEnum.CompetenceSpeAttaque.Code) {
+      this.image = require("./../assets/icons/comp_attaque.png");
     }
-    else if (this.typeSkill.Code === SkillsEnum.TempsRechargement.Code) {
-      this.image = require("./../assets/icons/rechargement.png");
+    else if (this.typeSkill.Code === SkillsEnum.SortOffensif.Code) {
+      this.image = require("./../assets/icons/sort_offensif.png");
+    }
+    else if (this.typeSkill.Code === SkillsEnum.SortDefensif.Code) {
+      this.image = require("./../assets/icons/sort_defensif.png");
+    }
+    else if (this.typeSkill.Code === SkillsEnum.SortDivers.Code) {
+      this.image = require("./../assets/icons/sort_divers.png");
     }
     else {
       this.image = require("./../assets/icons/skills.png");
@@ -55,12 +51,6 @@ export class ArlenorSkill {
 }
 
 export class SkillsEnum {
-  // Compétences de groupe/classe et de spécialité
-  static CompetenceArme: ArlenorEnum = { Code: "COMP_ARME", Libelle: "Compétence d'arme" };
-  static CompetenceArmure: ArlenorEnum = { Code: "COMP_ARMURE", Libelle: "Compétence d'armure" };
-  static TempsRechargement: ArlenorEnum = { Code: "TEMPS_RECH", Libelle: "Temps de rechargement" };
-  static TempsIncantation: ArlenorEnum = { Code: "TEMPS_INC", Libelle: "Temps d'incantation" };
-
   // Compétences à choisir
   static CompetenceSpeBonus: ArlenorEnum = { Code: "SPE_BONUS", Libelle: "Compétence spéciale Bonus sur soi" };
   static CompetenceSpeMalus: ArlenorEnum = { Code: "SPE_MALUS", Libelle: "Compétence spéciale Malus sur soi" };
