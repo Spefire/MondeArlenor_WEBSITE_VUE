@@ -85,21 +85,23 @@
           <h3 class="margin-bottom-1">Détail de la compétence</h3>
           <div class="skill-separator" />
           <template v-if="selectedSkill">
+            <div>
+              {{ selectedSkill.typeSkill.Libelle }}<br>
+              {{ selectedSkill.specialities.length > 0 ? '(de la spécialité)' : '(de la classe)' }}
+            </div>
             <img
+              class="margin-top-1"
               :src="selectedSkill.image"
               :alt="selectedSkill.name">
-            <div class="margin-top-05">{{ selectedSkill.name }}</div>
+            <h2 class="margin-top-05">{{ selectedSkill.name }}</h2>
             <div class="skill-separator" />
             <div>
-              {{ selectedSkill.specialities.length > 0 ? 'Compétence dûe à la spécialité' : 'Compétence dûe à la classe' }}
-            </div>
-            <div class="margin-top-05">
               {{ selectedSkill.description ? selectedSkill.description : 'Aucune description' }}
             </div>
             <div class="skill-separator" />
-            <div>Niveau requis&nbsp;:&nbsp;{{ selectedSkill.niveauRequis }}</div>
-            <div>Caracts&nbsp;:&nbsp;{{ getCodCaracts(selectedSkill.caracts) }}</div>
-            <div>Effet&nbsp;:&nbsp;{{ selectedSkill.effect ? selectedSkill.effect : '-' }}</div>
+            <div>Niveau requis&nbsp;:&nbsp;{{ selectedSkill.level }}</div>
+            <!--div>Caracts&nbsp;:&nbsp;{{ getCodCaracts(selectedSkill.caracts) }}</div>
+            <div>Effet&nbsp;:&nbsp;{{ selectedSkill.effect ? selectedSkill.effect : '-' }}</div-->
           </template>
           <template v-if="!selectedSkill">
             <div>Pas de compétence sélectionnée.</div>
