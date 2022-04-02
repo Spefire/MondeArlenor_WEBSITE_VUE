@@ -61,9 +61,13 @@
       <div class="speciality-layout margin-top-1">
         <div class="bloc-text speciality-left">
           <h3 class="margin-bottom-1">Liste de compétences possibles</h3>
-          <div class="skills-content">
+          <div
+            v-for="(level, indexLevel) in levels"
+            class="skills-content"
+            :key="indexLevel">
+            <div class="skills-content-title">Niveau {{ level }}</div>
             <div
-              v-for="(skill, index) in specialitySkills"
+              v-for="(skill, index) in getSkillsByLevel(level)"
               class="skill-line pointer"
               :class="{ 'selected' : skill.code === selectedSkill?.code }"
               @click="selectSkill(skill)"
@@ -71,8 +75,8 @@
               <img
                 class="skill-img"
                 :src="skill.image"
-                :alt="skill.name">
-              <span class="skill-txt">{{ skill.name }}</span>
+                :alt="skill.name"
+                :title="skill.name">
             </div>
           </div>
         </div>
@@ -93,6 +97,7 @@
               {{ selectedSkill.description ? selectedSkill.description : 'Aucune description' }}
             </div>
             <div class="skill-separator" />
+            <div>Niveau requis&nbsp;:&nbsp;{{ selectedSkill.niveauRequis }}</div>
             <div>Caracts&nbsp;:&nbsp;{{ getCodCaracts(selectedSkill.caracts) }}</div>
             <div>Effet&nbsp;:&nbsp;{{ selectedSkill.effect ? selectedSkill.effect : '-' }}</div>
           </template>

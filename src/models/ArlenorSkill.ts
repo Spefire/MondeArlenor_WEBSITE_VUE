@@ -9,6 +9,7 @@ export class ArlenorSkill {
   public typeSkill: ArlenorEnum;
   public group: ArlenorGroup;
   public specialities: ArlenorSpeciality[];
+  public level: number;
   public caracts: ArlenorEnum[];
   public effect: string;
 
@@ -19,13 +20,14 @@ export class ArlenorSkill {
     return code.toUpperCase();
   }
 
-  constructor(name: string, typeSkill: ArlenorEnum, group: ArlenorGroup | null, specialities: ArlenorSpeciality[]) {
+  constructor(name: string, typeSkill: ArlenorEnum, group: ArlenorGroup | null, specialities: ArlenorSpeciality[], level: number, description = "") {
     this.name = name;
-    this.description = "";
+    this.description = description;
     this.image = "";
     this.typeSkill = typeSkill;
     this.group = (group ? group : specialities[0].group);
     this.specialities = specialities;
+    this.level = level;
     this.caracts = [];
     this.effect = "";
 

@@ -16,6 +16,11 @@ export default defineComponent({
   watch: {
     $route() {
       this.updatePage();
+    },
+    currentSpeciality() {
+      this.getCrystalAbilities();
+      this.getSpecialitySkills();
+      this.getListLevels();
     }
   },
 
@@ -23,27 +28,15 @@ export default defineComponent({
     const currentSpeciality: Ref<ArlenorSpeciality | null> = ref(null);
     const allSpecialities = ref(getListSpecialities());
     const selectedSkill: Ref<ArlenorSkill | null> = ref(null);
-
-    return { currentSpeciality, allSpecialities, selectedSkill };
+    const crystalAbilities: Ref<ArlenorAbility[]> = ref([]);
+    const specialitySkills: Ref<ArlenorSkill[]> = ref([]);
+    const levels: Ref<number[]> = ref([]);
+    
+    return { currentSpeciality, allSpecialities, selectedSkill, crystalAbilities, specialitySkills, levels };
   },
 
   mounted() {
     this.updatePage();
-  },
-
-  computed: {
-    crystalAbilities(): ArlenorAbility[] {
-      if (this.currentSpeciality) {
-        return getCrystalAbilities(this.currentSpeciality?.group.code, this.currentSpeciality?.code);
-      }
-      return [];
-    },
-    specialitySkills(): ArlenorSkill[] {
-      if (this.currentSpeciality) {
-        return getSpecialitySkills(this.currentSpeciality?.group.code, this.currentSpeciality?.code);
-      }
-      return [];
-    }
   },
 
   methods: {
@@ -65,6 +58,31 @@ export default defineComponent({
 
     selectSkill(skill: ArlenorSkill | null) {
       this.selectedSkill = skill;
+    },
+    
+    getCrystalAbilities(): ArlenorAbility[] {
+      if (this.currentSpeciality) {
+        this.crystalAbilities = getCrystalAbilities(this.currentSpeciality?.group.code, this.currentSpeciality?.code);
+      }
+      return [];
+    },
+
+    getSpecialitySkills(): ArlenorSkill[] {
+      if (this.currentSpeciality) {
+        this.specialitySkills = getSpecialitySkills(this.currentSpeciality?.group.code, this.currentSpeciality?.code);
+      }
+      return [];
+    },
+
+    getListLevels() {
+      function onlyUnique(value: number, index: number, self: number[]) {
+        return self.indexOf(value) === index;
+      }
+      this.levels = this.specialitySkills.map(skill => skill.level).filter(onlyUnique);
+    },
+
+    getSkillsByLevel(level: number): ArlenorSkill[] {
+      return this.specialitySkills.filter(skill => skill.level === level);
     },
 
     getDescription(description: string, length = 0) {
