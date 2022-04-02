@@ -10,7 +10,7 @@
       <div separator />
       <h2>Présentation</h2>
       <p class="text-justify">
-        &emsp;Je m'appelle Nicholas, aka Spefire, j'ai 27 ans
+        &emsp;Je m'appelle Nicholas (aka Spefire), j'ai 27 ans
         et je suis un ingénieur en informatique ayant une passion pour l'illustration et tout ce qui est graphique (ironique hein ?).
         Je m'entraine sérieusement depuis 2015 en jongleant avec les fanarts, les jeux vidéo et le jeu de rôles...
       </p>

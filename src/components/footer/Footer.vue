@@ -12,7 +12,7 @@
         </div>
         <div class="footer-container">
           <p>
-            Le Monde d'Arlénor est un univers fantastique, créé en 2015 pour en faire un Jeu de Rôles, par Nicholas BRUN aka Spefire.
+            Le Monde d'Arlénor est un univers fantastique, créé en 2015 par Nicholas (aka Spefire) pour en faire un Jeu de Rôles.
           </p>
           <ArrowButton :link-page="'/about'" />
         </div>
