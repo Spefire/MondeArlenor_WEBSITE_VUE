@@ -1,0 +1,4 @@
+name,typeSkill,group,specialities,level,caracts,timeCasting,timeReloading,image,description
+Appel du chevalier,,,,1,[POU],0,2,,Oblige la cible à s'avancer vers le personnage et à le combattre
+Appel de la sirene,,,,2,[POU],1,1,,Oblige la cible à le combattre
+Appel du prince la sirene,,,,4,"[INT, FOR]",2,3,,Oblige la cible à s'avancer vers le perso

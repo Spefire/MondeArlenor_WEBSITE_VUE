@@ -79,6 +79,7 @@ export default defineComponent({
         return self.indexOf(value) === index;
       }
       this.levels = this.specialitySkills.map(skill => skill.level).filter(onlyUnique);
+      this.levels.sort((a, b) => a - b);
     },
 
     getSkillsByLevel(level: number): ArlenorSkill[] {

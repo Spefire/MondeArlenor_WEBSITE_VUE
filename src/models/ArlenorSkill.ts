@@ -1,17 +1,32 @@
 import { ArlenorEnum } from "./ArlenorEnum";
 import { ArlenorGroup } from "./ArlenorGroup";
 import { ArlenorSpeciality } from "./ArlenorSpeciality";
+import { ArlenorGroups } from "./data/ListGroups";
+
+export interface ArlenorSkillJSON {
+  name: string;
+  description: string;
+  image: string;
+  typeSkill: string;
+  group: string;
+  specialities: string;
+  level: string;
+  caracts: string;
+  timeCasting: string;
+  timeReloading: string;
+}
 
 export class ArlenorSkill {
   public name: string;
   public description: string;
-  public image: string;
   public typeSkill: ArlenorEnum;
+  public image: string;
   public group: ArlenorGroup;
   public specialities: ArlenorSpeciality[];
   public level: number;
   public caracts: ArlenorEnum[];
-  public effect: string;
+  public timeCasting: number;
+  public timeReloading: number;
 
   get code(): string {
     let code = this.name;
@@ -20,29 +35,57 @@ export class ArlenorSkill {
     return code.toUpperCase();
   }
 
-  constructor(name: string, typeSkill: ArlenorEnum, group: ArlenorGroup | null, specialities: ArlenorSpeciality[], level: number, description = "") {
-    this.name = name;
-    this.description = description;
+  constructor() {
+    const groups = new ArlenorGroups();
+    this.name = "";
+    this.description = "";
+    this.typeSkill = SkillsEnum.CompetencePassive;
     this.image = "";
-    this.typeSkill = typeSkill;
-    this.group = (group ? group : specialities[0].group);
-    this.specialities = specialities;
-    this.level = level;
+    this.group = groups.Assassin;
+    this.specialities = [];
+    this.level = 0;
+    this.timeCasting = 0;
+    this.timeReloading = 0;
     this.caracts = [];
-    this.effect = "";
+  }
 
-    this.setImage();
+  public static CreateSkill(name: string, typeSkill: ArlenorEnum, group: ArlenorGroup | null, specialities: ArlenorSpeciality[], level: number,
+    timeCasting: number,  timeReloading: number, description = ""): ArlenorSkill {
+    const arlSkill = new ArlenorSkill();
+    arlSkill.name = name;
+    arlSkill.description = description;
+    arlSkill.typeSkill = typeSkill;
+    arlSkill.setImage();
+    arlSkill.group = (group ? group : specialities[0].group);
+    arlSkill.specialities = specialities;
+    arlSkill.level = level;
+    arlSkill.timeCasting = timeCasting;
+    arlSkill.timeReloading = timeReloading;
+    arlSkill.caracts = [];
+    return arlSkill;
+  }
+
+  public static ConvertSkill(skillJSON: ArlenorSkillJSON): ArlenorSkill {
+    const arlSkill = new ArlenorSkill();
+    arlSkill.name = skillJSON.name;
+    arlSkill.description = skillJSON.description;
+    // arlSkill.typeSkill = skillJSON.typeSkill;
+    arlSkill.setImage();
+    // arlSkill.group = (group ? group : specialities[0].group);
+    // arlSkill.specialities = specialities;
+    arlSkill.level = parseInt(skillJSON.level);
+    arlSkill.timeCasting = parseInt(skillJSON.timeCasting);
+    arlSkill.timeReloading = parseInt(skillJSON.timeReloading);
+    // arlSkill.caracts = [];
+    return arlSkill;
   }
 
   public setImage(): void {
-    if (this.typeSkill.Code === SkillsEnum.CompetenceSpeBonus.Code) {
-      this.image = require("./../assets/icons/comp_bonus.png");
+    if (this.typeSkill.Code === SkillsEnum.CompetencePassive.Code) {
+      this.image = require("./../assets/icons/comp_passive.png");
     }
-    else if (this.typeSkill.Code === SkillsEnum.CompetenceSpeMalus.Code) {
-      this.image = require("./../assets/icons/comp_malus.png");
-    }
-    else if (this.typeSkill.Code === SkillsEnum.CompetenceSpeAttaque.Code) {
-      this.image = require("./../assets/icons/comp_attaque.png");
+    else if (this.typeSkill.Code === SkillsEnum.CompetenceSpeciale.Code) {
+      this.image = require("./../assets/icons/comp_speciale.png");
     }
     else if (this.typeSkill.Code === SkillsEnum.SortOffensif.Code) {
       this.image = require("./../assets/icons/sort_offensif.png");
@@ -61,9 +104,8 @@ export class ArlenorSkill {
 
 export class SkillsEnum {
   // Compétences à choisir
-  static CompetenceSpeBonus: ArlenorEnum = { Code: "SPE_BONUS", Libelle: "Compétence spéciale Bonus sur soi" };
-  static CompetenceSpeMalus: ArlenorEnum = { Code: "SPE_MALUS", Libelle: "Compétence spéciale Malus sur soi" };
-  static CompetenceSpeAttaque: ArlenorEnum = { Code: "SPE_ATK", Libelle: "Compétence spéciale d'Attaque" };
+  static CompetencePassive: ArlenorEnum = { Code: "COMP_PASS", Libelle: "Compétence passive" };
+  static CompetenceSpeciale: ArlenorEnum = { Code: "COMP_SPE", Libelle: "Compétence spéciale" };
   static SortOffensif: ArlenorEnum = { Code: "SORT_OFF", Libelle: "Sort offensif" };
   static SortDefensif: ArlenorEnum = { Code: "SORT_DEF", Libelle: "Sort défensif" };
   static SortDivers: ArlenorEnum = { Code: "SORT_DIVERS", Libelle: "Sort divers" };
