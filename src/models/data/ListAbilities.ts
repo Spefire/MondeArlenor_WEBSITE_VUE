@@ -144,7 +144,7 @@ export function getListAbilities(): ArlenorAbility[] {
   return listAbilities;
 }
 
-export function getCrystalAbilities(grpCode: string, speCode: string): ArlenorAbility[] {
+export function getSpeAbilities(grpCode: string, speCode: string): ArlenorAbility[] {
   const listGrp = getListAbilities().filter(ability => ability.group.code === grpCode && ability.specialities.length === 0);
   const listSpe = getListAbilities().filter(ability => ability.specialities.find(spe => spe.code === speCode));
   const list = listGrp.concat(listSpe);

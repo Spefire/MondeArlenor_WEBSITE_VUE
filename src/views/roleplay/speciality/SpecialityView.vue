@@ -15,7 +15,7 @@
             :src="spe.image"
             :title="spe.name"
             :alt="spe.name"
-            @click="changeSpe(spe.code)">
+            @click="moveToSpe(spe.code)">
         </div>
       </div>
     </div>
@@ -44,14 +44,40 @@
           <div class="speciality-section-top">
             <h3 class="margin-bottom-1">Abilités de la spécialité</h3>
             <div
-              v-for="(ability, index) in crystalAbilities"
-              class="ability-line"
-              :key="index">
+              v-if="currentSpeciality.weaponAbility"
+              class="ability-line">
               <img
                 class="ability-img"
-                :src="ability.image"
-                :alt="ability.name">
-              <span class="ability-txt">{{ ability.name }}</span>
+                :src="currentSpeciality.weaponAbility.image"
+                :alt="currentSpeciality.weaponAbility.name">
+              <span class="ability-txt">{{ currentSpeciality.weaponAbility.name }}</span>
+            </div>
+            <div 
+              v-if="currentSpeciality.armorAbility"
+              class="ability-line">
+              <img
+                class="ability-img"
+                :src="currentSpeciality.armorAbility.image"
+                :alt="currentSpeciality.armorAbility.name">
+              <span class="ability-txt">{{ currentSpeciality.armorAbility.name }}</span>
+            </div>
+            <div 
+              v-if="currentSpeciality.timeCastingAbility"
+              class="ability-line">
+              <img
+                class="ability-img"
+                :src="currentSpeciality.timeCastingAbility.image"
+                :alt="currentSpeciality.timeCastingAbility.name">
+              <span class="ability-txt">{{ currentSpeciality.timeCastingAbility.name }}</span>
+            </div>
+            <div 
+              v-if="currentSpeciality.timeReloadingAbility"
+              class="ability-line">
+              <img
+                class="ability-img"
+                :src="currentSpeciality.timeReloadingAbility.image"
+                :alt="currentSpeciality.timeReloadingAbility.name">
+              <span class="ability-txt">{{ currentSpeciality.timeReloadingAbility.name }}</span>
             </div>
           </div>
         </div>
