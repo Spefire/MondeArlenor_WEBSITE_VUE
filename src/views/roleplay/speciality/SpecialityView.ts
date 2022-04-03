@@ -1,7 +1,7 @@
 import { ArlenorEnum } from "@/models/ArlenorEnum";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
-import { getSpecialitySkills } from "@/models/data/ListSkills";
+import { getListSkills } from "@/models/data/ListSkills";
 import { getListSpecialities } from "@/models/data/ListSpecialities";
 import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, Ref, ref } from "vue";
@@ -56,7 +56,7 @@ export default defineComponent({
         return self.indexOf(value) === index;
       }
       if (this.currentSpeciality) {
-        this.specialitySkills = getSpecialitySkills(this.currentSpeciality?.group.code, this.currentSpeciality?.code);
+        this.specialitySkills = getListSkills(this.currentSpeciality?.group.code, this.currentSpeciality?.code);
         this.levels = this.specialitySkills.map(skill => skill.level).filter(onlyUnique);
         this.levels.sort((a, b) => a - b);
       } else {

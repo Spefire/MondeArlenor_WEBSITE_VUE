@@ -4,6 +4,7 @@ import { getSpeAbilities } from "./data/ListAbilities";
 
 export class ArlenorSpeciality {
   public name: string;
+  public code: string;
   public image: string;
   public description: string;
   public group: ArlenorGroup;
@@ -12,15 +13,9 @@ export class ArlenorSpeciality {
   public timeCastingAbility: ArlenorAbility | null;
   public timeReloadingAbility: ArlenorAbility | null;
 
-  get code(): string {
-    let code = this.name;
-    code = code.normalize("NFD").replace(/\p{Diacritic}/gu, "");
-    code = code.replace(/\s/g, "");
-    return code.toUpperCase();
-  }
-
-  constructor(name: string, group: ArlenorGroup) {
+  constructor(name: string, code: string, group: ArlenorGroup) {
     this.name = name;
+    this.code = code.toUpperCase();
     this.image = "";
     this.description = "";
     this.group = group;

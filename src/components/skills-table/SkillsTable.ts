@@ -49,9 +49,9 @@ export default defineComponent({
     changeFilteredSkills() {
       this.filteredSkills = this.skills;
       if (this.selectedGroup) this.filteredSkills = this.filteredSkills.filter(skill => skill.group.code === this.selectedGroup);
-      if (this.selectedSpeciality) this.filteredSkills = this.filteredSkills.filter(skill => {
+      /*if (this.selectedSpeciality) this.filteredSkills = this.filteredSkills.filter(skill => {
         return skill.specialities.find((spe: ArlenorSpeciality) => spe.code === this.selectedSpeciality) || (skill.specialities.length === 0 && skill.group.code === this.selectedGroup);
-      });
+      });*/
       if (this.searchName) this.filteredSkills = this.filteredSkills.filter(skill => skill.name.toLowerCase().indexOf(this.searchName.toLowerCase()) !== -1);
     },
 
@@ -67,7 +67,7 @@ export default defineComponent({
     },
             
     getLibSpecialities(skill: ArlenorSkill) {
-      if (skill.specialities.length > 0) {
+      /*if (skill.specialities.length > 0) {
         let lib = "";
         skill.specialities.forEach((spe: ArlenorSpeciality, index: number) => {
           lib += spe.name;
@@ -76,7 +76,9 @@ export default defineComponent({
         return lib;
       } else {
         return "Toutes les spécialités";
-      }
+      }*/
+      // TODO : A supprimer
+      return "Toutes les spécialités : " + skill.name;
     },
 
     getCodCaracts(caracts: ArlenorEnum[]) {
