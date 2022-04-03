@@ -84,6 +84,16 @@ export default defineComponent({
       return lib ? lib : "-";
     },
 
+    getCasting(timeCastingAbility: number) {
+      if (!timeCastingAbility) return "Pas d'incantation";
+      return "" + timeCastingAbility + " tours d'incantation";
+    },
+  
+    getReloading(timeReloadingAbility: number) {
+      if (!timeReloadingAbility) return "Pas de rechargement";
+      return "" + timeReloadingAbility + " tours de rechargement";
+    },
+
     // Actions
     selectSkill(skill: ArlenorSkill | null) {
       this.selectedSkill = skill;

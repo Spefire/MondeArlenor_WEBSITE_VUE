@@ -113,7 +113,7 @@
           <template v-if="selectedSkill">
             <div>
               {{ selectedSkill.typeSkill.Libelle }}<br>
-              {{ selectedSkill.specialities.length > 0 ? '(de la spécialité)' : '(de la classe)' }}
+              {{ selectedSkill.speciality ? '(de la spécialité)' : '(de la classe)' }}
             </div>
             <img
               class="margin-top-1"
@@ -126,8 +126,9 @@
             </div>
             <div class="skill-separator" />
             <div>Niveau requis&nbsp;:&nbsp;{{ selectedSkill.level }}</div>
-            <!--div>Caracts&nbsp;:&nbsp;{{ getCodCaracts(selectedSkill.caracts) }}</div>
-            <div>Effet&nbsp;:&nbsp;{{ selectedSkill.effect ? selectedSkill.effect : '-' }}</div-->
+            <div>Caractéristique&nbsp;:&nbsp;{{ selectedSkill.caract.Code }}</div>
+            <div>{{ getCasting(selectedSkill.timeCastingAbility) }}</div>
+            <div>{{ getReloading(selectedSkill.timeReloadingAbility) }}</div>
           </template>
           <template v-if="!selectedSkill">
             <div>Pas de compétence sélectionnée.</div>
