@@ -79,9 +79,9 @@ export default defineComponent({
       let lib = "";
       caracts.forEach((caract, index) => {
         lib += caract.Code;
-        if (index < caracts.length-1) lib += ", ";
+        if (index < caracts.length-1) lib += " ou ";
       });
-      return lib ? lib : "-";
+      return lib ? lib : "Aucun";
     },
 
     getCasting(timeCastingAbility: number) {

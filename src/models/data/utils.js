@@ -5,7 +5,7 @@ const fs = require("fs");
 // Configuration
 const fileName = "skills";
 const splitRow = "\r\n";
-const splitCol = ",";
+const splitCol = ";";
 
 // Run :
 // cd src\models\data

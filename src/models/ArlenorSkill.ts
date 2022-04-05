@@ -13,9 +13,15 @@ export interface ArlenorSkillJSON {
   group: string;
   speciality: string;
   level: string;
-  caract: string;
   timeCasting: string;
   timeReloading: string;
+  caractsUse: string;
+  caractsTarget: string;
+  effect: string;
+  effect0: string;
+  effect1: string;
+  effect2: string;
+  effect3: string;
 }
 
 export class ArlenorSkill {
@@ -26,9 +32,15 @@ export class ArlenorSkill {
   public group: ArlenorGroup;
   public speciality: ArlenorSpeciality | null;
   public level: number;
-  public caract: ArlenorEnum;
   public timeCasting: number;
   public timeReloading: number;
+  public caractsUse: ArlenorEnum[];
+  public caractsTarget: ArlenorEnum[];
+  public effect: string;
+  public effect0: string;
+  public effect1: string;
+  public effect2: string;
+  public effect3: string;
 
   get code(): string {
     let code = this.name;
@@ -46,9 +58,15 @@ export class ArlenorSkill {
     this.group = groups.Assassin;
     this.speciality = null;
     this.level = 0;
-    this.caract = CaractEnum.Aucune;
     this.timeCasting = 0;
     this.timeReloading = 0;
+    this.caractsUse = [];
+    this.caractsTarget = [];
+    this.effect = "";
+    this.effect0 = "";
+    this.effect1 = "";
+    this.effect2 = "";
+    this.effect3 = "";
   }
 
   public static ConvertSkill(skillJSON: ArlenorSkillJSON): ArlenorSkill {
@@ -61,7 +79,13 @@ export class ArlenorSkill {
     arlSkill.level = parseInt(skillJSON.level);
     arlSkill.timeCasting = parseInt(skillJSON.timeCasting);
     arlSkill.timeReloading = parseInt(skillJSON.timeReloading);
-    arlSkill.setCaract(skillJSON.caract);
+    arlSkill.setCaractsUse(skillJSON.caractsUse);
+    arlSkill.setCaractsTarget(skillJSON.caractsTarget);
+    arlSkill.effect = "";
+    arlSkill.effect0 = "";
+    arlSkill.effect1 = "";
+    arlSkill.effect2 = "";
+    arlSkill.effect3 = "";
     return arlSkill;
   }
 
@@ -71,7 +95,7 @@ export class ArlenorSkill {
     else if (code === SkillsEnum.SortOffensif.Code) this.typeSkill = SkillsEnum.SortOffensif;
     else if (code === SkillsEnum.SortDefensif.Code) this.typeSkill = SkillsEnum.SortDefensif;
     else if (code === SkillsEnum.SortDivers.Code) this.typeSkill = SkillsEnum.SortDivers;
-    else console.error("ConvertSkill : typeSkill n'est pas reconnu.", code);
+    else console.error("ConvertSkill : typeSkill n'est pas reconnu : |" + code + "|");
   }
 
   public setImage(name: string | null = null): void {
@@ -100,7 +124,7 @@ export class ArlenorSkill {
     if (grpCode) {
       const group = getListGroups().find(grp => grp.code === grpCode.toUpperCase());
       if (group) this.group = group;
-      else console.error("ConvertSkill : group n'est pas reconnu.", grpCode);
+      else console.error("ConvertSkill : group n'est pas reconnu : |" + grpCode + "|");
     }
     else if (speCode) {
       const speciality = getListSpecialities().find(spe => spe.code === speCode.toUpperCase());
@@ -108,17 +132,34 @@ export class ArlenorSkill {
         this.speciality = speciality;
         this.group = speciality.group;
       }
-      else console.error("ConvertSkill : speciality n'est pas reconnu.", speCode);
+      else console.error("ConvertSkill : speciality n'est pas reconnu : |" + speCode + "|");
     }
   }
 
-  public setCaract(code: string): void {
-    if (code === CaractEnum.Vigueur.Code) this.caract = CaractEnum.Vigueur;
-    else if (code === CaractEnum.Habilete.Code) this.caract = CaractEnum.Habilete;
-    else if (code === CaractEnum.Intellect.Code) this.caract = CaractEnum.Intellect;
-    else if (code === CaractEnum.Charisme.Code) this.caract = CaractEnum.Charisme;
-    else if (code === CaractEnum.Pouvoir.Code) this.caract = CaractEnum.Pouvoir;
-    else console.error("ConvertSkill : caract n'est pas reconnu.", code);
+  public setCaractsUse(codes: string): void {
+    const listCodes = codes.split(",");
+    listCodes.forEach(code => {
+      if (code.indexOf(CaractEnum.Vigueur.Code) !== -1) this.caractsUse.push(CaractEnum.Vigueur);
+      else if (code.indexOf(CaractEnum.Habilete.Code) !== -1) this.caractsUse.push(CaractEnum.Habilete);
+      else if (code.indexOf(CaractEnum.Intellect.Code) !== -1) this.caractsUse.push(CaractEnum.Intellect);
+      else if (code.indexOf(CaractEnum.Charisme.Code) !== -1) this.caractsUse.push(CaractEnum.Charisme);
+      else if (code.indexOf(CaractEnum.Pouvoir.Code) !== -1) this.caractsUse.push(CaractEnum.Pouvoir);
+      else if (code.indexOf(CaractEnum.Aucune.Code) !== -1) this.caractsUse.push(CaractEnum.Aucune);
+      else console.error("ConvertSkill : caractsUse n'est pas reconnu : |" + code + "|");
+    });
+  }
+
+  public setCaractsTarget(codes: string): void {
+    const listCodes = codes.split(",");
+    listCodes.forEach(code => {
+      if (code.indexOf(CaractEnum.Vigueur.Code) !== -1) this.caractsTarget.push(CaractEnum.Vigueur);
+      else if (code.indexOf(CaractEnum.Habilete.Code) !== -1) this.caractsTarget.push(CaractEnum.Habilete);
+      else if (code.indexOf(CaractEnum.Intellect.Code) !== -1) this.caractsTarget.push(CaractEnum.Intellect);
+      else if (code.indexOf(CaractEnum.Charisme.Code) !== -1) this.caractsTarget.push(CaractEnum.Charisme);
+      else if (code.indexOf(CaractEnum.Pouvoir.Code) !== -1) this.caractsTarget.push(CaractEnum.Pouvoir);
+      else if (code.indexOf(CaractEnum.Aucune.Code) !== -1) this.caractsTarget.push(CaractEnum.Aucune);
+      else console.error("ConvertSkill : caractsTarget n'est pas reconnu : |" + code + "|");
+    });
   }
 }
 

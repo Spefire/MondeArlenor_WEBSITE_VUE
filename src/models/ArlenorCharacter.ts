@@ -25,7 +25,7 @@ class ArlenorCaracts {
 }
 
 export class CaractEnum {
-  static Aucune: ArlenorEnum = { Code: "-", Libelle: "Aucune" };
+  static Aucune: ArlenorEnum = { Code: "", Libelle: "Aucune" };
   static Vigueur: ArlenorEnum = { Code: "VIG", Libelle: "Vigueur" };
   static Habilete: ArlenorEnum = { Code: "HAB", Libelle: "Habileté" };
   static Intellect: ArlenorEnum = { Code: "INT", Libelle: "Intellect" };

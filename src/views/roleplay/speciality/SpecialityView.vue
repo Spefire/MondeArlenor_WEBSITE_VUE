@@ -112,7 +112,7 @@
           <div class="skill-separator" />
           <template v-if="selectedSkill">
             <div>
-              {{ selectedSkill.typeSkill.Libelle }}<br>
+              {{ selectedSkill.typeSkill.Libelle }}
               {{ selectedSkill.speciality ? '(de la spécialité)' : '(de la classe)' }}
             </div>
             <img
@@ -125,8 +125,21 @@
               {{ selectedSkill.description ? selectedSkill.description : 'Aucune description' }}
             </div>
             <div class="skill-separator" />
+            <div v-if="selectedSkill.effect">{{ selectedSkill.effect }}</div>
+            <div v-if="selectedSkill.effect0">{{ selectedSkill.effect0 }}</div>
+            <div v-if="selectedSkill.effect1">{{ selectedSkill.effect1 }}</div>
+            <div v-if="selectedSkill.effect2">{{ selectedSkill.effect2 }}</div>
+            <div v-if="selectedSkill.effect3">{{ selectedSkill.effect3 }}</div>
+            <div class="skill-separator" />
             <div>Niveau requis&nbsp;:&nbsp;{{ selectedSkill.level }}</div>
-            <div>Caractéristique&nbsp;:&nbsp;{{ selectedSkill.caract.Code }}</div>
+            <div>
+              Jets à réaliser :
+              <span title="Jet du lanceur">{{ getCodCaracts(selectedSkill.caractsUse) }}</span>
+              <span v-if="selectedSkill.caractsTarget.length > 0">&nbsp;|&nbsp;</span>
+              <span
+                v-if="selectedSkill.caractsTarget.length > 0"
+                title="Jet de la cible, en opposition">{{ getCodCaracts(selectedSkill.caractsTarget) }}</span>
+            </div>
             <div>{{ getCasting(selectedSkill.timeCastingAbility) }}</div>
             <div>{{ getReloading(selectedSkill.timeReloadingAbility) }}</div>
           </template>

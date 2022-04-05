@@ -40,12 +40,13 @@
     }
 
     .speciality-left {
-      width: calc(60% - 10px);
-      margin-right: 10px;
+      width: calc(50% - 5px);
+      margin-right: 5px;
     }
 
     .speciality-right {
-      width: 40%;
+      width: calc(50% - 5px);
+      margin-left: 5px;
     }
   }
 
