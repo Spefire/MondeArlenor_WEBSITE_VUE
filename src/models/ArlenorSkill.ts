@@ -74,8 +74,8 @@ export class ArlenorSkill {
     arlSkill.name = skillJSON.name;
     arlSkill.description = skillJSON.description;
     arlSkill.setType(skillJSON.typeSkill);
-    arlSkill.setImage(skillJSON.image);
     arlSkill.setGroupAndSpeciality(skillJSON.group, skillJSON.speciality);
+    arlSkill.setImage(skillJSON.image);
     arlSkill.level = parseInt(skillJSON.level);
     arlSkill.timeCasting = parseInt(skillJSON.timeCasting);
     arlSkill.timeReloading = parseInt(skillJSON.timeReloading);
@@ -100,7 +100,7 @@ export class ArlenorSkill {
 
   public setImage(name: string | null = null): void {
     if (name) this.image = require("./../assets/icons/"+ name +".png");
-    else if (this.typeSkill.Code === SkillsEnum.CompetencePassive.Code) {
+    /*else if (this.typeSkill.Code === SkillsEnum.CompetencePassive.Code) {
       this.image = require("./../assets/icons/comp_passive.png");
     }
     else if (this.typeSkill.Code === SkillsEnum.CompetenceSpeciale.Code) {
@@ -114,9 +114,12 @@ export class ArlenorSkill {
     }
     else if (this.typeSkill.Code === SkillsEnum.SortDivers.Code) {
       this.image = require("./../assets/icons/sort_divers.png");
+    }*/
+    else if (this.speciality) {
+      this.image = require("./../assets/icons/skill_spe.png");
     }
-    else {
-      this.image = require("./../assets/icons/skills.png");
+    else if (this.group) {
+      this.image = require("./../assets/icons/skill_grp.png");
     }
   }
 

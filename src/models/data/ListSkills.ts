@@ -9,5 +9,6 @@ export function getListSkills(grpCode = "", speCode = ""): ArlenorSkill[] {
   list.sort((a, b) => {
     return a.name.localeCompare(b.name);
   });
+  console.warn("getListSkills", list);
   return list;
 }

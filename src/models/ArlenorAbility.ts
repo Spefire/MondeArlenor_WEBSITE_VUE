@@ -34,9 +34,6 @@ export class ArlenorAbility {
     else if (this.typeSkill.Code === AbilitiesEnum.TempsRechargement.Code) {
       this.image = require("./../assets/icons/rechargement.png");
     }
-    else {
-      this.image = require("./../assets/icons/skills.png");
-    }
   }
 }
 
