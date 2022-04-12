@@ -1,3 +1,3 @@
-cd src\models\data
+cd src\models\skills
 node utils.js
 cd ../../../

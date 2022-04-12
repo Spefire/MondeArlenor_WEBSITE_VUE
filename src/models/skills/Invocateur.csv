@@ -1,0 +1,20 @@
+name;typeSkill;group;speciality;level;timeCasting;timeReloading;image;description;caractsUse;caractsTarget;effect;effect0;effect1;effect2;effect3
+Evocation d'incarnation;SORT_DIVERS;Invocateur;;1;0;0;;Appelle un élémentaire personnel correspondant à la surface de sol sur laquelle il est invoqué. Votre incarnation peut être renforcée à l'aide d'insufflations.;POU;;;;;;
+Insufflation de double vue;SORT_DIVERS;Invocateur;;1;0;0;;Débloque les attaques à distance pour votre incarnation.;POU;;;;;;
+Insufflation d'ombre;SORT_DIVERS;Invocateur;;1;0;0;;Votre incarnation apprend à devenir invisible et à frapper vos adversaires à l'aide d'une attaque corrosive.;POU;;;;;;
+Insufflation de distorsion;SORT_DIVERS;Invocateur;;1;0;0;;L'incarnation apprend une compétence de téléportation, ainsi qu'une compétence qui lui permet de changer de place avec son maître.;POU;;;;;;
+Surcharge;SORT_DIVERS;Invocateur;;1;0;0;;La créature invoquée ou le totem inflige 100% de dégâts de base supplémentaires pendant son prochain tour, puis meurt.;POU;;;;;;
+Insufflation élémentaire;SORT_DIVERS;;Pelerin;1;0;0;;Transforme l'élément de l'incarnation.;POU;;;;;;
+Evocation d'incarnation;SORT_DIVERS;Invocateur;;1;0;0;;Appelle un élémentaire personnel correspondant à la surface de sol sur laquelle il est invoqué. Votre incarnation peut être renforcée à l'aide d'insufflations.;POU;;;;;;
+Insufflation de double vue;SORT_DIVERS;Invocateur;;1;0;0;;Débloque les attaques à distance pour votre incarnation.;POU;;;;;;
+Insufflation d'ombre;SORT_DIVERS;Invocateur;;1;0;0;;Votre incarnation apprend à devenir invisible et à frapper vos adversaires à l'aide d'une attaque corrosive.;POU;;;;;;
+Insufflation de distorsion;SORT_DIVERS;Invocateur;;1;0;0;;L'incarnation apprend une compétence de téléportation, ainsi qu'une compétence qui lui permet de changer de place avec son maître.;POU;;;;;;
+Surcharge;SORT_DIVERS;Invocateur;;1;0;0;;La créature invoquée ou le totem inflige 100% de dégâts de base supplémentaires pendant son prochain tour, puis meurt.;POU;;;;;;
+Sagesse du hibou;SORT_DIVERS;;Dompteur;1;0;0;;Confère +1 en INT temporairement. ;POU;;;;;;
+Force de taureau;SORT_DIVERS;;Dompteur;1;0;0;;Confère +1 en VIG temporairement. ;POU;;;;;;
+Grâce féline;SORT_DIVERS;;Dompteur;1;0;0;;Confère +1 en HAB temporairement. ;POU;;;;;;
+Vermine géante;SORT_DIVERS;;Dompteur;1;0;0;;Transforme les vermines (mille-pattes, scorpions, araignées...) en vermine géante. ;POU;;;;;;
+Croissance animale;SORT_DIVERS;;Dompteur;1;0;0;;Double la taille d’un animal avec +1 en VIG mais -1 en HAB.;POU;;;;;;
+Éveil animal;SORT_DIVERS;;Dompteur;1;0;0;;Rend un animal intelligent.;POU;;;;;;
+Immobilisation d’animal;SORT_DIVERS;;Dompteur;1;0;0;;Immobilise un animal. ;POU;;;;;;
+Nuée grouillante;SORT_DIVERS;;Dompteur;1;0;0;;Convoque une nuée de chauves-souris, rats ou araignées.;POU;;;;;;

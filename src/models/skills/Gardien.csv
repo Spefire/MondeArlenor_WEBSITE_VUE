@@ -1,0 +1,9 @@
+name;typeSkill;group;speciality;level;timeCasting;timeReloading;image;description;caractsUse;caractsTarget;effect;effect0;effect1;effect2;effect3
+Barrière de détournement;SORT_DEF;Gardien;;1;0;0;;Les projectiles qui vous touchent sont renvoyés vers ceux qui les ont lancés. Cela n'empêche toutefois pas ces projectiles d'avoir leur effet normal.;POU;;;;;;
+Provocation;SORT_DIVERS;Gardien;;1;0;0;;Provoque les ennemis tout autour de vous. Narguez-les pour qu'ils vous attaquent.;POU;POU;;;;;
+Champ de force;SORT_DIVERS;Gardien;;1;0;0;;Le Champ de force permet de créer une couche protectrice sur la cible. Un lien visible se crée entre le lanceur et la cible.;POU;;;;;;
+Coup handicapant;COMP_SPE;;Chevalier;1;0;0;;Estropie la cible et tous les autres personnages proches à l'aide d'un grand balayage.;VIG;VIG, HAB;;;;;
+Tourbillon;COMP_SPE;;Chevalier;1;0;0;;Effectuez une attaque tourbillonnante, qui inflige des dégâts physiques aux ennemis autour de vous.;VIG;VIG, HAB;;;;;
+La totale;SORT_DIVERS;;Chevalier;1;0;0;;Exécute une terrible attaque infligeant des dégâts physiques.;POU;;;;;;
+Ange gardien;SORT_DEF;;Paladin;1;0;0;;Les dégâts subis par vos alliés à portée de corps à corps sont redirigés vers vous.;POU;;;;;;
+Cri de ralliement;SORT_DIVERS;;Paladin;1;0;0;;La cible récupère de la vitalité et de l'armure magique en fonction du nombre d'alliés et de totems à proximité.;POU;;;;;;

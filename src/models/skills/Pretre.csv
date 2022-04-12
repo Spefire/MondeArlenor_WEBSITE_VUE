@@ -1,0 +1,11 @@
+name;typeSkill;group;speciality;level;timeCasting;timeReloading;image;description;caractsUse;caractsTarget;effect;effect0;effect1;effect2;effect3
+Tranquillité d'esprit;SORT_DEF;Pretre;;1;0;0;;Supprime Cécité, Terreur, Charme, Provocation, Sommeil, Enragement et Folie.;POU;;;;;;
+Rayonnement aveuglant;SORT_DIVERS;;ClercArmure;1;0;0;;Vous recevez un état qui inflige Cécité à tous vos adversaires.;POU;POU;;;;;
+Trompe-la-mort;SORT_DIVERS;;PretreArlenor;1;0;0;;Pendant 2 tours, la vitalité de la cible ne peut pas descendre en-dessous de 1, ce qui le maintient en vie quoi qu'il arrive.;POU;;;;;;
+Distorsion temporelle;SORT_DIVERS;;PretreArlenor;1;0;0;;Cible un personnage. Lorsque ce dernier arrive à la fin de son tour au combat, il gagne automatiquement un tour gratuit.;POU;;;;;;
+Annihilation;SORT_DIVERS;;PretreArlenor;1;0;0;;Sort qui détruit totalement le corps d'un personnage, interdisant ainsi de le ressusciter.;POU;;;;;;
+Putréfaction;SORT_OFF;;Exorciste;1;0;0;;Inflige des dégâts physiques à la cible, ainsi que Putréfaction, avec pour conséquence que les sorts et les potions de soins lui causent des dégâts physiques.;POU;POU;;;;;
+Réveil de cadavre boursouflé;SORT_DIVERS;;Exorciste;1;0;0;;Ciblez un corps pour créer un cadavre boursouflé qui se bat pour vous. Il peut également exploser, auquel cas il inflige des dégâts physiques.;POU;;;;;;
+Infection;SORT_OFF;;Exorciste;1;0;0;;Inflige des dégâts physiques à la cible, tout en lui inoculant une maladie qui se transmet aux autres personnages proches.;POU;VIG;;;;;
+Rite funéraire;SORT_DIVERS;;Exorciste;1;0;0;;Vous vous sacrifiez pour ramener un allié à la vie, ce qui vous inflige des dégâts perforants mais ressuscite la cible à son maximum de vitalité;POU;;;;;;
+Totems du nécromancien;SORT_DIVERS;;Exorciste;1;0;0;;Fait apparaître des totems d'os à côté de tous les ennemis situés dans la zone d'effet. Les totems d'os se battent à l'aide d'attaques à distance infligeant des dégâts physiques.;POU;;;;;;

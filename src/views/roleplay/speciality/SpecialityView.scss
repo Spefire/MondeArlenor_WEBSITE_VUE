@@ -92,14 +92,14 @@
   .skills-content {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
     margin-top: 24px;
-    padding: 15px 0 0 0;
+    padding: 15px 0;
     border: 1px solid $secondary-color;
 
     @include tablet-only {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(1, 1fr);
     }
 
     .skills-content-title {
@@ -113,16 +113,16 @@
 
     .skill-line {
       width: auto;
-      margin: 0 auto;
-      padding: 10px;
+      margin: 0;
+      padding: 0 10px;
 
       &.selected {
         color: $black-color;
         background: $secondary-color;
       }
 
-      .skill-img {
-        margin-right: 0;
+      .skill-name {
+        text-align: left;
       }
     }
   }

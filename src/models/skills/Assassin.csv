@@ -1,0 +1,13 @@
+name;typeSkill;group;speciality;level;timeCasting;timeReloading;image;description;caractsUse;caractsTarget;effect;effect0;effect1;effect2;effect3
+Marque sanguine;SORT_DIVERS;Assassin;;1;0;0;;Marque la cible ennemie. Si celle-ci meurt dans les 2 prochains tours, vous récupérez de la vitalité. En revanche, si la cible survit, c'est elle qui se soigne complètement.;POU;;;;;;
+Repli stratégique;SORT_DIVERS;Assassin;;1;0;0;;Réaliser un bond surnaturel dans une direction.;POU;;;;;;
+Écran de fumée;SORT_DIVERS;Assassin;;1;0;0;;Crée tout autour de vous un nuage de fumée qui vous dissimule.;POU;;;;;;
+Clouage;COMP_SPE;;Chasseur;1;0;0;;Inflige des dégâts physiques et Handicap à la cible.;HAB;VIG, HAB;;;;;
+Premiers secours;COMP_SPE;;Chasseur;1;0;0;;Peut rendre des PV à la cible. Une fois possible par blessure. Supprime Handicap, Renversement, Cécité, Silence, Hémorragie, Brûlure, Empoisonnement et Maladie.;INT;;;;;;
+Ricochet;COMP_SPE;;Chasseur;1;0;0;;Tire une flèche normale qui inflige des dégâts puis bifurque vers sa prochaine cible un maximum de 2 fois.;HAB;VIG, HAB;;;;;
+Tir dans le ciel;COMP_SPE;;Chasseur;1;0;0;;Vous sautez dans les airs avant de tirer, ce qui vous permet de bénéficier d'un bonus aux dégâts.;HAB;VIG, HAB;;;;;
+Volée de flèches;SORT_OFF;;Chasseur;1;0;0;;15 flèches s'abattent sur la zone ciblée;POU;VIG, HAB;;;;;
+Bras de Morphée;SORT_OFF;;LameOmbre;1;0;0;;Cause des dégâts physiques et inflige Atrophie : votre cible ne peut plus utiliser d'armes ni de compétences liées à celles-ci.;POU;;;;;;
+Lame corrompue;SORT_OFF;;LameOmbre;1;0;0;;Coup de dague causant des dégâts physiques et infligeant Putréfaction et Maladie.;POU;;;;;;
+Cruauté terrifiante;COMP_SPE;;LameOmbre;1;0;0;;Coup de dague causant des dégâts et infligeant Hémorragie et Terreur à la victime.;HAB;VIG, HAB;;;;;
+Eventail de poignards;COMP_SPE;;LameOmbre;1;0;0;;Vous lancez une dague sur chaque ennemi autour de vous, ce qui leur inflige des dégâts physiques.;HAB;VIG, HAB;;;;;

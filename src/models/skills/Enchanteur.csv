@@ -1,0 +1,12 @@
+name;typeSkill;group;speciality;level;timeCasting;timeReloading;image;description;caractsUse;caractsTarget;effect;effect0;effect1;effect2;effect3
+Hâte;SORT_DEF;Enchanteur;;1;0;0;;Augmente sa vitesse de déplacement. Supprime Lenteur et Handicap.;POU;;;;;;
+Evitement surnaturel;SORT_DEF;Enchanteur;;1;0;0;;L'esquive de la cible augmente de façon importante.;POU;;;;;;
+Permutation du vide;SORT_DIVERS;Enchanteur;;1;0;0;;Echange les places de deux personnages. Vous pouvez être l'un d'eux.;POU;;;;;;
+Téléportation;SORT_DIVERS;Enchanteur;;1;0;0;;Téléporte un objet ou un personnage à l'endroit de votre choix.;POU;;;;;;
+Fortification;SORT_DEF;Enchanteur;;1;0;0;;Confère un bonus défensif. Supprime les effets d'Empoisonnement, d'Hémorragie, de Brûlure et de Putréfaction.;POU;;;;;;
+Echantement aléatoire;SORT_DIVERS;Enchanteur;;1;0;0;;L'enchantement des plumes leur donne un effet au contact de la peau de la cible. Il suffit d'un contact plume-peau, sans forcément lancer / détacher ses plumes. L'enchantement ne fonctionne que pour un seul contact, et peut s'enlever si voulu.;POU;;;;;;
+Portail entre les plans;SORT_DIVERS;;Illusionniste;1;0;0;;Fait apparaître deux portails liés permettant à n'importe quel personnage de passer de l'un à l'autre un maximum de 4 fois.;POU;;;;;;
+Manteau de caméléon;SORT_DIVERS;;Illusionniste;1;0;0;;Vous confère le pouvoir de fusionner avec l'environnement, quel qu'il soit, afin de devenir invisible.;POU;;;;;;
+Hallucinations auditives;SORT_DIVERS;;Illusionniste;1;0;0;;Les hallucinations auditives utilise le sens de l'ouie de ses cibles pendant un certain temps. La qualité du son est forcément nette, bien réussie.;POU;;;;;;
+Regard intimidant;SORT_OFF;;Envouteur;1;0;0;;Réduit les ennemis au silence dans un cône devant vous;POU;INT;;;;;
+Domination mentale;SORT_DIVERS;;Envouteur;1;0;0;;Charme l'ennemi pris pour cible, ce qui l'oblige à combattre à vos côtés pendant toute la durée de l'effet.;POU;;;;;;

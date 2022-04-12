@@ -1,0 +1,4 @@
+name;typeSkill;group;speciality;level;timeCasting;timeReloading;image;description;caractsUse;caractsTarget;effect;effect0;effect1;effect2;effect3
+Piqué du phénix;COMP_SPE;Moine;;1;0;0;;Vous bondissez dans les airs vers la position de la cible, en créant une surface de feu à l'atterrissage.;HAB;;;;;;
+Rafale;SORT_DIVERS;Moine;;1;0;0;;Permet d'exécuter trois attaques rapides, infligeant chacune des dégâts physiques.;POU;;;;;;
+Contrôle des vents ;SORT_DIVERS;;Derviche;1;0;0;;Modifie la direction et la force du vent. ;POU;;;;;;

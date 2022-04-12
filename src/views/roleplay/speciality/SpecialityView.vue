@@ -103,6 +103,7 @@
                 :src="skill.image"
                 :alt="skill.name"
                 :title="skill.name">
+              <span class="skill-name">{{ skill.name }}</span>
             </div>
           </div>
         </div>

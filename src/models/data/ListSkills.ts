@@ -1,5 +1,5 @@
 import { ArlenorSkill, ArlenorSkillJSON } from "../ArlenorSkill";
-import skillsJSON from "./skills.json";
+import skillsJSON from "../skills/skills.json";
 
 export function getListSkills(grpCode = "", speCode = ""): ArlenorSkill[] {
   const listSkills = skillsJSON.map(skillJSON => ArlenorSkill.ConvertSkill(skillJSON as ArlenorSkillJSON));

@@ -1,0 +1,12 @@
+name;typeSkill;group;speciality;level;timeCasting;timeReloading;image;description;caractsUse;caractsTarget;effect;effect0;effect1;effect2;effect3
+Restauration;SORT_DEF;Druide;;1;0;0;;Rend de la vitalité au personnage ciblé. Restauration supprime également Empoisonnement et Hémorragie.;POU;;;;;;
+Ailes déployées;SORT_DIVERS;Druide;;1;0;0;;Vous fait pousser des ailes temporaires, qui vous permettent de vous déplacer en volant et d'ignorer les surfaces de sol en évitant de poser le pied par terre.;POU;;;;;;
+Tête de méduse;SORT_DIVERS;Druide;;1;0;0;;Des serpents sortent de votre tête, ce qui vous confère une aura pétrifiante, ainsi que la compétence Visage pétrifiant;POU;;;;;;
+Greffe de peau;SORT_DIVERS;Druide;;1;0;0;;Réinitialise tous les temps de récupération. Fait disparaître Brûlure, Nécroflammes, Empoisonnement et Hémorragie.;POU;;;;;;
+Tissage de toile;SORT_DIVERS;Druide;;1;0;0;;Crée des surfaces de toiles dans la zone d'effet, ce qui inflige Enchevêtrement à tous les personnages.;POU;;;;;;
+Trans. Animal;SORT_DIVERS;Druide;;1;0;0;;La transformation en loup permet de devenir un loup avec le pelage que l'on souhaite.;POU;;;;;;
+Âme soeur;SORT_DIVERS;;Chaman;1;0;0;;Vous lie à la cible, ce qui vous permet de lui faire également profiter des effets de soins et de récupération d'armure dont vous bénéficiez. Supprime Gel, Etourdissement, Renversement et Pétrification sur la cible.;POU;;;;;;
+Vision spirituelle;SORT_DIVERS;;Chaman;1;0;0;;Vos yeux percent le voile du Hall aux Echos.;POU;;;;;;
+Explosion de nombreux cadavres;SORT_DIVERS;;Chaman;1;0;0;;Fait exploser tous les cadavres autour de vous, ce qui inflige des dégâts physiques dans toute la zone.;POU;;;;;;
+Savoir des morts;SORT_DIVERS;;Chaman;1;0;0;;Le savoir des morts permet d'accueillir les informations d'une âme à proximité de son corps (ou d'une partie de son corps).;POU;;;;;;
+Larmes de guérison;SORT_DIVERS;;Guerisseur;1;0;0;;La terre elle-même se lamente de votre sort, ce qui crée des larmes guérisseuses soignant tous les alliés suffisamment proches de vous. ;POU;;;;;;

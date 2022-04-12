@@ -1,0 +1,5 @@
+name;typeSkill;group;speciality;level;timeCasting;timeReloading;image;description;caractsUse;caractsTarget;effect;effect0;effect1;effect2;effect3
+Au coeur de la mêlée;COMP_SPE;Bretteur;;1;0;0;;Vous gagnez un bonus d’attaque si un allié est proche. Plus on est de fous, plus on rit !;;;;;;;
+Assaut;COMP_SPE;Bretteur;;1;0;0;;Vous attaquez à 4 reprises avec une rapidité stupéfiante, chacun de vos coups infligeant des dégâts physiques.;VIG, HAB;VIG, HAB;;;;;
+Echauffement;SORT_DIVERS;Bretteur;;1;0;0;;Le Berserker permet de booster temporairement la Vigueur et la compétence Combat. La Vigueur peut surpasser les limites du corps, soit 5... mais perdra alors 1 PV à la fin du Berserker. Si la Vigueur atteint ou surpasse 5, alors qu'avant il était plus bas... le lanceur gagne automatiquement 1 PV max en plus durant le Berserker. (Ce PV pris est temporaire, dû à la résistance physique d'une Vigueur à 5, et ne compte pas comme contrecoup).;POU;;;;;;
+Attaque éclair;COMP_SPE;;DanseurSabre;1;0;0;;Passe d'une cible à l'autre en touchant jusqu'à 2 cibles et inflige des dégâts physiques à chacune d'elles.;HAB;VIG, HAB;;;;;
