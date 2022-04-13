@@ -1,6 +1,6 @@
 name;typeSkill;group;speciality;level;timeCasting;timeReloading;image;description;caractsUse;caractsTarget;effect;effect0;effect1;effect2;effect3
 Tranquillité d'esprit;SORT_DEF;Pretre;;1;0;0;;Supprime Cécité, Terreur, Charme, Provocation, Sommeil, Enragement et Folie.;POU;;;;;;
-Rayonnement aveuglant;SORT_DIVERS;;ClercArmure;1;0;0;;Vous recevez un état qui inflige Cécité à tous vos adversaires.;POU;POU;;;;;
+Rayonnement aveuglant;SORT_DIVERS;;PretreArlenor;1;0;0;;Vous recevez un état qui inflige Cécité à tous vos adversaires.;POU;POU;;;;;
 Trompe-la-mort;SORT_DIVERS;;PretreArlenor;1;0;0;;Pendant 2 tours, la vitalité de la cible ne peut pas descendre en-dessous de 1, ce qui le maintient en vie quoi qu'il arrive.;POU;;;;;;
 Distorsion temporelle;SORT_DIVERS;;PretreArlenor;1;0;0;;Cible un personnage. Lorsque ce dernier arrive à la fin de son tour au combat, il gagne automatiquement un tour gratuit.;POU;;;;;;
 Annihilation;SORT_DIVERS;;PretreArlenor;1;0;0;;Sort qui détruit totalement le corps d'un personnage, interdisant ainsi de le ressusciter.;POU;;;;;;
@@ -16,8 +16,6 @@ Purification de nourriture et d’eau ;SORT_DIVERS;Pretre;;1;0;0;;Purifie 30 dm�
 Extinction des feux ;SORT_DIVERS;Pretre;;1;0;0;;Éteint les feux non magiques;POU;;;;;;
 Prémonition ;SORT_DIVERS;Pretre;;1;0;0;;“ Sixième sens ” avertissant le PJ en cas de danger. ;POU;;;;;;
 Vision lucide ;SORT_DIVERS;Pretre;;1;0;0;;Permet de voir les choses telles qu’elles sont. ;POU;;;;;;
-Métal brûlant ;SORT_DIVERS;;ClercArmure;1;0;0;;Chauffe le métal et inflige des dégâts à qui le touche. ;POU;;;;;;
-Métal gelé ;SORT_DIVERS;;ClercArmure;1;0;0;;Gèle le métal et inflige des dégâts à qui le touche. ;POU;;;;;;
 Colonne de feu ;SORT_DIVERS;;PretreArlenor;1;0;0;;Feu divin (1d6 points de dégâts/niveau.). ;POU;;;;;;
 Lumière du jour ;SORT_DIVERS;Pretre;;1;0;0;;Vive lumière sur 18 m de rayon ;POU;;;;;;
 Poussière scintillante ;SORT_DIVERS;Pretre;;1;0;0;;Aveugle, révèle la position des créatures invisibles. ;POU;;;;;;

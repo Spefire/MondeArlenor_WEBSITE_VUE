@@ -22,7 +22,6 @@ export class ArlenorSpecialities {
 
   public Chaman: ArlenorSpeciality;
   public Guerisseur: ArlenorSpeciality;
-  public ClercArmure: ArlenorSpeciality;
   public PretreArlenor: ArlenorSpeciality;
   public Exorciste: ArlenorSpeciality;
   public Virtuose: ArlenorSpeciality;
@@ -73,11 +72,11 @@ export class ArlenorSpecialities {
 
     this.Elementaliste = new ArlenorSpeciality("Elémentaliste", "Elementaliste", groups.Sorcier);
     this.Elementaliste.image = require("./../../assets/icons/specialities/elementaliste.png");
-    this.Elementaliste.description = "L'Elementaliste utilise des sorts liés aux éléments suprêmes (Lumière, Ombre) et primordiaux (Feu, Air, Eau et Terre).";
+    this.Elementaliste.description = "L'Elementaliste utilise des sorts liés aux éléments (Feu, Foudre, Eau et Glace).";
 
     this.Createur = new ArlenorSpeciality("Créateur", "Createur", groups.Sorcier);
     this.Createur.image = require("./../../assets/icons/specialities/createur.png");
-    this.Createur.description = "Le Créateur utilise des sorts liés aux éléments dérivés (Gel, Métal, Foudre, Végétal, Sang...).";
+    this.Createur.description = "Le Créateur utilise des sorts liés aux éléments (Terre, Métaux).";
 
     this.Pelerin = new ArlenorSpeciality("Pèlerin", "Pelerin", groups.Invocateur);
     this.Pelerin.image = require("./../../assets/icons/specialities/pelerin.png");
@@ -105,13 +104,9 @@ export class ArlenorSpecialities {
     this.Guerisseur.image = require("./../../assets/icons/specialities/guerisseur.png");
     this.Guerisseur.description = "Le Guérisseur utilise des sorts de soins et de récupération. Et à haut-niveau, il peut même réaliser des dopages sur ses alliés.";
 
-    this.ClercArmure = new ArlenorSpeciality("Clerc d'armure", "ClercArmure", groups.Pretre);
-    this.ClercArmure.image = require("./../../assets/icons/specialities/clerc_armure.png");
-    this.ClercArmure.description = "Le Clerc d'armure utilise des prières de renforcement. Il possède aussi quelques capacités offensives, surtout contre les créatures mortes-vivantes.";
-
     this.PretreArlenor = new ArlenorSpeciality("Prêtre d'Arlénor", "PretreArlenor", groups.Pretre);
     this.PretreArlenor.image = require("./../../assets/icons/specialities/pretre_arlenor.png");
-    this.PretreArlenor.description = "Le Prêtre d'Arlénor utilise des prières qui permet de faire appel à des entités divines pour aider les alliés afin de les purifier, d'augmenter leur chance ou même accéder à des connaissances.";
+    this.PretreArlenor.description = "Le Prêtre d'Arlénor utilise des prières pour aider les alliés afin de les purifier, d'augmenter leur chance ou même accéder à des connaissances.";
 
     this.Exorciste = new ArlenorSpeciality("Exorciste", "Exorciste", groups.Pretre);
     this.Exorciste.image = require("./../../assets/icons/specialities/exorciste.png");

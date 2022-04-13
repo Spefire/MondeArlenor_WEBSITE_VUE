@@ -21,3 +21,5 @@ Appel de la tempête ;SORT_DIVERS;;Elementaliste;1;0;0;;mais 5d6 points de dég�
 Appel de la foudre ;SORT_DIVERS;;Elementaliste;1;0;0;;Appelle la foudre (3d6 points de dégâts par éclair). ;POU;;;;;;
 Tempête de neige ;SORT_DIVERS;;Elementaliste;1;0;0;;Réduit la visibilité et gêne les déplacements. ;POU;;;;;;
 Lueurs hypnotiques ;SORT_DIVERS;Sorcier;;1;0;0;;Fascine (2d4 + niveau) DV de créatures. ;POU;;;;;;
+Métal brûlant ;SORT_DIVERS;;Createur;1;0;0;;Chauffe le métal et inflige des dégâts à qui le touche. ;POU;;;;;;
+Métal gelé ;SORT_DIVERS;;Createur;1;0;0;;Gèle le métal et inflige des dégâts à qui le touche. ;POU;;;;;;

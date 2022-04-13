@@ -42,7 +42,7 @@ export function getListAbilities(): ArlenorAbility[] {
   listAbilities = createAbility(listAbilities,
     "Temps d'incantation rapide",
     AbilitiesEnum.TempsIncantation,
-    [], [specialities.Dompteur, specialities.Guerisseur, specialities.ClercArmure, specialities.PretreArlenor],
+    [], [specialities.Dompteur, specialities.Guerisseur, specialities.PretreArlenor],
   );
   listAbilities = createAbility(listAbilities,
     "Temps d'incantation normal",
@@ -67,7 +67,7 @@ export function getListAbilities(): ArlenorAbility[] {
     getLibArmure("normales / mobiles"),
     AbilitiesEnum.CompetenceArmure,
     [groups.Barde],
-    [specialities.DanseurMartial, specialities.DoubleLame, specialities.Dompteur, specialities.Chaman, specialities.ClercArmure],
+    [specialities.DanseurMartial, specialities.DoubleLame, specialities.Dompteur, specialities.Chaman],
   );
   
   listAbilities = createAbility(listAbilities,
