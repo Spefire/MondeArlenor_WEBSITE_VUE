@@ -9,3 +9,16 @@ Réveil de cadavre boursouflé;SORT_DIVERS;;Exorciste;1;0;0;;Ciblez un corps pou
 Infection;SORT_OFF;;Exorciste;1;0;0;;Inflige des dégâts physiques à la cible, tout en lui inoculant une maladie qui se transmet aux autres personnages proches.;POU;VIG;;;;;
 Rite funéraire;SORT_DIVERS;;Exorciste;1;0;0;;Vous vous sacrifiez pour ramener un allié à la vie, ce qui vous inflige des dégâts perforants mais ressuscite la cible à son maximum de vitalité;POU;;;;;;
 Totems du nécromancien;SORT_DIVERS;;Exorciste;1;0;0;;Fait apparaître des totems d'os à côté de tous les ennemis situés dans la zone d'effet. Les totems d'os se battent à l'aide d'attaques à distance infligeant des dégâts physiques.;POU;;;;;;
+Protection contre les énergies destructives;SORT_DIVERS;Pretre;;1;0;0;;Absorbe 12 points de dégâts/niveau infligés par le type d’énergie choisi. ;POU;;;;;;
+Assistance divine ;SORT_DIVERS;Pretre;;1;0;0;;+1 à un jet d’attaque, jet de sauvegarde ou test de compétence. ;POU;;;;;;
+Détection de la magie ;SORT_DIVERS;Pretre;;1;0;0;;Détecte sorts et objets magiques à 18 m à la ronde. ;POU;;;;;;
+Purification de nourriture et d’eau ;SORT_DIVERS;Pretre;;1;0;0;;Purifie 30 dm³/niveau de nourriture et d’eau. ;POU;;;;;;
+Extinction des feux ;SORT_DIVERS;Pretre;;1;0;0;;Éteint les feux non magiques;POU;;;;;;
+Prémonition ;SORT_DIVERS;Pretre;;1;0;0;;“ Sixième sens ” avertissant le PJ en cas de danger. ;POU;;;;;;
+Vision lucide ;SORT_DIVERS;Pretre;;1;0;0;;Permet de voir les choses telles qu’elles sont. ;POU;;;;;;
+Métal brûlant ;SORT_DIVERS;;ClercArmure;1;0;0;;Chauffe le métal et inflige des dégâts à qui le touche. ;POU;;;;;;
+Métal gelé ;SORT_DIVERS;;ClercArmure;1;0;0;;Gèle le métal et inflige des dégâts à qui le touche. ;POU;;;;;;
+Colonne de feu ;SORT_DIVERS;;PretreArlenor;1;0;0;;Feu divin (1d6 points de dégâts/niveau.). ;POU;;;;;;
+Lumière du jour ;SORT_DIVERS;Pretre;;1;0;0;;Vive lumière sur 18 m de rayon ;POU;;;;;;
+Poussière scintillante ;SORT_DIVERS;Pretre;;1;0;0;;Aveugle, révèle la position des créatures invisibles. ;POU;;;;;;
+Délivrance des malédictions ;SORT_DIVERS;;PretreArlenor;1;0;0;;Libère une personne ou un objet d’une malédiction. ;POU;;;;;;

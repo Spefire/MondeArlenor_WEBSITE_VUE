@@ -11,3 +11,7 @@ Bras de Morphée;SORT_OFF;;LameOmbre;1;0;0;;Cause des dégâts physiques et infl
 Lame corrompue;SORT_OFF;;LameOmbre;1;0;0;;Coup de dague causant des dégâts physiques et infligeant Putréfaction et Maladie.;POU;;;;;;
 Cruauté terrifiante;COMP_SPE;;LameOmbre;1;0;0;;Coup de dague causant des dégâts et infligeant Hémorragie et Terreur à la victime.;HAB;VIG, HAB;;;;;
 Eventail de poignards;COMP_SPE;;LameOmbre;1;0;0;;Vous lancez une dague sur chaque ennemi autour de vous, ce qui leur inflige des dégâts physiques.;HAB;VIG, HAB;;;;;
+Grâce féline;SORT_DIVERS;Assassin;;1;0;0;;Confère +4 en Dex pendant 1 minute/niveau. ;POU;;;;;;
+Invisibilité suprême ;SORT_DIVERS;Assassin;;1;0;0;;Comme invisibilité, mais continue quand le sujet attaque. ;POU;;;;;;
+Accord paralysant;SORT_DIVERS;Assassin;;1;0;0;; Immobilise un humanoïde pour 1 round/niveau. ;POU;;;;;;
+Invisibilité  ;SORT_DIVERS;Assassin;;1;0;0;;Sujet invisible pendant 1 minute/niveau ou jusqu’à ce qu’il attaque. ;POU;;;;;;

@@ -10,3 +10,15 @@ Manteau de caméléon;SORT_DIVERS;;Illusionniste;1;0;0;;Vous confère le pouvoir
 Hallucinations auditives;SORT_DIVERS;;Illusionniste;1;0;0;;Les hallucinations auditives utilise le sens de l'ouie de ses cibles pendant un certain temps. La qualité du son est forcément nette, bien réussie.;POU;;;;;;
 Regard intimidant;SORT_OFF;;Envouteur;1;0;0;;Réduit les ennemis au silence dans un cône devant vous;POU;INT;;;;;
 Domination mentale;SORT_DIVERS;;Envouteur;1;0;0;;Charme l'ennemi pris pour cible, ce qui l'oblige à combattre à vos côtés pendant toute la durée de l'effet.;POU;;;;;;
+Dissipation de la magie ;SORT_DIVERS;Enchanteur;;1;0;0;;Annule sorts et effets magiques. ;POU;;;;;;
+Localisation de créature ;SORT_DIVERS;Enchanteur;;1;0;0;;Indique la direction d’une créature connue. ;POU;;;;;;
+Sceau du serpent ;SORT_DIVERS;Enchanteur;;1;0;0;;Crée un symbole immobilisant le lecteur. ;POU;;;;;;
+Image accomplie ;SORT_DIVERS;;Illusionniste;1;0;0;;Comme image silencieuse, plus sons, odeurs et température. ;POU;;;;;;
+Manipulation des sons ;SORT_DIVERS;;Illusionniste;1;0;0;;Altère les sons ou en crée de nouveaux. ;POU;;;;;;
+Scrutation ;SORT_DIVERS;;Illusionniste;1;0;0;;Permet d’espionner le sujet à distance. ;POU;;;;;;
+Double illusoire ;SORT_DIVERS;;Illusionniste;1;0;0;;Rend le PJ invisible et crée son double illusoire. ;POU;;;;;;
+Voile ;SORT_DIVERS;;Illusionniste;1;0;0;;Change l’aspect d’un groupe de créatures. ;POU;;;;;;
+Alarme ;SORT_DIVERS;Enchanteur;;1;0;0;;Protège une zone pendant 2 heures/niv. ;POU;;;;;;
+Bouche magique ;SORT_DIVERS;Enchanteur;;1;0;0;;Délivre un message quand on la déclenche. ;POU;;;;;;
+Identification ;SORT_DIVERS;Enchanteur;;1;0;0;;Révèle les propriétés d’un objet magique. ;POU;;;;;;
+Localisation d’objet ;SORT_DIVERS;Enchanteur;;1;0;0;;Indique la direction de l’objet cherché. ;POU;;;;;;

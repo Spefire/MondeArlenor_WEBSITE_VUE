@@ -2,3 +2,4 @@ name;typeSkill;group;speciality;level;timeCasting;timeReloading;image;descriptio
 Piqué du phénix;COMP_SPE;Moine;;1;0;0;;Vous bondissez dans les airs vers la position de la cible, en créant une surface de feu à l'atterrissage.;HAB;;;;;;
 Rafale;SORT_DIVERS;Moine;;1;0;0;;Permet d'exécuter trois attaques rapides, infligeant chacune des dégâts physiques.;POU;;;;;;
 Contrôle des vents ;SORT_DIVERS;;Derviche;1;0;0;;Modifie la direction et la force du vent. ;POU;;;;;;
+Magie des ombres ;SORT_DIVERS;;Derviche;2;1;1;;"Reproduit les évocations de 4e niveau ou moins ; 20 % sont réelles. ";POU;;;;;;

@@ -1,7 +1,4 @@
 name;typeSkill;group;speciality;level;timeCasting;timeReloading;image;description;caractsUse;caractsTarget;effect;effect0;effect1;effect2;effect3
-Invoc Buissons;SORT_DIVERS;;Createur;1;0;0;;Permet de faire pousser des buissons à partir de rien.;POU;;;;;;
-Invoc Arbres;SORT_DIVERS;;Createur;1;0;0;;Permet de faire pousser des arbres à partir de rien.;POU;;;;;;
-Soin des plantes;SORT_DIVERS;;Createur;1;0;0;;Permet de soigner ou d'améliorer toute sorte de plante;POU;;;;;;
 Supernova;SORT_OFF;;Elementaliste;1;0;0;;Explose en créant des surfaces de feu et en infligeant des dégâts de feu dans une large zone tout autour de vous.;POU;VIG;;;;;
 Fouet de feu;SORT_OFF;;Elementaliste;1;0;0;;Attaque à longue portée causant des dégâts de feu à une cible unique, tout en lui infligeant Cécité et Brûlure.;POU;VIG;;;;;
 Boule de feu;SORT_OFF;;Elementaliste;1;0;0;;Lance une sphère enflammée qui explose et inflige des dégâts de feu.;POU;VIG;;;;;
@@ -20,3 +17,7 @@ Orage;SORT_OFF;;Elementaliste;1;0;0;;Une tempête fait rage dans la zone d'effet
 Empalement;SORT_OFF;;Elementaliste;1;0;0;;Des pieux empalent tous les personnages et objets, leur infligeant Handicap et des dégâts de terre;POU;VIG;;;;;
 Tremblement de terre;SORT_OFF;;Elementaliste;1;0;0;;Inflige des dégâts de terre et Renversement aux personnages ennemis et aux objets autour de vous. ;POU;VIG;;;;;
 Eruption pyroclastique;SORT_OFF;;Elementaliste;1;0;0;;Plusieurs rochers pleins de pétrole explosent en direction de tous les ennemis dans la zone d'effet;POU;VIG, HAB;;;;;
+Appel de la tempête ;SORT_DIVERS;;Elementaliste;1;0;0;;mais 5d6 points de dégâts par éclair. ;POU;;;;;;
+Appel de la foudre ;SORT_DIVERS;;Elementaliste;1;0;0;;Appelle la foudre (3d6 points de dégâts par éclair). ;POU;;;;;;
+Tempête de neige ;SORT_DIVERS;;Elementaliste;1;0;0;;Réduit la visibilité et gêne les déplacements. ;POU;;;;;;
+Lueurs hypnotiques ;SORT_DIVERS;Sorcier;;1;0;0;;Fascine (2d4 + niveau) DV de créatures. ;POU;;;;;;

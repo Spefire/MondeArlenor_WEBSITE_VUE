@@ -28,3 +28,5 @@ Regain d’assurance ;SORT_DIVERS;;Virtuose;1;0;0;;Supprime la terreur ou donne 
 Sommeil  ;SORT_DIVERS;;Virtuose;1;0;0;; Endort 4 DV de créatures. ;POU;;;;;;
 Apaisement des émotions ;SORT_DIVERS;;Virtuose;1;0;0;;Calme les créatures agitées. ;POU;;;;;;
 Illumination ;SORT_DIVERS;;Virtuose;1;0;0;;Éblouit 1 créature ;POU;;;;;;
+Danse irrésistible ;SORT_DIVERS;;Virtuose;1;0;0;;Force le sujet à danser. ;POU;;;;;;
+Bagou  ;SORT_DIVERS;Barde;;1;0;0;;"Confère +30 aux tests de Bluff ; résiste aux divinations censées détecter les mensonges. ";POU;;;;;;
