@@ -66,8 +66,18 @@ export default defineComponent({
     },
     
     // Affichages
-    getSkillsByLevel(level: number): ArlenorSkill[] {
-      return this.specialitySkills.filter(skill => skill.level === level);
+    getSkillsByLevel(level: number, isGroupSkill: boolean): ArlenorSkill[] {
+      if (isGroupSkill) {
+        return this.specialitySkills.filter(skill => skill.level === level && !skill.speciality);
+      } else {
+        return this.specialitySkills.filter(skill => skill.level === level && skill.speciality);
+      }
+    },
+
+    getLibLevel(level: number) {
+      if (level === 1) return "inférieur";
+      else if (level === 2) return "intermédiaire";
+      else return "supérieur";
     },
 
     getDescription(description: string, length = 0) {

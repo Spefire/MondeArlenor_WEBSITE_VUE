@@ -91,9 +91,22 @@
             v-for="(level, indexLevel) in levels"
             class="skills-content"
             :key="indexLevel">
-            <div class="skills-content-title">Niveau {{ level }}</div>
+            <div class="skills-content-title">Niveau {{ getLibLevel(level) }}</div>
             <div
-              v-for="(skill, index) in getSkillsByLevel(level)"
+              v-for="(skill, index) in getSkillsByLevel(level, true)"
+              class="skill-line pointer"
+              :class="{ 'selected' : skill.code === selectedSkill?.code }"
+              @click="selectSkill(skill)"
+              :key="index">
+              <img
+                class="skill-img"
+                :src="skill.image"
+                :alt="skill.name"
+                :title="skill.name">
+              <span class="skill-name">{{ skill.name }}</span>
+            </div>
+            <div
+              v-for="(skill, index) in getSkillsByLevel(level, false)"
               class="skill-line pointer"
               :class="{ 'selected' : skill.code === selectedSkill?.code }"
               @click="selectSkill(skill)"
@@ -125,14 +138,16 @@
             <div>
               {{ selectedSkill.description ? selectedSkill.description : 'Aucune description' }}
             </div>
-            <div class="skill-separator" />
+            <div
+              v-if="selectedSkill.effect || selectedSkill.effect0"
+              class="skill-separator" />
             <div v-if="selectedSkill.effect">{{ selectedSkill.effect }}</div>
             <div v-if="selectedSkill.effect0">{{ selectedSkill.effect0 }}</div>
             <div v-if="selectedSkill.effect1">{{ selectedSkill.effect1 }}</div>
             <div v-if="selectedSkill.effect2">{{ selectedSkill.effect2 }}</div>
             <div v-if="selectedSkill.effect3">{{ selectedSkill.effect3 }}</div>
             <div class="skill-separator" />
-            <div>Niveau requis&nbsp;:&nbsp;{{ selectedSkill.level }}</div>
+            <!--div>Niveau requis&nbsp;:&nbsp;{{ selectedSkill.level }}</div-->
             <div>
               Jets à réaliser :
               <span title="Jet du lanceur">{{ getCodCaracts(selectedSkill.caractsUse) }}</span>
@@ -141,8 +156,8 @@
                 v-if="selectedSkill.caractsTarget.length > 0"
                 title="Jet de la cible, en opposition">{{ getCodCaracts(selectedSkill.caractsTarget) }}</span>
             </div>
-            <div>{{ getCasting(selectedSkill.timeCastingAbility) }}</div>
-            <div>{{ getReloading(selectedSkill.timeReloadingAbility) }}</div>
+            <!--div>{{ getCasting(selectedSkill.timeCastingAbility) }}</div>
+            <div>{{ getReloading(selectedSkill.timeReloadingAbility) }}</div-->
           </template>
           <template v-if="!selectedSkill">
             <div>Pas de compétence sélectionnée.</div>

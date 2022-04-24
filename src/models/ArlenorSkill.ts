@@ -53,7 +53,7 @@ export class ArlenorSkill {
     const groups = new ArlenorGroups();
     this.name = "";
     this.description = "";
-    this.typeSkill = SkillsEnum.CompetencePassive;
+    this.typeSkill = SkillsEnum.CompetenceSpeciale;
     this.image = "";
     this.group = groups.Assassin;
     this.speciality = null;
@@ -90,31 +90,15 @@ export class ArlenorSkill {
   }
 
   public setType(code: string): void {
-    if (code === SkillsEnum.CompetencePassive.Code) this.typeSkill = SkillsEnum.CompetencePassive;
-    else if (code === SkillsEnum.CompetenceSpeciale.Code) this.typeSkill = SkillsEnum.CompetenceSpeciale;
+    if (code === SkillsEnum.CompetenceSpeciale.Code) this.typeSkill = SkillsEnum.CompetenceSpeciale;
     else if (code === SkillsEnum.SortOffensif.Code) this.typeSkill = SkillsEnum.SortOffensif;
     else if (code === SkillsEnum.SortDefensif.Code) this.typeSkill = SkillsEnum.SortDefensif;
-    else if (code === SkillsEnum.SortDivers.Code) this.typeSkill = SkillsEnum.SortDivers;
+    else if (code === SkillsEnum.SortUtilitaire.Code) this.typeSkill = SkillsEnum.SortUtilitaire;
     else console.error("ConvertSkill : typeSkill n'est pas reconnu : |" + code + "|");
   }
 
   public setImage(name: string | null = null): void {
     if (name) this.image = require("./../assets/icons/"+ name +".png");
-    /*else if (this.typeSkill.Code === SkillsEnum.CompetencePassive.Code) {
-      this.image = require("./../assets/icons/comp_passive.png");
-    }
-    else if (this.typeSkill.Code === SkillsEnum.CompetenceSpeciale.Code) {
-      this.image = require("./../assets/icons/comp_speciale.png");
-    }
-    else if (this.typeSkill.Code === SkillsEnum.SortOffensif.Code) {
-      this.image = require("./../assets/icons/sort_offensif.png");
-    }
-    else if (this.typeSkill.Code === SkillsEnum.SortDefensif.Code) {
-      this.image = require("./../assets/icons/sort_defensif.png");
-    }
-    else if (this.typeSkill.Code === SkillsEnum.SortDivers.Code) {
-      this.image = require("./../assets/icons/sort_divers.png");
-    }*/
     else if (this.speciality) {
       this.image = require("./../assets/icons/skill_spe.png");
     }
@@ -168,9 +152,8 @@ export class ArlenorSkill {
 
 export class SkillsEnum {
   // Compétences à choisir
-  static CompetencePassive: ArlenorEnum = { Code: "COMP_PASS", Libelle: "Compétence passive" };
-  static CompetenceSpeciale: ArlenorEnum = { Code: "COMP_SPE", Libelle: "Compétence spéciale" };
-  static SortOffensif: ArlenorEnum = { Code: "SORT_OFF", Libelle: "Sort offensif" };
-  static SortDefensif: ArlenorEnum = { Code: "SORT_DEF", Libelle: "Sort défensif" };
-  static SortDivers: ArlenorEnum = { Code: "SORT_DIVERS", Libelle: "Sort divers" };
+  static CompetenceSpeciale: ArlenorEnum = { Code: "SPE", Libelle: "Compétence spéciale" };
+  static SortOffensif: ArlenorEnum = { Code: "OFF", Libelle: "Sort offensif" };
+  static SortDefensif: ArlenorEnum = { Code: "DEF", Libelle: "Sort défensif" };
+  static SortUtilitaire: ArlenorEnum = { Code: "UTILE", Libelle: "Sort utilitaire" };
 }
