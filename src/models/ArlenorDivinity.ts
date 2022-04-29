@@ -8,12 +8,15 @@ export class ArlenorDivinity {
   public imageSelected: string;
   public comment: string;
   public commentName: string;
+  public power: string;
+  public powerName: string;
 
   public get libNum():string {
     return "" + convertToRoman(this.num+1); 
   }
 
-  constructor(name: string, title: string, symbols: string, comment: string, commentName: string) {
+  constructor(name: string, title: string, symbols: string,
+    comment: string, commentName: string, powerName: string, power: string) {
     this.num = 0;
     this.name = name;
     this.title = title;
@@ -23,6 +26,8 @@ export class ArlenorDivinity {
     this.isInversed = false;
     this.comment = comment;
     this.commentName = commentName;
+    this.power = power;
+    this.powerName = powerName;
   }
 }
 
