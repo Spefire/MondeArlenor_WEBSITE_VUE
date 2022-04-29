@@ -139,25 +139,41 @@
               {{ selectedSkill.description ? selectedSkill.description : 'Aucune description' }}
             </div>
             <div
-              v-if="selectedSkill.effect || selectedSkill.effect0"
+              v-if="selectedSkill.effect0"
               class="skill-separator" />
-            <div v-if="selectedSkill.effect">{{ selectedSkill.effect }}</div>
-            <div v-if="selectedSkill.effect0">{{ selectedSkill.effect0 }}</div>
-            <div v-if="selectedSkill.effect1">{{ selectedSkill.effect1 }}</div>
-            <div v-if="selectedSkill.effect2">{{ selectedSkill.effect2 }}</div>
-            <div v-if="selectedSkill.effect3">{{ selectedSkill.effect3 }}</div>
+            <div v-if="selectedSkill.effect0">
+              <span class="text-bold">Simple<br></span>
+              {{ selectedSkill.effect0 }}
+            </div>
+            <div
+              v-if="selectedSkill.effect1"
+              class="margin-top-05">
+              <span class="text-bold">Complexe<br></span>
+              {{ selectedSkill.effect1 }}
+            </div>
+            <div
+              v-if="selectedSkill.effect2"
+              class="margin-top-05">
+              <span class="text-bold">Difficile<br></span>
+              {{ selectedSkill.effect2 }}
+            </div>
+            <div
+              v-if="selectedSkill.effect3"
+              class="margin-top-05">
+              <span class="text-bold">Epique<br></span>
+              {{ selectedSkill.effect3 }}
+            </div>
             <div class="skill-separator" />
-            <!--div>Niveau requis&nbsp;:&nbsp;{{ selectedSkill.level }}</div-->
             <div>
               Jets à réaliser :
-              <span title="Jet du lanceur">{{ getCodCaracts(selectedSkill.caractsUse) }}</span>
-              <span v-if="selectedSkill.caractsTarget.length > 0">&nbsp;|&nbsp;</span>
-              <span
-                v-if="selectedSkill.caractsTarget.length > 0"
-                title="Jet de la cible, en opposition">{{ getCodCaracts(selectedSkill.caractsTarget) }}</span>
+              <span title="Jets du lanceur">{{ getCodCaracts(selectedSkill.caractsUse) }}</span>
             </div>
-            <!--div>{{ getCasting(selectedSkill.timeCastingAbility) }}</div>
-            <div>{{ getReloading(selectedSkill.timeReloadingAbility) }}</div-->
+            <div>
+              Jets en opposition :
+              <span title="Jets de la cible">{{ getCodCaracts(selectedSkill.caractsTarget) }}</span>
+            </div>
+            <div class="margin-top-05">{{ getCasting(selectedSkill.timeCastingAbility) }}</div>
+            <div>{{ getReloading(selectedSkill.timeReloadingAbility) }}</div>
           </template>
           <template v-if="!selectedSkill">
             <div>Pas de compétence sélectionnée.</div>

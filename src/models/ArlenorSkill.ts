@@ -17,7 +17,7 @@ export interface ArlenorSkillJSON {
   timeReloading: string;
   caractsUse: string;
   caractsTarget: string;
-  effect: string;
+  effect: string; // A supprimer
   effect0: string;
   effect1: string;
   effect2: string;
@@ -36,7 +36,6 @@ export class ArlenorSkill {
   public timeReloading: number;
   public caractsUse: ArlenorEnum[];
   public caractsTarget: ArlenorEnum[];
-  public effect: string;
   public effect0: string;
   public effect1: string;
   public effect2: string;
@@ -62,7 +61,6 @@ export class ArlenorSkill {
     this.timeReloading = 0;
     this.caractsUse = [];
     this.caractsTarget = [];
-    this.effect = "";
     this.effect0 = "";
     this.effect1 = "";
     this.effect2 = "";
@@ -81,11 +79,10 @@ export class ArlenorSkill {
     arlSkill.timeReloading = parseInt(skillJSON.timeReloading);
     arlSkill.setCaractsUse(skillJSON.caractsUse);
     arlSkill.setCaractsTarget(skillJSON.caractsTarget);
-    arlSkill.effect = "";
-    arlSkill.effect0 = "";
-    arlSkill.effect1 = "";
-    arlSkill.effect2 = "";
-    arlSkill.effect3 = "";
+    arlSkill.effect0 = skillJSON.effect0;
+    arlSkill.effect1 = skillJSON.effect1;
+    arlSkill.effect2 = skillJSON.effect2;
+    arlSkill.effect3 = skillJSON.effect3;
     return arlSkill;
   }
 

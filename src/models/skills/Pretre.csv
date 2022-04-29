@@ -1,44 +1,44 @@
-name;typeSkill;group;speciality;level;timeCasting;timeReloading;image;description;caractsUse;caractsTarget;effect;effect0;effect1;effect2;effect3
-Tranquillité d'esprit;UTILE;Pretre;;1;0;0;;Supprime Cécité, Terreur, Charme, Provocation, Sommeil, Enragement et Folie.;POU;;;;;;
-Protection contre les énergies destructives;UTILE;Pretre;;1;0;0;;Absorbe 12 points de dégâts/niveau infligés par le type d’énergie choisi. ;POU;;;;;;
-Assistance divine ;UTILE;Pretre;;1;0;0;;+1 à un jet d’attaque, jet de sauvegarde ou test de compétence. ;POU;;;;;;
-Détection de la magie ;UTILE;Pretre;;1;0;0;;Détecte sorts et objets magiques à 18 m à la ronde. ;POU;;;;;;
-Purification de nourriture et d’eau ;UTILE;Pretre;;1;0;0;;Purifie 30 dm³/niveau de nourriture et d’eau. ;POU;;;;;;
-Extinction des feux ;UTILE;Pretre;;1;0;0;;Éteint les feux non magiques;POU;;;;;;
-Prémonition ;UTILE;Pretre;;1;0;0;;“ Sixième sens ” avertissant le PJ en cas de danger. ;POU;;;;;;
-Vision lucide ;UTILE;Pretre;;1;0;0;;Permet de voir les choses telles qu’elles sont. ;POU;;;;;;
-Lumière du jour ;UTILE;Pretre;;1;0;0;;Vive lumière sur 18 m de rayon ;POU;;;;;;
-Poussière scintillante ;UTILE;Pretre;;1;0;0;;Aveugle, révèle la position des créatures invisibles. ;POU;;;;;;
-Dissipation de la magie;UTILE;Pretre;;1;0;0;;Annule sorts et effets magiques.;POU;;;;;;
-Exécution;UTILE;Pretre;;1;0;0;;Attaque de contact tuant la cible.;POU;;;;;;
-Protection contre les sorts ;UTILE;Pretre;;1;0;0;;Confère un bonus de résistance de +8. ;POU;;;;;;
-Marque de la justcie;UTILE;Pretre;;1;0;0;;Définit une condition maudissant la cible.;POU;;;;;;
-Zone de vérité;UTILE;Pretre;;1;0;0;;Les créatures affectées ne peuvent pas mentir.;POU;;;;;;
-Délivrance des malédictions;UTILE;Pretre;;1;0;0;;Libère des malédictions.;POU;;;;;;
-Préservation des morts;UTILE;Pretre;;1;0;0;;Préserve un cadavre.;POU;;;;;;
-Esprit impénétrable  ;UTILE;Pretre;;1;0;0;;Sujet immunisé contre les sorts mentaux et la scrutation. ;POU;;;;;;
-Zone d’antimagie ;UTILE;Pretre;;1;0;0;;Réprime toute magie à moins de 3 m. ;POU;;;;;;
-Annulation d’enchantement;UTILE;Pretre;;1;0;0;;Libère la cible des enchantements, des altérations, des malédictions et de la pétrification.;POU;;;;;;
-Putréfaction;UTILE;;Exorciste;1;0;0;;Inflige des dégâts physiques à la cible, ainsi que Putréfaction, avec pour conséquence que les sorts et les potions de soins lui causent des dégâts physiques.;POU;POU;;;;;
-Réveil de cadavre boursouflé;UTILE;;Exorciste;1;0;0;;Ciblez un corps pour créer un cadavre boursouflé qui se bat pour vous. Il peut également exploser, auquel cas il inflige des dégâts physiques.;POU;;;;;;
-Infection;UTILE;;Exorciste;1;0;0;;Inflige des dégâts physiques à la cible, tout en lui inoculant une maladie qui se transmet aux autres personnages proches.;POU;VIG;;;;;
-Rite funéraire;UTILE;;Exorciste;1;0;0;;Vous vous sacrifiez pour ramener un allié à la vie, ce qui vous inflige des dégâts perforants mais ressuscite la cible à son maximum de vitalité;POU;;;;;;
-Totems du nécromancien;UTILE;;Exorciste;1;0;0;;Fait apparaître des totems d'os à côté de tous les ennemis situés dans la zone d'effet. Les totems d'os se battent à l'aide d'attaques à distance infligeant des dégâts physiques.;POU;;;;;;
-Malédiction;UTILE;;Exorciste;1;0;0;;–6 à une caractéristique, –4 aux jets d’attaque, jets de sauvegarde et tests, ou 50 % de chances de perdre chaque action.;POU;;;;;;
-Animation des morts;UTILE;;Exorciste;1;0;0;;Crée squelettes et zombis morts-vivants.;POU;;;;;;
-Clone mortuaire;UTILE;;Exorciste;1;0;0;;Double s’éveillant à la mort de l’original. ;POU;;;;;;
-Communication avec les morts;UTILE;;Exorciste;1;0;0;;Un cadavre répond à 1 question/2 niveaux.;POU;;;;;;
-Rayonnement aveuglant;UTILE;;PretreArlenor;1;0;0;;Vous recevez un état qui inflige Cécité à tous vos adversaires.;POU;POU;;;;;
-Trompe-la-mort;UTILE;;PretreArlenor;1;0;0;;Pendant 2 tours, la vitalité de la cible ne peut pas descendre en-dessous de 1, ce qui le maintient en vie quoi qu'il arrive.;POU;;;;;;
-Distorsion temporelle;UTILE;;PretreArlenor;1;0;0;;Cible un personnage. Lorsque ce dernier arrive à la fin de son tour au combat, il gagne automatiquement un tour gratuit.;POU;;;;;;
-Annihilation;UTILE;;PretreArlenor;1;0;0;;Sort qui détruit totalement le corps d'un personnage, interdisant ainsi de le ressusciter.;POU;;;;;;
-Colonne de feu ;UTILE;;PretreArlenor;1;0;0;;Feu divin (1d6 points de dégâts/niveau.). ;POU;;;;;;
-Délivrance des malédictions ;UTILE;;PretreArlenor;1;0;0;;Libère une personne ou un objet d’une malédiction. ;POU;;;;;;
-Priere;UTILE;;PretreArlenor;1;0;0;;+1 pour les alliés à presque tous les jets, –1 pour les adversaires.;POU;;;;;;
-Divination;UTILE;;PretreArlenor;1;0;0;;Donne des conseils en rapport avec une action envisagée.;POU;;;;;;
-Passage dans l’éther ;UTILE;;PretreArlenor;1;0;0;;Emmène plusieurs créatures dans le plan Éthéré. ;POU;;;;;;
-Forme éthérée ;UTILE;;PretreArlenor;1;0;0;;Le PJ passe dans le plan Éthéré pour 1 round/niveau. ;POU;;;;;;
-Sanctuaire;UTILE;;PretreArlenor;1;0;0;;Les adversaires ne peuvent pas attaquer le PJ, et inversement.;POU;;;;;;
-Marche sur l’ond;UTILE;;PretreArlenor;1;0;0;;Permet de marcher sur l’eau.;POU;;;;;;
-Augure;UTILE;;PretreArlenor;1;0;0;;Révèle si une action aura de bonnes conséquences ou non.;POU;;;;;;
-Immunité contre les sorts;UTILE;;PretreArlenor;1;0;0;;Immunise le sujet contre 1 sort/4 niveaux.;POU;;;;;;
+name;typeSkill;group;speciality;level;timeCasting;timeReloading;image;description;caractsUse;caractsTarget;effect0;effect1;effect2;effect3
+Tranquillité d'esprit;UTILE;Pretre;;1;0;0;skill_grp_ok;Supprime différents états mentaux d’une cible choisie.;POU;;Supprime Terreur et Folie.;Supprime aussi Sommeil et Cécité.;Supprime aussi Provocation.;Supprime aussi Charme.
+Assistance divine ;SPE;Pretre;;1;0;0;skill_grp_ok;Ajoute un bonus +1 (non cumulable) aux tests de compétence, d’attaque et de défense.;;;;;;
+Détection de la magie ;UTILE;Pretre;;2;0;0;skill_grp_ok;Détecte sorts et objets magiques.;POU;;Au toucher (1m);A vue (5m);A vue (10m);Dans une zone (25m)
+Purification de nourriture et d’eau ;SPE;Pretre;;1;0;0;skill_grp_ok;Purifie 1m3 de nourriture et d’eau de toute maladie ou poison.;;;;;;
+Extinction des feux ;SPE;Pretre;;1;0;0;skill_grp_ok;Éteint les feux non magiques  à vue.;;;;;;
+Prémonition ;SPE;Pretre;;1;0;0;skill_grp_ok;Avertit le personnage en cas de danger, comme un Sixième sens.;;;;;;
+Vision lucide ;UTILE;Pretre;;1;0;0;skill_grp_ok;Permet de voir les choses telles qu’elles sont : voir ce qui est dissimulé par la magie.;POU;POU;;;;
+Lumière du jour ;UTILE;Pretre;;1;0;0;skill_grp_ok;Vive lumière qui apparaît sur 25m de rayon.;;;;;;
+Poussière scintillante ;UTILE;Pretre;;1;0;0;skill_grp_ok;Aveugle sur 1 tour et révèle la position d’une créature invisible à un point ciblé.;POU;POU;;;;
+Dissipation de la magie;UTILE;Pretre;;2;0;0;skill_grp_ok;Annule les sorts et effets magiques appliqués sur un individu ou un objet.;POU;POU;;;;
+Exécution;OFF;Pretre;;3;0;0;skill_grp_ok;Attaque de contact foudroyant la cible sans prendre en compte sa résistance.;POU;;3 PV;5 PV;8 PV;12 PV
+Protection contre les sorts I;DEF;Pretre;;1;0;0;skill_grp_ok;Confère un bonus de résistance au prochain sort.;POU;;Bonus +1 (non cumulable);Bonus +2 (non cumulable);Bonus +3 (non cumulable);Bonus +5 (non cumulable)
+Protection contre les sorts II;DEF;Pretre;;2;0;0;skill_grp_ok;Confère un bonus de résistance aux 3 prochains sorts.;POU;;Bonus +1 (non cumulable);Bonus +2 (non cumulable);Bonus +3 (non cumulable);Bonus +5 (non cumulable)
+Protection contre les sorts III;DEF;Pretre;;3;0;0;skill_grp_ok;Confère un bonus de résistance aux sorts jusqu’à la fin du combat ou au prochain repos.;POU;;Bonus +1 (non cumulable);Bonus +2 (non cumulable);Bonus +3 (non cumulable);Bonus +5 (non cumulable)
+Main de la vérité;UTILE;Pretre;;1;0;0;skill_grp_ok;L’individu ne peut pas mentir au contact du lanceur.;POU;POU;;;;
+Délivrance de la malédiction;UTILE;Pretre;;2;0;0;skill_grp_ok;Supprime l’effet Maudit.;;;;;;
+Préservation des morts;UTILE;Pretre;;1;0;0;skill_grp_ok;Préserve un cadavre.;;;;;;
+Esprit impénétrable  ;UTILE;Pretre;;2;0;0;skill_grp_ok;Sujet immunisé contre les sorts mentaux et la scrutation jusqu’à la fin du combat ou au prochain repos.;POU;;;;;
+Zone d’antimagie ;DEF;Pretre;;3;0;0;skill_grp_ok;Réprime toute magie dans un rayon variable, jusqu’à la fin du combat ou au prochain repos.;POU;;Rayon de 1m;Rayon de 5m;Rayon de 10m;Rayon de 25m
+Annulation élémentaire;UTILE;Pretre;;2;0;0;skill_grp_ok;Libère la cible des altérations élémentaires (Brûlure, Etat de choc, Etourdissement, Humidité, Gel et Pétrification).;;;;;;
+Putréfaction;OFF;;Exorciste;1;0;0;skill_spe_ok;Inflige des dégâts à la cible en vue, ainsi que Putréfaction.;POU;POU;;;;
+Réveil de cadavre boursouflé;UTILE;;Exorciste;1;0;0;skill_spe_ok;Cible un corps pour créer un cadavre boursouflé qui se bat pour le lanceur. Il peut également exploser, auquel cas il inflige des dégâts autour de lui (1m).;POU;;1 PV;2 PV;3 PV;5 PV
+Infection;OFF;;Exorciste;1;0;0;skill_spe_ok;Inflige des dégâts à la cible, tout en lui inoculant une maladie qui se transmet aux autres individus proches d’elle (1 m).;POU;VIG;0 PV;1 PV;2 PV;3 PV
+Sacrifice;UTILE;;Exorciste;2;0;0;skill_spe_ok;Vous vous sacrifiez pour transférer vos PVs jusqu’au dernier (non-inclus) à un allié.;;;;;;
+Totems du nécromancien;UTILE;;Exorciste;2;0;0;skill_spe_ok;Fait apparaître des totems d'os à côté de tous les cadavres situés dans la zone d'effet. Les totems d'os se battent à l'aide d'attaques à distance infligeant des dégâts physiques.;POU;;1 PV;2 PV;3 PV;5 PV
+Marque maudite;OFF;;Exorciste;3;0;0;skill_spe_ok;Applique l’effet Maudit selon une condition définie par le lanceur.;POU;POU;;;;
+Animation des morts;UTILE;;Exorciste;2;0;0;skill_spe_ok;Crée squelette ou zombie à partir d’un cadavre, le transformant.;POU;;1 PV;2 PV;3 PV;5 PV
+Clone mortuaire;UTILE;;Exorciste;3;0;0;skill_spe_ok;Double s’éveillant à la mort de l’original. ;POU;;1 PV;2 PV;3 PV;5 PV
+Communication avec les morts;UTILE;;Exorciste;2;0;0;skill_spe_ok;Un cadavre répond à une question, puis se tait à jamais.;POU;;1 son;1 mot;2 mots;1 phrase
+Rayonnement aveuglant;UTILE;;PretreArlenor;1;0;0;;Vous recevez un état qui inflige Cécité à tous vos adversaires.;POU;POU;;;;
+Trompe-la-mort;UTILE;;PretreArlenor;1;0;0;;Pendant 2 tours, la vitalité de la cible ne peut pas descendre en-dessous de 1, ce qui le maintient en vie quoi qu'il arrive.;POU;;;;;
+Distorsion temporelle;UTILE;;PretreArlenor;1;0;0;;Cible un personnage. Lorsque ce dernier arrive à la fin de son tour au combat, il gagne automatiquement un tour gratuit.;POU;;;;;
+Annihilation;UTILE;;PretreArlenor;1;0;0;;Sort qui détruit totalement le corps d'un personnage, interdisant ainsi de le ressusciter.;POU;;;;;
+Colonne de feu ;UTILE;;PretreArlenor;1;0;0;;Feu divin (1d6 points de dégâts/niveau.). ;POU;;;;;
+Délivrance des malédictions ;UTILE;;PretreArlenor;1;0;0;;Libère une personne ou un objet d’une malédiction. ;POU;;;;;
+Priere;UTILE;;PretreArlenor;1;0;0;;+1 pour les alliés à presque tous les jets, –1 pour les adversaires.;POU;;;;;
+Divination;UTILE;;PretreArlenor;1;0;0;;Donne des conseils en rapport avec une action envisagée.;POU;;;;;
+Passage dans l’éther ;UTILE;;PretreArlenor;1;0;0;;Emmène plusieurs créatures dans le plan Éthéré. ;POU;;;;;
+Forme éthérée ;UTILE;;PretreArlenor;1;0;0;;Le PJ passe dans le plan Éthéré pour 1 round/niveau. ;POU;;;;;
+Sanctuaire;UTILE;;PretreArlenor;1;0;0;;Les adversaires ne peuvent pas attaquer le PJ, et inversement.;POU;;;;;
+Marche sur l’ond;UTILE;;PretreArlenor;1;0;0;;Permet de marcher sur l’eau.;POU;;;;;
+Augure;UTILE;;PretreArlenor;1;0;0;;Révèle si une action aura de bonnes conséquences ou non.;POU;;;;;
+Immunité contre les sorts;UTILE;;PretreArlenor;1;0;0;;Immunise le sujet contre 1 sort/4 niveaux.;POU;;;;;
