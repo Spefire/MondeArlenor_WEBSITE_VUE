@@ -1,0 +1,26 @@
+@import "../../../styles/variables.scss";
+
+.system-view {
+  .system-nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    border: none;
+
+    .system-nav-item {
+      flex-basis: calc(100% / 3);
+      padding: 10px;
+      font-family: $serif-font;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $secondary-color;
+      border: 1px solid $secondary-color;
+      cursor: pointer;
+
+      &.selected {
+        color: $black-color;
+        background: $secondary-color;
+      }
+    }
+  }
+}

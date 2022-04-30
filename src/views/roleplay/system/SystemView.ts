@@ -1,3 +1,4 @@
+import ArrowButton from "@/components/arrow-button/ArrowButton.vue";
 import SkillsTable from "@/components/skills-table/SkillsTable.vue";
 import { ArlenorRace, DifficultyEnum } from "@/models/ArlenorRace";
 import { getListGroups } from "@/models/data/ListGroups";
@@ -10,16 +11,18 @@ export default defineComponent({
   name: "DocumentationView",
   title: PageTitles.documentation,
   components: {
+    ArrowButton,
     SkillsTable,
   },
 
   setup() {
     const allRaces = ref(getListRaces().filter(race => race.difficulty !== DifficultyEnum.Impossible.Code));
-    const allClasses = ref(getListSpecialities());
+    const allSpecialities = ref(getListSpecialities());
     const allGroups = ref(getListGroups());
+    const persoChoice = ref(1);
 
     return {
-      allRaces, allClasses, allGroups
+      allRaces, allSpecialities, allGroups, persoChoice
     };
   },
 
@@ -48,6 +51,10 @@ export default defineComponent({
       if (race.difficulty === DifficultyEnum.Difficile.Code)
         return lib + DifficultyEnum.Difficile.Libelle;
       else return "";
+    },
+
+    changePersoChoice(choice: number) {
+      this.persoChoice = choice;
     }
   }
 });
