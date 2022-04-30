@@ -34,7 +34,7 @@ iframe {
     overflow: hidden;
     border-radius: 5px;
     border: 1px solid $secondary-color;
-    background: $black-color;
+    background: $background-black-dark;
 
     @include tablet-only {
       width: 100%;
