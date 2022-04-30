@@ -241,7 +241,7 @@
               <p class="docs-grid-body">{{ getDescription(spe.description) }}</p>
               <div class="margin-top-05 margin-bottom-05 hide-on-mobile">
                 <ArrowButton
-                  :link-path="'speciality'"
+                  :link-path="'crystals'"
                   :link-query="{ spe: spe.code }" />
               </div>
             </div>

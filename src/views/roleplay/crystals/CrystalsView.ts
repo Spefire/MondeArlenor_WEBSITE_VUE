@@ -7,8 +7,8 @@ import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, Ref, ref } from "vue";
 
 export default defineComponent({
-  name: "SpecialityView",
-  title: PageTitles.speciality,
+  name: "CrystalsView",
+  title: PageTitles.crystals,
   components: {},
   
   watch: {
@@ -37,7 +37,7 @@ export default defineComponent({
   methods: {
     // Navigation et chargements
     moveToSpe(code:string) {
-      this.$router.push({ path: "speciality", query: { spe: code }});
+      this.$router.push({ path: "crystals", query: { spe: code }});
     },
 
     updatePage() {

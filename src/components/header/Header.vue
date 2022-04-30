@@ -17,11 +17,13 @@
           to="/universe">{{ pages.universe }}</router-link>
         <router-link
           class="link"
-          to="/roleplay">{{ pages.roleplay }}</router-link>
+          to="/roleplay">
+          <span class="text-bold margin-right-05">•</span>
+          {{ pages.roleplay }}
+        </router-link>
         <router-link
           class="link"
           to="/celestia">
-          <span class="text-bold margin-right-05">•</span>
           {{ pages.celestia }}
         </router-link>
       </nav>
@@ -56,7 +58,7 @@
           to="/roleplay/system">{{ pages.system }}</router-link>
         <router-link
           class="link exact-link"
-          to="/roleplay/crystals">{{ pages.crystals }}</router-link>
+          to="/roleplay/crystals?spe=PALADIN">{{ pages.crystals }}</router-link>
         <router-link
           class="link exact-link"
           to="/roleplay/creation">{{ pages.creation }}</router-link>
@@ -85,11 +87,13 @@
           to="/universe">{{ pages.universe }}</router-link>
         <router-link
           class="link"
-          to="/roleplay">{{ pages.roleplay }}</router-link>
+          to="/roleplay">
+          <span class="text-bold margin-right-05">•</span>
+          {{ pages.roleplay }}
+        </router-link>
         <router-link
           class="link"
           to="/celestia">
-          <span class="text-bold margin-right-05">•</span>
           {{ pages.celestia }}
         </router-link>
       </nav>
@@ -114,12 +118,6 @@
         <router-link
           class="link exact-link"
           to="/roleplay/system">{{ pages.system }}</router-link>
-        <router-link
-          class="link exact-link"
-          to="/roleplay/crystals">{{ pages.crystals }}</router-link>
-        <router-link
-          class="link exact-link"
-          to="/roleplay/creation">{{ pages.creation }}</router-link>
       </nav>
     </div>
   </header>

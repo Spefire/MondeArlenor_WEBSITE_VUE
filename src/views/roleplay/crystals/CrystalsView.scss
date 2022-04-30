@@ -1,6 +1,6 @@
 @import "../../../styles/variables.scss";
 
-.speciality-view {
+.crystals-view {
   min-height: calc(75vh + 100px);
 
   img {
@@ -22,10 +22,10 @@
     }
   }
 
-  .speciality-layout {
+  .crystals-layout {
     display: flex;
 
-    .speciality-center {
+    .crystals-center {
       display: flex;
       align-items: center;
 
@@ -33,24 +33,24 @@
         padding: 10px;
       }
 
-      .speciality-section-top {
+      .crystals-section-top {
         width: 33.33%;
         margin: 10px 0;
       }
     }
 
-    .speciality-left {
+    .crystals-left {
       width: calc(66.66% - 5px);
       margin-right: 5px;
     }
 
-    .speciality-right {
+    .crystals-right {
       width: calc(33.33% - 5px);
       margin-left: 5px;
     }
   }
 
-  .speciality-separator {
+  .crystals-separator {
     height: 100%;
     width: 1px;
     margin: 0 25px;
@@ -97,6 +97,7 @@
     margin-top: 24px;
     padding: 15px 0;
     border: 1px solid $secondary-color;
+    background: $black-color;
 
     @include tablet-only {
       grid-template-columns: repeat(1, 1fr);
@@ -104,10 +105,11 @@
 
     .skills-content-title {
       position: absolute;
-      top: -10px;
+      top: -15px;
       left: 20px;
       padding: 0 10px;
       text-transform: uppercase;
+      border: 1px solid $secondary-color;
       background: $black-color;
     }
 

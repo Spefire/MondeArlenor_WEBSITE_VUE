@@ -8,8 +8,8 @@ import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
-  name: "DocumentationView",
-  title: PageTitles.documentation,
+  name: "SystemView",
+  title: PageTitles.system,
   components: {
     ArrowButton,
     SkillsTable,

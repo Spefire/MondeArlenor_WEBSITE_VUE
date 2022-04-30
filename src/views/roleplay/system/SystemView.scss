@@ -17,6 +17,10 @@
       border: 1px solid $secondary-color;
       cursor: pointer;
 
+      @include mobile-only {
+        flex-basis: 100%;
+      }
+
       &.selected {
         color: $black-color;
         background: $secondary-color;

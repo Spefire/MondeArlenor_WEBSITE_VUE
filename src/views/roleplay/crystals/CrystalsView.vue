@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="currentSpeciality"
-    class="layout-view background-roleplay speciality-view hide-on-mobile">
+    class="layout-view background-roleplay crystals-view hide-on-mobile">
 
     <!-- Menu à droite -->
     <div class="side-menu top">
@@ -22,9 +22,9 @@
 
     <div class="layout-center large">
       <!-- Icone et titre -->
-      <div class="speciality-layout margin-top-2">
-        <div class="bloc-text speciality-center">
-          <div class="speciality-section-top">
+      <div class="crystals-layout margin-top-2">
+        <div class="bloc-text crystals-center">
+          <div class="crystals-section-top">
             <h3 class="margin-bottom-1">Classe de la spécialité&nbsp;:<br>{{ currentSpeciality.group.name }}</h3>
             <img
               class="margin-bottom-1 rounded"
@@ -32,16 +32,16 @@
               :alt="currentSpeciality.group.name">
             <p class="crystals-main-description">{{ currentSpeciality.group.description }}</p>
           </div>
-          <div class="speciality-separator" />
-          <div class="speciality-section-top">
+          <div class="crystals-separator" />
+          <div class="crystals-section-top">
             <img
               :src="currentSpeciality.image"
               :alt="currentSpeciality.name">
             <h2>{{ currentSpeciality.name }}</h2>
             <p class="crystals-main-description">{{ currentSpeciality.description }}</p>
           </div>
-          <div class="speciality-separator" />
-          <div class="speciality-section-top">
+          <div class="crystals-separator" />
+          <div class="crystals-section-top">
             <h3 class="margin-bottom-1">Abilités de la spécialité</h3>
             <div
               v-if="currentSpeciality.weaponAbility"
@@ -84,8 +84,8 @@
       </div>
 
       <!-- Compétences -->
-      <div class="speciality-layout margin-top-1">
-        <div class="bloc-text speciality-left">
+      <div class="crystals-layout margin-top-1">
+        <div class="bloc-text crystals-left">
           <h3 class="margin-bottom-1">Liste de compétences possibles</h3>
           <div
             v-for="(level, indexLevel) in levels"
@@ -121,7 +121,7 @@
           </div>
         </div>
       
-        <div class="bloc-text speciality-right">
+        <div class="bloc-text crystals-right">
           <h3 class="margin-bottom-1">Détail de la compétence</h3>
           <div class="skill-separator" />
           <template v-if="selectedSkill">
@@ -190,5 +190,5 @@
   </div>
 </template>
 
-<style lang="scss" scoped src="./SpecialityView.scss"></style>
-<script lang="ts" src="./SpecialityView.ts"></script>
+<style lang="scss" scoped src="./CrystalsView.scss"></style>
+<script lang="ts" src="./CrystalsView.ts"></script>
