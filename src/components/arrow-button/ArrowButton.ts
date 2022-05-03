@@ -8,7 +8,7 @@ export default defineComponent({
       required: false,
       default: null
     },
-    linkPath: {
+    linkName: {
       type: String,
       required: false,
       default: null

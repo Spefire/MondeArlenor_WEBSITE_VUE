@@ -5,8 +5,8 @@
     </router-link>
   </template>
 
-  <template v-if="linkPath && linkQuery">
-    <router-link :to="{ path: linkPath, query: linkQuery }">
+  <template v-if="linkName && linkQuery">
+    <router-link :to="{ name: linkName, query: linkQuery }">
       <i class="icon icon-arrow-right2" />En savoir plus
     </router-link>
   </template>

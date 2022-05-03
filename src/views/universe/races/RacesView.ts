@@ -24,6 +24,9 @@ export default defineComponent({
   },
 
   mounted() {
+    if (this.$route.query.selection) {
+      this.currentIndex = parseInt(this.$route.query.selection.toString());
+    }
     this.updateRace();
   },
 

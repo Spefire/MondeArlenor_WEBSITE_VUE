@@ -40,8 +40,8 @@
       <div class="margin-top-1">
         <router-link
           class="link-button"
-          to="/roleplay/documentation">
-          Voir la documentation
+          to="/roleplay/crystals">
+          Voir les cristaux évolutifs
         </router-link>
       </div>
     </div>

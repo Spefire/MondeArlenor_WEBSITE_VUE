@@ -14,22 +14,22 @@ import UniverseView from "@/views/universe/UniverseView.vue";
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 const routes: Array<RouteRecordRaw> = [
-  { path: "/", component: HomeView, meta: { title: PageTitles.home }},
+  { path: "/", name: "home", component: HomeView, meta: { title: PageTitles.home }},
 
-  { path: "/universe", component: UniverseView, meta: { title: PageTitles.worldmap }},
-  { path: "/universe/religion", component: ReligionView, meta: { title: PageTitles.religion }},
-  { path: "/universe/magic", component: MagicView, meta: { title: PageTitles.magic }},
-  { path: "/universe/races", component: RacesView, meta: { title: PageTitles.races }},
+  { path: "/universe", name: "universe", component: UniverseView, meta: { title: PageTitles.worldmap }},
+  { path: "/universe/religion", name: "religion", component: ReligionView, meta: { title: PageTitles.religion }},
+  { path: "/universe/magic", name: "magic", component: MagicView, meta: { title: PageTitles.magic }},
+  { path: "/universe/races", name: "races", component: RacesView, meta: { title: PageTitles.races }},
 
-  { path: "/roleplay", component: RoleplayView, meta: { title: PageTitles.roleplay }},
-  { path: "/roleplay/system", component: SystemView, meta: { title: PageTitles.system }},
-  { path: "/roleplay/crystals", component: CrystalsView, meta: { title: PageTitles.crystals }},
-  { path: "/roleplay/creation", component: CreationView, meta: { title: PageTitles.creation }},
+  { path: "/roleplay", name: "roleplay", component: RoleplayView, meta: { title: PageTitles.roleplay }},
+  { path: "/roleplay/system", name: "system", component: SystemView, meta: { title: PageTitles.system }},
+  { path: "/roleplay/crystals", name: "crystals", component: CrystalsView, meta: { title: PageTitles.crystals }},
+  { path: "/roleplay/creation", name: "creation", component: CreationView, meta: { title: PageTitles.creation }},
 
-  { path: "/celestia", component: CelestiaView, meta: { title: PageTitles.celestia }},
+  { path: "/celestia", name: "celestia", component: CelestiaView, meta: { title: PageTitles.celestia }},
 
-  { path: "/legacy", component: LegacyView, meta: { title: PageTitles.legacy }},
-  { path: "/about", component: AboutView, meta: { title: PageTitles.about }},
+  { path: "/legacy", name: "legacy", component: LegacyView, meta: { title: PageTitles.legacy }},
+  { path: "/about", name: "about", component: AboutView, meta: { title: PageTitles.about }},
   { path: "/*", redirect: "/" },
 ];
 

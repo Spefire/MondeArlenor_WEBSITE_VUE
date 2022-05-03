@@ -176,6 +176,11 @@
               <p
                 class="docs-grid-body"
                 v-html="getDescription(race.description, 200)" />
+              <div class="margin-top-05 margin-bottom-05">
+                <ArrowButton
+                  :link-name="'races'"
+                  :link-query="{ selection: index }" />
+              </div>
             </div>
           </div>
         </div>
@@ -191,7 +196,7 @@
         <SkillsTable />
       </template>
       <template v-if="persoChoice === 5">
-        <div class="docs-grid-list">
+        <!--div class="docs-grid-list">
           <div
             v-for="(grp, index) in allGroups"
             class="docs-grid-element"
@@ -215,7 +220,7 @@
               <p class="docs-grid-body">{{ getDescription(grp.description) }}</p>
             </div>
           </div>
-        </div>
+        </div-->
         <div class="docs-grid-list">
           <div
             v-for="(spe, index) in allSpecialities"
@@ -241,7 +246,7 @@
               <p class="docs-grid-body">{{ getDescription(spe.description) }}</p>
               <div class="margin-top-05 margin-bottom-05 hide-on-mobile">
                 <ArrowButton
-                  :link-path="'crystals'"
+                  :link-name="'crystals'"
                   :link-query="{ spe: spe.code }" />
               </div>
             </div>
