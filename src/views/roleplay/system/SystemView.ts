@@ -1,4 +1,5 @@
 import ArrowButton from "@/components/arrow-button/ArrowButton.vue";
+import ExpandBloc from "@/components/expand-bloc/ExpandBloc.vue";
 import SkillsTable from "@/components/skills-table/SkillsTable.vue";
 import { ArlenorRace, DifficultyEnum } from "@/models/ArlenorRace";
 import { getListGroups } from "@/models/data/ListGroups";
@@ -12,6 +13,7 @@ export default defineComponent({
   title: PageTitles.system,
   components: {
     ArrowButton,
+    ExpandBloc,
     SkillsTable,
   },
 
@@ -20,9 +22,10 @@ export default defineComponent({
     const allSpecialities = ref(getListSpecialities());
     const allGroups = ref(getListGroups());
     const persoChoice = ref(1);
+    const caractChoice = ref(0);
 
     return {
-      allRaces, allSpecialities, allGroups, persoChoice
+      allRaces, allSpecialities, allGroups, persoChoice, caractChoice
     };
   },
 
@@ -55,6 +58,11 @@ export default defineComponent({
 
     changePersoChoice(choice: number) {
       this.persoChoice = choice;
+    },
+
+    changeCaractChoice(choice: number) {
+      if (choice === this.caractChoice) this.caractChoice = 0;
+      else this.caractChoice = choice;
     }
   }
 });
