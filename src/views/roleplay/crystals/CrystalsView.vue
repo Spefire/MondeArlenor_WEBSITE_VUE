@@ -25,7 +25,7 @@
       <div class="crystals-layout margin-top-2">
         <div class="bloc-text crystals-center">
           <div class="crystals-section-top">
-            <h3 class="margin-bottom-1">Classe de la spécialité&nbsp;:<br>{{ currentSpeciality.group.name }}</h3>
+            <h3 class="margin-bottom-1">Groupe de la classe&nbsp;:<br>{{ currentSpeciality.group.name }}</h3>
             <img
               class="margin-bottom-1 rounded"
               :src="currentSpeciality.group.image"
@@ -42,7 +42,7 @@
           </div>
           <div class="crystals-separator" />
           <div class="crystals-section-top">
-            <h3 class="margin-bottom-1">Abilités de la spécialité</h3>
+            <h3 class="margin-bottom-1">Abilités de la classe</h3>
             <div
               v-if="currentSpeciality.weaponAbility"
               class="ability-line">
@@ -127,7 +127,7 @@
           <template v-if="selectedSkill">
             <div>
               {{ selectedSkill.typeSkill.Libelle }}
-              {{ selectedSkill.speciality ? '(de la spécialité)' : '(de la classe)' }}
+              {{ selectedSkill.speciality ? '(de la classe)' : '(du groupe)' }}
             </div>
             <img
               class="margin-top-1"

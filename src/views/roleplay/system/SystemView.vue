@@ -4,7 +4,9 @@
       <h2>Les composantes d'un personnage</h2>
       <div class="bloc-text margin-top-1 text-justify">
         &emsp;
-        Un personnage est défini principalement par deux choses : <b>ses caractéristiques</b> et <b>ses compétences</b> (spéciales ou sorts).
+        Un personnage est défini par plusieurs choses : <b>ses caractéristiques</b> (et valeurs dérivées), <b>ses compétences principales</b>,
+        <b>sa race</b> (parmi celles jouables), <b>son cristal évolutif</b> (compétences spéciales ou sorts), pour ensuite finir par quelques finitions.
+        <br>&emsp;
         Les caractéristiques définissent ce qu’est le personnage, et les compétences ce qu’il sait.
         Votre personnage sera plus ou moins fort, plus ou moins intelligent, plus ou moins adroit.
         Et c’est vous qui choisirez si, au cours de sa vie, il a appris à se battre ou s'il a préféré se tourner vers l'érudition,
@@ -15,37 +17,37 @@
           class="system-nav-item"
           :class="{ selected : persoChoice === 1 }"
           @click="changePersoChoice(1)">
-          Les caractéristiques
+          1) Les caractéristiques
         </span>
         <span
           class="system-nav-item"
           :class="{ selected : persoChoice === 2 }"
           @click="changePersoChoice(2)">
-          Les valeurs dérivées
+          2) Les valeurs dérivées
         </span>
         <span
           class="system-nav-item"
           :class="{ selected : persoChoice === 3 }"
           @click="changePersoChoice(3)">
-          Les races jouables
+          3) Les races jouables
         </span>
         <span
           class="system-nav-item"
           :class="{ selected : persoChoice === 4 }"
           @click="changePersoChoice(4)">
-          Les compétences
+          4) Les compétences principales
         </span>
         <span
           class="system-nav-item"
           :class="{ selected : persoChoice === 5 }"
           @click="changePersoChoice(5)">
-          Les cristaux évolutifs
+          5) Les cristaux évolutifs
         </span>
         <span
           class="system-nav-item"
           :class="{ selected : persoChoice === 6 }"
           @click="changePersoChoice(6)">
-          Les finitions
+          6) Les finitions
         </span>
       </div>
       <template v-if="persoChoice === 1">
@@ -65,7 +67,7 @@
         </div>
 
         <ExpandBloc
-          :bloc-title="'1) Vigueur'"
+          :bloc-title="'La Vigueur'"
           :bloc-state="caractChoice === 1"
           @toggle="changeCaractChoice(1)">
           &emsp;
@@ -83,7 +85,7 @@
         </ExpandBloc>
         
         <ExpandBloc
-          :bloc-title="'2) Habileté'"
+          :bloc-title="'L\'Habileté'"
           :bloc-state="caractChoice === 2"
           @toggle="changeCaractChoice(2)">
           &emsp;
@@ -99,7 +101,7 @@
         </ExpandBloc>
         
         <ExpandBloc
-          :bloc-title="'3) Intellect'"
+          :bloc-title="'L\'Intellect'"
           :bloc-state="caractChoice === 3"
           @toggle="changeCaractChoice(3)">
           &emsp;
@@ -115,7 +117,7 @@
         </ExpandBloc>
 
         <ExpandBloc
-          :bloc-title="'4) Charisme'"
+          :bloc-title="'Le Charisme'"
           :bloc-state="caractChoice === 4"
           @toggle="changeCaractChoice(4)">
           &emsp;
@@ -131,7 +133,7 @@
         </ExpandBloc>
 
         <ExpandBloc
-          :bloc-title="'5) Pouvoir'"
+          :bloc-title="'Le Pouvoir'"
           :bloc-state="caractChoice === 5"
           @toggle="changeCaractChoice(5)">
           &emsp;
@@ -167,13 +169,16 @@
       <template v-if="persoChoice === 3">
         <div class="bloc-text margin-top-1 text-justify">
           &emsp;
-          Chaque race possède ses avantages et ses inconvénients, ainsi qu'une certaine difficulté
+          Chaque <b>race</b> possède ses avantages et ses inconvénients, ainsi qu'une certaine difficulté
           ou facilité à être jouée dans le Monde d'Arlénor.
           Mieux vaut privilégier les races les plus simples pour les nouveaux joueurs,
           et les plus complexes pour les amateurs de risques.
-          Les races sont présentées ici dans l'ordre de difficulté croissante.
+          Les <b>races</b> sont présentées ici dans l'ordre de difficulté croissante.<br>
+          <br>
+          Note : Les Célestiens ne sont pas une race jouable vu la différence de magie qu'ils utilisent
+          et le lieu où ils se trouvent.
         </div>
-        <div class="docs-grid-list">
+        <div class="docs-grid-list grid-2">
           <div
             v-for="(race, index) in allRaces"
             class="docs-grid-element"
@@ -207,68 +212,108 @@
           &emsp;
           Survivre en milieu hostile. Mentir. Utiliser un pouvoir élémentaire.
           Autant de savoir-faire qu’un personnage peut, ou non, développer au cours de sa vie.
-          Cette section s’intéresse à ces compétences que les personnages apprennent ou non à utiliser
+          Cette section s’intéresse à ces <b>compétences</b> que les personnages apprennent ou non à utiliser
           et qui les différencient les uns des autres.
         </div>
-        <SkillsTable />
       </template>
       <template v-if="persoChoice === 5">
-        <!--div class="docs-grid-list">
-          <div
-            v-for="(grp, index) in allGroups"
-            class="docs-grid-element"
-            :key="index">
-            <img
-              class="img-rounded"
-              :src="grp.image"
-              :alt="grp.name">
-            <div class="docs-grid-infos">
-              <div class="docs-grid-header">
-                <span
-                  class="text-bold"
-                  @click="changeGrp(grp.code)">
-                  {{ grp.name }}
-                </span>
-                <i
-                  class="margin-left-05"
-                  :class="grp.role.icon + ' ' + grp.color"
-                  :title="grp.role.name" />
-              </div>
-              <p class="docs-grid-body">{{ getDescription(grp.description) }}</p>
-            </div>
-          </div>
-        </div-->
-        <div class="docs-grid-list">
-          <div
-            v-for="(spe, index) in allSpecialities"
-            class="docs-grid-element"
-            :key="index">
-            <img
-              :src="spe.image"
-              :alt="spe.name">
-            <div>
-              <div class="docs-grid-header">
-                <span
-                  class="text-bold"
-                  @click="changeSpe(spe.code)">
-                  {{ spe.name }}
-                </span>
-                -
-                <span class="text-italic">{{ spe.group.name }}</span>
-                <i
-                  class="margin-left-05"
-                  :class="spe.group.role.icon + ' ' + spe.group.color"
-                  :title="spe.group.role.name" />
-              </div>
-              <p class="docs-grid-body">{{ getDescription(spe.description) }}</p>
-              <div class="margin-top-05 margin-bottom-05 hide-on-mobile">
-                <ArrowButton
-                  :link-name="'crystals'"
-                  :link-query="{ spe: spe.code }" />
-              </div>
-            </div>
-          </div>
+        <div class="bloc-text margin-top-1 text-justify">
+          &emsp;
+          Dans le Monde d'Arlénor, certaines personnes ont des capacités magiques,
+          et utilisent un <b>cristal évolutif</b> dans leur vie quotidienne.<br>
+          <br>&emsp;
+          En étant à leur contact, ces cristaux permettent d'utiliser certains pouvoirs en échange d'un peu d’énergie vitale.
+          <b>Ces cristaux évoluent avec leur détenteur</b>, et les cristologues ont pu déterminer plusieurs branches (classes) de pouvoirs
+          dans lesquelles chaque personne peut progresser. Le nombre de cristaux évolutif qu'un détenteur peut avoir est de l'ordre de 1,
+          et le nombre de classes qu'un détenteur peut avoir accès est de l'ordre de 2.<br>
+          <br>&emsp;
+          Les classes suivantes sont regroupées par rôles, puis par groupe de classe.
         </div>
+        <ExpandBloc
+          v-for="(role, indexRole) in allRoles"
+          :bloc-title="'Les ' + role.name + 's'"
+          :bloc-state="groupChoice === role.code"
+          @toggle="changeGroupChoice(role.code)"
+          :key="indexRole">
+          <div class="docs-grid-list grid-2">
+            <div
+              v-for="(spe, index) in getSpecialities(role.code)"
+              class="docs-grid-element"
+              :key="index">
+              <img
+                :src="spe.image"
+                :alt="spe.name">
+              <div>
+                <div class="docs-grid-header">
+                  <span
+                    class="text-bold"
+                    @click="changeSpe(spe.code)">
+                    {{ spe.name }}
+                  </span>
+                  -
+                  <span class="text-italic">{{ spe.group.name }}</span>
+                  <i
+                    class="margin-left-05"
+                    :class="spe.group.role.icon + ' ' + spe.group.color"
+                    :title="spe.group.role.name" />
+                </div>
+                <p class="docs-grid-body">{{ getDescription(spe.description) }}</p>
+                <div class="margin-top-05 margin-bottom-05 hide-on-mobile">
+                  <ArrowButton
+                    :link-name="'crystals'"
+                    :link-query="{ spe: spe.code }" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </ExpandBloc>
+      </template>
+      <template v-if="persoChoice === 6">
+        <div class="bloc-text margin-top-1 text-justify">
+          &emsp;
+          Le jeu de rôle est un moyen de raconter des histoires, comme les romans ou le cinéma,
+          et les histoires sont toujours meilleures lorsqu'elles ont des héros crédibles.
+          Pour l'instant, votre personnage est un tas de chiffres gribouillés au crayon sur un formulaire.
+          <br>&emsp;
+          Pour lui insuffler un peu de vie, la première chose à faire est de remplir son "état civil".
+          Comment s'appelle votre personnage ? Le choix d'un nom est toujours un moment délicat.
+          Évitez les noms ridicules ou connotés, car au bout de quelques parties, cela ne fera plus rire personne.
+          Une fois baptisé, il reste à lui donner un peu de relief. Si le coeur vous en dit, prenez quelques minutes pour réfléchir aux points suivants...
+        </div>
+        <ExpandBloc
+          :bloc-title="'La description'"
+          :bloc-state="finitionChoice === 1"
+          @toggle="changeFinitionChoice(1)">
+          &emsp;
+          Il existe une foule de détails qu'aucun jet de dés ne définira à votre place.
+          Quelle est la couleur des yeux de votre personnage ? Celle de ses cheveux ?
+          Est-il droitier ou gaucher ? Comment s'habille-t-il ? A-t- il des expressions favorites ?
+          Un accent ? Prenez aussi un moment pour regarder comment ses caractéristiques interagissent.
+        </ExpandBloc>
+        <ExpandBloc
+          :bloc-title="'Le comportement'"
+          :bloc-state="finitionChoice === 2"
+          @toggle="changeFinitionChoice(2)">
+          &emsp;
+          Pensez à votre personnage comme à une vraie personne.
+          A-t-il des goûts particuliers ? Des choses dont il a horreur ? Une passion pour les rousses ?
+          L'habitude de commander un poulet rôti et de la tarte au citron dans toutes les auberges où il déjeune ?
+          Essayez de trouver un ou deux détails qui le caractériseront, mais limitez-vous à cela.
+          Sinon votre personnage risque d'être une collection de tics.
+        </ExpandBloc>
+        <ExpandBloc
+          :bloc-title="'L\'histoire personnelle'"
+          :bloc-state="finitionChoice === 3"
+          @toggle="changeFinitionChoice(3)">
+          &emsp;
+          Maintenant que vous avez une assez bonne image de lui dans le présent,
+          remontez un peu dans son passé (vous pouvez aussi partir de son passé et construire son apparence présente à partir de là.
+          Les deux méthodes marchent aussi bien l'une que l'autre,
+          l'essentiel est que vous vous sentiez à l'aise avec celle que vous choisirez).
+          Où a-t-il grandi ? A-t-il des amis ? De la famille ? Quelles sont ses relations avec eux ?
+          Pourquoi ? Dans la campagne principale du Monde d'Arlénor, les personnages joueurs, seront obligatoirement
+          des enfants adoptés par une famille, et ne connaissent pas leurs véritables parents, ni même ce qu'il s'est passé avant leur adoption. 
+        </ExpandBloc>
       </template>
     </div>
   </div>
@@ -277,15 +322,7 @@
 
   <div class="layout-view background-roleplay">
     <div class="layout-center large">
-      <h2>Les difficultés et les tests</h2>
-    </div>
-  </div>
-
-  <div little-separator />
-
-  <div class="layout-view background-roleplay">
-    <div class="layout-center large">
-      <h2>Le mode de combat</h2>
+      <h2>Les difficultés, les tests et les modes de combat</h2>
     </div>
   </div>
 </template>

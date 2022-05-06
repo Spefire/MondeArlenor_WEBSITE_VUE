@@ -38,7 +38,7 @@ export class ArlenorAbility {
 }
 
 export class AbilitiesEnum {
-  // Compétences de groupe/classe et de spécialité
+  // Compétences de groupe et de classe/spécialité
   static CompetenceArme: ArlenorEnum = { Code: "COMP_ARME", Libelle: "Compétence d'arme" };
   static CompetenceArmure: ArlenorEnum = { Code: "COMP_ARMURE", Libelle: "Compétence d'armure" };
   static TempsRechargement: ArlenorEnum = { Code: "TEMPS_RECH", Libelle: "Temps de rechargement" };
