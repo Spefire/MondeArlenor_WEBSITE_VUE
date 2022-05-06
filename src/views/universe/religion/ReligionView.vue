@@ -3,7 +3,7 @@
     :title="title"
     :image-left="imageLeft"
     :image-right="imageRight">
-    <p class="bloc-text">
+    <div class="bloc-text">
       Avant, il n'existait Rien. Seul le <b>Rien</b> était présent.<br>
       Il se refermait sur lui-même, en boule, en boucle...<br>
       Un jour, pour alors le combler, le <b>Tout</b> exista.<br>
@@ -22,7 +22,7 @@
       <br>
       Aujourd'hui, après des années, voire des milliers d'années, Arlénor contemple ses œuvres et les supervise depuis son dernier monde créé&nbsp;:&nbsp;le <b>Paradis</b>.
       Chacun espère l'y retrouver, après sa vie passée...
-    </p>
+    </div>
   </HeadLayout>
 
   <div little-separator />
@@ -56,14 +56,14 @@
           :alt="demon.name"
           @click="changeSelection(demon)">
       </div>
-      <p class="bloc-text margin-top-1 margin-bottom-0">
+      <div class="bloc-text margin-top-1">
         Les informations sur Arlénor, ses divinités et leurs domaines sont tirées des retranscriptions réalisées des tablettes de cristal.<br>
         <b>Leur existence même, n’est pas considérée comme un mythe.</b><br>
         <br>
         Cependant, leur psychologie et leurs caractéristiques physiques peuvent être remises en question ou soumises à interprétation
         (n’étant pas décrites dans les tablettes).
         Chaque ange et chaque démon possède un titre lié à sa place dans la Cabale (lié à leur personnalité) et des domaines dans lesquels ils sont maîtres.
-      </p>
+      </div>
     </div>
   </div>
 </template>

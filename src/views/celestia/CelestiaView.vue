@@ -8,14 +8,14 @@
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen />
-    <p class="bloc-text">
+    <div class="bloc-text">
       Sur une île céleste, éloignée de tout le reste... sans la religion d'Arlénor, sans les cristaux habituels...
       Un petit peuple se développait tranquillement jusqu'à l'arrivé des <b>Wendigos</b> dans leur vie.
       Des célestiens sont devenus des mages en même temps que leur apparition, et entre eux se mène un combat de longue durée...
       <br><br>
       Un jeune groupe de mages s'entraine actuellement afin d'affronter leur <b>Destin</b>.<br>
       Et l'une d'entre eux, <b>Elisa Felnéris</b>, semble avoir la clé pour mettre fin à ces tueries.
-    </p>
+    </div>
   </HeadLayout>
 
   <div little-separator />

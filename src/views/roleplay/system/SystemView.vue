@@ -2,14 +2,14 @@
   <div class="layout-view system-view background-roleplay">
     <div class="layout-center large">
       <h2>Les composantes d'un personnage</h2>
-      <p class="bloc-text margin-top-1 text-justify">
+      <div class="bloc-text margin-top-1 text-justify">
         &emsp;
         Un personnage est défini principalement par deux choses : <b>ses caractéristiques</b> et <b>ses compétences</b> (spéciales ou sorts).
         Les caractéristiques définissent ce qu’est le personnage, et les compétences ce qu’il sait.
         Votre personnage sera plus ou moins fort, plus ou moins intelligent, plus ou moins adroit.
         Et c’est vous qui choisirez si, au cours de sa vie, il a appris à se battre ou s'il a préféré se tourner vers l'érudition,
         ou encore, vers quel type de magie il s'est tourné...
-      </p>
+      </div>
       <div class="bloc-text system-nav margin-top-1">
         <span
           class="system-nav-item"
@@ -49,7 +49,7 @@
         </span>
       </div>
       <template v-if="persoChoice === 1">
-        <p class="bloc-text margin-top-1 text-justify">
+        <div class="bloc-text margin-top-1 text-justify">
           &emsp;
           Toute personne est dotée de capacités de base qui lui sont inhérentes et qu’il peut utiliser de bien des manières.
           Ces aptitudes naturelles sont définies par cinq <b>caractéristiques</b> distinctes, chacune évaluée sur une échelle allant de 1 à 5.
@@ -62,7 +62,7 @@
           <br>&emsp;
           A la création de votre personnage, <b>chaque caractéristique est déjà à 1 et ne peut dépasser 5</b>.
           Vous pouvez ensuite répartir 8 points supplémentaires, pour un total donc de 13 points.
-        </p>
+        </div>
 
         <ExpandBloc
           :bloc-title="'1) Vigueur'"
@@ -141,14 +141,16 @@
         </ExpandBloc>
       </template>
       <template v-if="persoChoice === 2">
-        <p class="bloc-text margin-top-1 text-justify">
+        <div class="bloc-text margin-top-1 text-justify">
           &emsp;
           La santé d’un personnage détermine sa résistance aux coups et aux événements qui pourraient le blesser.
-          Elle est indiquée par ses Points de Vie, ou PV.<br>
+          Elle est indiquée par ses <b>Points de Vie</b>, ou PV.<br>
           <br>
-          Indemne (+ de 6 PV) : Aucun malus<br>
-          Blessé (2-5 PV) : - 1D6 aux jets<br>
-          Au seuil de la mort (1 PV) : - 2D6 aux jets<br>
+          <div class="text-center">
+            <b>Indemne</b> (+ de 6 PV) : Aucun malus<br>
+            <b>Blessé</b> (2-5 PV) : - 1D6 aux jets<br>
+            <b>Au seuil de la mort</b> (1 PV) : - 2D6 aux jets<br>
+          </div>
           <br>
           Note : Le nombre de PV max peut varier avec la Vigueur.<br>
           <br>&emsp;
@@ -160,17 +162,17 @@
           Un personnage armé d’une épée qui veut tuer un adversaire ligoté y parviendra directement,
           de même qu’un autre qui sera sous le point de chute d’un tir de catapulte n’a aucune chance de s’en tirer.
           Il faut faire preuve de logique.
-        </p>
+        </div>
       </template>
       <template v-if="persoChoice === 3">
-        <p class="bloc-text margin-top-1 text-justify">
+        <div class="bloc-text margin-top-1 text-justify">
           &emsp;
           Chaque race possède ses avantages et ses inconvénients, ainsi qu'une certaine difficulté
           ou facilité à être jouée dans le Monde d'Arlénor.
           Mieux vaut privilégier les races les plus simples pour les nouveaux joueurs,
           et les plus complexes pour les amateurs de risques.
           Les races sont présentées ici dans l'ordre de difficulté croissante.
-        </p>
+        </div>
         <div class="docs-grid-list">
           <div
             v-for="(race, index) in allRaces"
@@ -201,13 +203,13 @@
         </div>
       </template>
       <template v-if="persoChoice === 4">
-        <p class="bloc-text margin-top-1 text-justify">
+        <div class="bloc-text margin-top-1 text-justify">
           &emsp;
           Survivre en milieu hostile. Mentir. Utiliser un pouvoir élémentaire.
           Autant de savoir-faire qu’un personnage peut, ou non, développer au cours de sa vie.
           Cette section s’intéresse à ces compétences que les personnages apprennent ou non à utiliser
           et qui les différencient les uns des autres.
-        </p>
+        </div>
         <SkillsTable />
       </template>
       <template v-if="persoChoice === 5">

@@ -3,7 +3,7 @@
     :title="title"
     :image-left="imageLeft"
     :image-right="imageRight">
-    <p class="bloc-text">
+    <div class="bloc-text">
       Après avoir bâti une base solide dans les plaines, tout en se familiarisant avec les cristaux, les humains se sont alors mis en quête d’aventure&nbsp;:&nbsp;
       explorer le monde qui leur avait été donné, tout en recherchant de nouvelles sources d’énergies ou de pouvoirs…<br>
       <br>
@@ -17,7 +17,7 @@
       Les <b>humains</b> et les <b>elfes</b> vivent en toute liberté alors que les <b>nains</b> et les <b>mutants</b> essayent de survivre du mieux qu'ils le peuvent.
       Les <b>pans</b> et les <b>arléniens</b>, eux, restent cachés, observant le monde de loin.<br>
       Et les <b>célestiens</b>, coupés de tout, vivent leur propre aventure...
-    </p>
+    </div>
   </HeadLayout>
 
   <div little-separator />

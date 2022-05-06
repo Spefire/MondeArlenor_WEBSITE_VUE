@@ -3,7 +3,7 @@
     :title="title"
     :image-left="imageLeft"
     :image-right="imageRight">
-    <p class="bloc-text">
+    <div class="bloc-text">
       On raconte que l’<b>Humanité</b> a commencé avec un millier d’humains, tenant entre leurs mains, les <b>tablettes de cristal</b>.
       Comme si Arlénor les avait créé en leur donnant une voie à suivre dans leur développement.<br>
       Ils n’avaient pas encore acquis le langage, qu’ils comprenaient déjà le sens des écritures de ces tablettes…<br>
@@ -17,7 +17,7 @@
       Cette idée a été renforcée par le fait que certains arrivent à les utiliser, et d'autres non&nbsp;:&nbsp;<b>comme si certains étaient des élus</b>.<br>
       Le Monde d'Arlénor vit alors&nbsp;:&nbsp;une chasse aux cristaux, un développement d'outils, d'armes, et même une citée basée sur ces cristaux.<br>
       Et aujourd'hui, la cité de Faradel est LE lieu le plus magique et le plus avancé technologiquement qui soit, dans le Monde d'Arlénor.
-    </p>
+    </div>
   </HeadLayout>
 
   <div little-separator />
@@ -47,10 +47,10 @@
       <div class="magic-right">
         <div class="magic-header">
           <h2>Propriétés globales aux cristaux</h2>
-          <p class="bloc-text">
+          <div class="bloc-text">
             Ces propriétés s'appliquent pour les cristaux&nbsp;:<br>
             énergétiques, instantanés et évolutifs.
-          </p>
+          </div>
         </div>
         <p class="magic-crystals bloc-text">
           - Ils mesurent entre 1 cm et 2 m.<br>
