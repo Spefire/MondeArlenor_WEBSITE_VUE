@@ -67,17 +67,16 @@ export function getListCapacities(raceCode = ""): ArlenorCapacity[] {
   cap40.race = races[4];
   listCapacity.push(cap40);
   
-  const cap41 = new ArlenorCapacity();
+  /*const cap41 = new ArlenorCapacity();
   cap41.name= "Communication avec la nature";
   cap41.description = "Les pans peut savoir l'état actuel des végétaux dont les météos récentes et les perturbations physiques subies.";
   cap41.image = require("./../../assets/icons/capacities/capacity_41.png");
   cap41.race = races[4];
-  listCapacity.push(cap41);
+  listCapacity.push(cap41);*/
 
   const cap42 = new ArlenorCapacity();
   cap42.name= "Innocence";
-  cap42.description = `Les pans ne doivent pas perdre leur innocence (commetre un meurtre volontairement,
-    ou avoir des relations sexuelles) sinon il perd sa faculté d'être un pan.`;
+  cap42.description = "Commetre un meurtre volontairement, torturer, ou avoir des relations sexuelles leur fait perdre la faculté d'être un pan.";
   cap42.image = require("./../../assets/icons/capacities/capacity_42.png");
   cap42.race = races[4];
   listCapacity.push(cap42);

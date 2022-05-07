@@ -1,0 +1,88 @@
+@import "../../../styles/variables.scss";
+
+.creation-view {
+  display: flex;
+  flex-direction: column;
+
+  .creation-content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    @include tablet-only {
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+    }
+
+    .layout-left,
+    .layout-right {
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
+
+.race-form {
+  .race-img {
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 2px solid $secondary-color;
+    background-color: $background-black-dark;
+
+    @include tablet-only {
+      height: auto;
+      width: 25%;
+    }
+
+    @include mobile-only {
+      display: block;
+      height: 125px;
+      width: 125px;
+      border: 2px solid $secondary-color;
+    }
+  }
+
+  .race-description {
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    width: 70%;
+    margin: auto;
+    overflow: auto;
+    text-align: center;
+
+    @include tablet-only {
+      height: 425px;
+      width: 100%;
+    }
+
+    @include mobile-only {
+      height: auto;
+    }
+
+    .race-moreinfos {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-grow: 3;
+      font-style: italic;
+      color: $secondary-color;
+
+      @include mobile-only {
+        flex-direction: column;
+      }
+
+      p {
+        flex: 1;
+      }
+    }
+  }
+
+  .race-grid {
+    margin: -10px;
+  }
+}

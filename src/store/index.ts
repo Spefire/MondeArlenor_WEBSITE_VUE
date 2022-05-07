@@ -12,6 +12,10 @@ export default createStore({
       state.character.avatar = payload.avatar;
       console.warn("state.character", state.character);
     },
+    changeCharacterRace(state, payload: ArlenorCharacter) {
+      state.character.race = payload.race;
+      console.warn("state.character", state.character);
+    },
     resetCharacter(state) {
       state.character = new ArlenorCharacter();
     }

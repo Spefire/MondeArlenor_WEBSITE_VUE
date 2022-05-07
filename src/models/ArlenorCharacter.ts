@@ -1,4 +1,5 @@
 import { ArlenorEnum } from "./ArlenorEnum";
+import { ArlenorRace } from "./ArlenorRace";
 
 class ArlenorCaracts {
   public vig: number;
@@ -37,46 +38,22 @@ export class ArlenorCharacter {
   public name: string;
   public description: string;
   public avatar: string;
-  public race: number;
+  public race: ArlenorRace | null;
   public caracts: ArlenorCaracts;
   
   get initiative(): number {
     return this.caracts.hab + this.caracts.int;
   }
 
-  get health01(): number {
-    if (this.caracts.vig === 1) {
-      return 1;
-    } else if (this.caracts.vig === 5) {
-      return 3;
-    } else {
-      return 2;
-    }
-  }
-
-  get health02(): number {
-    return 2;
-  }
-
-  get health03(): number {
-    if (this.race === 2 || this.race === 5) {
-      return 1;
-    } else if (this.race === 3 || this.race === 6) {
-      return 3;
-    } else {
-      return 2;
-    }
-  }
-
-  get health04(): number {
-    return 1;
+  get healthMax(): number {
+    return 10;
   }
 
   constructor() {
     this.name = "";
     this.description = "";
     this.avatar = "";
-    this.race = 1;
+    this.race = null;
     this.caracts = new ArlenorCaracts();
   }
 }

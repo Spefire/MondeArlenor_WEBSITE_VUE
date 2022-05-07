@@ -92,8 +92,6 @@
   transform: translateY(-50%);
 
   &.inverted {
-    top: 40%;
-
     @include tablet-only {
       position: relative;
       right: auto;
@@ -355,6 +353,10 @@
 
   &.grid-2 {
     grid-template-columns: repeat(2, 1fr);
+
+    @include mobile-only {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   @include tablet-only {

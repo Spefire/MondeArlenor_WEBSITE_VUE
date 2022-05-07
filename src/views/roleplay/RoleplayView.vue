@@ -40,7 +40,7 @@
       <div class="margin-top-1">
         <router-link
           class="link-button"
-          to="/roleplay/crystals">
+          to="/roleplay/crystals?spe=PALADIN">
           Voir les cristaux évolutifs
         </router-link>
       </div>
