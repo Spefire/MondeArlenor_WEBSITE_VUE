@@ -95,12 +95,12 @@ export class ArlenorSkill {
   }
 
   public setImage(name: string | null = null): void {
-    if (name) this.image = require("./../assets/icons/"+ name +".png");
+    if (name) this.image = require("./../assets/icons/skills/"+ name +".png");
     else if (this.speciality) {
-      this.image = require("./../assets/icons/skill_spe.png");
+      this.image = require("./../assets/icons/skills/skill_spe.png");
     }
     else if (this.group) {
-      this.image = require("./../assets/icons/skill_grp.png");
+      this.image = require("./../assets/icons/skills/skill_grp.png");
     }
   }
 

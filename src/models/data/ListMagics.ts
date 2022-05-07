@@ -8,7 +8,7 @@ export function getListMagics(): ArlenorMagic[] {
     `Les rares cristaux qui libèrent de l’énergie vitale en petite quantité, au lieu d’en nécessiter.
     Ils sont souvent utilisés à des fins technologiques, et peuvent parfois se recharger.`,
   );
-  magic01.image = require("./../../assets/icons/cristal01.png");
+  magic01.image = require("./../../assets/icons/crystals/cristal_01.png");
   arlenorMagics.push(magic01);
 
   const magic02 = new ArlenorMagic(
@@ -16,7 +16,7 @@ export function getListMagics(): ArlenorMagic[] {
     `Comme les cristaux énergétiques, ce ne sont pas des cristaux qui nécessessitent de l'énergie vitale.
     Les activer déclenchent alors leur pouvoir, mais leur nombre d’utilisations est limitée, souvent à une.`,
   );
-  magic02.image = require("./../../assets/icons/cristal02.png");
+  magic02.image = require("./../../assets/icons/crystals/cristal_02.png");
   arlenorMagics.push(magic02);
 
   const magic03 = new ArlenorMagic(
@@ -25,14 +25,14 @@ export function getListMagics(): ArlenorMagic[] {
     en fonction de la personnalité du porteur.
     Particularité pour les arléniens  : leurs tatouages grandissent en même temps que leur évolution.`,
   );
-  magic03.image = require("./../../assets/icons/cristal03.png");
+  magic03.image = require("./../../assets/icons/crystals/cristal_03.png");
   arlenorMagics.push(magic03);
 
   const magic04 = new ArlenorMagic(
     "Les capacités magiques innées",
     "Non liées aux cristaux, ces capacités sont majoritairement présentes chez les créatures, et non sur les peuples.",
   );
-  magic04.image = require("./../../assets/icons/cristal04.png");
+  magic04.image = require("./../../assets/icons/crystals/cristal_04.png");
   arlenorMagics.push(magic04);
 
   const magic05 = new ArlenorMagic(
@@ -41,7 +41,7 @@ export function getListMagics(): ArlenorMagic[] {
     Certains enchantements sont limités dans le temps ou dans leur utilisation.
     De tels objets sont rares et précieux !`,
   );
-  magic05.image = require("./../../assets/icons/cristal05.png");
+  magic05.image = require("./../../assets/icons/crystals/cristal_05.png");
   arlenorMagics.push(magic05);
 
   const magic06 = new ArlenorMagic(
@@ -50,7 +50,7 @@ export function getListMagics(): ArlenorMagic[] {
     C'est dû à leur coeur si particulier qui génère de la magie.
     Cependant leur magie est seulement élémentaire !`,
   );
-  magic06.image = require("./../../assets/icons/cristal06.png");
+  magic06.image = require("./../../assets/icons/crystals/cristal_06.png");
   arlenorMagics.push(magic06);
 
   return arlenorMagics;
