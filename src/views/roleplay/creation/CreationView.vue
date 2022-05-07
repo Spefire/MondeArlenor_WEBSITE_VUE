@@ -28,12 +28,12 @@
         v-if="selection == 1"
         @nextStep="increaseSelection()" />
       <Crystal01Form
-        v-if="selection == 2"
-        @nextStep="increaseSelection()" />
-      <Crystal02Form
         v-if="selection == 3"
         @nextStep="increaseSelection()" />
-      <IdentityForm v-if="selection == 4" />
+      <Crystal02Form
+        v-if="selection == 4"
+        @nextStep="increaseSelection()" />
+      <IdentityForm v-if="selection == 5" />
 
       <ul class="selection-container inverted">
         <div class="dotline" />
@@ -61,6 +61,11 @@
           :class="{'active': selection == 4 }"
           class="dot"
           @click="setSelection(4)" />
+        <div class="dotline" />
+        <li
+          :class="{'active': selection == 5 }"
+          class="dot"
+          @click="setSelection(5)" />
         <div class="dotline" />
       </ul>
     </div>

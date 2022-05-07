@@ -92,6 +92,10 @@
   transform: translateY(-50%);
 
   &.inverted {
+    .dotline {
+      height: 50px;
+    }
+
     @include tablet-only {
       position: relative;
       right: auto;
@@ -102,7 +106,7 @@
 
       .dotline {
         height: 1px;
-        width: 60px;
+        width: 50px;
       }
     }
 
