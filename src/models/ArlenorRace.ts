@@ -10,6 +10,13 @@ export class ArlenorRace {
   public ratioMagic: number;
   public image: string;
   public locations: string[];
+
+  get code(): string {
+    let code = this.name;
+    code = code.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+    code = code.replace(/\s/g, "");
+    return code.toUpperCase();
+  }
  
   constructor(name: string, difficulty: string, ratioWorld: number, ratioMagic: number) {
     this.name = name;

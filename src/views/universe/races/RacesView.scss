@@ -47,6 +47,20 @@
     }
   }
 
+  .races-top {
+    width: 100%;
+
+    @include mobile-only {
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .races-grid {
+      margin: -10px;
+      margin-top: 10px !important;
+    }
+  }
+
   .races-description {
     display: flex;
     flex-direction: column;
