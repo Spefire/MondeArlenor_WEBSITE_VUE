@@ -24,8 +24,8 @@
   }
 }
 
-.race-form {
-  .race-img {
+.creation-form {
+  .creation-img {
     height: 100px;
     width: 100px;
     margin: 0 auto;
@@ -46,39 +46,14 @@
     }
   }
 
-  .race-description {
+  .creation-description {
     display: flex;
     flex-direction: column;
     height: 450px;
-    width: 70%;
-    margin: auto;
     overflow: auto;
-    text-align: center;
-
-    @include tablet-only {
-      height: 425px;
-      width: 100%;
-    }
 
     @include mobile-only {
       height: auto;
-    }
-
-    .race-moreinfos {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      flex-grow: 3;
-      font-style: italic;
-      color: $secondary-color;
-
-      @include mobile-only {
-        flex-direction: column;
-      }
-
-      p {
-        flex: 1;
-      }
     }
   }
 

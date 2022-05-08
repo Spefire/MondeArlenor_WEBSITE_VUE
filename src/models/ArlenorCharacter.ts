@@ -8,14 +8,6 @@ class ArlenorCaracts {
   public cha: number;
   public pou: number;
 
-  get totalCaracts(): number {
-    return this.vig
-      + this.hab
-      + this.int
-      + this.cha
-      + this.pou;
-  }
-
   constructor() {
     this.vig = 1;
     this.hab = 1;
@@ -43,6 +35,14 @@ export class ArlenorCharacter {
   
   get initiative(): number {
     return this.caracts.hab + this.caracts.int;
+  }
+
+  get totalCaracts(): number {
+    return this.caracts.vig
+      + this.caracts.hab
+      + this.caracts.int
+      + this.caracts.cha
+      + this.caracts.pou;
   }
 
   get healthMax(): number {

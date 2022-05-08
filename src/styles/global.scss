@@ -217,7 +217,6 @@ textarea {
 
 table {
   width: 100%;
-  margin: 10px;
   padding: 0 !important;
   border-spacing: 0;
 
@@ -237,7 +236,6 @@ table {
   }
 
   tbody {
-    height: 50vh;
     overflow: auto;
   }
 
@@ -266,5 +264,13 @@ table {
 
   .col-40 {
     width: 40%;
+  }
+
+  .col-55 {
+    width: 55%;
+  }
+
+  .col-60 {
+    width: 60%;
   }
 }

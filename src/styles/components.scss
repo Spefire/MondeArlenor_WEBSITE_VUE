@@ -320,7 +320,28 @@
   }
 }
 
+.section-moreinfos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-grow: 3;
+  font-style: italic;
+  color: $secondary-color;
+
+  @include mobile-only {
+    flex-direction: column;
+  }
+
+  p {
+    flex: 1;
+  }
+}
+
 .table-large {
+  .tbody {
+    height: 50vh;
+  }
+
   @include mobile-only {
     display: none;
   }
