@@ -1,4 +1,4 @@
-import { ArlenorCharacter } from "@/models/ArlenorCharacter";
+import { ArlenorCharacter, CaractDescriptionEnum } from "@/models/ArlenorCharacter";
 import useVuelidate from "@vuelidate/core";
 import { between, sameAs } from "@vuelidate/validators";
 import { defineComponent } from "vue";
@@ -11,15 +11,19 @@ export default defineComponent({
     
   data() {
     const store = useStore();
+    const caractDescriptionEnum = CaractDescriptionEnum;
+    const selectCaract = "VIG";
     const totalCaracts = store.state.character.caracts.totalCaracts || 5;
     return {
+      caractDescriptionEnum,
       store,
+      selectCaract,
       form: {
-        vig: store.state.character.caracts.vig || 1,
-        hab: store.state.character.caracts.hab || 1,
-        int: store.state.character.caracts.int || 1,
-        cha: store.state.character.caracts.cha || 1,
-        pou: store.state.character.caracts.pou || 1,
+        vig: store.state.character.caracts.vig.toString() || "1",
+        hab: store.state.character.caracts.hab.toString() || "1",
+        int: store.state.character.caracts.int.toString() || "1",
+        cha: store.state.character.caracts.cha.toString() || "1",
+        pou: store.state.character.caracts.pou.toString() || "1",
         pointsLeft: (15 - totalCaracts),
       },
       isModified: false,
@@ -54,6 +58,16 @@ export default defineComponent({
   },
 
   methods: {
+    changeCaract(caract: string) {
+      this.selectCaract = caract;
+      const totalCaracts = parseInt(this.form.vig)
+      + parseInt(this.form.hab)
+      + parseInt(this.form.int)
+      + parseInt(this.form.cha)
+      + parseInt(this.form.pou);
+      this.form.pointsLeft = (15 - totalCaracts);
+    },
+
     submitForm() {
       const newCharacter = new ArlenorCharacter();
       newCharacter.caracts.vig = this.form.vig;

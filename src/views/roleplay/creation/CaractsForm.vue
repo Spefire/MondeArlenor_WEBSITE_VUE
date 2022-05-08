@@ -1,11 +1,35 @@
 <template>
   <!-- Description de la caractéristique sélectionnée -->
   <div class="layout-left creation-form">
-    <div class="creation-description bloc-text">
-      Pas de caractéristique sélectionnée.
+    <div class="creation-description bloc-text text-justify">
+      <template v-if="selectCaract === 'VIG'">
+        <h2 class="text-center">La Vigueur</h2>
+        <span v-html="caractDescriptionEnum.Vigueur.Libelle" />
+      </template>
+      
+      <template v-if="selectCaract === 'HAB'">
+        <h2 class="text-center">L'Habileté</h2>
+        <span v-html="caractDescriptionEnum.Habilete.Libelle" />
+      </template>
+      
+      <template v-if="selectCaract === 'INT'">
+        <h2 class="text-center">L'Intellect</h2>
+        <span v-html="caractDescriptionEnum.Intellect.Libelle" />
+      </template>
+      
+      <template v-if="selectCaract === 'CHA'">
+        <h2 class="text-center">Le Charisme</h2>
+        <span v-html="caractDescriptionEnum.Charisme.Libelle" />
+      </template>
+      
+      <template v-if="selectCaract === 'POU'">
+        <h2 class="text-center">Le Pouvoir</h2>
+        <span v-html="caractDescriptionEnum.Pouvoir.Libelle" />
+      </template>
     </div>
   </div>
 
+  <!-- Choix de la caractéristique -->
   <div class="layout-right">
     <div class="creation-element">
       <span>Caractériques du personnage <span required-libelle>*</span></span>
@@ -25,7 +49,8 @@
                 min="1"
                 max="5"
                 step="1"
-                v-model.trim.lazy="v$.form.vig.$model">
+                v-model.trim.lazy="v$.form.vig.$model"
+                @change="changeCaract('VIG')">
             </td>
             <td class="col-05">{{ form.vig }}</td>
           </tr>
@@ -37,7 +62,8 @@
                 min="1"
                 max="5"
                 step="1"
-                v-model.trim.lazy="v$.form.hab.$model">
+                v-model.trim.lazy="v$.form.hab.$model"
+                @change="changeCaract('HAB')">
             </td>
             <td class="col-05">{{ form.hab }}</td>
           </tr>
@@ -49,7 +75,8 @@
                 min="1"
                 max="5"
                 step="1"
-                v-model.trim.lazy="v$.form.int.$model">
+                v-model.trim.lazy="v$.form.int.$model"
+                @change="changeCaract('INT')">
             </td>
             <td class="col-05">{{ form.int }}</td>
           </tr>
@@ -61,7 +88,8 @@
                 min="1"
                 max="5"
                 step="1"
-                v-model.trim.lazy="v$.form.cha.$model">
+                v-model.trim.lazy="v$.form.cha.$model"
+                @change="changeCaract('CHA')">
             </td>
             <td class="col-05">{{ form.cha }}</td>
           </tr>
@@ -73,7 +101,8 @@
                 min="1"
                 max="5"
                 step="1"
-                v-model.trim.lazy="v$.form.pou.$model">
+                v-model.trim.lazy="v$.form.pou.$model"
+                @change="changeCaract('POU')">
             </td>
             <td class="col-05">{{ form.pou }}</td>
           </tr>
@@ -81,8 +110,17 @@
       </table>
     </div>
 
-    <div class="bloc-text margin-top-1">
+    <div
+      v-if="form.pointsLeft !== 0"
+      class="bloc-text margin-top-1"
+      required-libelle>
       Points restants à répartir : {{ form.pointsLeft }}
+    </div>
+
+    <div
+      v-if="form.pointsLeft === 0"
+      class="bloc-text margin-top-1">
+      Tous les points ont été répartis.
     </div>
 
     <div class="bloc-text margin-top-1">

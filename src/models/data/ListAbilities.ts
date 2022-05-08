@@ -1,5 +1,5 @@
 import { AbilitiesEnum, ArlenorAbility } from "../ArlenorAbility";
-import { CaractEnum } from "../ArlenorCharacter";
+import { CaractNomEnum } from "../ArlenorCharacter";
 import { ArlenorEnum } from "../ArlenorEnum";
 import { ArlenorGroup } from "../ArlenorGroup";
 import { ArlenorSpeciality } from "../ArlenorSpeciality";
@@ -78,67 +78,67 @@ export function getListAbilities(): ArlenorAbility[] {
 
   // Armes
   const arme01 = new ArlenorAbility(getLibArme("à une main, avec bouclier"), AbilitiesEnum.CompetenceArme, null, [specialities.Paladin]);
-  arme01.caracts = [CaractEnum.Vigueur];
+  arme01.caracts = [CaractNomEnum.Vigueur];
   listAbilities.push(arme01);
   
   const arme02 = new ArlenorAbility(getLibArme("épées à deux mains"), AbilitiesEnum.CompetenceArme, null, [specialities.Chevalier]);
-  arme02.caracts = [CaractEnum.Vigueur];
+  arme02.caracts = [CaractNomEnum.Vigueur];
   listAbilities.push(arme02);
 
   const arme03 = new ArlenorAbility(getLibArme("mains nues"), AbilitiesEnum.CompetenceArme, null, [specialities.DanseurMartial]);
-  arme03.caracts = [CaractEnum.Vigueur];
+  arme03.caracts = [CaractNomEnum.Vigueur];
   listAbilities.push(arme03);
 
   const arme04 = new ArlenorAbility(getLibArme("d'hast"), AbilitiesEnum.CompetenceArme, null, [specialities.Derviche]);
-  arme04.caracts = [CaractEnum.Habilete];
+  arme04.caracts = [CaractNomEnum.Habilete];
   listAbilities.push(arme04);
 
   const arme05 = new ArlenorAbility(getLibArme("dagues / armes de jets"), AbilitiesEnum.CompetenceArme, null, [specialities.LameOmbre]);
-  arme05.caracts = [CaractEnum.Habilete];
+  arme05.caracts = [CaractNomEnum.Habilete];
   listAbilities.push(arme05);
 
   const arme06 = new ArlenorAbility(getLibArme("arcs / arbalètes"), AbilitiesEnum.CompetenceArme, null, [specialities.Chasseur]);
-  arme06.caracts = [CaractEnum.Habilete];
+  arme06.caracts = [CaractNomEnum.Habilete];
   listAbilities.push(arme06);
 
   const arme07 = new ArlenorAbility(getLibArme("sabres"), AbilitiesEnum.CompetenceArme, null, [specialities.DanseurSabre]);
-  arme07.caracts = [CaractEnum.Habilete];
+  arme07.caracts = [CaractNomEnum.Habilete];
   listAbilities.push(arme07);
 
   const arme08 = new ArlenorAbility(getLibArme("ambidextrie"), AbilitiesEnum.CompetenceArme, null, [specialities.DoubleLame]);
-  arme08.caracts = [CaractEnum.Vigueur];
+  arme08.caracts = [CaractNomEnum.Vigueur];
   listAbilities.push(arme08);
 
   const arme09 = new ArlenorAbility(getLibArme("épées à une main"), AbilitiesEnum.CompetenceArme, null, [specialities.Escrimeur]);
-  arme09.caracts = [CaractEnum.Vigueur];
+  arme09.caracts = [CaractNomEnum.Vigueur];
   listAbilities.push(arme09);
 
   const arme10 = new ArlenorAbility(getLibArme("orbes mystiques"), AbilitiesEnum.CompetenceArme, groups.Sorcier, []);
-  arme10.caracts = [CaractEnum.Intellect];
+  arme10.caracts = [CaractNomEnum.Intellect];
   listAbilities.push(arme10);
 
   const arme11 = new ArlenorAbility(getLibArme("sceptres à une main"), AbilitiesEnum.CompetenceArme, groups.Invocateur, []);
-  arme11.caracts = [CaractEnum.Intellect];
+  arme11.caracts = [CaractNomEnum.Intellect];
   listAbilities.push(arme11);
 
   const arme12 = new ArlenorAbility(getLibArme("bâtons"), AbilitiesEnum.CompetenceArme, groups.Enchanteur, []);
-  arme12.caracts = [CaractEnum.Habilete];
+  arme12.caracts = [CaractNomEnum.Habilete];
   listAbilities.push(arme12);
 
   const arme13 = new ArlenorAbility(getLibArme("mains nues"), AbilitiesEnum.CompetenceArme, null, [specialities.Chaman]);
-  arme13.caracts = [CaractEnum.Vigueur];
+  arme13.caracts = [CaractNomEnum.Vigueur];
   listAbilities.push(arme13);
 
   const arme14 = new ArlenorAbility(getLibArme("bâtons"), AbilitiesEnum.CompetenceArme, null, [specialities.Guerisseur]);
-  arme14.caracts = [CaractEnum.Habilete];
+  arme14.caracts = [CaractNomEnum.Habilete];
   listAbilities.push(arme14);
 
   const arme15 = new ArlenorAbility(getLibArme("bâtons"), AbilitiesEnum.CompetenceArme, groups.Pretre, []);
-  arme15.caracts = [CaractEnum.Habilete];
+  arme15.caracts = [CaractNomEnum.Habilete];
   listAbilities.push(arme15);
 
   const arme16 = new ArlenorAbility(getLibArme("instruments de musique"), AbilitiesEnum.CompetenceArme, groups.Barde, []);
-  arme16.caracts = [CaractEnum.Intellect];
+  arme16.caracts = [CaractNomEnum.Intellect];
   listAbilities.push(arme16);
 
   return listAbilities;

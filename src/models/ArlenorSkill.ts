@@ -1,4 +1,4 @@
-import { CaractEnum } from "./ArlenorCharacter";
+import { CaractNomEnum } from "./ArlenorCharacter";
 import { ArlenorEnum } from "./ArlenorEnum";
 import { ArlenorGroup } from "./ArlenorGroup";
 import { ArlenorSpeciality } from "./ArlenorSpeciality";
@@ -123,12 +123,12 @@ export class ArlenorSkill {
   public setCaractsUse(codes: string): void {
     const listCodes = codes.split(",");
     listCodes.forEach(code => {
-      if (code.indexOf(CaractEnum.Vigueur.Code) !== -1) this.caractsUse.push(CaractEnum.Vigueur);
-      else if (code.indexOf(CaractEnum.Habilete.Code) !== -1) this.caractsUse.push(CaractEnum.Habilete);
-      else if (code.indexOf(CaractEnum.Intellect.Code) !== -1) this.caractsUse.push(CaractEnum.Intellect);
-      else if (code.indexOf(CaractEnum.Charisme.Code) !== -1) this.caractsUse.push(CaractEnum.Charisme);
-      else if (code.indexOf(CaractEnum.Pouvoir.Code) !== -1) this.caractsUse.push(CaractEnum.Pouvoir);
-      else if (code.indexOf(CaractEnum.Aucune.Code) !== -1) this.caractsUse.push(CaractEnum.Aucune);
+      if (code.indexOf(CaractNomEnum.Vigueur.Code) !== -1) this.caractsUse.push(CaractNomEnum.Vigueur);
+      else if (code.indexOf(CaractNomEnum.Habilete.Code) !== -1) this.caractsUse.push(CaractNomEnum.Habilete);
+      else if (code.indexOf(CaractNomEnum.Intellect.Code) !== -1) this.caractsUse.push(CaractNomEnum.Intellect);
+      else if (code.indexOf(CaractNomEnum.Charisme.Code) !== -1) this.caractsUse.push(CaractNomEnum.Charisme);
+      else if (code.indexOf(CaractNomEnum.Pouvoir.Code) !== -1) this.caractsUse.push(CaractNomEnum.Pouvoir);
+      else if (code.indexOf(CaractNomEnum.Aucune.Code) !== -1) this.caractsUse.push(CaractNomEnum.Aucune);
       else console.error("ConvertSkill : caractsUse n'est pas reconnu : |" + code + "|");
     });
   }
@@ -136,12 +136,12 @@ export class ArlenorSkill {
   public setCaractsTarget(codes: string): void {
     const listCodes = codes.split(",");
     listCodes.forEach(code => {
-      if (code.indexOf(CaractEnum.Vigueur.Code) !== -1) this.caractsTarget.push(CaractEnum.Vigueur);
-      else if (code.indexOf(CaractEnum.Habilete.Code) !== -1) this.caractsTarget.push(CaractEnum.Habilete);
-      else if (code.indexOf(CaractEnum.Intellect.Code) !== -1) this.caractsTarget.push(CaractEnum.Intellect);
-      else if (code.indexOf(CaractEnum.Charisme.Code) !== -1) this.caractsTarget.push(CaractEnum.Charisme);
-      else if (code.indexOf(CaractEnum.Pouvoir.Code) !== -1) this.caractsTarget.push(CaractEnum.Pouvoir);
-      else if (code.indexOf(CaractEnum.Aucune.Code) !== -1) this.caractsTarget.push(CaractEnum.Aucune);
+      if (code.indexOf(CaractNomEnum.Vigueur.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Vigueur);
+      else if (code.indexOf(CaractNomEnum.Habilete.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Habilete);
+      else if (code.indexOf(CaractNomEnum.Intellect.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Intellect);
+      else if (code.indexOf(CaractNomEnum.Charisme.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Charisme);
+      else if (code.indexOf(CaractNomEnum.Pouvoir.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Pouvoir);
+      else if (code.indexOf(CaractNomEnum.Aucune.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Aucune);
       else console.error("ConvertSkill : caractsTarget n'est pas reconnu : |" + code + "|");
     });
   }

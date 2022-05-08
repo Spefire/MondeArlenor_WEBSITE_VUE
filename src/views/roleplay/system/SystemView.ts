@@ -1,6 +1,7 @@
 import ArrowButton from "@/components/arrow-button/ArrowButton.vue";
 import ExpandBloc from "@/components/expand-bloc/ExpandBloc.vue";
 import SkillsTable from "@/components/skills-table/SkillsTable.vue";
+import { CaractDescriptionEnum } from "@/models/ArlenorCharacter";
 import { ArlenorRace, DifficultyEnum } from "@/models/ArlenorRace";
 import { getListGroups } from "@/models/data/ListGroups";
 import { getListRaces } from "@/models/data/ListRaces";
@@ -19,6 +20,7 @@ export default defineComponent({
   },
 
   setup() {
+    const caractDescriptionEnum = CaractDescriptionEnum;
     const allRaces = ref(getListRaces().filter(race => race.difficulty !== DifficultyEnum.Impossible.Code));
     const allSpecialities = ref(getListSpecialities());
     const allGroups = ref(getListGroups());
@@ -29,7 +31,7 @@ export default defineComponent({
     const finitionChoice = ref(0);
 
     return {
-      allRaces, allSpecialities, allGroups, allRoles, persoChoice, caractChoice, groupChoice, finitionChoice
+      caractDescriptionEnum, allRaces, allSpecialities, allGroups, allRoles, persoChoice, caractChoice, groupChoice, finitionChoice
     };
   },
 
