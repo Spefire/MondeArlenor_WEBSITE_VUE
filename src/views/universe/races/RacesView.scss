@@ -78,22 +78,5 @@
     @include mobile-only {
       height: auto;
     }
-
-    .races-moreinfos {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      flex-grow: 3;
-      font-style: italic;
-      color: $secondary-color;
-
-      @include mobile-only {
-        flex-direction: column;
-      }
-
-      p {
-        flex: 1;
-      }
-    }
   }
 }

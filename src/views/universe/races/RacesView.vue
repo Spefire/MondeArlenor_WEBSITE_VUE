@@ -62,7 +62,7 @@
         <p
           class="text-justify"
           v-html="currentRace.description" />
-        <div class="races-moreinfos">
+        <div class="section-moreinfos">
           <p>
             <span class="text-bold">{{ currentRace.ratioWorld }}%</span> du monde sont des {{ currentRace.name.toLowerCase() }}s
           </p>

@@ -1,17 +1,17 @@
 <template>
 
   <!-- Description de la race sélectionnée -->
-  <div class="layout-left race-form">
+  <div class="layout-left creation-form">
     <div
       v-if="!currentRace"
-      class="race-description bloc-text">
+      class="creation-description bloc-text">
       Pas de race sélectionnée.
     </div>
     <div
       v-if="currentRace"
-      class="race-description bloc-text">
+      class="creation-description bloc-text">
       <img
-        class="race-img"
+        class="creation-img"
         :src="currentRace.image"
         alt="">
       <h2>{{ currentRace.name }}</h2>
@@ -23,7 +23,7 @@
       <p
         class="text-justify"
         v-html="currentRace.description" />
-      <div class="race-moreinfos">
+      <div class="section-moreinfos">
         <p>
           <span class="text-bold">{{ currentRace.ratioWorld }}%</span> du monde sont des {{ currentRace.name.toLowerCase() }}s
         </p>
@@ -44,7 +44,7 @@
   </div>
 
   <!-- Sélection de la race -->
-  <div class="layout-right race-form">
+  <div class="layout-right creation-form">
     <div class="creation-element">
       <span>Race du personnage <span required-libelle>*</span></span>
       <div class="dropdown">
