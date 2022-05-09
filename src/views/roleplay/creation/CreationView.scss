@@ -3,6 +3,7 @@
 .creation-view {
   display: flex;
   flex-direction: column;
+  height: 80vh;
 
   .creation-content {
     position: relative;
@@ -49,7 +50,8 @@
   .creation-description {
     display: flex;
     flex-direction: column;
-    height: 450px;
+    max-height: 450px;
+    padding: 25px;
     overflow: auto;
 
     @include mobile-only {

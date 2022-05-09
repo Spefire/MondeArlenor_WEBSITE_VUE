@@ -3,27 +3,27 @@
   <div class="layout-left creation-form">
     <div class="creation-description bloc-text text-justify">
       <template v-if="selectCaract === 'VIG'">
-        <h2 class="text-center">La Vigueur</h2>
+        <h2 class="margin-top-0 text-center">La Vigueur</h2>
         <span v-html="caractDescriptionEnum.Vigueur.Libelle" />
       </template>
       
       <template v-if="selectCaract === 'HAB'">
-        <h2 class="text-center">L'Habileté</h2>
+        <h2 class="margin-top-0 text-center">L'Habileté</h2>
         <span v-html="caractDescriptionEnum.Habilete.Libelle" />
       </template>
       
       <template v-if="selectCaract === 'INT'">
-        <h2 class="text-center">L'Intellect</h2>
+        <h2 class="margin-top-0 text-center">L'Intellect</h2>
         <span v-html="caractDescriptionEnum.Intellect.Libelle" />
       </template>
       
       <template v-if="selectCaract === 'CHA'">
-        <h2 class="text-center">Le Charisme</h2>
+        <h2 class="margin-top-0 text-center">Le Charisme</h2>
         <span v-html="caractDescriptionEnum.Charisme.Libelle" />
       </template>
       
       <template v-if="selectCaract === 'POU'">
-        <h2 class="text-center">Le Pouvoir</h2>
+        <h2 class="margin-top-0 text-center">Le Pouvoir</h2>
         <span v-html="caractDescriptionEnum.Pouvoir.Libelle" />
       </template>
     </div>

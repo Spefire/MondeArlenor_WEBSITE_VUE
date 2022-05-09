@@ -18,4 +18,5 @@
   </div>
 </template>
 
+<style lang="scss" scoped src="./CreationView.scss"></style>
 <script lang="ts" src="./Crystal01Form.ts"></script>

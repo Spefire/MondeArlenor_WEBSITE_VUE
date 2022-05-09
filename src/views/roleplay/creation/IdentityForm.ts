@@ -7,6 +7,7 @@ import { useStore } from "vuex";
 export default defineComponent({
   name: "IdentityForm",
   components: {},
+  emits: ["changeStep", "previousStep", "nextStep"],
 
   data () {
     const store = useStore();
@@ -62,18 +63,26 @@ export default defineComponent({
         });
       }
     },
-
-    update () {
+    updateForm() {
       this.isModified = true;
+      this.$emit("changeStep");
     },
-
+    cancelForm(withSave: boolean) {
+      if (withSave) this.save();
+      this.isModified = false;
+      this.$emit("previousStep");
+    },
     submitForm() {
+      this.save();
+      this.isModified = false;
+      this.$emit("nextStep");
+    },
+    save() {
       const newCharacter = new ArlenorCharacter();
       newCharacter.name = this.form.name;
       newCharacter.description = this.form.description;
       newCharacter.avatar = this.form.avatar;
       this.store.commit("changeCharacterIdentity", newCharacter);
-      this.isModified = false;
     }
   }
 });

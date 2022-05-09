@@ -20,20 +20,33 @@
       v-if="selection == 5"
       class="text-center">Finitions</h2>
 
+    <div v-if="hasModification">A des modifications en cours</div>
+
     <div class="creation-content">
       <RaceForm
         v-if="selection == 0"
+        @changeStep="changeModifs()"
         @nextStep="increaseSelection()" />
       <CaractsForm
         v-if="selection == 1"
+        @changeStep="changeModifs()"
+        @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
       <Crystal01Form
         v-if="selection == 3"
+        @changeStep="changeModifs()"
+        @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
       <Crystal02Form
         v-if="selection == 4"
+        @changeStep="changeModifs()"
+        @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
-      <IdentityForm v-if="selection == 5" />
+      <IdentityForm
+        v-if="selection == 5"
+        @previousStep="decreaseSelection()"
+        @changeStep="changeModifs()"
+        @nextStep="increaseSelection()" />
 
       <ul class="selection-container inverted">
         <div class="dotline" />

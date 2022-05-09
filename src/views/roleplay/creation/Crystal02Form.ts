@@ -1,20 +1,43 @@
+import useVuelidate from "@vuelidate/core";
 import { defineComponent } from "vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
   name: "Crystal02Form",
   components: {},
-  emits: ["nextStep"],
+  emits: ["changeStep", "previousStep", "nextStep"],
   
-  setup() {
+  data () {
     const store = useStore();
+    return {
+      store,
+      form: {},
+      isModified: false,
+    };
+  },
 
-    return { store };
+  setup () {
+    return { v$: useVuelidate() };
   },
 
   methods: {
+    updateForm() {
+      this.isModified = true;
+      this.$emit("changeStep");
+    },
+    cancelForm(withSave: boolean) {
+      if (withSave) this.save();
+      this.isModified = false;
+      this.$emit("previousStep");
+    },
     submitForm() {
+      this.save();
+      this.isModified = false;
       this.$emit("nextStep");
+    },
+    save() {
+      /*const newCharacter = new ArlenorCharacter();
+      this.store.commit("changeCharacterIdentity", newCharacter);*/
     }
   }
 });

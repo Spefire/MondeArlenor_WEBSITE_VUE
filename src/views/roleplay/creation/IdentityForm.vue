@@ -1,22 +1,6 @@
 <template>
-  <div class="layout-center">
-
-    <h2>Identité du personnage</h2>
-
-    <div class="creation-element">
-      <span>Nom du personnage <span required-libelle>*</span></span>
-      <input
-        type="text"
-        v-model.trim.lazy="v$.form.name.$model">
-    </div>
-
-    <div class="creation-element">
-      <span>Description du personnage <span required-libelle>*</span> (max : 440 caract.)</span>
-      <textarea
-        v-model.trim.lazy="v$.form.description.$model"
-        maxlength="440" />
-    </div>
-
+  <!-- Description de la caractéristique sélectionnée -->
+  <div class="layout-left creation-form">
     <div class="creation-element">
       <span>Avatar du personnage</span>
       <label
@@ -35,12 +19,30 @@
         accept="image/png, image/jpeg"
         @change="changeAvatar">
     </div>
+  </div>
+
+  <!-- Description de la caractéristique sélectionnée -->
+  <div class="layout-right creation-form">
+    <div class="creation-element">
+      <span>Nom du personnage <span required-libelle>*</span></span>
+      <input
+        type="text"
+        v-model.trim.lazy="v$.form.name.$model">
+    </div>
+
+    <div class="creation-element">
+      <span>Description du personnage <span required-libelle>*</span> (max : 440 caract.)</span>
+      <textarea
+        v-model.trim.lazy="v$.form.description.$model"
+        maxlength="440" />
+    </div>
 
     <button
-      class="margin-top-1 link-button"
+      class="link-button"
       :disabled="v$.form.$invalid"
       @click="submitForm()">Terminer</button>
   </div>
 </template>
 
+<style lang="scss" scoped src="./CreationView.scss"></style>
 <script lang="ts" src="./IdentityForm.ts"></script>

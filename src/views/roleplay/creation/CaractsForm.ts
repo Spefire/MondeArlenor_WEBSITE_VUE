@@ -7,7 +7,7 @@ import { useStore } from "vuex";
 export default defineComponent({
   name: "CaractsForm",
   components: {},
-  emits: ["nextStep"],
+  emits: ["changeStep", "previousStep", "nextStep"],
     
   data() {
     const store = useStore();
@@ -67,8 +67,21 @@ export default defineComponent({
       + parseInt(this.form.pou);
       this.form.pointsLeft = (15 - totalCaracts);
     },
-
+    updateForm() {
+      this.isModified = true;
+      this.$emit("changeStep");
+    },
+    cancelForm(withSave: boolean) {
+      if (withSave) this.save();
+      this.isModified = false;
+      this.$emit("previousStep");
+    },
     submitForm() {
+      this.save();
+      this.isModified = false;
+      this.$emit("nextStep");
+    },
+    save() {
       const newCharacter = new ArlenorCharacter();
       newCharacter.caracts.vig = this.form.vig;
       newCharacter.caracts.hab = this.form.hab;
@@ -76,8 +89,6 @@ export default defineComponent({
       newCharacter.caracts.cha = this.form.cha;
       newCharacter.caracts.pou = this.form.pou;
       this.store.commit("changeCharacterCaracts", newCharacter);
-      this.isModified = false;
-      this.$emit("nextStep");
     }
   }
 });

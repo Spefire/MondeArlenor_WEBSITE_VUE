@@ -10,7 +10,7 @@ import { useStore } from "vuex";
 export default defineComponent({
   name: "RaceForm",
   components: {},
-  emits: ["nextStep"],
+  emits: ["changeStep", "nextStep"],
   
   data() {
     const store = useStore();
@@ -53,13 +53,20 @@ export default defineComponent({
     getCapacities(raceCode: string) {
       return this.allCapacities.filter(cap => cap.race.code === raceCode);
     },
+    updateForm() {
+      this.isModified = true;
+      this.$emit("changeStep");
+    },
     submitForm() {
+      this.save();
+      this.isModified = false;
+      this.$emit("nextStep");
+    },
+    save() {
       const newCharacter = new ArlenorCharacter();
       const race = this.allRaces.find(race => race.code === this.form.raceCode);
       newCharacter.race = race ? race : this.allRaces[0];
       this.store.commit("changeCharacterRace", newCharacter);
-      this.isModified = false;
-      this.$emit("nextStep");
     }
   }
 });

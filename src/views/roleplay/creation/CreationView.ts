@@ -22,14 +22,20 @@ export default defineComponent({
   setup() {
     const store = useStore();
     const selection = ref(0);
-    return { selection, store };
+    const hasModification = ref(false);
+    return { store, selection, hasModification };
   },
   
   methods: {
+    decreaseSelection(): void {
+      this.selection--;
+    },
     increaseSelection(): void {
       this.selection++;
     },
-
+    changeModifs(): void {
+      this.hasModification = true;
+    },
     setSelection(newSelection: number): void {
       this.selection = newSelection;
     },
