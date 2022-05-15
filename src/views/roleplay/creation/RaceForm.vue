@@ -79,11 +79,13 @@
         </div>
       </div>
     </div>
-
-    <button
-      class="margin-top-1 link-button"
-      :disabled="v$.form.$invalid"
-      @click="submitForm()">Suivant</button>
+      
+    <div class="creation-nav-button">
+      <button
+        class="link-button"
+        :disabled="v$.form.$invalid"
+        @click="submitForm()">Suivant</button>
+    </div>
   </div>
 </template>
 

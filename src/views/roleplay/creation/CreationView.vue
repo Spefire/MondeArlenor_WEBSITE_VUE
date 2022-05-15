@@ -32,13 +32,20 @@
         @changeStep="changeModifs()"
         @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
-      <Crystal01Form
-        v-if="selection == 3"
+      <AbilitiesForm
+        v-if="selection == 2"
         @changeStep="changeModifs()"
         @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
-      <Crystal02Form
+      <CrystalForm
+        v-if="selection == 3"
+        :current-crystal="1"
+        @changeStep="changeModifs()"
+        @previousStep="decreaseSelection()"
+        @nextStep="increaseSelection()" />
+      <CrystalForm
         v-if="selection == 4"
+        :current-crystal="2"
         @changeStep="changeModifs()"
         @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
@@ -52,33 +59,27 @@
         <div class="dotline" />
         <li
           :class="{'active': selection == 0 }"
-          class="dot"
-          @click="setSelection(0)" />
+          class="dot" />
         <div class="dotline" />
         <li
           :class="{'active': selection == 1 }"
-          class="dot"
-          @click="setSelection(1)" />
+          class="dot" />
         <div class="dotline" />
         <li
           :class="{'active': selection == 2 }"
-          class="dot"
-          @click="setSelection(2)" />
+          class="dot" />
         <div class="dotline" />
         <li
           :class="{'active': selection == 3 }"
-          class="dot"
-          @click="setSelection(3)" />
+          class="dot" />
         <div class="dotline" />
         <li
           :class="{'active': selection == 4 }"
-          class="dot"
-          @click="setSelection(4)" />
+          class="dot" />
         <div class="dotline" />
         <li
           :class="{'active': selection == 5 }"
-          class="dot"
-          @click="setSelection(5)" />
+          class="dot" />
         <div class="dotline" />
       </ul>
     </div>

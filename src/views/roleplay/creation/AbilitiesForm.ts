@@ -3,7 +3,7 @@ import { defineComponent } from "vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
-  name: "Crystal01Form",
+  name: "AbilitiesForm",
   components: {},
   emits: ["changeStep", "previousStep", "nextStep"],
   
@@ -18,6 +18,10 @@ export default defineComponent({
 
   setup () {
     return { v$: useVuelidate() };
+  },
+  
+  validations: {
+    form: {},
   },
 
   methods: {

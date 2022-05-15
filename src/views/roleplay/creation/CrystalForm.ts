@@ -3,7 +3,13 @@ import { defineComponent } from "vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
-  name: "Crystal02Form",
+  name: "CrystalForm",
+  props: {
+    currentCrystal: {
+      type: Number,
+      required: true,
+    }
+  },
   components: {},
   emits: ["changeStep", "previousStep", "nextStep"],
   
@@ -18,6 +24,10 @@ export default defineComponent({
 
   setup () {
     return { v$: useVuelidate() };
+  },
+  
+  validations: {
+    form: {},
   },
 
   methods: {

@@ -37,10 +37,16 @@
         maxlength="440" />
     </div>
 
-    <button
-      class="link-button"
-      :disabled="v$.form.$invalid"
-      @click="submitForm()">Terminer</button>
+    <div class="creation-nav-button">
+      <button
+        class="link-button"
+        @click="cancelForm()">Précédent</button>
+
+      <button
+        class="link-button"
+        :disabled="v$.form.$invalid"
+        @click="submitForm()">Terminer</button>
+    </div>
   </div>
 </template>
 

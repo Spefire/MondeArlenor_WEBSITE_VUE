@@ -92,8 +92,15 @@
   transform: translateY(-50%);
 
   &.inverted {
+    .dot {
+      margin: 4px;
+      border-radius: 0;
+      transform: rotate(45deg);
+      cursor: default;
+    }
+
     .dotline {
-      height: 50px;
+      height: 42px;
     }
 
     @include tablet-only {
@@ -132,7 +139,7 @@
     padding: 4px;
     cursor: pointer;
 
-    background-color: none;
+    background: none;
     border-radius: 50%;
     border: 1px solid $white-color;
     transition: 1s ease;

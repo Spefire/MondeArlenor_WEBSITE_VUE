@@ -30,7 +30,7 @@
   </div>
 
   <!-- Choix de la caractéristique -->
-  <div class="layout-right">
+  <div class="layout-right creation-form">
     <div class="creation-element">
       <span>Caractériques du personnage <span required-libelle>*</span></span>
       <table class="bloc-text margin-top-1">
@@ -128,10 +128,16 @@
       Les Points de Vie sont à : 0
     </div>
 
-    <button
-      class="margin-top-1 link-button"
-      :disabled="v$.form.$invalid"
-      @click="submitForm()">Suivant</button>
+    <div class="creation-nav-button">
+      <button
+        class="link-button"
+        @click="cancelForm()">Précédent</button>
+
+      <button
+        class="link-button"
+        :disabled="v$.form.$invalid"
+        @click="submitForm()">Suivant</button>
+    </div>
   </div>
 </template>
 

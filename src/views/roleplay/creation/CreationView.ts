@@ -2,9 +2,9 @@ import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
 
+import AbilitiesForm from "./AbilitiesForm.vue";
 import CaractsForm from "./CaractsForm.vue";
-import Crystal01Form from "./Crystal01Form.vue";
-import Crystal02Form from "./Crystal02Form.vue";
+import CrystalForm from "./CrystalForm.vue";
 import IdentityForm from "./IdentityForm.vue";
 import RaceForm from "./RaceForm.vue";
 
@@ -14,8 +14,8 @@ export default defineComponent({
   components: {
     RaceForm,
     CaractsForm,
-    Crystal01Form,
-    Crystal02Form,
+    AbilitiesForm,
+    CrystalForm,
     IdentityForm,
   },
 

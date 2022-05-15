@@ -4,19 +4,26 @@
       src="./../../../assets/images/about.png"
       alt="">
   </div>
-  <div class="layout-right">
-    <h2>Choix du cristal évolutif secondaire</h2>
+  <div class="layout-right creation-form">
+    <h2>Choix du cristal évolutif primaire</h2>
     <p>
       Merci à mes joueurs Laetitia, Jérôme, Jonathan et Sylvain qui m'ont accompagné lors de la création d'Arlénor.
       Merci à mes MJs d'autres univers qui m'ont énormément apporté en terme de conseils et de soutien.
       Et puis merci à ce qui m'ont soutenu durant ce projet et ce site : Estelle, Alice, Audrey et mes amis testeurs...
       et puis merci à toi de t'intéresser au Monde d'Arlénor !
     </p>
-    <button
-      class="margin-top-1 link-button"
-      @click="submitForm()">Suivant</button>
+    <div class="creation-nav-button">
+      <button
+        class="link-button"
+        @click="cancelForm()">Précédent</button>
+
+      <button
+        class="link-button"
+        :disabled="v$.form.$invalid"
+        @click="submitForm()">Suivant</button>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped src="./CreationView.scss"></style>
-<script lang="ts" src="./Crystal02Form.ts"></script>
+<script lang="ts" src="./CrystalForm.ts"></script>
