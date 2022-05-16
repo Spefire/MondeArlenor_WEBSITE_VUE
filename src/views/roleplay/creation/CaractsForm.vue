@@ -131,7 +131,17 @@
     <div class="creation-nav-button">
       <button
         class="link-button"
-        @click="cancelForm()">Précédent</button>
+        @click="cancelForm()">
+        <template v-if="!isModified">
+          Précédent
+        </template>
+        <template v-if="isModified">
+          Annuler les modifications
+          <template v-if="needConfirm">
+            (Confirmez ?) 
+          </template>
+        </template>
+      </button>
 
       <button
         class="link-button"

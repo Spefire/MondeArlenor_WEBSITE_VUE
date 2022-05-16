@@ -27,6 +27,7 @@ export default defineComponent({
         pointsLeft: (15 - totalCaracts),
       },
       isModified: false,
+      needConfirm: false,
     };
   },
 
@@ -66,15 +67,20 @@ export default defineComponent({
       + parseInt(this.form.cha)
       + parseInt(this.form.pou);
       this.form.pointsLeft = (15 - totalCaracts);
+      this.updateForm();
     },
     updateForm() {
       this.isModified = true;
+      this.needConfirm = false,
       this.$emit("changeStep");
     },
-    cancelForm(withSave: boolean) {
-      if (withSave) this.save();
-      this.isModified = false;
-      this.$emit("previousStep");
+    cancelForm() {
+      if (this.isModified && !this.needConfirm) {
+        this.needConfirm = true;
+      } else {
+        this.isModified = false;
+        this.$emit("previousStep");
+      }
     },
     submitForm() {
       this.save();
