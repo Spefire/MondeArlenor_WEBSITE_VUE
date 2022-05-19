@@ -3,20 +3,27 @@ import { ArlenorCelestia } from "@/models/ArlenorCelestia";
 import { getListCelestias } from "@/models/data/ListCelestia";
 import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
+import { useStore } from "vuex";
+
+import QuizzForm from "./QuizzForm.vue";
 
 export default defineComponent({
   name: "CelestiaView",
   title: PageTitles.celestia,
   components: {
     HeadLayout,
+    QuizzForm,
   },
 
   setup() {
+    const store = useStore();
+    const quizz = store.state.quizz;
     const title = PageTitles.celestia;
     const currentIndex = ref(0);
+    const currentQuestion = ref(0);
     const allCelestias = ref(getListCelestias());
 
-    return { currentIndex, allCelestias, title };
+    return { quizz, currentIndex, currentQuestion, allCelestias, title };
   },
   
   computed: {
@@ -57,6 +64,10 @@ export default defineComponent({
         if (index < arr.length - 1) lib += ", ";
       });
       return lib;
+    },
+
+    nextQuestion() {
+      console.log("nextQuestion");
     }
   }
 });

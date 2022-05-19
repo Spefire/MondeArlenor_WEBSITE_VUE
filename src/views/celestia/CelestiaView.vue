@@ -85,6 +85,30 @@
       </div>
     </div>
   </div>
+
+  <div little-separator />
+
+  <div class="celestia-view layout-view background-celestia-black">
+    <div class="layout-center large">
+      <QuizzForm
+        v-for="(question, index) in quizz.questions"
+        :index="index"
+        :key="index"
+        @nextQuestion="nextQuestion()" />
+      
+      <ul class="selection-container inverted">
+        <template
+          v-for="(question, index) in quizz.questions"
+          :key="index">
+          <div class="dotline" />
+          <li
+            :class="{'active': currentQuestion == index }"
+            class="dot" />
+        </template>
+        <div class="dotline" />
+      </ul>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped src="./CelestiaView.scss"></style>

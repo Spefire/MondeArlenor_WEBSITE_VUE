@@ -1,9 +1,11 @@
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
+import { CelestiaQuizz } from "@/models/CelestiaQuizz";
 import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    character: new ArlenorCharacter()
+    character: new ArlenorCharacter(),
+    quizz: new CelestiaQuizz()
   },
   mutations: {
     changeCharacterRace(state, payload: ArlenorCharacter) {
@@ -26,6 +28,10 @@ export default createStore({
     },
     resetCharacter(state) {
       state.character = new ArlenorCharacter();
+    },
+    changeQuizz(state, payload: CelestiaQuizz) {
+      state.quizz = payload;
+      console.warn("state.quizz", state.quizz);
     }
   },
   actions: {
