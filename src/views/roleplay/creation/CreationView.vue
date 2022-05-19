@@ -55,7 +55,7 @@
         @changeStep="changeModifs()"
         @nextStep="increaseSelection()" />
 
-      <ul class="selection-container inverted">
+      <ul class="selection-container creation-selection-steps">
         <div class="dotline" />
         <li
           :class="{'active': selection == 0 }"

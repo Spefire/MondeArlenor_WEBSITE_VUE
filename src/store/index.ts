@@ -29,8 +29,9 @@ export default createStore({
     resetCharacter(state) {
       state.character = new ArlenorCharacter();
     },
-    changeQuizz(state, payload: CelestiaQuizz) {
-      state.quizz = payload;
+    // Note : payload : { index, quizz }
+    changeQuizz(state, payload) {
+      state.quizz.questions[payload.index] = payload.quizz.questions[payload.index];
       console.warn("state.quizz", state.quizz);
     }
   },

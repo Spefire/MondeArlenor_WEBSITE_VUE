@@ -34,7 +34,7 @@ export default defineComponent({
     save() {
       const newQuizz = new CelestiaQuizz();
       newQuizz.questions[this.index].selection = this.form.response;
-      this.store.commit("changeQuizz", newQuizz);
+      this.store.commit("changeQuizz", { index: this.index, quizz: newQuizz });
     }
   }
 });

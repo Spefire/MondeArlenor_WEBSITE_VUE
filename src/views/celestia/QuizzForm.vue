@@ -1,17 +1,18 @@
 <template>
-  <div class="creation-element">
+  <div class="bloc-text creation-element">
     <span>{{ question }} <span required-libelle>*</span></span>
 
     <template
-      v-for="(answer, index) in answers"
-      :key="index">
-      <br v-if="index > 0">
+      v-for="(answer, indexAnswer) in answers"
+      :key="indexAnswer">
+      <br v-if="indexAnswer > 0">
       <input
         type="radio"
-        :id="'answer'+index"
+        :id="'answer'+indexAnswer"
         :value="answer.value"
-        v-model="form.response">
-      <label :for="'answer'+index">{{ answer.libelle }}</label>
+        v-model="form.response"
+        @change="submitForm()">
+      <label :for="'answer'+indexAnswer">{{ answer.libelle }}</label>
     </template>
   </div>
 </template>

@@ -90,13 +90,18 @@
 
   <div class="celestia-view layout-view background-celestia-black">
     <div class="layout-center large">
-      <QuizzForm
-        v-for="(question, index) in quizz.questions"
-        :index="index"
-        :key="index"
-        @nextQuestion="nextQuestion()" />
+      <h2>Quel mage de Célestia êtes-vous ?</h2>
+
+      <template 
+        v-for="(question, index) in quizz.questions">
+        <QuizzForm
+          v-if="currentQuestion == index"
+          :index="index"
+          :key="index"
+          @nextQuestion="nextQuestion()" />
+      </template>
       
-      <ul class="selection-container inverted">
+      <ul class="selection-container celestia-selection-steps">
         <template
           v-for="(question, index) in quizz.questions"
           :key="index">

@@ -53,5 +53,9 @@ export class CelestiaQuizz {
         ]
       ),
     ];
+    this.questions = this.questions.concat(this.questions);
+    this.questions = this.questions.concat(this.questions);
+    this.questions = this.questions.concat(this.questions);
+    this.questions = this.questions.slice(0, 18);
   }
 }
