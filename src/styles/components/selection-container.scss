@@ -1,0 +1,111 @@
+.selection-container {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transform: translateY(-50%);
+
+    .dotline {
+        height: 60px;
+        width: 1px;
+        background-color: $white-color;
+    }
+
+    .dot {
+        display: inline-block;
+        height: 20px;
+        min-width: 20px;
+        width: 20px;
+        margin: 0;
+        padding: 4px;
+        cursor: pointer;
+
+        background: none;
+        border-radius: 50%;
+        border: 1px solid $white-color;
+        transition: 1s ease;
+
+        &.active {
+            background-clip: content-box;
+            background-color: $light-secondary-color;
+        }
+    }
+}
+
+.selection-container.celestia-selection-steps {
+    position: relative;
+    right: auto;
+    top: auto;
+    margin-top: 20px;
+    flex-direction: row;
+    justify-content: center;
+    transform: none;
+
+    .dot {
+        margin: 4px;
+        border-radius: 0;
+        transform: rotate(45deg);
+        cursor: default;
+    }
+
+    .dotline {
+        height: 1px;
+        min-width: 20px;
+    }
+
+    @include tablet-only {
+        .dot {
+            height: 14px;
+            min-width: 14px;
+            width: 14px;
+            margin: 2px;
+        }
+
+        .dotline {
+            height: 1px;
+            min-width: 12px;
+        }
+    }
+
+    @include mobile-only {
+        display: none;
+    }
+}
+
+.selection-container.creation-selection-steps {
+    .dot {
+        margin: 4px;
+        border-radius: 0;
+        transform: rotate(45deg);
+        cursor: default;
+    }
+
+    .dotline {
+        height: 42px;
+    }
+
+    @include tablet-only {
+        position: relative;
+        right: auto;
+        top: auto;
+        margin-top: 20px;
+        flex-direction: row;
+        transform: none;
+
+        .dotline {
+            height: 1px;
+            width: 50px;
+        }
+    }
+
+    @include mobile-only {
+        .dotline {
+            height: 1px;
+            width: 20px;
+        }
+    }
+}

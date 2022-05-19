@@ -1,0 +1,153 @@
+@import "@/styles/variables.scss";
+
+.link {
+  position: relative;
+  display: inline-block;
+  height: 40px;
+  padding: 0 20px;
+  line-height: 40px;
+  font-size: $font-size-m;
+  font-family: $sans-serif-font;
+  text-transform: uppercase;
+  transition: 0.5s;
+
+  &:hover,
+  &:not(.exact-link).router-link-active,
+  &.exact-link.router-link-exact-active {
+    color: $secondary-color;
+  }
+}
+
+.link-button {
+  display: inline-block;
+  width: fit-content;
+  padding: 5px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  color: $light-secondary-color;
+  border-radius: 5px;
+  border: 1px solid $secondary-color;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background-color: $background-black-light;
+  }
+
+  &:disabled,
+  &:disabled:hover {
+    color: $warning-color;
+    border: 1px solid $warning-color;
+    background-color: $background-black-light !important;
+    cursor: default;
+  }
+}
+
+.select-button {
+  height: 36px;
+  width: 36px;
+  min-width: 36px;
+  margin: 0 10px;
+  line-height: 36px;
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid $white-color;
+  background-color: $background-black-dark;
+  cursor: pointer;
+
+  &.inverted {
+    transform: scaleX(-1);
+  }
+}
+
+.bloc-text {
+  line-height: 1.5;
+  padding: 10px 25px;
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: $secondary-color;
+  background: $background-black-dark;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+  }
+}
+
+.section-moreinfos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-grow: 3;
+  font-style: italic;
+  color: $secondary-color;
+
+  @include mobile-only {
+    flex-direction: column;
+  }
+
+  p {
+    flex: 1;
+  }
+}
+
+.docs-grid-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  &.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+
+    @include mobile-only {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  @include tablet-only {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile-only {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .docs-grid-element {
+    display: flex;
+    width: calc(100% - 20px);
+    margin: 10px;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: $secondary-color;
+    border-spacing: 0;
+    background: $background-black-dark;
+
+    img {
+      height: 60px;
+      width: 60px;
+      margin-right: 10px;
+      border: 1px solid $secondary-color;
+      pointer-events: none;
+    }
+
+    .docs-grid-header {
+      margin-bottom: 10px;
+      font-family: $serif-font;
+      color: $secondary-color;
+      text-transform: uppercase;
+    }
+
+    .docs-grid-body {
+      margin: 0;
+      font-size: $font-size-m;
+      // text-align: justify;
+    }
+  }
+}

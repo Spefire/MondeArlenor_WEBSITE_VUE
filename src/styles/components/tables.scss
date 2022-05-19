@@ -1,0 +1,34 @@
+.table-large {
+    .tbody {
+        height: 50vh;
+    }
+
+    @include mobile-only {
+        display: none;
+    }
+}
+
+.line-table {
+    &:hover {
+        background-color: rgba($white-color, 0.2) !important;
+    }
+
+    &.to-select {
+        cursor: pointer;
+    }
+
+    &.selected {
+        background-color: rgba($white-color, 0.2) !important;
+    }
+
+    img {
+        height: 50px;
+        pointer-events: none;
+    }
+
+    p {
+        text-align: left;
+        font-style: italic;
+        margin: 10px;
+    }
+}
