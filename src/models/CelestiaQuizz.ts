@@ -28,28 +28,28 @@ export class CelestiaQuizz {
       new CelestiaQuestion(
         "Quel trait de caractère vous correspond le plus ?",
         [
-          new CelestiaAnswer("Énergique (?)", "X"),
-          new CelestiaAnswer("Réfléchi", "X"),
-          new CelestiaAnswer("Altruiste", "X"),
-          new CelestiaAnswer("Fiable", "X"),
+          new CelestiaAnswer("Énergique", "F"),
+          new CelestiaAnswer("Réfléchi", "A"),
+          new CelestiaAnswer("Altruiste", "E"),
+          new CelestiaAnswer("Fiable", "T"),
         ]
       ),
       new CelestiaQuestion(
         "Quel est votre signe astrologique ?",
         [
-          new CelestiaAnswer("Bélier, Lion, Sagittaire", "X"),
-          new CelestiaAnswer("Taureau, Vierge, Capricorne", "X"),
-          new CelestiaAnswer("Gémeaux, Balance, Verseau", "X"),
-          new CelestiaAnswer("Cancer, Scorpion, Poisson", "X"),
+          new CelestiaAnswer("Bélier, Lion, Sagittaire", "F"),
+          new CelestiaAnswer("Taureau, Vierge, Capricorne", "T"),
+          new CelestiaAnswer("Gémeaux, Balance, Verseau", "A"),
+          new CelestiaAnswer("Cancer, Scorpion, Poisson", "E"),
         ]
       ),
       new CelestiaQuestion(
         "Qu'est-ce qui vous rend le plus fier ?",
         [
-          new CelestiaAnswer("Votre capacité à intégrer et comprendre de nouvelles informations", "X"),
-          new CelestiaAnswer("Votre capacité à vous faire facilement des amis", "X"),
-          new CelestiaAnswer("Votre capacité à faire ce que vous voulez", "X"),
-          new CelestiaAnswer("Votre capacité à garder des secrets", "X"),
+          new CelestiaAnswer("Votre capacité à intégrer et comprendre de nouvelles informations", "A"),
+          new CelestiaAnswer("Votre capacité à vous faire facilement des amis", "E"),
+          new CelestiaAnswer("Votre capacité à faire ce que vous voulez", "F"),
+          new CelestiaAnswer("Votre capacité à garder des secrets", "T"),
         ]
       ),
     ];

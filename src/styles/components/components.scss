@@ -80,6 +80,18 @@
   }
 }
 
+.quizz-bloc {
+  height: 160px;
+
+  @include tablet-only {
+    height: 200px;
+  }
+
+  @include mobile-only {
+    height: auto;
+  }
+}
+
 .section-moreinfos {
   display: flex;
   flex-direction: row;

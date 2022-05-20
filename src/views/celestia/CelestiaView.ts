@@ -68,6 +68,7 @@ export default defineComponent({
 
     nextQuestion() {
       console.log("nextQuestion");
+      this.currentQuestion++;
     }
   }
 });
