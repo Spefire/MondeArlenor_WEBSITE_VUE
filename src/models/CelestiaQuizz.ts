@@ -151,21 +151,21 @@ export class CelestiaQuizz {
   constructor() {
     this.questions = [
       new CelestiaQuestion(
-        "Quel trait de caractère vous correspond le plus ?",
-        [
-          new CelestiaAnswer("Énergique", "F"),
-          new CelestiaAnswer("Réfléchi", "A"),
-          new CelestiaAnswer("Altruiste", "E"),
-          new CelestiaAnswer("Fiable", "T"),
-        ]
-      ),
-      new CelestiaQuestion(
         "Quel est votre signe astrologique ?",
         [
           new CelestiaAnswer("Bélier, Lion, Sagittaire", "F"),
           new CelestiaAnswer("Taureau, Vierge, Capricorne", "T"),
           new CelestiaAnswer("Gémeaux, Balance, Verseau", "A"),
           new CelestiaAnswer("Cancer, Scorpion, Poisson", "E"),
+        ]
+      ),
+      new CelestiaQuestion(
+        "Quel trait de caractère vous correspond le plus ?",
+        [
+          new CelestiaAnswer("Enthousiaste", "F"),
+          new CelestiaAnswer("Réfléchi", "A"),
+          new CelestiaAnswer("Altruiste", "E"),
+          new CelestiaAnswer("Fiable", "T"),
         ]
       ),
       new CelestiaQuestion(
@@ -180,7 +180,7 @@ export class CelestiaQuizz {
       new CelestiaQuestion(
         "Comment vivez-vous une défaite ?",
         [
-          new CelestiaAnswer("Je dois être gagnant quelque part", "E"),
+          new CelestiaAnswer("Cela me servira de leçon", "E"),
           new CelestiaAnswer("Aucun souci, je vais vite oublier", "A"),
           new CelestiaAnswer("Je m'en remets difficilement", "T"),
           new CelestiaAnswer("Je prépare une revanche", "F"),
@@ -191,14 +191,14 @@ export class CelestiaQuizz {
         [
           new CelestiaAnswer("D'être insipide", "F"),
           new CelestiaAnswer("D'être égoiste", "E"),
-          new CelestiaAnswer("D'être bête", "A"),
+          new CelestiaAnswer("D'être bête, idiot", "A"),
           new CelestiaAnswer("D'être hypocrite", "T"),
         ]
       ),
       new CelestiaQuestion(
         "Qu'est-ce que vous avez le plus de mal à supporter ?",
         [
-          new CelestiaAnswer("La trahison", "T"),
+          new CelestiaAnswer("Le mensonge", "T"),
           new CelestiaAnswer("L'envahissement", "A"),
           new CelestiaAnswer("La solitude", "E"),
           new CelestiaAnswer("L'ennui", "F"),
@@ -226,12 +226,26 @@ export class CelestiaQuizz {
         ]
       ),
       new CelestiaQuestion(
+        "Quel élément vous attire le plus ?",
+        [
+          new CelestiaAnswer("Terre", "TT"),
+          new CelestiaAnswer("Feu", "FF"),
+          new CelestiaAnswer("Eau", "EE"),
+          new CelestiaAnswer("Air", "AA"),
+          new CelestiaAnswer("Foudre", "FA"),
+          new CelestiaAnswer("Vie", "ET"),
+          new CelestiaAnswer("Glace", "AE"),
+          new CelestiaAnswer("Lave", "FT"),
+          new CelestiaAnswer("Lumière", ""),
+        ]
+      ),
+      new CelestiaQuestion(
         "Sous quel nom préféreriez-vous entrer dans l'histoire ?",
         [
-          new CelestiaAnswer("Le ou la Sage", "T"),
-          new CelestiaAnswer("Le Bon ou la Bonne", "E"),
+          new CelestiaAnswer("Le ou la Juste", "T"),
+          new CelestiaAnswer("Le Doux ou la Douce", "E"),
           new CelestiaAnswer("Le Grand ou la Grande", "A"),
-          new CelestiaAnswer("L'Intrépide", "F"),
+          new CelestiaAnswer("Le Vaillant ou la Vaillante", "F"),
         ]
       ),
       new CelestiaQuestion(
@@ -244,7 +258,7 @@ export class CelestiaQuizz {
       new CelestiaQuestion(
         "Quelle serait votre endroit du Cercle des Mages préféré ?",
         [
-          new CelestiaAnswer("La bibliothèque et la salle d'artefacts", "A"),
+          new CelestiaAnswer("La bibliothèque", "A"),
           new CelestiaAnswer("Les jardins et les serres", "T"),
           new CelestiaAnswer("La salle tactique et le terrain d’entraînement", "F"),
           new CelestiaAnswer("Les dortoirs et le réfectoire", "E"),
@@ -277,7 +291,7 @@ export class CelestiaQuizz {
         ]
       ),
       new CelestiaQuestion(
-        "Un Wendigo (faisant 250 mètres) approche à l'horizon, menaçant la capitale. Vous sonnez l'alerte puis, que faites-vous ?",
+        "Un Wendigo approche à l'horizon, menaçant la capitale. Vous sonnez l'alerte puis, que faites-vous ?",
         [
           new CelestiaAnswer("Vous cherchez votre équipement pour foncer au combat et l'arrêter au plus vite", "F"),
           new CelestiaAnswer("Vous rejoignez votre équipe et attendez les consignes", "T"),
@@ -298,23 +312,9 @@ export class CelestiaQuizz {
         "Quel serait votre familier ?",
         [
           new CelestiaAnswer("Un oiseau", "A"),
-          new CelestiaAnswer("Un mamiphère", "F"),
+          new CelestiaAnswer("Un mammifère", "F"),
           new CelestiaAnswer("Un poisson", "E"),
           new CelestiaAnswer("Un reptile", "T"),
-        ]
-      ),
-      new CelestiaQuestion(
-        "Quel mage élémentaire souhaiteriez-vous être ?",
-        [
-          new CelestiaAnswer("Terre", "TT"),
-          new CelestiaAnswer("Feu", "FF"),
-          new CelestiaAnswer("Eau", "EE"),
-          new CelestiaAnswer("Air", "AA"),
-          new CelestiaAnswer("Foudre", "FA"),
-          new CelestiaAnswer("Vie", "ET"),
-          new CelestiaAnswer("Glace", "AE"),
-          new CelestiaAnswer("Lave", "FT"),
-          new CelestiaAnswer("Lumière", ""),
         ]
       ),
     ];

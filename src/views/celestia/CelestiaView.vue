@@ -145,11 +145,11 @@
           </div>
         </div>
         <p class="zone-comment margin-top-1">
-          Alliance Feu({{ quizz.fire }}) - Eau({{ quizz.water }}) : {{ quizz.fire - quizz.water }}
-          ({{ getLibFireWater() }})
+          Feu : {{ quizz.fire }} - Eau : {{ quizz.water }}<br>
+          Air : {{ quizz.wind }} - Terre : {{ quizz.earth }}<br>
           <br>
-          Alliance Air({{ quizz.wind }}) - Terre({{ quizz.earth }}) : {{ quizz.wind - quizz.earth }}
-          ({{ getLibWindEarth() }})
+          Alliance Feu-Eau : {{ quizz.fire - quizz.water }} ({{ getLibFireWater() }})<br>
+          Alliance Air-Terre : {{ quizz.wind - quizz.earth }} ({{ getLibWindEarth() }})
         </p>
       </div>
 

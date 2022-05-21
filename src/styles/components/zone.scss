@@ -6,6 +6,12 @@
     &.zone-element-free {
         min-height: auto;
         max-height: none;
+        width: 50%;
+        margin: auto;
+
+        @include tablet-only {
+            width: 100%;
+        }
     }
 
     @include mobile-only {
