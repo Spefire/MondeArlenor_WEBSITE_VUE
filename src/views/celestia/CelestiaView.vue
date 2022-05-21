@@ -92,6 +92,43 @@
     <div class="layout-center large">
       <h2>Quel mage de Célestia êtes-vous ?</h2>
 
+      <div
+        v-if="currentQuestion == 100"
+        class="bloc-text creation-element">
+        Le Cercle des Mages Evanell est un ordre magique recrute des mages pour défendre les célestiens ponctuellement
+        contre les attaques des Wendigos (titans monstrueux venant de l'En-Bas).<br>
+        Le Cercle comporte 9 types de mages élémentaires, qui suivent une formation avant de combattre.<br>
+        Si vous étiez membre de ce cercle, quelle sorte de mage seriez-vous ?<br>
+        <button
+          class="link-button margin-top-1 margin-bottom-1"
+          @click="startQuestion()">Commencer le test</button>
+        <b>Partie : "Dans le monde réel"</b>
+      </div>
+
+      <div
+        v-if="currentQuestion == 200"
+        class="bloc-text creation-element">
+        Le Cercle des Mages Evanell est un ordre magique recrute des mages pour défendre les célestiens ponctuellement
+        contre les attaques des Wendigos (titans monstrueux venant de l'En-Bas).<br>
+        Le Cercle comporte 9 types de mages élémentaires, qui suivent une formation avant de combattre.<br>
+        Si vous étiez membre de ce cercle, quelle sorte de mage seriez-vous ?<br>
+        <button
+          class="link-button margin-top-1 margin-bottom-1"
+          @click="continueQuestion()">Continuer le test</button>
+        <b>Partie : "Sur l'île de Célestia"</b>
+      </div>
+
+      <div
+        v-if="currentQuestion == 300"
+        class="bloc-text creation-element">
+        Vous êtes : {{ quizz.result }}
+        <br>
+        <br>Alliance Feu-Eau : {{ getAbs(quizz.fire - quizz.water) }}
+        ({{ quizz.fire }} - {{ quizz.water }})
+        <br>Alliance Air-Terre : {{ getAbs(quizz.wind - quizz.earth) }}
+        ({{ quizz.wind }} - {{ quizz.earth }})
+      </div>
+
       <template 
         v-for="(question, index) in quizz.questions">
         <QuizzForm

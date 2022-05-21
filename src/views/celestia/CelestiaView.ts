@@ -20,10 +20,11 @@ export default defineComponent({
     const quizz = store.state.quizz;
     const title = PageTitles.celestia;
     const currentIndex = ref(0);
-    const currentQuestion = ref(0);
+    const currentQuestion = ref(100);
+    const middleQuestion = ref(8);
     const allCelestias = ref(getListCelestias());
 
-    return { quizz, currentIndex, currentQuestion, allCelestias, title };
+    return { quizz, currentIndex, currentQuestion, middleQuestion, allCelestias, title };
   },
   
   computed: {
@@ -66,9 +67,25 @@ export default defineComponent({
       return lib;
     },
 
+    getAbs(value: number) {
+      return Math.abs(value);
+    },
+    
+    startQuestion() {
+      this.currentQuestion = 0;
+    },
+
+    continueQuestion() {
+      this.currentQuestion = this.middleQuestion;
+    },
+
     nextQuestion() {
-      console.log("nextQuestion");
-      this.currentQuestion++;
+      // On passe à l'entre-deux
+      if (this.currentQuestion + 1 === this.middleQuestion) this.currentQuestion = 200;
+      // On finit le questionnaire
+      else if (this.currentQuestion + 1 === this.quizz.questions.length) this.currentQuestion = 300;
+      // On change de question
+      else this.currentQuestion++;
     }
   }
 });

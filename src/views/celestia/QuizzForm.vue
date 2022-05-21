@@ -1,5 +1,5 @@
 <template>
-  <div class="quizz-bloc bloc-text creation-element">
+  <div class="bloc-text creation-element">
     <span>{{ question }} <span required-libelle>*</span></span>
 
     <div class="creation-radios">
