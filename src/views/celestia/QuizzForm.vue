@@ -1,6 +1,6 @@
 <template>
   <div class="bloc-text creation-element">
-    <span>{{ question }} <span required-libelle>*</span></span>
+    <span>{{ index+1 }} - {{ question }} <span required-libelle>*</span></span>
 
     <div class="creation-radios">
       <div

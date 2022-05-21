@@ -3,6 +3,11 @@
     max-height: 525px;
     overflow: auto !important;
 
+    &.zone-element-free {
+        min-height: auto;
+        max-height: none;
+    }
+
     @include mobile-only {
         min-height: auto;
         max-height: none;
@@ -28,6 +33,13 @@
         @include tablet-only {
             display: none;
         }
+    }
+
+    .zone-icon {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        border: 1px solid $secondary-color;
     }
 
     .zone-image + .zone-header {

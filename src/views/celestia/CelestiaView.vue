@@ -120,13 +120,37 @@
 
       <div
         v-if="currentQuestion == 300"
-        class="bloc-text creation-element">
-        Vous êtes : {{ quizz.result }}
-        <br>
-        <br>Alliance Feu-Eau : {{ getAbs(quizz.fire - quizz.water) }}
-        ({{ quizz.fire }} - {{ quizz.water }})
-        <br>Alliance Air-Terre : {{ getAbs(quizz.wind - quizz.earth) }}
-        ({{ quizz.wind }} - {{ quizz.earth }})
+        class="bloc-text creation-element zone-element zone-element-free">
+        <div class="zone-header">
+          <img
+            class="zone-icon"
+            :src="quizz.result.image"
+            alt="">
+          <div class="text-center margin-left-1">
+            <h2>{{ quizz.result.libelle }}</h2>
+          </div>
+        </div>
+        <div class="zone-description margin-top-1">
+          <div class="zone-description-bloc">
+            <span>Axe : </span>
+            <span>{{ quizz.result.axe }}</span>
+          </div>
+          <div class="zone-description-bloc">
+            <span>Symboles : </span>
+            <span>{{ quizz.result.symboles }}</span>
+          </div>
+          <div class="zone-description-bloc">
+            <span />
+            <span v-html="quizz.result.description" />
+          </div>
+        </div>
+        <p class="zone-comment margin-top-1">
+          Alliance Feu({{ quizz.fire }}) - Eau({{ quizz.water }}) : {{ quizz.fire - quizz.water }}
+          ({{ getLibFireWater() }})
+          <br>
+          Alliance Air({{ quizz.wind }}) - Terre({{ quizz.earth }}) : {{ quizz.wind - quizz.earth }}
+          ({{ getLibWindEarth() }})
+        </p>
       </div>
 
       <template 

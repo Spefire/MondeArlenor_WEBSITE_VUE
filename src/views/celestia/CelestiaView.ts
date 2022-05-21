@@ -21,7 +21,7 @@ export default defineComponent({
     const title = PageTitles.celestia;
     const currentIndex = ref(0);
     const currentQuestion = ref(100);
-    const middleQuestion = ref(8);
+    const middleQuestion = ref(9);
     const allCelestias = ref(getListCelestias());
 
     return { quizz, currentIndex, currentQuestion, middleQuestion, allCelestias, title };
@@ -67,8 +67,18 @@ export default defineComponent({
       return lib;
     },
 
-    getAbs(value: number) {
-      return Math.abs(value);
+    getLibFireWater() {
+      const value = this.quizz.fire - this.quizz.water;
+      if (value > 3) return "Dominance du Feu";
+      if (value < -3) return "Dominance de l'Eau";
+      return "Aucune dominance";
+    },
+
+    getLibWindEarth() {
+      const value = this.quizz.wind - this.quizz.earth;
+      if (value > 3) return "Dominance de l'Air";
+      if (value < -3) return "Dominance de la Terre";
+      return "Aucune dominance";
     },
     
     startQuestion() {

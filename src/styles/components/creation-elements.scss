@@ -42,11 +42,12 @@
 .creation-radios {
     display: flex;
     flex-wrap: wrap;
-    height: 100px;
+    min-height: 100px;
+    min-width: 50%;
     margin: auto;
 
     @include tablet-only {
-        height: 150px;
+        min-height: 150px;
     }
 
     @include mobile-only {
