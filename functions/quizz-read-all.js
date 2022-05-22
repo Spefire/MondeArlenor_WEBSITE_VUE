@@ -5,8 +5,9 @@ dotenv.config({path: ".env.local"});
 const q = faunadb.query;
 const client = new faunadb.Client({
   secret: process.env.VUE_APP_FAUNADB,
-  domain: "db.eu.fauna.com",
+  domain: "db.fauna.com",
   scheme: "https",
+  keepAlive: false
 });
 
 exports.handler = async() => {

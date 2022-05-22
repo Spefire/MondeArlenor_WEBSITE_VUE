@@ -1,3 +1,13 @@
+export class QuizzDB {
+  public dat_quizz: string;
+  public heu_quizz: string;
+
+  constructor(dat_quizz: string, heu_quizz: string) {
+    this.dat_quizz = dat_quizz;
+    this.heu_quizz = heu_quizz;
+  }
+}
+
 class CelestiaResult {
   public libelle: string;
   public axe: string;
