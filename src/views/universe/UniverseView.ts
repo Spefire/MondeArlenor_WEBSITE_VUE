@@ -48,9 +48,9 @@ export default defineComponent({
     toggleMap(value: boolean) {
       this.showCities = value;
       api.readAll().then((response) => {
-        console.log(response);
+        console.log("Response", response);
       }).catch((e) => {
-        console.log("An API error occurred", e);
+        console.error("An API error occurred : ", e);
       });
     }
   }
