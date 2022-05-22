@@ -1,0 +1,28 @@
+import faunadb from "faunadb";
+import getId from "./utils/getId";
+
+const q = faunadb.query;
+const client = new faunadb.Client({
+  secret: process.env.VUE_APP_FAUNADB,
+  domain: "db.eu.fauna.com",
+  scheme: "https",
+});
+
+exports.handler = (event, context, callback) => {
+  const id = getId(event.path);
+  console.log(`Function 'todo-read' invoked. Read id: ${id}`);
+  return client.query(q.Get(q.Ref(`classes/todos/${id}`)))
+    .then((response) => {
+      console.log("success", response);
+      return callback(null, {
+        statusCode: 200,
+        body: JSON.stringify(response)
+      });
+    }).catch((error) => {
+      console.log("error", error);
+      return callback(null, {
+        statusCode: 400,
+        body: JSON.stringify(error)
+      });
+    });
+};

@@ -22,3 +22,6 @@ pnpm-debug.log*
 *.sw?
 package-lock.json
 *.ods#
+
+# Build files
+/functions-build

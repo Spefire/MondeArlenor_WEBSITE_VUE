@@ -2,6 +2,7 @@ import ToggleButton from "@/components/toggle-button/ToggleButton.vue";
 import { ArlenorZone } from "@/models/ArlenorZone";
 import { getListZones } from "@/models/data/ListZones";
 import { PageTitles } from "@/models/PagesTitles";
+import api from "@/utils/api";
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
@@ -46,6 +47,11 @@ export default defineComponent({
 
     toggleMap(value: boolean) {
       this.showCities = value;
+      api.readAll().then((response) => {
+        console.log(response);
+      }).catch((e) => {
+        console.log("An API error occurred", e);
+      });
     }
   }
 });
