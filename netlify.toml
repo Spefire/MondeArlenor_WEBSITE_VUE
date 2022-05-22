@@ -8,3 +8,6 @@
 [dev]
   # Local dev command.
   command = "npm run serve"
+
+[functions]
+  node_bundler = "esbuild"
