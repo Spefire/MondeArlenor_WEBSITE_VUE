@@ -1,13 +1,3 @@
-export class QuizzDB {
-  public dat_quizz: string;
-  public heu_quizz: string;
-
-  constructor(dat_quizz: string, heu_quizz: string) {
-    this.dat_quizz = dat_quizz;
-    this.heu_quizz = heu_quizz;
-  }
-}
-
 class CelestiaResult {
   public libelle: string;
   public axe: string;
@@ -105,8 +95,11 @@ class CelestiaQuestion {
 }
 
 export class CelestiaQuizz {
-  public questions: CelestiaQuestion[];
+  public hour = "00:00";
+  public date = "01/01/1990";
   public intensity = 3;
+  public questions: CelestiaQuestion[];
+  public version = "0.1";
   
   public get fire(): number {
     let value = 0;

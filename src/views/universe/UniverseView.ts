@@ -47,7 +47,7 @@ export default defineComponent({
 
     async toggleMap(value: boolean) {
       this.showCities = value;
-      const data = await api.testAWS();
+      const data = await api.readAllQuizz();
       console.warn("data", data);
     }
   }

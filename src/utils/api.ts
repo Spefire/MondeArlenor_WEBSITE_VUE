@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
-import { QuizzDB } from "@/models/CelestiaQuizz";
-
-const testAWS = async() => {
+const readAllQuizz = async() => {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("x-api-key", process.env.VUE_APP_API_KEY);
@@ -13,7 +11,9 @@ const testAWS = async() => {
         method: "GET",
         headers: myHeaders,
         mode: "cors",
-        cache: "default"
+        cache: "default",
+        // body: JSON.stringify(data),
+        // method: "POST"
       })
       .then(response => response.json())
       .then(data => {
@@ -25,32 +25,6 @@ const testAWS = async() => {
   }
 };
 
-const create = async(data: QuizzDB) => {
-  return await fetch("/.netlify/functions/quizz-create", {
-    body: JSON.stringify(data),
-    method: "POST"
-  }).then(response => {
-    return response.json();
-  });
-};
-
-const readAll = async() => {
-  return await fetch("/.netlify/functions/quizz-read-all").then((response) => {
-    return response.json();
-  });
-};
-
-const read = async(id: number) => {
-  return await fetch(`/.netlify/functions/quizz-read/${id}`, {
-    method: "POST",
-  }).then(response => {
-    return response.json();
-  });
-};
-
 export default {
-  testAWS: testAWS,
-  create: create,
-  readAll: readAll,
-  read: read,
+  readAllQuizz: readAllQuizz,
 };
