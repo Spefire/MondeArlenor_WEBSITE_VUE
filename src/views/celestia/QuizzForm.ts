@@ -1,4 +1,6 @@
 import { CelestiaQuizz } from "@/models/CelestiaQuizz";
+import useVuelidate from "@vuelidate/core";
+import { required } from "@vuelidate/validators";
 import { defineComponent } from "vue";
 import { useStore } from "vuex";
 
@@ -24,6 +26,18 @@ export default defineComponent({
         response: quizz.questions[this.index].selection,
       },
     };
+  },
+
+  setup () {
+    return { v$: useVuelidate() };
+  },
+  
+  validations: {
+    form: {
+      response: {
+        required
+      },
+    },
   },
 
   methods: {

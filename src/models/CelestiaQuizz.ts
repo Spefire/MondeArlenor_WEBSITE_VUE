@@ -112,7 +112,8 @@ export class CelestiaQuizz {
   public get fire(): number {
     let value = 0;
     this.questions.forEach(question => {
-      if (question.selection.indexOf("F") > -1) value++;
+      if (question.selection === "FF") value += 2;
+      else if (question.selection.indexOf("F") > -1) value++;
     });
     return value;
   }
@@ -120,7 +121,8 @@ export class CelestiaQuizz {
   public get wind(): number {
     let value = 0;
     this.questions.forEach(question => {
-      if (question.selection.indexOf("A") > -1) value++;
+      if (question.selection === "AA") value += 2;
+      else if (question.selection.indexOf("A") > -1) value++;
     });
     return value;
   }
@@ -128,7 +130,8 @@ export class CelestiaQuizz {
   public get water(): number {
     let value = 0;
     this.questions.forEach(question => {
-      if (question.selection.indexOf("E") > -1) value++;
+      if (question.selection === "EE") value += 2;
+      else if (question.selection.indexOf("E") > -1) value++;
     });
     return value;
   }
@@ -136,7 +139,8 @@ export class CelestiaQuizz {
   public get earth(): number {
     let value = 0;
     this.questions.forEach(question => {
-      if (question.selection.indexOf("T") > -1) value++;
+      if (question.selection === "TT") value += 2;
+      else if (question.selection.indexOf("T") > -1) value++;
     });
     return value;
   }
