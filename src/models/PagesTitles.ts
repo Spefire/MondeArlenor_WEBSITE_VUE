@@ -1,5 +1,6 @@
 export class PageTitles {
   public static about = "A propos";
+  public static answers = "Les Réponses";
   public static beginning = "Le Commencement";
   public static celestia = "L'Île Célestia";
   public static creation = "La Création de personnage";

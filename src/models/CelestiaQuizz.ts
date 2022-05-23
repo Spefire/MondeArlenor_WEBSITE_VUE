@@ -1,6 +1,6 @@
 const QUIZZ_INTENSITY = 3;
 
-class CelestiaResult {
+export class CelestiaResult {
   public libelle: string;
   public axe: string;
   public symboles: string;
@@ -79,6 +79,11 @@ export class CelestiaResults {
       "Sans description");
     this.Vie.image = require("./../assets/images/symboles/s_vie.png");
   }
+}
+
+export function getListResults(): CelestiaResult[] {
+  const celestiaResults = new CelestiaResults();
+  return Object.values(celestiaResults);
 }
 
 class CelestiaAnswer {
