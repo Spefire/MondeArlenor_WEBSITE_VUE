@@ -1,6 +1,5 @@
 import ToggleButton from "@/components/toggle-button/ToggleButton.vue";
 import { ArlenorZone } from "@/models/ArlenorZone";
-import { QuizzDB } from "@/models/CelestiaQuizz";
 import { getListZones } from "@/models/data/ListZones";
 import { PageTitles } from "@/models/PagesTitles";
 import api from "@/utils/api";
@@ -46,22 +45,10 @@ export default defineComponent({
       else this.currentIndex = this.currentIndex + 1;
     },
 
-    toggleMap(value: boolean) {
+    async toggleMap(value: boolean) {
       this.showCities = value;
-      if (value) {
-        api.readAll().then((response) => {
-          console.log("Response", response);
-        }).catch((e) => {
-          console.error("An API error occurred : ", e);
-        });
-      } else {
-        const quizz = new QuizzDB("22052022", "1900");
-        api.create(quizz).then((response) => {
-          console.log("Response", response);
-        }).catch((e) => {
-          console.error("An API error occurred : ", e);
-        });
-      }
+      const data = await api.testAWS();
+      console.warn("data", data);
     }
   }
 });
