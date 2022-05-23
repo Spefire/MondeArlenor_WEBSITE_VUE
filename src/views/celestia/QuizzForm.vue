@@ -12,9 +12,7 @@
           :id="'answer'+indexAnswer"
           :value="answer.value"
           v-model="form.response">
-        <label
-          class="pointer margin-left-1 margin-right-1"
-          :for="'answer'+indexAnswer">{{ answer.libelle }}</label>
+        <label :for="'answer'+indexAnswer">{{ answer.libelle }}</label>
       </div>
     </div>
 

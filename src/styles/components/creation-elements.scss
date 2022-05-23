@@ -61,5 +61,22 @@
         padding: 10px 0;
         text-align: left;
         cursor: pointer;
+
+        label {
+            margin-left: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        @include mobile-only {
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+
+            input[type="radio"] {
+                margin-bottom: 10px;
+            }
+        }
     }
 }
