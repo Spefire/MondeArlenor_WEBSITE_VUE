@@ -1,8 +1,10 @@
 import HeadLayout from "@/components/head-layout/HeadLayout.vue";
 import { ArlenorCelestia } from "@/models/ArlenorCelestia";
+import { CelestiaQuizz } from "@/models/CelestiaQuizz";
 import { getListCelestias } from "@/models/data/ListCelestia";
 import { PageTitles } from "@/models/PagesTitles";
-import { defineComponent, ref } from "vue";
+import api from "@/utils/api";
+import { defineComponent, Ref, ref } from "vue";
 import { useStore } from "vuex";
 
 import QuizzForm from "./QuizzForm.vue";
@@ -22,11 +24,17 @@ export default defineComponent({
     const currentIndex = ref(0);
     const currentQuestion = ref(100);
     const middleQuestion = ref(9);
+    const pourcent = ref(100);
     const allCelestias = ref(getListCelestias());
+    const allQuizz: Ref<CelestiaQuizz[]> = ref([]);
 
-    return { quizz, currentIndex, currentQuestion, middleQuestion, allCelestias, title };
+    return { quizz, currentIndex, currentQuestion, middleQuestion, pourcent, allCelestias, allQuizz, title };
   },
-  
+
+  mounted() {
+    this.loadQuizz();
+  },
+
   computed: {
     imageLeft() {
       return require("./../../assets/images/magic/magic_left.png");
@@ -47,7 +55,12 @@ export default defineComponent({
     }
   },
 
-  methods: {    
+  methods: {
+    async loadQuizz() {
+      const allQuizz = await api.readAllQuizz();
+      this.allQuizz = allQuizz;
+    },
+
     previousSelection() {
       if (this.currentIndex === 0) this.currentIndex = this.allCelestias.length - 1;
       else this.currentIndex = this.currentIndex - 1;
@@ -80,6 +93,15 @@ export default defineComponent({
       if (value < -3) return "Dominance de la Terre";
       return "Aucune dominance";
     },
+
+    checkPourcent() {
+      if (!this.allQuizz.length) this.pourcent = 100;
+      let nbSame = 0;
+      this.allQuizz.forEach(quizz => {
+        if (quizz.result.code === this.quizz.result.code) nbSame++;
+      });
+      this.pourcent = Math.round((nbSame / this.allQuizz.length) * 100);
+    },
     
     startQuestion() {
       this.currentQuestion = 0;
@@ -89,11 +111,17 @@ export default defineComponent({
       this.currentQuestion = this.middleQuestion;
     },
 
-    nextQuestion() {
+    async nextQuestion() {
       // On passe à l'entre-deux
       if (this.currentQuestion + 1 === this.middleQuestion) this.currentQuestion = 200;
       // On finit le questionnaire
-      else if (this.currentQuestion + 1 === this.quizz.questions.length) this.currentQuestion = 300;
+      else if (this.currentQuestion + 1 === this.quizz.questions.length) {
+        this.currentQuestion = 300;
+        this.quizz.initTime();
+        await api.sendQuizz(this.quizz);
+        await this.loadQuizz();
+        this.checkPourcent();
+      }
       // On change de question
       else this.currentQuestion++;
     }

@@ -128,6 +128,7 @@
             alt="">
           <div class="text-center margin-left-1">
             <h2>{{ quizz.result.libelle }}</h2>
+            <span>(<b>{{ pourcent }}%</b> des mages)</span>
           </div>
         </div>
         <div class="zone-description margin-top-1">

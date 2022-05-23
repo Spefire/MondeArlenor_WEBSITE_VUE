@@ -2,7 +2,6 @@ import ToggleButton from "@/components/toggle-button/ToggleButton.vue";
 import { ArlenorZone } from "@/models/ArlenorZone";
 import { getListZones } from "@/models/data/ListZones";
 import { PageTitles } from "@/models/PagesTitles";
-import api from "@/utils/api";
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
@@ -45,10 +44,8 @@ export default defineComponent({
       else this.currentIndex = this.currentIndex + 1;
     },
 
-    async toggleMap(value: boolean) {
+    toggleMap(value: boolean) {
       this.showCities = value;
-      const data = await api.readAllQuizz();
-      console.warn("data", data);
     }
   }
 });

@@ -1,9 +1,18 @@
+const QUIZZ_INTENSITY = 3;
+
 class CelestiaResult {
   public libelle: string;
   public axe: string;
   public symboles: string;
   public description: string;
   public image: string;
+
+  get code(): string {
+    let code = this.libelle;
+    code = code.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+    code = code.replace(/\s/g, "");
+    return code.toUpperCase();
+  }
 
   constructor(libelle: string, axe: string, symboles: string, description: string) {
     this.libelle = libelle;
@@ -97,7 +106,6 @@ class CelestiaQuestion {
 export class CelestiaQuizz {
   public hour = "00:00";
   public date = "01/01/1990";
-  public intensity = 3;
   public questions: CelestiaQuestion[];
   public version = "0.1";
   
@@ -134,10 +142,10 @@ export class CelestiaQuizz {
   }
 
   public get result(): CelestiaResult {
-    const isFire = (this.fire - this.water) > this.intensity;
-    const isWater = (this.fire - this.water) < -this.intensity;
-    const isWind = (this.wind - this.earth) > this.intensity;
-    const isEarth = (this.wind - this.earth) < -this.intensity;
+    const isFire = (this.fire - this.water) > QUIZZ_INTENSITY;
+    const isWater = (this.fire - this.water) < -QUIZZ_INTENSITY;
+    const isWind = (this.wind - this.earth) > QUIZZ_INTENSITY;
+    const isEarth = (this.wind - this.earth) < -QUIZZ_INTENSITY;
     const results = new CelestiaResults();
     if (isFire && isWater && isWind && isEarth) return results.Lumiere;
     if (isFire && isWind) return results.Foudre;
@@ -239,7 +247,7 @@ export class CelestiaQuizz {
           new CelestiaAnswer("Vie", "ET"),
           new CelestiaAnswer("Glace", "AE"),
           new CelestiaAnswer("Lave", "FT"),
-          new CelestiaAnswer("Lumière", ""),
+          new CelestiaAnswer("Lumière", "FEAT"),
         ]
       ),
       new CelestiaQuestion(
@@ -321,5 +329,33 @@ export class CelestiaQuizz {
         ]
       ),
     ];
+  }
+
+  public initByJSON(value_quizz: string): void {
+    const quizzDB = JSON.parse(value_quizz);
+    this.date = quizzDB.date;
+    this.hour = quizzDB.hour;
+    this.version = quizzDB.version;
+    this.questions = [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    quizzDB.questions.forEach((questionDB: any) => {
+      const answers: CelestiaAnswer[] = [];
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      questionDB.answers.forEach((answerDB: any) => {
+        answers.push(new CelestiaAnswer(answerDB.libelle, answerDB.value));
+      });
+      const question = new CelestiaQuestion(questionDB.libelle, answers);
+      question.selection = questionDB.selection;
+      this.questions.push(question);
+    });
+  }
+
+  public initTime(): void {
+    function pad(s: number) { return (s < 10) ? "0" + s : s; }
+    const date = new Date();
+    const hours = (date.getHours() < 10 ? "0" : "") + date.getHours();
+    const minutes = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
+    this.hour = hours + ":" + minutes;
+    this.date = [pad(date.getDate()), pad(date.getMonth()+1), date.getFullYear()].join("/");
   }
 }
