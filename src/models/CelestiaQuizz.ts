@@ -37,7 +37,8 @@ export class CelestiaResults {
   constructor() {
     this.Lumiere = new CelestiaResult("Mage de Lumière",
       "Equilibre", "Stabilité, Protection, Clarté",
-      "Sans description.");
+      `Les Lumières sont l'élite des mages : ils ont une capacité de protection et de désintégration hors norme.
+      Cependant ils restent maîtres d'eux et guident les autres mages vers une bataille réussie.`);
     this.Lumiere.image = require("./../assets/images/symboles/s_lumiere.png");
     this.Feu = new CelestiaResult("Mage de Feu",
       "Action", "Courage, Dynamisme, Dépassement de soi",
@@ -47,7 +48,7 @@ export class CelestiaResults {
     this.Air = new CelestiaResult("Mage de l'Air",
       "Emotion", "Sensibilité, Rêverie, Progrès",
       `Les Airs sont principalement en retrait, analysant chaque point faible avant d'agir : un coup pour un mort.
-        Leur arme de prédilection est l'arc, mais cela n'empêche pas certains de danser avec des lames.`);
+       Leur arme de prédilection est l'arc, mais cela n'empêche pas certains de danser avec des lames.`);
     this.Air.image = require("./../assets/images/symboles/s_air.png");
     this.Eau = new CelestiaResult("Mage de l'Eau",
       "Communication", "Coopération, Goût du jeu, Altruisme",
@@ -55,28 +56,29 @@ export class CelestiaResults {
       soit offensives pour modifier l'Eau qu'ils contrôlent, soit défensives pour aller les alliés et effectuer des soins.`);
     this.Eau.image = require("./../assets/images/symboles/s_eau.png");
     this.Terre = new CelestiaResult("Mage de Terre",
-      "Raison", "Prudence, Travail, Sens du devoir",
+      "Raison", "Confiance, Vertu, Sens du devoir",
       `Les Terres sont des soldats ordonnés utilisant leur environnement pour le tourner à leur avantage.
-      Tactiques et synchro, ils sont de redoutables combattants pour les sbires du Wendigo quand ils sont en groupe.`);
+      Tactiques et synchro quand ils sont en groupe, les Terres sont de redoutables combattants pour les sbires du Wendigo.`);
     this.Terre.image = require("./../assets/images/symboles/s_terre.png");
     this.Foudre = new CelestiaResult("Mage de la Foudre",
-      "Action-Emotion", "Courage, Dynamisme, Dépassement de soi, Sensibilité, Rêverie, Progrès",
+      "Action-Emotion", "Dynamisme, Dépassement de soi, Progrès",
       `Les Foudres sont des assassins principalement : ils utilisent aussi de la technomagie
       (mélange de technologie et de magie) pour amplifier leurs pouvoirs ou se servir de gadgets.`);
     this.Foudre.image = require("./../assets/images/symboles/s_foudre.png");
     this.Glace = new CelestiaResult("Mage de la Glace",
-      "Communication-Emotion", "Coopération, Goût du jeu, Altruisme, Sensibilité, Rêverie, Progrès",
+      "Communication-Emotion", "Coopération, Altruisme, Sensibilité",
       `Les Glaces sont des stratèges protecteurs. Ils créent leur propre environnement favorable au combat
-      et n'hésitent pas à créer aussi leurs propres armes. Leur limite : l'imagination.`);
+      et n'hésitent pas à créer aussi leurs propres armes. Leur seule limite : l'imagination.`);
     this.Glace.image = require("./../assets/images/symboles/s_glace.png");
     this.Lave = new CelestiaResult("Mage de Lave",
-      "Action-Raison", "Courage, Dynamisme, Dépassement de soi, Prudence, Travail, Sens du devoir",
+      "Action-Raison", "Courage, Dépassement de soi, Sens du devoir",
       `Les Laves cherchent à atteindre le maximum de leur capacités pour être des personnes sur qui compter ensuite.
       Au combat, ils ont une polyvalence entre le travail d'équipe et le travail solo, du moment que la gloire leur revient !.`);
     this.Lave.image = require("./../assets/images/symboles/s_lave.png");
     this.Vie = new CelestiaResult("Mage de Vie",
-      "Communication-Raison", "Coopération, Goût du jeu, Altruisme, Prudence, Travail, Sens du devoir",
-      "Sans description");
+      "Communication-Raison", "Coopération, Altruisme, Confiance",
+      `Les Vies jouent avec l'énergie qui circule dans les corps. Ils renforcent principalement leurs alliés à distance,
+      mais les plus forts vont sur le terrain au corps à corps. Ils sont de nature généreux et fiables.`);
     this.Vie.image = require("./../assets/images/symboles/s_vie.png");
   }
 }
