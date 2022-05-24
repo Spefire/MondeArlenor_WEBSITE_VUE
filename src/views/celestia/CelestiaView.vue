@@ -99,27 +99,16 @@
         contre les attaques des Wendigos (titans monstrueux venant de l'En-Bas).<br>
         Le Cercle comporte 9 types de mages élémentaires, qui suivent une formation avant de combattre.<br>
         Si vous étiez membre de ce cercle, quelle sorte de mage seriez-vous ?<br>
+        <br>
+        Le questionnaire commence par des questions sur vous dans la vie réelle,
+        puis sur vous si vous étiez mage sur Célestia.
         <button
           class="link-button margin-top-1 margin-bottom-1"
           @click="startQuestion()">Commencer le test</button>
-        <b>Partie : "Dans le monde réel"</b>
       </div>
 
       <div
         v-if="currentQuestion == 200"
-        class="bloc-text creation-element">
-        Le Cercle des Mages Evanell est un ordre magique recrute des mages pour défendre les célestiens ponctuellement
-        contre les attaques des Wendigos (titans monstrueux venant de l'En-Bas).<br>
-        Le Cercle comporte 9 types de mages élémentaires, qui suivent une formation avant de combattre.<br>
-        Si vous étiez membre de ce cercle, quelle sorte de mage seriez-vous ?<br>
-        <button
-          class="link-button margin-top-1 margin-bottom-1"
-          @click="continueQuestion()">Continuer le test</button>
-        <b>Partie : "Sur l'île de Célestia"</b>
-      </div>
-
-      <div
-        v-if="currentQuestion == 300"
         class="bloc-text creation-element zone-element zone-element-free">
         <div class="zone-header">
           <img
@@ -128,7 +117,7 @@
             alt="">
           <div class="text-center margin-left-1">
             <h2>{{ quizz.result.libelle }}</h2>
-            <span>(<b>{{ pourcent }}%</b> des mages)</span>
+            <span v-if="pourcent !== 100">(<b>{{ pourcent }}%</b> des mages)</span>
           </div>
         </div>
         <div class="zone-description margin-top-1">

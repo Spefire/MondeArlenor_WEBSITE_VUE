@@ -316,14 +316,14 @@ export class CelestiaQuizz {
           new CelestiaAnswer("Vous cherchez votre équipement pour foncer au combat et l'arrêter au plus vite", "F"),
           new CelestiaAnswer("Vous rejoignez votre équipe et attendez les consignes", "T"),
           new CelestiaAnswer("Vous réfléchissez en premier à un moyen d'évacuer la ville en toute urgence", "E"),
-          new CelestiaAnswer("Vous prennez le temps d'organiser une stratégie en fonction de sa trajectoire et son temps d'arrivée", "A"),
+          new CelestiaAnswer("Vous prenez le temps d'organiser une stratégie en fonction de sa trajectoire et son temps d'arrivée", "A"),
         ]
       ),
       new CelestiaQuestion(
         "Au combat, quelle serait votre doctrine ?",
         [
           new CelestiaAnswer("Tenter le tout pour le tout", "F"),
-          new CelestiaAnswer("Faut qu'on reste ensemble", "E"),
+          new CelestiaAnswer("Il faut qu'on reste ensemble", "E"),
           new CelestiaAnswer("La survie revient au plus préparé", "A"),
           new CelestiaAnswer("Les actions ont plus d'effet que les mots", "T"),
         ]

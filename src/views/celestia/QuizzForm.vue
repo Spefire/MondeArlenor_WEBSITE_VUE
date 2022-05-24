@@ -1,6 +1,10 @@
 <template>
   <div class="bloc-text creation-element">
-    <span>{{ index+1 }} - {{ question }} <span required-libelle>*</span></span>
+    <b v-if="index < 10">Partie : "Dans le monde réel"<br></b>
+    <b v-if="index >= 10">Partie : "Sur l'île de Célestia"<br></b>
+    <span>
+      {{ index+1 }} - {{ question }} <span required-libelle>*</span>
+    </span>
 
     <div class="creation-radios">
       <div
@@ -12,7 +16,9 @@
           :id="'answer'+indexAnswer"
           :value="answer.value"
           v-model="form.response">
-        <label :for="'answer'+indexAnswer">{{ answer.libelle }}</label>
+        <label :for="'answer'+indexAnswer">
+          {{ answer.libelle }}
+        </label>
       </div>
     </div>
 

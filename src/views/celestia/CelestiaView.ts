@@ -23,12 +23,11 @@ export default defineComponent({
     const title = PageTitles.celestia;
     const currentIndex = ref(0);
     const currentQuestion = ref(100);
-    const middleQuestion = ref(9);
     const pourcent = ref(100);
     const allCelestias = ref(getListCelestias());
     const allQuizz: Ref<CelestiaQuizz[]> = ref([]);
 
-    return { quizz, currentIndex, currentQuestion, middleQuestion, pourcent, allCelestias, allQuizz, title };
+    return { quizz, currentIndex, currentQuestion, pourcent, allCelestias, allQuizz, title };
   },
 
   mounted() {
@@ -107,16 +106,10 @@ export default defineComponent({
       this.currentQuestion = 0;
     },
 
-    continueQuestion() {
-      this.currentQuestion = this.middleQuestion;
-    },
-
     async nextQuestion() {
-      // On passe à l'entre-deux
-      if (this.currentQuestion + 1 === this.middleQuestion) this.currentQuestion = 200;
       // On finit le questionnaire
-      else if (this.currentQuestion + 1 === this.quizz.questions.length) {
-        this.currentQuestion = 300;
+      if (this.currentQuestion + 1 === this.quizz.questions.length) {
+        this.currentQuestion = 200;
         this.quizz.initTime();
         await api.sendQuizz(this.quizz);
         await this.loadQuizz();
