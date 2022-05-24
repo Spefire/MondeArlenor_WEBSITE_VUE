@@ -88,7 +88,7 @@
 
   <div little-separator />
 
-  <div class="celestia-view layout-view background-celestia-black">
+  <div class="celestia-view layout-view background-celestia-vertical">
     <div class="layout-center large">
       <h2>Quel mage de Célestia êtes-vous ?</h2>
 
