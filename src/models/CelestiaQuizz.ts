@@ -114,7 +114,7 @@ export class CelestiaQuizz {
   public hour = "00:00";
   public date = "01/01/1990";
   public questions: CelestiaQuestion[];
-  public version = "0.1";
+  public version = "0.2";
   
   public get fire(): number {
     let value = 0;
@@ -202,10 +202,10 @@ export class CelestiaQuizz {
       new CelestiaQuestion(
         "Comment vivez-vous une défaite ?",
         [
-          new CelestiaAnswer("Cela me servira de leçon", "E"),
+          new CelestiaAnswer("Je regrette, mais cela me servira de leçon", "E"),
           new CelestiaAnswer("Aucun souci, je vais vite oublier", "A"),
-          new CelestiaAnswer("Je m'en remets difficilement", "T"),
-          new CelestiaAnswer("Je prépare une revanche", "F"),
+          new CelestiaAnswer("Je le vis assez mal, il va me falloir du temps", "T"),
+          new CelestiaAnswer("Je veux une revanche, je ne peux pas rester dessus", "F"),
         ]
       ),
       new CelestiaQuestion(
@@ -283,7 +283,7 @@ export class CelestiaQuizz {
           new CelestiaAnswer("La bibliothèque", "A"),
           new CelestiaAnswer("Les jardins et les serres", "T"),
           new CelestiaAnswer("La salle tactique et le terrain d’entraînement", "F"),
-          new CelestiaAnswer("Les dortoirs et le réfectoire", "E"),
+          new CelestiaAnswer("Les salles communes et le réfectoire", "E"),
         ]
       ),
       new CelestiaQuestion(
@@ -316,7 +316,7 @@ export class CelestiaQuizz {
         "Un Wendigo approche à l'horizon, menaçant la capitale. Vous sonnez l'alerte puis, que faites-vous ?",
         [
           new CelestiaAnswer("Vous cherchez votre équipement pour foncer au combat et l'arrêter au plus vite", "F"),
-          new CelestiaAnswer("Vous rejoignez votre équipe et attendez les consignes", "T"),
+          new CelestiaAnswer("Vous rejoignez votre équipe pour avoir les consignes de votre capitaine", "T"),
           new CelestiaAnswer("Vous réfléchissez en premier à un moyen d'évacuer la ville en toute urgence", "E"),
           new CelestiaAnswer("Vous prenez le temps d'organiser une stratégie en fonction de sa trajectoire et son temps d'arrivée", "A"),
         ]
@@ -333,9 +333,9 @@ export class CelestiaQuizz {
       new CelestiaQuestion(
         "Quel serait votre familier ?",
         [
-          new CelestiaAnswer("Un oiseau", "A"),
-          new CelestiaAnswer("Un mammifère", "F"),
-          new CelestiaAnswer("Un poisson", "E"),
+          new CelestiaAnswer("Un animal ailé", "A"),
+          new CelestiaAnswer("Un mammifère terrestre", "F"),
+          new CelestiaAnswer("Un animal aquatique", "E"),
           new CelestiaAnswer("Un reptile", "T"),
         ]
       ),
