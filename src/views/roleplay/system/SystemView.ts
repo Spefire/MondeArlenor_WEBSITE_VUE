@@ -27,11 +27,15 @@ export default defineComponent({
     const allRoles = ref(getListRoles());
     const persoChoice = ref(1);
     const caractChoice = ref(0);
+    const systemChoice = ref(1);
+    const fightChoice = ref(0);
     const groupChoice = ref("");
     const finitionChoice = ref(0);
 
     return {
-      caractDescriptionEnum, allRaces, allSpecialities, allGroups, allRoles, persoChoice, caractChoice, groupChoice, finitionChoice
+      caractDescriptionEnum,
+      allRaces, allSpecialities, allGroups, allRoles,
+      persoChoice, caractChoice, groupChoice, finitionChoice, systemChoice, fightChoice,
     };
   },
 
@@ -83,6 +87,15 @@ export default defineComponent({
     changeFinitionChoice(choice: number) {
       if (choice === this.finitionChoice) this.finitionChoice = 0;
       else this.finitionChoice = choice;
+    },
+
+    changeSystemChoice(choice: number) {
+      this.systemChoice = choice;
+    },
+
+    changeFightChoice(choice: number) {
+      if (choice === this.fightChoice) this.fightChoice = 0;
+      else this.fightChoice = choice;
     },
   }
 });

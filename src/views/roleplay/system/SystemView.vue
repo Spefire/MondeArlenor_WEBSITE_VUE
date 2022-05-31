@@ -286,9 +286,126 @@
 
   <div little-separator />
 
-  <div class="layout-view background-roleplay">
+  <div class="layout-view system-view background-roleplay">
     <div class="layout-center large">
-      <h2>Les difficultés, les tests et les modes de combat</h2>
+      <h2>Les règles du système</h2>
+      <div class="bloc-text margin-top-1 text-justify">
+        &emsp;
+        Un personnage est défini par plusieurs choses : <b>ses caractéristiques</b> (et valeurs dérivées), <b>ses compétences principales</b>,
+        <b>sa race</b> (parmi celles jouables), <b>son cristal évolutif</b> (compétences spéciales ou sorts), pour ensuite finir par quelques finitions.
+        <br>&emsp;
+        Les caractéristiques définissent ce qu’est le personnage, et les compétences ce qu’il sait.
+        Votre personnage sera plus ou moins fort, plus ou moins intelligent, plus ou moins adroit.
+        Et c’est vous qui choisirez si, au cours de sa vie, il a appris à se battre ou s'il a préféré se tourner vers l'érudition,
+        ou encore, vers quel type de magie il s'est tourné...
+      </div>
+      <div class="bloc-text system-nav margin-top-1">
+        <span
+          class="system-nav-item"
+          :class="{ selected : systemChoice === 1 }"
+          @click="changeSystemChoice(1)">
+          1) Les tests et difficultés
+        </span>
+        <span
+          class="system-nav-item"
+          :class="{ selected : systemChoice === 2 }"
+          @click="changeSystemChoice(2)">
+          2) Le combat et les actions possibles
+        </span>
+        <span
+          class="system-nav-item"
+          :class="{ selected : systemChoice === 3 }"
+          @click="changeSystemChoice(3)">
+          3) L'expérience et les niveaux
+        </span>
+      </div>
+      <template v-if="systemChoice === 1">
+        <div class="bloc-text margin-top-1 text-justify">
+          &emsp;
+          La santé d’un personnage détermine sa résistance aux coups et aux événements qui pourraient le blesser.
+          Elle est indiquée par ses <b>Points de Vie</b>, ou PV.<br>
+          <br>
+          <div class="text-center">
+            <b>Indemne</b> (+ de 6 PV) : Aucun malus<br>
+            <b>Blessé</b> (2-5 PV) : - 1D6 aux jets<br>
+            <b>Au seuil de la mort</b> (1 PV) : - 2D6 aux jets<br>
+          </div>
+          <br>
+          Note : Le nombre de PV max peut varier avec la Vigueur.<br>
+          <br>&emsp;
+          Lors de jets de combat ou de situations pouvant occasionner des blessures,
+          le Maitre du Jeu interprétera le nombre de PV à enlever.
+          Et lorsque les blessures s’accumulent, le personnage s’affaiblit petit à petit, ajoutant des malus à ses actions.
+          <br>&emsp;
+          Dans les cas extrêmes, certaines attaques n’ont pas besoin d’en passer par des tests quelconques.
+          Un personnage armé d’une épée qui veut tuer un adversaire ligoté y parviendra directement,
+          de même qu’un autre qui sera sous le point de chute d’un tir de catapulte n’a aucune chance de s’en tirer.
+          Il faut faire preuve de logique.
+        </div>
+      </template>
+      <template v-if="systemChoice === 2">
+        <div class="bloc-text margin-top-1 text-justify">
+          &emsp;
+          Toute personne est dotée de capacités de base qui lui sont inhérentes et qu’il peut utiliser de bien des manières.
+          Ces aptitudes naturelles sont définies par cinq <b>caractéristiques</b> distinctes, chacune évaluée sur une échelle allant de 1 à 5.
+          <br>&emsp;
+          Un score de 1 dans une caractéristique indique une vraie faiblesse dans le domaine concerné,
+          tandis qu’un 2 place le personnage dans la moyenne, ni plus ni moins.
+          A partir de 3, la personne dispose d’une facilité particulière dans la caractéristique concernée,
+          et un 4 indique des facultés exceptionnelles. Enfin, un score de 5 représente le maximum des capacités :
+          seuls quelques très rares individus atteignent ce score.
+          <br>&emsp;
+          A la création de votre personnage, <b>chaque caractéristique est déjà à 1 et ne peut dépasser 5</b>.
+          Vous pouvez ensuite répartir 8 points supplémentaires, pour un total donc de 13 points.
+        </div>
+
+        <ExpandBloc
+          :bloc-title="'L\'Initiative'"
+          :bloc-state="fightChoice === 1"
+          @toggle="changeFightChoice(1)">
+          <span
+            v-html="caractDescriptionEnum.Vigueur.Libelle" />
+        </ExpandBloc>
+        
+        <ExpandBloc
+          :bloc-title="
+            'Les actions courtes'"
+          :bloc-state="fightChoice === 2"
+          @toggle="changeFightChoice(2)">
+          <span
+            v-html="caractDescriptionEnum.Habilete.Libelle" />
+        </ExpandBloc>
+        
+        <ExpandBloc
+          :bloc-title="
+            'Les actions longues'"
+          :bloc-state="fightChoice === 3"
+          @toggle="changeFightChoice(3)">
+          <span
+            v-html="caractDescriptionEnum.Intellect.Libelle" />
+        </ExpandBloc>
+
+        <ExpandBloc
+          :bloc-title="'Les états et affections diverses'"
+          :bloc-state="fightChoice === 4"
+          @toggle="changeFightChoice(4)">
+          <span
+            v-html="caractDescriptionEnum.Charisme.Libelle" />
+        </ExpandBloc>
+      </template>
+      <template v-if="systemChoice === 3">
+        <div class="bloc-text margin-top-1 text-justify">
+          &emsp;
+          Chaque <b>race</b> possède ses avantages et ses inconvénients, ainsi qu'une certaine difficulté
+          ou facilité à être jouée dans le Monde d'Arlénor.
+          Mieux vaut privilégier les races les plus simples pour les nouveaux joueurs,
+          et les plus complexes pour les amateurs de risques.
+          Les <b>races</b> sont présentées ici dans l'ordre de difficulté croissante.<br>
+          <br>
+          Note : Les Célestiens ne sont pas une race jouable vu la différence de magie qu'ils utilisent
+          et le lieu où ils se trouvent.
+        </div>
+      </template>
     </div>
   </div>
 </template>
