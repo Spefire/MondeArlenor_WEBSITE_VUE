@@ -50,7 +50,8 @@
       <div class="dropdown">
         <select
           class="dropdown-select"
-          v-model.trim.lazy="v$.form.raceCode.$model">
+          v-model.trim.lazy="v$.form.raceCode.$model"
+          @change="updateForm()">
           <option
             v-for="(race, index) in allRaces"
             :value="race.code"

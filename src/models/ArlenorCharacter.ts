@@ -33,8 +33,8 @@ export class CaractDescriptionEnum {
   Mélange de résistance physique et de puissance brute, la <b>Vigueur</b> évalue la forme physique de votre personnage.
   Cette caractéristique est importante pour les personnages combattants, les sportifs
   et tous ceux qui aiment se sortir de situations dangereuses.<br>
-  Note : Une <b>Vigueur</b> à 1 donne 1 case de blessure à l'état « Indemne ».<br>
-  Note : Une <b>Vigueur</b> à 5 donne 3 cases de blessure à l'état « Indemne ».<br>
+  Note : Une <b>Vigueur</b> à 1 retire un Point de Vie max.<br>
+  Note : Une <b>Vigueur</b> à 5 donne un Point de Vie max.<br>
   <br>
   &emsp;1 : Fragile. Force et endurance limitées, vous vous fatiguez vite.<br>
   &emsp;2 : Moyen. Vous n’avez de problème qu’avec des tours de force inhabituels.<br>

@@ -124,8 +124,8 @@
     </div>
 
     <div class="bloc-text margin-top-1">
-      L'Initiative est à : 0<br>
-      Les Points de Vie sont à : 0
+      Le Bonus d'Initiative est à : <b>{{ getInitiative() }}</b><br>
+      Les Points de Vie sont à : <b>{{ getPointsDeVie() }}</b>
     </div>
 
     <div class="creation-nav-button">
