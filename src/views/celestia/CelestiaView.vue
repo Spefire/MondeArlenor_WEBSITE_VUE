@@ -95,7 +95,7 @@
       <div
         v-if="currentQuestion == 100"
         class="bloc-text creation-element">
-        Le Cercle des Mages Evanell est un ordre magique recrute des mages pour défendre les célestiens ponctuellement
+        Le Cercle des Mages Evanell recrute ponctuellement des mages pour défendre les célestiens 
         contre les attaques des Wendigos (titans monstrueux venant de l'En-Bas).<br>
         Le Cercle comporte 9 types de mages élémentaires, qui suivent une formation avant de combattre.<br>
         Si vous étiez membre de ce cercle, quelle sorte de mage seriez-vous ?<br>
