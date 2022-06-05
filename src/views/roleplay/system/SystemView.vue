@@ -120,7 +120,7 @@
             <b>Au seuil de la mort</b> (1 PV) : - 2D6 aux jets<br>
           </div>
           <br>
-          Note : Le nombre de PV max peut varier avec la Vigueur.<br>
+          Note : Le nombre de PV max peut varier avec la Vigueur et la race choisie.<br>
           <br>&emsp;
           Lors de jets de combat ou de situations pouvant occasionner des blessures,
           le Maitre du Jeu interprétera le nombre de PV à enlever.
@@ -358,8 +358,10 @@
           </div>
         </div>
 
-        <div class="bloc-text margin-top-1 text-justify">
-          <div class="text-center"><i>Exemple n°1</i></div>
+        <ExpandBloc
+          :bloc-title="'Exemple n°1'"
+          :bloc-state="exampleChoice === 1"
+          @toggle="changeExampleChoice(1)">
           <b>Hélios</b> cherche dans une bibliothèque une information sur une plante inconnue.<br>
           Si le livre peut donner l'information, le MJ demandera un test d'<b>Intellect</b>.<br>
           Hélios a <b>3 en Intellect</b>, il lance <b>3D6</b> et fait... <b>4,5,2 pour un résultat de 11</b>.<br>
@@ -368,10 +370,12 @@
           <b>Le total est donc 11 + 4 = 15.</b><br>
           Le MJ avait décidé que pour trouver cette information, c'était une <b>action complexe (difficulté à 14)</b>.<br>
           <b>Hélios a réussi</b>, il trouve que la plante inconnue est un Hibicus moscheutos.
-        </div>
+        </ExpandBloc>
 
-        <div class="bloc-text margin-top-1 text-justify">
-          <div class="text-center"><i>Exemple n°2</i></div>
+        <ExpandBloc
+          :bloc-title="'Exemple n°2'"
+          :bloc-state="exampleChoice === 2"
+          @toggle="changeExampleChoice(2)">
           <b>Ophéliz</b> cherche à trancher les chaînes d'un prisonnier avec son épée.<br>
           C'est une épée longue (donc lourde), le MJ demandera un test de <b>Vigueur</b>.<br>
           Ophéliz a <b>2 en Vigueur</b>, elle lance <b>2D6</b> et fait... <b>6 et 6</b> ! C'est une <b>réussite critique</b> !
@@ -382,7 +386,7 @@
           <b>Le total est donc 17 + 4 + 2 - 4 = 19.</b><br>
           Le MJ avait décidé que pour trancher cette chaîne d'un seul coup, c'était une <b>action épique (difficulté à 30)</b>.<br>
           <b>Ophéliz n'a pas réussi</b>, mais la chaîne s'est un peu abîmée. Le MJ peut lui dire qu'à force la chaîne cédera peut-être...
-        </div>
+        </ExpandBloc>
       </template>
       <template v-if="systemChoice === 2">
         <div class="bloc-text margin-top-1 text-justify">

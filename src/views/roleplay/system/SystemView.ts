@@ -28,6 +28,7 @@ export default defineComponent({
     const persoChoice = ref(1);
     const caractChoice = ref(0);
     const systemChoice = ref(1);
+    const exampleChoice = ref(0);
     const fightChoice = ref(0);
     const groupChoice = ref("");
     const finitionChoice = ref(0);
@@ -35,7 +36,7 @@ export default defineComponent({
     return {
       caractDescriptionEnum,
       allRaces, allSpecialities, allGroups, allRoles,
-      persoChoice, caractChoice, groupChoice, finitionChoice, systemChoice, fightChoice,
+      persoChoice, caractChoice, groupChoice, finitionChoice, exampleChoice, systemChoice, fightChoice,
     };
   },
 
@@ -87,6 +88,11 @@ export default defineComponent({
     changeFinitionChoice(choice: number) {
       if (choice === this.finitionChoice) this.finitionChoice = 0;
       else this.finitionChoice = choice;
+    },
+
+    changeExampleChoice(choice: number) {
+      if (choice === this.exampleChoice) this.exampleChoice = 0;
+      else this.exampleChoice = choice;
     },
 
     changeSystemChoice(choice: number) {
