@@ -2,11 +2,11 @@ import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
 
-import AbilitiesForm from "./AbilitiesForm.vue";
-import CaractsForm from "./CaractsForm.vue";
-import CrystalForm from "./CrystalForm.vue";
-import IdentityForm from "./IdentityForm.vue";
-import RaceForm from "./RaceForm.vue";
+import AbilitiesForm from "./forms/AbilitiesForm.vue";
+import CaractsForm from "./forms/CaractsForm.vue";
+import CrystalForm from "./forms/CrystalForm.vue";
+import IdentityForm from "./forms/IdentityForm.vue";
+import RaceForm from "./forms/RaceForm.vue";
 
 export default defineComponent({
   name: "CreationView",
@@ -29,9 +29,11 @@ export default defineComponent({
   methods: {
     decreaseSelection(): void {
       this.selection--;
+      this.hasModification = false;
     },
     increaseSelection(): void {
       this.selection++;
+      this.hasModification = false;
     },
     changeModifs(): void {
       this.hasModification = true;
@@ -39,6 +41,9 @@ export default defineComponent({
     setSelection(newSelection: number): void {
       this.selection = newSelection;
     },
+    startCreation(): void {
+      this.selection = 1;
+    }
   },
 
   unmounted() {

@@ -60,5 +60,5 @@
   </div>
 </template>
 
-<style lang="scss" scoped src="./CreationView.scss"></style>
+<style lang="scss" scoped src="./../CreationView.scss"></style>
 <script lang="ts" src="./IdentityForm.ts"></script>

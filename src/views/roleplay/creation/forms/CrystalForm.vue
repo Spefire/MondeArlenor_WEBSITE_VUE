@@ -1,10 +1,11 @@
 <template>
   <div class="layout-left">
     <img
-      src="./../../../assets/images/about.png"
+      src="./../../../../assets/images/about.png"
       alt="">
   </div>
   <div class="layout-right creation-form">
+    <h2>Choix du cristal évolutif primaire</h2>
     <p>
       Merci à mes joueurs Laetitia, Jérôme, Jonathan et Sylvain qui m'ont accompagné lors de la création d'Arlénor.
       Merci à mes MJs d'autres univers qui m'ont énormément apporté en terme de conseils et de soutien.
@@ -34,5 +35,5 @@
   </div>
 </template>
 
-<style lang="scss" scoped src="./CreationView.scss"></style>
-<script lang="ts" src="./AbilitiesForm.ts"></script>
+<style lang="scss" scoped src="./../CreationView.scss"></style>
+<script lang="ts" src="./CrystalForm.ts"></script>
