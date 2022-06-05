@@ -3,13 +3,14 @@
 .creation-view {
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 90vh;
 
   .creation-content {
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    min-height: 70vh;
     width: 100%;
 
     @include tablet-only {
@@ -58,6 +59,11 @@
     @include mobile-only {
       height: auto;
     }
+  }
+
+  .creation-img-perso {
+    height: auto;
+    width: 100%;
   }
 
   .creation-nav-button {
