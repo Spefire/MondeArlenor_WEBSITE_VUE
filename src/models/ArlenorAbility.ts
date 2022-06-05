@@ -31,7 +31,7 @@ export class ArlenorAbility {
     else if (this.typeSkill.Code === AbilitiesEnum.TempsIncantation.Code) {
       this.image = require("./../assets/icons/abilities/incantation.png");
     }
-    else if (this.typeSkill.Code === AbilitiesEnum.TempsRechargement.Code) {
+    else if (this.typeSkill.Code === AbilitiesEnum.NombreUtilisation.Code) {
       this.image = require("./../assets/icons/abilities/rechargement.png");
     }
   }
@@ -41,6 +41,6 @@ export class AbilitiesEnum {
   // Compétences de groupe et de classe/spécialité
   static CompetenceArme: ArlenorEnum = { Code: "COMP_ARME", Libelle: "Compétence d'arme" };
   static CompetenceArmure: ArlenorEnum = { Code: "COMP_ARMURE", Libelle: "Compétence d'armure" };
-  static TempsRechargement: ArlenorEnum = { Code: "TEMPS_RECH", Libelle: "Temps de rechargement" };
   static TempsIncantation: ArlenorEnum = { Code: "TEMPS_INC", Libelle: "Temps d'incantation" };
+  static NombreUtilisation: ArlenorEnum = { Code: "NB_UTIL", Libelle: "Nombre d'utilisations" };
 }

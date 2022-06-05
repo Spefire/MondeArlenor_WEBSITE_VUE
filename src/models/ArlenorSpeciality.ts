@@ -11,7 +11,7 @@ export class ArlenorSpeciality {
   public weaponAbility: ArlenorAbility | null;
   public armorAbility: ArlenorAbility | null;
   public timeCastingAbility: ArlenorAbility | null;
-  public timeReloadingAbility: ArlenorAbility | null;
+  public numberUseAbility: ArlenorAbility | null;
 
   constructor(name: string, code: string, group: ArlenorGroup) {
     this.name = name;
@@ -22,7 +22,7 @@ export class ArlenorSpeciality {
     this.weaponAbility = null;
     this.armorAbility = null;
     this.timeCastingAbility = null;
-    this.timeReloadingAbility = null;
+    this.numberUseAbility = null;
   }
 
   public setAbilities(): void {
@@ -30,6 +30,6 @@ export class ArlenorSpeciality {
     this.weaponAbility = list.find(ability => ability.typeSkill === AbilitiesEnum.CompetenceArme) ?? null;
     this.armorAbility = list.find(ability => ability.typeSkill === AbilitiesEnum.CompetenceArmure) ?? null;
     this.timeCastingAbility = list.find(ability => ability.typeSkill === AbilitiesEnum.TempsIncantation) ?? null;
-    this.timeReloadingAbility = list.find(ability => ability.typeSkill === AbilitiesEnum.TempsRechargement) ?? null;
+    this.numberUseAbility = list.find(ability => ability.typeSkill === AbilitiesEnum.NombreUtilisation) ?? null;
   }
 }

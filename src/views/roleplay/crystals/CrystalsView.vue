@@ -71,13 +71,13 @@
               <span class="ability-txt">{{ currentSpeciality.timeCastingAbility.name }}</span>
             </div>
             <div 
-              v-if="currentSpeciality.timeReloadingAbility"
+              v-if="currentSpeciality.numberUseAbility"
               class="ability-line">
               <img
                 class="ability-img"
-                :src="currentSpeciality.timeReloadingAbility.image"
-                :alt="currentSpeciality.timeReloadingAbility.name">
-              <span class="ability-txt">{{ currentSpeciality.timeReloadingAbility.name }}</span>
+                :src="currentSpeciality.numberUseAbility.image"
+                :alt="currentSpeciality.numberUseAbility.name">
+              <span class="ability-txt">{{ currentSpeciality.numberUseAbility.name }}</span>
             </div>
           </div>
         </div>
@@ -173,7 +173,7 @@
               <span title="Jets de la cible">{{ getCodCaracts(selectedSkill.caractsTarget) }}</span>
             </div>
             <div class="margin-top-05">{{ getCasting(selectedSkill.timeCastingAbility) }}</div>
-            <div>{{ getReloading(selectedSkill.timeReloadingAbility) }}</div>
+            <div>{{ getReloading(selectedSkill.numberUseAbility) }}</div>
           </template>
           <template v-if="!selectedSkill">
             <div>Pas de compétence sélectionnée.</div>

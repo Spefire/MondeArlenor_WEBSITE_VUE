@@ -99,9 +99,9 @@ export default defineComponent({
       return "" + timeCastingAbility + " tours d'incantation";
     },
   
-    getReloading(timeReloadingAbility: number) {
-      if (!timeReloadingAbility) return "Pas de rechargement";
-      return "" + timeReloadingAbility + " tours de rechargement";
+    getReloading(numberUseAbility: number) {
+      if (!numberUseAbility) return "Utilisation illimitée";
+      return "" + numberUseAbility + " utilisations par repos long";
     },
 
     // Actions

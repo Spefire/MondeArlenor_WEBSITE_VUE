@@ -11,25 +11,25 @@ export function getListAbilities(): ArlenorAbility[] {
   const groups = new ArlenorGroups();
   const specialities = new ArlenorSpecialities();
 
-  // Temps de rechargement
+  // Limitation d'utilisation
   listAbilities = createAbility(listAbilities,
-    "Pas de temps de rechargement",
-    AbilitiesEnum.TempsRechargement,
+    "Pas de limitation d'utilisation",
+    AbilitiesEnum.NombreUtilisation,
     [], [specialities.DanseurMartial]
   );
   listAbilities = createAbility(listAbilities,
-    "Temps de rechargement rapide",
-    AbilitiesEnum.TempsRechargement,
+    "Peu de limitation d'utilisation",
+    AbilitiesEnum.NombreUtilisation,
     [], [specialities.Derviche, specialities.Elementaliste]
   );
   listAbilities = createAbility(listAbilities,
-    "Temps de rechargement normal",
-    AbilitiesEnum.TempsRechargement,
+    "Limitation normale d'utilisation",
+    AbilitiesEnum.NombreUtilisation,
     [groups.Gardien, groups.Bretteur, groups.Enchanteur, groups.Druide], [specialities.Createur],
   );
   listAbilities = createAbility(listAbilities,
-    "Temps de rechargement long",
-    AbilitiesEnum.TempsRechargement,
+    "Grande limitation d'utilisation",
+    AbilitiesEnum.NombreUtilisation,
     [groups.Assassin, groups.Invocateur, groups.Pretre, groups.Barde], [],
   );
 
@@ -153,13 +153,13 @@ export function getSpeAbilities(grpCode: string, speCode: string): ArlenorAbilit
     if (a.typeSkill === AbilitiesEnum.CompetenceArme) numA = 4;
     if (a.typeSkill === AbilitiesEnum.CompetenceArmure) numA = 3;
     if (a.typeSkill === AbilitiesEnum.TempsIncantation) numA = 2;
-    if (a.typeSkill === AbilitiesEnum.TempsRechargement) numA = 1;
+    if (a.typeSkill === AbilitiesEnum.NombreUtilisation) numA = 1;
 
     let numB = 0;
     if (b.typeSkill === AbilitiesEnum.CompetenceArme) numB = 4;
     if (b.typeSkill === AbilitiesEnum.CompetenceArmure) numB = 3;
     if (b.typeSkill === AbilitiesEnum.TempsIncantation) numB = 2;
-    if (b.typeSkill === AbilitiesEnum.TempsRechargement) numB = 1;
+    if (b.typeSkill === AbilitiesEnum.NombreUtilisation) numB = 1;
 
     return numB - numA;
   });
@@ -167,11 +167,11 @@ export function getSpeAbilities(grpCode: string, speCode: string): ArlenorAbilit
 }
 
 function getLibArme(lib: string): string {
-  return "Armes (" + lib + ")";
+  return "Bonus d'arme (" + lib + ")";
 }
 
 function getLibArmure(lib: string): string {
-  return "Armure (" + lib + ")";
+  return "Port d'armure (" + lib + ")";
 }
 
 function createAbility(listAbilities: ArlenorAbility[], name: string, typeAbility: ArlenorEnum, groups: ArlenorGroup[], specialities: ArlenorSpeciality[]): ArlenorAbility[] {
