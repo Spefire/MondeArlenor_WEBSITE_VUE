@@ -19,9 +19,15 @@ export default createStore({
       state.character.caracts.pou = payload.caracts.pou;
     },
     changeCharacterIdentity(state, payload: ArlenorCharacter) {
-      state.character.name = payload.name;
-      state.character.description = payload.description;
       state.character.avatar = payload.avatar;
+      state.character.name = payload.name;
+      state.character.age = payload.age;
+      state.character.gender = payload.gender;
+      state.character.story = payload.story;
+      state.character.description = payload.description;
+      state.character.traits = payload.traits;
+      state.character.belives = payload.belives;
+      state.character.importances = payload.importances;
     },
     resetCharacter(state) {
       state.character = new ArlenorCharacter();

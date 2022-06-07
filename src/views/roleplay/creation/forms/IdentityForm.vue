@@ -2,6 +2,24 @@
   <!-- Description de la caractéristique sélectionnée -->
   <div class="layout-left creation-form">
     <div class="creation-element">
+      <span>Nom du personnage <span required-libelle>*</span></span>
+      <input
+        type="text"
+        v-model.trim.lazy="v$.form.name.$model">
+    </div>
+    <div class="creation-element">
+      <span>Âge du personnage <span required-libelle>*</span></span>
+      <input
+        type="text"
+        v-model.trim.lazy="v$.form.age.$model">
+    </div>
+    <div class="creation-element">
+      <span>Genre du personnage <span required-libelle>*</span></span>
+      <input
+        type="text"
+        v-model.trim.lazy="v$.form.gender.$model">
+    </div>
+    <div class="creation-element">
       <span>Avatar du personnage</span>
       <label
         for="avatar"
@@ -24,16 +42,33 @@
   <!-- Description de la caractéristique sélectionnée -->
   <div class="layout-right creation-form">
     <div class="creation-element">
-      <span>Nom du personnage <span required-libelle>*</span></span>
+      <span>Description physique</span>
       <input
         type="text"
-        v-model.trim.lazy="v$.form.name.$model">
+        v-model.trim.lazy="v$.form.description.$model">
     </div>
-
     <div class="creation-element">
-      <span>Description du personnage <span required-libelle>*</span> (max : 440 caract.)</span>
+      <span>Traits de caractère</span>
+      <input
+        type="text"
+        v-model.trim.lazy="v$.form.traits.$model">
+    </div>
+    <div class="creation-element">
+      <span>Idéologies et croyances</span>
+      <input
+        type="text"
+        v-model.trim.lazy="v$.form.belives.$model">
+    </div>
+    <div class="creation-element">
+      <span>Personnes ou lieux significatifs</span>
+      <input
+        type="text"
+        v-model.trim.lazy="v$.form.importances.$model">
+    </div>
+    <div class="creation-element">
+      <span>Histoire personnelle et faits divers (max : 440 caract.)</span>
       <textarea
-        v-model.trim.lazy="v$.form.description.$model"
+        v-model.trim.lazy="v$.form.story.$model"
         maxlength="440" />
     </div>
 

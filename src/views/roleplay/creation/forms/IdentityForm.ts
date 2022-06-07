@@ -16,7 +16,13 @@ export default defineComponent({
       form: {
         avatar: store.state.character.avatar,
         name: store.state.character.name,
+        age: store.state.character.age,
+        gender: store.state.character.gender,
+        story: store.state.character.story,
         description: store.state.character.description,
+        traits: store.state.character.traits,
+        belives: store.state.character.belives,
+        importances: store.state.character.importances,
       },
       isModified: false,
       needConfirm: false,
@@ -32,10 +38,19 @@ export default defineComponent({
       name: {
         required
       },
-      description: {
-        required,
+      age: {
+        required
+      },
+      gender: {
+        required
+      },
+      story: {
         max: maxLength(440)
       },
+      description: {},
+      traits: {},
+      belives: {},
+      importances: {},
     },
   },
 
@@ -84,9 +99,15 @@ export default defineComponent({
     },
     save() {
       const newCharacter = new ArlenorCharacter();
-      newCharacter.name = this.form.name;
-      newCharacter.description = this.form.description;
       newCharacter.avatar = this.form.avatar;
+      newCharacter.name = this.form.name;
+      newCharacter.age = this.form.age;
+      newCharacter.gender = this.form.gender;
+      newCharacter.story = this.form.story;
+      newCharacter.description = this.form.description;
+      newCharacter.traits = this.form.traits;
+      newCharacter.belives = this.form.belives;
+      newCharacter.importances = this.form.importances;
       this.store.commit("changeCharacterIdentity", newCharacter);
     }
   }

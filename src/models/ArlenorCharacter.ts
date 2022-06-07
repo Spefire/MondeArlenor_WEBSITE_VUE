@@ -82,12 +82,18 @@ export class CaractDescriptionEnum {
 }
 
 export class ArlenorCharacter {
-  public name: string;
-  public description: string;
   public avatar: string;
+  public name: string;
+  public age: string;
+  public gender: string;
+  public story: string;
+  public description: string;
+  public traits: string;
+  public belives: string;
+  public importances: string;
   public race: ArlenorRace | null;
   public caracts: ArlenorCaracts;
-  
+
   get initiative(): number {
     return this.caracts.hab + this.caracts.int;
   }
@@ -105,9 +111,15 @@ export class ArlenorCharacter {
   }
 
   constructor() {
-    this.name = "";
-    this.description = "";
     this.avatar = "";
+    this.name = "";
+    this.age = "";
+    this.gender = "";
+    this.story = "";
+    this.description = "";
+    this.traits = "";
+    this.belives = "";
+    this.importances = "";
     this.race = null;
     this.caracts = new ArlenorCaracts();
   }
