@@ -86,27 +86,33 @@
             alt="">
         </div>
         <div class="layout-right creation-form">
-          <div class="bloc-text margin-top-1 text-justify">
-            &emsp;
-            Un personnage est défini par plusieurs choses : <b>ses caractéristiques</b> (et valeurs dérivées), <b>ses compétences principales</b>,
-            <b>sa race</b> (parmi celles jouables), <b>son cristal évolutif</b> (compétences spéciales ou sorts), pour ensuite finir par quelques finitions.
-            <br>&emsp;
-            Les caractéristiques définissent ce qu’est le personnage, et les compétences ce qu’il sait.
-            Votre personnage sera plus ou moins fort, plus ou moins intelligent, plus ou moins adroit.
-            Et c’est vous qui choisirez si, au cours de sa vie, il a appris à se battre ou s'il a préféré se tourner vers l'érudition,
-            ou encore, vers quel type de magie il s'est tourné...
-            <br>
-            <br>&emsp;
-            Cependant, malgré toutes les valeurs notées sur la fiche de personnage,
-            c'est VOUS qui le ferez vivre via ses actions : on choisit ce que l'on est par nos actes !
-            <br>&emsp;
-            Créez alors ici un nouveau personnage du Monde d'Arlénor...
+          
+          <div class="bloc-text creation-element zone-element zone-element-free">
+            <div
+              v-if="character"
+              class="zone-header">
+              <img
+                v-if="character.avatar"
+                class="zone-icon"
+                :src="character.avatar"
+                alt="">
+              <div class="text-center margin-left-1">
+                <h2>{{ character.name }}</h2>
+                <span>{{ character.age }} ans - {{ character.race.name }}</span>
+              </div>
+            </div>
+            <div class="zone-description margin-top-1 text-center">
+              Votre personnage est désormais fini, il ne reste plus qu'à lui donner vie !<br>
+              Vous pouvez télécharger alors sa fiche perso, en PDF, et la présenter à votre Maître du Jeu.<br>
+              <br><b>Bienvenue dans le Monde d'Arlénor !</b>
+            </div>
+            <button
+              class="link-button margin-top-1"
+              @click="downloadCharacter()">Télécharger la fiche perso</button>
           </div>
 
-          <div class="creation-nav-button">
-            <button
-              class="link-button"
-              @click="downloadCharacter()">Télécharger la fiche perso</button>
+          <div class="bloc-text margin-top-1 text-center">
+            Vous pouvez aussi recommencer un nouveau personnage, ou faire des ajustements sur l'actuel.
           </div>
 
           <div class="creation-nav-button">

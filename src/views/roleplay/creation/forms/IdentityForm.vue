@@ -1,5 +1,4 @@
 <template>
-  <!-- Description de la caractéristique sélectionnée -->
   <div class="layout-left creation-form">
     <div class="creation-element">
       <span>Avatar du personnage</span>
@@ -48,7 +47,6 @@
     </div>
   </div>
 
-  <!-- Description de la caractéristique sélectionnée -->
   <div class="layout-right creation-form">
     <div class="creation-element">
       <span>Description physique</span>

@@ -1,3 +1,4 @@
+import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { PageTitles } from "@/models/PagesTitles";
 import downloads from "@/utils/downloads";
 import { defineComponent, ref } from "vue";
@@ -27,6 +28,12 @@ export default defineComponent({
     return { store, selection, hasModification };
   },
   
+  computed: {
+    character(): ArlenorCharacter {
+      return this.store.state.character;
+    },
+  },
+
   methods: {
     decreaseSelection(): void {
       this.selection--;
@@ -54,7 +61,7 @@ export default defineComponent({
       this.selection = 1;
     },
     downloadCharacter(): void {
-      downloads.downloadPDF(this.store.state.character);
+      downloads.downloadPDF(this.character);
     }
   },
 
