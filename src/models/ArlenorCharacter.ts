@@ -83,6 +83,7 @@ export class CaractDescriptionEnum {
 }
 
 export class ArlenorCharacter {
+  public level: number | null;
   public avatar: string;
   public name: string;
   public age: number | null;
@@ -112,6 +113,7 @@ export class ArlenorCharacter {
   }
 
   constructor() {
+    this.level = 1;
     this.avatar = "";
     this.name = "";
     this.age = null;
@@ -126,15 +128,16 @@ export class ArlenorCharacter {
   }
 
   init(): void {
+    this.level = 1;
     this.avatar = "";
     this.name = "Jérémy Lécuyer (aka Spefire)";
     this.age = 22;
     this.gender = "Masculin (il)";
-    this.story = `Jérémy est un garçon ayant une peur bleue de la mort.
-    Il a perdu ses parents comme beaucoup de célestiens, lors d'une attaque de Wendigo :
-    il a vu la vie les quitter dans leurs yeux, et il espère ne jamais revoir ça.
-    Quand il a découvert ses pouvoirs, il en a eu peur, peur de ce que cela devait impliquer...
-    devoir un jour se battre contre les Wendigos.`;
+    this.story = "Jérémy est un garçon ayant une peur bleue de la mort."
+    + " Il a perdu ses parents comme beaucoup de célestiens, lors d'une attaque de Wendigo :"
+    + " il a vu la vie les quitter dans leurs yeux, et il espère ne jamais revoir ça."
+    + " Quand il a découvert ses pouvoirs, il en a eu peur, peur de ce que cela devait impliquer..."
+    + " devoir un jour se battre contre les Wendigos.";
     this.description = "Mince, Jeune, Débordant d'énergie, Souvent en feu";
     this.traits = "Amical, Empathique, Loyal, Coopératif, Protecteur";
     this.belives = "Croit au Destin, et cherche à protéger les plus faibles";

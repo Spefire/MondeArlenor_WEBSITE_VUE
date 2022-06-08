@@ -14,6 +14,10 @@
         }
     }
 
+    &.zone-element-semifree {
+        min-height: auto;
+    }
+
     @include mobile-only {
         min-height: auto;
         max-height: none;
