@@ -29,6 +29,10 @@ export default createStore({
       state.character.belives = payload.belives;
       state.character.importances = payload.importances;
     },
+    initCharacter(state) {
+      state.character = new ArlenorCharacter();
+      state.character.init();
+    },
     resetCharacter(state) {
       state.character = new ArlenorCharacter();
     },

@@ -1,4 +1,5 @@
 import { PageTitles } from "@/models/PagesTitles";
+import downloads from "@/utils/downloads";
 import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
 
@@ -43,6 +44,17 @@ export default defineComponent({
     },
     startCreation(): void {
       this.selection = 1;
+    },
+    passCreation(): void {
+      this.store.commit("initCharacter");
+      this.selection = 7;
+    },
+    restartCreation(): void {
+      this.store.commit("resetCharacter");
+      this.selection = 1;
+    },
+    downloadCharacter(): void {
+      downloads.downloadPDF(this.store.state.character);
     }
   },
 

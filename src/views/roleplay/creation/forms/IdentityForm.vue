@@ -23,6 +23,7 @@
       <span>Nom du personnage <span required-libelle>*</span></span>
       <input
         type="text"
+        class="text-center"
         v-model.trim.lazy="v$.form.name.$model">
     </div>
     <div class="creation-row">
@@ -30,6 +31,7 @@
         <span>Âge <span required-libelle>*</span></span>
         <input
           type="number"
+          class="text-center"
           min="1"
           max="200"
           placeholder="1-200"
@@ -39,6 +41,7 @@
         <span>Genre du personnage <span required-libelle>*</span></span>
         <input
           type="text"
+          class="text-center"
           placeholder="Masculin, féminin, indéterminé (il, elle, iel)..."
           v-model.trim.lazy="v$.form.gender.$model">
       </div>

@@ -1,5 +1,6 @@
 import { ArlenorEnum } from "./ArlenorEnum";
 import { ArlenorRace } from "./ArlenorRace";
+import { getListRaces } from "./data/ListRaces";
 
 class ArlenorCaracts {
   public vig: number;
@@ -13,7 +14,7 @@ class ArlenorCaracts {
     this.hab = 1;
     this.int = 1;
     this.cha = 1;
-    this.pou = 5;
+    this.pou = 1;
   }
 }
 
@@ -84,7 +85,7 @@ export class CaractDescriptionEnum {
 export class ArlenorCharacter {
   public avatar: string;
   public name: string;
-  public age: string;
+  public age: number | null;
   public gender: string;
   public story: string;
   public description: string;
@@ -113,7 +114,7 @@ export class ArlenorCharacter {
   constructor() {
     this.avatar = "";
     this.name = "";
-    this.age = "";
+    this.age = null;
     this.gender = "";
     this.story = "";
     this.description = "";
@@ -122,5 +123,29 @@ export class ArlenorCharacter {
     this.importances = "";
     this.race = null;
     this.caracts = new ArlenorCaracts();
+  }
+
+  init(): void {
+    this.avatar = "";
+    this.name = "Jérémy Lécuyer (aka Spefire)";
+    this.age = 22;
+    this.gender = "Masculin (il)";
+    this.story = `Jérémy est un garçon ayant une peur bleue de la mort.
+    Il a perdu ses parents comme beaucoup de célestiens, lors d'une attaque de Wendigo :
+    il a vu la vie les quitter dans leurs yeux, et il espère ne jamais revoir ça.
+    Quand il a découvert ses pouvoirs, il en a eu peur, peur de ce que cela devait impliquer...
+    devoir un jour se battre contre les Wendigos.`;
+    this.description = "Mince, Jeune, Débordant d'énergie, Souvent en feu";
+    this.traits = "Amical, Empathique, Loyal, Coopératif, Protecteur";
+    this.belives = "Croit au Destin, et cherche à protéger les plus faibles";
+    this.importances = "Son amie Elisa et son copain Zachary";
+    const races = getListRaces();
+    this.race = races[0];
+    this.caracts = new ArlenorCaracts();
+    this.caracts.vig = 2;
+    this.caracts.hab = 3;
+    this.caracts.int = 3;
+    this.caracts.cha = 2;
+    this.caracts.pou = 5;
   }
 }
