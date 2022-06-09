@@ -235,26 +235,35 @@
     <div class="bloc-text margin-top-1 text-justify">
       &emsp;
       Le jeu de rôle est un moyen de raconter des histoires, comme les romans ou le cinéma,
-      et les histoires sont toujours meilleures lorsqu'elles ont des héros crédibles.
+      et les histoires sont toujours meilleures lorsqu'elles ont des héros crédibles et profonds.
       Pour l'instant, votre personnage est un tas de chiffres gribouillés au crayon sur un formulaire.
       <br>&emsp;
       Pour lui insuffler un peu de vie, la première chose à faire est de remplir son "état civil".
-      Comment s'appelle votre personnage ? Le choix d'un nom est toujours un moment délicat.
+      <br>&emsp;
+      <b>Quel est son âge et son genre ?</b> Dans la campagne principale du Monde d'Arlénor, l'âge est forcément entre 20 et 30 ans.
+      <br>&emsp;
+      <b>Et... Comment s'appelle votre personnage ?</b> Le choix d'un nom est toujours un moment délicat.
       Évitez les noms ridicules ou connotés, car au bout de quelques parties, cela ne fera plus rire personne.
       Une fois baptisé, il reste à lui donner un peu de relief. Si le coeur vous en dit, prenez quelques minutes pour réfléchir aux points suivants...
     </div>
     <ExpandBloc
-      :bloc-title="'La description'"
+      :bloc-title="'Son avatar et sa description physique'"
       :bloc-state="finitionChoice === 1"
       @toggle="changeFinitionChoice(1)">
       &emsp;
       Il existe une foule de détails qu'aucun jet de dés ne définira à votre place.
       Quelle est la couleur des yeux de votre personnage ? Celle de ses cheveux ?
-      Est-il droitier ou gaucher ? Comment s'habille-t-il ? A-t- il des expressions favorites ?
-      Un accent ? Prenez aussi un moment pour regarder comment ses caractéristiques interagissent.
+      Est-il grand ? A-t-il une longue barbe ? Est-il élégant ?
+      Quelle est la première impression qu'il laisse ?<br>
+      <br>&emsp;
+      Voici quelques adjectifs pour vous aider :<br>
+      Sévère, Joli, Beau, Sensuel, Distingué, Sale, Jeune,
+      Gros, Las, Poilu, Bronzé, Ridé, Musclé, Pâle, Insipide.<br>
+      <br>&emsp;
+      Et il n'y a rien de mieux qu'une image, un avatar pour compléter son profil !
     </ExpandBloc>
     <ExpandBloc
-      :bloc-title="'Le comportement'"
+      :bloc-title="'Son trait de caractère, idéologies, croyances et éléments significatifs'"
       :bloc-state="finitionChoice === 2"
       @toggle="changeFinitionChoice(2)">
       &emsp;
@@ -262,20 +271,30 @@
       A-t-il des goûts particuliers ? Des choses dont il a horreur ? Une passion pour les rousses ?
       L'habitude de commander un poulet rôti et de la tarte au citron dans toutes les auberges où il déjeune ?
       Essayez de trouver un ou deux détails qui le caractériseront, mais limitez-vous à cela.
-      Sinon votre personnage risque d'être une collection de tics.
+      Sinon votre personnage risque d'être une collection de tics.<br>
+      <br>&emsp;
+      Voici quelques exemples pour vous aider :<br>
+      Généreux, Fan des oiseaux, Rêveur, Parieur, Audacieux, Réservé,
+      Séducteur, Loyal, Populaire, Intellectuel, Persévérant, Agressif.<br>
+      <br>&emsp;
+      Au niveau des idéologies et de ses croyances, est-ce que votre personnage tolère les mutants ? Ou plussoie leur extermination ?
+      Est-ce qu'il prie Arlénor ? Adule-t-il une divinité en particulier ? Croit-il plutôt en la science ?
+      Se fie-t-il au Destin ? Et qu'est-ce qui lui tient à coeur ? Une proche, parent ou ami, un professeur... une personnne récemment décédée ?
+      Ou est-ce plutôt un lieu particulier qui lui sert de refuge, de sanctuaire ?
     </ExpandBloc>
     <ExpandBloc
-      :bloc-title="'L\'histoire personnelle'"
+      :bloc-title="'Son histoire personnelle et ses faits divers'"
       :bloc-state="finitionChoice === 3"
       @toggle="changeFinitionChoice(3)">
       &emsp;
       Maintenant que vous avez une assez bonne image de lui dans le présent,
-      remontez un peu dans son passé (vous pouvez aussi partir de son passé et construire son apparence présente à partir de là.
-      Les deux méthodes marchent aussi bien l'une que l'autre,
-      l'essentiel est que vous vous sentiez à l'aise avec celle que vous choisirez).
-      Où a-t-il grandi ? A-t-il des amis ? De la famille ? Quelles sont ses relations avec eux ?
-      Pourquoi ? Dans la campagne principale du Monde d'Arlénor, les personnages joueurs, seront obligatoirement
-      des enfants adoptés par une famille, et ne connaissent pas leurs véritables parents, ni même ce qu'il s'est passé avant leur adoption. 
+      remontez un peu dans son passé. Où a-t-il grandi ? A-t-il des amis ? De la famille ? Quelles sont ses relations avec eux ?<br>
+      <br>&emsp;
+      Dans la campagne principale du Monde d'Arlénor, les personnages joueurs, seront obligatoirement
+      des enfants adoptés par une famille, et ne connaissent pas leurs véritables parents, ni même ce qu'il s'est passé avant leur adoption.?<br>
+      <br>&emsp;
+      De plus, avec le temps et le jeu, votre personnage évoluera et effectuera des actions épiques (ou l'inverse).
+      Ce sera le bon moment pour les noter ! Votre personnage sera connu "pour ça" !
     </ExpandBloc>
   </template>
 </template>
