@@ -83,19 +83,19 @@
       <div class="races-top">
         <div class="races-grid docs-grid-list">
           <div
-            v-for="(capacity, index) in getCapacities(currentRace.code)"
+            v-for="(ability, index) in getAbilities(currentRace.code)"
             class="docs-grid-element"
             :key="index">
             <img
-              :src="capacity.image"
-              :alt="capacity.name">
+              :src="ability.image"
+              :alt="ability.name">
             <div class="docs-grid-infos">
               <div class="docs-grid-header">
-                <span class="text-bold">{{ capacity.name }}</span>
+                <span class="text-bold">{{ ability.name }}</span>
               </div>
               <p
                 class="docs-grid-body"
-                v-html="capacity.description" />
+                v-html="ability.description" />
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import HeadLayout from "@/components/head-layout/HeadLayout.vue";
 import { ArlenorRace } from "@/models/ArlenorRace";
-import { getListCapacities } from "@/models/data/ListCapacities";
+import { getListRaceAbilities } from "@/models/data/ListAbilities";
 import { getListRaces } from "@/models/data/ListRaces";
 import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
@@ -15,14 +15,14 @@ export default defineComponent({
   setup() {
     const currentIndex = ref(0);
     const allRaces = ref(getListRaces());
-    const allCapacities = ref(getListCapacities());
+    const allAbilities = ref(getListRaceAbilities());
 
     const previousImage = ref("");
     const currentImage = ref("");
     const nextImage = ref("");
 
     const title = PageTitles.races;
-    return { title, allRaces, allCapacities, currentIndex, previousImage, currentImage, nextImage };
+    return { title, allRaces, allAbilities, currentIndex, previousImage, currentImage, nextImage };
   },
 
   mounted() {
@@ -71,8 +71,8 @@ export default defineComponent({
       this.updateRace();
     },
 
-    getCapacities(raceCode: string) {
-      return this.allCapacities.filter(cap => cap.race.code === raceCode);
+    getAbilities(raceCode: string) {
+      return this.allAbilities.filter(abl => abl.race && abl.race.code === raceCode);
     }
   }
 });

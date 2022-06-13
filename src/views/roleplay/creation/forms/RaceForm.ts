@@ -1,6 +1,6 @@
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { ArlenorRace, DifficultyEnum } from "@/models/ArlenorRace";
-import { getListCapacities } from "@/models/data/ListCapacities";
+import { getListRaceAbilities } from "@/models/data/ListAbilities";
 import { getListRaces } from "@/models/data/ListRaces";
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
@@ -15,11 +15,11 @@ export default defineComponent({
   data() {
     const store = useStore();
     const allRaces = getListRaces().filter(race => race.difficulty !== DifficultyEnum.Impossible.Code);
-    const allCapacities = getListCapacities();
+    const allAbilities = getListRaceAbilities();
     return {
       store,
       allRaces,
-      allCapacities,
+      allAbilities,
       form: {
         raceCode: store.state.character.race?.code || allRaces[0].code,
       },
@@ -50,8 +50,8 @@ export default defineComponent({
   },
 
   methods: {
-    getCapacities(raceCode: string) {
-      return this.allCapacities.filter(cap => cap.race.code === raceCode);
+    getAbilities(raceCode: string) {
+      return this.allAbilities.filter(abl => abl.race && abl.race.code === raceCode);
     },
     updateForm() {
       this.isModified = true;

@@ -27,8 +27,8 @@ export class ArlenorSpeciality {
 
   public setAbilities(): void {
     const list = getSpeAbilities(this.group.code, this.code);
-    this.weaponAbility = list.find(ability => ability.typeSkill === AbilitiesEnum.CompetenceArme) ?? null;
-    this.armorAbility = list.find(ability => ability.typeSkill === AbilitiesEnum.CompetenceArmure) ?? null;
+    this.weaponAbility = list.find(ability => ability.typeSkill === AbilitiesEnum.AbiliteArme) ?? null;
+    this.armorAbility = list.find(ability => ability.typeSkill === AbilitiesEnum.AbiliteArmure) ?? null;
     this.timeCastingAbility = list.find(ability => ability.typeSkill === AbilitiesEnum.TempsIncantation) ?? null;
     this.numberUseAbility = list.find(ability => ability.typeSkill === AbilitiesEnum.NombreUtilisation) ?? null;
   }
