@@ -93,7 +93,7 @@
               class="zone-header">
               <img
                 v-if="character.avatar"
-                class="zone-icon"
+                class="zone-icon img-rounded"
                 :src="character.avatar"
                 alt="">
               <div class="text-center margin-left-1">

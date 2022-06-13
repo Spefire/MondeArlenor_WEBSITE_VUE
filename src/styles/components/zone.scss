@@ -46,10 +46,14 @@
     }
 
     .zone-icon {
-        height: 100px;
-        width: 100px;
-        border-radius: 50%;
+        height: 100px !important;
+        width: 100px !important;
         border: 1px solid $secondary-color;
+
+        &.is-little {
+            height: 50px !important;
+            width: 50px !important;
+        }
     }
 
     .zone-image + .zone-header {

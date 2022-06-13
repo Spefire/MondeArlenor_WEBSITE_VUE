@@ -38,7 +38,7 @@
         :key="indexResult">
         <div class="zone-header">
           <img
-            class="zone-icon"
+            class="zone-icon img-rounded"
             :src="result.image"
             alt="">
           <div class="text-center margin-left-1">
