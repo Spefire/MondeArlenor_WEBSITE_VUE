@@ -56,11 +56,13 @@ export class ArlenorAbility {
 }
 
 export class AbilitiesEnum {
-  // Abilites de race
+  // Abilités de race
   static AbiliteRace: ArlenorEnum = { Code: "ABL_RACE", Libelle: "Abilité de race" };
   // Abilités de groupe et de classe/spécialité
   static AbiliteArme: ArlenorEnum = { Code: "ABL_ARME", Libelle: "Abilité d'arme" };
   static AbiliteArmure: ArlenorEnum = { Code: "ABL_ARMURE", Libelle: "Abilité d'armure" };
   static TempsIncantation: ArlenorEnum = { Code: "TEMPS_INC", Libelle: "Temps d'incantation" };
   static NombreUtilisation: ArlenorEnum = { Code: "NB_UTIL", Libelle: "Nombre d'utilisations" };
+  // Autres abilités
+  static AbiliteAutre: ArlenorEnum = { Code: "ABL_OTHER", Libelle: "Autre abilité" };
 }

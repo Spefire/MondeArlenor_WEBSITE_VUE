@@ -334,3 +334,13 @@ export function getListRaceAbilities(raceCode = ""): ArlenorAbility[] {
   });
   return list;
 }
+
+export function getListOtherAbilities(): ArlenorAbility[] {
+  const listAbilities: ArlenorAbility[] = getListGrpSpeAbilities()
+    .filter(abl => abl.typeSkill.Code === AbilitiesEnum.AbiliteArme.Code || abl.typeSkill.Code === AbilitiesEnum.AbiliteArmure.Code);
+
+  const abl00 = new ArlenorAbility("Autre abilité 00", AbilitiesEnum.AbiliteAutre);
+  listAbilities.push(abl00);
+
+  return listAbilities;
+}
