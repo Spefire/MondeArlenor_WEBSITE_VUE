@@ -1,10 +1,18 @@
 <template>
   <div class="layout-view background-roleplay creation-view">
 
-    <h2 class="text-center">
+    <h2 class="text-center margin-bottom-0">
       Création de personnage
       <span v-if="hasModification">(*)</span>
     </h2>
+    <h3 class="text-center">
+      <template v-if="selection == 1">Choix de la race</template>
+      <template v-if="selection == 2">Choix des caractéristiques</template>
+      <template v-if="selection == 3">Choix des compétences</template>
+      <template v-if="selection == 4">Choix du cristal primaire</template>
+      <template v-if="selection == 5">Choix du cristal secondaire</template>
+      <template v-if="selection == 6">Choix de l'identité</template>
+    </h3>
 
     <div class="creation-content">
       
