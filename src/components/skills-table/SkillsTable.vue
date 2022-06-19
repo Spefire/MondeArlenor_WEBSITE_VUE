@@ -67,7 +67,7 @@
         v-for="(skill, index) in filteredSkills"
         :key="index">
         <tr
-          class="line-table to-select"
+          class="line-table"
           :class="{ selected : selectedSkill === skill }"
           @click="seeMore(skill)">
           <td class="col-05">

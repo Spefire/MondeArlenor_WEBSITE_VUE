@@ -97,46 +97,72 @@
 
   <div class="layout-right creation-form">
     <div class="creation-element">
-      <span>Sélection des compétences / sorts <span required-libelle>*</span></span>
+      <span>Choix des capacités magiques <span required-libelle>*</span></span>
 
-      <table class="bloc-text margin-top-1">
+      <div 
+        v-if="!selectedSpeciality"
+        class="bloc-text margin-top-1">
+        Pas de classe sélectionnée.
+      </div>
+
+      <table 
+        v-if="selectedSpeciality"
+        class="bloc-text margin-top-1">
         <thead>
           <tr>
             <th
               colspan="2"
-              class="col-60">Nom</th>
-            <th class="col-40">Description</th>
+              class="col-80">Nom de la capacité magique</th>
+            <th class="col-20">Choisir ?</th>
           </tr>
         </thead>
         <tbody>
           <template
-            v-for="(skill, index) in filteredSkills"
-            :key="index">
-            <tr
-              class="line-table to-select"
-              :class="{ selected : selectedSkill?.code === skill.code }"
-              @click="seeMore(skill)">
-              <td class="col-05">
-                <img
-                  v-if="skill.image"
-                  :src="skill.image"
-                  :alt="skill.typeSkill.Libelle">
-              </td>
-              <td class="col-55">{{ skill.name }}</td>
-              <td class="col-40">
-                {{ skill.group.name }}
-                <i
-                  class="margin-left-05"
-                  :class="skill.group.role.icon + ' ' + skill.group.color" />
+            v-for="(level, indexLevel) in levels"
+            :key="indexLevel">
+            <tr class="line-table">
+              <td
+                colspan="3"
+                class="full-width">
+                <div class="creation-table-separator">
+                  <span class="creation-table-line" />
+                  <span class="creation-table-title">Niveau {{ getLibLevel(level) }} (1 / 3)</span>
+                  <span class="creation-table-line" />
+                </div>
               </td>
             </tr>
-            <tr
-              v-if="selectedSkill?.code === skill.code"
-              class="line-table selected">
-              <td colspan="3">
-                <p>{{ skill.description ? skill.description : "Aucune description disponible" }}</p>
-              </td>
-            </tr>
+            <template
+              v-for="(skill, index) in getSkillsByLevel(level)"
+              :key="index">
+              <tr
+                class="line-table"
+                :class="{ selected : selectedSkill?.code === skill.code }">
+                <td class="col-20">
+                  <img
+                    v-if="skill.image"
+                    class="creation-img-skill"
+                    :src="skill.image"
+                    :alt="skill.typeSkill.Libelle">
+                </td>
+                <td 
+                  class="col-60 pointer"
+                  @click="seeMore(skill)">
+                  {{ skill.name }}
+                </td>
+                <td class="col-20">
+                  <input
+                    type="checkbox"
+                    @change="addSkill(skill)">
+                </td>
+              </tr>
+              <tr
+                v-if="selectedSkill?.code === skill.code"
+                class="line-table selected">
+                <td colspan="3">
+                  <p>{{ skill.description ? skill.description : "Aucune description disponible" }}</p>
+                </td>
+              </tr>
+            </template>
           </template>
         </tbody>
       </table>

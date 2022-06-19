@@ -29,12 +29,14 @@ export default defineComponent({
     
     const selectedSpeciality: Ref<ArlenorSpeciality | null> = ref(null);
     const selectedSpeCode: Ref<string | null> = ref(null);
+    const levels: Ref<number[]> = ref([]);
 
     return {
       store,
       selectedSkill,
       selectedGrpCode, selectedGroup,
       selectedSpeCode, selectedSpeciality,
+      levels,
       form: {},
       isModified: false,
       needConfirm: false,
@@ -79,14 +81,33 @@ export default defineComponent({
       this.selectedSpeCode = null;
     },
     changeSpeciality() {
+      function onlyUnique(value: number, index: number, self: number[]) {
+        return self.indexOf(value) === index;
+      }
       this.selectedSpeciality = this.selectedSpeCode ? this.allSpecialities.find(spe => spe.code == this.selectedSpeCode) || null : null;
       if (this.selectedSpeciality) {
         this.selectedGroup = this.selectedSpeciality.group;
         this.selectedGrpCode = this.selectedSpeciality.group.code;
+
+        // Mise à jour des niveaux
+        this.levels = this.filteredSkills.map(skill => skill.level).filter(onlyUnique);
+        this.levels.sort((a, b) => a - b);
       }
     },
     seeMore(skill: ArlenorSkill) {
       this.selectedSkill = (this.selectedSkill?.code === skill.code) ? null : skill;
+    },
+
+    getLibLevel(level: number) {
+      if (level === 1) return "inférieur";
+      else if (level === 2) return "intermédiaire";
+      else return "supérieur";
+    },
+    getSkillsByLevel(level: number) {
+      return this.filteredSkills.filter(skill => skill.level === level);
+    },
+    addSkill(skill: ArlenorSkill) {
+      console.warn(skill);
     },
 
     updateForm() {

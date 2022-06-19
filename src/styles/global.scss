@@ -140,6 +140,32 @@ input[type="number"] {
   }
 }
 
+input[type="checkbox"] {
+  appearance: none;
+  height: 18px;
+  width: 18px;
+  border: 1px solid $secondary-color;
+  border-radius: 4px;
+  background-color: $white-color;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    display: block;
+    height: 12px;
+    width: 12px;
+    margin: 2px;
+    border-radius: 2px;
+    transform: scale(0);
+    transition: 100ms transform ease-in-out;
+    background: $black-color;
+  }
+
+  &:checked::before {
+    transform: scale(1);
+  }
+}
+
 input[type="range"] {
   height: 6px;
   width: 100%;
@@ -330,5 +356,9 @@ table {
 
   .col-60 {
     width: 60%;
+  }
+
+  .col-80 {
+    width: 80%;
   }
 }

@@ -13,12 +13,14 @@
         background-color: rgba($white-color, 0.2) !important;
     }
 
-    &.to-select {
-        cursor: pointer;
-    }
-
     &.selected {
         background-color: rgba($white-color, 0.2) !important;
+    }
+
+    td {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     img {

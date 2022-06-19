@@ -73,10 +73,42 @@
     padding: 0;
   }
 
+  .creation-img-skill {
+    height: 32px;
+    border: 1px solid $secondary-color;
+    pointer-events: none;
+  }
+
   .creation-nav-button {
     display: flex;
     justify-content: space-evenly;
     margin-top: 10px;
+  }
+
+  .creation-table-separator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: calc(100% + 10px);
+    margin: 0 -5px;
+
+    .creation-table-line {
+      display: block;
+      height: 1px;
+      width: 100%;
+      background: $secondary-color;
+    }
+
+    .creation-table-title {
+      display: block;
+      width: fit-content;
+      margin: 10px auto;
+      padding: 0 10px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      border: 1px solid $secondary-color;
+      background: $black-color;
+    }
   }
 
   .race-grid {
