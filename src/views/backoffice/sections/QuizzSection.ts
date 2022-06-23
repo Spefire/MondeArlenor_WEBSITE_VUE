@@ -1,21 +1,16 @@
-import { CelestiaQuizz, CelestiaResult, getListResults } from "@/models/CelestiaQuizz";
-import { PageTitles } from "@/models/PagesTitles";
+import { CelestiaQuizz } from "@/models/CelestiaQuizz";
 import api from "@/utils/api";
 import { defineComponent, Ref, ref } from "vue";
 
 export default defineComponent({
-  name: "AnswersView",
-  title: PageTitles.answers,
+  name: "QuizzSection",
   components: {},
     
   setup() {
-    const results = getListResults();
     const newQuizz: Ref<CelestiaQuizz> = ref(new CelestiaQuizz());
-    const allResults: Ref<CelestiaResult[]> = ref(results);
     const allQuizz: Ref<CelestiaQuizz[]> = ref([]);
-    const currentQuizz: Ref<CelestiaQuizz | null> = ref(null);
 
-    return { newQuizz, allResults, allQuizz, currentQuizz };
+    return { newQuizz, allQuizz };
   },
 
   mounted() {
@@ -38,15 +33,6 @@ export default defineComponent({
       else return false;
     },
 
-    getPourcentResult(resultCode: string) {
-      if (!this.allQuizz.length) return 100;
-      let nbSame = 0;
-      this.allQuizz.forEach((quizz: CelestiaQuizz) => {
-        if (quizz.result.code === resultCode) nbSame++;
-      });
-      return Math.round((nbSame / this.allQuizz.length) * 100);
-    },
-
     getPourcentQuestion(indexQuestion: number, value: string) {
       if (!this.allQuizz.length) return 100;
       let nbSame = 0;
@@ -54,20 +40,6 @@ export default defineComponent({
         if (quizz.questions[indexQuestion].selection === value) nbSame++;
       });
       return Math.round((nbSame / this.allQuizz.length) * 100);
-    },
-
-    getLibFireWater(quizz: CelestiaQuizz) {
-      const value = quizz.fire - quizz.water;
-      if (value > 3) return "Dominance du Feu";
-      if (value < -3) return "Dominance de l'Eau";
-      return "Aucune dominance";
-    },
-
-    getLibWindEarth(quizz: CelestiaQuizz) {
-      const value = quizz.wind - quizz.earth;
-      if (value > 3) return "Dominance de l'Air";
-      if (value < -3) return "Dominance de la Terre";
-      return "Aucune dominance";
     },
   }
 });

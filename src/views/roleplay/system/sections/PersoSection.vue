@@ -9,39 +9,39 @@
     Et c’est vous qui choisirez si, au cours de sa vie, il a appris à se battre ou s'il a préféré se tourner vers l'érudition,
     ou encore, vers quel type de magie il s'est tourné...
   </div>
-  <div class="bloc-text system-nav margin-top-1">
+  <div class="bloc-text onglets-nav margin-top-1">
     <span
-      class="system-nav-item"
+      class="onglets-nav-item"
       :class="{ selected : persoChoice === 1 }"
       @click="changePersoChoice(1)">
       1) Les caractéristiques
     </span>
     <span
-      class="system-nav-item"
+      class="onglets-nav-item"
       :class="{ selected : persoChoice === 2 }"
       @click="changePersoChoice(2)">
       2) Les valeurs dérivées
     </span>
     <span
-      class="system-nav-item"
+      class="onglets-nav-item"
       :class="{ selected : persoChoice === 3 }"
       @click="changePersoChoice(3)">
       3) Les races jouables
     </span>
     <span
-      class="system-nav-item"
+      class="onglets-nav-item"
       :class="{ selected : persoChoice === 4 }"
       @click="changePersoChoice(4)">
       4) Les compétences principales
     </span>
     <span
-      class="system-nav-item"
+      class="onglets-nav-item"
       :class="{ selected : persoChoice === 5 }"
       @click="changePersoChoice(5)">
       5) Les cristaux évolutifs
     </span>
     <span
-      class="system-nav-item"
+      class="onglets-nav-item"
       :class="{ selected : persoChoice === 6 }"
       @click="changePersoChoice(6)">
       6) Les finitions
@@ -299,5 +299,4 @@
   </template>
 </template>
 
-<style lang="scss" scoped src="../SystemView.scss"></style>
 <script lang="ts" src="./PersoSection.ts"></script>

@@ -4,21 +4,21 @@
     Le système de jeu est une partie importante du jeu de rôles, puisque c’est grâce à lui que vous savez si votre personnage,
     au cours du jeu, réussit ou non les actions qu’il entreprend.
   </div>
-  <div class="bloc-text system-nav margin-top-1">
+  <div class="bloc-text onglets-nav margin-top-1">
     <span
-      class="system-nav-item"
+      class="onglets-nav-item"
       :class="{ selected : systemChoice === 1 }"
       @click="changeSystemChoice(1)">
       1) Les tests et difficultés
     </span>
     <span
-      class="system-nav-item"
+      class="onglets-nav-item"
       :class="{ selected : systemChoice === 2 }"
       @click="changeSystemChoice(2)">
       2) Le combat et les actions possibles
     </span>
     <span
-      class="system-nav-item"
+      class="onglets-nav-item"
       :class="{ selected : systemChoice === 3 }"
       @click="changeSystemChoice(3)">
       3) L'expérience et les niveaux
@@ -163,5 +163,4 @@
   </template>
 </template>
 
-<style lang="scss" scoped src="../SystemView.scss"></style>
 <script lang="ts" src="./RulesSection.ts"></script>

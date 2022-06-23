@@ -1,7 +1,6 @@
 import { PageTitles } from "@/models/PagesTitles";
 import AboutView from "@/views/about/AboutView.vue";
 import BackofficeView from "@/views/backoffice/BackofficeView.vue";
-import AnswersView from "@/views/celestia/AnswersView.vue";
 import CelestiaView from "@/views/celestia/CelestiaView.vue";
 import HomeView from "@/views/home/HomeView.vue";
 import LegacyView from "@/views/legacy/LegacyView.vue";
@@ -29,7 +28,6 @@ const routes: Array<RouteRecordRaw> = [
   { path: "/roleplay/creation", name: "creation", component: CreationView, meta: { title: PageTitles.creation }},
 
   { path: "/celestia", name: "celestia", component: CelestiaView, meta: { title: PageTitles.celestia }},
-  { path: "/celestia/answers", name: "answers", component: AnswersView, meta: { title: PageTitles.answers }},
 
   { path: "/backoffice", name: "backoffice", component: BackofficeView, meta: { title: PageTitles.backoffice }},
   { path: "/legacy", name: "legacy", component: LegacyView, meta: { title: PageTitles.legacy }},

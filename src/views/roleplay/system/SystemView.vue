@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-view system-view background-roleplay">
+  <div class="layout-view background-roleplay">
     <div class="layout-center large">
       <h2>Les composantes d'un personnage</h2>
       <PersoSection />
@@ -8,7 +8,7 @@
 
   <div little-separator />
 
-  <div class="layout-view system-view background-roleplay">
+  <div class="layout-view background-roleplay">
     <div class="layout-center large">
       <h2>Les règles du système</h2>
       <RulesSection />
@@ -16,5 +16,4 @@
   </div>
 </template>
 
-<style lang="scss" scoped src="./SystemView.scss"></style>
 <script lang="ts" src="./SystemView.ts"></script>
