@@ -1,71 +1,73 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { ArlenorCharacter } from "@/models/ArlenorCharacter";
+import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { CelestiaQuizz } from "@/models/CelestiaQuizz";
 
-const readAllQuizz = async(): Promise<CelestiaQuizz[]>  => {
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("x-api-key", process.env.VUE_APP_API_KEY);
-  
-  const result: CelestiaQuizz[] = [];
+import { ResponseQuizz } from "./api_models";
+import requests from "./requests";
 
-  try {
-    return await fetch("https://ibq1mym018.execute-api.eu-west-3.amazonaws.com/production/quizz",
-      {
-        method: "GET",
-        headers: myHeaders,
-        mode: "cors",
-        cache: "default",
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.statusCode === 200) {
-          const objs = JSON.parse(data.body);
-          objs.forEach((obj: any) => {
-            const quizz = new CelestiaQuizz();
-            quizz.initByJSON(obj.value_quizz);
-            result.push(quizz);
-          });
-          return result;
-        } else {
-          console.error("Error:", data.body);
-          return result;
-        }
-      });
-  } catch (err) {
-    console.error("Error:", err);
-  }
-  return result;
+// --- QUIZZ ---------------------------------------------------------------------------
+const readAllQuizz = async(): Promise<CelestiaQuizz[]>  => {
+  const results: ResponseQuizz[] = await requests.requestGet("quizz");
+
+  const finalResults: CelestiaQuizz[] = [];
+  results.forEach((obj: ResponseQuizz) => {
+    const quizz = new CelestiaQuizz();
+    quizz.id = obj.ref_quizz;
+    quizz.initByJSON(obj.value_quizz);
+    finalResults.push(quizz);
+  });
+
+  return finalResults;
 };
 
 const sendQuizz = async(quizz: CelestiaQuizz): Promise<string> => {
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("x-api-key", process.env.VUE_APP_API_KEY);
+  const result: string = await requests.requestPost("quizz", quizz);
+  return result;
+};
 
-  try {
-    return await fetch("https://ibq1mym018.execute-api.eu-west-3.amazonaws.com/production/quizz",
-      {
-        method: "POST",
-        headers: myHeaders,
-        mode: "cors",
-        cache: "default",
-        body: JSON.stringify(quizz),
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.statusCode === 200) {
-          return JSON.parse(data.body);
-        } else {
-          console.error("Error:", data.body);
-        }
-      });
-  } catch (err) {
-    console.error("Error:", err);
-  }
-  return "";
+// --- CHARACTER ---------------------------------------------------------------------------
+const readAllCharacter = async(): Promise<ArlenorCharacter[]>  => {
+  const result: ArlenorCharacter[] = await requests.requestGet("character");
+  return result;
+};
+
+const sendCharacter = async(character: ArlenorCharacter): Promise<string> => {
+  const result: string = await requests.requestPost("character", character);
+  return result;
+};
+
+// --- SKILL ---------------------------------------------------------------------------
+const readAllSkill = async(): Promise<ArlenorSkill[]>  => {
+  const result: ArlenorSkill[] = await requests.requestGet("skill");
+  return result;
+};
+
+const sendSkill = async(skill: ArlenorSkill): Promise<string> => {
+  const result: string = await requests.requestPost("skill", skill);
+  return result;
+};
+
+// --- POWER ---------------------------------------------------------------------------
+class ArlenorPower {}
+
+const readAllPower = async(): Promise<ArlenorPower[]>  => {
+  const result: ArlenorPower[] = await requests.requestGet("power");
+  return result;
+};
+
+const sendPower = async(power: ArlenorPower): Promise<string> => {
+  const result: string = await requests.requestPost("power", power);
+  return result;
 };
 
 export default {
-  readAllQuizz: readAllQuizz,
-  sendQuizz: sendQuizz,
+  readAllQuizz,
+  readAllCharacter,
+  readAllSkill,
+  readAllPower,
+  sendQuizz,
+  sendCharacter,
+  sendSkill,
+  sendPower,
 };

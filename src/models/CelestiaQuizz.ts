@@ -111,6 +111,7 @@ class CelestiaQuestion {
 }
 
 export class CelestiaQuizz {
+  public id = "";
   public hour = "00:00";
   public date = "01/01/1990";
   public questions: CelestiaQuestion[];
@@ -342,8 +343,8 @@ export class CelestiaQuizz {
     ];
   }
 
-  public initByJSON(value_quizz: string): void {
-    const quizzDB = JSON.parse(value_quizz);
+  public initByJSON(value: string): void {
+    const quizzDB = JSON.parse(value);
     this.date = quizzDB.date;
     this.hour = quizzDB.hour;
     this.version = quizzDB.version;
