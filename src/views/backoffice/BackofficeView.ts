@@ -1,6 +1,7 @@
 import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
 
+import CharactersSection from "./sections/CharactersSection.vue";
 import PowersSection from "./sections/PowersSection.vue";
 import QuizzSection from "./sections/QuizzSection.vue";
 import ResultsSection from "./sections/ResultsSection.vue";
@@ -10,6 +11,7 @@ export default defineComponent({
   name: "BackofficeView",
   title: PageTitles.backoffice,
   components: {
+    CharactersSection,
     PowersSection,
     QuizzSection,
     ResultsSection,

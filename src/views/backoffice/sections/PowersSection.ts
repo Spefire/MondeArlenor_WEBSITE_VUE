@@ -1,4 +1,4 @@
-import { CelestiaQuizz } from "@/models/CelestiaQuizz";
+import { ArlenorPower } from "@/models/ArlenorPower";
 import api from "@/utils/api";
 import { defineComponent, Ref, ref } from "vue";
 
@@ -7,18 +7,19 @@ export default defineComponent({
   components: {},
     
   setup() {
-    const allQuizz: Ref<CelestiaQuizz[]> = ref([]);
-    return { allQuizz };
+    const allPowers: Ref<ArlenorPower[]> = ref([]);
+    return { allPowers };
   },
 
   mounted() {
-    this.loadQuizz();
+    this.loadPowers();
   },
 
   methods: {
-    async loadQuizz() {
-      const allQuizz = await api.readAllQuizz();
-      this.allQuizz = allQuizz;
+    async loadPowers() {
+      const allPowers = await api.readAllPower();
+      console.warn("allPowers", allPowers);
+      this.allPowers = allPowers;
     },
   }
 });

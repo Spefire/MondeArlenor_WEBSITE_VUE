@@ -7,38 +7,56 @@
           class="onglets-nav-item"
           :class="{ selected : backChoice === 1 }"
           @click="changeBackChoice(1)">
-          Les compétences
+          ???
         </span>
         <span
           class="onglets-nav-item"
           :class="{ selected : backChoice === 2 }"
           @click="changeBackChoice(2)">
-          Les pouvoirs
+          Les compétences
         </span>
         <span
           class="onglets-nav-item"
           :class="{ selected : backChoice === 3 }"
           @click="changeBackChoice(3)">
-          Le quizz en détails
+          Les pouvoirs
         </span>
         <span
           class="onglets-nav-item"
           :class="{ selected : backChoice === 4 }"
           @click="changeBackChoice(4)">
+          Les personnages
+        </span>
+        <span
+          class="onglets-nav-item"
+          :class="{ selected : backChoice === 5 }"
+          @click="changeBackChoice(5)">
+          Le quizz en détails
+        </span>
+        <span
+          class="onglets-nav-item"
+          :class="{ selected : backChoice === 6 }"
+          @click="changeBackChoice(6)">
           Les résultats finaux
         </span>
       </div>
 
       <template v-if="backChoice === 1">
-        <SkillsSection />
+        En attente...
       </template>
       <template v-if="backChoice === 2">
-        <PowersSection />
+        <SkillsSection />
       </template>
       <template v-if="backChoice === 3">
-        <QuizzSection />
+        <PowersSection />
       </template>
       <template v-if="backChoice === 4">
+        <CharactersSection />
+      </template>
+      <template v-if="backChoice === 5">
+        <QuizzSection />
+      </template>
+      <template v-if="backChoice === 6">
         <ResultsSection />
       </template>
     </div>

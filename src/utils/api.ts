@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { ArlenorPower } from "@/models/ArlenorPower";
+import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { CelestiaQuizz } from "@/models/CelestiaQuizz";
 
 import { ResponseQuizz } from "./api_models";
@@ -38,12 +39,12 @@ const sendCharacter = async(character: ArlenorCharacter): Promise<string> => {
 };
 
 // --- SKILL ---------------------------------------------------------------------------
-const readAllSkill = async(): Promise<ArlenorPower[]>  => {
-  const result: ArlenorPower[] = await requests.requestGet("skill");
+const readAllSkill = async(): Promise<ArlenorSkill[]>  => {
+  const result: ArlenorSkill[] = await requests.requestGet("skill");
   return result;
 };
 
-const sendSkill = async(skill: ArlenorPower): Promise<string> => {
+const sendSkill = async(skill: ArlenorSkill): Promise<string> => {
   const result: string = await requests.requestPost("skill", skill);
   return result;
 };
