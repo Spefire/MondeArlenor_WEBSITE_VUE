@@ -83,100 +83,100 @@
         </div>
       </div>
 
-      <!-- Compétences -->
+      <!-- Pouvoirs -->
       <div class="crystals-layout margin-top-1">
         <div class="bloc-text crystals-left">
-          <h3 class="margin-bottom-1">Liste de compétences possibles</h3>
+          <h3 class="margin-bottom-1">Liste de pouvoirs</h3>
           <div
             v-for="(level, indexLevel) in levels"
-            class="skills-content"
+            class="powers-content"
             :key="indexLevel">
-            <div class="skills-content-title">Niveau {{ getLibLevel(level) }}</div>
+            <div class="powers-content-title">Niveau {{ getLibLevel(level) }}</div>
             <div
-              v-for="(skill, index) in getSkillsByLevel(level, true)"
-              class="skill-line pointer"
-              :class="{ 'selected' : skill.code === selectedSkill?.code }"
-              @click="selectSkill(skill)"
+              v-for="(power, index) in getPowersByLevel(level, true)"
+              class="power-line pointer"
+              :class="{ 'selected' : power.code === selectedPower?.code }"
+              @click="selectPower(power)"
               :key="index">
               <img
-                class="skill-img"
-                :src="skill.image"
-                :alt="skill.name"
-                :title="skill.name">
-              <span class="skill-name">{{ skill.name }}</span>
+                class="power-img"
+                :src="power.image"
+                :alt="power.name"
+                :title="power.name">
+              <span class="power-name">{{ power.name }}</span>
             </div>
             <div
-              v-for="(skill, index) in getSkillsByLevel(level, false)"
-              class="skill-line pointer"
-              :class="{ 'selected' : skill.code === selectedSkill?.code }"
-              @click="selectSkill(skill)"
+              v-for="(power, index) in getPowersByLevel(level, false)"
+              class="power-line pointer"
+              :class="{ 'selected' : power.code === selectedPower?.code }"
+              @click="selectPower(power)"
               :key="index">
               <img
-                class="skill-img"
-                :src="skill.image"
-                :alt="skill.name"
-                :title="skill.name">
-              <span class="skill-name">{{ skill.name }}</span>
+                class="power-img"
+                :src="power.image"
+                :alt="power.name"
+                :title="power.name">
+              <span class="power-name">{{ power.name }}</span>
             </div>
           </div>
         </div>
       
         <div class="bloc-text crystals-right">
-          <h3 class="margin-bottom-1">Détail de la compétence</h3>
-          <div class="skill-separator" />
-          <template v-if="selectedSkill">
+          <h3 class="margin-bottom-1">Détail du pouvoir</h3>
+          <div class="power-separator" />
+          <template v-if="selectedPower">
             <div>
-              {{ selectedSkill.typeSkill.Libelle }}
-              {{ selectedSkill.speciality ? '(de la classe)' : '(du groupe)' }}
+              {{ selectedPower.type.Libelle }}
+              {{ selectedPower.speciality ? '(de la classe)' : '(du groupe)' }}
             </div>
             <img
               class="margin-top-1"
-              :src="selectedSkill.image"
-              :alt="selectedSkill.name">
-            <h2 class="margin-top-05">{{ selectedSkill.name }}</h2>
-            <div class="skill-separator" />
+              :src="selectedPower.image"
+              :alt="selectedPower.name">
+            <h2 class="margin-top-05">{{ selectedPower.name }}</h2>
+            <div class="power-separator" />
             <div>
-              {{ selectedSkill.description ? selectedSkill.description : 'Aucune description' }}
+              {{ selectedPower.description ? selectedPower.description : 'Aucune description' }}
             </div>
             <div
-              v-if="selectedSkill.effect0"
-              class="skill-separator" />
-            <div v-if="selectedSkill.effect0">
+              v-if="selectedPower.effect0"
+              class="power-separator" />
+            <div v-if="selectedPower.effect0">
               <span class="text-bold">Simple<br></span>
-              {{ selectedSkill.effect0 }}
+              {{ selectedPower.effect0 }}
             </div>
             <div
-              v-if="selectedSkill.effect1"
+              v-if="selectedPower.effect1"
               class="margin-top-05">
               <span class="text-bold">Complexe<br></span>
-              {{ selectedSkill.effect1 }}
+              {{ selectedPower.effect1 }}
             </div>
             <div
-              v-if="selectedSkill.effect2"
+              v-if="selectedPower.effect2"
               class="margin-top-05">
               <span class="text-bold">Difficile<br></span>
-              {{ selectedSkill.effect2 }}
+              {{ selectedPower.effect2 }}
             </div>
             <div
-              v-if="selectedSkill.effect3"
+              v-if="selectedPower.effect3"
               class="margin-top-05">
               <span class="text-bold">Epique<br></span>
-              {{ selectedSkill.effect3 }}
+              {{ selectedPower.effect3 }}
             </div>
-            <div class="skill-separator" />
+            <div class="power-separator" />
             <div>
               Jets à réaliser :
-              <span title="Jets du lanceur">{{ getCodCaracts(selectedSkill.caractsUse) }}</span>
+              <span title="Jets du lanceur">{{ getCodCaracts(selectedPower.caractsUse) }}</span>
             </div>
             <div>
               Jets en opposition :
-              <span title="Jets de la cible">{{ getCodCaracts(selectedSkill.caractsTarget) }}</span>
+              <span title="Jets de la cible">{{ getCodCaracts(selectedPower.caractsTarget) }}</span>
             </div>
-            <div class="margin-top-05">{{ getCasting(selectedSkill.timeCastingAbility) }}</div>
-            <div>{{ getReloading(selectedSkill.numberUseAbility) }}</div>
+            <div class="margin-top-05">{{ getCasting(selectedPower.timeCastingAbility) }}</div>
+            <div>{{ getReloading(selectedPower.numberUseAbility) }}</div>
           </template>
-          <template v-if="!selectedSkill">
-            <div>Pas de compétence sélectionnée.</div>
+          <template v-if="!selectedPower">
+            <div>Pas de pouvoir sélectionné.</div>
           </template>
         </div>
       </div>

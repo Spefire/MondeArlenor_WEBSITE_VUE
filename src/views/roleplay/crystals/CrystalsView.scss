@@ -61,7 +61,7 @@
     }
   }
 
-  .skill-separator {
+  .power-separator {
     height: 1px;
     width: 100%;
     margin: 15px 0;
@@ -69,7 +69,7 @@
   }
 
   .ability-line,
-  .skill-line {
+  .power-line {
     display: flex;
     align-items: center;
 
@@ -78,18 +78,18 @@
     }
 
     .ability-img,
-    .skill-img {
+    .power-img {
       height: 40px;
       margin-right: 10px;
     }
 
     .ability-txt,
-    .skill-txt {
+    .power-txt {
       text-align: left;
     }
   }
 
-  .skills-content {
+  .powers-content {
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -103,7 +103,7 @@
       grid-template-columns: repeat(1, 1fr);
     }
 
-    .skills-content-title {
+    .powers-content-title {
       position: absolute;
       top: -15px;
       left: 20px;
@@ -113,7 +113,7 @@
       background: $black-color;
     }
 
-    .skill-line {
+    .power-line {
       width: auto;
       margin: 0;
       padding: 0 10px;
@@ -123,7 +123,7 @@
         background: $secondary-color;
       }
 
-      .skill-name {
+      .power-name {
         text-align: left;
       }
     }

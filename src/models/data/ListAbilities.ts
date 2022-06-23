@@ -167,16 +167,16 @@ export function getSpeAbilities(grpCode: string, speCode: string): ArlenorAbilit
   const list = listGrp.concat(listSpe);
   list.sort((a, b) => {
     let numA = 0;
-    if (a.typeSkill === AbilitiesEnum.AbiliteArme) numA = 4;
-    if (a.typeSkill === AbilitiesEnum.AbiliteArmure) numA = 3;
-    if (a.typeSkill === AbilitiesEnum.TempsIncantation) numA = 2;
-    if (a.typeSkill === AbilitiesEnum.NombreUtilisation) numA = 1;
+    if (a.type === AbilitiesEnum.AbiliteArme) numA = 4;
+    if (a.type === AbilitiesEnum.AbiliteArmure) numA = 3;
+    if (a.type === AbilitiesEnum.TempsIncantation) numA = 2;
+    if (a.type === AbilitiesEnum.NombreUtilisation) numA = 1;
 
     let numB = 0;
-    if (b.typeSkill === AbilitiesEnum.AbiliteArme) numB = 4;
-    if (b.typeSkill === AbilitiesEnum.AbiliteArmure) numB = 3;
-    if (b.typeSkill === AbilitiesEnum.TempsIncantation) numB = 2;
-    if (b.typeSkill === AbilitiesEnum.NombreUtilisation) numB = 1;
+    if (b.type === AbilitiesEnum.AbiliteArme) numB = 4;
+    if (b.type === AbilitiesEnum.AbiliteArmure) numB = 3;
+    if (b.type === AbilitiesEnum.TempsIncantation) numB = 2;
+    if (b.type === AbilitiesEnum.NombreUtilisation) numB = 1;
 
     return numB - numA;
   });
@@ -328,7 +328,7 @@ export function getListRaceAbilities(raceCode = ""): ArlenorAbility[] {
   abl61.race = races[6];
   listAbilities.push(abl61);
 
-  const list = raceCode ? listAbilities.filter(skill => skill.race?.code === raceCode) : listAbilities;
+  const list = raceCode ? listAbilities.filter(abl => abl.race?.code === raceCode) : listAbilities;
   listAbilities.sort((a, b) => {
     return a.name.localeCompare(b.name);
   });
@@ -337,7 +337,7 @@ export function getListRaceAbilities(raceCode = ""): ArlenorAbility[] {
 
 export function getListOtherAbilities(): ArlenorAbility[] {
   const listAbilities: ArlenorAbility[] = getListGrpSpeAbilities()
-    .filter(abl => abl.typeSkill.Code === AbilitiesEnum.AbiliteArme.Code || abl.typeSkill.Code === AbilitiesEnum.AbiliteArmure.Code);
+    .filter(abl => abl.type.Code === AbilitiesEnum.AbiliteArme.Code || abl.type.Code === AbilitiesEnum.AbiliteArmure.Code);
 
   const abl00 = new ArlenorAbility("Autre abilité 00", AbilitiesEnum.AbiliteAutre);
   listAbilities.push(abl00);

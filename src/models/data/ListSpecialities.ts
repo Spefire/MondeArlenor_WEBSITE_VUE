@@ -50,11 +50,11 @@ export class ArlenorSpecialities {
 
     this.LameOmbre = new ArlenorSpeciality("Lame de l'Ombre", "LameOmbre", groups.Assassin);
     this.LameOmbre.image = require("./../../assets/icons/specialities/lame_ombre.png");
-    this.LameOmbre.description = "La Lame de l'Ombre utilise des capacités pour se camoufler et augmenter ses dégâts avec des attaques surprises.";
+    this.LameOmbre.description = "La Lame de l'Ombre utilise des pouvoirs pour se camoufler et augmenter ses dégâts avec des attaques surprises.";
 
     this.Chasseur = new ArlenorSpeciality("Chasseur", "Chasseur", groups.Assassin);
     this.Chasseur.image = require("./../../assets/icons/specialities/chasseur.png");
-    this.Chasseur.description = "Le Chasseur utilise ses compétences pour infliger des dégâts à distance et ne pas perdre sa cible de vue. A haut-niveau, c'est un véritable sniper.";
+    this.Chasseur.description = "Le Chasseur utilise ses pouvoirs pour infliger des dégâts à distance et ne pas perdre sa cible de vue. A haut-niveau, c'est un véritable sniper.";
 
     this.DanseurSabre = new ArlenorSpeciality("Danseur au Sabre", "DanseurSabre", groups.Assassin);
     this.DanseurSabre.image = require("./../../assets/icons/specialities/danseur_sabre.png");

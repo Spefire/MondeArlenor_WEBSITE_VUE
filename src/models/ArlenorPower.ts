@@ -5,7 +5,7 @@ import { ArlenorSpeciality } from "./ArlenorSpeciality";
 import { ArlenorGroups, getListGroups } from "./data/ListGroups";
 import { getListSpecialities } from "./data/ListSpecialities";
 
-export interface ArlenorSkillJSON {
+export interface ArlenorPowerJSON {
   name: string;
   description: string;
   image: string;
@@ -24,10 +24,10 @@ export interface ArlenorSkillJSON {
   effect3: string;
 }
 
-export class ArlenorSkill {
+export class ArlenorPower {
   public name: string;
   public description: string;
-  public typeSkill: ArlenorEnum;
+  public type: ArlenorEnum;
   public image: string;
   public group: ArlenorGroup;
   public speciality: ArlenorSpeciality | null;
@@ -52,7 +52,7 @@ export class ArlenorSkill {
     const groups = new ArlenorGroups();
     this.name = "";
     this.description = "";
-    this.typeSkill = SkillsEnum.CompetenceSpeciale;
+    this.type = PowersEnum.CompetenceSpeciale;
     this.image = "";
     this.group = groups.Assassin;
     this.speciality = null;
@@ -67,40 +67,39 @@ export class ArlenorSkill {
     this.effect3 = "";
   }
 
-  public static ConvertSkill(skillJSON: ArlenorSkillJSON): ArlenorSkill {
-    const arlSkill = new ArlenorSkill();
-    arlSkill.name = skillJSON.name;
-    arlSkill.description = skillJSON.description;
-    arlSkill.setType(skillJSON.typeSkill);
-    arlSkill.setGroupAndSpeciality(skillJSON.group, skillJSON.speciality);
-    arlSkill.setImage(skillJSON.image);
-    arlSkill.level = parseInt(skillJSON.level);
-    arlSkill.timeCasting = parseInt(skillJSON.timeCasting);
-    arlSkill.timeReloading = parseInt(skillJSON.timeReloading);
-    arlSkill.setCaractsUse(skillJSON.caractsUse);
-    arlSkill.setCaractsTarget(skillJSON.caractsTarget);
-    arlSkill.effect0 = skillJSON.effect0;
-    arlSkill.effect1 = skillJSON.effect1;
-    arlSkill.effect2 = skillJSON.effect2;
-    arlSkill.effect3 = skillJSON.effect3;
-    return arlSkill;
+  public static ConvertPower(value: ArlenorPowerJSON): ArlenorPower {
+    const power = new ArlenorPower();
+    power.name = value.name;
+    power.description = value.description;
+    power.setType(value.typeSkill);
+    power.setGroupAndSpeciality(value.group, value.speciality);
+    power.setImage();
+    power.level = parseInt(value.level);
+    power.timeCasting = parseInt(value.timeCasting);
+    power.timeReloading = parseInt(value.timeReloading);
+    power.setCaractsUse(value.caractsUse);
+    power.setCaractsTarget(value.caractsTarget);
+    power.effect0 = value.effect0;
+    power.effect1 = value.effect1;
+    power.effect2 = value.effect2;
+    power.effect3 = value.effect3;
+    return power;
   }
 
   public setType(code: string): void {
-    if (code === SkillsEnum.CompetenceSpeciale.Code) this.typeSkill = SkillsEnum.CompetenceSpeciale;
-    else if (code === SkillsEnum.SortOffensif.Code) this.typeSkill = SkillsEnum.SortOffensif;
-    else if (code === SkillsEnum.SortDefensif.Code) this.typeSkill = SkillsEnum.SortDefensif;
-    else if (code === SkillsEnum.SortUtilitaire.Code) this.typeSkill = SkillsEnum.SortUtilitaire;
-    else console.error("ConvertSkill : typeSkill n'est pas reconnu : |" + code + "|");
+    if (code === PowersEnum.CompetenceSpeciale.Code) this.type = PowersEnum.CompetenceSpeciale;
+    else if (code === PowersEnum.SortOffensif.Code) this.type = PowersEnum.SortOffensif;
+    else if (code === PowersEnum.SortDefensif.Code) this.type = PowersEnum.SortDefensif;
+    else if (code === PowersEnum.SortUtilitaire.Code) this.type = PowersEnum.SortUtilitaire;
+    else console.error("ConvertPower : type n'est pas reconnu : |" + code + "|");
   }
 
-  public setImage(name: string | null = null): void {
-    if (name) this.image = require("./../assets/icons/skills/"+ name +".png");
-    else if (this.speciality) {
-      this.image = require("./../assets/icons/skills/skill_spe.png");
+  public setImage(): void {
+    if (this.speciality) {
+      this.image = require("./../assets/icons/powers/power_spe.png");
     }
     else if (this.group) {
-      this.image = require("./../assets/icons/skills/skill_grp.png");
+      this.image = require("./../assets/icons/powers/power_grp.png");
     }
   }
 
@@ -108,7 +107,7 @@ export class ArlenorSkill {
     if (grpCode) {
       const group = getListGroups().find(grp => grp.code === grpCode.toUpperCase());
       if (group) this.group = group;
-      else console.error("ConvertSkill : group n'est pas reconnu : |" + grpCode + "|");
+      else console.error("ConvertPower : group n'est pas reconnu : |" + grpCode + "|");
     }
     else if (speCode) {
       const speciality = getListSpecialities().find(spe => spe.code === speCode.toUpperCase());
@@ -116,7 +115,7 @@ export class ArlenorSkill {
         this.speciality = speciality;
         this.group = speciality.group;
       }
-      else console.error("ConvertSkill : speciality n'est pas reconnu : |" + speCode + "|");
+      else console.error("ConvertPower : speciality n'est pas reconnu : |" + speCode + "|");
     }
   }
 
@@ -129,7 +128,7 @@ export class ArlenorSkill {
       else if (code.indexOf(CaractNomEnum.Charisme.Code) !== -1) this.caractsUse.push(CaractNomEnum.Charisme);
       else if (code.indexOf(CaractNomEnum.Pouvoir.Code) !== -1) this.caractsUse.push(CaractNomEnum.Pouvoir);
       else if (code.indexOf(CaractNomEnum.Aucune.Code) !== -1) this.caractsUse.push(CaractNomEnum.Aucune);
-      else console.error("ConvertSkill : caractsUse n'est pas reconnu : |" + code + "|");
+      else console.error("ConvertPower : caractsUse n'est pas reconnu : |" + code + "|");
     });
   }
 
@@ -142,13 +141,13 @@ export class ArlenorSkill {
       else if (code.indexOf(CaractNomEnum.Charisme.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Charisme);
       else if (code.indexOf(CaractNomEnum.Pouvoir.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Pouvoir);
       else if (code.indexOf(CaractNomEnum.Aucune.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Aucune);
-      else console.error("ConvertSkill : caractsTarget n'est pas reconnu : |" + code + "|");
+      else console.error("ConvertPower : caractsTarget n'est pas reconnu : |" + code + "|");
     });
   }
 }
 
-export class SkillsEnum {
-  // Compétences à choisir
+export class PowersEnum {
+  // Pouvoirs à choisir
   static CompetenceSpeciale: ArlenorEnum = { Code: "SPE", Libelle: "Compétence spéciale" };
   static SortOffensif: ArlenorEnum = { Code: "OFF", Libelle: "Sort offensif" };
   static SortDefensif: ArlenorEnum = { Code: "DEF", Libelle: "Sort défensif" };

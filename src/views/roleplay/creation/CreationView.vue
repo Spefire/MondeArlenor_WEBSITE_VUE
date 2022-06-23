@@ -28,7 +28,7 @@
           <div class="bloc-text margin-top-1 text-justify">
             &emsp;
             Un personnage est défini par plusieurs choses : <b>ses caractéristiques</b> (et valeurs dérivées), <b>ses compétences principales</b>,
-            <b>sa race</b> (parmi celles jouables), <b>son cristal évolutif</b> (compétences spéciales ou sorts), pour ensuite finir par quelques finitions.
+            <b>sa race</b> (parmi celles jouables), <b>son cristal évolutif</b> (ses pouvoirs), pour ensuite finir par quelques finitions.
             <br>&emsp;
             Les caractéristiques définissent ce qu’est le personnage, et les compétences ce qu’il sait.
             Votre personnage sera plus ou moins fort, plus ou moins intelligent, plus ou moins adroit.

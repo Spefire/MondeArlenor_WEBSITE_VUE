@@ -6,22 +6,22 @@ import { ArlenorSpeciality } from "./ArlenorSpeciality";
 export class ArlenorAbility {
   public name: string;
   public image: string;
-  public typeSkill: ArlenorEnum;
+  public type: ArlenorEnum;
 
   // Pour les abilités de race
   public race: ArlenorRace | null;
   public description: string;
 
-  // Pour les autres compétences de race
+  // Pour les autres abilités
   public group: ArlenorGroup | null;
   public specialities: ArlenorSpeciality[];
   public caracts: ArlenorEnum[];
 
-  constructor(name: string, typeSkill: ArlenorEnum) {
+  constructor(name: string, type: ArlenorEnum) {
     this.name = name;
     this.description = "";
     this.image = "";
-    this.typeSkill = typeSkill;
+    this.type = type;
     this.race = null;
     this.group = null;
     this.specialities = [];
@@ -40,16 +40,16 @@ export class ArlenorAbility {
   }
 
   public setImage(): void {
-    if (this.typeSkill.Code === AbilitiesEnum.AbiliteArme.Code) {
+    if (this.type.Code === AbilitiesEnum.AbiliteArme.Code) {
       this.image = require("./../assets/icons/abilities/armes.png");
     }
-    else if (this.typeSkill.Code === AbilitiesEnum.AbiliteArmure.Code) {
+    else if (this.type.Code === AbilitiesEnum.AbiliteArmure.Code) {
       this.image = require("./../assets/icons/abilities/armures.png");
     }
-    else if (this.typeSkill.Code === AbilitiesEnum.TempsIncantation.Code) {
+    else if (this.type.Code === AbilitiesEnum.TempsIncantation.Code) {
       this.image = require("./../assets/icons/abilities/incantation.png");
     }
-    else if (this.typeSkill.Code === AbilitiesEnum.NombreUtilisation.Code) {
+    else if (this.type.Code === AbilitiesEnum.NombreUtilisation.Code) {
       this.image = require("./../assets/icons/abilities/rechargement.png");
     }
   }

@@ -90,14 +90,14 @@
         </div>
       </div>
       <p class="zone-comment margin-top-1">
-        Choisissez une classe avant de sélectionner des compétences&nbsp;/&nbsp;sorts.
+        Choisissez une classe avant de sélectionner des pouvoirs.
       </p>
     </div>
   </div>
 
   <div class="layout-right creation-form">
     <div class="creation-element">
-      <span>Choix des capacités magiques <span required-libelle>*</span></span>
+      <span>Choix des pouvoirs <span required-libelle>*</span></span>
 
       <div 
         v-if="!selectedSpeciality"
@@ -112,7 +112,7 @@
           <tr>
             <th
               colspan="2"
-              class="col-80">Nom de la capacité magique</th>
+              class="col-80">Nom du pouvoir</th>
             <th class="col-20">Choisir ?</th>
           </tr>
         </thead>
@@ -132,34 +132,34 @@
               </td>
             </tr>
             <template
-              v-for="(skill, index) in getSkillsByLevel(level)"
+              v-for="(power, index) in getPowersByLevel(level)"
               :key="index">
               <tr
                 class="line-table"
-                :class="{ selected : selectedSkill?.code === skill.code }">
+                :class="{ selected : selectedPower?.code === power.code }">
                 <td class="col-20">
                   <img
-                    v-if="skill.image"
-                    class="creation-img-skill"
-                    :src="skill.image"
-                    :alt="skill.typeSkill.Libelle">
+                    v-if="power.image"
+                    class="creation-img-power"
+                    :src="power.image"
+                    :alt="power.type.Libelle">
                 </td>
                 <td 
                   class="col-60 pointer"
-                  @click="seeMore(skill)">
-                  {{ skill.name }}
+                  @click="seeMore(power)">
+                  {{ power.name }}
                 </td>
                 <td class="col-20">
                   <input
                     type="checkbox"
-                    @change="addSkill(skill)">
+                    @change="addPower(power)">
                 </td>
               </tr>
               <tr
-                v-if="selectedSkill?.code === skill.code"
+                v-if="selectedPower?.code === power.code"
                 class="line-table selected">
                 <td colspan="3">
-                  <p>{{ skill.description ? skill.description : "Aucune description disponible" }}</p>
+                  <p>{{ power.description ? power.description : "Aucune description disponible" }}</p>
                 </td>
               </tr>
             </template>

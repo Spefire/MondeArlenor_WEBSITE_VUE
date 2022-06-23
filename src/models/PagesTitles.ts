@@ -12,7 +12,6 @@ export class PageTitles {
   public static races = "Les Races";
   public static religion = "La Religion";
   public static roleplay = "Le Jeu de Rôle";
-  public static skills = "Les Compétences";
   public static system = "Le Système de Jeu";
   public static universe = "L'Univers";
   public static worldmap = "La Carte du Monde";

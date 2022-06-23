@@ -1,8 +1,8 @@
 import { ArlenorGroup } from "@/models/ArlenorGroup";
-import { ArlenorSkill } from "@/models/ArlenorSkill";
+import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
 import { getListGroups } from "@/models/data/ListGroups";
-import { getListSkills } from "@/models/data/ListSkills";
+import { getListPowers } from "@/models/data/ListPowers";
 import { getListSpecialities } from "@/models/data/ListSpecialities";
 import useVuelidate from "@vuelidate/core";
 import { defineComponent, ref, Ref } from "vue";
@@ -22,7 +22,7 @@ export default defineComponent({
   data () {
     const store = useStore();
     
-    const selectedSkill: Ref<ArlenorSkill | null> = ref(null);
+    const selectedPower: Ref<ArlenorPower | null> = ref(null);
 
     const selectedGroup: Ref<ArlenorGroup | null> = ref(null);
     const selectedGrpCode: Ref<string | null> = ref(null);
@@ -33,7 +33,7 @@ export default defineComponent({
 
     return {
       store,
-      selectedSkill,
+      selectedPower,
       selectedGrpCode, selectedGroup,
       selectedSpeCode, selectedSpeciality,
       levels,
@@ -65,9 +65,9 @@ export default defineComponent({
         return this.allSpecialities.slice();
       }
     },
-    filteredSkills(): ArlenorSkill[] {
+    filteredPowers(): ArlenorPower[] {
       if (this.selectedSpeciality) {
-        return getListSkills(this.selectedSpeciality?.group.code, this.selectedSpeciality?.code);
+        return getListPowers(this.selectedSpeciality?.group.code, this.selectedSpeciality?.code);
       } else {
         return [];
       }
@@ -90,12 +90,12 @@ export default defineComponent({
         this.selectedGrpCode = this.selectedSpeciality.group.code;
 
         // Mise à jour des niveaux
-        this.levels = this.filteredSkills.map(skill => skill.level).filter(onlyUnique);
+        this.levels = this.filteredPowers.map(power => power.level).filter(onlyUnique);
         this.levels.sort((a, b) => a - b);
       }
     },
-    seeMore(skill: ArlenorSkill) {
-      this.selectedSkill = (this.selectedSkill?.code === skill.code) ? null : skill;
+    seeMore(power: ArlenorPower) {
+      this.selectedPower = (this.selectedPower?.code === power.code) ? null : power;
     },
 
     getLibLevel(level: number) {
@@ -103,11 +103,11 @@ export default defineComponent({
       else if (level === 2) return "intermédiaire";
       else return "supérieur";
     },
-    getSkillsByLevel(level: number) {
-      return this.filteredSkills.filter(skill => skill.level === level);
+    getPowersByLevel(level: number) {
+      return this.filteredPowers.filter(power => power.level === level);
     },
-    addSkill(skill: ArlenorSkill) {
-      console.warn(skill);
+    addPower(power: ArlenorPower) {
+      console.warn(power);
     },
 
     updateForm() {
