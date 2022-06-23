@@ -1,6 +1,6 @@
-import { AbilitiesEnum, ArlenorAbility } from "./ArlenorAbility";
 import { ArlenorGroup } from "./ArlenorGroup";
-import { getSpeAbilities } from "./data/ListAbilities";
+import { ArlenorSkill, SkillsEnum } from "./ArlenorSkill";
+import { getSpeSkills } from "./data/ListSkills";
 
 export class ArlenorSpeciality {
   public name: string;
@@ -8,10 +8,10 @@ export class ArlenorSpeciality {
   public image: string;
   public description: string;
   public group: ArlenorGroup;
-  public weaponAbility: ArlenorAbility | null;
-  public armorAbility: ArlenorAbility | null;
-  public timeCastingAbility: ArlenorAbility | null;
-  public numberUseAbility: ArlenorAbility | null;
+  public weaponAbility: ArlenorSkill | null;
+  public armorAbility: ArlenorSkill | null;
+  public timeCastingAbility: ArlenorSkill | null;
+  public numberUseAbility: ArlenorSkill | null;
 
   constructor(name: string, code: string, group: ArlenorGroup) {
     this.name = name;
@@ -25,11 +25,11 @@ export class ArlenorSpeciality {
     this.numberUseAbility = null;
   }
 
-  public setAbilities(): void {
-    const list = getSpeAbilities(this.group.code, this.code);
-    this.weaponAbility = list.find(ability => ability.type === AbilitiesEnum.AbiliteArme) ?? null;
-    this.armorAbility = list.find(ability => ability.type === AbilitiesEnum.AbiliteArmure) ?? null;
-    this.timeCastingAbility = list.find(ability => ability.type === AbilitiesEnum.TempsIncantation) ?? null;
-    this.numberUseAbility = list.find(ability => ability.type === AbilitiesEnum.NombreUtilisation) ?? null;
+  public setSkills(): void {
+    const list = getSpeSkills(this.group.code, this.code);
+    this.weaponAbility = list.find(skill => skill.type === SkillsEnum.CompetenceArme) ?? null;
+    this.armorAbility = list.find(skill => skill.type === SkillsEnum.CompetenceArmure) ?? null;
+    this.timeCastingAbility = list.find(skill => skill.type === SkillsEnum.TempsIncantation) ?? null;
+    this.numberUseAbility = list.find(skill => skill.type === SkillsEnum.NombreUtilisation) ?? null;
   }
 }

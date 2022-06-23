@@ -3,16 +3,16 @@ import { ArlenorGroup } from "./ArlenorGroup";
 import { ArlenorRace } from "./ArlenorRace";
 import { ArlenorSpeciality } from "./ArlenorSpeciality";
 
-export class ArlenorAbility {
+export class ArlenorSkill {
   public name: string;
   public image: string;
   public type: ArlenorEnum;
 
-  // Pour les abilités de race
+  // Pour les compétences de race
   public race: ArlenorRace | null;
   public description: string;
 
-  // Pour les autres abilités
+  // Pour les autres compétences
   public group: ArlenorGroup | null;
   public specialities: ArlenorSpeciality[];
   public caracts: ArlenorEnum[];
@@ -40,29 +40,29 @@ export class ArlenorAbility {
   }
 
   public setImage(): void {
-    if (this.type.Code === AbilitiesEnum.AbiliteArme.Code) {
-      this.image = require("./../assets/icons/abilities/armes.png");
+    if (this.type.Code === SkillsEnum.CompetenceArme.Code) {
+      this.image = require("./../assets/icons/skills/armes.png");
     }
-    else if (this.type.Code === AbilitiesEnum.AbiliteArmure.Code) {
-      this.image = require("./../assets/icons/abilities/armures.png");
+    else if (this.type.Code === SkillsEnum.CompetenceArmure.Code) {
+      this.image = require("./../assets/icons/skills/armures.png");
     }
-    else if (this.type.Code === AbilitiesEnum.TempsIncantation.Code) {
-      this.image = require("./../assets/icons/abilities/incantation.png");
+    else if (this.type.Code === SkillsEnum.TempsIncantation.Code) {
+      this.image = require("./../assets/icons/skills/incantation.png");
     }
-    else if (this.type.Code === AbilitiesEnum.NombreUtilisation.Code) {
-      this.image = require("./../assets/icons/abilities/rechargement.png");
+    else if (this.type.Code === SkillsEnum.NombreUtilisation.Code) {
+      this.image = require("./../assets/icons/skills/rechargement.png");
     }
   }
 }
 
-export class AbilitiesEnum {
-  // Abilités de race
-  static AbiliteRace: ArlenorEnum = { Code: "ABL_RACE", Libelle: "Abilité de race" };
-  // Abilités de groupe et de classe/spécialité
-  static AbiliteArme: ArlenorEnum = { Code: "ABL_ARME", Libelle: "Abilité d'arme" };
-  static AbiliteArmure: ArlenorEnum = { Code: "ABL_ARMURE", Libelle: "Abilité d'armure" };
+export class SkillsEnum {
+  // Compétences de race
+  static CompetenceRace: ArlenorEnum = { Code: "ABL_RACE", Libelle: "Compétence de race" };
+  // Compétences de groupe et de classe/spécialité
+  static CompetenceArme: ArlenorEnum = { Code: "ABL_ARME", Libelle: "Compétence d'arme" };
+  static CompetenceArmure: ArlenorEnum = { Code: "ABL_ARMURE", Libelle: "Compétence d'armure" };
   static TempsIncantation: ArlenorEnum = { Code: "TEMPS_INC", Libelle: "Temps d'incantation" };
   static NombreUtilisation: ArlenorEnum = { Code: "NB_UTIL", Libelle: "Nombre d'utilisations" };
-  // Autres abilités
-  static AbiliteAutre: ArlenorEnum = { Code: "ABL_OTHER", Libelle: "Autre abilité" };
+  // Autres compétences
+  static CompetenceAutre: ArlenorEnum = { Code: "ABL_OTHER", Libelle: "Autre compétence" };
 }

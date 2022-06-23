@@ -42,42 +42,43 @@
           </div>
           <div class="crystals-separator" />
           <div class="crystals-section-top">
-            <h3 class="margin-bottom-1">Abilités de la classe</h3>
+            <h3 class="margin-bottom-1">Compétences de la classe</h3>
             <div
               v-if="currentSpeciality.weaponAbility"
-              class="ability-line">
+              class="skill-line">
               <img
-                class="ability-img"
+                class="skill-img"
                 :src="currentSpeciality.weaponAbility.image"
                 :alt="currentSpeciality.weaponAbility.name">
-              <span class="ability-txt">{{ currentSpeciality.weaponAbility.name }}</span>
+              <span class="skill-txt">{{ currentSpeciality.weaponAbility.name }}</span>
             </div>
             <div 
               v-if="currentSpeciality.armorAbility"
-              class="ability-line">
+              class="skill-line">
               <img
-                class="ability-img"
+                class="skill-img"
                 :src="currentSpeciality.armorAbility.image"
                 :alt="currentSpeciality.armorAbility.name">
-              <span class="ability-txt">{{ currentSpeciality.armorAbility.name }}</span>
+              <span class="skill-txt">{{ currentSpeciality.armorAbility.name }}</span>
             </div>
+            <h3 class="margin-top-1 margin-bottom-1">Propriétés diverses</h3>
             <div 
               v-if="currentSpeciality.timeCastingAbility"
-              class="ability-line">
+              class="skill-line">
               <img
-                class="ability-img"
+                class="skill-img"
                 :src="currentSpeciality.timeCastingAbility.image"
                 :alt="currentSpeciality.timeCastingAbility.name">
-              <span class="ability-txt">{{ currentSpeciality.timeCastingAbility.name }}</span>
+              <span class="skill-txt">{{ currentSpeciality.timeCastingAbility.name }}</span>
             </div>
             <div 
               v-if="currentSpeciality.numberUseAbility"
-              class="ability-line">
+              class="skill-line">
               <img
-                class="ability-img"
+                class="skill-img"
                 :src="currentSpeciality.numberUseAbility.image"
                 :alt="currentSpeciality.numberUseAbility.name">
-              <span class="ability-txt">{{ currentSpeciality.numberUseAbility.name }}</span>
+              <span class="skill-txt">{{ currentSpeciality.numberUseAbility.name }}</span>
             </div>
           </div>
         </div>
@@ -86,7 +87,7 @@
       <!-- Pouvoirs -->
       <div class="crystals-layout margin-top-1">
         <div class="bloc-text crystals-left">
-          <h3 class="margin-bottom-1">Liste de pouvoirs</h3>
+          <h3 class="margin-bottom-1">Pouvoirs de la classe</h3>
           <div
             v-for="(level, indexLevel) in levels"
             class="powers-content"

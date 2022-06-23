@@ -3,7 +3,6 @@
 
     <h2 class="text-center margin-bottom-0">
       Création de personnage
-      <span v-if="hasModification">(*)</span>
     </h2>
     <h3 class="text-center">
       <template v-if="selection == 1">Choix de la race</template>
@@ -12,6 +11,7 @@
       <template v-if="selection == 4">Choix du cristal primaire</template>
       <template v-if="selection == 5">Choix du cristal secondaire</template>
       <template v-if="selection == 6">Choix de l'identité</template>
+      <span v-if="hasModification">(*)</span>
     </h3>
 
     <div class="creation-content">
@@ -62,7 +62,7 @@
         @changeStep="changeModifs()"
         @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
-      <AbilitiesForm
+      <SkillsForm
         v-if="selection == 3"
         @changeStep="changeModifs()"
         @previousStep="decreaseSelection()"

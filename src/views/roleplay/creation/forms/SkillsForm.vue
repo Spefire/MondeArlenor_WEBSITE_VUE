@@ -6,7 +6,7 @@
   </div>
   <div class="layout-right creation-form">
     <p>
-      AbilitiesForm
+      SkillsForm
     </p>
     <div class="creation-nav-button">
       <button
@@ -32,4 +32,4 @@
 </template>
 
 <style lang="scss" scoped src="./../CreationView.scss"></style>
-<script lang="ts" src="./AbilitiesForm.ts"></script>
+<script lang="ts" src="./SkillsForm.ts"></script>

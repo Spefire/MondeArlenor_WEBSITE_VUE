@@ -68,7 +68,7 @@
     background: $secondary-color;
   }
 
-  .ability-line,
+  .skill-line,
   .power-line {
     display: flex;
     align-items: center;
@@ -77,13 +77,13 @@
       margin-bottom: 10px;
     }
 
-    .ability-img,
+    .skill-img,
     .power-img {
       height: 40px;
       margin-right: 10px;
     }
 
-    .ability-txt,
+    .skill-txt,
     .power-txt {
       text-align: left;
     }

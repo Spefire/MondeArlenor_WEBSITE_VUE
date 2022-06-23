@@ -4,11 +4,11 @@ import downloads from "@/utils/downloads";
 import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
 
-import AbilitiesForm from "./forms/AbilitiesForm.vue";
 import CaractsForm from "./forms/CaractsForm.vue";
 import CrystalForm from "./forms/CrystalForm.vue";
 import IdentityForm from "./forms/IdentityForm.vue";
 import RaceForm from "./forms/RaceForm.vue";
+import SkillsForm from "./forms/SkillsForm.vue";
 
 export default defineComponent({
   name: "CreationView",
@@ -16,7 +16,7 @@ export default defineComponent({
   components: {
     RaceForm,
     CaractsForm,
-    AbilitiesForm,
+    SkillsForm,
     CrystalForm,
     IdentityForm,
   },

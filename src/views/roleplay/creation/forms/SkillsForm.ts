@@ -3,7 +3,7 @@ import { defineComponent } from "vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
-  name: "AbilitiesForm",
+  name: "SkillsForm",
   components: {},
   emits: ["changeStep", "previousStep", "nextStep"],
   

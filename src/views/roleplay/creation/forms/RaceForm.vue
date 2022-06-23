@@ -64,19 +64,19 @@
       v-if="currentRace"
       class="race-grid docs-grid-list grid-2">
       <div
-        v-for="(ability, index) in getAbilities(currentRace.code)"
+        v-for="(skill, index) in getSkills(currentRace.code)"
         class="docs-grid-element"
         :key="index">
         <img
-          :src="ability.image"
-          :alt="ability.name">
+          :src="skill.image"
+          :alt="skill.name">
         <div class="docs-grid-infos">
           <div class="docs-grid-header">
-            <span class="text-bold">{{ ability.name }}</span>
+            <span class="text-bold">{{ skill.name }}</span>
           </div>
           <p
             class="docs-grid-body"
-            v-html="ability.description" />
+            v-html="skill.description" />
         </div>
       </div>
     </div>
