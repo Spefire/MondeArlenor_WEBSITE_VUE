@@ -25,16 +25,18 @@ const downloadPDF = async(character: ArlenorCharacter): Promise<void> => {
   y += 21;
   doc.text("" + character.caracts.int, x, y, { align: "center" });
   y += 21;
+  doc.text("" + character.caracts.ten, x, y, { align: "center" });
+  y += 21;
   doc.text("" + character.caracts.cha, x, y, { align: "center" });
   y += 21;
   doc.text("" + character.caracts.mag, x, y, { align: "center" });
 
-  y += 43;
-  doc.text("" + character.level, x, y, { align: "center" });
+  y += 64;
+  doc.text("" + character.healthMax, x, y, { align: "center" });
   y += 21;
   doc.text("" + character.initiative, x, y, { align: "center" });
   y += 21;
-  doc.text("" + character.healthMax, x, y, { align: "center" });
+  doc.text("" + character.level, x, y, { align: "center" });
 
   // --- RACE
   x = 326;
