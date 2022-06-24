@@ -122,11 +122,12 @@ export class ArlenorPower {
   public setCaractsUse(codes: string): void {
     const listCodes = codes.split(",");
     listCodes.forEach(code => {
-      if (code.indexOf(CaractNomEnum.Vigueur.Code) !== -1) this.caractsUse.push(CaractNomEnum.Vigueur);
+      if (code.indexOf(CaractNomEnum.Force.Code) !== -1) this.caractsUse.push(CaractNomEnum.Force);
       else if (code.indexOf(CaractNomEnum.Habilete.Code) !== -1) this.caractsUse.push(CaractNomEnum.Habilete);
       else if (code.indexOf(CaractNomEnum.Intellect.Code) !== -1) this.caractsUse.push(CaractNomEnum.Intellect);
+      else if (code.indexOf(CaractNomEnum.Tenacite.Code) !== -1) this.caractsUse.push(CaractNomEnum.Tenacite);
       else if (code.indexOf(CaractNomEnum.Charisme.Code) !== -1) this.caractsUse.push(CaractNomEnum.Charisme);
-      else if (code.indexOf(CaractNomEnum.Pouvoir.Code) !== -1) this.caractsUse.push(CaractNomEnum.Pouvoir);
+      else if (code.indexOf(CaractNomEnum.Magie.Code) !== -1) this.caractsUse.push(CaractNomEnum.Magie);
       else if (code.indexOf(CaractNomEnum.Aucune.Code) !== -1) this.caractsUse.push(CaractNomEnum.Aucune);
       else console.error("ConvertPower : caractsUse n'est pas reconnu : |" + code + "|");
     });
@@ -135,11 +136,12 @@ export class ArlenorPower {
   public setCaractsTarget(codes: string): void {
     const listCodes = codes.split(",");
     listCodes.forEach(code => {
-      if (code.indexOf(CaractNomEnum.Vigueur.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Vigueur);
+      if (code.indexOf(CaractNomEnum.Force.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Force);
       else if (code.indexOf(CaractNomEnum.Habilete.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Habilete);
       else if (code.indexOf(CaractNomEnum.Intellect.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Intellect);
+      else if (code.indexOf(CaractNomEnum.Tenacite.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Tenacite);
       else if (code.indexOf(CaractNomEnum.Charisme.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Charisme);
-      else if (code.indexOf(CaractNomEnum.Pouvoir.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Pouvoir);
+      else if (code.indexOf(CaractNomEnum.Magie.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Magie);
       else if (code.indexOf(CaractNomEnum.Aucune.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Aucune);
       else console.error("ConvertPower : caractsTarget n'est pas reconnu : |" + code + "|");
     });

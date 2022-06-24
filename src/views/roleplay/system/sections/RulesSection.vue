@@ -28,7 +28,8 @@
     <div class="bloc-text margin-top-1 text-justify">
       &emsp;
       Le <b>test classique</b> qui détermine si un personnage réussit ou non une action se réalise de la façon suivante :
-      le Maitre du Jeu <b>détermine quelle caractéristique de base du personnage est concernée</b> (Vigueur, Habileté, Intellect, Présence, Pouvoir)
+      le Maitre du Jeu <b>détermine quelle caractéristique de base du personnage est concernée</b>
+      (Force, Habileté, Intellect, Ténacité, Charisme, Magie)
       ensuite le joueur lance autant de dés à 6 faces qu’il a de points dans la caractéristique,
       additionne les résultats, puis rajoute à la fin tous les points bonus ou malus
       (dûs aux compétences, aux équipements ou aux effets appliqués sur le personnage).
@@ -87,8 +88,8 @@
       :bloc-state="exampleChoice === 2"
       @toggle="changeExampleChoice(2)">
       <b>Ophéliz</b> cherche à trancher les chaînes d'un prisonnier avec son épée.<br>
-      C'est une épée longue (donc lourde), le MJ demandera un test de <b>Vigueur</b>.<br>
-      Ophéliz a <b>2 en Vigueur</b>, elle lance <b>2D6</b> et fait... <b>6 et 6</b> ! C'est une <b>réussite critique</b> !
+      C'est une épée longue (donc lourde), le MJ demandera un test de <b>Force</b>.<br>
+      Ophéliz a <b>2 en Force</b>, elle lance <b>2D6</b> et fait... <b>6 et 6</b> ! C'est une <b>réussite critique</b> !
       Elle a le droit de relancer un dé pour augmenter son score, et fait... <b>5, pour un résultat de 17</b>.<br>
       Ophéliz possède une <b>compétence "Armes à une main (épées)"</b> qui lui donne un <b>bonus +4</b> dans la réalisation de cette action.<br>
       Elle possède en plus un <b>effet magique</b> sur son arme (qui donne un <b>bonus +2</b> sans condition).<br>
@@ -119,7 +120,7 @@
       :bloc-state="fightChoice === 1"
       @toggle="changeFightChoice(1)">
       <span
-        v-html="caractDescriptionEnum.Vigueur.Libelle" />
+        v-html="caractDescriptionEnum.Force.Libelle" />
     </ExpandBloc>
         
     <ExpandBloc

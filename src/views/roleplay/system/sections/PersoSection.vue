@@ -64,45 +64,45 @@
     </div>
 
     <ExpandBloc
-      :bloc-title="'La Vigueur'"
+      :bloc-title="'La Force'"
       :bloc-state="caractChoice === 1"
       @toggle="changeCaractChoice(1)">
-      <span
-        v-html="caractDescriptionEnum.Vigueur.Libelle" />
+      <span v-html="caractDescriptionEnum.Force.Libelle" />
     </ExpandBloc>
         
     <ExpandBloc
-      :bloc-title="
-        'L\'Habileté'"
+      :bloc-title="'L\'Habileté'"
       :bloc-state="caractChoice === 2"
       @toggle="changeCaractChoice(2)">
-      <span
-        v-html="caractDescriptionEnum.Habilete.Libelle" />
+      <span v-html="caractDescriptionEnum.Habilete.Libelle" />
     </ExpandBloc>
         
     <ExpandBloc
-      :bloc-title="
-        'L\'Intellect'"
+      :bloc-title="'L\'Intellect'"
       :bloc-state="caractChoice === 3"
       @toggle="changeCaractChoice(3)">
-      <span
-        v-html="caractDescriptionEnum.Intellect.Libelle" />
+      <span v-html="caractDescriptionEnum.Intellect.Libelle" />
+    </ExpandBloc>
+
+    <ExpandBloc
+      :bloc-title="'La Ténacité'"
+      :bloc-state="caractChoice === 4"
+      @toggle="changeCaractChoice(4)">
+      <span v-html="caractDescriptionEnum.Tenacite.Libelle" />
     </ExpandBloc>
 
     <ExpandBloc
       :bloc-title="'Le Charisme'"
-      :bloc-state="caractChoice === 4"
-      @toggle="changeCaractChoice(4)">
-      <span
-        v-html="caractDescriptionEnum.Charisme.Libelle" />
+      :bloc-state="caractChoice === 5"
+      @toggle="changeCaractChoice(5)">
+      <span v-html="caractDescriptionEnum.Charisme.Libelle" />
     </ExpandBloc>
 
     <ExpandBloc
-      :bloc-title="'Le Pouvoir'"
-      :bloc-state="caractChoice === 5"
-      @toggle="changeCaractChoice(5)">
-      <span
-        v-html="caractDescriptionEnum.Pouvoir.Libelle" />
+      :bloc-title="'La Magie'"
+      :bloc-state="caractChoice === 6"
+      @toggle="changeCaractChoice(6)">
+      <span v-html="caractDescriptionEnum.Magie.Libelle" />
     </ExpandBloc>
   </template>
   <template v-if="persoChoice === 2">
@@ -117,7 +117,7 @@
         <b>Au seuil de la mort</b> (1 PV) : - 2D6 aux jets<br>
       </div>
       <br>
-      Note : Le nombre de PV max peut varier avec la Vigueur et la race choisie.<br>
+      Note : Le nombre de PV max peut varier avec la Ténacité et la race choisie.<br>
       <br>&emsp;
       Lors de jets de combat ou de situations pouvant occasionner des blessures,
       le Maitre du Jeu interprétera le nombre de PV à enlever.

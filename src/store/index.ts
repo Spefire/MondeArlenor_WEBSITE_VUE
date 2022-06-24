@@ -12,11 +12,12 @@ export default createStore({
       state.character.race = payload.race;
     },
     changeCharacterCaracts(state, payload: ArlenorCharacter) {
-      state.character.caracts.vig = payload.caracts.vig;
+      state.character.caracts.for = payload.caracts.for;
       state.character.caracts.hab = payload.caracts.hab;
       state.character.caracts.int = payload.caracts.int;
+      state.character.caracts.ten = payload.caracts.ten;
       state.character.caracts.cha = payload.caracts.cha;
-      state.character.caracts.pou = payload.caracts.pou;
+      state.character.caracts.mag = payload.caracts.mag;
     },
     changeCharacterIdentity(state, payload: ArlenorCharacter) {
       state.character.avatar = payload.avatar;

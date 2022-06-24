@@ -3,33 +3,37 @@ import { ArlenorRace } from "./ArlenorRace";
 import { getListRaces } from "./data/ListRaces";
 
 class ArlenorCaracts {
-  public vig: number;
+  public for: number;
   public hab: number;
   public int: number;
+  public ten: number;
   public cha: number;
-  public pou: number;
+  public mag: number;
 
   constructor() {
-    this.vig = 1;
+    this.for = 1;
     this.hab = 1;
     this.int = 1;
+    this.ten = 1;
     this.cha = 1;
-    this.pou = 1;
+    this.mag = 1;
   }
 }
 
 export class CaractNomEnum {
   static Aucune: ArlenorEnum = { Code: "", Libelle: "Aucune" };
-  static Vigueur: ArlenorEnum = { Code: "VIG", Libelle: "Vigueur" };
+  static Force: ArlenorEnum = { Code: "FOR", Libelle: "Force" };
   static Habilete: ArlenorEnum = { Code: "HAB", Libelle: "Habileté" };
   static Intellect: ArlenorEnum = { Code: "INT", Libelle: "Intellect" };
+  static Tenacite: ArlenorEnum = { Code: "TEN", Libelle: "Ténacité" };
   static Charisme: ArlenorEnum = { Code: "CHA", Libelle: "Charisme" };
-  static Pouvoir: ArlenorEnum = { Code: "POU", Libelle: "Pouvoir" };
+  static Magie: ArlenorEnum = { Code: "MAG", Libelle: "Magie" };
 }
 
 export class CaractDescriptionEnum {
   static Aucune: ArlenorEnum = { Code: "", Libelle: "Aucune" };
-  static Vigueur: ArlenorEnum = { Code: "VIG", Libelle: `
+  static Force: ArlenorEnum = { Code: "FOR", Libelle: `
+  A MODIFIER
   &emsp;
   Mélange de résistance physique et de puissance brute, la <b>Vigueur</b> évalue la forme physique de votre personnage.
   Cette caractéristique est importante pour les personnages combattants, les sportifs
@@ -64,6 +68,20 @@ export class CaractDescriptionEnum {
   &emsp;3 : Vif. Vous comprenez vite, analysez de manière pertinente et savez vous adapter.<br>
   &emsp;4 : Brillant. Vous comprenez rapidement ce que certains mettent des années à apprendre.<br>
   &emsp;5 : Génie. Vous maniez facilement des notions que la majorité des gens sont incapables d’appréhender.` };
+  static Tenacite: ArlenorEnum = { Code: "TEN", Libelle: `
+  A MODIFIER
+  &emsp;
+  Mélange de résistance physique et de puissance brute, la <b>Vigueur</b> évalue la forme physique de votre personnage.
+  Cette caractéristique est importante pour les personnages combattants, les sportifs
+  et tous ceux qui aiment se sortir de situations dangereuses.<br>
+  Note : Une <b>Vigueur</b> à 1 retire un Point de Vie max.<br>
+  Note : Une <b>Vigueur</b> à 5 donne un Point de Vie max.<br>
+  <br>
+  &emsp;1 : Fragile. Force et endurance limitées, vous vous fatiguez vite.<br>
+  &emsp;2 : Moyen. Vous n’avez de problème qu’avec des tours de force inhabituels.<br>
+  &emsp;3 : Costaud. Vous fatiguez rarement et réalisez des tours de force.<br>
+  &emsp;4 : Fort comme un bœuf. Peu de choses ou de personnes peuvent vous résister.<br>
+  &emsp;5 : Herculéen. Vous résistez à tout et rivalisez de puissance avec les ours.` };
   static Charisme: ArlenorEnum = { Code: "CHA", Libelle: `
   &emsp;
   La capacité à s’imposer aux autres, à leur inspirer de la confiance, du respect ou de la crainte,
@@ -75,11 +93,12 @@ export class CaractDescriptionEnum {
   &emsp;3 : Intéressant. Vous ne laissez pas les gens indifférents, et beaucoup vous apprécient.<br>
   &emsp;4 : Captivant. Leader-né, votre personnalité attire les autres à vous.<br>
   &emsp;5 : Fascinant. Vous pourriez amener n’importe qui à faire n’importe quoi pour vous.` };
-  static Pouvoir: ArlenorEnum = { Code: "POU", Libelle: `
+  static Magie: ArlenorEnum = { Code: "MAG", Libelle: `
+  A MODIFIER
   &emsp;
-  Le <b>Pouvoir</b> est la caractéristique déterminant le niveau de facilité à utiliser
-  la magie des cristaux du Monde d'Arlénor et à y résister.
-  Les mages ont généralement un bon niveau dans cette caractéristique.` };
+  La <b>Magie</b> est la caractéristique déterminant le niveau de facilité à utiliser
+  les pouvoirs des cristaux du Monde d'Arlénor et parfois à y résister.
+  Les grands mages ont évidemment un bon niveau dans cette caractéristique.` };
 }
 
 export class ArlenorCharacter {
@@ -101,11 +120,12 @@ export class ArlenorCharacter {
   }
 
   get totalCaracts(): number {
-    return this.caracts.vig
+    return this.caracts.for
       + this.caracts.hab
       + this.caracts.int
+      + this.caracts.ten
       + this.caracts.cha
-      + this.caracts.pou;
+      + this.caracts.mag;
   }
 
   get healthMax(): number {
@@ -145,10 +165,11 @@ export class ArlenorCharacter {
     const races = getListRaces();
     this.race = races[0];
     this.caracts = new ArlenorCaracts();
-    this.caracts.vig = 2;
+    this.caracts.for = 2;
     this.caracts.hab = 3;
     this.caracts.int = 3;
+    this.caracts.ten = 1;
     this.caracts.cha = 2;
-    this.caracts.pou = 5;
+    this.caracts.mag = 4;
   }
 }

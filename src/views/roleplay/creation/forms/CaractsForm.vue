@@ -2,9 +2,9 @@
   <!-- Description de la caractéristique sélectionnée -->
   <div class="layout-left creation-form">
     <div class="creation-description bloc-text text-justify">
-      <template v-if="selectCaract === 'VIG'">
-        <h2 class="margin-top-0 text-center">La Vigueur</h2>
-        <span v-html="caractDescriptionEnum.Vigueur.Libelle" />
+      <template v-if="selectCaract === 'FOR'">
+        <h2 class="margin-top-0 text-center">La Force</h2>
+        <span v-html="caractDescriptionEnum.Force.Libelle" />
       </template>
       
       <template v-if="selectCaract === 'HAB'">
@@ -16,15 +16,20 @@
         <h2 class="margin-top-0 text-center">L'Intellect</h2>
         <span v-html="caractDescriptionEnum.Intellect.Libelle" />
       </template>
+
+      <template v-if="selectCaract === 'TEN'">
+        <h2 class="margin-top-0 text-center">La Ténacité</h2>
+        <span v-html="caractDescriptionEnum.Tenacite.Libelle" />
+      </template>
       
       <template v-if="selectCaract === 'CHA'">
         <h2 class="margin-top-0 text-center">Le Charisme</h2>
         <span v-html="caractDescriptionEnum.Charisme.Libelle" />
       </template>
       
-      <template v-if="selectCaract === 'POU'">
-        <h2 class="margin-top-0 text-center">Le Pouvoir</h2>
-        <span v-html="caractDescriptionEnum.Pouvoir.Libelle" />
+      <template v-if="selectCaract === 'MAG'">
+        <h2 class="margin-top-0 text-center">Le Magie</h2>
+        <span v-html="caractDescriptionEnum.Magie.Libelle" />
       </template>
     </div>
   </div>
@@ -42,17 +47,17 @@
         </thead>
         <tbody>
           <tr>
-            <td class="col-40">Vigueur (VIG)</td>
+            <td class="col-40">Force (FOR)</td>
             <td class="col-55">
               <input
                 type="range"
                 min="1"
                 max="5"
                 step="1"
-                v-model.trim.lazy="v$.form.vig.$model"
-                @change="changeCaract('VIG')">
+                v-model.trim.lazy="v$.form.for.$model"
+                @change="changeCaract('FOR')">
             </td>
-            <td class="col-05">{{ form.vig }}</td>
+            <td class="col-05">{{ form.for }}</td>
           </tr>
           <tr>
             <td class="col-40">Habileté (HAB)</td>
@@ -81,6 +86,19 @@
             <td class="col-05">{{ form.int }}</td>
           </tr>
           <tr>
+            <td class="col-40">Ténacité (TEN)</td>
+            <td class="col-55">
+              <input
+                type="range"
+                min="1"
+                max="5"
+                step="1"
+                v-model.trim.lazy="v$.form.ten.$model"
+                @change="changeCaract('TEN')">
+            </td>
+            <td class="col-05">{{ form.ten }}</td>
+          </tr>
+          <tr>
             <td class="col-40">Charisme (CHA)</td>
             <td class="col-55">
               <input
@@ -94,17 +112,17 @@
             <td class="col-05">{{ form.cha }}</td>
           </tr>
           <tr>
-            <td class="col-40">Pouvoir (POU)</td>
+            <td class="col-40">Magie (MAG)</td>
             <td class="col-55">
               <input
                 type="range"
                 min="1"
                 max="5"
                 step="1"
-                v-model.trim.lazy="v$.form.pou.$model"
-                @change="changeCaract('POU')">
+                v-model.trim.lazy="v$.form.mag.$model"
+                @change="changeCaract('MAG')">
             </td>
-            <td class="col-05">{{ form.pou }}</td>
+            <td class="col-05">{{ form.mag }}</td>
           </tr>
         </tbody>
       </table>

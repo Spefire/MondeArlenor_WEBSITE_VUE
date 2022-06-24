@@ -13,7 +13,7 @@ export default defineComponent({
   data() {
     const store = useStore();
     const caractDescriptionEnum = CaractDescriptionEnum;
-    const selectCaract = "VIG";
+    const selectCaract = "FOR";
     const allRaces = ref(getListRaces());
     const race = store.state.character.race;
     const totalCaracts = store.state.character.totalCaracts || 5;
@@ -24,11 +24,12 @@ export default defineComponent({
       allRaces,
       race,
       form: {
-        vig: store.state.character.caracts.vig || 1,
+        for: store.state.character.caracts.for || 1,
         hab: store.state.character.caracts.hab || 1,
         int: store.state.character.caracts.int || 1,
+        ten: store.state.character.caracts.ten || 1,
         cha: store.state.character.caracts.cha || 1,
-        pou: store.state.character.caracts.pou || 1,
+        mag: store.state.character.caracts.mag || 1,
         pointsLeft: (15 - totalCaracts),
       },
       isModified: false,
@@ -42,7 +43,7 @@ export default defineComponent({
   
   validations: {
     form: {
-      vig: {
+      for: {
         between: between(1, 5),
       },
       hab: {
@@ -51,10 +52,13 @@ export default defineComponent({
       int: {
         between: between(1, 5),
       },
+      ten: {
+        between: between(1, 5),
+      },
       cha: {
         between: between(1, 5),
       },
-      pou: {
+      mag: {
         between: between(1, 5),
       },
       pointsLeft: {
@@ -66,11 +70,12 @@ export default defineComponent({
   methods: {
     changeCaract(caract: string) {
       this.selectCaract = caract;
-      const totalCaracts = parseInt(this.form.vig)
+      const totalCaracts = parseInt(this.form.for)
       + parseInt(this.form.hab)
       + parseInt(this.form.int)
+      + parseInt(this.form.ten)
       + parseInt(this.form.cha)
-      + parseInt(this.form.pou);
+      + parseInt(this.form.mag);
       this.form.pointsLeft = (15 - totalCaracts);
       this.updateForm();
     },
@@ -81,8 +86,8 @@ export default defineComponent({
       let points = 10;
       if (this.race.code === this.allRaces[1].code) points++;
       if (this.race.code === this.allRaces[4].code) points++;
-      if (parseInt(this.form.vig) <= 1) points--;
-      if (parseInt(this.form.vig) >= 5) points++;
+      if (parseInt(this.form.ten) <= 1) points--;
+      if (parseInt(this.form.ten) >= 5) points++;
       return points;
     },
     updateForm() {
@@ -105,11 +110,12 @@ export default defineComponent({
     },
     save() {
       const newCharacter = new ArlenorCharacter();
-      newCharacter.caracts.vig = parseInt(this.form.vig);
+      newCharacter.caracts.for = parseInt(this.form.for);
       newCharacter.caracts.hab = parseInt(this.form.hab);
       newCharacter.caracts.int = parseInt(this.form.int);
+      newCharacter.caracts.ten = parseInt(this.form.ten);
       newCharacter.caracts.cha = parseInt(this.form.cha);
-      newCharacter.caracts.pou = parseInt(this.form.pou);
+      newCharacter.caracts.mag = parseInt(this.form.mag);
       this.store.commit("changeCharacterCaracts", newCharacter);
     }
   }
