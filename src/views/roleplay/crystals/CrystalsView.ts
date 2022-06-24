@@ -94,14 +94,14 @@ export default defineComponent({
       return lib ? lib : "Aucun";
     },
 
-    getCasting(timeCastingAbility: number) {
-      if (!timeCastingAbility) return "Pas d'incantation";
-      return "" + timeCastingAbility + " tours d'incantation";
+    getCasting(chanelingProperty: number) {
+      if (!chanelingProperty) return "Pas d'incantation";
+      return "" + chanelingProperty + " tours d'incantation";
     },
   
-    getReloading(numberUseAbility: number) {
-      if (!numberUseAbility) return "Utilisation illimitée";
-      return "" + numberUseAbility + " utilisations par repos long";
+    getReloading(durationProperty: number) {
+      if (!durationProperty) return "Utilisation illimitée";
+      return "" + durationProperty + " utilisations par repos long";
     },
 
     // Actions

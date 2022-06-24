@@ -44,41 +44,41 @@
           <div class="crystals-section-top">
             <h3 class="margin-bottom-1">Compétences de la classe</h3>
             <div
-              v-if="currentSpeciality.weaponAbility"
+              v-if="currentSpeciality.weaponSkill"
               class="skill-line">
               <img
                 class="skill-img"
-                :src="currentSpeciality.weaponAbility.image"
-                :alt="currentSpeciality.weaponAbility.name">
-              <span class="skill-txt">{{ currentSpeciality.weaponAbility.name }}</span>
+                :src="currentSpeciality.weaponSkill.image"
+                :alt="currentSpeciality.weaponSkill.name">
+              <span class="skill-txt">{{ currentSpeciality.weaponSkill.name }}</span>
             </div>
             <div 
-              v-if="currentSpeciality.armorAbility"
+              v-if="currentSpeciality.armorSkill"
               class="skill-line">
               <img
                 class="skill-img"
-                :src="currentSpeciality.armorAbility.image"
-                :alt="currentSpeciality.armorAbility.name">
-              <span class="skill-txt">{{ currentSpeciality.armorAbility.name }}</span>
+                :src="currentSpeciality.armorSkill.image"
+                :alt="currentSpeciality.armorSkill.name">
+              <span class="skill-txt">{{ currentSpeciality.armorSkill.name }}</span>
             </div>
             <h3 class="margin-top-1 margin-bottom-1">Propriétés diverses</h3>
             <div 
-              v-if="currentSpeciality.timeCastingAbility"
+              v-if="currentSpeciality.chanelingProperty"
               class="skill-line">
               <img
                 class="skill-img"
-                :src="currentSpeciality.timeCastingAbility.image"
-                :alt="currentSpeciality.timeCastingAbility.name">
-              <span class="skill-txt">{{ currentSpeciality.timeCastingAbility.name }}</span>
+                :src="currentSpeciality.chanelingProperty.image"
+                :alt="currentSpeciality.chanelingProperty.name">
+              <span class="skill-txt">{{ currentSpeciality.chanelingProperty.name }}</span>
             </div>
             <div 
-              v-if="currentSpeciality.numberUseAbility"
+              v-if="currentSpeciality.durationProperty"
               class="skill-line">
               <img
                 class="skill-img"
-                :src="currentSpeciality.numberUseAbility.image"
-                :alt="currentSpeciality.numberUseAbility.name">
-              <span class="skill-txt">{{ currentSpeciality.numberUseAbility.name }}</span>
+                :src="currentSpeciality.durationProperty.image"
+                :alt="currentSpeciality.durationProperty.name">
+              <span class="skill-txt">{{ currentSpeciality.durationProperty.name }}</span>
             </div>
           </div>
         </div>
@@ -173,8 +173,8 @@
               Jets en opposition :
               <span title="Jets de la cible">{{ getCodCaracts(selectedPower.caractsTarget) }}</span>
             </div>
-            <div class="margin-top-05">{{ getCasting(selectedPower.timeCastingAbility) }}</div>
-            <div>{{ getReloading(selectedPower.numberUseAbility) }}</div>
+            <div class="margin-top-05">{{ getCasting(selectedPower.chanelingProperty) }}</div>
+            <div>{{ getReloading(selectedPower.durationProperty) }}</div>
           </template>
           <template v-if="!selectedPower">
             <div>Pas de pouvoir sélectionné.</div>

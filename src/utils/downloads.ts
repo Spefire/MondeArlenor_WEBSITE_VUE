@@ -19,7 +19,7 @@ const downloadPDF = async(character: ArlenorCharacter): Promise<void> => {
   // --- CARACTERISTIQUES ET VALEURS DERIVES
   let x = 123;
   let y = 134;
-  doc.text("" + character.caracts.vig, x, y, { align: "center" });
+  doc.text("" + character.caracts.for, x, y, { align: "center" });
   y += 21;
   doc.text("" + character.caracts.hab, x, y, { align: "center" });
   y += 21;
@@ -27,7 +27,7 @@ const downloadPDF = async(character: ArlenorCharacter): Promise<void> => {
   y += 21;
   doc.text("" + character.caracts.cha, x, y, { align: "center" });
   y += 21;
-  doc.text("" + character.caracts.pou, x, y, { align: "center" });
+  doc.text("" + character.caracts.mag, x, y, { align: "center" });
 
   y += 43;
   doc.text("" + character.level, x, y, { align: "center" });

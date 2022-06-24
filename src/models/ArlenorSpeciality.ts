@@ -8,10 +8,10 @@ export class ArlenorSpeciality {
   public image: string;
   public description: string;
   public group: ArlenorGroup;
-  public weaponAbility: ArlenorSkill | null;
-  public armorAbility: ArlenorSkill | null;
-  public timeCastingAbility: ArlenorSkill | null;
-  public numberUseAbility: ArlenorSkill | null;
+  public weaponSkill: ArlenorSkill | null;
+  public armorSkill: ArlenorSkill | null;
+  public chanelingProperty: ArlenorSkill | null;
+  public durationProperty: ArlenorSkill | null;
 
   constructor(name: string, code: string, group: ArlenorGroup) {
     this.name = name;
@@ -19,17 +19,17 @@ export class ArlenorSpeciality {
     this.image = "";
     this.description = "";
     this.group = group;
-    this.weaponAbility = null;
-    this.armorAbility = null;
-    this.timeCastingAbility = null;
-    this.numberUseAbility = null;
+    this.weaponSkill = null;
+    this.armorSkill = null;
+    this.chanelingProperty = null;
+    this.durationProperty = null;
   }
 
   public setSkills(): void {
     const list = getSpeSkills(this.group.code, this.code);
-    this.weaponAbility = list.find(skill => skill.type === SkillsEnum.CompetenceArme) ?? null;
-    this.armorAbility = list.find(skill => skill.type === SkillsEnum.CompetenceArmure) ?? null;
-    this.timeCastingAbility = list.find(skill => skill.type === SkillsEnum.TempsIncantation) ?? null;
-    this.numberUseAbility = list.find(skill => skill.type === SkillsEnum.NombreUtilisation) ?? null;
+    this.weaponSkill = list.find(skill => skill.type === SkillsEnum.CompetenceArme) ?? null;
+    this.armorSkill = list.find(skill => skill.type === SkillsEnum.CompetenceArmure) ?? null;
+    this.chanelingProperty = list.find(skill => skill.type === SkillsEnum.ProprieteCanalisation) ?? null;
+    this.durationProperty = list.find(skill => skill.type === SkillsEnum.ProprieteTemps) ?? null;
   }
 }

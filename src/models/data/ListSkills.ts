@@ -12,66 +12,57 @@ export function getListGrpSpeSkills(): ArlenorSkill[] {
   const groups = new ArlenorGroups();
   const specialities = new ArlenorSpecialities();
 
-  // Limitation d'utilisation
-  listSkills = createAbility(listSkills,
-    "Pas de limitation d'utilisation",
-    SkillsEnum.NombreUtilisation,
-    [], [specialities.DanseurMartial]
+  // Durée et rechargement
+  listSkills = createSkill(listSkills,
+    "Courte durée / rechargement",
+    SkillsEnum.ProprieteTemps,
+    [], [specialities.DanseurMartial, specialities.Derviche, specialities.Elementaliste]
   );
-  listSkills = createAbility(listSkills,
-    "Peu de limitation d'utilisation",
-    SkillsEnum.NombreUtilisation,
-    [], [specialities.Derviche, specialities.Elementaliste]
+  listSkills = createSkill(listSkills,
+    "Durée / rechargement normal",
+    SkillsEnum.ProprieteTemps,
+    [groups.Bretteur, groups.Enchanteur, groups.Druide, groups.Pretre], [specialities.Createur],
   );
-  listSkills = createAbility(listSkills,
-    "Limitation normale d'utilisation",
-    SkillsEnum.NombreUtilisation,
-    [groups.Gardien, groups.Bretteur, groups.Enchanteur, groups.Druide], [specialities.Createur],
-  );
-  listSkills = createAbility(listSkills,
-    "Grande limitation d'utilisation",
-    SkillsEnum.NombreUtilisation,
-    [groups.Assassin, groups.Invocateur, groups.Pretre, groups.Barde], [],
+  listSkills = createSkill(listSkills,
+    "Longue durée / rechargement",
+    SkillsEnum.ProprieteTemps,
+    [groups.Gardien, groups.Assassin, groups.Invocateur, groups.Barde], [],
   );
 
-  // Temps d'incantation
-  listSkills = createAbility(listSkills,
-    "Pas de temps d'incantation",
-    SkillsEnum.TempsIncantation,
-    [groups.Gardien, groups.Moine, groups.Assassin, groups.Bretteur, groups.Sorcier], [specialities.Chaman],
+  // Canalisation
+  listSkills = createSkill(listSkills,
+    "Pas ou peu de pouvoirs à canaliser",
+    SkillsEnum.ProprieteCanalisation,
+    [groups.Gardien, groups.Moine, groups.Assassin, groups.Bretteur, groups.Sorcier],
+    [specialities.Chaman, specialities.Dompteur, specialities.Guerisseur, specialities.PretreArlenor],
   );
-  listSkills = createAbility(listSkills,
-    "Temps d'incantation rapide",
-    SkillsEnum.TempsIncantation,
-    [], [specialities.Dompteur, specialities.Guerisseur, specialities.PretreArlenor],
-  );
-  listSkills = createAbility(listSkills,
-    "Temps d'incantation normal",
-    SkillsEnum.TempsIncantation,
+  listSkills = createSkill(listSkills,
+    "Quelques pouvoirs à canaliser",
+    SkillsEnum.ProprieteCanalisation,
     [groups.Enchanteur], [specialities.Exorciste],
   );
-  listSkills = createAbility(listSkills,
-    "Temps d'incantation long",
-    SkillsEnum.TempsIncantation,
+  listSkills = createSkill(listSkills,
+    "Beaucoup de pouvoirs à canaliser",
+    SkillsEnum.ProprieteCanalisation,
     [groups.Barde], [specialities.Pelerin],
   );
 
   // Armures
-  listSkills = createAbility(listSkills,
+  listSkills = createSkill(listSkills,
     getLibArmure("légères / très mobiles"),
     SkillsEnum.CompetenceArmure,
     [groups.Assassin, groups.Sorcier, groups.Enchanteur],
     [specialities.Derviche, specialities.Escrimeur, specialities.Pelerin, specialities.Guerisseur, specialities.PretreArlenor, specialities.Exorciste],
   );
   
-  listSkills = createAbility(listSkills,
+  listSkills = createSkill(listSkills,
     getLibArmure("normales / mobiles"),
     SkillsEnum.CompetenceArmure,
     [groups.Barde],
     [specialities.DanseurMartial, specialities.DoubleLame, specialities.Dompteur, specialities.Chaman],
   );
   
-  listSkills = createAbility(listSkills,
+  listSkills = createSkill(listSkills,
     getLibArmure("lourdes / peu mobiles"),
     SkillsEnum.CompetenceArmure,
     [groups.Gardien], [],
@@ -80,17 +71,17 @@ export function getListGrpSpeSkills(): ArlenorSkill[] {
   // Armes
   const arme01 = new ArlenorSkill(getLibArme("à une main, avec bouclier"), SkillsEnum.CompetenceArme);
   arme01.initGrpSpe(null, [specialities.Paladin]);
-  arme01.caracts = [CaractNomEnum.Vigueur];
+  arme01.caracts = [CaractNomEnum.Force];
   listSkills.push(arme01);
   
   const arme02 = new ArlenorSkill(getLibArme("épées à deux mains"), SkillsEnum.CompetenceArme);
   arme02.initGrpSpe(null, [specialities.Chevalier]);
-  arme02.caracts = [CaractNomEnum.Vigueur];
+  arme02.caracts = [CaractNomEnum.Force];
   listSkills.push(arme02);
 
   const arme03 = new ArlenorSkill(getLibArme("mains nues"), SkillsEnum.CompetenceArme);
   arme03.initGrpSpe(null, [specialities.DanseurMartial]);
-  arme03.caracts = [CaractNomEnum.Vigueur];
+  arme03.caracts = [CaractNomEnum.Force];
   listSkills.push(arme03);
 
   const arme04 = new ArlenorSkill(getLibArme("d'hast"), SkillsEnum.CompetenceArme);
@@ -115,12 +106,12 @@ export function getListGrpSpeSkills(): ArlenorSkill[] {
 
   const arme08 = new ArlenorSkill(getLibArme("ambidextrie"), SkillsEnum.CompetenceArme);
   arme08.initGrpSpe(null, [specialities.DoubleLame]);
-  arme08.caracts = [CaractNomEnum.Vigueur];
+  arme08.caracts = [CaractNomEnum.Force];
   listSkills.push(arme08);
 
   const arme09 = new ArlenorSkill(getLibArme("épées à une main"), SkillsEnum.CompetenceArme);
   arme09.initGrpSpe(null, [specialities.Escrimeur]);
-  arme09.caracts = [CaractNomEnum.Vigueur];
+  arme09.caracts = [CaractNomEnum.Force];
   listSkills.push(arme09);
 
   const arme10 = new ArlenorSkill(getLibArme("orbes mystiques"), SkillsEnum.CompetenceArme);
@@ -140,7 +131,7 @@ export function getListGrpSpeSkills(): ArlenorSkill[] {
 
   const arme13 = new ArlenorSkill(getLibArme("mains nues"), SkillsEnum.CompetenceArme);
   arme13.initGrpSpe(null, [specialities.Chaman]);
-  arme13.caracts = [CaractNomEnum.Vigueur];
+  arme13.caracts = [CaractNomEnum.Force];
   listSkills.push(arme13);
 
   const arme14 = new ArlenorSkill(getLibArme("bâtons"), SkillsEnum.CompetenceArme);
@@ -169,14 +160,14 @@ export function getSpeSkills(grpCode: string, speCode: string): ArlenorSkill[] {
     let numA = 0;
     if (a.type === SkillsEnum.CompetenceArme) numA = 4;
     if (a.type === SkillsEnum.CompetenceArmure) numA = 3;
-    if (a.type === SkillsEnum.TempsIncantation) numA = 2;
-    if (a.type === SkillsEnum.NombreUtilisation) numA = 1;
+    if (a.type === SkillsEnum.ProprieteCanalisation) numA = 2;
+    if (a.type === SkillsEnum.ProprieteTemps) numA = 1;
 
     let numB = 0;
     if (b.type === SkillsEnum.CompetenceArme) numB = 4;
     if (b.type === SkillsEnum.CompetenceArmure) numB = 3;
-    if (b.type === SkillsEnum.TempsIncantation) numB = 2;
-    if (b.type === SkillsEnum.NombreUtilisation) numB = 1;
+    if (b.type === SkillsEnum.ProprieteCanalisation) numB = 2;
+    if (b.type === SkillsEnum.ProprieteTemps) numB = 1;
 
     return numB - numA;
   });
@@ -191,10 +182,10 @@ function getLibArmure(lib: string): string {
   return "Port d'armure (" + lib + ")";
 }
 
-function createAbility(listSkills: ArlenorSkill[], name: string, typeAbility: ArlenorEnum, groups: ArlenorGroup[], specialities: ArlenorSpeciality[]): ArlenorSkill[] {
+function createSkill(listSkills: ArlenorSkill[], name: string, type: ArlenorEnum, groups: ArlenorGroup[], specialities: ArlenorSpeciality[]): ArlenorSkill[] {
   if (groups.length > 0) {
     groups.forEach(grp => {
-      const newAb = new ArlenorSkill(name, typeAbility);
+      const newAb = new ArlenorSkill(name, type);
       newAb.initGrpSpe(grp, []);
       listSkills.push(newAb);
     });
@@ -204,7 +195,7 @@ function createAbility(listSkills: ArlenorSkill[], name: string, typeAbility: Ar
     specialities.forEach(cls => {
       if (!listGroupsCreated.includes(cls.group.code)) {
         const ListSpecialitiesToCreate = specialities.filter(clsToCreate => clsToCreate.group.code === cls.group.code);
-        const newAb = new ArlenorSkill(name, typeAbility);
+        const newAb = new ArlenorSkill(name, type);
         newAb.initGrpSpe(cls.group, ListSpecialitiesToCreate);
         listSkills.push(newAb);
         listGroupsCreated.push(cls.group.code);
