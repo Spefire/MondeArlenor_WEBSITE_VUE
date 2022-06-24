@@ -4,7 +4,7 @@ import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { CelestiaQuizz } from "@/models/CelestiaQuizz";
 
-import { ResponseQuizz } from "./api_models";
+import { ResponsePower, ResponseQuizz } from "./api_models";
 import requests from "./requests";
 
 // --- QUIZZ ---------------------------------------------------------------------------
@@ -23,6 +23,7 @@ const readAllQuizz = async(): Promise<CelestiaQuizz[]>  => {
 };
 
 const sendQuizz = async(quizz: CelestiaQuizz): Promise<string> => {
+  quizz.initTime();
   const result: string = await requests.requestPost("quizz", quizz);
   return result;
 };
@@ -51,11 +52,21 @@ const sendSkill = async(skill: ArlenorSkill): Promise<string> => {
 
 // --- POWER ---------------------------------------------------------------------------
 const readAllPower = async(): Promise<ArlenorPower[]>  => {
-  const result: ArlenorPower[] = await requests.requestGet("power");
-  return result;
+  const results: ResponsePower[] = await requests.requestGet("power");
+
+  const finalResults: ArlenorPower[] = [];
+  results.forEach((obj: ResponsePower) => {
+    const power = new ArlenorPower();
+    power.id = obj.ref_power;
+    power.initByJSON(obj.value_power);
+    finalResults.push(power);
+  });
+
+  return finalResults;
 };
 
 const sendPower = async(power: ArlenorPower): Promise<string> => {
+  power.initTime();
   const result: string = await requests.requestPost("power", power);
   return result;
 };

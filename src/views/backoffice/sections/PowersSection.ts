@@ -1,25 +1,25 @@
-import { ArlenorPower } from "@/models/ArlenorPower";
-import api from "@/utils/api";
-import { defineComponent, Ref, ref } from "vue";
+import PopupBloc from "@/components/popup/PopupBloc.vue";
+import PowersTable from "@/components/powers-table/PowersTable.vue";
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "PowersSection",
-  components: {},
+  components: {
+    PowersTable,
+    PopupBloc,
+  },
     
   setup() {
-    const allPowers: Ref<ArlenorPower[]> = ref([]);
-    return { allPowers };
-  },
-
-  mounted() {
-    this.loadPowers();
+    const showPopup = ref(false);
+    return { showPopup };
   },
 
   methods: {
-    async loadPowers() {
-      const allPowers = await api.readAllPower();
-      console.warn("allPowers", allPowers);
-      this.allPowers = allPowers;
+    addPower() {
+      this.showPopup = true;
     },
+    closePower() {
+      this.showPopup = false;
+    }
   }
 });

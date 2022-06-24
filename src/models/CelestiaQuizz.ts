@@ -114,8 +114,8 @@ export class CelestiaQuizz {
   public id = "";
   public hour = "00:00";
   public date = "01/01/1990";
+
   public questions: CelestiaQuestion[];
-  public version = "0.2";
   
   public get fire(): number {
     let value = 0;
@@ -347,7 +347,7 @@ export class CelestiaQuizz {
     const quizzDB = JSON.parse(value);
     this.date = quizzDB.date;
     this.hour = quizzDB.hour;
-    this.version = quizzDB.version;
+    
     this.questions = [];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     quizzDB.questions.forEach((questionDB: any) => {

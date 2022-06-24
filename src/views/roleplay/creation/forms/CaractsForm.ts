@@ -30,7 +30,7 @@ export default defineComponent({
         ten: store.state.character.caracts.ten || 1,
         cha: store.state.character.caracts.cha || 1,
         mag: store.state.character.caracts.mag || 1,
-        pointsLeft: (15 - totalCaracts),
+        pointsLeft: (16 - totalCaracts),
       },
       isModified: false,
       needConfirm: false,
@@ -76,7 +76,7 @@ export default defineComponent({
       + parseInt(this.form.ten)
       + parseInt(this.form.cha)
       + parseInt(this.form.mag);
-      this.form.pointsLeft = (15 - totalCaracts);
+      this.form.pointsLeft = (16 - totalCaracts);
       this.updateForm();
     },
     getInitiative() {

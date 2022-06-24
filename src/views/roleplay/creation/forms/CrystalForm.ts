@@ -2,7 +2,6 @@ import { ArlenorGroup } from "@/models/ArlenorGroup";
 import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
 import { getListGroups } from "@/models/data/ListGroups";
-import { getListPowers } from "@/models/data/ListPowers";
 import { getListSpecialities } from "@/models/data/ListSpecialities";
 import useVuelidate from "@vuelidate/core";
 import { defineComponent, ref, Ref } from "vue";
@@ -67,7 +66,7 @@ export default defineComponent({
     },
     filteredPowers(): ArlenorPower[] {
       if (this.selectedSpeciality) {
-        return getListPowers(this.selectedSpeciality?.group.code, this.selectedSpeciality?.code);
+        return []; // getListPowers(this.selectedSpeciality?.group.code, this.selectedSpeciality?.code);
       } else {
         return [];
       }

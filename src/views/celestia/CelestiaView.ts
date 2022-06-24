@@ -110,7 +110,6 @@ export default defineComponent({
       // On finit le questionnaire
       if (this.currentQuestion + 1 === this.quizz.questions.length) {
         this.currentQuestion = 200;
-        this.quizz.initTime();
         await api.sendQuizz(this.quizz);
         await this.loadQuizz();
         this.checkPourcent();

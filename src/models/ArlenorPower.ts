@@ -1,46 +1,27 @@
-import { CaractNomEnum } from "./ArlenorCharacter";
 import { ArlenorEnum } from "./ArlenorEnum";
 import { ArlenorGroup } from "./ArlenorGroup";
 import { ArlenorSpeciality } from "./ArlenorSpeciality";
 import { ArlenorGroups, getListGroups } from "./data/ListGroups";
 import { getListSpecialities } from "./data/ListSpecialities";
 
-export interface ArlenorPowerJSON {
-  name: string;
-  description: string;
-  image: string;
-  typeSkill: string;
-  group: string;
-  speciality: string;
-  level: string;
-  timeCasting: string;
-  timeReloading: string;
-  caractsUse: string;
-  caractsTarget: string;
-  effect: string; // A supprimer
-  effect0: string;
-  effect1: string;
-  effect2: string;
-  effect3: string;
-}
-
 export class ArlenorPower {
+  public id = "";
+  public hour = "00:00";
+  public date = "01/01/1990";
+
   public name: string;
   public description: string;
   public type: ArlenorEnum;
   public image: string;
   public group: ArlenorGroup;
   public speciality: ArlenorSpeciality | null;
-  public level: number;
-  public timeCasting: number;
-  public timeReloading: number;
-  public caractsUse: ArlenorEnum[];
-  public caractsTarget: ArlenorEnum[];
-  public effect0: string;
-  public effect1: string;
-  public effect2: string;
-  public effect3: string;
 
+  public level: number;
+  public range: ArlenorEnum;
+  public duration: ArlenorEnum;
+  public chaneling: boolean;
+  public targets: ArlenorEnum;
+    
   get code(): string {
     let code = this.name;
     code = code.normalize("NFD").replace(/\p{Diacritic}/gu, "");
@@ -50,57 +31,19 @@ export class ArlenorPower {
 
   constructor() {
     const groups = new ArlenorGroups();
+
     this.name = "";
     this.description = "";
-    this.type = PowersEnum.CompetenceSpeciale;
+    this.type = PowerTypesEnum.CompetenceSpeciale;
     this.image = "";
     this.group = groups.Assassin;
     this.speciality = null;
+
     this.level = 0;
-    this.timeCasting = 0;
-    this.timeReloading = 0;
-    this.caractsUse = [];
-    this.caractsTarget = [];
-    this.effect0 = "";
-    this.effect1 = "";
-    this.effect2 = "";
-    this.effect3 = "";
-  }
-
-  public static ConvertPower(value: ArlenorPowerJSON): ArlenorPower {
-    const power = new ArlenorPower();
-    power.name = value.name;
-    power.description = value.description;
-    power.setType(value.typeSkill);
-    power.setGroupAndSpeciality(value.group, value.speciality);
-    power.setImage();
-    power.level = parseInt(value.level);
-    power.timeCasting = parseInt(value.timeCasting);
-    power.timeReloading = parseInt(value.timeReloading);
-    power.setCaractsUse(value.caractsUse);
-    power.setCaractsTarget(value.caractsTarget);
-    power.effect0 = value.effect0;
-    power.effect1 = value.effect1;
-    power.effect2 = value.effect2;
-    power.effect3 = value.effect3;
-    return power;
-  }
-
-  public setType(code: string): void {
-    if (code === PowersEnum.CompetenceSpeciale.Code) this.type = PowersEnum.CompetenceSpeciale;
-    else if (code === PowersEnum.SortOffensif.Code) this.type = PowersEnum.SortOffensif;
-    else if (code === PowersEnum.SortDefensif.Code) this.type = PowersEnum.SortDefensif;
-    else if (code === PowersEnum.SortUtilitaire.Code) this.type = PowersEnum.SortUtilitaire;
-    else console.error("ConvertPower : type n'est pas reconnu : |" + code + "|");
-  }
-
-  public setImage(): void {
-    if (this.speciality) {
-      this.image = require("./../assets/icons/powers/power_spe.png");
-    }
-    else if (this.group) {
-      this.image = require("./../assets/icons/powers/power_grp.png");
-    }
+    this.range = PowerRangesEnum.Personnelle;
+    this.duration = PowerTypesEnum.CompetenceSpeciale;
+    this.chaneling = false;
+    this.targets = PowerTypesEnum.CompetenceSpeciale;
   }
 
   public setGroupAndSpeciality(grpCode: string, speCode: string): void {
@@ -118,40 +61,76 @@ export class ArlenorPower {
       else console.error("ConvertPower : speciality n'est pas reconnu : |" + speCode + "|");
     }
   }
-
-  public setCaractsUse(codes: string): void {
-    const listCodes = codes.split(",");
-    listCodes.forEach(code => {
-      if (code.indexOf(CaractNomEnum.Force.Code) !== -1) this.caractsUse.push(CaractNomEnum.Force);
-      else if (code.indexOf(CaractNomEnum.Habilete.Code) !== -1) this.caractsUse.push(CaractNomEnum.Habilete);
-      else if (code.indexOf(CaractNomEnum.Intellect.Code) !== -1) this.caractsUse.push(CaractNomEnum.Intellect);
-      else if (code.indexOf(CaractNomEnum.Tenacite.Code) !== -1) this.caractsUse.push(CaractNomEnum.Tenacite);
-      else if (code.indexOf(CaractNomEnum.Charisme.Code) !== -1) this.caractsUse.push(CaractNomEnum.Charisme);
-      else if (code.indexOf(CaractNomEnum.Magie.Code) !== -1) this.caractsUse.push(CaractNomEnum.Magie);
-      else if (code.indexOf(CaractNomEnum.Aucune.Code) !== -1) this.caractsUse.push(CaractNomEnum.Aucune);
-      else console.error("ConvertPower : caractsUse n'est pas reconnu : |" + code + "|");
-    });
+  
+  public setType(code: string): void {
+    if (code === PowerTypesEnum.CompetenceSpeciale.Code) this.type = PowerTypesEnum.CompetenceSpeciale;
+    else if (code === PowerTypesEnum.SortOffensif.Code) this.type = PowerTypesEnum.SortOffensif;
+    else if (code === PowerTypesEnum.SortDefensif.Code) this.type = PowerTypesEnum.SortDefensif;
+    else if (code === PowerTypesEnum.SortUtilitaire.Code) this.type = PowerTypesEnum.SortUtilitaire;
+    else console.error("ConvertPower : type n'est pas reconnu : |" + code + "|");
   }
 
-  public setCaractsTarget(codes: string): void {
-    const listCodes = codes.split(",");
-    listCodes.forEach(code => {
-      if (code.indexOf(CaractNomEnum.Force.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Force);
-      else if (code.indexOf(CaractNomEnum.Habilete.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Habilete);
-      else if (code.indexOf(CaractNomEnum.Intellect.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Intellect);
-      else if (code.indexOf(CaractNomEnum.Tenacite.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Tenacite);
-      else if (code.indexOf(CaractNomEnum.Charisme.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Charisme);
-      else if (code.indexOf(CaractNomEnum.Magie.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Magie);
-      else if (code.indexOf(CaractNomEnum.Aucune.Code) !== -1) this.caractsTarget.push(CaractNomEnum.Aucune);
-      else console.error("ConvertPower : caractsTarget n'est pas reconnu : |" + code + "|");
-    });
+  public setImage(): void {
+    if (this.speciality) {
+      this.image = require("./../assets/icons/powers/power_spe.png");
+    }
+    else if (this.group) {
+      this.image = require("./../assets/icons/powers/power_grp.png");
+    }
+  }
+
+  public initByJSON(value: string): void {
+    const powerDB = JSON.parse(value);
+    this.date = powerDB.date;
+    this.hour = powerDB.hour;
+
+    this.name = powerDB.name;
+    this.description = powerDB.description;
+    this.setGroupAndSpeciality(powerDB.group, powerDB.speciality);
+    this.setType(powerDB.type);
+    this.setImage();
+
+    this.level = parseInt(powerDB.level);
+    //this.setRange(powerDB.range);
+    //this.setDuration(powerDB.duration);
+    this.chaneling = powerDB.chaneling;
+    //this.setTargets(powerDB.targets);
+  }
+
+  public initTime(): void {
+    function pad(s: number) { return (s < 10) ? "0" + s : s; }
+    const date = new Date();
+    const hours = (date.getHours() < 10 ? "0" : "") + date.getHours();
+    const minutes = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
+    this.hour = hours + ":" + minutes;
+    this.date = [pad(date.getDate()), pad(date.getMonth()+1), date.getFullYear()].join("/");
   }
 }
 
-export class PowersEnum {
-  // Pouvoirs à choisir
+export class PowerTypesEnum {
   static CompetenceSpeciale: ArlenorEnum = { Code: "SPE", Libelle: "Compétence spéciale" };
   static SortOffensif: ArlenorEnum = { Code: "OFF", Libelle: "Sort offensif" };
   static SortDefensif: ArlenorEnum = { Code: "DEF", Libelle: "Sort défensif" };
   static SortUtilitaire: ArlenorEnum = { Code: "UTILE", Libelle: "Sort utilitaire" };
+}
+
+export class PowerRangesEnum {
+  static Personnelle: ArlenorEnum = { Code: "0", Libelle: "Personnelle" };
+  static Toucher: ArlenorEnum = { Code: "1", Libelle: "Toucher" };
+  static Vue: ArlenorEnum = { Code: "2", Libelle: "A vue" };
+  static Infinie: ArlenorEnum = { Code: "3", Libelle: "Infinie" };
+}
+
+export class PowerDurationsEnum {
+  static Instantanee: ArlenorEnum = { Code: "0", Libelle: "Instantanée" };
+  static Scene: ArlenorEnum = { Code: "1", Libelle: "Scène" };
+  static Journee: ArlenorEnum = { Code: "2", Libelle: "Journée" };
+  static Illimitee: ArlenorEnum = { Code: "3", Libelle: "Illimitée" };
+}
+
+export class PowerTargetsEnum {
+  static Aucune: ArlenorEnum = { Code: "0", Libelle: "Aucune" };
+  static Unique: ArlenorEnum = { Code: "1", Libelle: "Unique" };
+  static Foule: ArlenorEnum = { Code: "2", Libelle: "Foule choisie" };
+  static Monde: ArlenorEnum = { Code: "3", Libelle: "Tout le monde" };
 }

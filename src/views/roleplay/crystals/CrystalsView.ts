@@ -1,7 +1,6 @@
 import { ArlenorEnum } from "@/models/ArlenorEnum";
 import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
-import { getListPowers } from "@/models/data/ListPowers";
 import { getListSpecialities } from "@/models/data/ListSpecialities";
 import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, Ref, ref } from "vue";
@@ -56,7 +55,7 @@ export default defineComponent({
         return self.indexOf(value) === index;
       }
       if (this.currentSpeciality) {
-        this.specialityPowers = getListPowers(this.currentSpeciality?.group.code, this.currentSpeciality?.code);
+        this.specialityPowers = []; // getListPowers(this.currentSpeciality?.group.code, this.currentSpeciality?.code);
         this.levels = this.specialityPowers.map(power => power.level).filter(onlyUnique);
         this.levels.sort((a, b) => a - b);
       } else {
