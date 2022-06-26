@@ -85,15 +85,8 @@ const sendPower = async(power: ArlenorPower): Promise<string> => {
 };
 
 const deletePower = async(power: ArlenorPower): Promise<string> => {
-  // const result: string = await requests.requestDelete("power", power);
-  // return result;
-  return power.code;
-};
-
-const deleteAllPower = async(): Promise<string> => {
-  // const result: string = await requests.requestDelete("power", power);
-  // return result;
-  return "";
+  const result: string = await requests.requestDelete("power", power.id);
+  return result;
 };
 
 export default {
@@ -106,6 +99,5 @@ export default {
   sendSkill,
   sendPower,
   sendAllPower,
-  deletePower,
-  deleteAllPower
+  deletePower
 };

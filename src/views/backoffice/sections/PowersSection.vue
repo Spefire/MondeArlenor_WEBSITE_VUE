@@ -21,10 +21,6 @@
     Exporter
   </a>
 
-  <button
-    class="link-button alert-button margin-top-1 margin-left-1"
-    @click="openDeleteAllPowers()">Supprimer tout</button>
-
   <PowersTable
     :all-powers="allPowers"
     @edit="openEditPower"
@@ -52,16 +48,6 @@
     :has-confirm-button="true"
     @close="closeDeletePower">
     Souhaitez-vous vraiment supprimer le pouvoir nommé <b>{{ selectedPower.name }}</b> ?
-    <br> <br>
-    Cette action est irréversible.
-  </PopupBloc>
-  
-  <PopupBloc
-    v-if="showDeleteAllPopup"
-    :bloc-title="'Suppression de tous les pouvoirs'"
-    :has-confirm-button="true"
-    @close="closeDeleteAllPowers">
-    Souhaitez-vous vraiment supprimer tous les pouvoirs enregistrés ?
     <br> <br>
     Cette action est irréversible.
   </PopupBloc>

@@ -100,7 +100,8 @@ export default defineComponent({
     getLibLevel(level: number) {
       if (level === 1) return "inférieur";
       else if (level === 2) return "intermédiaire";
-      else return "supérieur";
+      else if (level === 3) return "supérieur";
+      else return "inconnu";
     },
     getPowersByLevel(level: number) {
       return this.filteredPowers.filter(power => power.level === level);

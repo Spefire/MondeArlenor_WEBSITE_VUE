@@ -19,10 +19,9 @@ export default defineComponent({
     const showAddPopup = ref(false);
     const showEditPopup = ref(false);
     const showDeletePopup = ref(false);
-    const showDeleteAllPopup = ref(false);
     return {
       allPowers, selectedPower, canExport,
-      showAddPopup, showEditPopup, showDeletePopup, showDeleteAllPopup
+      showAddPopup, showEditPopup, showDeletePopup
     };
   },
 
@@ -110,15 +109,11 @@ export default defineComponent({
     },
     async closeDeletePower(withAction: boolean) {
       this.showDeletePopup = false;
-      if (withAction && this.selectedPower) await api.deletePower(this.selectedPower);
+      if (withAction && this.selectedPower) {
+        await api.deletePower(this.selectedPower);
+        this.allPowers = this.allPowers.filter(power => power.id !== this.selectedPower?.id);
+      }
       this.selectedPower = null;
-    },
-    openDeleteAllPowers() {
-      this.showDeleteAllPopup = true;
-    },
-    async closeDeleteAllPowers(withAction: boolean) {
-      this.showDeleteAllPopup = false;
-      if (withAction) await api.deleteAllPower();
     },
   }
 });

@@ -77,7 +77,8 @@ export default defineComponent({
     getLibLevel(level: number) {
       if (level === 1) return "Inférieur";
       else if (level === 2) return "Intermédiaire";
-      else return "Supérieur";
+      else if (level === 3) return "Supérieur";
+      else return "Inconnu";
     },
 
     seeMore(power: ArlenorPower) {

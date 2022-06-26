@@ -110,15 +110,15 @@ export class ArlenorPower {
 
     this.name = powerDB.name;
     this.description = powerDB.description;
-    this.setGroupAndSpeciality(powerDB.group.code, powerDB.speciality?.code);
-    this.setType(powerDB.type.code);
+    this.setGroupAndSpeciality(powerDB.group?.code, powerDB.speciality?.code);
+    this.setType(powerDB.type?.code);
     this.setImage();
 
-    this.level = parseInt(powerDB.level);
-    this.setRange(powerDB.range.code);
-    this.setDuration(powerDB.duration.code);
-    this.chaneling = powerDB.chaneling;
-    this.setTargets(powerDB.targets.code);
+    if (powerDB.level) this.level = parseInt(powerDB.level);
+    this.setRange(powerDB.range?.code);
+    this.setDuration(powerDB.duration?.code);
+    this.chaneling = powerDB.chaneling ? true : false;
+    this.setTargets(powerDB.targets?.code);
   }
 
   public initTime(): void {
