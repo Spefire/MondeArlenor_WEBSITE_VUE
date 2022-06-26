@@ -1,15 +1,21 @@
 import { ArlenorPower } from "@/models/ArlenorPower";
+import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
 import { getListGroups } from "@/models/data/ListGroups";
 import { getListSpecialities } from "@/models/data/ListSpecialities";
-import api from "@/utils/api";
-import { defineComponent, Ref, ref } from "vue";
+import { defineComponent, PropType, Ref, ref } from "vue";
 
 export default defineComponent({
   name: "PowersTable",
+  props: {
+    allPowers: {
+      type: Array as PropType<ArlenorPower[]>,
+      required: true
+    },
+  },
   components: {},
+  emits: ["edit", "delete"],
 
   setup() {
-    const allPowers: Ref<ArlenorPower[]> = ref([]);
     const selectedPower: Ref<ArlenorPower | null> = ref(null);
     const filteredPowers: Ref<ArlenorPower[]> = ref([]);
 
@@ -22,32 +28,29 @@ export default defineComponent({
     const searchName = ref("");
 
     return {
-      allPowers, selectedPower, filteredPowers,
+      selectedPower, filteredPowers,
       allGroups, selectedGroup,
       allSpecialities, selectedSpeciality,
       searchName
     };
   },
-
-  mounted() {
-    this.loadPowers();
+  
+  watch: {
+    allPowers: function() {
+      this.changeFilteredPowers();
+    }
   },
   
   methods: {
-    async loadPowers() {
-      const allPowers = await api.readAllPower();
-      console.warn("allPowers", allPowers);
-      this.allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
-      this.changeFilteredPowers();
-    },
-
     changeFilteredPowers() {
       this.filteredPowers = this.allPowers;
       if (this.selectedGroup) this.filteredPowers = this.filteredPowers.filter(power => power.group.code === this.selectedGroup);
-      /*if (this.selectedSpeciality) this.filteredSkills = this.filteredSkills.filter(skill => {
-        return skill.specialities.find((spe: ArlenorSpeciality) => spe.code === this.selectedSpeciality) || (skill.specialities.length === 0 && skill.group.code === this.selectedGroup);
-      });*/
+      if (this.selectedSpeciality) this.filteredPowers = this.filteredPowers.filter(power => {
+        if (power.speciality) return (power.speciality.code === this.selectedSpeciality);
+        else return true;
+      });
       if (this.searchName) this.filteredPowers = this.filteredPowers.filter(power => power.name.toLowerCase().indexOf(this.searchName.toLowerCase()) !== -1);
+      this.filteredPowers.sort((a, b) => a.name.localeCompare(b.name));
     },
     changeGroup() {
       this.selectedSpeciality = null;
@@ -60,22 +63,32 @@ export default defineComponent({
     },
             
     getLibSpecialities(power: ArlenorPower) {
-      /*if (skill.specialities.length > 0) {
+      if (power.speciality) return power.speciality?.name;
+      else {
+        const listSpe = this.allSpecialities.filter(spe => spe.group.code === power.group.code);
         let lib = "";
-        skill.specialities.forEach((spe: ArlenorSpeciality, index: number) => {
+        listSpe.forEach((spe: ArlenorSpeciality, index: number) => {
           lib += spe.name;
-          if (index < skill.specialities.length-1) lib += ", ";
+          if (index < listSpe.length-1) lib += ", ";
         });
         return lib;
-      } else {
-        return "Toutes les spécialités";
-      }*/
-      // TODO : A supprimer
-      return "Toutes les spécialités : " + power.name;
+      }
+    },
+    getLibLevel(level: number) {
+      if (level === 1) return "Inférieur";
+      else if (level === 2) return "Intermédiaire";
+      else return "Supérieur";
     },
 
     seeMore(power: ArlenorPower) {
       this.selectedPower = (this.selectedPower === power) ? null : power;
+    },
+
+    editPower() {
+      this.$emit("edit");
+    },
+    deletePower() {
+      this.$emit("delete");
     }
   },
 });

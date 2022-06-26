@@ -36,12 +36,8 @@ export default defineComponent({
     },
     async importPowers(event:any) {
       const files = event.target.files || event.dataTransfer.files;
-      if (!files.length)
-        return;
-      console.log(files[0]);
-
+      if (!files.length) return;
       const file = files[0];
-      if (!file) return;
       if (file.size > 1000000) {
         alert("Warning (Max size : 1 Mo)");
       } else {

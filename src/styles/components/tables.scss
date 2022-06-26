@@ -1,13 +1,3 @@
-.table-large {
-    .tbody {
-        height: 50vh;
-    }
-
-    @include mobile-only {
-        display: none;
-    }
-}
-
 .line-table {
     &:hover {
         background-color: rgba($white-color, 0.2) !important;
@@ -24,7 +14,7 @@
     }
 
     img {
-        height: 50px;
+        height: 40px;
         pointer-events: none;
     }
 

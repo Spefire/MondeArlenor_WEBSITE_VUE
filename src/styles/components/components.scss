@@ -35,6 +35,11 @@
     background-color: $background-black-light;
   }
 
+  &.alert-button {
+    color: $warning-color;
+    border: 1px solid $warning-color;
+  }
+
   &:disabled,
   &:disabled:hover {
     color: $warning-color;
