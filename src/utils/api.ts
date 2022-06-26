@@ -65,10 +65,35 @@ const readAllPower = async(): Promise<ArlenorPower[]>  => {
   return finalResults;
 };
 
+const sendAllPower = async(powers: ArlenorPower[]): Promise<string> => {
+  powers.forEach(power => power.initTime());
+
+  let result = "";
+  const chunkSize = 20;
+  for (let i = 0; i < powers.length; i += chunkSize) {
+    const chunk = powers.slice(i, i + chunkSize);
+    result = await requests.requestPost("power/all", chunk);
+  }
+
+  return result;
+};
+
 const sendPower = async(power: ArlenorPower): Promise<string> => {
   power.initTime();
   const result: string = await requests.requestPost("power", power);
   return result;
+};
+
+const deletePower = async(power: ArlenorPower): Promise<string> => {
+  // const result: string = await requests.requestDelete("power", power);
+  // return result;
+  return power.code;
+};
+
+const deleteAllPower = async(): Promise<string> => {
+  // const result: string = await requests.requestDelete("power", power);
+  // return result;
+  return "";
 };
 
 export default {
@@ -80,4 +105,7 @@ export default {
   sendCharacter,
   sendSkill,
   sendPower,
+  sendAllPower,
+  deletePower,
+  deleteAllPower
 };

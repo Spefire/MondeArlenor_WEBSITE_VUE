@@ -65,12 +65,12 @@
             <button
               class="link-button"
               title="Modifier"
-              @click="editPower()">Mod.</button>
+              @click="editPower(power)">Mod.</button>
 
             <button
               class="link-button alert-button margin-left-1"
               title="Supprimer"
-              @click="deletePower()">Sup.</button>
+              @click="deletePower(power)">Sup.</button>
           </td>
         </tr>
         <tr

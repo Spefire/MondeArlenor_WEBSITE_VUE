@@ -5,11 +5,19 @@
         <h3>{{ blocTitle }}</h3>
         <h3
           class="pointer"
-          @click="closePopup()">X</h3>
+          @click="closePopup(false)">X</h3>
       </div>
       <div class="popup-bloc-content">
         <slot />
       </div>
+      <div
+        v-if="hasConfirmButton"
+        class="popup-bloc-content">
+        <button
+          class="link-button"
+          @click="closePopup(true)">Valider</button>
+      </div>
+      
     </div>
   </div>
 </template>

@@ -8,6 +8,11 @@ export default defineComponent({
       required: true,
       default: null
     },
+    hasConfirmButton: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
   },
   emits: ["close"],
   
@@ -16,8 +21,8 @@ export default defineComponent({
   },
 
   methods: {
-    closePopup() {
-      this.$emit("close");
+    closePopup(value: boolean) {
+      this.$emit("close", value);
     }
   }
 });

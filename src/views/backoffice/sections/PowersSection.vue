@@ -27,35 +27,43 @@
 
   <PowersTable
     :all-powers="allPowers"
-    @edit="openEditPower()"
-    @delete="openDeletePower()" />
+    @edit="openEditPower"
+    @delete="openDeletePower" />
 
   <PopupBloc
     v-if="showAddPopup"
-    :bloc-title="'Ajout d\'un pouvoir'"
-    @close="closeAddPower()">
+    :bloc-title="`Ajout d'un pouvoir`"
+    :has-confirm-button="true"
+    @close="closeAddPower">
     Ceci est le contenu de la popup.
   </PopupBloc>
   
   <PopupBloc
     v-if="showEditPopup"
-    :bloc-title="'Modification d\'un pouvoir'"
-    @close="closeEditPower()">
+    :bloc-title="`Modification d'un pouvoir`"
+    :has-confirm-button="true"
+    @close="closeEditPower">
     Ceci est le contenu de la popup.
   </PopupBloc>
   
   <PopupBloc
     v-if="showDeletePopup"
-    :bloc-title="'Suppression d\'un pouvoir'"
-    @close="closeDeletePower()">
-    Ceci est le contenu de la popup.
+    :bloc-title="`Suppression d'un pouvoir`"
+    :has-confirm-button="true"
+    @close="closeDeletePower">
+    Souhaitez-vous vraiment supprimer le pouvoir nommé <b>{{ selectedPower.name }}</b> ?
+    <br> <br>
+    Cette action est irréversible.
   </PopupBloc>
   
   <PopupBloc
     v-if="showDeleteAllPopup"
     :bloc-title="'Suppression de tous les pouvoirs'"
-    @close="closeDeleteAllPowers()">
-    Ceci est le contenu de la popup.
+    :has-confirm-button="true"
+    @close="closeDeleteAllPowers">
+    Souhaitez-vous vraiment supprimer tous les pouvoirs enregistrés ?
+    <br> <br>
+    Cette action est irréversible.
   </PopupBloc>
 </template>
 

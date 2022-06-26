@@ -84,11 +84,11 @@ export default defineComponent({
       this.selectedPower = (this.selectedPower === power) ? null : power;
     },
 
-    editPower() {
-      this.$emit("edit");
+    editPower(power: ArlenorPower) {
+      this.$emit("edit", power);
     },
-    deletePower() {
-      this.$emit("delete");
+    deletePower(power: ArlenorPower) {
+      this.$emit("delete", power);
     }
   },
 });

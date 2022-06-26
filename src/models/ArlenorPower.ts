@@ -50,7 +50,7 @@ export class ArlenorPower {
     if (grpCode) {
       const group = getListGroups().find(grp => grp.code === grpCode.toUpperCase());
       if (group) this.group = group;
-      else console.error("ConvertPower : group n'est pas reconnu : |" + grpCode + "|");
+      // else console.error("ConvertPower : group n'est pas reconnu : |" + grpCode + "|");
     }
     else if (speCode) {
       const speciality = getListSpecialities().find(spe => spe.code === speCode.toUpperCase());
@@ -58,7 +58,7 @@ export class ArlenorPower {
         this.speciality = speciality;
         this.group = speciality.group;
       }
-      else console.error("ConvertPower : speciality n'est pas reconnu : |" + speCode + "|");
+      // else console.error("ConvertPower : speciality n'est pas reconnu : |" + speCode + "|");
     }
   }
   
@@ -67,7 +67,7 @@ export class ArlenorPower {
     else if (code === PowerTypesEnum.SortOffensif.Code) this.type = PowerTypesEnum.SortOffensif;
     else if (code === PowerTypesEnum.SortDefensif.Code) this.type = PowerTypesEnum.SortDefensif;
     else if (code === PowerTypesEnum.SortUtilitaire.Code) this.type = PowerTypesEnum.SortUtilitaire;
-    else console.error("ConvertPower : type n'est pas reconnu : |" + code + "|");
+    // else console.error("ConvertPower : type n'est pas reconnu : |" + code + "|");
   }
 
   public setImage(): void {
@@ -84,7 +84,7 @@ export class ArlenorPower {
     else if (code === PowerRangesEnum.Toucher.Code) this.type = PowerRangesEnum.Toucher;
     else if (code === PowerRangesEnum.Vue.Code) this.type = PowerRangesEnum.Vue;
     else if (code === PowerRangesEnum.Infinie.Code) this.type = PowerRangesEnum.Infinie;
-    else console.error("ConvertRange : range n'est pas reconnu : |" + code + "|");
+    // else console.error("ConvertRange : range n'est pas reconnu : |" + code + "|");
   }
 
   public setDuration(code: string): void {
@@ -92,7 +92,7 @@ export class ArlenorPower {
     else if (code === PowerDurationsEnum.Scene.Code) this.type = PowerDurationsEnum.Scene;
     else if (code === PowerDurationsEnum.Journee.Code) this.type = PowerDurationsEnum.Journee;
     else if (code === PowerDurationsEnum.Illimitee.Code) this.type = PowerDurationsEnum.Illimitee;
-    else console.error("ConvertDuration : duration n'est pas reconnu : |" + code + "|");
+    // else console.error("ConvertDuration : duration n'est pas reconnu : |" + code + "|");
   }
 
   public setTargets(code: string): void {
@@ -100,7 +100,7 @@ export class ArlenorPower {
     else if (code === PowerTargetsEnum.Unique.Code) this.type = PowerTargetsEnum.Unique;
     else if (code === PowerTargetsEnum.Foule.Code) this.type = PowerTargetsEnum.Foule;
     else if (code === PowerTargetsEnum.Monde.Code) this.type = PowerTargetsEnum.Monde;
-    else console.error("ConvertPower : targets n'est pas reconnu : |" + code + "|");
+    // else console.error("ConvertPower : targets n'est pas reconnu : |" + code + "|");
   }
 
   public initByJSON(value: string): void {
@@ -110,15 +110,15 @@ export class ArlenorPower {
 
     this.name = powerDB.name;
     this.description = powerDB.description;
-    this.setGroupAndSpeciality(powerDB.group, powerDB.speciality);
-    this.setType(powerDB.type);
+    this.setGroupAndSpeciality(powerDB.group.code, powerDB.speciality?.code);
+    this.setType(powerDB.type.code);
     this.setImage();
 
     this.level = parseInt(powerDB.level);
-    this.setRange(powerDB.range);
-    this.setDuration(powerDB.duration);
+    this.setRange(powerDB.range.code);
+    this.setDuration(powerDB.duration.code);
     this.chaneling = powerDB.chaneling;
-    this.setTargets(powerDB.targets);
+    this.setTargets(powerDB.targets.code);
   }
 
   public initTime(): void {

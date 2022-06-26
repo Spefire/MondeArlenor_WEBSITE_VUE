@@ -14,13 +14,14 @@ export default defineComponent({
     
   setup() {
     const allPowers: Ref<ArlenorPower[]> = ref([]);
+    const selectedPower: Ref<ArlenorPower | null> = ref(null);
     const canExport = ref(true);
     const showAddPopup = ref(false);
     const showEditPopup = ref(false);
     const showDeletePopup = ref(false);
     const showDeleteAllPopup = ref(false);
     return {
-      allPowers, canExport,
+      allPowers, selectedPower, canExport,
       showAddPopup, showEditPopup, showDeletePopup, showDeleteAllPopup
     };
   },
@@ -53,7 +54,7 @@ export default defineComponent({
             console.log(error);
           };
         });
-        Promise.all([promiseGetParameters]).then(() => {
+        Promise.all([promiseGetParameters]).then(async() => {
 
           const finalResults: ArlenorPower[] = [];
           parameters.forEach((obj: any) => {
@@ -64,6 +65,7 @@ export default defineComponent({
 
           alert("Importation des pouvoirs réussie.");
 
+          await api.sendAllPower(finalResults);
           this.allPowers = this.allPowers.concat(finalResults);
         });
       }
@@ -85,31 +87,38 @@ export default defineComponent({
     },
     openAddPower() {
       this.showAddPopup = true;
+      this.selectedPower = new ArlenorPower();
     },
     closeAddPower(withAction: boolean) {
       this.showAddPopup = false;
       if (withAction) console.log("closeAddPower");
+      this.selectedPower = null;
     },
-    openEditPower() {
+    openEditPower(power: ArlenorPower) {
+      console.warn(power);
       this.showEditPopup = true;
+      this.selectedPower = power;
     },
     closeEditPower(withAction: boolean) {
       this.showEditPopup = false;
       if (withAction) console.log("closeEditPower");
+      this.selectedPower = null;
     },
-    openDeletePower() {
+    openDeletePower(power: ArlenorPower) {
       this.showDeletePopup = true;
+      this.selectedPower = power;
     },
-    closeDeletePower(withAction: boolean) {
+    async closeDeletePower(withAction: boolean) {
       this.showDeletePopup = false;
-      if (withAction) console.log("closeDeletePower");
+      if (withAction && this.selectedPower) await api.deletePower(this.selectedPower);
+      this.selectedPower = null;
     },
     openDeleteAllPowers() {
       this.showDeleteAllPopup = true;
     },
-    closeDeleteAllPowers(withAction: boolean) {
+    async closeDeleteAllPowers(withAction: boolean) {
       this.showDeleteAllPopup = false;
-      if (withAction) console.log("closeDeleteAllPowers");
+      if (withAction) await api.deleteAllPower();
     },
   }
 });
