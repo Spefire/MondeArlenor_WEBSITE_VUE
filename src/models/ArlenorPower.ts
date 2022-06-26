@@ -41,9 +41,9 @@ export class ArlenorPower {
 
     this.level = 0;
     this.range = PowerRangesEnum.Personnelle;
-    this.duration = PowerTypesEnum.CompetenceSpeciale;
+    this.duration = PowerDurationsEnum.Instantanee;
     this.chaneling = false;
-    this.targets = PowerTypesEnum.CompetenceSpeciale;
+    this.targets = PowerTargetsEnum.Aucune;
   }
 
   public setGroupAndSpeciality(grpCode: string, speCode: string): void {
@@ -79,6 +79,30 @@ export class ArlenorPower {
     }
   }
 
+  public setRange(code: string): void {
+    if (code === PowerRangesEnum.Personnelle.Code) this.type = PowerRangesEnum.Personnelle;
+    else if (code === PowerRangesEnum.Toucher.Code) this.type = PowerRangesEnum.Toucher;
+    else if (code === PowerRangesEnum.Vue.Code) this.type = PowerRangesEnum.Vue;
+    else if (code === PowerRangesEnum.Infinie.Code) this.type = PowerRangesEnum.Infinie;
+    else console.error("ConvertRange : range n'est pas reconnu : |" + code + "|");
+  }
+
+  public setDuration(code: string): void {
+    if (code === PowerDurationsEnum.Instantanee.Code) this.type = PowerDurationsEnum.Instantanee;
+    else if (code === PowerDurationsEnum.Scene.Code) this.type = PowerDurationsEnum.Scene;
+    else if (code === PowerDurationsEnum.Journee.Code) this.type = PowerDurationsEnum.Journee;
+    else if (code === PowerDurationsEnum.Illimitee.Code) this.type = PowerDurationsEnum.Illimitee;
+    else console.error("ConvertDuration : duration n'est pas reconnu : |" + code + "|");
+  }
+
+  public setTargets(code: string): void {
+    if (code === PowerTargetsEnum.Aucune.Code) this.type = PowerTargetsEnum.Aucune;
+    else if (code === PowerTargetsEnum.Unique.Code) this.type = PowerTargetsEnum.Unique;
+    else if (code === PowerTargetsEnum.Foule.Code) this.type = PowerTargetsEnum.Foule;
+    else if (code === PowerTargetsEnum.Monde.Code) this.type = PowerTargetsEnum.Monde;
+    else console.error("ConvertPower : targets n'est pas reconnu : |" + code + "|");
+  }
+
   public initByJSON(value: string): void {
     const powerDB = JSON.parse(value);
     this.date = powerDB.date;
@@ -91,10 +115,10 @@ export class ArlenorPower {
     this.setImage();
 
     this.level = parseInt(powerDB.level);
-    //this.setRange(powerDB.range);
-    //this.setDuration(powerDB.duration);
+    this.setRange(powerDB.range);
+    this.setDuration(powerDB.duration);
     this.chaneling = powerDB.chaneling;
-    //this.setTargets(powerDB.targets);
+    this.setTargets(powerDB.targets);
   }
 
   public initTime(): void {
