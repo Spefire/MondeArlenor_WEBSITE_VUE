@@ -15,8 +15,14 @@ export default defineComponent({
   setup() {
     const allPowers: Ref<ArlenorPower[]> = ref([]);
     const canExport = ref(true);
-    const showPopup = ref(false);
-    return { allPowers, canExport, showPopup };
+    const showAddPopup = ref(false);
+    const showEditPopup = ref(false);
+    const showDeletePopup = ref(false);
+    const showDeleteAllPopup = ref(false);
+    return {
+      allPowers, canExport,
+      showAddPopup, showEditPopup, showDeletePopup, showDeleteAllPopup
+    };
   },
 
   mounted() {
@@ -27,12 +33,6 @@ export default defineComponent({
     async loadPowers() {
       const allPowers = await api.readAllPower();
       this.allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
-    },
-    addPower() {
-      this.showPopup = true;
-    },
-    closePower() {
-      this.showPopup = false;
     },
     async importPowers(event:any) {
       const files = event.target.files || event.dataTransfer.files;
@@ -83,8 +83,33 @@ export default defineComponent({
         this.canExport = false;
       }
     },
-    deletePowers() {
-      this.showPopup = true;
+    openAddPower() {
+      this.showAddPopup = true;
+    },
+    closeAddPower(withAction: boolean) {
+      this.showAddPopup = false;
+      if (withAction) console.log("closeAddPower");
+    },
+    openEditPower() {
+      this.showEditPopup = true;
+    },
+    closeEditPower(withAction: boolean) {
+      this.showEditPopup = false;
+      if (withAction) console.log("closeEditPower");
+    },
+    openDeletePower() {
+      this.showDeletePopup = true;
+    },
+    closeDeletePower(withAction: boolean) {
+      this.showDeletePopup = false;
+      if (withAction) console.log("closeDeletePower");
+    },
+    openDeleteAllPowers() {
+      this.showDeleteAllPopup = true;
+    },
+    closeDeleteAllPowers(withAction: boolean) {
+      this.showDeleteAllPopup = false;
+      if (withAction) console.log("closeDeleteAllPowers");
     },
   }
 });
