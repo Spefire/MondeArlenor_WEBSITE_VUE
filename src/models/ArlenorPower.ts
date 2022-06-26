@@ -50,7 +50,7 @@ export class ArlenorPower {
     if (grpCode) {
       const group = getListGroups().find(grp => grp.code === grpCode.toUpperCase());
       if (group) this.group = group;
-      // else console.error("ConvertPower : group n'est pas reconnu : |" + grpCode + "|");
+      else console.error("ConvertPower : group n'est pas reconnu : |" + grpCode + "|");
     }
     else if (speCode) {
       const speciality = getListSpecialities().find(spe => spe.code === speCode.toUpperCase());
@@ -58,7 +58,7 @@ export class ArlenorPower {
         this.speciality = speciality;
         this.group = speciality.group;
       }
-      // else console.error("ConvertPower : speciality n'est pas reconnu : |" + speCode + "|");
+      else console.error("ConvertPower : speciality n'est pas reconnu : |" + speCode + "|");
     }
   }
   
@@ -110,6 +110,7 @@ export class ArlenorPower {
 
     this.name = powerDB.name;
     this.description = powerDB.description;
+    console.log("powerDB", powerDB);
     this.setGroupAndSpeciality(powerDB.group?.code, powerDB.speciality?.code);
     this.setType(powerDB.type?.code);
     this.setImage();

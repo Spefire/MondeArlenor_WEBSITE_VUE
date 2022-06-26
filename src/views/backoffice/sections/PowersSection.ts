@@ -64,8 +64,9 @@ export default defineComponent({
 
           alert("Importation des pouvoirs réussie.");
 
-          await api.sendAllPower(finalResults);
+          //await api.sendAllPower(finalResults);
           this.allPowers = this.allPowers.concat(finalResults);
+          console.warn(this.allPowers);
         });
       }
     },

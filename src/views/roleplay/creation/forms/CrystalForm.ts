@@ -3,6 +3,7 @@ import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
 import { getListGroups } from "@/models/data/ListGroups";
 import { getListSpecialities } from "@/models/data/ListSpecialities";
+import api from "@/utils/api";
 import useVuelidate from "@vuelidate/core";
 import { defineComponent, ref, Ref } from "vue";
 import { useStore } from "vuex";
@@ -21,6 +22,7 @@ export default defineComponent({
   data () {
     const store = useStore();
     
+    const allPowers: Ref<ArlenorPower[]> = ref([]);
     const selectedPower: Ref<ArlenorPower | null> = ref(null);
 
     const selectedGroup: Ref<ArlenorGroup | null> = ref(null);
@@ -32,7 +34,7 @@ export default defineComponent({
 
     return {
       store,
-      selectedPower,
+      allPowers, selectedPower,
       selectedGrpCode, selectedGroup,
       selectedSpeCode, selectedSpeciality,
       levels,
@@ -66,14 +68,28 @@ export default defineComponent({
     },
     filteredPowers(): ArlenorPower[] {
       if (this.selectedSpeciality) {
-        return []; // getListPowers(this.selectedSpeciality?.group.code, this.selectedSpeciality?.code);
+        const listGrp = this.selectedGrpCode ? this.allPowers.filter(power => power.group.code === this.selectedGrpCode && !power.speciality) : [];
+        const listSpe = this.selectedSpeCode ? this.allPowers.filter(power => power.speciality?.code === this.selectedSpeCode) : [];
+        const list = listGrp.concat(listSpe);
+        list.sort((a, b) => {
+          return a.name.localeCompare(b.name);
+        });
+        return list;
       } else {
         return [];
       }
     },
   },
   
+  mounted() {
+    this.loadPowers();
+  },
+
   methods: {
+    async loadPowers() {
+      const allPowers = await api.readAllPower();
+      this.allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
+    },
     changeGroup() {
       this.selectedGroup = this.selectedGrpCode ? this.allGroups.find(grp => grp.code == this.selectedGrpCode) || null  : null;
       this.selectedSpeciality = null;

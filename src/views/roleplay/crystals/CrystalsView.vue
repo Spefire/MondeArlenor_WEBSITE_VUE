@@ -167,11 +167,11 @@
             <div class="power-separator" />
             <div>
               Jets à réaliser :
-              <span title="Jets du lanceur">{{ getCodCaracts(selectedPower.caractsUse) }}</span>
+              <span title="Jets du lanceur">Pas définis</span>
             </div>
             <div>
               Jets en opposition :
-              <span title="Jets de la cible">{{ getCodCaracts(selectedPower.caractsTarget) }}</span>
+              <span title="Jets de la cible">Pas définis</span>
             </div>
             <div class="margin-top-05">{{ getCasting(selectedPower.chanelingProperty) }}</div>
             <div>{{ getReloading(selectedPower.durationProperty) }}</div>
