@@ -1,7 +1,7 @@
 import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
-import { getListGroups } from "@/models/data/ListGroups";
-import { getListSpecialities } from "@/models/data/ListSpecialities";
+import { ArlenorGroups } from "@/models/data/ListGroups";
+import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import { defineComponent, PropType, Ref, ref } from "vue";
 
 export default defineComponent({
@@ -19,10 +19,10 @@ export default defineComponent({
     const selectedPower: Ref<ArlenorPower | null> = ref(null);
     const filteredPowers: Ref<ArlenorPower[]> = ref([]);
 
-    const allGroups = ref(getListGroups().sort((a, b) => a.name.localeCompare(b.name)));
+    const allGroups = ref(ArlenorGroups.getListGroups().sort((a, b) => a.name.localeCompare(b.name)));
     const selectedGroup: Ref<string | null> = ref(null);
     
-    const allSpecialities = ref(getListSpecialities().sort((a, b) => a.name.localeCompare(b.name)));
+    const allSpecialities = ref(ArlenorSpecialities.getListSpecialities().sort((a, b) => a.name.localeCompare(b.name)));
     const selectedSpeciality: Ref<string | null> = ref(null);
 
     const searchName = ref("");

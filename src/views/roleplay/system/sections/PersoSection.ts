@@ -2,10 +2,10 @@ import ArrowButton from "@/components/arrow-button/ArrowButton.vue";
 import ExpandBloc from "@/components/expand-bloc/ExpandBloc.vue";
 import { CaractDescriptionEnum } from "@/models/ArlenorCharacter";
 import { ArlenorRace, DifficultyEnum } from "@/models/ArlenorRace";
-import { getListGroups } from "@/models/data/ListGroups";
+import { ArlenorGroups } from "@/models/data/ListGroups";
 import { getListRaces } from "@/models/data/ListRaces";
 import { getListRoles } from "@/models/data/ListRoles";
-import { getListSpecialities } from "@/models/data/ListSpecialities";
+import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
@@ -18,8 +18,8 @@ export default defineComponent({
   setup() {
     const caractDescriptionEnum = CaractDescriptionEnum;
     const allRaces = ref(getListRaces().filter(race => race.difficulty !== DifficultyEnum.Impossible.Code));
-    const allSpecialities = ref(getListSpecialities());
-    const allGroups = ref(getListGroups());
+    const allSpecialities = ref(ArlenorSpecialities.getListSpecialities());
+    const allGroups = ref(ArlenorGroups.getListGroups());
     const allRoles = ref(getListRoles());
     const persoChoice = ref(1);
     const caractChoice = ref(0);

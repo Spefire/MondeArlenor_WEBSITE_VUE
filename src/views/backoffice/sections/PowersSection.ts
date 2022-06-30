@@ -64,9 +64,8 @@ export default defineComponent({
 
           alert("Importation des pouvoirs réussie.");
 
-          //await api.sendAllPower(finalResults);
+          await api.sendAllPower(finalResults);
           this.allPowers = this.allPowers.concat(finalResults);
-          console.warn(this.allPowers);
         });
       }
     },
@@ -75,8 +74,7 @@ export default defineComponent({
         this.canExport = true;
         return;
       }
-      const allPowers = await api.readAllPower();
-      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(allPowers));
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.allPowers));
       const dlAnchorElem = document.getElementById("export-powers-json");
       if (dlAnchorElem) {
         dlAnchorElem.setAttribute("href", dataStr);

@@ -62,9 +62,17 @@ export class ArlenorGroups {
     this.Barde.description = "Le Barde est un mage de soutien qui se sert de la musique pour influencer le combat à l'avantage de ses alliés.";
     this.Barde.image = require("./../../assets/icons/groups/barde.png");
   }
-}
 
-export function getListGroups(): ArlenorGroup[] {
-  const arlenorGroups = new ArlenorGroups();
-  return Object.values(arlenorGroups);
+  public static getListGroups(): ArlenorGroup[] {
+    const arlenorGroups = new ArlenorGroups();
+    return Object.values(arlenorGroups);
+  }
+
+  public static getGroup(code: string): ArlenorGroup {
+    const arlenorGroups = new ArlenorGroups();
+    const listGroups = Object.values(arlenorGroups);
+    const result = listGroups.find(grp => grp.code === code);
+    if (!result) console.error("ERROR getGroup : ", code);
+    return result || listGroups[0];
+  }
 }

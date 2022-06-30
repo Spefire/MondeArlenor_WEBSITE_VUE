@@ -1,6 +1,6 @@
 import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
-import { getListSpecialities } from "@/models/data/ListSpecialities";
+import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import { PageTitles } from "@/models/PagesTitles";
 import api from "@/utils/api";
 import { defineComponent, Ref, ref } from "vue";
@@ -21,7 +21,7 @@ export default defineComponent({
 
   setup() {
     const allPowers: Ref<ArlenorPower[]> = ref([]);
-    const allSpecialities = ref(getListSpecialities());
+    const allSpecialities = ref(ArlenorSpecialities.getListSpecialities());
     const currentSpeciality: Ref<ArlenorSpeciality | null> = ref(null);
     const specialityPowers: Ref<ArlenorPower[]> = ref([]);
     const selectedPower: Ref<ArlenorPower | null> = ref(null);
@@ -47,7 +47,7 @@ export default defineComponent({
 
     updatePage() {
       if (this.$route.query.spe) {
-        const targetSpeciality = getListSpecialities().find(spe => spe.code === this.$route.query.spe);
+        const targetSpeciality = ArlenorSpecialities.getListSpecialities().find(spe => spe.code === this.$route.query.spe);
         this.currentSpeciality = targetSpeciality ? targetSpeciality : null;
         if (this.currentSpeciality) this.currentSpeciality.setSkills();
         this.selectPower(null);

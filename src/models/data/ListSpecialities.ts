@@ -120,9 +120,17 @@ export class ArlenorSpecialities {
     this.Banshee.image = require("./../../assets/icons/specialities/banshee.png");
     this.Banshee.description = "La Banshee utilise des chants qui perturbent les cibles, leur annonçant une mort proche. Elle peut également mais rarement, infliger des dégâts via sa voix.";
   }
-}
 
-export function getListSpecialities(): ArlenorSpeciality[] {
-  const arlenorSpecialities = new ArlenorSpecialities();
-  return Object.values(arlenorSpecialities);
+  public static getListSpecialities(): ArlenorSpeciality[] {
+    const arlenorSpecialities = new ArlenorSpecialities();
+    return Object.values(arlenorSpecialities);
+  }
+
+  public static getSpeciality(code: string): ArlenorSpeciality {
+    const arlenorSpecialities = new ArlenorSpecialities();
+    const listSpecialities = Object.values(arlenorSpecialities);
+    const result = listSpecialities.find(spe => spe.code === code);
+    if (!result) console.error("ERROR getSpeciality : ", code);
+    return result || listSpecialities[0];
+  }
 }

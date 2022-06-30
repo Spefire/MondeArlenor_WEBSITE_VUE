@@ -1,8 +1,8 @@
 import { ArlenorGroup } from "@/models/ArlenorGroup";
 import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
-import { getListGroups } from "@/models/data/ListGroups";
-import { getListSpecialities } from "@/models/data/ListSpecialities";
+import { ArlenorGroups } from "@/models/data/ListGroups";
+import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import api from "@/utils/api";
 import useVuelidate from "@vuelidate/core";
 import { defineComponent, ref, Ref } from "vue";
@@ -54,10 +54,10 @@ export default defineComponent({
 
   computed: {
     allGroups(): ArlenorGroup[] {
-      return getListGroups().sort((a, b) => a.name.localeCompare(b.name));
+      return ArlenorGroups.getListGroups().sort((a, b) => a.name.localeCompare(b.name));
     },
     allSpecialities(): ArlenorSpeciality[] {
-      return getListSpecialities().sort((a, b) => a.name.localeCompare(b.name));
+      return ArlenorSpecialities.getListSpecialities().sort((a, b) => a.name.localeCompare(b.name));
     },
     filteredSpecialities(): ArlenorSpeciality[] {
       if (this.selectedGrpCode) {
