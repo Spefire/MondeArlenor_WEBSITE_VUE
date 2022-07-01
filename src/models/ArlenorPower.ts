@@ -9,10 +9,11 @@ export class ArlenorPower {
   public hour = "00:00";
   public date = "01/01/1990";
 
+  public isVerified: boolean;
+
   public name: string;
   public description: string;
   public codeType: string;
-  public image: string;
   public codeGroup: string;
   public codeSpeciality: string | null;
 
@@ -27,6 +28,18 @@ export class ArlenorPower {
     code = code.normalize("NFD").replace(/\p{Diacritic}/gu, "");
     code = code.replace(/\s/g, "");
     return code.toUpperCase();
+  }
+
+  get image(): string | null {
+    if (this.codeSpeciality) {
+      if (this.isVerified) return require("./../assets/icons/powers/power_spe_ok.png");
+      else return require("./../assets/icons/powers/power_spe.png");
+    }
+    else if (this.codeGroup) {
+      if (this.isVerified) return require("./../assets/icons/powers/power_grp_ok.png");
+      else return require("./../assets/icons/powers/power_grp.png");
+    }
+    else return null;
   }
 
   get type(): ArlenorEnum {
@@ -73,10 +86,11 @@ export class ArlenorPower {
   constructor() {
     const groups = new ArlenorGroups();
 
+    this.isVerified = false;
+
     this.name = "";
     this.description = "";
     this.codeType = PowerTypesEnum.CompetenceSpeciale.Code;
-    this.image = "";
     this.codeGroup = groups.Assassin.code;
     this.codeSpeciality = null;
 
@@ -86,27 +100,18 @@ export class ArlenorPower {
     this.chaneling = false;
     this.codeTargets = PowerTargetsEnum.Aucune.Code;
   }
-  
-  public setImage(): void {
-    if (this.codeSpeciality) {
-      this.image = require("./../assets/icons/powers/power_spe.png");
-    }
-    else if (this.codeGroup) {
-      this.image = require("./../assets/icons/powers/power_grp.png");
-    }
-  }
 
   public initByJSON(value: string): void {
     const powerDB = JSON.parse(value);
     this.date = powerDB.date;
     this.hour = powerDB.hour;
+    this.isVerified = powerDB.isVerified ? true : false;
 
     this.name = powerDB.name;
     this.description = powerDB.description;
     this.codeType = powerDB.codeType;
     this.codeGroup = powerDB.codeGroup;
     this.codeSpeciality = powerDB.codeSpeciality ? powerDB.codeSpeciality : null;
-    this.setImage();
 
     if (powerDB.level) this.level = parseInt(powerDB.level);
     this.codeRange = powerDB.codeRange;
