@@ -56,27 +56,15 @@ export class ArlenorPower {
   }
 
   get range(): ArlenorEnum {
-    if (this.codeType === PowerRangesEnum.Personnelle.Code) return PowerRangesEnum.Personnelle;
-    else if (this.codeType === PowerRangesEnum.Toucher.Code) return PowerRangesEnum.Toucher;
-    else if (this.codeType === PowerRangesEnum.Vue.Code) return PowerRangesEnum.Vue;
-    else if (this.codeType === PowerRangesEnum.Infinie.Code) return PowerRangesEnum.Infinie;
-    else return PowerRangesEnum.Personnelle;
+    return getEnumByCode(this.codeRange, PowerRangesEnum);
   }
   
   get duration(): ArlenorEnum {
-    if (this.codeType === PowerDurationsEnum.Instantanee.Code) return PowerDurationsEnum.Instantanee;
-    else if (this.codeType === PowerDurationsEnum.Scene.Code) return PowerDurationsEnum.Scene;
-    else if (this.codeType === PowerDurationsEnum.Journee.Code) return PowerDurationsEnum.Journee;
-    else if (this.codeType === PowerDurationsEnum.Illimitee.Code) return PowerDurationsEnum.Illimitee;
-    else return PowerDurationsEnum.Instantanee;
+    return getEnumByCode(this.codeType, PowerDurationsEnum);
   }
   
   get targets(): ArlenorEnum {
-    if (this.codeType === PowerTargetsEnum.Aucune.Code) return PowerTargetsEnum.Aucune;
-    else if (this.codeType === PowerTargetsEnum.Unique.Code) return PowerTargetsEnum.Unique;
-    else if (this.codeType === PowerTargetsEnum.Foule.Code) return PowerTargetsEnum.Foule;
-    else if (this.codeType === PowerTargetsEnum.Monde.Code) return PowerTargetsEnum.Monde;
-    else return PowerTargetsEnum.Aucune;
+    return getEnumByCode(this.codeTargets, PowerTargetsEnum);
   }
 
   constructor() {
@@ -86,7 +74,7 @@ export class ArlenorPower {
 
     this.name = "";
     this.description = "";
-    this.codeType = PowerTypesEnum.CoupSpecial.Code;
+    this.codeType = PowerTypesEnum.AnatomieSurhumaine.Code;
     this.codeGroup = groups.Assassin.code;
     this.codeSpeciality = null;
 
