@@ -1,4 +1,4 @@
-import { ArlenorEnum } from "./ArlenorEnum";
+import { ArlenorEnum, getEnumByCode } from "./ArlenorEnum";
 import { ArlenorGroup } from "./ArlenorGroup";
 import { ArlenorSpeciality } from "./ArlenorSpeciality";
 import { ArlenorGroups } from "./data/ListGroups";
@@ -43,11 +43,7 @@ export class ArlenorPower {
   }
 
   get type(): ArlenorEnum {
-    if (this.codeType === PowerTypesEnum.CompetenceSpeciale.Code) return PowerTypesEnum.CompetenceSpeciale;
-    else if (this.codeType === PowerTypesEnum.SortOffensif.Code) return PowerTypesEnum.SortOffensif;
-    else if (this.codeType === PowerTypesEnum.SortDefensif.Code) return PowerTypesEnum.SortDefensif;
-    else if (this.codeType === PowerTypesEnum.SortUtilitaire.Code) return PowerTypesEnum.SortUtilitaire;
-    else return PowerTypesEnum.CompetenceSpeciale;
+    return getEnumByCode(this.codeType, PowerTypesEnum);
   }
 
   get group(): ArlenorGroup {
@@ -90,7 +86,7 @@ export class ArlenorPower {
 
     this.name = "";
     this.description = "";
-    this.codeType = PowerTypesEnum.CompetenceSpeciale.Code;
+    this.codeType = PowerTypesEnum.CoupSpecial.Code;
     this.codeGroup = groups.Assassin.code;
     this.codeSpeciality = null;
 
@@ -131,10 +127,23 @@ export class ArlenorPower {
 }
 
 export class PowerTypesEnum {
-  static CompetenceSpeciale: ArlenorEnum = { Code: "SPE", Libelle: "Compétence spéciale" };
-  static SortOffensif: ArlenorEnum = { Code: "OFF", Libelle: "Sort offensif" };
-  static SortDefensif: ArlenorEnum = { Code: "DEF", Libelle: "Sort défensif" };
-  static SortUtilitaire: ArlenorEnum = { Code: "UTILE", Libelle: "Sort utilitaire" };
+  static AnatomieSurhumaine: ArlenorEnum = { Code: "ANATOMIE", Libelle: "Anatomie surhumaine" };
+  static ArmeNaturelle: ArlenorEnum = { Code: "ARME_NAT", Libelle: "Arme naturelle" };
+  static ArmureNaturelle: ArlenorEnum = { Code: "ARMURE_NAT", Libelle: "Armure naturelle" };
+  static Chimerisme: ArlenorEnum = { Code: "CHIMERISME", Libelle: "Chimérisme" };
+  static CoupSpecial: ArlenorEnum = { Code: "COUP_SPE", Libelle: "Coup spécial" };
+  static DeplacementSpacial: ArlenorEnum = { Code: "DEP_SPATIAL", Libelle: "Déplacement spacial" };
+  static Immunite: ArlenorEnum = { Code: "IMMUNITE", Libelle: "Immunité" };
+  static ManipulationTemps: ArlenorEnum = { Code: "MANIP_TEMPS", Libelle: "Manipulation temporelle" };
+  static Metamorphose: ArlenorEnum = { Code: "METAMORPHOSE", Libelle: "Métamorphose" };
+  static PerceptionSpecial: ArlenorEnum = { Code: "PERCEPTION", Libelle: "Perception spéciale" };
+  static PouvoirMental: ArlenorEnum = { Code: "POUV_MENTAL", Libelle: "Pouvoir mental" };
+  static PouvoirSoin: ArlenorEnum = { Code: "POUV_SOIN", Libelle: "Pouvoir de soin" };
+  static RayonAttaque: ArlenorEnum = { Code: "RAYON_ATK", Libelle: "Rayonnement d'attaque" };
+  static RayonProtection: ArlenorEnum = { Code: "RAYON_DEF", Libelle: "Rayonnement de protection" };
+  static RayonSpecial: ArlenorEnum = { Code: "RAYON_SPE", Libelle: "Rayonnement spécial" };
+  static Spiritisme: ArlenorEnum = { Code: "SPIRITISME", Libelle: "Spiritisme" };
+  static Transmutation: ArlenorEnum = { Code: "TRANSMUTATION", Libelle: "Transmutation" };
 }
 
 export class PowerRangesEnum {
