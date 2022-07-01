@@ -60,7 +60,7 @@ export class ArlenorPower {
   }
   
   get duration(): ArlenorEnum {
-    return getEnumByCode(this.codeType, PowerDurationsEnum);
+    return getEnumByCode(this.codeDuration, PowerDurationsEnum);
   }
   
   get targets(): ArlenorEnum {

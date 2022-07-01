@@ -3,30 +3,30 @@
 
     <div class="layout-center large">
       <div class="bloc-text onglets-nav margin-top-1">
-        <span
+        <!--span
           class="onglets-nav-item"
           :class="{ selected : backChoice === 1 }"
           @click="changeBackChoice(1)">
           ???
-        </span>
-        <span
+        </span-->
+        <!--span
           class="onglets-nav-item"
           :class="{ selected : backChoice === 2 }"
           @click="changeBackChoice(2)">
           Les compétences
-        </span>
+        </span-->
         <span
           class="onglets-nav-item"
           :class="{ selected : backChoice === 3 }"
           @click="changeBackChoice(3)">
           Les pouvoirs
         </span>
-        <span
+        <!--span
           class="onglets-nav-item"
           :class="{ selected : backChoice === 4 }"
           @click="changeBackChoice(4)">
           Les personnages
-        </span>
+        </span-->
         <span
           class="onglets-nav-item"
           :class="{ selected : backChoice === 5 }"
