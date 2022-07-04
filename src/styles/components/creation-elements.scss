@@ -13,9 +13,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin: 10px 0;
 
-    span {
+    > span {
         margin-bottom: 5px;
     }
 

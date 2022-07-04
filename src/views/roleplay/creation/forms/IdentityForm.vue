@@ -25,8 +25,8 @@
         class="text-center"
         v-model.trim.lazy="v$.form.name.$model">
     </div>
-    <div class="creation-row">
-      <div class="creation-col-25 creation-element">
+    <div class="form-row">
+      <div class="form-col-25 creation-element">
         <span>Âge <span required-libelle>*</span></span>
         <input
           type="number"
