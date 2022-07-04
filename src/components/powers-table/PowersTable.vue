@@ -78,19 +78,19 @@
           class="line-table selected">
           <td colspan="5">
             <p>
-              <span title="Type de pouvoir">{{ power.type.Libelle }}</span>
-              / <span title="Portée du pouvoir">{{ power.range.Libelle }}</span>
-              / <span title="Durée du pouvoir">{{ power.duration.Libelle }}</span>
-              / <span title="Cibles du pouvoir">{{ power.targets.Libelle }}</span>
-              / <span>{{ power.chaneling ? "Avec" : "Sans" }} canalisation</span>
-            </p>
-          </td>
-        </tr>
-        <tr
-          v-if="selectedPower === power"
-          class="line-table selected">
-          <td colspan="5">
-            <p>{{ power.description ? power.description : "Aucune description disponible" }}</p>
+              <i>
+                <span title="Type de pouvoir">{{ power.type.Libelle }}</span>
+                &nbsp;•&nbsp;
+                <span title="Portée du pouvoir">{{ power.range.Libelle }}</span>
+                &nbsp;•&nbsp;
+                <span title="Durée du pouvoir">{{ power.duration.Libelle }}</span>
+                &nbsp;•&nbsp;
+                <span title="Cibles du pouvoir">{{ power.targets.Libelle }}</span>
+                &nbsp;•&nbsp;
+                <span>{{ power.chaneling ? "Avec" : "Sans" }} canalisation</span>
+              </i>
+              <br>
+              {{ power.description ? power.description : "Aucune description disponible" }}</p>
           </td>
         </tr>
       </template>
