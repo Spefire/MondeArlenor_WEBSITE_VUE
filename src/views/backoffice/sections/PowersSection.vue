@@ -29,17 +29,19 @@
   <PopupBloc
     v-if="showAddPopup"
     :bloc-title="`Ajout d'un pouvoir`"
-    :has-confirm-button="true"
     @close="closeAddPower">
-    Ceci est le contenu de la popup.
+    <PowerForm
+      :current-power="currentPower" 
+      @submit="closeAddPower" />
   </PopupBloc>
   
   <PopupBloc
     v-if="showEditPopup"
     :bloc-title="`Modification d'un pouvoir`"
-    :has-confirm-button="true"
     @close="closeEditPower">
-    Ceci est le contenu de la popup.
+    <PowerForm
+      :current-power="currentPower"
+      @submit="closeEditPower" />
   </PopupBloc>
   
   <PopupBloc

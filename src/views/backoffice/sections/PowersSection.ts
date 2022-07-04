@@ -5,22 +5,25 @@ import { ArlenorPower } from "@/models/ArlenorPower";
 import api from "@/utils/api";
 import { defineComponent, Ref, ref } from "vue";
 
+import PowerForm from "./PowerForm.vue";
+
 export default defineComponent({
   name: "PowersSection",
   components: {
+    PowerForm,
     PowersTable,
     PopupBloc,
   },
     
   setup() {
     const allPowers: Ref<ArlenorPower[]> = ref([]);
-    const selectedPower: Ref<ArlenorPower | null> = ref(null);
+    const currentPower: Ref<ArlenorPower | null> = ref(null);
     const canExport = ref(true);
     const showAddPopup = ref(false);
     const showEditPopup = ref(false);
     const showDeletePopup = ref(false);
     return {
-      allPowers, selectedPower, canExport,
+      allPowers, currentPower, canExport,
       showAddPopup, showEditPopup, showDeletePopup
     };
   },
@@ -64,7 +67,7 @@ export default defineComponent({
 
           alert("Importation des pouvoirs réussie.");
 
-          await api.sendAllPower(finalResults);
+          // await api.sendAllPower(finalResults);
           this.allPowers = this.allPowers.concat(finalResults);
         });
       }
@@ -85,34 +88,33 @@ export default defineComponent({
     },
     openAddPower() {
       this.showAddPopup = true;
-      this.selectedPower = new ArlenorPower();
+      this.currentPower = new ArlenorPower();
     },
-    closeAddPower(withAction: boolean) {
+    closeAddPower(power: ArlenorPower | boolean) {
       this.showAddPopup = false;
-      if (withAction) console.log("closeAddPower");
-      this.selectedPower = null;
+      if (power) console.log("closeEditPower", power);
+      this.currentPower = null;
     },
     openEditPower(power: ArlenorPower) {
-      console.warn(power);
       this.showEditPopup = true;
-      this.selectedPower = power;
+      this.currentPower = power;
     },
-    closeEditPower(withAction: boolean) {
+    closeEditPower(power: ArlenorPower | boolean) {
       this.showEditPopup = false;
-      if (withAction) console.log("closeEditPower");
-      this.selectedPower = null;
+      if (power) console.log("closeEditPower", power);
+      this.currentPower = null;
     },
     openDeletePower(power: ArlenorPower) {
       this.showDeletePopup = true;
-      this.selectedPower = power;
+      this.currentPower = power;
     },
     async closeDeletePower(withAction: boolean) {
       this.showDeletePopup = false;
-      if (withAction && this.selectedPower) {
-        await api.deletePower(this.selectedPower);
-        this.allPowers = this.allPowers.filter(power => power.id !== this.selectedPower?.id);
+      if (withAction && this.currentPower) {
+        await api.deletePower(this.currentPower);
+        this.allPowers = this.allPowers.filter(power => power.id !== this.currentPower?.id);
       }
-      this.selectedPower = null;
+      this.currentPower = null;
     },
   }
 });
