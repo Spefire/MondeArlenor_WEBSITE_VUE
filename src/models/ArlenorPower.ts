@@ -94,7 +94,13 @@ export class ArlenorPower {
     this.name = powerDB.name;
     this.description = powerDB.description;
     this.codeType = powerDB.codeType;
-    this.codeGroup = powerDB.codeGroup;
+    if (powerDB.codeSpeciality) {
+      this.codeSpeciality = powerDB.codeSpeciality;
+      if (this.speciality) this.codeGroup = this.speciality.group.code;
+    } else {
+      this.codeSpeciality = null;
+      this.codeGroup = powerDB.codeGroup;
+    }
     this.codeSpeciality = powerDB.codeSpeciality ? powerDB.codeSpeciality : null;
 
     if (powerDB.level) this.level = parseInt(powerDB.level);
