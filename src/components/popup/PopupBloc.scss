@@ -6,26 +6,31 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-	z-index: 10;
+	z-index: 100;
 	background: $background-black-dark;
 
 	.popup-bloc {
+		max-height: 90vh;
 		width: 50vw;
-		margin: 100px auto 0 auto;
+		margin: 5vh auto;
 		border: 1px solid $light-secondary-color;
 		background: $black-color;
 
-		.popup-bloc-title {
+		.popup-bloc-header {
 			display: flex;
 			justify-content: space-between;
-			padding: 10px 20px;
+			padding: 15px 20px;
 			border-bottom: 1px solid $light-secondary-color;
 		}
 
 		.popup-bloc-content {
-			max-height: 50vh;
-			padding: 20px;
+			padding: 15px 20px;
 			overflow: auto;
+		}
+
+		.popup-bloc-footer {
+			padding: 15px 20px;
+			border-top: 1px solid $light-secondary-color;
 		}
 	}
 }

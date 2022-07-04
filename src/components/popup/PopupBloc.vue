@@ -1,7 +1,7 @@
 <template>
   <div class="popup-zone">
     <div class="popup-bloc">
-      <div class="popup-bloc-title">
+      <div class="popup-bloc-header">
         <h3>{{ blocTitle }}</h3>
         <h3
           class="pointer"
@@ -12,12 +12,11 @@
       </div>
       <div
         v-if="hasConfirmButton"
-        class="popup-bloc-content">
+        class="popup-bloc-footer">
         <button
           class="link-button"
           @click="closePopup(true)">Valider</button>
       </div>
-      
     </div>
   </div>
 </template>

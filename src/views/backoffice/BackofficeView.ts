@@ -19,7 +19,7 @@ export default defineComponent({
   },
   
   setup() {
-    const backChoice = ref(1);
+    const backChoice = ref(3);
     return { backChoice };
   },
 
