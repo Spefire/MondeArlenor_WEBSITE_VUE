@@ -25,9 +25,9 @@ export default defineComponent({
     const currentSpeciality: Ref<ArlenorSpeciality | null> = ref(null);
     const specialityPowers: Ref<ArlenorPower[]> = ref([]);
     const selectedPower: Ref<ArlenorPower | null> = ref(null);
-    const levels: Ref<number[]> = ref([]);
+    const ranks: Ref<string[]> = ref([]);
     
-    return { allPowers, allSpecialities, currentSpeciality, selectedPower, specialityPowers, levels };
+    return { allPowers, allSpecialities, currentSpeciality, selectedPower, specialityPowers, ranks };
   },
 
   mounted() {
@@ -57,9 +57,6 @@ export default defineComponent({
     },
 
     updateSpecialityPowers() {
-      function onlyUnique(value: number, index: number, self: number[]) {
-        return self.indexOf(value) === index;
-      }
       if (this.currentSpeciality) {
         const spe = this.currentSpeciality;
         const listGrp = spe.group.code ? this.allPowers.filter(power => power.group && power.group.code === spe.group.code && !power.speciality) : [];
@@ -69,31 +66,23 @@ export default defineComponent({
           return a.name.localeCompare(b.name);
         });
         this.specialityPowers = list;
-
-        this.levels = this.specialityPowers.map(power => power.level).filter(onlyUnique);
-        this.levels.sort((a, b) => a - b);
+        this.ranks = this.specialityPowers.map(power => power.codeRank).filter((value, index, categoryArray) => categoryArray.indexOf(value) === index);
+        this.ranks.sort((a, b) => a.localeCompare(b));
       } else {
         this.specialityPowers = [];
-        this.levels = [];
+        this.ranks = [];
       }
     },
     
     // Affichages
-    getPowersByLevel(level: number, isGroupPower: boolean): ArlenorPower[] {
+    getPowersByRank(rank: string, isGroupPower: boolean): ArlenorPower[] {
       if (isGroupPower) {
-        return this.specialityPowers.filter(power => power.level === level && !power.speciality);
+        return this.specialityPowers.filter(power => power.codeRank === rank && !power.speciality);
       } else {
-        return this.specialityPowers.filter(power => power.level === level && power.speciality);
+        return this.specialityPowers.filter(power => power.codeRank === rank && power.speciality);
       }
     },
-
-    getLibLevel(level: number) {
-      if (level === 1) return "inférieur";
-      else if (level === 2) return "intermédiaire";
-      else if (level === 3) return "supérieur";
-      else return "inconnu";
-    },
-
+    
     getDescription(description: string, length = 0) {
       if (length) return description.replace("&emsp;","").slice(0, length) + "...";
       return description.replace("&emsp;","");

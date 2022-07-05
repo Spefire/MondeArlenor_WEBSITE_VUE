@@ -17,7 +17,7 @@ export class ArlenorPower {
   public codeGroup: string | null;
   public codeSpeciality: string | null;
 
-  public level: number;
+  public codeRank: string;
   public codeRange: string;
   public codeDuration: string;
   public chaneling: boolean;
@@ -56,6 +56,10 @@ export class ArlenorPower {
     return ArlenorSpecialities.getSpeciality(this.codeSpeciality);
   }
 
+  get rank(): ArlenorEnum {
+    return getEnumByCode(this.codeRank, PowerRanksEnum);
+  }
+
   get range(): ArlenorEnum {
     return getEnumByCode(this.codeRange, PowerRangesEnum);
   }
@@ -77,7 +81,7 @@ export class ArlenorPower {
     this.codeGroup = null;
     this.codeSpeciality = null;
 
-    this.level = 0;
+    this.codeRank = PowerRanksEnum.Commun.Code;
     this.codeRange = PowerRangesEnum.Personnelle.Code;
     this.codeDuration = PowerDurationsEnum.Instantanee.Code;
     this.chaneling = false;
@@ -101,7 +105,7 @@ export class ArlenorPower {
       this.codeSpeciality = null;
     }
 
-    if (powerDB.level) this.level = parseInt(powerDB.level);
+    this.codeRank = powerDB.codeRank;
     this.codeRange = powerDB.codeRange;
     this.codeDuration = powerDB.codeDuration;
     this.chaneling = powerDB.chaneling ? true : false;
@@ -136,6 +140,13 @@ export class PowerTypesEnum {
   static RayonSpecial: ArlenorEnum = { Code: "RAYON_SPE", Libelle: "Rayonnement spécial" };
   static Spiritisme: ArlenorEnum = { Code: "SPIRITISME", Libelle: "Spiritisme" };
   static Transmutation: ArlenorEnum = { Code: "TRANSMUTATION", Libelle: "Transmutation" };
+}
+
+export class PowerRanksEnum {
+  static Unique: ArlenorEnum = { Code: "S", Libelle: "Unique" };
+  static TresRare: ArlenorEnum = { Code: "A", Libelle: "Très rare" };
+  static Rare: ArlenorEnum = { Code: "B", Libelle: "Rare" };
+  static Commun: ArlenorEnum = { Code: "C", Libelle: "Commun" };
 }
 
 export class PowerRangesEnum {

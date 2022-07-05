@@ -118,21 +118,21 @@
         </thead>
         <tbody>
           <template
-            v-for="(level, indexLevel) in levels"
-            :key="indexLevel">
+            v-for="(rank, indexRank) in ranks"
+            :key="indexRank">
             <tr class="line-table">
               <td
                 colspan="3"
                 class="full-width">
                 <div class="creation-table-separator">
                   <span class="creation-table-line" />
-                  <span class="creation-table-title">Niveau {{ getLibLevel(level) }} (1 / 3)</span>
+                  <span class="creation-table-title">{{ rank.Libelle }} ({{ rank.Code }})</span>
                   <span class="creation-table-line" />
                 </div>
               </td>
             </tr>
             <template
-              v-for="(power, index) in getPowersByLevel(level)"
+              v-for="(power, index) in getPowersByRank(rank)"
               :key="index">
               <tr
                 class="line-table"

@@ -45,8 +45,8 @@
         <th
           colspan="2"
           class="col-40">Nom du pouvoir</th>
-        <th class="col-20">Classes</th>
-        <th class="col-20">Niveau</th>
+        <th class="col-20">Cristal concerné</th>
+        <th class="col-20">Rang</th>
         <th class="col-20">Actions</th>
       </tr>
     </thead>
@@ -74,7 +74,7 @@
             class="col-35 pointer"
             @click="seeMore(power)">{{ power.name }}</td>
           <td class="col-20">{{ getLibSpeGrp(power) }}</td>
-          <td class="col-20">{{ getLibLevel(power.level) }}</td>
+          <td class="col-20">{{ power.rank.Libelle }} ({{ power.rank.Code }})</td>
           <td class="col-20">
             <button
               class="link-button"

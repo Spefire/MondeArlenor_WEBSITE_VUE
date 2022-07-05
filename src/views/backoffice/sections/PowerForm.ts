@@ -1,5 +1,5 @@
 import ToggleButton from "@/components/toggle-button/ToggleButton.vue";
-import { ArlenorPower, PowerDurationsEnum, PowerRangesEnum, PowerTargetsEnum, PowerTypesEnum } from "@/models/ArlenorPower";
+import { ArlenorPower, PowerDurationsEnum, PowerRangesEnum, PowerRanksEnum, PowerTargetsEnum, PowerTypesEnum } from "@/models/ArlenorPower";
 import { ArlenorGroups } from "@/models/data/ListGroups";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import useVuelidate from "@vuelidate/core";
@@ -23,6 +23,7 @@ export default defineComponent({
     const allGroups = ArlenorGroups.getListGroups().sort((a, b) => a.name.localeCompare(b.name));
     const allSpecialities = ArlenorSpecialities.getListSpecialities().sort((a, b) => a.name.localeCompare(b.name));
     const allTypes = Object.values(PowerTypesEnum);
+    const allRanks = Object.values(PowerRanksEnum);
     const allRanges = Object.values(PowerRangesEnum);
     const allDurations = Object.values(PowerDurationsEnum);
     const allTargets = Object.values(PowerTargetsEnum);
@@ -42,7 +43,7 @@ export default defineComponent({
       allGroups,
       allSpecialities,
       allTypes,
-      allRanges, allDurations, allTargets,
+      allRanks, allRanges, allDurations, allTargets,
       isGroup,
       form: {
         name: props.currentPower.name,
@@ -50,7 +51,7 @@ export default defineComponent({
         codeType: props.currentPower.codeType,
         codeGroup,
         codeSpeciality,
-        level: props.currentPower.level,
+        codeRank: props.currentPower.codeRank,
         codeRange: props.currentPower.codeRange,
         codeDuration: props.currentPower.codeDuration,
         chaneling: props.currentPower.chaneling,
@@ -73,7 +74,7 @@ export default defineComponent({
       codeType: {},
       codeGroup: {},
       codeSpeciality: {},
-      level: {},
+      codeRank: {},
       codeRange: {},
       codeDuration: {},
       chaneling: {},
@@ -99,7 +100,7 @@ export default defineComponent({
         newPower.codeGroup = null;
         newPower.codeSpeciality = this.form.codeSpeciality;
       }
-      newPower.level = parseInt(this.form.level.toString());
+      newPower.codeRank = this.form.codeRank;
       newPower.codeRange = this.form.codeRange;
       newPower.codeDuration = this.form.codeDuration;
       newPower.chaneling = this.form.chaneling;

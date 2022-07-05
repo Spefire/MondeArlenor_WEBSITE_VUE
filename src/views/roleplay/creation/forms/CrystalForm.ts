@@ -30,14 +30,14 @@ export default defineComponent({
     
     const selectedSpeciality: Ref<ArlenorSpeciality | null> = ref(null);
     const selectedSpeCode: Ref<string | null> = ref(null);
-    const levels: Ref<number[]> = ref([]);
+    const ranks: Ref<string[]> = ref([]);
 
     return {
       store,
       allPowers, selectedPower,
       selectedGrpCode, selectedGroup,
       selectedSpeCode, selectedSpeciality,
-      levels,
+      ranks,
       form: {},
       isModified: false,
       needConfirm: false,
@@ -96,31 +96,20 @@ export default defineComponent({
       this.selectedSpeCode = null;
     },
     changeSpeciality() {
-      function onlyUnique(value: number, index: number, self: number[]) {
-        return self.indexOf(value) === index;
-      }
       this.selectedSpeciality = this.selectedSpeCode ? this.allSpecialities.find(spe => spe.code == this.selectedSpeCode) || null : null;
       if (this.selectedSpeciality) {
         this.selectedGroup = this.selectedSpeciality.group;
         this.selectedGrpCode = this.selectedSpeciality.group.code;
-
-        // Mise à jour des niveaux
-        this.levels = this.filteredPowers.map(power => power.level).filter(onlyUnique);
-        this.levels.sort((a, b) => a - b);
+        this.ranks = this.filteredPowers.map(power => power.codeRank).filter((value, index, categoryArray) => categoryArray.indexOf(value) === index);
+        this.ranks.sort((a, b) => a.localeCompare(b));
       }
     },
     seeMore(power: ArlenorPower) {
       this.selectedPower = (this.selectedPower?.code === power.code) ? null : power;
     },
 
-    getLibLevel(level: number) {
-      if (level === 1) return "inférieur";
-      else if (level === 2) return "intermédiaire";
-      else if (level === 3) return "supérieur";
-      else return "inconnu";
-    },
-    getPowersByLevel(level: number) {
-      return this.filteredPowers.filter(power => power.level === level);
+    getPowersByRank(rank: string) {
+      return this.filteredPowers.filter(power => power.codeRank === rank);
     },
     addPower(power: ArlenorPower) {
       console.warn(power);

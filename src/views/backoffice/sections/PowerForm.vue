@@ -63,14 +63,17 @@
         </div>
       </div>
       <div class="form-col-50 form-element">
-        <span>Niveau</span>
-        <input
-          type="number"
-          class="text-center"
-          min="1"
-          max="3"
-          placeholder="1-3"
-          v-model.trim.lazy="v$.form.level.$model">
+        <span>Rang</span>
+        <div class="dropdown">
+          <select
+            class="dropdown-select"
+            v-model.trim.lazy="v$.form.codeRank.$model">
+            <option
+              v-for="(rank, index) in allRanks"
+              :value="rank.Code"
+              :key="index">{{ rank.Libelle }} ({{ rank.Code }})</option>
+          </select>
+        </div>
       </div>
     </div>
 
@@ -147,6 +150,7 @@
         @click="submitForm(true)">Valider</button>
     </div>
   </div>
+    
 </template>
 
 <script lang="ts" src="./PowerForm.ts"></script>

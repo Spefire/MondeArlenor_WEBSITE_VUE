@@ -36,7 +36,7 @@
           placeholder="1-200"
           v-model.trim.lazy="v$.form.age.$model">
       </div>
-      <div class="creation-col-75 form-element">
+      <div class="form-col-75 form-element">
         <span>Genre du personnage <span required-libelle>*</span></span>
         <input
           type="text"

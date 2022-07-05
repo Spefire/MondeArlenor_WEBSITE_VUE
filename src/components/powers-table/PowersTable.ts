@@ -69,12 +69,6 @@ export default defineComponent({
       else if (power.group) return power.group?.name + " (Groupe)";
       else return "";
     },
-    getLibLevel(level: number) {
-      if (level === 1) return "Inférieur";
-      else if (level === 2) return "Intermédiaire";
-      else if (level === 3) return "Supérieur";
-      else return "Inconnu";
-    },
 
     seeMore(power: ArlenorPower) {
       this.selectedPower = (this.selectedPower === power) ? null : power;

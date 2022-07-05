@@ -89,12 +89,12 @@
         <div class="bloc-text crystals-left">
           <h3 class="margin-bottom-1">Pouvoirs de la classe</h3>
           <div
-            v-for="(level, indexLevel) in levels"
+            v-for="(rank, indexRank) in ranks"
             class="powers-content"
-            :key="indexLevel">
-            <div class="powers-content-title">Niveau {{ getLibLevel(level) }}</div>
+            :key="indexRank">
+            <div class="powers-content-title">{{ rank.Libelle }} ({{ rank.Code }})</div>
             <div
-              v-for="(power, index) in getPowersByLevel(level, true)"
+              v-for="(power, index) in getPowersByRank(rank, true)"
               class="power-line pointer"
               :class="{ 'selected' : power.code === selectedPower?.code }"
               @click="selectPower(power)"
@@ -107,7 +107,7 @@
               <span class="power-name">{{ power.name }}</span>
             </div>
             <div
-              v-for="(power, index) in getPowersByLevel(level, false)"
+              v-for="(power, index) in getPowersByRank(rank, false)"
               class="power-line pointer"
               :class="{ 'selected' : power.code === selectedPower?.code }"
               @click="selectPower(power)"
