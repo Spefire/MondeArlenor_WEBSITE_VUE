@@ -94,7 +94,7 @@
 
       <div
         v-if="currentQuestion == 100"
-        class="bloc-text creation-element">
+        class="bloc-text form-element">
         Le Cercle des Mages Evanell recrute ponctuellement des mages pour défendre les célestiens 
         contre les attaques des Wendigos (titans monstrueux venant de l'En-Bas).<br>
         Le Cercle comporte 9 types de mages élémentaires, qui suivent une formation avant de combattre.<br>
@@ -109,7 +109,7 @@
 
       <div
         v-if="currentQuestion == 200"
-        class="bloc-text creation-element zone-element zone-element-free">
+        class="bloc-text form-element zone-element zone-element-free">
         <div class="zone-header">
           <img
             class="zone-icon"

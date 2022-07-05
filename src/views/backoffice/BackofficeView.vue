@@ -1,6 +1,31 @@
 <template>
-  <div class="layout-view background hide-on-mobile">
+  {{ isOpen }}
 
+  <div
+    v-if="!isOpen"
+    class="layout-view background hide-on-mobile">
+    <div class="creation-form">
+      <div class="form-element">
+        <span>Clé du backoffice <span required-libelle>*</span></span>
+        <input
+          type="text"
+          class="text-center"
+          v-model.trim.lazy="v$.form.key.$model">
+      </div>
+      <div class="form-element">
+        <button
+          class="link-button"
+          :disabled="v$.form.$invalid"
+          @click="submitForm()">
+          Valider
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    v-if="isOpen"
+    class="layout-view background hide-on-mobile">
     <div class="layout-center large">
       <div class="bloc-text onglets-nav margin-top-1">
         <!--span

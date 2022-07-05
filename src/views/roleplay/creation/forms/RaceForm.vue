@@ -45,7 +45,7 @@
 
   <!-- Sélection de la race -->
   <div class="layout-right creation-form">
-    <div class="creation-element">
+    <div class="form-element">
       <span>Race du personnage <span required-libelle>*</span></span>
       <div class="dropdown">
         <select

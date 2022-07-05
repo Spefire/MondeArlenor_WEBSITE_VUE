@@ -36,7 +36,7 @@
 
   <!-- Choix de la caractéristique -->
   <div class="layout-right creation-form">
-    <div class="creation-element">
+    <div class="form-element">
       <span>Caractériques du personnage <span required-libelle>*</span></span>
       <table class="bloc-text margin-top-1">
         <thead>

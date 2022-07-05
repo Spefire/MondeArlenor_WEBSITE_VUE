@@ -1,4 +1,6 @@
 import { PageTitles } from "@/models/PagesTitles";
+import useVuelidate from "@vuelidate/core";
+import { required } from "@vuelidate/validators";
 import { defineComponent, ref } from "vue";
 
 import CharactersSection from "./sections/CharactersSection.vue";
@@ -18,14 +20,37 @@ export default defineComponent({
     SkillsSection,
   },
   
-  setup() {
+  data() {
+    return {
+      form: {
+        key: "",
+      },
+    };
+  },
+
+  setup () {
     const backChoice = ref(3);
-    return { backChoice };
+    const isOpen = ref(false);
+    return { backChoice, isOpen, v$: useVuelidate() };
+  },
+
+  validations: {
+    form: {
+      key: {
+        required
+      },
+    },
   },
 
   methods: {
     changeBackChoice(choice: number) {
       this.backChoice = choice;
     },
+    submitForm() {
+      console.warn("this.form.key", this.form.key);
+      console.warn("process.env.VUE_APP_BO_KEY", process.env.VUE_APP_BO_KEY);
+      if (this.form.key === process.env.VUE_APP_BO_KEY) this.isOpen = true;
+      console.log (this.isOpen);
+    }
   }
 });

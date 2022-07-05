@@ -1,6 +1,6 @@
 <template>
   <div class="layout-left creation-form">
-    <div class="creation-element">
+    <div class="form-element">
       <span>Groupe  <span required-libelle>*</span></span>
       <div class="dropdown">
         <select
@@ -20,7 +20,7 @@
 
     <div
       v-if="selectedGroup"
-      class="bloc-text creation-element zone-element zone-element-semifree">
+      class="bloc-text form-element zone-element zone-element-semifree">
       <div class="zone-header">
         <img
           class="zone-icon is-little img-rounded"
@@ -37,7 +37,7 @@
 
     <div
       v-if="!selectedGroup"
-      class="bloc-text creation-element zone-element zone-element-semifree">
+      class="bloc-text form-element zone-element zone-element-semifree">
       <div class="zone-header">
         <div class="text-center margin-left-1">
           <h2>Pas de groupe sélectionné</h2>
@@ -48,7 +48,7 @@
       </p>
     </div>
 
-    <div class="creation-element">
+    <div class="form-element">
       <span>Classe  <span required-libelle>*</span></span>
       <div class="dropdown">
         <select
@@ -66,7 +66,7 @@
 
     <div
       v-if="selectedSpeciality"
-      class="bloc-text creation-element zone-element zone-element-semifree">
+      class="bloc-text form-element zone-element zone-element-semifree">
       <div class="zone-header">
         <img
           class="zone-icon is-little"
@@ -83,7 +83,7 @@
 
     <div
       v-if="!selectedSpeciality"
-      class="bloc-text creation-element zone-element zone-element-semifree">
+      class="bloc-text form-element zone-element zone-element-semifree">
       <div class="zone-header">
         <div class="text-center margin-left-1">
           <h2>Pas de classe sélectionnée</h2>
@@ -96,7 +96,7 @@
   </div>
 
   <div class="layout-right creation-form">
-    <div class="creation-element">
+    <div class="form-element">
       <span>Choix des pouvoirs <span required-libelle>*</span></span>
 
       <div 

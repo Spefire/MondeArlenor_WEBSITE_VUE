@@ -1,30 +1,3 @@
-.creation-elements-line {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-
-    @include mobile-only {
-        flex-direction: column;
-    }
-}
-
-.creation-element {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 0;
-
-    > span {
-        margin-bottom: 5px;
-    }
-
-    input[type="text"] {
-        width: 100%;
-    }
-}
-
 .creation-avatar {
     display: flex;
     align-items: center;

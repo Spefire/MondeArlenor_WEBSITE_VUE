@@ -1,7 +1,7 @@
 <template>
   <div
     v-for="(result, indexResult) in allResults"
-    class="bloc-text margin-top-1 creation-element zone-element zone-element-free"
+    class="bloc-text margin-top-1 form-element zone-element zone-element-free"
     :key="indexResult">
     <div class="zone-header">
       <img

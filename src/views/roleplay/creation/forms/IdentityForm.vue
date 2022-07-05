@@ -1,6 +1,6 @@
 <template>
   <div class="layout-left creation-form">
-    <div class="creation-element">
+    <div class="form-element">
       <span>Avatar du personnage</span>
       <label
         for="avatar"
@@ -18,7 +18,7 @@
         accept="image/png, image/jpeg"
         @change="changeAvatar">
     </div>
-    <div class="creation-element">
+    <div class="form-element">
       <span>Nom du personnage <span required-libelle>*</span></span>
       <input
         type="text"
@@ -26,7 +26,7 @@
         v-model.trim.lazy="v$.form.name.$model">
     </div>
     <div class="form-row">
-      <div class="form-col-25 creation-element">
+      <div class="form-col-25 form-element">
         <span>Âge <span required-libelle>*</span></span>
         <input
           type="number"
@@ -36,7 +36,7 @@
           placeholder="1-200"
           v-model.trim.lazy="v$.form.age.$model">
       </div>
-      <div class="creation-col-75 creation-element">
+      <div class="creation-col-75 form-element">
         <span>Genre du personnage <span required-libelle>*</span></span>
         <input
           type="text"
@@ -48,35 +48,35 @@
   </div>
 
   <div class="layout-right creation-form">
-    <div class="creation-element">
+    <div class="form-element">
       <span>Description physique</span>
       <input
         type="text"
         placeholder="Robuste, élégant, frêle, ridé, jeune..."
         v-model.trim.lazy="v$.form.description.$model">
     </div>
-    <div class="creation-element">
+    <div class="form-element">
       <span>Traits de caractère</span>
       <input
         type="text"
         placeholder="Timide, sérieux, charmeur, rêveur, généreux..."
         v-model.trim.lazy="v$.form.traits.$model">
     </div>
-    <div class="creation-element">
+    <div class="form-element">
       <span>Idéologies et croyances</span>
       <input
         type="text"
         placeholder="Allié des mutants, vénération des divinités, esprit scientifique..."
         v-model.trim.lazy="v$.form.belives.$model">
     </div>
-    <div class="creation-element">
+    <div class="form-element">
       <span>Personnes ou lieux significatifs</span>
       <input
         type="text"
         placeholder="Un parent, un ami, la ville natale, un sanctuaire..."
         v-model.trim.lazy="v$.form.importances.$model">
     </div>
-    <div class="creation-element">
+    <div class="form-element">
       <span>Histoire personnelle et faits divers</span>
       <textarea
         placeholder="Son enfance, sa motivation dans la vie, l'acquisition de ses pouvoirs, des haut-faits réalisés..."

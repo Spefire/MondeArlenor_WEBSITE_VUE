@@ -1,6 +1,6 @@
 <template>
-  <div class="creation-elements-line">
-    <div class="creation-element">
+  <div class="form-row">
+    <div class="form-col-33 form-element">
       <span>Sélection d'une classe :</span>
       <div class="dropdown">
         <select
@@ -15,8 +15,8 @@
         </select>
       </div>
     </div>
-      
-    <div class="creation-element">
+    <div class="form-col-33" />
+    <div class="form-col-33 form-element">
       <span>Recherche par nom :</span>
       <input
         type="text"

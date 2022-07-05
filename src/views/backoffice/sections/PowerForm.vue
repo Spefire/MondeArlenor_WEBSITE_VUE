@@ -2,14 +2,14 @@
   <div class="creation-form">
     
     <div class="form-row">
-      <div class="form-col-50 creation-element">
+      <div class="form-col-50 form-element">
         <span>Nom du pouvoir <span required-libelle>*</span></span>
         <input
           type="text"
           class="text-center"
           v-model.trim.lazy="v$.form.name.$model">
       </div>
-      <div class="form-col-50 creation-element">
+      <div class="form-col-50 form-element">
         <span>Type de pouvoir</span>
         <div class="dropdown">
           <select
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="creation-element">
+    <div class="form-element">
       <ToggleButton
         :text="isGroup ? 'Pouvoir de groupe' : 'Pouvoir de classe'"
         :value="isGroup"
@@ -34,7 +34,7 @@
     <div class="form-row">
       <div
         v-if="isGroup"
-        class="form-col-50 creation-element">
+        class="form-col-50 form-element">
         <span>Groupe</span>
         <div class="dropdown">
           <select
@@ -49,7 +49,7 @@
       </div>
       <div
         v-if="!isGroup"
-        class="form-col-50 creation-element">
+        class="form-col-50 form-element">
         <span>Classe</span>
         <div class="dropdown">
           <select
@@ -62,7 +62,7 @@
           </select>
         </div>
       </div>
-      <div class="form-col-50 creation-element">
+      <div class="form-col-50 form-element">
         <span>Niveau</span>
         <input
           type="number"
@@ -74,7 +74,7 @@
       </div>
     </div>
 
-    <div class="creation-element">
+    <div class="form-element">
       <span>Description du pouvoir</span>
       <textarea
         v-model.trim.lazy="v$.form.description.$model"
@@ -82,7 +82,7 @@
     </div>
 
     <div class="form-row">
-      <div class="form-col-33 creation-element">
+      <div class="form-col-33 form-element">
         <span>Portée du pouvoir</span>
         <div class="dropdown">
           <select
@@ -95,7 +95,7 @@
           </select>
         </div>
       </div>
-      <div class="form-col-33 creation-element">
+      <div class="form-col-33 form-element">
         <span>Durée du pouvoir</span>
         <div class="dropdown">
           <select
@@ -108,7 +108,7 @@
           </select>
         </div>
       </div>
-      <div class="form-col-33 creation-element">
+      <div class="form-col-33 form-element">
         <span>Cibles de pouvoir</span>
         <div class="dropdown">
           <select
@@ -124,23 +124,23 @@
     </div>
     
     <div class="form-row">
-      <div class="form-col-50 creation-element">
+      <div class="form-col-50 form-element">
         <input
           type="checkbox"
           id="power-chaneling"
           v-model.trim.lazy="v$.form.chaneling.$model">
         <label for="power-chaneling">Canalisation</label>
       </div>
-      <div class="form-col-50 creation-element">
+      <div class="form-col-50 form-element">
         <input
           type="checkbox"
           id="power-is-verified"
           v-model.trim.lazy="v$.form.isVerified.$model">
-        <label for="power-is-verified">Est vérifié ?</label>
+        <label for="power-is-verified">Pouvoir vérifié ?</label>
       </div>
     </div>
 
-    <div class="creation-element">
+    <div class="form-element">
       <button
         class="link-button"
         :disabled="v$.form.$invalid"

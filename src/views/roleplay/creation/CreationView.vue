@@ -95,7 +95,7 @@
         </div>
         <div class="layout-right creation-form">
           
-          <div class="bloc-text creation-element zone-element zone-element-semifree">
+          <div class="bloc-text form-element zone-element zone-element-semifree">
             <div
               v-if="character"
               class="zone-header">
