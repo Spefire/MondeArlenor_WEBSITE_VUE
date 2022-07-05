@@ -27,18 +27,29 @@ export default defineComponent({
     const allDurations = Object.values(PowerDurationsEnum);
     const allTargets = Object.values(PowerTargetsEnum);
 
+    let isGroup = false;
+    let codeGroup = allGroups[0].code;
+    let codeSpeciality = allSpecialities[0].code;
+    if (props.currentPower.codeGroup) {
+      isGroup = true;
+      codeGroup = props.currentPower.codeGroup;
+    } else if (props.currentPower.codeSpeciality) {
+      isGroup = false;
+      codeSpeciality = props.currentPower.codeSpeciality;
+    }
+
     return {
       allGroups,
       allSpecialities,
       allTypes,
       allRanges, allDurations, allTargets,
-      isGroup: !props.currentPower.codeSpeciality,
+      isGroup,
       form: {
         name: props.currentPower.name,
         description: props.currentPower.description,
         codeType: props.currentPower.codeType,
-        codeGroup: props.currentPower.codeGroup,
-        codeSpeciality: props.currentPower.codeSpeciality,
+        codeGroup,
+        codeSpeciality,
         level: props.currentPower.level,
         codeRange: props.currentPower.codeRange,
         codeDuration: props.currentPower.codeDuration,
@@ -81,9 +92,14 @@ export default defineComponent({
       newPower.name = this.form.name;
       newPower.description = this.form.description;
       newPower.codeType = this.form.codeType;
-      newPower.codeGroup = this.form.codeGroup;
-      newPower.codeSpeciality = this.form.codeSpeciality;
-      newPower.level = this.form.level;
+      if (this.isGroup) {
+        newPower.codeGroup = this.form.codeGroup;
+        newPower.codeSpeciality = null;
+      } else {
+        newPower.codeGroup = null;
+        newPower.codeSpeciality = this.form.codeSpeciality;
+      }
+      newPower.level = parseInt(this.form.level.toString());
       newPower.codeRange = this.form.codeRange;
       newPower.codeDuration = this.form.codeDuration;
       newPower.chaneling = this.form.chaneling;

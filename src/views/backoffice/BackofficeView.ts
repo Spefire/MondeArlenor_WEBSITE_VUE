@@ -47,10 +47,7 @@ export default defineComponent({
       this.backChoice = choice;
     },
     submitForm() {
-      console.warn("this.form.key", this.form.key);
-      console.warn("process.env.VUE_APP_BO_KEY", process.env.VUE_APP_BO_KEY);
       if (this.form.key === process.env.VUE_APP_BO_KEY) this.isOpen = true;
-      console.log (this.isOpen);
     }
   }
 });

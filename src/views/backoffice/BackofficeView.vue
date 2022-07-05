@@ -1,6 +1,4 @@
 <template>
-  {{ isOpen }}
-
   <div
     v-if="!isOpen"
     class="layout-view background hide-on-mobile">

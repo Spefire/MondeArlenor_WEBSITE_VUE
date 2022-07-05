@@ -61,10 +61,9 @@ export default defineComponent({
         return self.indexOf(value) === index;
       }
       if (this.currentSpeciality) {
-        const listGrp = this.currentSpeciality?.group.code ?
-          this.allPowers.filter(power => power.group.code === this.currentSpeciality?.group.code && !power.speciality) : [];
-        const listSpe = this.currentSpeciality?.code ?
-          this.allPowers.filter(power => power.speciality?.code === this.currentSpeciality?.code) : [];
+        const spe = this.currentSpeciality;
+        const listGrp = spe.group.code ? this.allPowers.filter(power => power.group && power.group.code === spe.group.code && !power.speciality) : [];
+        const listSpe = spe.code ? this.allPowers.filter(power => power.speciality && power.speciality.code === spe.code) : [];
         const list = listGrp.concat(listSpe);
         list.sort((a, b) => {
           return a.name.localeCompare(b.name);

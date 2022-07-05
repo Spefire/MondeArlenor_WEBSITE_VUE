@@ -92,7 +92,11 @@ export default defineComponent({
     },
     closeAddPower(power: ArlenorPower | boolean) {
       this.showAddPopup = false;
-      if (power) console.log("closeEditPower", power);
+      if (typeof power === "object") {
+        const newPower = power as ArlenorPower;
+        console.log("closeAddPower", newPower);
+        this.allPowers.push(newPower);
+      }
       this.currentPower = null;
     },
     openEditPower(power: ArlenorPower) {
@@ -101,7 +105,12 @@ export default defineComponent({
     },
     closeEditPower(power: ArlenorPower | boolean) {
       this.showEditPopup = false;
-      if (power) console.log("closeEditPower", power);
+      if (typeof power === "object") {
+        const newPower = power as ArlenorPower;
+        console.log("closeEditPower", newPower);
+        const index = this.allPowers.findIndex(pow => pow.id === newPower.id);
+        this.allPowers[index] = newPower;
+      }
       this.currentPower = null;
     },
     openDeletePower(power: ArlenorPower) {

@@ -1,25 +1,27 @@
 <template>
-  <button
-    class="link-button margin-top-1"
-    @click="openAddPower()">Ajouter un pouvoir</button>
+  <div class="margin-top-1">
+    <button
+      class="link-button margin-top-1"
+      @click="openAddPower()">Ajouter un pouvoir</button>
 
-  <label
-    class="link-button margin-top-1 margin-left-1"
-    for="import-power-json">
-    Importer
-  </label>
-  <input
-    type="file"
-    id="import-power-json"
-    accept=".json, application/json"
-    @change="importPowers">
+    <label
+      class="link-button margin-top-1 margin-left-1"
+      for="import-power-json">
+      Importer
+    </label>
+    <input
+      type="file"
+      id="import-power-json"
+      accept=".json, application/json"
+      @change="importPowers">
     
-  <a
-    id="export-powers-json"
-    class="link-button margin-top-1 margin-left-1"
-    @click="exportPowers()">
-    Exporter
-  </a>
+    <a
+      id="export-powers-json"
+      class="link-button margin-top-1 margin-left-1"
+      @click="exportPowers()">
+      Exporter
+    </a>
+  </div>
 
   <PowersTable
     :all-powers="allPowers"

@@ -14,7 +14,7 @@ export class ArlenorPower {
   public name: string;
   public description: string;
   public codeType: string;
-  public codeGroup: string;
+  public codeGroup: string | null;
   public codeSpeciality: string | null;
 
   public level: number;
@@ -46,7 +46,8 @@ export class ArlenorPower {
     return getEnumByCode(this.codeType, PowerTypesEnum);
   }
 
-  get group(): ArlenorGroup {
+  get group(): ArlenorGroup | null {
+    if (!this.codeGroup) return null;
     return ArlenorGroups.getGroup(this.codeGroup);
   }
 
@@ -68,14 +69,12 @@ export class ArlenorPower {
   }
 
   constructor() {
-    const groups = new ArlenorGroups();
-
     this.isVerified = false;
 
     this.name = "";
     this.description = "";
     this.codeType = PowerTypesEnum.AnatomieSurhumaine.Code;
-    this.codeGroup = groups.Assassin.code;
+    this.codeGroup = null;
     this.codeSpeciality = null;
 
     this.level = 0;
@@ -95,13 +94,12 @@ export class ArlenorPower {
     this.description = powerDB.description;
     this.codeType = powerDB.codeType;
     if (powerDB.codeSpeciality) {
+      this.codeGroup = null;
       this.codeSpeciality = powerDB.codeSpeciality;
-      if (this.speciality) this.codeGroup = this.speciality.group.code;
-    } else {
-      this.codeSpeciality = null;
+    } else if (powerDB.codeGroup) {
       this.codeGroup = powerDB.codeGroup;
+      this.codeSpeciality = null;
     }
-    this.codeSpeciality = powerDB.codeSpeciality ? powerDB.codeSpeciality : null;
 
     if (powerDB.level) this.level = parseInt(powerDB.level);
     this.codeRange = powerDB.codeRange;

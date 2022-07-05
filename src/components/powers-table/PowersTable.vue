@@ -1,5 +1,20 @@
 <template>
-  <div class="form-row">
+  <div class="form-row margin-top-1">
+    <div class="form-col-33 form-element">
+      <span>Sélection d'un groupe :</span>
+      <div class="dropdown">
+        <select
+          class="dropdown-select"
+          v-model="selectedGroup"
+          @change="changeGroup">
+          <option :value="null">-</option>
+          <option
+            v-for="(grp, index) in allGroups"
+            :value="grp.code"
+            :key="index">{{ grp.name }}</option>
+        </select>
+      </div>
+    </div>
     <div class="form-col-33 form-element">
       <span>Sélection d'une classe :</span>
       <div class="dropdown">
@@ -15,7 +30,6 @@
         </select>
       </div>
     </div>
-    <div class="form-col-33" />
     <div class="form-col-33 form-element">
       <span>Recherche par nom :</span>
       <input
@@ -59,7 +73,7 @@
           <td 
             class="col-35 pointer"
             @click="seeMore(power)">{{ power.name }}</td>
-          <td class="col-20">{{ getLibSpecialities(power) }}</td>
+          <td class="col-20">{{ getLibSpeGrp(power) }}</td>
           <td class="col-20">{{ getLibLevel(power.level) }}</td>
           <td class="col-20">
             <button

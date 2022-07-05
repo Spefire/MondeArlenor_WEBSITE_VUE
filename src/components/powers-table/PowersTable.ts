@@ -1,5 +1,4 @@
 import { ArlenorPower } from "@/models/ArlenorPower";
-import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
 import { ArlenorGroups } from "@/models/data/ListGroups";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import { defineComponent, PropType, Ref, ref } from "vue";
@@ -44,7 +43,10 @@ export default defineComponent({
   methods: {
     changeFilteredPowers() {
       this.filteredPowers = this.allPowers;
-      if (this.selectedGroup) this.filteredPowers = this.filteredPowers.filter(power => power.group.code === this.selectedGroup);
+      if (this.selectedGroup) this.filteredPowers = this.filteredPowers.filter(power => {
+        if (power.group) return (power.group.code === this.selectedGroup);
+        else return true;
+      });
       if (this.selectedSpeciality) this.filteredPowers = this.filteredPowers.filter(power => {
         if (power.speciality) return (power.speciality.code === this.selectedSpeciality);
         else return true;
@@ -62,17 +64,10 @@ export default defineComponent({
       this.changeFilteredPowers();
     },
             
-    getLibSpecialities(power: ArlenorPower) {
-      if (power.speciality) return power.speciality?.name;
-      else {
-        const listSpe = this.allSpecialities.filter(spe => spe.group.code === power.group.code);
-        let lib = "";
-        listSpe.forEach((spe: ArlenorSpeciality, index: number) => {
-          lib += spe.name;
-          if (index < listSpe.length-1) lib += ", ";
-        });
-        return lib;
-      }
+    getLibSpeGrp(power: ArlenorPower) {
+      if (power.speciality) return power.speciality?.name + " (Classe)";
+      else if (power.group) return power.group?.name + " (Groupe)";
+      else return "";
     },
     getLibLevel(level: number) {
       if (level === 1) return "Inférieur";

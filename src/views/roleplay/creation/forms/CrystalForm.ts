@@ -68,7 +68,7 @@ export default defineComponent({
     },
     filteredPowers(): ArlenorPower[] {
       if (this.selectedSpeciality) {
-        const listGrp = this.selectedGrpCode ? this.allPowers.filter(power => power.group.code === this.selectedGrpCode && !power.speciality) : [];
+        const listGrp = this.selectedGrpCode ? this.allPowers.filter(power => power.group?.code === this.selectedGrpCode && !power.speciality) : [];
         const listSpe = this.selectedSpeCode ? this.allPowers.filter(power => power.speciality?.code === this.selectedSpeCode) : [];
         const list = listGrp.concat(listSpe);
         list.sort((a, b) => {
