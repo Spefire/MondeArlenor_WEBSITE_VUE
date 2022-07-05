@@ -6,7 +6,7 @@
       <div class="form-element">
         <span>Clé du backoffice <span required-libelle>*</span></span>
         <input
-          type="text"
+          type="password"
           class="text-center"
           v-model.trim.lazy="v$.form.key.$model">
       </div>

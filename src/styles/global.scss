@@ -96,7 +96,8 @@ input[type="file"] {
   display: none;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
   width: 200px;
 }
 
@@ -118,6 +119,7 @@ input::-o-outer-spin-button {
 }
 
 input[type="text"],
+input[type="password"],
 input[type="number"],
 textarea {
   border: 1px solid $secondary-color;
@@ -130,6 +132,7 @@ textarea {
 }
 
 input[type="text"],
+input[type="password"],
 input[type="number"] {
   height: 30px;
   padding: 0 10px;
