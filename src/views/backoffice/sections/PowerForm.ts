@@ -89,6 +89,7 @@ export default defineComponent({
     },
     submitForm() {
       const newPower = new ArlenorPower();
+      newPower.id = this.currentPower.id;
       newPower.isVerified = this.form.isVerified;
       newPower.name = this.form.name;
       newPower.description = this.form.description;

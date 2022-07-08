@@ -60,6 +60,35 @@ const requestPost = async(target: string, item: any): Promise<string> => {
   return "";
 };
 
+
+const requestPut = async(target: string, item: any): Promise<string> => {
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("x-api-key", process.env.VUE_APP_API_KEY);
+
+  try {
+    return await fetch(url + target,
+      {
+        method: "PUT",
+        headers: myHeaders,
+        mode: "cors",
+        cache: "default",
+        body: JSON.stringify(item),
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.statusCode === 200) {
+          return JSON.parse(data.body);
+        } else {
+          console.error("Error:", data.body);
+        }
+      });
+  } catch (err) {
+    console.error("Error:", err);
+  }
+  return "";
+};
+
 const requestDelete = async(target: string, id: string): Promise<string> => {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -91,5 +120,6 @@ const requestDelete = async(target: string, id: string): Promise<string> => {
 export default {
   requestGet,
   requestPost,
+  requestPut,
   requestDelete
 };

@@ -65,9 +65,9 @@ export default defineComponent({
             finalResults.push(power);
           });
 
+          await api.sendAllPower(finalResults);
           alert("Importation des pouvoirs réussie.");
 
-          // await api.sendAllPower(finalResults);
           this.allPowers = this.allPowers.concat(finalResults);
         });
       }
@@ -90,11 +90,11 @@ export default defineComponent({
       this.showAddPopup = true;
       this.currentPower = new ArlenorPower();
     },
-    closeAddPower(power: ArlenorPower | boolean) {
+    async closeAddPower(power: ArlenorPower | boolean) {
       this.showAddPopup = false;
       if (typeof power === "object") {
         const newPower = power as ArlenorPower;
-        console.log("closeAddPower", newPower);
+        await api.sendPower(newPower);
         this.allPowers.push(newPower);
       }
       this.currentPower = null;
@@ -103,11 +103,11 @@ export default defineComponent({
       this.showEditPopup = true;
       this.currentPower = power;
     },
-    closeEditPower(power: ArlenorPower | boolean) {
+    async closeEditPower(power: ArlenorPower | boolean) {
       this.showEditPopup = false;
       if (typeof power === "object") {
         const newPower = power as ArlenorPower;
-        console.log("closeEditPower", newPower);
+        await api.updatePower(newPower);
         const index = this.allPowers.findIndex(pow => pow.id === newPower.id);
         this.allPowers[index] = newPower;
       }

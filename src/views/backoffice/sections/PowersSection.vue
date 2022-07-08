@@ -51,7 +51,7 @@
     :bloc-title="`Suppression d'un pouvoir`"
     :has-confirm-button="true"
     @close="closeDeletePower">
-    Souhaitez-vous vraiment supprimer le pouvoir nommé <b>{{ selectedPower.name }}</b> ?
+    Souhaitez-vous vraiment supprimer le pouvoir nommé <b>{{ currentPower.name }}</b> ?
     <br> <br>
     Cette action est irréversible.
   </PopupBloc>
