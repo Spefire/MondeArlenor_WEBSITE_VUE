@@ -1,4 +1,4 @@
-import { ArlenorEnum } from "@/models/ArlenorEnum";
+import PowersSelectionTable from "@/components/powers-selection-table/PowersSelectionTable.vue";
 import { ArlenorGroup } from "@/models/ArlenorGroup";
 import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
@@ -16,27 +16,24 @@ export default defineComponent({
       required: true,
     }
   },
-  components: {},
+  components: {
+    PowersSelectionTable,
+  },
   emits: ["changeStep", "previousStep", "nextStep"],
   
   data () {
     const store = useStore();
-    
-    const selectedPower: Ref<ArlenorPower | null> = ref(null);
 
     const selectedGroup: Ref<ArlenorGroup | null> = ref(null);
     const selectedGrpCode: Ref<string | null> = ref(null);
     
     const selectedSpeciality: Ref<ArlenorSpeciality | null> = ref(null);
     const selectedSpeCode: Ref<string | null> = ref(null);
-    const ranks: Ref<ArlenorEnum[]> = ref([]);
 
     return {
       store,
-      selectedPower,
       selectedGrpCode, selectedGroup,
       selectedSpeCode, selectedSpeciality,
-      ranks,
       form: {},
       isModified: false,
       needConfirm: false,
@@ -98,19 +95,7 @@ export default defineComponent({
       if (this.selectedSpeciality) {
         this.selectedGroup = this.selectedSpeciality.group;
         this.selectedGrpCode = this.selectedSpeciality.group.code;
-        this.ranks = this.filteredPowers.map(power => power.rank).filter((value, index, categoryArray) => categoryArray.indexOf(value) === index);
-        this.ranks.sort((a, b) => b.Code.localeCompare(a.Code));
       }
-    },
-    seeMore(power: ArlenorPower) {
-      this.selectedPower = (this.selectedPower?.code === power.code) ? null : power;
-    },
-
-    getPowersByRank(rank: string) {
-      return this.filteredPowers.filter(power => power.codeRank === rank);
-    },
-    addPower(power: ArlenorPower) {
-      console.warn(power);
     },
 
     updateForm() {

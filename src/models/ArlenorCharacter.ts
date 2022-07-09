@@ -170,6 +170,6 @@ export class ArlenorCharacter {
     this.caracts.int = 3;
     this.caracts.ten = 1;
     this.caracts.cha = 2;
-    this.caracts.mag = 4;
+    this.caracts.mag = 5;
   }
 }

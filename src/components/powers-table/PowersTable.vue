@@ -53,7 +53,7 @@
     <tbody>
       <tr
         v-if="filteredPowers.length === 0"
-        class="line-table">
+        class="table-line">
         <td
           colspan="5"
           class="col-100 text-center">Aucun pouvoir</td>
@@ -62,7 +62,7 @@
         v-for="(power, index) in filteredPowers"
         :key="index">
         <tr
-          class="line-table"
+          class="table-line"
           :class="{ selected : selectedPower === power }">
           <td class="col-05">
             <img
@@ -89,7 +89,7 @@
         </tr>
         <tr
           v-if="selectedPower === power"
-          class="line-table selected">
+          class="table-line selected">
           <td colspan="5">
             <p>
               <i>

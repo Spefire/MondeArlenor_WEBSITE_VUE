@@ -105,76 +105,9 @@
         Pas de classe sélectionnée.
       </div>
 
-      <table 
+      <PowersSelectionTable
         v-if="selectedSpeciality"
-        class="bloc-text margin-top-1">
-        <thead>
-          <tr>
-            <th
-              colspan="2"
-              class="col-80">Nom du pouvoir</th>
-            <th class="col-20">Choisir ?</th>
-          </tr>
-        </thead>
-        <tbody>
-          <template v-if="filteredPowers.length === 0">
-            <tr class="line-table">
-              <td
-                colspan="3"
-                class="full-width">
-                <p class="text-center">Aucun pouvoir pour cette classe</p>
-              </td>
-            </tr>
-          </template>
-          <template
-            v-for="(rank, indexRank) in ranks"
-            :key="indexRank">
-            <tr class="line-table">
-              <td
-                colspan="3"
-                class="full-width">
-                <div class="creation-table-separator">
-                  <span class="creation-table-line" />
-                  <span class="creation-table-title">Rang {{ rank.Libelle }} ({{ rank.Code }})</span>
-                  <span class="creation-table-line" />
-                </div>
-              </td>
-            </tr>
-            <template
-              v-for="(power, index) in getPowersByRank(rank.Code)"
-              :key="index">
-              <tr
-                class="line-table"
-                :class="{ selected : selectedPower?.code === power.code }">
-                <td class="col-20">
-                  <img
-                    v-if="power.image"
-                    class="creation-img-power"
-                    :src="power.image"
-                    :alt="power.type.Libelle">
-                </td>
-                <td 
-                  class="col-60 pointer"
-                  @click="seeMore(power)">
-                  {{ power.name }}
-                </td>
-                <td class="col-20">
-                  <input
-                    type="checkbox"
-                    @change="addPower(power)">
-                </td>
-              </tr>
-              <tr
-                v-if="selectedPower?.code === power.code"
-                class="line-table selected">
-                <td colspan="3">
-                  <p>{{ power.description ? power.description : "Aucune description disponible" }}</p>
-                </td>
-              </tr>
-            </template>
-          </template>
-        </tbody>
-      </table>
+        :filtered-powers="filteredPowers" />
     </div>
 
     <div class="creation-nav-button">
