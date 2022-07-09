@@ -29,12 +29,15 @@ export default defineComponent({
     const character: ArlenorCharacter = store.state.character;
     const codeGroup: Ref<string | null> = ref(character.crystals[props.indexCrystal].codeGroup);
     const codeSpeciality: Ref<string | null> = ref(character.crystals[props.indexCrystal].codeSpeciality);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const idsPowers: Ref<any> = ref(character.crystals[props.indexCrystal].idsPowers);
 
     return {
       store,
       form: {
         codeGroup,
         codeSpeciality,
+        idsPowers,
       },
       isModified: false,
       needConfirm: false,
@@ -53,6 +56,7 @@ export default defineComponent({
     form: {
       codeGroup: { required },
       codeSpeciality: { required },
+      idsPowers: {}
     }
   },
 
@@ -101,10 +105,21 @@ export default defineComponent({
   methods: {
     changeGroup() {
       this.form.codeSpeciality = null;
+      this.form.idsPowers = ArlenorCrystal.resetIdsPowers();
       this.updateForm();
     },
     changeSpeciality() {
       this.form.codeGroup = this.selectedSpeciality ? this.selectedSpeciality.group.code : null;
+      this.form.idsPowers = ArlenorCrystal.resetIdsPowers();
+      this.updateForm();
+    },
+
+    addPower(power: ArlenorPower) {
+      this.form.idsPowers[power.codeRank].push(power.id);
+      this.updateForm();
+    },
+    removePower(power: ArlenorPower) {
+      this.form.idsPowers[power.codeRank] = this.form.idsPowers[power.codeRank].filter((idPower: string) => idPower !== power.id);
       this.updateForm();
     },
 

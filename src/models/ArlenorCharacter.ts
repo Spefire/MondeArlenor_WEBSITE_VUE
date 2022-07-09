@@ -110,12 +110,16 @@ export class ArlenorCrystal {
   constructor() {
     this.codeGroup = null;
     this.codeSpeciality = null;
-    this.idsPowers = {};
+    this.idsPowers = ArlenorCrystal.resetIdsPowers();
+  }
 
+  public static resetIdsPowers(): { [codeRank: string] : string[]; } {
+    const idsPowers: { [codeRank: string] : string[]; } = {};
     const allRanks = Object.values(PowerRanksEnum);
     allRanks.forEach((rank: ArlenorEnum) => {
-      this.idsPowers[rank.Code] = [];
+      idsPowers[rank.Code] = [];
     });
+    return idsPowers;
   }
 }
 

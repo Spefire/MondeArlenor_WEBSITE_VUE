@@ -1,17 +1,21 @@
 import { ArlenorEnum } from "@/models/ArlenorEnum";
-import { ArlenorPower } from "@/models/ArlenorPower";
+import { ArlenorPower, PowerRanksEnum } from "@/models/ArlenorPower";
 import { defineComponent, PropType, ref, Ref } from "vue";
 
 export default defineComponent({
-  name: "PowersTable",
+  name: "PowersSelectionTable",
   props: {
+    idsPowers: {
+      type: Object,
+      required: true
+    },
     filteredPowers: {
       type: Array as PropType<ArlenorPower[]>,
       required: true
     },
   },
   components: {},
-  emits: [],
+  emits: ["add", "remove"],
 
   setup() {
     const selectedPower: Ref<ArlenorPower | null> = ref(null);
@@ -30,6 +34,17 @@ export default defineComponent({
     }
   },
 
+  computed: {
+    currentRanks() {
+      return {
+        [PowerRanksEnum.Commun.Code]: { current: this.getNbRank(PowerRanksEnum.Commun.Code), max: 3 },
+        [PowerRanksEnum.Rare.Code]: { current: this.getNbRank(PowerRanksEnum.Rare.Code), max: 2 },
+        [PowerRanksEnum.TresRare.Code]: { current: this.getNbRank(PowerRanksEnum.TresRare.Code), max: 1 },
+        [PowerRanksEnum.Unique.Code]: { current: this.getNbRank(PowerRanksEnum.Unique.Code), max: 0 },
+      };
+    }
+  },
+
   methods: {
     updateRanks() {
       this.ranks = this.filteredPowers.map(power => power.rank).filter((value, index, categoryArray) => categoryArray.indexOf(value) === index);
@@ -38,10 +53,22 @@ export default defineComponent({
     getPowersByRank(rank: string) {
       return this.filteredPowers.filter(power => power.codeRank === rank);
     },
-    addPower(power: ArlenorPower) {
-      console.warn(power);
+    getNbRank(codeRank: string) {
+      const powers: { [codeRank: string] : string[]; } = this.idsPowers;
+      return powers[codeRank].length;
     },
-
+    changePower(value: boolean, power: ArlenorPower) {
+      if (value) this.$emit("add", power);
+      else this.$emit("remove", power);
+    },
+    checkPower(power: ArlenorPower) {
+      const powers: { [codeRank: string] : string[]; } = this.idsPowers;
+      return powers[power.codeRank].find(idPower => idPower === power.id) ? true : false;
+    },
+    checkDisabled(codeRank: string, power: ArlenorPower) {
+      if (this.checkPower(power)) return false;
+      return this.currentRanks[codeRank].current >= this.currentRanks[codeRank].max;
+    },
     seeMore(power: ArlenorPower) {
       this.selectedPower = (this.selectedPower === power) ? null : power;
     },

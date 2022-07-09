@@ -107,7 +107,10 @@
 
       <PowersSelectionTable
         v-if="selectedSpeciality"
-        :filtered-powers="filteredPowers" />
+        :ids-powers="form.idsPowers"
+        :filtered-powers="filteredPowers"
+        @add="addPower"
+        @remove="removePower" />
     </div>
 
     <div class="creation-nav-button">

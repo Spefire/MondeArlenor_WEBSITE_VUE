@@ -27,9 +27,13 @@
             class="full-width">
             <div class="table-separator">
               <span class="table-separator-line" />
-              <span class="table-separator-title">Rang {{ rank.Libelle }} ({{ rank.Code }})</span>
+              <span class="table-separator-title">
+                Rang {{ rank.Libelle }} ({{ rank.Code }})
+              </span>
               <span class="table-separator-line" />
-              <span class="table-separator-title">1 / 3</span>
+              <span class="table-separator-title">
+                {{ currentRanks[rank.Code].current }} / {{ currentRanks[rank.Code].max }}
+              </span>
               <span class="table-separator-line" />
             </div>
           </td>
@@ -55,7 +59,9 @@
             <td class="col-20">
               <input
                 type="checkbox"
-                @change="addPower(power)">
+                :checked="checkPower(power)"
+                :disabled="checkDisabled(rank.Code, power)"
+                @change="changePower($event.target.checked, power)">
             </td>
           </tr>
           <tr
