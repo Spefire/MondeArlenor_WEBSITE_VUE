@@ -107,6 +107,7 @@
 
       <PowersSelectionTable
         v-if="selectedSpeciality"
+        :level="level"
         :ids-powers="form.idsPowers"
         :filtered-powers="filteredPowers"
         @add="addPower"

@@ -1,10 +1,15 @@
 import { ArlenorEnum } from "@/models/ArlenorEnum";
+import { ArlenorLevel } from "@/models/ArlenorLevel";
 import { ArlenorPower, PowerRanksEnum } from "@/models/ArlenorPower";
 import { defineComponent, PropType, ref, Ref } from "vue";
 
 export default defineComponent({
   name: "PowersSelectionTable",
   props: {
+    level: {
+      type: ArlenorLevel,
+      required: true
+    },
     idsPowers: {
       type: Object,
       required: true
@@ -37,10 +42,10 @@ export default defineComponent({
   computed: {
     currentRanks() {
       return {
-        [PowerRanksEnum.Commun.Code]: { current: this.getNbRank(PowerRanksEnum.Commun.Code), max: 3 },
-        [PowerRanksEnum.Rare.Code]: { current: this.getNbRank(PowerRanksEnum.Rare.Code), max: 2 },
-        [PowerRanksEnum.TresRare.Code]: { current: this.getNbRank(PowerRanksEnum.TresRare.Code), max: 1 },
-        [PowerRanksEnum.Unique.Code]: { current: this.getNbRank(PowerRanksEnum.Unique.Code), max: 0 },
+        [PowerRanksEnum.Commun.Code]: { current: this.getNbRank(PowerRanksEnum.Commun.Code), max: this.level.maxRankC },
+        [PowerRanksEnum.Rare.Code]: { current: this.getNbRank(PowerRanksEnum.Rare.Code), max: this.level.maxRankB },
+        [PowerRanksEnum.TresRare.Code]: { current: this.getNbRank(PowerRanksEnum.TresRare.Code), max: this.level.maxRankA },
+        [PowerRanksEnum.Unique.Code]: { current: this.getNbRank(PowerRanksEnum.Unique.Code), max: this.level.maxRankS },
       };
     }
   },

@@ -1,4 +1,4 @@
-import { ArlenorCharacter, CaractDescriptionEnum } from "@/models/ArlenorCharacter";
+import { ArlenorCharacter, CaractDescriptionEnum, CaractNomEnum } from "@/models/ArlenorCharacter";
 import { getListRaces } from "@/models/data/ListRaces";
 import useVuelidate from "@vuelidate/core";
 import { between, sameAs } from "@vuelidate/validators";
@@ -13,8 +13,9 @@ export default defineComponent({
   data() {
     const store = useStore();
     const caractDescriptionEnum = CaractDescriptionEnum;
-    const selectCaract = "FOR";
+    const selectCaract = CaractNomEnum.Force.Code;
     const allRaces = ref(getListRaces());
+    const level = store.state.character.level;
     const race = store.state.character.race;
     const totalCaracts = store.state.character.totalCaracts || 5;
     return {
@@ -22,6 +23,7 @@ export default defineComponent({
       store,
       selectCaract,
       allRaces,
+      level,
       race,
       form: {
         for: store.state.character.caracts.for || 1,
@@ -30,7 +32,7 @@ export default defineComponent({
         ten: store.state.character.caracts.ten || 1,
         cha: store.state.character.caracts.cha || 1,
         mag: store.state.character.caracts.mag || 1,
-        pointsLeft: (16 - totalCaracts),
+        pointsLeft: (level.maxCaracts - totalCaracts),
       },
       isModified: false,
       needConfirm: false,
@@ -76,14 +78,14 @@ export default defineComponent({
       + parseInt(this.form.ten)
       + parseInt(this.form.cha)
       + parseInt(this.form.mag);
-      this.form.pointsLeft = (16 - totalCaracts);
+      this.form.pointsLeft = (this.level.maxCaracts - totalCaracts);
       this.updateForm();
     },
     getInitiative() {
       return parseInt(this.form.hab) + parseInt(this.form.int);
     },
     getPointsDeVie() {
-      let points = 10;
+      let points = this.level.maxHealth;
       if (this.race.code === this.allRaces[1].code) points++;
       if (this.race.code === this.allRaces[4].code) points++;
       if (parseInt(this.form.ten) <= 1) points--;

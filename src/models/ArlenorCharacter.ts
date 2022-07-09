@@ -1,4 +1,5 @@
 import { ArlenorEnum } from "./ArlenorEnum";
+import { ArlenorLevel } from "./ArlenorLevel";
 import { PowerRanksEnum } from "./ArlenorPower";
 import { ArlenorRace } from "./ArlenorRace";
 import { getListRaces } from "./data/ListRaces";
@@ -124,7 +125,7 @@ export class ArlenorCrystal {
 }
 
 export class ArlenorCharacter {
-  public level: number | null;
+  public level: ArlenorLevel;
   public avatar: string;
   public name: string;
   public age: number | null;
@@ -152,11 +153,12 @@ export class ArlenorCharacter {
   }
 
   get healthMax(): number {
-    return 10;
+    // TODO : Changer en fonction de la race et des compétences
+    return this.level.maxHealth;
   }
 
   constructor() {
-    this.level = 1;
+    this.level = new ArlenorLevel(1);
     this.avatar = "";
     this.name = "";
     this.age = null;
@@ -172,7 +174,7 @@ export class ArlenorCharacter {
   }
 
   init(): void {
-    this.level = 1;
+    this.level = new ArlenorLevel(1);
     this.avatar = "";
     this.name = "Jérémy Lécuyer (aka Spefire)";
     this.age = 22;

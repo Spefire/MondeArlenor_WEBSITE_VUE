@@ -1,13 +1,5 @@
 <template>
   <table class="bloc-text margin-top-1">
-    <thead>
-      <tr>
-        <th
-          colspan="2"
-          class="col-80">Nom du pouvoir</th>
-        <th class="col-20">Oui ?</th>
-      </tr>
-    </thead>
     <tbody>
       <tr
         v-if="filteredPowers.length === 0"

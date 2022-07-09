@@ -1,7 +1,7 @@
 import PowersSelectionTable from "@/components/powers-selection-table/PowersSelectionTable.vue";
 import { ArlenorCharacter, ArlenorCrystal } from "@/models/ArlenorCharacter";
 import { ArlenorGroup } from "@/models/ArlenorGroup";
-import { ArlenorPower } from "@/models/ArlenorPower";
+import { ArlenorPower, PowerRanksEnum } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
 import { ArlenorGroups } from "@/models/data/ListGroups";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
@@ -29,15 +29,20 @@ export default defineComponent({
     const character: ArlenorCharacter = store.state.character;
     const codeGroup: Ref<string | null> = ref(character.crystals[props.indexCrystal].codeGroup);
     const codeSpeciality: Ref<string | null> = ref(character.crystals[props.indexCrystal].codeSpeciality);
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const idsPowers: Ref<any> = ref(character.crystals[props.indexCrystal].idsPowers);
+    const isNbPowersValid: Ref<boolean | null> = ref(null);
+    const level = character.level;
 
     return {
       store,
+      level,
       form: {
         codeGroup,
         codeSpeciality,
         idsPowers,
+        isNbPowersValid,
       },
       isModified: false,
       needConfirm: false,
@@ -50,13 +55,15 @@ export default defineComponent({
 
   mounted() {
     this.store.commit("loadAllPowers");
+    this.checkNbPowers();
   },
   
   validations: {
     form: {
       codeGroup: { required },
       codeSpeciality: { required },
-      idsPowers: {}
+      idsPowers: {},
+      isNbPowersValid: { required },
     }
   },
 
@@ -122,10 +129,24 @@ export default defineComponent({
       this.form.idsPowers[power.codeRank] = this.form.idsPowers[power.codeRank].filter((idPower: string) => idPower !== power.id);
       this.updateForm();
     },
+    checkNbPowers() {
+      const nbRankS = this.form.idsPowers[PowerRanksEnum.Unique.Code].length;
+      const nbRankA = this.form.idsPowers[PowerRanksEnum.TresRare.Code].length;
+      const nbRankB = this.form.idsPowers[PowerRanksEnum.Rare.Code].length;
+      const nbRankC = this.form.idsPowers[PowerRanksEnum.Commun.Code].length;
+      
+      this.form.isNbPowersValid = (
+        nbRankS === this.level.maxRankS
+        && nbRankA === this.level.maxRankA
+        && nbRankB === this.level.maxRankB
+        && nbRankC === this.level.maxRankC
+      ) ? true : null;
+    },
 
     updateForm() {
       this.isModified = true;
       this.needConfirm = false,
+      this.checkNbPowers();
       this.$emit("changeStep");
     },
     cancelForm() {
