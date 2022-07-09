@@ -18,6 +18,7 @@
     <a
       id="export-powers-json"
       class="link-button margin-top-1 margin-left-1"
+      :disabled="!canExport"
       @click="exportPowers()">
       Exporter
     </a>
@@ -26,7 +27,8 @@
   <PowersTable
     :all-powers="allPowers"
     @edit="openEditPower"
-    @delete="openDeletePower" />
+    @delete="openDeletePower"
+    @update="updateFilteredPowers" />
 
   <PopupBloc
     v-if="showAddPopup"

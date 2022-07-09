@@ -12,7 +12,7 @@ export default defineComponent({
     },
   },
   components: {},
-  emits: ["edit", "delete"],
+  emits: ["edit", "delete", "update"],
 
   setup() {
     const selectedPower: Ref<ArlenorPower | null> = ref(null);
@@ -45,6 +45,7 @@ export default defineComponent({
       this.filteredPowers = this.allPowers;
       if (this.selectedGroup) this.filteredPowers = this.filteredPowers.filter(power => {
         if (power.group) return (power.group.code === this.selectedGroup);
+        else if (power.speciality) return (power.speciality.group.code === this.selectedGroup);
         else return true;
       });
       if (this.selectedSpeciality) this.filteredPowers = this.filteredPowers.filter(power => {
@@ -53,6 +54,7 @@ export default defineComponent({
       });
       if (this.searchName) this.filteredPowers = this.filteredPowers.filter(power => power.name.toLowerCase().indexOf(this.searchName.toLowerCase()) !== -1);
       this.filteredPowers.sort((a, b) => a.name.localeCompare(b.name));
+      this.$emit("update", this.filteredPowers);
     },
     changeGroup() {
       this.selectedSpeciality = null;

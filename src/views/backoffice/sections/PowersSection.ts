@@ -17,13 +17,14 @@ export default defineComponent({
     
   setup() {
     const allPowers: Ref<ArlenorPower[]> = ref([]);
+    const filteredPowers: Ref<ArlenorPower[]> = ref([]);
     const currentPower: Ref<ArlenorPower | null> = ref(null);
     const canExport = ref(true);
     const showAddPopup = ref(false);
     const showEditPopup = ref(false);
     const showDeletePopup = ref(false);
     return {
-      allPowers, currentPower, canExport,
+      allPowers, filteredPowers, currentPower, canExport,
       showAddPopup, showEditPopup, showDeletePopup
     };
   },
@@ -36,6 +37,9 @@ export default defineComponent({
     async loadPowers() {
       const allPowers = await api.readAllPower();
       this.allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
+    },
+    updateFilteredPowers(powers: ArlenorPower[]) {
+      this.filteredPowers = powers;
     },
     async importPowers(event:any) {
       const files = event.target.files || event.dataTransfer.files;
@@ -77,7 +81,7 @@ export default defineComponent({
         this.canExport = true;
         return;
       }
-      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.allPowers));
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.filteredPowers));
       const dlAnchorElem = document.getElementById("export-powers-json");
       if (dlAnchorElem) {
         dlAnchorElem.setAttribute("href", dataStr);

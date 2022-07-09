@@ -97,5 +97,8 @@
             "regex": "^[.]",
             "orderLevel": 40
         }
-    ]
+    ],
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
 }
