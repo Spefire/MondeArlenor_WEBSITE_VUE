@@ -1,9 +1,10 @@
+import { ArlenorEnum } from "@/models/ArlenorEnum";
 import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import { PageTitles } from "@/models/PagesTitles";
-import api from "@/utils/api";
 import { defineComponent, Ref, ref } from "vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "CrystalsView",
@@ -20,27 +21,28 @@ export default defineComponent({
   },
 
   setup() {
-    const allPowers: Ref<ArlenorPower[]> = ref([]);
+    const store = useStore();
     const allSpecialities = ref(ArlenorSpecialities.getListSpecialities());
     const currentSpeciality: Ref<ArlenorSpeciality | null> = ref(null);
     const specialityPowers: Ref<ArlenorPower[]> = ref([]);
     const selectedPower: Ref<ArlenorPower | null> = ref(null);
-    const ranks: Ref<string[]> = ref([]);
+    const ranks: Ref<ArlenorEnum[]> = ref([]);
     
-    return { allPowers, allSpecialities, currentSpeciality, selectedPower, specialityPowers, ranks };
+    return { store, allSpecialities, currentSpeciality, selectedPower, specialityPowers, ranks };
   },
 
   mounted() {
     this.updatePage();
-    this.loadPowers();
+    this.store.commit("loadAllPowers");
+  },
+
+  computed: {
+    allPowers(): ArlenorPower[] {
+      return this.store.state.allPowers || [];
+    },
   },
 
   methods: {
-    // Navigation et chargements
-    async loadPowers() {
-      const allPowers = await api.readAllPower();
-      this.allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
-    },
     moveToSpe(code:string) {
       this.$router.push({ path: "crystals", query: { spe: code }});
     },
@@ -66,8 +68,8 @@ export default defineComponent({
           return a.name.localeCompare(b.name);
         });
         this.specialityPowers = list;
-        this.ranks = this.specialityPowers.map(power => power.codeRank).filter((value, index, categoryArray) => categoryArray.indexOf(value) === index);
-        this.ranks.sort((a, b) => a.localeCompare(b));
+        this.ranks = this.specialityPowers.map(power => power.rank).filter((value, index, categoryArray) => categoryArray.indexOf(value) === index);
+        this.ranks.sort((a, b) => b.Code.localeCompare(a.Code));
       } else {
         this.specialityPowers = [];
         this.ranks = [];

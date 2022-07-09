@@ -117,6 +117,15 @@
           </tr>
         </thead>
         <tbody>
+          <template v-if="filteredPowers.length === 0">
+            <tr class="line-table">
+              <td
+                colspan="3"
+                class="full-width">
+                <p class="text-center">Aucun pouvoir pour cette classe</p>
+              </td>
+            </tr>
+          </template>
           <template
             v-for="(rank, indexRank) in ranks"
             :key="indexRank">
@@ -126,13 +135,13 @@
                 class="full-width">
                 <div class="creation-table-separator">
                   <span class="creation-table-line" />
-                  <span class="creation-table-title">{{ rank.Libelle }} ({{ rank.Code }})</span>
+                  <span class="creation-table-title">Rang {{ rank.Libelle }} ({{ rank.Code }})</span>
                   <span class="creation-table-line" />
                 </div>
               </td>
             </tr>
             <template
-              v-for="(power, index) in getPowersByRank(rank)"
+              v-for="(power, index) in getPowersByRank(rank.Code)"
               :key="index">
               <tr
                 class="line-table"

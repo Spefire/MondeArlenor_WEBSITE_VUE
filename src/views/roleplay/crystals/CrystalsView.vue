@@ -92,9 +92,9 @@
             v-for="(rank, indexRank) in ranks"
             class="powers-content"
             :key="indexRank">
-            <div class="powers-content-title">{{ rank.Libelle }} ({{ rank.Code }})</div>
+            <div class="powers-content-title">Rang {{ rank.Libelle }} ({{ rank.Code }})</div>
             <div
-              v-for="(power, index) in getPowersByRank(rank, true)"
+              v-for="(power, index) in getPowersByRank(rank.Code, true)"
               class="power-line pointer"
               :class="{ 'selected' : power.code === selectedPower?.code }"
               @click="selectPower(power)"
@@ -107,7 +107,7 @@
               <span class="power-name">{{ power.name }}</span>
             </div>
             <div
-              v-for="(power, index) in getPowersByRank(rank, false)"
+              v-for="(power, index) in getPowersByRank(rank.Code, false)"
               class="power-line pointer"
               :class="{ 'selected' : power.code === selectedPower?.code }"
               @click="selectPower(power)"

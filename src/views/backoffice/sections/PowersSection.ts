@@ -4,6 +4,7 @@ import PowersTable from "@/components/powers-table/PowersTable.vue";
 import { ArlenorPower } from "@/models/ArlenorPower";
 import api from "@/utils/api";
 import { defineComponent, Ref, ref } from "vue";
+import { useStore } from "vuex";
 
 import PowerForm from "./PowerForm.vue";
 
@@ -16,7 +17,7 @@ export default defineComponent({
   },
     
   setup() {
-    const allPowers: Ref<ArlenorPower[]> = ref([]);
+    const store = useStore();
     const filteredPowers: Ref<ArlenorPower[]> = ref([]);
     const currentPower: Ref<ArlenorPower | null> = ref(null);
     const canExport = ref(true);
@@ -24,23 +25,23 @@ export default defineComponent({
     const showEditPopup = ref(false);
     const showDeletePopup = ref(false);
     return {
-      allPowers, filteredPowers, currentPower, canExport,
+      store,
+      filteredPowers, currentPower, canExport,
       showAddPopup, showEditPopup, showDeletePopup
     };
   },
 
   mounted() {
-    this.loadPowers();
+    this.store.commit("loadAllPowers");
+  },
+
+  computed: {
+    allPowers(): ArlenorPower[] {
+      return this.store.state.allPowers || [];
+    },
   },
 
   methods: {
-    async loadPowers() {
-      const allPowers = await api.readAllPower();
-      this.allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
-    },
-    updateFilteredPowers(powers: ArlenorPower[]) {
-      this.filteredPowers = powers;
-    },
     async importPowers(event:any) {
       const files = event.target.files || event.dataTransfer.files;
       if (!files.length) return;
@@ -89,6 +90,9 @@ export default defineComponent({
         dlAnchorElem.click();
         this.canExport = false;
       }
+    },
+    updateFilteredPowers(powers: ArlenorPower[]) {
+      this.filteredPowers = powers;
     },
     openAddPower() {
       this.showAddPopup = true;

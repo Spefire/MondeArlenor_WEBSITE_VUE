@@ -1,13 +1,22 @@
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
+import { ArlenorPower } from "@/models/ArlenorPower";
 import { CelestiaQuizz } from "@/models/CelestiaQuizz";
+import api from "@/utils/api";
 import { createStore } from "vuex";
 
 export default createStore({
   state: {
     character: new ArlenorCharacter(),
-    quizz: new CelestiaQuizz()
+    quizz: new CelestiaQuizz(),
+    allPowers: null as ArlenorPower[] | null
   },
   mutations: {
+    async loadAllPowers(state) {
+      if (!state.allPowers) {
+        const allPowers = await api.readAllPower();
+        state.allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
+      }
+    },
     changeCharacterRace(state, payload: ArlenorCharacter) {
       state.character.race = payload.race;
     },

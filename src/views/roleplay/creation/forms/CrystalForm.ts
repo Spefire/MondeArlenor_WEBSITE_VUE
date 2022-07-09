@@ -1,9 +1,9 @@
+import { ArlenorEnum } from "@/models/ArlenorEnum";
 import { ArlenorGroup } from "@/models/ArlenorGroup";
 import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
 import { ArlenorGroups } from "@/models/data/ListGroups";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
-import api from "@/utils/api";
 import useVuelidate from "@vuelidate/core";
 import { defineComponent, ref, Ref } from "vue";
 import { useStore } from "vuex";
@@ -22,7 +22,6 @@ export default defineComponent({
   data () {
     const store = useStore();
     
-    const allPowers: Ref<ArlenorPower[]> = ref([]);
     const selectedPower: Ref<ArlenorPower | null> = ref(null);
 
     const selectedGroup: Ref<ArlenorGroup | null> = ref(null);
@@ -30,11 +29,11 @@ export default defineComponent({
     
     const selectedSpeciality: Ref<ArlenorSpeciality | null> = ref(null);
     const selectedSpeCode: Ref<string | null> = ref(null);
-    const ranks: Ref<string[]> = ref([]);
+    const ranks: Ref<ArlenorEnum[]> = ref([]);
 
     return {
       store,
-      allPowers, selectedPower,
+      selectedPower,
       selectedGrpCode, selectedGroup,
       selectedSpeCode, selectedSpeciality,
       ranks,
@@ -47,12 +46,19 @@ export default defineComponent({
   setup () {
     return { v$: useVuelidate() };
   },
+
+  mounted() {
+    this.store.commit("loadAllPowers");
+  },
   
   validations: {
     form: {},
   },
 
   computed: {
+    allPowers(): ArlenorPower[] {
+      return this.store.state.allPowers || [];
+    },
     allGroups(): ArlenorGroup[] {
       return ArlenorGroups.getListGroups().sort((a, b) => a.name.localeCompare(b.name));
     },
@@ -80,16 +86,8 @@ export default defineComponent({
       }
     },
   },
-  
-  mounted() {
-    this.loadPowers();
-  },
 
   methods: {
-    async loadPowers() {
-      const allPowers = await api.readAllPower();
-      this.allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
-    },
     changeGroup() {
       this.selectedGroup = this.selectedGrpCode ? this.allGroups.find(grp => grp.code == this.selectedGrpCode) || null  : null;
       this.selectedSpeciality = null;
@@ -100,8 +98,8 @@ export default defineComponent({
       if (this.selectedSpeciality) {
         this.selectedGroup = this.selectedSpeciality.group;
         this.selectedGrpCode = this.selectedSpeciality.group.code;
-        this.ranks = this.filteredPowers.map(power => power.codeRank).filter((value, index, categoryArray) => categoryArray.indexOf(value) === index);
-        this.ranks.sort((a, b) => a.localeCompare(b));
+        this.ranks = this.filteredPowers.map(power => power.rank).filter((value, index, categoryArray) => categoryArray.indexOf(value) === index);
+        this.ranks.sort((a, b) => b.Code.localeCompare(a.Code));
       }
     },
     seeMore(power: ArlenorPower) {
