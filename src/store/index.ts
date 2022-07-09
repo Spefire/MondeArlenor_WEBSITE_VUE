@@ -28,6 +28,10 @@ export default createStore({
       state.character.caracts.cha = payload.caracts.cha;
       state.character.caracts.mag = payload.caracts.mag;
     },
+    // Note : payload : { index, crystal }
+    changeCharacterCrystal(state, payload) {
+      state.character.crystals[payload.index] = payload.crystal;
+    },
     changeCharacterIdentity(state, payload: ArlenorCharacter) {
       state.character.avatar = payload.avatar;
       state.character.name = payload.name;

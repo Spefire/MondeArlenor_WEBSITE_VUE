@@ -20,15 +20,21 @@ export default defineComponent({
     return { selectedPower, ranks };
   },
 
+  mounted() {
+    this.updateRanks();
+  },
+
   watch: {
     filteredPowers: function() {
-      this.ranks = this.filteredPowers.map(power => power.rank).filter((value, index, categoryArray) => categoryArray.indexOf(value) === index);
-      this.ranks.sort((a, b) => b.Code.localeCompare(a.Code));
-      console.warn("this.ranks", this.ranks);
+      this.updateRanks();
     }
   },
 
   methods: {
+    updateRanks() {
+      this.ranks = this.filteredPowers.map(power => power.rank).filter((value, index, categoryArray) => categoryArray.indexOf(value) === index);
+      this.ranks.sort((a, b) => b.Code.localeCompare(a.Code));
+    },
     getPowersByRank(rank: string) {
       return this.filteredPowers.filter(power => power.codeRank === rank);
     },

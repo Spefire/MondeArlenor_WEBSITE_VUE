@@ -192,13 +192,13 @@ function createSkill(listSkills: ArlenorSkill[], name: string, type: ArlenorEnum
   }
   if (specialities.length > 0) {
     const listGroupsCreated: string[] = [];
-    specialities.forEach(cls => {
-      if (!listGroupsCreated.includes(cls.group.code)) {
-        const ListSpecialitiesToCreate = specialities.filter(clsToCreate => clsToCreate.group.code === cls.group.code);
+    specialities.forEach(spe => {
+      if (!listGroupsCreated.includes(spe.group.code)) {
+        const ListSpecialitiesToCreate = specialities.filter(speToCreate => speToCreate.group.code === spe.group.code);
         const newAb = new ArlenorSkill(name, type);
-        newAb.initGrpSpe(cls.group, ListSpecialitiesToCreate);
+        newAb.initGrpSpe(spe.group, ListSpecialitiesToCreate);
         listSkills.push(newAb);
-        listGroupsCreated.push(cls.group.code);
+        listGroupsCreated.push(spe.group.code);
       }
     });
   }

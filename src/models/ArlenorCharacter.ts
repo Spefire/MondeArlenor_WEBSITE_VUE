@@ -1,4 +1,5 @@
 import { ArlenorEnum } from "./ArlenorEnum";
+import { PowerRanksEnum } from "./ArlenorPower";
 import { ArlenorRace } from "./ArlenorRace";
 import { getListRaces } from "./data/ListRaces";
 
@@ -101,6 +102,23 @@ export class CaractDescriptionEnum {
   Les grands mages ont évidemment un bon niveau dans cette caractéristique.` };
 }
 
+export class ArlenorCrystal {
+  public codeGroup: string | null;
+  public codeSpeciality: string | null;
+  public idsPowers: { [codeRank: string] : string[]; };
+
+  constructor() {
+    this.codeGroup = null;
+    this.codeSpeciality = null;
+    this.idsPowers = {};
+
+    const allRanks = Object.values(PowerRanksEnum);
+    allRanks.forEach((rank: ArlenorEnum) => {
+      this.idsPowers[rank.Code] = [];
+    });
+  }
+}
+
 export class ArlenorCharacter {
   public level: number | null;
   public avatar: string;
@@ -114,6 +132,7 @@ export class ArlenorCharacter {
   public importances: string;
   public race: ArlenorRace | null;
   public caracts: ArlenorCaracts;
+  public crystals: ArlenorCrystal[];
 
   get initiative(): number {
     return this.caracts.hab + this.caracts.int;
@@ -145,6 +164,7 @@ export class ArlenorCharacter {
     this.importances = "";
     this.race = null;
     this.caracts = new ArlenorCaracts();
+    this.crystals = [new ArlenorCrystal(), new ArlenorCrystal()];
   }
 
   init(): void {

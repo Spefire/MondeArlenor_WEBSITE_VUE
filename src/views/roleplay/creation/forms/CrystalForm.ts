@@ -1,17 +1,19 @@
 import PowersSelectionTable from "@/components/powers-selection-table/PowersSelectionTable.vue";
+import { ArlenorCharacter, ArlenorCrystal } from "@/models/ArlenorCharacter";
 import { ArlenorGroup } from "@/models/ArlenorGroup";
 import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
 import { ArlenorGroups } from "@/models/data/ListGroups";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import useVuelidate from "@vuelidate/core";
+import { required } from "@vuelidate/validators";
 import { defineComponent, ref, Ref } from "vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
   name: "CrystalForm",
   props: {
-    currentCrystal: {
+    indexCrystal: {
       type: Number,
       required: true,
     }
@@ -21,20 +23,19 @@ export default defineComponent({
   },
   emits: ["changeStep", "previousStep", "nextStep"],
   
-  data () {
+  data (props) {
     const store = useStore();
 
-    const selectedGroup: Ref<ArlenorGroup | null> = ref(null);
-    const selectedGrpCode: Ref<string | null> = ref(null);
-    
-    const selectedSpeciality: Ref<ArlenorSpeciality | null> = ref(null);
-    const selectedSpeCode: Ref<string | null> = ref(null);
+    const character: ArlenorCharacter = store.state.character;
+    const codeGroup: Ref<string | null> = ref(character.crystals[props.indexCrystal].codeGroup);
+    const codeSpeciality: Ref<string | null> = ref(character.crystals[props.indexCrystal].codeSpeciality);
 
     return {
       store,
-      selectedGrpCode, selectedGroup,
-      selectedSpeCode, selectedSpeciality,
-      form: {},
+      form: {
+        codeGroup,
+        codeSpeciality,
+      },
       isModified: false,
       needConfirm: false,
     };
@@ -49,10 +50,21 @@ export default defineComponent({
   },
   
   validations: {
-    form: {},
+    form: {
+      codeGroup: { required },
+      codeSpeciality: { required },
+    }
   },
 
   computed: {
+    selectedGroup(): ArlenorGroup | null {
+      if (!this.form.codeGroup) return null;
+      return ArlenorGroups.getGroup(this.form.codeGroup);
+    },
+    selectedSpeciality(): ArlenorSpeciality | null {
+      if (!this.form.codeSpeciality) return null;
+      return ArlenorSpecialities.getSpeciality(this.form.codeSpeciality);
+    },
     allPowers(): ArlenorPower[] {
       return this.store.state.allPowers || [];
     },
@@ -63,16 +75,18 @@ export default defineComponent({
       return ArlenorSpecialities.getListSpecialities().sort((a, b) => a.name.localeCompare(b.name));
     },
     filteredSpecialities(): ArlenorSpeciality[] {
-      if (this.selectedGrpCode) {
-        return this.allSpecialities.filter(spe => spe.group.code == this.selectedGrpCode);
+      if (this.form.codeGroup) {
+        return this.allSpecialities.filter(spe => spe.group.code == this.form.codeGroup);
       } else {
         return this.allSpecialities.slice();
       }
     },
     filteredPowers(): ArlenorPower[] {
-      if (this.selectedSpeciality) {
-        const listGrp = this.selectedGrpCode ? this.allPowers.filter(power => power.group?.code === this.selectedGrpCode && !power.speciality) : [];
-        const listSpe = this.selectedSpeCode ? this.allPowers.filter(power => power.speciality?.code === this.selectedSpeCode) : [];
+      if (this.form.codeSpeciality) {
+        const listGrp = this.form.codeGroup ?
+          this.allPowers.filter(power => power.group?.code === this.form.codeGroup && !power.speciality) : [];
+        const listSpe = this.form.codeSpeciality ?
+          this.allPowers.filter(power => power.speciality?.code === this.form.codeSpeciality) : [];
         const list = listGrp.concat(listSpe);
         list.sort((a, b) => {
           return a.name.localeCompare(b.name);
@@ -86,16 +100,12 @@ export default defineComponent({
 
   methods: {
     changeGroup() {
-      this.selectedGroup = this.selectedGrpCode ? this.allGroups.find(grp => grp.code == this.selectedGrpCode) || null  : null;
-      this.selectedSpeciality = null;
-      this.selectedSpeCode = null;
+      this.form.codeSpeciality = null;
+      this.updateForm();
     },
     changeSpeciality() {
-      this.selectedSpeciality = this.selectedSpeCode ? this.allSpecialities.find(spe => spe.code == this.selectedSpeCode) || null : null;
-      if (this.selectedSpeciality) {
-        this.selectedGroup = this.selectedSpeciality.group;
-        this.selectedGrpCode = this.selectedSpeciality.group.code;
-      }
+      this.form.codeGroup = this.selectedSpeciality ? this.selectedSpeciality.group.code : null;
+      this.updateForm();
     },
 
     updateForm() {
@@ -117,8 +127,10 @@ export default defineComponent({
       this.$emit("nextStep");
     },
     save() {
-      /*const newCharacter = new ArlenorCharacter();
-      this.store.commit("changeCharacterIdentity", newCharacter);*/
+      const newCrystal = new ArlenorCrystal();
+      newCrystal.codeGroup = this.form.codeGroup;
+      newCrystal.codeSpeciality = this.form.codeSpeciality;
+      this.store.commit("changeCharacterCrystal", { index: this.indexCrystal, crystal: newCrystal });
     }
   }
 });

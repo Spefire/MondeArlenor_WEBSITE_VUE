@@ -11,7 +11,9 @@
       <template v-if="selection == 4">Choix du cristal primaire</template>
       <template v-if="selection == 5">Choix du cristal secondaire</template>
       <template v-if="selection == 6">Choix de l'identité</template>
-      <span v-if="hasModification">(*)</span>
+      <span
+        v-if="hasModification"
+        title="A des modifications en cours">&nbsp;*</span>
     </h3>
 
     <div class="creation-content">
@@ -69,13 +71,13 @@
         @nextStep="increaseSelection()" />
       <CrystalForm
         v-if="selection == 4"
-        :current-crystal="1"
+        :index-crystal="0"
         @changeStep="changeModifs()"
         @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
       <CrystalForm
         v-if="selection == 5"
-        :current-crystal="2"
+        :index-crystal="1"
         @changeStep="changeModifs()"
         @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />

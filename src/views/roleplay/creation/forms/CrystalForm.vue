@@ -5,7 +5,7 @@
       <div class="dropdown">
         <select
           class="dropdown-select"
-          v-model="selectedGrpCode"
+          v-model.trim.lazy="v$.form.codeGroup.$model"
           @change="changeGroup">
           <option :value="null">-</option>
           <option
@@ -53,13 +53,13 @@
       <div class="dropdown">
         <select
           class="dropdown-select"
-          v-model="selectedSpeCode"
+          v-model.trim.lazy="v$.form.codeSpeciality.$model"
           @change="changeSpeciality">
           <option :value="null">-</option>
           <option
-            v-for="(cls, index) in filteredSpecialities"
-            :value="cls.code"
-            :key="index">{{ cls.name }}</option>
+            v-for="(spe, index) in filteredSpecialities"
+            :value="spe.code"
+            :key="index">{{ spe.name }}</option>
         </select>
       </div>
     </div>
