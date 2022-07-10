@@ -65,10 +65,16 @@
           class="table-line"
           :class="{ selected : selectedPower === power }">
           <td class="col-05">
-            <img
-              v-if="power.image"
-              :src="power.image"
-              :alt="power.type.Libelle">
+            <div class="creation-imgs">
+              <img
+                v-if="power.image"
+                class="power-img"
+                :src="power.image"
+                :alt="power.type.Libelle">
+              <img
+                class="power-img-ok"
+                src="./../../assets/icons/powers/ok.png">
+            </div>
           </td>
           <td 
             class="col-35 pointer"

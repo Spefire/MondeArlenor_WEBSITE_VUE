@@ -104,6 +104,9 @@
                 :src="power.image"
                 :alt="power.name"
                 :title="power.name">
+              <img
+                class="power-img-ok"
+                src="./../../../assets/icons/powers/ok.png">
               <span class="power-name">{{ power.name }}</span>
             </div>
             <div
@@ -117,6 +120,9 @@
                 :src="power.image"
                 :alt="power.name"
                 :title="power.name">
+              <img
+                class="power-img-ok"
+                src="./../../../assets/icons/powers/ok.png">
               <span class="power-name">{{ power.name }}</span>
             </div>
           </div>
