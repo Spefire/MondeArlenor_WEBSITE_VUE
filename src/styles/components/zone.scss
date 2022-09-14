@@ -1,7 +1,7 @@
 .zone-element {
     min-height: 525px;
     max-height: 525px;
-    overflow: auto !important;
+    overflow-y: scroll !important;
 
     &.zone-element-free {
         min-height: auto;

@@ -28,6 +28,7 @@
             <p v-html="currentZone.description" />
           </div>
           <p
+            v-if="currentZone.comment"
             class="zone-comment margin-top-1"
             :title="currentZone.comment + '\n - ' + currentZone.commentName">
             "{{ currentZone.comment }}"
@@ -45,7 +46,14 @@
               Niveau de danger&nbsp;:&nbsp;<span class="text-capitalize">{{ currentZone.sector.danger }}</span>
             </h3>
           </div>
-          <div class="world-icons">
+          <div class="world-map-section">
+            <i
+              v-for="(zone, index) in allZones"
+              :value="zone.code"
+              class="world-map-target icon icon-location mid-opacity"
+              :class="{ 'full-opacity': zone.name === currentZone.name }"
+              :style="{ top: zone.posTop + '%', left: zone.posLeft + '%' }"
+              :key="index" />
             <img
               v-show="!showCities"
               class="world-map bloc-text"

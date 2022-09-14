@@ -44,9 +44,22 @@
       text-align: center;
     }
 
-    .world-map {
-      width: 100%;
-      padding: 0;
+    .world-map-section {
+      position: relative;
+
+      .world-map {
+        width: 100%;
+        padding: 0;
+      }
+
+      .world-map-target {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 1.75vw;
+        filter: drop-shadow(0 0 4px $black-color);
+        transform: translate(-50%, -50%);
+      }
     }
   }
 }

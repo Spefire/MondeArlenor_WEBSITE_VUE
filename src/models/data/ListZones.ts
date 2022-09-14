@@ -4,9 +4,14 @@ import { ArlenorSectors } from "./ListSectors";
 export function getListZones(): ArlenorZone[] {
   const arlenorZones: ArlenorZone[]= [];
   const sectors = new ArlenorSectors();
+  
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // PlainesTerfil
+  /////////////////////////////////////////////////////////////////////////////////////////
 
   const faradel = new ArlenorZone(
     "La Cité de Faradel",
+    40.8, 69.85,
     sectors.PlainesTerfil,
     `&emsp;
     Située dans la zone paisible des Plaines de Terfil, Faradel fait partie des trois plus grandes cités du Monde d'Arlénor.
@@ -27,8 +32,9 @@ export function getListZones(): ArlenorZone[] {
   faradel.image =  require("./../../assets/images/world/faradel.jpg");
   arlenorZones.push(faradel);
 
-  const tour = new ArlenorZone(
+  const tourSavoir = new ArlenorZone(
     "La Tour du Savoir",
+    42.8, 71.85,
     sectors.PlainesTerfil,
     `&emsp;
     La Tour du Savoir est l'emblème de l'Empire Faradélien.
@@ -46,11 +52,16 @@ export function getListZones(): ArlenorZone[] {
     "Oui, l'Eclat infini a transformé notre cité et c'est fabuleux !... Comment fonctionne-t-il ? Euh... A coup de ta gueule c'est magique.",
     "Elfe faradélien, interrogé près de la Tour du Savoir"
   );
-  tour.image =  require("./../../assets/images/world/tour.jpg");
-  arlenorZones.push(tour);
+  tourSavoir.image =  require("./../../assets/images/world/tour-savoir.jpg");
+  arlenorZones.push(tourSavoir);
   
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // DesertSanderten
+  /////////////////////////////////////////////////////////////////////////////////////////
+
   const jirakan = new ArlenorZone(
     "Le Commerce de Jirakan",
+    59.5, 73.6,
     sectors.DesertSanderten,
     `&emsp;
     Jirakan est la principale ville marchande du Monde d'Arlénor.
@@ -72,8 +83,31 @@ export function getListZones(): ArlenorZone[] {
   jirakan.image =  require("./../../assets/images/world/jirakan.jpg");
   arlenorZones.push(jirakan);
 
-  const revolte = new ArlenorZone(
+  const desertSanderten = new ArlenorZone(
+    "Le Désert aux Ruines",
+    73, 66,
+    sectors.DesertSanderten,
+    `&emsp;
+    Aucune description disponible pour l'instant.`,
+    "", ""
+  );
+  desertSanderten.image =  require("./../../assets/images/world/desert-sanderten.jpg");
+  arlenorZones.push(desertSanderten);
+
+  const minesJirakan = new ArlenorZone(
+    "Les Mines de Jirakan",
+    68, 81,
+    sectors.DesertSanderten,
+    `&emsp;
+    Aucune description disponible pour l'instant.`,
+    "", ""
+  );
+  minesJirakan.image =  require("./../../assets/images/world/mines-jirakan.jpg");
+  arlenorZones.push(minesJirakan);
+
+  const grandeRevolte = new ArlenorZone(
     "La Grande Révolte",
+    72.5, 75,
     sectors.DesertSanderten,
     `&emsp;
     En l'An 666 du calendrier arlénien, un groupe d'esclaves et de partisans pour leur libération, ont monté une révolte contre les Superviseurs.
@@ -93,11 +127,64 @@ export function getListZones(): ArlenorZone[] {
     "C'était terrifiant. Le genre de moment où il n'y avait plus de camps : juste des personnes essayant de survivre... Quand nos cristaux n'ont plus fonctionné, on a su alors ce qu'était l'Impuissance.",
     "Survivant de la Grande Révolte"
   );
-  revolte.image =  require("./../../assets/images/world/revolte.jpg");
-  arlenorZones.push(revolte);
+  grandeRevolte.image =  require("./../../assets/images/world/grande-revolte.jpg");
+  arlenorZones.push(grandeRevolte);
+
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // ForetMiryden
+  /////////////////////////////////////////////////////////////////////////////////////////
+
+  const arlenienMiryden = new ArlenorZone(
+    "Le Territoire des Arléniens",
+    34, 54,
+    sectors.ForetMiryden,
+    `&emsp;
+    Aucune description disponible pour l'instant.`,
+    "", ""
+  );
+  arlenienMiryden.image =  require("./../../assets/images/world/arlenien-miryden.jpg");
+  arlenorZones.push(arlenienMiryden);
+
+  const panMiryden = new ArlenorZone(
+    "Le Territoire des Pans",
+    30, 81,
+    sectors.ForetMiryden,
+    `&emsp;
+    Aucune description disponible pour l'instant.`,
+    "", ""
+  );
+  panMiryden.image =  require("./../../assets/images/world/pan-miryden.jpg");
+  arlenorZones.push(panMiryden);
+
+  const lacUtica = new ArlenorZone(
+    "Le Lac Utica",
+    20, 57.5,
+    sectors.ForetMiryden,
+    `&emsp;
+    Aucune description disponible pour l'instant.`,
+    "", ""
+  );
+  lacUtica.image =  require("./../../assets/images/world/lac-utica.jpg");
+  arlenorZones.push(lacUtica);
+
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // MerShivazen
+  /////////////////////////////////////////////////////////////////////////////////////////
+
+  const merShivazen = new ArlenorZone(
+    "La Mer Monstrueuse",
+    58, 46,
+    sectors.MerShivazen,
+    `&emsp;
+    Aucune description disponible pour l'instant.`,
+    "", ""
+  );
+  merShivazen.image =  require("./../../assets/images/world/mer-shivazen.jpg");
+  arlenorZones.push(merShivazen);
 
   const lumeck = new ArlenorZone(
     "L'Ile de Lumeck",
+    27, 20,
     sectors.MerShivazen,
     `&emsp;
     L'Ile de Lumeck est considérée comme une zone maudite :
@@ -112,8 +199,19 @@ export function getListZones(): ArlenorZone[] {
     "Douloureux... Affreux... Puant... Effrayant... La mort la plus belle ne se trouve pas en ces lieux.",
     "Cartographe, poète dans l'âme"
   );
-  lumeck.image =  require("./../../assets/images/world/lumeck.jpg");
+  lumeck.image =  require("./../../assets/images/world/ile-lumeck.jpg");
   arlenorZones.push(lumeck);
+
+  const mondeInonde = new ArlenorZone(
+    "Le Monde Inondé",
+    23, 35,
+    sectors.MerShivazen,
+    `&emsp;
+    Aucune description disponible pour l'instant.`,
+    "", ""
+  );
+  mondeInonde.image =  require("./../../assets/images/world/monde-inonde.jpg");
+  arlenorZones.push(mondeInonde);
 
   return arlenorZones;
 }

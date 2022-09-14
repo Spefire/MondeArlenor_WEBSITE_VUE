@@ -83,6 +83,18 @@
   text-transform: lowercase;
 }
 
+.full-opacity {
+  opacity: 1 !important;
+}
+
+.mid-opacity {
+  opacity: 0.3;
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+
 .text-red {
   color: $red-color;
 }
