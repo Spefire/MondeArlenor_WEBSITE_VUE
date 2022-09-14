@@ -50,9 +50,10 @@
             <i
               v-for="(zone, index) in allZones"
               :value="zone.code"
-              class="world-map-target icon icon-location mid-opacity"
+              class="world-map-target icon icon-location mid-opacity pointer"
               :class="{ 'full-opacity': zone.name === currentZone.name }"
               :style="{ top: zone.posTop + '%', left: zone.posLeft + '%' }"
+              @click="selectZone(index)"
               :key="index" />
             <img
               v-show="!showCities"

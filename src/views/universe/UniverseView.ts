@@ -44,6 +44,10 @@ export default defineComponent({
       else this.currentIndex = this.currentIndex + 1;
     },
 
+    selectZone(index: number) {
+      this.currentIndex = index;
+    },
+
     toggleMap(value: boolean) {
       this.showCities = value;
     }
