@@ -75,37 +75,3 @@
         display: none;
     }
 }
-
-.selection-container.creation-selection-steps {
-    .dot {
-        margin: 4px;
-        border-radius: 0;
-        transform: rotate(45deg);
-        cursor: default;
-    }
-
-    .dotline {
-        height: 42px;
-    }
-
-    @include tablet-only {
-        position: relative;
-        right: auto;
-        top: auto;
-        margin-top: 20px;
-        flex-direction: row;
-        transform: none;
-
-        .dotline {
-            height: 1px;
-            width: 50px;
-        }
-    }
-
-    @include mobile-only {
-        .dotline {
-            height: 1px;
-            width: 20px;
-        }
-    }
-}

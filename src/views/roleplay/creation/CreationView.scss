@@ -3,14 +3,13 @@
 .creation-view {
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  justify-content: flex-start;
 
   .creation-content {
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    min-height: 70vh;
+    min-height: 50vh;
     width: 100%;
 
     @include tablet-only {
@@ -18,16 +17,33 @@
       align-items: center;
       width: 80%;
     }
+  }
 
-    .layout-left,
-    .layout-right {
-      text-align: center;
-      width: 100%;
+  .creation-content-nav {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+    button:not(:first-child) {
+      margin-left: 20px;
     }
   }
 }
 
 .creation-form {
+  width: 100%;
+  margin: 0 5%;
+  text-align: center;
+
+  &:first-child {
+    margin-right: 20px;
+  }
+
+  &:last-child {
+    margin-left: 20px;
+  }
+
   .creation-img {
     height: 100px;
     width: 100px;
@@ -62,17 +78,11 @@
   }
 
   .creation-img-perso {
-    height: auto;
-    width: 100%;
-    max-height: 500px;
-    max-width: 500px;
+    display: block;
+    max-height: 50vh;
+    max-width: 50vh;
+    margin: auto;
     padding: 0;
-  }
-
-  .creation-nav-button {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 10px;
   }
 
   .race-grid {

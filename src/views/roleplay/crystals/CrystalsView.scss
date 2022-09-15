@@ -1,7 +1,7 @@
 @import "../../../styles/variables.scss";
 
 .crystals-view {
-  min-height: calc(75vh + 100px);
+  align-items: flex-start;
 
   img {
     height: 125px;

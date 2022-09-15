@@ -1,33 +1,33 @@
 <template>
   <div class="layout-view background-roleplay creation-view">
 
-    <h2 class="text-center margin-bottom-0">
+    <h2 class="text-center margin-top-0">
       Création de personnage
     </h2>
-    <h3 class="text-center">
+    <h3 class="text-center margin-bottom-1">
+      <template v-if="selection == 0">Introduction</template>
       <template v-if="selection == 1">Choix de la race</template>
       <template v-if="selection == 2">Choix des caractéristiques</template>
       <template v-if="selection == 3">Choix des compétences</template>
       <template v-if="selection == 4">Choix du cristal primaire</template>
       <template v-if="selection == 5">Choix du cristal secondaire</template>
       <template v-if="selection == 6">Choix de l'identité</template>
+      <template v-if="selection == 7">Récapitulatif</template>
       <span
         v-if="hasModification"
         title="A des modifications en cours">&nbsp;*</span>
     </h3>
 
-    <div class="creation-content">
-      
-      <template
-        v-if="selection == 0">
-        <div class="layout-left creation-form">
+    <template v-if="selection == 0">
+      <div class="creation-content">
+        <div class="creation-form">
           <img
             class="bloc-text creation-img-perso"
             src="./../../../assets/images/creation/perso_left.png"
             alt="">
         </div>
-        <div class="layout-right creation-form">
-          <div class="bloc-text margin-top-1 text-justify">
+        <div class="creation-form">
+          <div class="bloc-text text-justify">
             &emsp;
             Un personnage est défini par plusieurs choses : <b>ses caractéristiques</b> (et valeurs dérivées), <b>ses compétences principales</b>,
             <b>sa race</b> (parmi celles jouables), <b>son cristal évolutif</b> (ses pouvoirs), pour ensuite finir par quelques finitions.
@@ -43,60 +43,60 @@
             <br>&emsp;
             Créez alors ici un nouveau personnage du Monde d'Arlénor...
           </div>
-
-          <div class="creation-nav-button">
-            <button
-              class="link-button"
-              @click="startCreation()">Commencer la création</button>
-            <button
-              class="link-button"
-              @click="passCreation()">Passer la création</button>
-          </div>
         </div>
-      </template>
+      </div>
+      <div class="creation-content-nav">
+        <button
+          class="link-button"
+          @click="startCreation()">Commencer la création</button>
+        <button
+          class="link-button"
+          @click="passCreation()">Passer la création</button>
+      </div>
+    </template>
 
-      <RaceForm
-        v-if="selection == 1"
-        @changeStep="changeModifs()"
-        @nextStep="increaseSelection()" />
-      <CaractsForm
-        v-if="selection == 2"
-        @changeStep="changeModifs()"
-        @previousStep="decreaseSelection()"
-        @nextStep="increaseSelection()" />
-      <SkillsForm
-        v-if="selection == 3"
-        @changeStep="changeModifs()"
-        @previousStep="decreaseSelection()"
-        @nextStep="increaseSelection()" />
-      <CrystalForm
-        v-if="selection == 4"
-        :index-crystal="0"
-        @changeStep="changeModifs()"
-        @previousStep="decreaseSelection()"
-        @nextStep="increaseSelection()" />
-      <CrystalForm
-        v-if="selection == 5"
-        :index-crystal="1"
-        @changeStep="changeModifs()"
-        @previousStep="decreaseSelection()"
-        @nextStep="increaseSelection()" />
-      <IdentityForm
-        v-if="selection == 6"
-        @previousStep="decreaseSelection()"
-        @changeStep="changeModifs()"
-        @nextStep="increaseSelection()" />
+    <RaceForm
+      v-if="selection == 1"
+      @changeStep="changeModifs()"
+      @nextStep="increaseSelection()" />
+    <CaractsForm
+      v-if="selection == 2"
+      @changeStep="changeModifs()"
+      @previousStep="decreaseSelection()"
+      @nextStep="increaseSelection()" />
+    <SkillsForm
+      v-if="selection == 3"
+      @changeStep="changeModifs()"
+      @previousStep="decreaseSelection()"
+      @nextStep="increaseSelection()" />
+    <CrystalForm
+      v-if="selection == 4"
+      :index-crystal="0"
+      @changeStep="changeModifs()"
+      @previousStep="decreaseSelection()"
+      @nextStep="increaseSelection()" />
+    <CrystalForm
+      v-if="selection == 5"
+      :index-crystal="1"
+      @changeStep="changeModifs()"
+      @previousStep="decreaseSelection()"
+      @nextStep="increaseSelection()" />
+    <IdentityForm
+      v-if="selection == 6"
+      @previousStep="decreaseSelection()"
+      @changeStep="changeModifs()"
+      @nextStep="increaseSelection()" />
 
-      <template
-        v-if="selection == 7">
-        <div class="layout-left creation-form">
+    <template v-if="selection == 7">
+      <div class="creation-content">
+        <div class="creation-form">
           <img
             class="bloc-text creation-img-perso"
             src="./../../../assets/images/creation/perso_right.png"
             alt="">
         </div>
-        <div class="layout-right creation-form">
-          
+
+        <div class="creation-form">
           <div class="bloc-text form-element zone-element zone-element-semifree">
             <div
               v-if="character"
@@ -124,46 +124,54 @@
           <div class="bloc-text margin-top-1 text-center">
             Vous pouvez aussi recommencer un nouveau personnage, ou faire des ajustements sur l'actuel.
           </div>
-
-          <div class="creation-nav-button">
-            <button
-              class="link-button"
-              @click="restartCreation()">Créer un nouveau perso</button>
-            <button
-              class="link-button"
-              @click="startCreation()">Modifier l'actuel</button>
-          </div>
         </div>
-      </template>
+      </div>
+      
+      <div class="creation-content-nav">
+        <button
+          class="link-button"
+          @click="restartCreation()">Créer un nouveau perso</button>
+        <button
+          class="link-button"
+          @click="startCreation()">Modifier l'actuel</button>
+      </div>
+    </template>
 
-      <ul class="selection-container creation-selection-steps">
-        <div class="dotline" />
-        <li
-          :class="{'active': selection == 1 }"
-          class="dot" />
-        <div class="dotline" />
-        <li
-          :class="{'active': selection == 2 }"
-          class="dot" />
-        <div class="dotline" />
-        <li
-          :class="{'active': selection == 3 }"
-          class="dot" />
-        <div class="dotline" />
-        <li
-          :class="{'active': selection == 4 }"
-          class="dot" />
-        <div class="dotline" />
-        <li
-          :class="{'active': selection == 5 }"
-          class="dot" />
-        <div class="dotline" />
-        <li
-          :class="{'active': selection == 6 }"
-          class="dot" />
-        <div class="dotline" />
-      </ul>
-    </div>
+    <ul class="selection-container celestia-selection-steps">
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 0 }"
+        class="dot" />
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 1 }"
+        class="dot" />
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 2 }"
+        class="dot" />
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 3 }"
+        class="dot" />
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 4 }"
+        class="dot" />
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 5 }"
+        class="dot" />
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 6 }"
+        class="dot" />
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 7 }"
+        class="dot" />
+      <div class="dotline" />
+    </ul>
   </div>
 </template>
 

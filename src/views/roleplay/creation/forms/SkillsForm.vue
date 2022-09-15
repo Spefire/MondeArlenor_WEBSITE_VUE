@@ -1,33 +1,37 @@
 <template>
-  <div class="layout-left">
-    <img
-      src="./../../../../assets/images/about.png"
-      alt="">
-  </div>
-  <div class="layout-right creation-form">
-    <p>
-      SkillsForm
-    </p>
-    <div class="creation-nav-button">
-      <button
-        class="link-button"
-        @click="cancelForm()">
-        <template v-if="!isModified">
-          Précédent
-        </template>
-        <template v-if="isModified">
-          Annuler les modifications
-          <template v-if="needConfirm">
-            (Confirmez ?) 
-          </template>
-        </template>
-      </button>
-
-      <button
-        class="link-button"
-        :disabled="v$.form.$invalid"
-        @click="submitForm()">Suivant</button>
+  <div class="creation-content">
+    <div class="creation-form">
+      <img
+        class="bloc-text creation-img-perso"
+        src="./../../../../assets/images/about.png"
+        alt="">
     </div>
+    <div class="creation-form">
+      <p>
+        SkillsForm
+      </p>
+    </div>
+  </div>
+
+  <div class="creation-content-nav">
+    <button
+      class="link-button"
+      @click="cancelForm()">
+      <template v-if="!isModified">
+        Précédent
+      </template>
+      <template v-if="isModified">
+        Annuler les modifications
+        <template v-if="needConfirm">
+          (Confirmez ?) 
+        </template>
+      </template>
+    </button>
+
+    <button
+      class="link-button"
+      :disabled="v$.form.$invalid"
+      @click="submitForm()">Suivant</button>
   </div>
 </template>
 
