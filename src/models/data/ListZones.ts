@@ -213,5 +213,16 @@ export function getListZones(): ArlenorZone[] {
   mondeInonde.image =  require("./../../assets/images/world/monde-inonde.jpg");
   arlenorZones.push(mondeInonde);
 
+  const celestia = new ArlenorZone(
+    "L'Île Célestia",
+    5, 5,
+    sectors.CielArlenor,
+    `&emsp;
+    Aucune description disponible pour l'instant.`,
+    "", ""
+  );
+  celestia.image =  require("./../../assets/images/world/celestia.jpg");
+  arlenorZones.push(celestia);
+  
   return arlenorZones;
 }

@@ -8,6 +8,7 @@ export class ArlenorSectors {
   public MontagnesKazador: ArlenorSector;
   public MontagnesHabivel: ArlenorSector;
   public MerShivazen: ArlenorSector;
+  public CielArlenor: ArlenorSector;
 
   constructor() {
     this.PlainesTerfil = new ArlenorSector(
@@ -38,6 +39,10 @@ export class ArlenorSectors {
       "La Mer de Shivazen",
       "Une Zone de Non-droit",
       "Infernal", "Tropical");
+    this.CielArlenor = new ArlenorSector(
+      "Le Ciel d'Arlénor",
+      "Une Zone inconnue",
+      "Risqué", "Tempéré");
   }
 }
 
