@@ -8,8 +8,8 @@
         class="table-line">
         <td
           colspan="3"
-          class="full-width">
-          <p class="text-center">Aucun pouvoir</p>
+          class="col-100 text-center">
+          Aucun pouvoir
         </td>
       </tr>
 
@@ -21,7 +21,7 @@
         <tr class="table-line">
           <td
             colspan="3"
-            class="full-width">
+            class="col-100">
             <div class="table-separator">
               <span class="table-separator-line" />
               <span class="table-separator-title">

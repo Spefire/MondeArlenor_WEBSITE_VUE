@@ -46,9 +46,8 @@
       <tr>
         <th
           colspan="2"
-          class="col-40">Nom du pouvoir</th>
-        <th class="col-20">Cristal concerné</th>
-        <th class="col-20">Rang</th>
+          class="col-50">Nom du pouvoir</th>
+        <th class="col-30">Cristal concerné</th>
         <th class="col-20">Actions</th>
       </tr>
 
@@ -60,8 +59,10 @@
         v-if="filteredPowers.length === 0"
         class="table-line">
         <td
-          colspan="5"
-          class="col-100 text-center">Aucun pouvoir</td>
+          colspan="4"
+          class="col-100 text-center">
+          Aucun pouvoir
+        </td>
       </tr>
       
       <template
@@ -72,14 +73,17 @@
         <tr
           class="table-line"
           :class="{ selected : selectedPower === power }">
-          <td class="col-05">
+          <td class="col-20">
             <PowerImage :power="power" />
           </td>
           <td 
-            class="col-35 pointer"
-            @click="seeMore(power)">{{ power.name }}</td>
-          <td class="col-20">{{ getLibSpeGrp(power) }}</td>
-          <td class="col-20">{{ power.rank.Libelle }} ({{ power.rank.Code }})</td>
+            class="col-30 pointer"
+            @click="seeMore(power)">
+            {{ power.name }}
+          </td>
+          <td class="col-30">
+            {{ getLibSpeGrp(power) }}
+          </td>
           <td class="col-20">
             <button
               class="link-button"

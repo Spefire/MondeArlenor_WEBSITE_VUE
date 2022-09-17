@@ -147,10 +147,6 @@
   cursor: pointer;
 }
 
-.full-width {
-  width: 100%;
-}
-
 .hide-on-mobile {
   @include mobile-only {
     display: none !important;
