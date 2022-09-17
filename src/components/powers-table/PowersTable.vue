@@ -85,12 +85,15 @@
             <button
               class="link-button"
               title="Modifier"
-              @click="editPower(power)">Mod.</button>
-
+              @click="editPower(power)">
+              <i class="icon icon-pencil" />
+            </button>
             <button
               class="link-button alert-button margin-left-1"
               title="Supprimer"
-              @click="deletePower(power)">Sup.</button>
+              @click="deletePower(power)">
+              <i class="icon icon-bin2" />
+            </button>
           </td>
         </tr>
         <tr
@@ -101,16 +104,27 @@
               <i>
                 <span title="Type de pouvoir">{{ power.type.Libelle }}</span>
                 &nbsp;•&nbsp;
+                <i
+                  class="icon icon-enlarge"
+                  title="Portée du pouvoir" />&nbsp;
                 <span title="Portée du pouvoir">{{ power.range.Libelle }}</span>
                 &nbsp;•&nbsp;
+                <i
+                  class="icon icon-hour-glass"
+                  title="Durée du pouvoir" />&nbsp;
                 <span title="Durée du pouvoir">{{ power.duration.Libelle }}</span>
                 &nbsp;•&nbsp;
+                <i
+                  class="icon icon-dice"
+                  title="Tests du pouvoir" />&nbsp;
                 <span title="Tests du pouvoir">{{ power.tests.Libelle }}</span>
                 &nbsp;•&nbsp;
+                <i class="icon icon-spinner9" />&nbsp;
                 <span>{{ power.chaneling ? "Avec" : "Sans" }} canalisation</span>
               </i>
               <br>
-              {{ power.description ? power.description : "Aucune description disponible" }}</p>
+              {{ power.description ? power.description : "Aucune description disponible" }}
+            </p>
           </td>
         </tr>
       </template>

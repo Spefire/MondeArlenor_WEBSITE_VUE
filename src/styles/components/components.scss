@@ -22,6 +22,9 @@
   display: inline-block;
   width: fit-content;
   padding: 5px 15px;
+  font-size: $font-size-m;
+  font-family: $sans-serif-font;
+  line-height: $font-size-m;
   text-align: center;
   text-transform: uppercase;
   color: $light-secondary-color;
