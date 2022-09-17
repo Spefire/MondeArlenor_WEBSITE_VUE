@@ -27,7 +27,7 @@
           <div class="crystals-section-top">
             <h3 class="margin-bottom-1">Groupe de la classe&nbsp;:<br>{{ currentSpeciality.group.name }}</h3>
             <img
-              class="margin-bottom-1 rounded"
+              class="crystal-img margin-bottom-1 rounded"
               :src="currentSpeciality.group.image"
               :alt="currentSpeciality.group.name">
             <p class="crystals-main-description">{{ currentSpeciality.group.description }}</p>
@@ -35,6 +35,7 @@
           <div class="crystals-separator" />
           <div class="crystals-section-top">
             <img
+              class="crystal-img"
               :src="currentSpeciality.image"
               :alt="currentSpeciality.name">
             <h2>{{ currentSpeciality.name }}</h2>
@@ -45,40 +46,48 @@
             <h3 class="margin-bottom-1">Compétences de la classe</h3>
             <div
               v-if="currentSpeciality.weaponSkill"
-              class="skill-line">
-              <img
-                class="skill-img"
-                :src="currentSpeciality.weaponSkill.image"
-                :alt="currentSpeciality.weaponSkill.name">
-              <span class="skill-txt">{{ currentSpeciality.weaponSkill.name }}</span>
+              class="power-line">
+              <div class="power-img-layout">
+                <img
+                  class="power-img"
+                  :src="currentSpeciality.weaponSkill.image"
+                  :alt="currentSpeciality.weaponSkill.name">
+              </div>
+              <span class="power-txt">{{ currentSpeciality.weaponSkill.name }}</span>
             </div>
             <div 
               v-if="currentSpeciality.armorSkill"
-              class="skill-line">
-              <img
-                class="skill-img"
-                :src="currentSpeciality.armorSkill.image"
-                :alt="currentSpeciality.armorSkill.name">
-              <span class="skill-txt">{{ currentSpeciality.armorSkill.name }}</span>
+              class="power-line">
+              <div class="power-img-layout">
+                <img
+                  class="power-img"
+                  :src="currentSpeciality.armorSkill.image"
+                  :alt="currentSpeciality.armorSkill.name">
+              </div>
+              <span class="power-txt">{{ currentSpeciality.armorSkill.name }}</span>
             </div>
             <h3 class="margin-top-1 margin-bottom-1">Propriétés diverses</h3>
             <div 
               v-if="currentSpeciality.chanelingProperty"
-              class="skill-line">
-              <img
-                class="skill-img"
-                :src="currentSpeciality.chanelingProperty.image"
-                :alt="currentSpeciality.chanelingProperty.name">
-              <span class="skill-txt">{{ currentSpeciality.chanelingProperty.name }}</span>
+              class="power-line">
+              <div class="power-img-layout">
+                <img
+                  class="power-img"
+                  :src="currentSpeciality.chanelingProperty.image"
+                  :alt="currentSpeciality.chanelingProperty.name">
+              </div>
+              <span class="power-txt">{{ currentSpeciality.chanelingProperty.name }}</span>
             </div>
             <div 
               v-if="currentSpeciality.durationProperty"
-              class="skill-line">
-              <img
-                class="skill-img"
-                :src="currentSpeciality.durationProperty.image"
-                :alt="currentSpeciality.durationProperty.name">
-              <span class="skill-txt">{{ currentSpeciality.durationProperty.name }}</span>
+              class="power-line">
+              <div class="power-img-layout">
+                <img
+                  class="power-img"
+                  :src="currentSpeciality.durationProperty.image"
+                  :alt="currentSpeciality.durationProperty.name">
+              </div>
+              <span class="power-txt">{{ currentSpeciality.durationProperty.name }}</span>
             </div>
           </div>
         </div>
@@ -99,15 +108,17 @@
               :class="{ 'selected' : power.code === selectedPower?.code }"
               @click="selectPower(power)"
               :key="index">
-              <img
-                class="power-img"
-                :src="power.image"
-                :alt="power.name"
-                :title="power.name">
-              <img
-                class="power-img-ok"
-                src="./../../../assets/icons/powers/ok.png">
-              <span class="power-name">{{ power.name }}</span>
+              <div class="power-img-layout">
+                <img
+                  class="power-img"
+                  :src="power.image"
+                  :alt="power.name"
+                  :title="power.name + ' (' + power.type.Libelle + ')'">
+                <img
+                  class="power-img-ok"
+                  src="./../../../assets/icons/powers/ok.png">
+              </div>
+              <span class="power-txt">{{ power.name }}</span>
             </div>
             <div
               v-for="(power, index) in getPowersByRank(rank.Code, false)"
@@ -115,15 +126,17 @@
               :class="{ 'selected' : power.code === selectedPower?.code }"
               @click="selectPower(power)"
               :key="index">
-              <img
-                class="power-img"
-                :src="power.image"
-                :alt="power.name"
-                :title="power.name">
-              <img
-                class="power-img-ok"
-                src="./../../../assets/icons/powers/ok.png">
-              <span class="power-name">{{ power.name }}</span>
+              <div class="power-img-layout">
+                <img
+                  class="power-img"
+                  :src="power.image"
+                  :alt="power.name"
+                  :title="power.name + ' (' + power.type.Libelle + ')'">
+                <img
+                  class="power-img-ok"
+                  src="./../../../assets/icons/powers/ok.png">
+              </div>
+              <span class="power-txt">{{ power.name }}</span>
             </div>
           </div>
         </div>
@@ -137,7 +150,7 @@
               {{ selectedPower.speciality ? '(de la classe)' : '(du groupe)' }}
             </div>
             <img
-              class="margin-top-1"
+              class="crystal-img margin-top-1"
               :src="selectedPower.image"
               :alt="selectedPower.name">
             <h2 class="margin-top-05">{{ selectedPower.name }}</h2>

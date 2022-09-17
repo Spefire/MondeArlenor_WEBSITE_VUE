@@ -58,21 +58,3 @@
         }
     }
 }
-
-.creation-imgs {
-    position: relative;
-
-    .power-img {
-        height: 32px;
-        border: 1px solid $secondary-color;
-        pointer-events: none;
-    }
-
-    .power-img-ok {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 32px;
-        pointer-events: none;
-    }
-}

@@ -3,7 +3,7 @@
 .crystals-view {
   align-items: flex-start;
 
-  img {
+  .crystal-img {
     height: 125px;
     border: 1px solid $secondary-color;
     background: $black-color;
@@ -68,7 +68,6 @@
     background: $secondary-color;
   }
 
-  .skill-line,
   .power-line {
     display: flex;
     align-items: center;
@@ -77,21 +76,8 @@
       margin-bottom: 10px;
     }
 
-    .skill-img,
-    .power-img {
-      height: 40px;
-      margin-right: 10px;
-    }
-
-    .power-img-ok {
-      position: absolute;
-      height: 40px;
-      border: none;
-      background: transparent;
-    }
-
-    .skill-txt,
     .power-txt {
+      margin-left: 10px;
       text-align: left;
     }
   }
@@ -128,10 +114,6 @@
       &.selected {
         color: $black-color;
         background: $secondary-color;
-      }
-
-      .power-name {
-        text-align: left;
       }
     }
   }
