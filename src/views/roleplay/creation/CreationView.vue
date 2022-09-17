@@ -108,7 +108,7 @@
                 alt="">
               <div class="text-center margin-left-1">
                 <h2>{{ character.name }}</h2>
-                <span>{{ character.age }} ans - {{ character.race.name }}</span>
+                <span>{{ character.age }} ans - {{ character.race.name }} - Niveau {{ character.level.numLevel }}</span>
               </div>
             </div>
             <div class="zone-description margin-top-1 text-center">

@@ -58,7 +58,7 @@ export default defineComponent({
     },
     restartCreation(): void {
       this.store.commit("resetCharacter");
-      this.selection = 1;
+      this.selection = 0;
     },
     downloadCharacter(): void {
       downloads.downloadPDF(this.character);
