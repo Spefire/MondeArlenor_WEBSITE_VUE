@@ -38,6 +38,10 @@ export default defineComponent({
     }
   },
   
+  mounted() {
+    this.changeFilteredPowers();
+  },
+
   methods: {
     changeFilteredPowers() {
       this.filteredPowers = this.allPowers;

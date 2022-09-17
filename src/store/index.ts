@@ -17,6 +17,9 @@ export default createStore({
         state.allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
       }
     },
+    changeAllPowers(state, payload: ArlenorPower[]) {
+      state.allPowers = payload.sort((a, b) => a.name.localeCompare(b.name));
+    },
     changeCharacterRace(state, payload: ArlenorCharacter) {
       state.character.race = payload.race;
     },

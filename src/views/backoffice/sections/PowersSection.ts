@@ -73,7 +73,7 @@ export default defineComponent({
           await api.sendAllPower(finalResults);
           alert("Importation des pouvoirs réussie.");
 
-          this.allPowers = this.allPowers.concat(finalResults);
+          this.store.commit("loadAllPowers");
         });
       }
     },
@@ -102,8 +102,15 @@ export default defineComponent({
       this.showAddPopup = false;
       if (typeof power === "object") {
         const newPower = power as ArlenorPower;
-        await api.sendPower(newPower);
-        this.allPowers.push(newPower);
+        const result = await api.sendPower(newPower);
+        const resultSplit = result.split(" ");
+        const id = resultSplit[resultSplit.length-1];
+        newPower.id = id;
+
+        // On recharge le store
+        const newPowers = this.allPowers.slice();
+        newPowers.push(newPower);
+        this.store.commit("changeAllPowers", newPowers);
       }
       this.currentPower = null;
     },
@@ -116,8 +123,12 @@ export default defineComponent({
       if (typeof power === "object") {
         const newPower = power as ArlenorPower;
         await api.updatePower(newPower);
-        const index = this.allPowers.findIndex(pow => pow.id === newPower.id);
-        this.allPowers[index] = newPower;
+
+        // On recharge le store
+        const newPowers = this.allPowers.slice();
+        const index = newPowers.findIndex(pow => pow.id === newPower.id);
+        newPowers[index] = newPower;
+        this.store.commit("changeAllPowers", newPowers);
       }
       this.currentPower = null;
     },
@@ -129,7 +140,10 @@ export default defineComponent({
       this.showDeletePopup = false;
       if (withAction && this.currentPower) {
         await api.deletePower(this.currentPower);
-        this.allPowers = this.allPowers.filter(power => power.id !== this.currentPower?.id);
+
+        // On recharge le store
+        const newPowers = this.allPowers.slice().filter(power => power.id !== this.currentPower?.id);
+        this.store.commit("changeAllPowers", newPowers);
       }
       this.currentPower = null;
     },
