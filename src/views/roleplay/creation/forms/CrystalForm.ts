@@ -122,6 +122,28 @@ export default defineComponent({
       ) ? true : null;
     },
 
+    checkPowers(spe: ArlenorSpeciality) {
+      const listGrp = this.allPowers.filter(power => power.group?.code === spe.group.code && !power.speciality);
+      const listSpe = this.allPowers.filter(power => power.speciality?.code === spe.code);
+      const list = listGrp.concat(listSpe);
+
+      if (list.length === 0) return false;
+
+      const nbRankS = list.filter(power => power.codeRank === PowerRanksEnum.Unique.Code).length;
+      if (nbRankS < this.level.maxRankS) return false;
+
+      const nbRankA = list.filter(power => power.codeRank === PowerRanksEnum.TresRare.Code).length;
+      if (nbRankA < this.level.maxRankA) return false;
+
+      const nbRankB = list.filter(power => power.codeRank === PowerRanksEnum.Rare.Code).length;
+      if (nbRankB < this.level.maxRankB) return false;
+
+      const nbRankC = list.filter(power => power.codeRank === PowerRanksEnum.Commun.Code).length;
+      if (nbRankC < this.level.maxRankC) return false;
+
+      return true;
+    },
+
     updateForm() {
       this.isModified = true;
       this.needConfirm = false,

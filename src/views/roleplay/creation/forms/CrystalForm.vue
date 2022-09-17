@@ -12,6 +12,7 @@
             <option
               v-for="(spe, index) in allSpecialities"
               :value="spe.code"
+              :disabled="!checkPowers(spe)"
               :key="index">{{ spe.name }} ({{ spe.group.name }})</option>
           </select>
         </div>
