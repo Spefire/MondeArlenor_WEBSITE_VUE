@@ -116,11 +116,11 @@
         <div class="dropdown">
           <select
             class="dropdown-select"
-            v-model.trim.lazy="v$.form.codeTargets.$model">
+            v-model.trim.lazy="v$.form.codeTests.$model">
             <option
-              v-for="(targets, index) in allTargets"
-              :value="targets.Code"
-              :key="index">{{ targets.Libelle }}</option>
+              v-for="(tests, index) in allTests"
+              :value="tests.Code"
+              :key="index">{{ tests.Libelle }}</option>
           </select>
         </div>
       </div>

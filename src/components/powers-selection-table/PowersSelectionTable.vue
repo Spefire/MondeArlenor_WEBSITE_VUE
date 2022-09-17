@@ -73,7 +73,7 @@
                   &nbsp;•&nbsp;
                   <span title="Durée du pouvoir">{{ power.duration.Libelle }}</span>
                   &nbsp;•&nbsp;
-                  <span title="Cibles du pouvoir">{{ power.targets.Libelle }}</span>
+                  <span title="Tests du pouvoir">{{ power.tests.Libelle }}</span>
                   &nbsp;•&nbsp;
                   <span>{{ power.chaneling ? "Avec" : "Sans" }} canalisation</span>
                 </i>

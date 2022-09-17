@@ -21,7 +21,7 @@ export class ArlenorPower {
   public codeRange: string;
   public codeDuration: string;
   public chaneling: boolean;
-  public codeTargets: string;
+  public codeTests: string;
     
   get code(): string {
     let code = this.name;
@@ -77,8 +77,8 @@ export class ArlenorPower {
     return getEnumByCode(this.codeDuration, PowerDurationsEnum);
   }
   
-  get targets(): ArlenorEnum {
-    return getEnumByCode(this.codeTargets, PowerTargetsEnum);
+  get tests(): ArlenorEnum {
+    return getEnumByCode(this.codeTests, PowerTestsEnum);
   }
 
   constructor() {
@@ -94,7 +94,7 @@ export class ArlenorPower {
     this.codeRange = PowerRangesEnum.Personnelle.Code;
     this.codeDuration = PowerDurationsEnum.Instantanee.Code;
     this.chaneling = false;
-    this.codeTargets = PowerTargetsEnum.Aucune.Code;
+    this.codeTests = PowerTestsEnum.Aucune.Code;
   }
 
   public initByJSON(value: string): void {
@@ -118,7 +118,7 @@ export class ArlenorPower {
     this.codeRange = powerDB.codeRange;
     this.codeDuration = powerDB.codeDuration;
     this.chaneling = powerDB.chaneling ? true : false;
-    this.codeTargets = powerDB.codeTargets;
+    this.codeTests = powerDB.codeTests;
   }
 
   public initTime(): void {
@@ -172,9 +172,8 @@ export class PowerDurationsEnum {
   static Illimitee: ArlenorEnum = { Code: "3", Libelle: "Illimitée" };
 }
 
-export class PowerTargetsEnum {
-  static Aucune: ArlenorEnum = { Code: "0", Libelle: "Aucune" };
-  static Unique: ArlenorEnum = { Code: "1", Libelle: "Unique" };
-  static Foule: ArlenorEnum = { Code: "2", Libelle: "Foule choisie" };
-  static Monde: ArlenorEnum = { Code: "3", Libelle: "Tout le monde" };
+export class PowerTestsEnum {
+  static Aucune: ArlenorEnum = { Code: "0", Libelle: "Aucun test" };
+  static Difficulte: ArlenorEnum = { Code: "1", Libelle: "Test de difficulté" };
+  static Opposition: ArlenorEnum = { Code: "2", Libelle: "Test en opposition" };
 }

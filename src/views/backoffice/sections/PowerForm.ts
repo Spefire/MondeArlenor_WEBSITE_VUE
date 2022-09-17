@@ -1,5 +1,5 @@
 import ToggleButton from "@/components/toggle-button/ToggleButton.vue";
-import { ArlenorPower, PowerDurationsEnum, PowerRangesEnum, PowerRanksEnum, PowerTargetsEnum, PowerTypesEnum } from "@/models/ArlenorPower";
+import { ArlenorPower, PowerDurationsEnum, PowerRangesEnum, PowerRanksEnum, PowerTestsEnum, PowerTypesEnum } from "@/models/ArlenorPower";
 import { ArlenorGroups } from "@/models/data/ListGroups";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import useVuelidate from "@vuelidate/core";
@@ -26,7 +26,7 @@ export default defineComponent({
     const allRanks = Object.values(PowerRanksEnum);
     const allRanges = Object.values(PowerRangesEnum);
     const allDurations = Object.values(PowerDurationsEnum);
-    const allTargets = Object.values(PowerTargetsEnum);
+    const allTests = Object.values(PowerTestsEnum);
 
     let isGroup = false;
     let codeGroup = allGroups[0].code;
@@ -43,7 +43,7 @@ export default defineComponent({
       allGroups,
       allSpecialities,
       allTypes,
-      allRanks, allRanges, allDurations, allTargets,
+      allRanks, allRanges, allDurations, allTests,
       isGroup,
       form: {
         name: props.currentPower.name,
@@ -55,7 +55,7 @@ export default defineComponent({
         codeRange: props.currentPower.codeRange,
         codeDuration: props.currentPower.codeDuration,
         chaneling: props.currentPower.chaneling,
-        codeTargets: props.currentPower.codeTargets,
+        codeTests: props.currentPower.codeTests,
         isVerified: props.currentPower.isVerified,
       },
     };
@@ -78,7 +78,7 @@ export default defineComponent({
       codeRange: {},
       codeDuration: {},
       chaneling: {},
-      codeTargets: {},
+      codeTests: {},
       isVerified: {}
     },
   },
@@ -105,7 +105,7 @@ export default defineComponent({
       newPower.codeRange = this.form.codeRange;
       newPower.codeDuration = this.form.codeDuration;
       newPower.chaneling = this.form.chaneling;
-      newPower.codeTargets = this.form.codeTargets;
+      newPower.codeTests = this.form.codeTests;
       this.$emit("submit", newPower);
     },
   }
