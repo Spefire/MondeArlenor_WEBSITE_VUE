@@ -3,6 +3,9 @@ import { ArlenorLevel } from "@/models/ArlenorLevel";
 import { ArlenorPower, PowerRanksEnum } from "@/models/ArlenorPower";
 import { defineComponent, PropType, ref, Ref } from "vue";
 
+import PowerImage from "../power-image/PowerImage.vue";
+import PowersDescription from "../powers-table/PowersDescription.vue";
+
 export default defineComponent({
   name: "PowersSelectionTable",
   props: {
@@ -19,15 +22,14 @@ export default defineComponent({
       required: true
     },
   },
-  components: {},
+  components: { PowerImage, PowersDescription },
   emits: ["add", "remove"],
 
   setup() {
     const selectedPower: Ref<ArlenorPower | null> = ref(null);
     const ranks: Ref<ArlenorEnum[]> = ref([]);
-    const powerRanksEnum = ref(PowerRanksEnum);
 
-    return { selectedPower, ranks, powerRanksEnum };
+    return { selectedPower, ranks };
   },
 
   mounted() {

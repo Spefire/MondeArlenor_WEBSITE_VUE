@@ -41,6 +41,8 @@
 
   <table class="bloc-text margin-top-1">
     <thead>
+      
+      <!---------- Entête --------->
       <tr>
         <th
           colspan="2"
@@ -49,8 +51,11 @@
         <th class="col-20">Rang</th>
         <th class="col-20">Actions</th>
       </tr>
+
     </thead>
     <tbody>
+
+      <!---------- Aucun --------->
       <tr
         v-if="filteredPowers.length === 0"
         class="table-line">
@@ -58,28 +63,17 @@
           colspan="5"
           class="col-100 text-center">Aucun pouvoir</td>
       </tr>
+      
       <template
         v-for="(power, index) in filteredPowers"
         :key="index">
+
+        <!---------- Ligne --------->
         <tr
           class="table-line"
           :class="{ selected : selectedPower === power }">
           <td class="col-05">
-            <div
-              class="power-img-layout"
-              :class="{ before: power.codeRank === powerRanksEnum.Rare.Code
-                          || power.codeRank === powerRanksEnum.TresRare.Code,
-                        after: power.codeRank === powerRanksEnum.TresRare.Code }">
-              <img
-                v-if="power.image"
-                class="power-img"
-                :src="power.image"
-                :alt="power.type.Libelle"
-                :title="power.type.Libelle">
-              <img
-                class="power-img-ok"
-                src="./../../assets/icons/powers/ok.png">
-            </div>
+            <PowerImage :power="power" />
           </td>
           <td 
             class="col-35 pointer"
@@ -101,37 +95,12 @@
             </button>
           </td>
         </tr>
-        <tr
+
+        <!---------- Description --------->
+        <PowersDescription
           v-if="selectedPower === power"
-          class="table-line selected">
-          <td colspan="5">
-            <p>
-              <i>
-                <span title="Type de pouvoir">{{ power.type.Libelle }}</span>
-                &nbsp;•&nbsp;
-                <i
-                  class="icon icon-enlarge"
-                  title="Portée du pouvoir" />&nbsp;
-                <span title="Portée du pouvoir">{{ power.range.Libelle }}</span>
-                &nbsp;•&nbsp;
-                <i
-                  class="icon icon-hour-glass"
-                  title="Durée du pouvoir" />&nbsp;
-                <span title="Durée du pouvoir">{{ power.duration.Libelle }}</span>
-                &nbsp;•&nbsp;
-                <i
-                  class="icon icon-dice"
-                  title="Tests du pouvoir" />&nbsp;
-                <span title="Tests du pouvoir">{{ power.tests.Libelle }}</span>
-                &nbsp;•&nbsp;
-                <i class="icon icon-spinner9" />&nbsp;
-                <span>{{ power.chaneling ? "Avec" : "Sans" }} canalisation</span>
-              </i>
-              <br>
-              {{ power.description ? power.description : "Aucune description disponible" }}
-            </p>
-          </td>
-        </tr>
+          :power="power" />
+
       </template>
     </tbody>
   </table>

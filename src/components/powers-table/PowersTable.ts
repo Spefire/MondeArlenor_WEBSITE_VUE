@@ -1,7 +1,10 @@
-import { ArlenorPower, PowerRanksEnum } from "@/models/ArlenorPower";
+import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorGroups } from "@/models/data/ListGroups";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import { defineComponent, PropType, Ref, ref } from "vue";
+
+import PowerImage from "../power-image/PowerImage.vue";
+import PowersDescription from "./PowersDescription.vue";
 
 export default defineComponent({
   name: "PowersTable",
@@ -11,7 +14,7 @@ export default defineComponent({
       required: true
     },
   },
-  components: {},
+  components: { PowerImage, PowersDescription },
   emits: ["edit", "delete", "update"],
 
   setup() {
@@ -26,13 +29,11 @@ export default defineComponent({
 
     const searchName = ref("");
 
-    const powerRanksEnum = ref(PowerRanksEnum);
-
     return {
       selectedPower, filteredPowers,
       allGroups, selectedGroup,
       allSpecialities, selectedSpeciality,
-      searchName, powerRanksEnum
+      searchName
     };
   },
   

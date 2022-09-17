@@ -1,5 +1,6 @@
+import PowerImage from "@/components/power-image/PowerImage.vue";
 import { ArlenorEnum } from "@/models/ArlenorEnum";
-import { ArlenorPower, PowerRanksEnum } from "@/models/ArlenorPower";
+import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import { PageTitles } from "@/models/PagesTitles";
@@ -9,7 +10,7 @@ import { useStore } from "vuex";
 export default defineComponent({
   name: "CrystalsView",
   title: PageTitles.crystals,
-  components: {},
+  components: { PowerImage },
   
   watch: {
     $route() {
@@ -27,9 +28,8 @@ export default defineComponent({
     const specialityPowers: Ref<ArlenorPower[]> = ref([]);
     const selectedPower: Ref<ArlenorPower | null> = ref(null);
     const ranks: Ref<ArlenorEnum[]> = ref([]);
-    const powerRanksEnum = ref(PowerRanksEnum);
     
-    return { store, allSpecialities, currentSpeciality, selectedPower, specialityPowers, ranks, powerRanksEnum };
+    return { store, allSpecialities, currentSpeciality, selectedPower, specialityPowers, ranks };
   },
 
   mounted() {
