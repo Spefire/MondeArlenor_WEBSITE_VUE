@@ -25,8 +25,9 @@ export default defineComponent({
   setup() {
     const selectedPower: Ref<ArlenorPower | null> = ref(null);
     const ranks: Ref<ArlenorEnum[]> = ref([]);
+    const powerRanksEnum = ref(PowerRanksEnum);
 
-    return { selectedPower, ranks };
+    return { selectedPower, ranks, powerRanksEnum };
   },
 
   mounted() {

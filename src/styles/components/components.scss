@@ -165,7 +165,7 @@
   height: 40px;
   min-width: 40px;
 
-  &::after {
+  &.after::after {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -177,7 +177,7 @@
     content: "";
   }
 
-  &::before {
+  &.before::before {
     position: absolute;
     top: 50%;
     left: 50%;

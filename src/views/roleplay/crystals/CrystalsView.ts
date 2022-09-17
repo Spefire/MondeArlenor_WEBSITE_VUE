@@ -1,5 +1,5 @@
 import { ArlenorEnum } from "@/models/ArlenorEnum";
-import { ArlenorPower } from "@/models/ArlenorPower";
+import { ArlenorPower, PowerRanksEnum } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import { PageTitles } from "@/models/PagesTitles";
@@ -27,8 +27,9 @@ export default defineComponent({
     const specialityPowers: Ref<ArlenorPower[]> = ref([]);
     const selectedPower: Ref<ArlenorPower | null> = ref(null);
     const ranks: Ref<ArlenorEnum[]> = ref([]);
+    const powerRanksEnum = ref(PowerRanksEnum);
     
-    return { store, allSpecialities, currentSpeciality, selectedPower, specialityPowers, ranks };
+    return { store, allSpecialities, currentSpeciality, selectedPower, specialityPowers, ranks, powerRanksEnum };
   },
 
   mounted() {
