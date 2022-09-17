@@ -2,54 +2,6 @@
   <div class="creation-content">
     <div class="creation-form">
       <div class="form-element">
-        <span>Groupe  <span required-libelle>*</span></span>
-        <div class="dropdown">
-          <select
-            class="dropdown-select"
-            v-model.trim.lazy="v$.form.codeGroup.$model"
-            @change="changeGroup">
-            <option :value="null">-</option>
-            <option
-              v-for="(grp, index) in allGroups"
-              :value="grp.code"
-              :key="index">
-              {{ grp.name }}
-            </option>
-          </select>
-        </div>
-      </div>
-
-      <div
-        v-if="selectedGroup"
-        class="bloc-text form-element zone-element zone-element-semifree">
-        <div class="zone-header">
-          <img
-            class="zone-icon is-little img-rounded"
-            :src="selectedGroup.image"
-            alt="">
-          <div class="text-center margin-left-1">
-            <h2>{{ selectedGroup.name }}</h2>
-          </div>
-        </div>
-        <p class="zone-comment margin-top-1">
-          {{ selectedGroup.description }}
-        </p>
-      </div>
-
-      <div
-        v-if="!selectedGroup"
-        class="bloc-text form-element zone-element zone-element-semifree">
-        <div class="zone-header">
-          <div class="text-center margin-left-1">
-            <h2>Pas de groupe sélectionné</h2>
-          </div>
-        </div>
-        <p class="zone-comment margin-top-1">
-          Choisissez un groupe avant de sélectionner une classe.
-        </p>
-      </div>
-
-      <div class="form-element">
         <span>Classe  <span required-libelle>*</span></span>
         <div class="dropdown">
           <select
@@ -58,11 +10,28 @@
             @change="changeSpeciality">
             <option :value="null">-</option>
             <option
-              v-for="(spe, index) in filteredSpecialities"
+              v-for="(spe, index) in allSpecialities"
               :value="spe.code"
-              :key="index">{{ spe.name }}</option>
+              :key="index">{{ spe.name }} ({{ spe.group.name }})</option>
           </select>
         </div>
+      </div>
+
+      <div
+        v-if="selectedSpeciality"
+        class="bloc-text form-element zone-element zone-element-semifree">
+        <div class="zone-header">
+          <img
+            class="zone-icon is-little img-rounded"
+            :src="selectedSpeciality.group.image"
+            alt="">
+          <div class="text-center margin-left-1">
+            <h2>{{ selectedSpeciality.group.name }}</h2>
+          </div>
+        </div>
+        <p class="zone-comment margin-top-1">
+          {{ selectedSpeciality.group.description }}
+        </p>
       </div>
 
       <div
@@ -98,7 +67,7 @@
 
     <div class="creation-form">
       <div class="form-element">
-        <span>Choix des pouvoirs <span required-libelle>*</span></span>
+        <span>Pouvoirs <span required-libelle>*</span></span>
 
         <div 
           v-if="!selectedSpeciality"

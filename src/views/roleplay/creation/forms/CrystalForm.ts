@@ -1,9 +1,7 @@
 import PowersSelectionTable from "@/components/powers-selection-table/PowersSelectionTable.vue";
 import { ArlenorCharacter, ArlenorCrystal } from "@/models/ArlenorCharacter";
-import { ArlenorGroup } from "@/models/ArlenorGroup";
 import { ArlenorPower, PowerRanksEnum } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
-import { ArlenorGroups } from "@/models/data/ListGroups";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
@@ -68,10 +66,6 @@ export default defineComponent({
   },
 
   computed: {
-    selectedGroup(): ArlenorGroup | null {
-      if (!this.form.codeGroup) return null;
-      return ArlenorGroups.getGroup(this.form.codeGroup);
-    },
     selectedSpeciality(): ArlenorSpeciality | null {
       if (!this.form.codeSpeciality) return null;
       return ArlenorSpecialities.getSpeciality(this.form.codeSpeciality);
@@ -79,18 +73,8 @@ export default defineComponent({
     allPowers(): ArlenorPower[] {
       return this.store.state.allPowers || [];
     },
-    allGroups(): ArlenorGroup[] {
-      return ArlenorGroups.getListGroups().sort((a, b) => a.name.localeCompare(b.name));
-    },
     allSpecialities(): ArlenorSpeciality[] {
       return ArlenorSpecialities.getListSpecialities().sort((a, b) => a.name.localeCompare(b.name));
-    },
-    filteredSpecialities(): ArlenorSpeciality[] {
-      if (this.form.codeGroup) {
-        return this.allSpecialities.filter(spe => spe.group.code == this.form.codeGroup);
-      } else {
-        return this.allSpecialities.slice();
-      }
     },
     filteredPowers(): ArlenorPower[] {
       if (this.form.codeSpeciality) {
@@ -110,14 +94,9 @@ export default defineComponent({
   },
 
   methods: {
-    changeGroup() {
-      this.form.codeSpeciality = null;
-      this.form.idsPowers = ArlenorCrystal.resetIdsPowers();
-      this.updateForm();
-    },
     changeSpeciality() {
-      this.form.codeGroup = this.selectedSpeciality ? this.selectedSpeciality.group.code : null;
       this.form.idsPowers = ArlenorCrystal.resetIdsPowers();
+      if (this.selectedSpeciality) this.form.codeGroup = this.selectedSpeciality.group.code;
       this.updateForm();
     },
 
