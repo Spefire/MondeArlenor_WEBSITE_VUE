@@ -1,36 +1,21 @@
 <template>
   <div class="form-row margin-top-1">
-    <div class="form-col-33 form-element">
-      <span>Sélection d'un groupe :</span>
-      <div class="dropdown">
-        <select
-          class="dropdown-select"
-          v-model="selectedGroup"
-          @change="changeGroup">
-          <option :value="null">-</option>
-          <option
-            v-for="(grp, index) in allGroups"
-            :value="grp.code"
-            :key="index">{{ grp.name }}</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-col-33 form-element">
+    <div class="form-col-50 form-element">
       <span>Sélection d'une classe :</span>
       <div class="dropdown">
         <select
           class="dropdown-select"
           v-model="selectedSpeciality"
-          @change="changeSpeciality">
+          @change="changeFilteredPowers">
           <option :value="null">-</option>
           <option
             v-for="(spe, index) in allSpecialities"
             :value="spe.code"
-            :key="index">{{ spe.name }}</option>
+            :key="index">{{ spe.name }} ({{ spe.group.name }})</option>
         </select>
       </div>
     </div>
-    <div class="form-col-33 form-element">
+    <div class="form-col-50 form-element">
       <span>Recherche par nom :</span>
       <input
         type="text"
