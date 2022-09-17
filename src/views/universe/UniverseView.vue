@@ -57,12 +57,12 @@
               :key="index" />
             <img
               v-show="!showCities"
-              class="world-map bloc-text"
+              class="world-map layout-bloc"
               src="./../../assets/images/world/worldmap_climates.jpg"
               alt="Carte des Climats">
             <img
               v-show="showCities"
-              class="world-map bloc-text"
+              class="world-map layout-bloc"
               src="./../../assets/images/world/worldmap_cities.jpg"
               alt="Carte des Cités">
           </div>

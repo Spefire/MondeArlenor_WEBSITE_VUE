@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     padding: 0;
     border: none;
+    background: $background-black-dark;
 
     .onglets-nav-item {
         flex-basis: calc(100% / 3);

@@ -22,12 +22,12 @@
       <div class="creation-content">
         <div class="creation-form">
           <img
-            class="bloc-text creation-img-perso"
+            class="layout-bloc creation-img-perso"
             src="./../../../assets/images/creation/perso_left.png"
             alt="">
         </div>
         <div class="creation-form">
-          <div class="bloc-text text-justify">
+          <div class="layout-bloc text-justify">
             &emsp;
             Un personnage est défini par plusieurs choses : <b>ses caractéristiques</b> (et valeurs dérivées), <b>ses compétences principales</b>,
             <b>sa race</b> (parmi celles jouables), <b>son cristal évolutif</b> (ses pouvoirs), pour ensuite finir par quelques finitions.
@@ -91,13 +91,13 @@
       <div class="creation-content">
         <div class="creation-form">
           <img
-            class="bloc-text creation-img-perso"
+            class="layout-bloc creation-img-perso"
             src="./../../../assets/images/creation/perso_right.png"
             alt="">
         </div>
 
         <div class="creation-form">
-          <div class="bloc-text form-element zone-element zone-element-semifree">
+          <div class="layout-bloc form-element zone-element zone-element-semifree">
             <div
               v-if="character"
               class="zone-header">
@@ -121,7 +121,7 @@
               @click="downloadCharacter()">Télécharger la fiche perso</button>
           </div>
 
-          <div class="bloc-text margin-top-1 text-center">
+          <div class="layout-bloc margin-top-1 text-center">
             Vous pouvez aussi recommencer un nouveau personnage, ou faire des ajustements sur l'actuel.
           </div>
         </div>
@@ -175,7 +175,7 @@
   </div>
 
   <div class="layout-view background-roleplay show-on-mobile">
-    <div class="show-on-mobile-alert bloc-text">
+    <div class="show-on-mobile-alert layout-bloc">
       Cette page ne peut pas être parcourue sur un écran mobile.
     </div>
   </div>

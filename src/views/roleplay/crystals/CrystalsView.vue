@@ -23,7 +23,7 @@
     <div class="layout-center large">
       <!-- Icone et titre -->
       <div class="crystals-layout margin-top-2">
-        <div class="bloc-text crystals-center">
+        <div class="layout-bloc crystals-center">
           <div class="crystals-section-top">
             <h3 class="margin-bottom-1">Groupe de la classe&nbsp;:<br>{{ currentSpeciality.group.name }}</h3>
             <img
@@ -95,7 +95,7 @@
 
       <!-- Pouvoirs -->
       <div class="crystals-layout margin-top-1">
-        <div class="bloc-text crystals-left">
+        <div class="layout-bloc crystals-left">
           <h3 class="margin-bottom-1">Pouvoirs de la classe</h3>
           <div
             v-for="(rank, indexRank) in ranks"
@@ -123,7 +123,7 @@
           </div>
         </div>
       
-        <div class="bloc-text crystals-right">
+        <div class="layout-bloc crystals-right">
           <h3 class="margin-bottom-1">Détail du pouvoir</h3>
           <div class="power-separator" />
           <template v-if="selectedPower">
@@ -186,7 +186,7 @@
   </div>
 
   <div class="layout-view background-roleplay show-on-mobile">
-    <div class="show-on-mobile-alert bloc-text">
+    <div class="show-on-mobile-alert layout-bloc">
       Cette page ne peut pas être parcourue sur un écran mobile.
     </div>
   </div>

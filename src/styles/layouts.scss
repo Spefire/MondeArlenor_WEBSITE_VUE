@@ -57,3 +57,47 @@
         }
     }
 }
+
+.layout-row {
+    display: flex;
+    width: 100%;
+
+    .layout-col-75 {
+        width: 75% !important;
+    }
+
+    .layout-col-50 {
+        width: 50% !important;
+    }
+
+    .layout-col-45 {
+        width: 45% !important;
+    }
+
+    .layout-col-33 {
+        width: 33.33% !important;
+    }
+
+    .layout-col-25 {
+        width: 25% !important;
+    }
+}
+
+.layout-bloc {
+    padding: 10px 25px;
+    line-height: 1.5;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: $secondary-color;
+    background: $background-black-dark;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        background: none;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+    }
+}

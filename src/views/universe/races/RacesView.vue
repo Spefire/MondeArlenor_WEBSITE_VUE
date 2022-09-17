@@ -3,7 +3,7 @@
     :title="title"
     :image-left="imageLeft"
     :image-right="imageRight">
-    <div class="bloc-text">
+    <div class="layout-bloc">
       Après avoir bâti une base solide dans les plaines, tout en se familiarisant avec les cristaux, les humains se sont alors mis en quête d’aventure&nbsp;:&nbsp;
       explorer le monde qui leur avait été donné, tout en recherchant de nouvelles sources d’énergies ou de pouvoirs…<br>
       <br>
@@ -52,7 +52,7 @@
           <i class="icon icon-arrow-right2" />
         </div>
       </div>
-      <div class="races-description bloc-text">
+      <div class="races-description layout-bloc">
         <h2>{{ currentRace.name }}</h2>
         <p class="text-italic">
           {{ currentRace.infoAge }}

@@ -1,5 +1,5 @@
 <template>
-  <table class="bloc-text margin-top-1">
+  <table class="layout-bloc margin-top-1">
     <tbody>
       
       <!---------- Aucun --------->

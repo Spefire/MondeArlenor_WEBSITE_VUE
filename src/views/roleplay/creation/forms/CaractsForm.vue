@@ -2,7 +2,7 @@
   <div class="creation-content">
     <!-- Description de la caractéristique sélectionnée -->
     <div class="creation-form">
-      <div class="creation-description bloc-text text-justify">
+      <div class="creation-description layout-bloc text-justify">
         <template v-if="selectCaract === 'FOR'">
           <h2 class="margin-top-0 text-center">La Force</h2>
           <span v-html="caractDescriptionEnum.Force.Libelle" />
@@ -39,7 +39,7 @@
     <div class="creation-form">
       <div class="form-element">
         <span>Caractériques du personnage <span required-libelle>*</span></span>
-        <table class="bloc-text margin-top-1">
+        <table class="layout-bloc margin-top-1">
           <thead>
             <tr>
               <th class="col-40">Nom</th>
@@ -131,18 +131,18 @@
 
       <div
         v-if="form.pointsLeft !== 0"
-        class="bloc-text margin-top-1"
+        class="layout-bloc margin-top-1"
         required-libelle>
         Points restants à répartir : {{ form.pointsLeft }}
       </div>
 
       <div
         v-if="form.pointsLeft === 0"
-        class="bloc-text margin-top-1">
+        class="layout-bloc margin-top-1">
         Tous les points ont été répartis.
       </div>
 
-      <div class="bloc-text margin-top-1">
+      <div class="layout-bloc margin-top-1">
         Le Bonus d'Initiative est à : <b>{{ getInitiative() }}</b><br>
         Les Points de Vie sont à : <b>{{ getPointsDeVie() }}</b>
       </div>

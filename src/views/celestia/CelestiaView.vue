@@ -8,7 +8,7 @@
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen />
-    <div class="bloc-text">
+    <div class="layout-bloc">
       Sur une île céleste, éloignée de tout le reste... sans la religion d'Arlénor, sans les cristaux habituels...
       Un petit peuple se développait tranquillement jusqu'à l'arrivé des <b>Wendigos</b> dans leur vie.
       Des célestiens sont devenus des mages en même temps que leur apparition, et entre eux se mène un combat de longue durée...
@@ -27,7 +27,7 @@
         <div class="world-right">
           <div class="world-icons">
             <img
-              class="world-map bloc-text"
+              class="world-map layout-bloc"
               :src="currentCelestia.image"
               alt="">
           </div>
@@ -94,7 +94,7 @@
 
       <div
         v-if="currentQuestion == 100"
-        class="bloc-text form-element">
+        class="layout-bloc form-element">
         Le Cercle des Mages Evanell recrute ponctuellement des mages pour défendre les célestiens 
         contre les attaques des Wendigos (titans monstrueux venant de l'En-Bas).<br>
         Le Cercle comporte 9 types de mages élémentaires, qui suivent une formation avant de combattre.<br>
@@ -109,7 +109,7 @@
 
       <div
         v-if="currentQuestion == 200"
-        class="bloc-text form-element zone-element zone-element-free">
+        class="layout-bloc form-element zone-element zone-element-free">
         <div class="zone-header">
           <img
             class="zone-icon"

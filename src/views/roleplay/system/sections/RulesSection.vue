@@ -1,10 +1,10 @@
 <template>
-  <div class="bloc-text margin-top-1 text-justify">
+  <div class="layout-bloc margin-top-1 text-justify">
     &emsp;
     Le système de jeu est une partie importante du jeu de rôles, puisque c’est grâce à lui que vous savez si votre personnage,
     au cours du jeu, réussit ou non les actions qu’il entreprend.
   </div>
-  <div class="bloc-text onglets-nav margin-top-1">
+  <div class="onglets-nav margin-top-1">
     <span
       class="onglets-nav-item"
       :class="{ selected : systemChoice === 1 }"
@@ -25,7 +25,7 @@
     </span>
   </div>
   <template v-if="systemChoice === 1">
-    <div class="bloc-text margin-top-1 text-justify">
+    <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
       Le <b>test classique</b> qui détermine si un personnage réussit ou non une action se réalise de la façon suivante :
       le Maitre du Jeu <b>détermine quelle caractéristique de base du personnage est concernée</b>
@@ -45,7 +45,7 @@
       Le joueur <b>rate alors automatiquement son test</b>, et le MJ peut décider d'y <b>ajouter une catastrophe</b> en plus de son échec.
     </div>
           
-    <div class="bloc-text margin-top-1 text-center">
+    <div class="layout-bloc margin-top-1 text-center">
       <div class="margin-bottom-1">
         <b>Action simple : Difficulté 6</b><br>
         La majorité des personnages peut le faire rapidement, et un spécialiste n’éprouve aucune difficulté.<br>
@@ -100,7 +100,7 @@
     </ExpandBloc>
   </template>
   <template v-if="systemChoice === 2">
-    <div class="bloc-text margin-top-1 text-justify">
+    <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
       Toute personne est dotée de capacités de base qui lui sont inhérentes et qu’il peut utiliser de bien des manières.
       Ces aptitudes naturelles sont définies par cinq <b>caractéristiques</b> distinctes, chacune évaluée sur une échelle allant de 1 à 5.
@@ -150,7 +150,7 @@
     </ExpandBloc>
   </template>
   <template v-if="systemChoice === 3">
-    <div class="bloc-text margin-top-1 text-justify">
+    <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
       Chaque <b>race</b> possède ses avantages et ses inconvénients, ainsi qu'une certaine difficulté
       ou facilité à être jouée dans le Monde d'Arlénor.

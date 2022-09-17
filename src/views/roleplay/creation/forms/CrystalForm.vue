@@ -20,7 +20,7 @@
 
       <div
         v-if="selectedSpeciality"
-        class="bloc-text form-element zone-element zone-element-semifree">
+        class="layout-bloc form-element zone-element zone-element-semifree">
         <div class="zone-header">
           <img
             class="zone-icon is-little img-rounded"
@@ -37,7 +37,7 @@
 
       <div
         v-if="selectedSpeciality"
-        class="bloc-text form-element zone-element zone-element-semifree">
+        class="layout-bloc form-element zone-element zone-element-semifree">
         <div class="zone-header">
           <img
             class="zone-icon is-little"
@@ -54,7 +54,7 @@
 
       <div
         v-if="!selectedSpeciality"
-        class="bloc-text form-element zone-element zone-element-semifree">
+        class="layout-bloc form-element zone-element zone-element-semifree">
         <div class="zone-header">
           <div class="text-center margin-left-1">
             <h2>Pas de classe sélectionnée</h2>
@@ -72,7 +72,7 @@
 
         <div 
           v-if="!selectedSpeciality"
-          class="bloc-text margin-top-1">
+          class="layout-bloc margin-top-1">
           Pas de classe sélectionnée.
         </div>
 

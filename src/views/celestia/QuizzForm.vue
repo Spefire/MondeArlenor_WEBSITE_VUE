@@ -1,5 +1,5 @@
 <template>
-  <div class="bloc-text form-element">
+  <div class="layout-bloc form-element">
     <b v-if="index < 10">Partie : "Dans le monde réel"<br></b>
     <b v-if="index >= 10">Partie : "Sur l'île de Célestia"<br></b>
     <span>

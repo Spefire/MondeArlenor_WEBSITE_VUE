@@ -1,5 +1,5 @@
 <template>
-  <div class="bloc-text margin-top-1 text-justify">
+  <div class="layout-bloc margin-top-1 text-justify">
     &emsp;
     Un personnage est défini par plusieurs choses : <b>ses caractéristiques</b> (et valeurs dérivées), <b>ses compétences principales</b>,
     <b>sa race</b> (parmi celles jouables), <b>son cristal évolutif</b> (ses pouvoirs), pour ensuite finir par quelques finitions.
@@ -9,7 +9,7 @@
     Et c’est vous qui choisirez si, au cours de sa vie, il a appris à se battre ou s'il a préféré se tourner vers l'érudition,
     ou encore, vers quel type de magie il s'est tourné...
   </div>
-  <div class="bloc-text onglets-nav margin-top-1">
+  <div class="onglets-nav margin-top-1">
     <span
       class="onglets-nav-item"
       :class="{ selected : persoChoice === 1 }"
@@ -48,7 +48,7 @@
     </span>
   </div>
   <template v-if="persoChoice === 1">
-    <div class="bloc-text margin-top-1 text-justify">
+    <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
       Toute personne est dotée de capacités de base qui lui sont inhérentes et qu’il peut utiliser de bien des manières.
       Ces aptitudes naturelles sont définies par cinq <b>caractéristiques</b> distinctes, chacune évaluée sur une échelle allant de 1 à 5.
@@ -106,7 +106,7 @@
     </ExpandBloc>
   </template>
   <template v-if="persoChoice === 2">
-    <div class="bloc-text margin-top-1 text-justify">
+    <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
       La santé d’un personnage détermine sa résistance aux coups et aux événements qui pourraient le blesser.
       Elle est indiquée par ses <b>Points de Vie</b>, ou PV.<br>
@@ -130,7 +130,7 @@
     </div>
   </template>
   <template v-if="persoChoice === 3">
-    <div class="bloc-text margin-top-1 text-justify">
+    <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
       Chaque <b>race</b> possède ses avantages et ses inconvénients, ainsi qu'une certaine difficulté
       ou facilité à être jouée dans le Monde d'Arlénor.
@@ -171,7 +171,7 @@
     </div>
   </template>
   <template v-if="persoChoice === 4">
-    <div class="bloc-text margin-top-1 text-justify">
+    <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
       Survivre en milieu hostile. Mentir. Utiliser un pouvoir élémentaire.
       Autant de savoir-faire qu’un personnage peut, ou non, développer au cours de sa vie.
@@ -180,7 +180,7 @@
     </div>
   </template>
   <template v-if="persoChoice === 5">
-    <div class="bloc-text margin-top-1 text-justify">
+    <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
       Dans le Monde d'Arlénor, certaines personnes ont des capacités magiques,
       et utilisent un <b>cristal évolutif</b> dans leur vie quotidienne.<br>
@@ -232,7 +232,7 @@
     </ExpandBloc>
   </template>
   <template v-if="persoChoice === 6">
-    <div class="bloc-text margin-top-1 text-justify">
+    <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
       Le jeu de rôle est un moyen de raconter des histoires, comme les romans ou le cinéma,
       et les histoires sont toujours meilleures lorsqu'elles ont des héros crédibles et profonds.

@@ -26,8 +26,8 @@
           class="text-center"
           v-model.trim.lazy="v$.form.name.$model">
       </div>
-      <div class="form-row">
-        <div class="form-col-25 form-element">
+      <div class="layout-row">
+        <div class="layout-col-25 form-element">
           <span>Âge <span required-libelle>*</span></span>
           <input
             type="number"
@@ -37,7 +37,7 @@
             placeholder="1-200"
             v-model.trim.lazy="v$.form.age.$model">
         </div>
-        <div class="form-col-75 form-element">
+        <div class="layout-col-75 form-element">
           <span>Genre du personnage <span required-libelle>*</span></span>
           <input
             type="text"

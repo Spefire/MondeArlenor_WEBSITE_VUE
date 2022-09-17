@@ -2,7 +2,7 @@
   <div class="creation-content">
     <div class="creation-form">
       <img
-        class="bloc-text creation-img-perso"
+        class="layout-bloc creation-img-perso"
         src="./../../../../assets/images/about.png"
         alt="">
     </div>

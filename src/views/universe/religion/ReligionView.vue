@@ -3,7 +3,7 @@
     :title="title"
     :image-left="imageLeft"
     :image-right="imageRight">
-    <div class="bloc-text">
+    <div class="layout-bloc">
       Avant, il n'existait Rien. Seul le <b>Rien</b> était présent.<br>
       Il se refermait sur lui-même, en boule, en boucle...<br>
       Un jour, pour alors le combler, le <b>Tout</b> exista.<br>
@@ -37,7 +37,7 @@
           :alt="angel.name"
           @click="changeSelection(angel)">
       </div>
-      <div class="religion-description bloc-text margin-top-1 margin-bottom-1">
+      <div class="religion-description layout-bloc margin-top-1 margin-bottom-1">
         <h3 class="margin-top-1">{{ currentDivinity.isInversed ? "La Cabale Inversée" : "La Sainte Cabale" }}</h3>
         <h2>
           {{ currentDivinity.libNum }}<span class="text-lower">{{ currentDivinity.isInversed ? "i" : "" }}</span>
@@ -56,7 +56,7 @@
           :alt="demon.name"
           @click="changeSelection(demon)">
       </div>
-      <div class="bloc-text margin-top-1">
+      <div class="layout-bloc margin-top-1">
         Les informations sur Arlénor, ses divinités et leurs domaines sont tirées des retranscriptions réalisées des tablettes de cristal.<br>
         <b>Leur existence même, n’est pas considérée comme un mythe.</b><br>
         <br>

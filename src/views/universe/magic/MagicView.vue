@@ -3,7 +3,7 @@
     :title="title"
     :image-left="imageLeft"
     :image-right="imageRight">
-    <div class="bloc-text">
+    <div class="layout-bloc">
       On raconte que l’<b>Humanité</b> a commencé avec un millier d’humains, tenant entre leurs mains, les <b>tablettes de cristal</b>.
       Comme si Arlénor les avait créé en leur donnant une voie à suivre dans leur développement.<br>
       Ils n’avaient pas encore acquis le langage, qu’ils comprenaient déjà le sens des écritures de ces tablettes…<br>
@@ -47,12 +47,12 @@
       <div class="magic-right">
         <div class="magic-header">
           <h2>Propriétés globales aux cristaux</h2>
-          <div class="bloc-text">
+          <div class="layout-bloc">
             Ces propriétés s'appliquent pour les cristaux&nbsp;:<br>
             énergétiques, instantanés et évolutifs.
           </div>
         </div>
-        <p class="magic-crystals bloc-text">
+        <p class="magic-crystals layout-bloc">
           - Ils mesurent entre 1 cm et 2 m.<br>
           - La couleur d'un cristal est liée à son effet, à son pouvoir.<br>
           - Un cristal est très solide, résistant.<br>

@@ -1,6 +1,6 @@
 <template>
-  <div class="form-row margin-top-1">
-    <div class="form-col-50 form-element">
+  <div class="layout-row margin-top-1">
+    <div class="layout-col-50 form-element">
       <span>Sélection d'une classe :</span>
       <div class="dropdown">
         <select
@@ -15,7 +15,7 @@
         </select>
       </div>
     </div>
-    <div class="form-col-50 form-element">
+    <div class="layout-col-50 form-element">
       <span>Recherche par nom :</span>
       <input
         type="text"
@@ -24,7 +24,7 @@
     </div>
   </div>
 
-  <table class="bloc-text margin-top-1">
+  <table class="layout-bloc margin-top-1">
     <thead>
       
       <!---------- Entête --------->

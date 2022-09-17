@@ -4,12 +4,12 @@
     <div class="creation-form">
       <div
         v-if="!currentRace"
-        class="creation-description bloc-text">
+        class="creation-description layout-bloc">
         Pas de race sélectionnée.
       </div>
       <div
         v-if="currentRace"
-        class="creation-description bloc-text">
+        class="creation-description layout-bloc">
         <img
           class="creation-img"
           :src="currentRace.image"

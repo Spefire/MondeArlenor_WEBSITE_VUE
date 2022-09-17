@@ -69,25 +69,6 @@
   }
 }
 
-.bloc-text {
-  line-height: 1.5;
-  padding: 10px 25px;
-  border: 1px solid;
-  border-radius: 5px;
-  border-color: $secondary-color;
-  background: $background-black-dark;
-
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-  &::-webkit-scrollbar-track {
-    background: none;
-  }
-  &::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-  }
-}
-
 .section-moreinfos {
   display: flex;
   flex-direction: row;
