@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-view background-roleplay creation-view">
+  <div class="layout-view background-roleplay creation-view hide-on-mobile">
 
     <h2 class="text-center margin-top-0">
       Création de personnage
@@ -172,6 +172,12 @@
         class="dot" />
       <div class="dotline" />
     </ul>
+  </div>
+
+  <div class="layout-view background-roleplay show-on-mobile">
+    <div class="show-on-mobile-alert bloc-text">
+      Cette page ne peut pas être parcourue sur un écran mobile.
+    </div>
   </div>
 </template>
 

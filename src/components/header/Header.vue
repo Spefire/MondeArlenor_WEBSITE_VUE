@@ -118,6 +118,12 @@
         <router-link
           class="link exact-link"
           to="/roleplay/system">{{ pages.system }}</router-link>
+        <router-link
+          class="link exact-link"
+          to="/roleplay/crystals?spe=PALADIN">{{ pages.crystals }}</router-link>
+        <router-link
+          class="link exact-link"
+          to="/roleplay/creation">{{ pages.creation }}</router-link>
       </nav>
     </div>
   </header>
