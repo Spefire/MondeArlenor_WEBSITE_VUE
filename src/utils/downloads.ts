@@ -1,7 +1,8 @@
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
+import { ArlenorPower, PowerRanksEnum } from "@/models/ArlenorPower";
 import jsPDF from "jspdf";
 
-const downloadPDF = async(character: ArlenorCharacter): Promise<void> => {
+const downloadPDF = async(character: ArlenorCharacter, allPowers: ArlenorPower[]): Promise<void> => {
   const doc = new jsPDF("p", "px", "a4");
   const width = doc.internal.pageSize.getWidth();
   const height = doc.internal.pageSize.getHeight();
@@ -101,24 +102,57 @@ const downloadPDF = async(character: ArlenorCharacter): Promise<void> => {
   }
 
   // --- POUVOIRS
-  const iconPower = await require("../assets/icons/powers/pouvoir_mental.png");
+  const powersS = allPowers.filter(power => power.codeRank === PowerRanksEnum.Unique.Code);
+  const powersA = allPowers.filter(power => power.codeRank === PowerRanksEnum.TresRare.Code);
+  const powersB = allPowers.filter(power => power.codeRank === PowerRanksEnum.Rare.Code);
+  const powersC = allPowers.filter(power => power.codeRank === PowerRanksEnum.Commun.Code);
+
+  const spe01 = powersC[0]?.speciality?.name;
+  const spe02 = powersB[0]?.speciality?.name;
+  const grp01 = powersC[0]?.group?.name;
+  const grp02 = powersB[0]?.group?.name;
+
+  x = 425;
+  y = 212;
+  doc.text("Classe principale : " + spe01 + "(" + grp01 + ")", x, y, { align: "right" });
+  doc.text("Classe secondaire : " + spe02 + "(" + grp02 + ")", x, y+12, { align: "right" });
 
   x = 34.6;
   y = 227;
   for(let i = 0; i < 12; i++) {
-    doc.addImage(iconPower, "JPEG", x, y, 20, 20);
-    doc.text("Nom du pouvoir", x + x_txt_scale - 1, y + y_txt_scale);
-    doc.setFontSize(8);
-    doc.text("Description du pouvoir...description du pouvoir...description du pouvoir...description du pouvoir..."
-    +"description du pouvoir...description du pouvoir...description du pouvoir...description du pouvoir...", x + 202, y + y_txt_scale - 2, {
-      align: "justify",
-      maxWidth: 180,
-    });
-    doc.setFontSize(10);
+    let power = null;
+    if (0 <= i && i <= 4 && (i+1) <= powersC.length) power = powersC[i];
+    if (5 <= i && i <= 7 && (i+1-5) <= powersB.length) power = powersB[i-5];
+    if (8 <= i && i <= 10 && (i+1-8) <= powersA.length) power = powersA[i-8];
+    if (i === 11 && (i+1-11) <= powersS.length) power = powersS[i-11];
+    if (power) {
+      if (power.image) doc.addImage(power.image, "JPEG", x, y+4.5, 20, 20);
+
+      const title = checkLibelle(power.name + " (" + power.type.Libelle + ")", 40);
+      const subtitle = checkLibelle(power.range.Libelle, 6, true)
+        + " - " + checkLibelle(power.duration.Libelle, 6, true)
+        + " - " + power.tests.Libelle
+        + " - " + (power.chaneling ? "Avec" : "Sans") + " canalisation";
+      const description = checkLibelle(power.description, 185);
+
+      doc.text(title, x + x_txt_scale - 1, y + y_txt_scale);
+      doc.setFontSize(8);
+      doc.text(subtitle, x + x_txt_scale - 1, y + y_txt_scale + 10);
+      doc.text(description, x + 202, y + y_txt_scale - 2, {
+        align: "justify",
+        maxWidth: 180,
+      });
+      doc.setFontSize(10);
+    }
     y += y_line_scale;
   }
 
   doc.save("Arlenor_" + character.name + ".pdf");
+};
+
+const checkLibelle = (value: string, max: number, onlyPoint = false) => {
+  if (value.length <= (max - (onlyPoint ? 1 : 3))) return value;
+  else return value.slice(0, max - (onlyPoint ? 1 : 3)) + (onlyPoint ? "." : "...");
 };
 
 export default {

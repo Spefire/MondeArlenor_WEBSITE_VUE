@@ -81,7 +81,7 @@
       <span>Description du pouvoir</span>
       <textarea
         v-model.trim.lazy="v$.form.description.$model"
-        maxlength="440" />
+        maxlength="180" />
     </div>
 
     <div class="layout-row">

@@ -1,5 +1,6 @@
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { PageTitles } from "@/models/PagesTitles";
+import api from "@/utils/api";
 import downloads from "@/utils/downloads";
 import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
@@ -60,8 +61,10 @@ export default defineComponent({
       this.store.commit("resetCharacter");
       this.selection = 0;
     },
-    downloadCharacter(): void {
-      downloads.downloadPDF(this.character);
+    async downloadCharacter() {
+      let allPowers = await api.readAllPower();
+      allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
+      downloads.downloadPDF(this.character, allPowers);
     }
   },
 
