@@ -1,5 +1,6 @@
 import PowersSelectionTable from "@/components/powers-selection-table/PowersSelectionTable.vue";
-import { ArlenorCharacter, ArlenorCrystal } from "@/models/ArlenorCharacter";
+import { ArlenorCharacter } from "@/models/ArlenorCharacter";
+import { ArlenorCrystal } from "@/models/ArlenorCrystal";
 import { ArlenorPower, PowerRanksEnum } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
@@ -25,7 +26,6 @@ export default defineComponent({
     const store = useStore();
 
     const character: ArlenorCharacter = store.state.character;
-    const codeGroup: Ref<string | null> = ref(character.crystals[props.indexCrystal].codeGroup);
     const codeSpeciality: Ref<string | null> = ref(character.crystals[props.indexCrystal].codeSpeciality);
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -37,7 +37,6 @@ export default defineComponent({
       store,
       level,
       form: {
-        codeGroup,
         codeSpeciality,
         idsPowers,
         isNbPowersValid,
@@ -58,7 +57,6 @@ export default defineComponent({
   
   validations: {
     form: {
-      codeGroup: { required },
       codeSpeciality: { required },
       idsPowers: {},
       isNbPowersValid: { required },
@@ -77,11 +75,9 @@ export default defineComponent({
       return ArlenorSpecialities.getListSpecialities().sort((a, b) => a.name.localeCompare(b.name));
     },
     filteredPowers(): ArlenorPower[] {
-      if (this.form.codeSpeciality) {
-        const listGrp = this.form.codeGroup ?
-          this.allPowers.filter(power => power.group?.code === this.form.codeGroup && !power.speciality) : [];
-        const listSpe = this.form.codeSpeciality ?
-          this.allPowers.filter(power => power.speciality?.code === this.form.codeSpeciality) : [];
+      if (this.selectedSpeciality) {
+        const listGrp = this.allPowers.filter(power => power.group?.code === this.selectedSpeciality?.group.code && !power.speciality);
+        const listSpe = this.allPowers.filter(power => power.speciality?.code === this.selectedSpeciality?.code);
         const list = listGrp.concat(listSpe);
         list.sort((a, b) => {
           return a.name.localeCompare(b.name);
@@ -96,7 +92,6 @@ export default defineComponent({
   methods: {
     changeSpeciality() {
       this.form.idsPowers = ArlenorCrystal.resetIdsPowers();
-      if (this.selectedSpeciality) this.form.codeGroup = this.selectedSpeciality.group.code;
       this.updateForm();
     },
 
@@ -165,8 +160,8 @@ export default defineComponent({
     },
     save() {
       const newCrystal = new ArlenorCrystal();
-      newCrystal.codeGroup = this.form.codeGroup;
       newCrystal.codeSpeciality = this.form.codeSpeciality;
+      newCrystal.idsPowers = this.form.idsPowers;
       this.store.commit("changeCharacterCrystal", { index: this.indexCrystal, crystal: newCrystal });
     }
   }

@@ -1,4 +1,5 @@
-import { ArlenorCharacter, CaractDescriptionEnum, CaractNomEnum } from "@/models/ArlenorCharacter";
+import { CaractDescriptionEnum, CaractNomEnum } from "@/models/ArlenorCaracts";
+import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { getListRaces } from "@/models/data/ListRaces";
 import useVuelidate from "@vuelidate/core";
 import { between, sameAs } from "@vuelidate/validators";

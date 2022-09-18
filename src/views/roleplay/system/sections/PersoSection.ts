@@ -1,6 +1,6 @@
 import ArrowButton from "@/components/arrow-button/ArrowButton.vue";
 import ExpandBloc from "@/components/expand-bloc/ExpandBloc.vue";
-import { CaractDescriptionEnum } from "@/models/ArlenorCharacter";
+import { CaractDescriptionEnum } from "@/models/ArlenorCaracts";
 import { ArlenorRace, DifficultyEnum } from "@/models/ArlenorRace";
 import { ArlenorGroups } from "@/models/data/ListGroups";
 import { getListRaces } from "@/models/data/ListRaces";

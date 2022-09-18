@@ -1,4 +1,4 @@
-import { CaractNomEnum } from "../ArlenorCharacter";
+import { CaractNomEnum } from "../ArlenorCaracts";
 import { ArlenorEnum } from "../ArlenorEnum";
 import { ArlenorGroup } from "../ArlenorGroup";
 import { ArlenorSkill, SkillsEnum } from "../ArlenorSkill";
