@@ -9,6 +9,10 @@ import PowersDescription from "../powers-table/PowersDescription.vue";
 export default defineComponent({
   name: "PowersSelectionTable",
   props: {
+    indexCrystal: {
+      type: Number,
+      required: true,
+    },
     level: {
       type: ArlenorLevel,
       required: true
@@ -45,10 +49,10 @@ export default defineComponent({
   computed: {
     currentRanks() {
       return {
-        [PowerRanksEnum.Commun.Code]: { current: this.getNbRank(PowerRanksEnum.Commun.Code), max: this.level.maxRankC },
-        [PowerRanksEnum.Rare.Code]: { current: this.getNbRank(PowerRanksEnum.Rare.Code), max: this.level.maxRankB },
-        [PowerRanksEnum.TresRare.Code]: { current: this.getNbRank(PowerRanksEnum.TresRare.Code), max: this.level.maxRankA },
-        [PowerRanksEnum.Unique.Code]: { current: this.getNbRank(PowerRanksEnum.Unique.Code), max: this.level.maxRankS },
+        [PowerRanksEnum.Commun.Code]: { current: this.getNbRank(PowerRanksEnum.Commun.Code), max: this.level.maxRankC[this.indexCrystal] },
+        [PowerRanksEnum.Rare.Code]: { current: this.getNbRank(PowerRanksEnum.Rare.Code), max: this.level.maxRankB[this.indexCrystal] },
+        [PowerRanksEnum.TresRare.Code]: { current: this.getNbRank(PowerRanksEnum.TresRare.Code), max: this.level.maxRankA[this.indexCrystal] },
+        [PowerRanksEnum.Unique.Code]: { current: this.getNbRank(PowerRanksEnum.Unique.Code), max: this.level.maxRankS[this.indexCrystal] },
       };
     }
   },

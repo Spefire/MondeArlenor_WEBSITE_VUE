@@ -102,64 +102,65 @@
   <template v-if="systemChoice === 2">
     <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
-      Toute personne est dotée de capacités de base qui lui sont inhérentes et qu’il peut utiliser de bien des manières.
-      Ces aptitudes naturelles sont définies par cinq <b>caractéristiques</b> distinctes, chacune évaluée sur une échelle allant de 1 à 5.
-      <br>&emsp;
-      Un score de 1 dans une caractéristique indique une vraie faiblesse dans le domaine concerné,
-      tandis qu’un 2 place le personnage dans la moyenne, ni plus ni moins.
-      A partir de 3, la personne dispose d’une facilité particulière dans la caractéristique concernée,
-      et un 4 indique des facultés exceptionnelles. Enfin, un score de 5 représente le maximum des capacités :
-      seuls quelques très rares individus atteignent ce score.
-      <br>&emsp;
-      A la création de votre personnage, <b>chaque caractéristique est déjà à 1 et ne peut dépasser 5</b>.
-      Vous pouvez ensuite répartir 8 points supplémentaires, pour un total donc de 13 points.
+      En attente de rédaction...
     </div>
 
     <ExpandBloc
-      :bloc-title="'L\'Initiative'"
+      :bloc-title="`L'Initiative`"
       :bloc-state="fightChoice === 1"
       @toggle="changeFightChoice(1)">
-      <span
-        v-html="caractDescriptionEnum.Force.Libelle" />
+      <span>L'Initiative</span>
     </ExpandBloc>
         
     <ExpandBloc
-      :bloc-title="
-        'Les actions courtes'"
+      :bloc-title="'Les actions courtes'"
       :bloc-state="fightChoice === 2"
       @toggle="changeFightChoice(2)">
-      <span
-        v-html="caractDescriptionEnum.Habilete.Libelle" />
+      <span>Les actions courtes</span>
     </ExpandBloc>
         
     <ExpandBloc
-      :bloc-title="
-        'Les actions longues'"
+      :bloc-title="'Les actions longues'"
       :bloc-state="fightChoice === 3"
       @toggle="changeFightChoice(3)">
-      <span
-        v-html="caractDescriptionEnum.Intellect.Libelle" />
+      <span>Les actions longues</span>
     </ExpandBloc>
 
     <ExpandBloc
       :bloc-title="'Les états et affections diverses'"
       :bloc-state="fightChoice === 4"
       @toggle="changeFightChoice(4)">
-      <span
-        v-html="caractDescriptionEnum.Charisme.Libelle" />
+      <span>Les états et affections diverses</span>
     </ExpandBloc>
   </template>
   <template v-if="systemChoice === 3">
     <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
-      Chaque <b>race</b> possède ses avantages et ses inconvénients, ainsi qu'une certaine difficulté
-      ou facilité à être jouée dans le Monde d'Arlénor.
-      Mieux vaut privilégier les races les plus simples pour les nouveaux joueurs,
-      et les plus complexes pour les amateurs de risques.
-      Les <b>races</b> sont présentées ici dans l'ordre de difficulté croissante.<br>
+      L'expérience d'un personnage du Monde d'Arlénor, ne se définit pas au nombre d'ennemis tués,
+      ni au nombre de kilomètres parcourus...<br>
+      <b>Un personnage gagne de l'expérience à chaque aventure vécue :</b> en général, il gagne 1 niveau par scénario terminé.<br>
       <br>
-      Note : Les Célestiens ne sont pas une race jouable vu la différence de magie qu'ils utilisent
-      et le lieu où ils se trouvent.
+      Et à chaque niveau, voici comment le personnage évolue :<br>     
+      <br>Niveau 1 : Rien
+      <br>Niveau 2 : Vie max +1
+      <br>Niveau 3 : Compétences + 1
+      <br>Niveau 4 : Vie max +1
+      <br><b>Niveau 5 : Nouveau cristal / Pouvoirs +2 / Caractéristiques +1</b>
+      <br>Niveau 6 : Vie max +1
+      <br>Niveau 7 : Pouvoirs +1
+      <br>Niveau 8 : Vie max +1
+      <br>Niveau 9 : Compétences + 1
+      <br><b>Niveau 10 : Vie max +1 / Pouvoirs +1 / Caractéristiques +1 / Compétences + 1</b>
+      <br>Niveau 11 : Pouvoirs +1
+      <br>Niveau 12 : Vie max +1
+      <br>Niveau 13 : Compétences + 1
+      <br>Niveau 14 : Vie max +1
+      <br><b>Niveau 15 : Caractéristiques +1 / Pouvoirs +1</b>
+      <br>Niveau 16 : Vie max +1
+      <br>Niveau 17 : Pouvoirs +1
+      <br>Niveau 18 : Vie max +1
+      <br>Niveau 19 : Compétences + 1
+      <br><b>Niveau 20 : Vie max +1 / Pouvoirs +1 / Caractéristiques +2</b>
     </div>
   </template>
 </template>

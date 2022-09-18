@@ -78,6 +78,7 @@
 
         <PowersSelectionTable
           v-if="selectedSpeciality"
+          :index-crystal="indexCrystal"
           :level="level"
           :ids-powers="form.idsPowers"
           :filtered-powers="filteredPowers"

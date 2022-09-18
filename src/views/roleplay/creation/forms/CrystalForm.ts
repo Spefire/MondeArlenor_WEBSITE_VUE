@@ -125,16 +125,16 @@ export default defineComponent({
       if (list.length === 0) return false;
 
       const nbRankS = list.filter(power => power.codeRank === PowerRanksEnum.Unique.Code).length;
-      if (nbRankS < this.level.maxRankS) return false;
+      if (nbRankS < this.level.maxRankS[this.indexCrystal]) return false;
 
       const nbRankA = list.filter(power => power.codeRank === PowerRanksEnum.TresRare.Code).length;
-      if (nbRankA < this.level.maxRankA) return false;
+      if (nbRankA < this.level.maxRankA[this.indexCrystal]) return false;
 
       const nbRankB = list.filter(power => power.codeRank === PowerRanksEnum.Rare.Code).length;
-      if (nbRankB < this.level.maxRankB) return false;
+      if (nbRankB < this.level.maxRankB[this.indexCrystal]) return false;
 
       const nbRankC = list.filter(power => power.codeRank === PowerRanksEnum.Commun.Code).length;
-      if (nbRankC < this.level.maxRankC) return false;
+      if (nbRankC < this.level.maxRankC[this.indexCrystal]) return false;
 
       return true;
     },
