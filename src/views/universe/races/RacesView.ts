@@ -1,7 +1,6 @@
 import HeadLayout from "@/components/head-layout/HeadLayout.vue";
 import { ArlenorRace } from "@/models/ArlenorRace";
 import { getListRaces } from "@/models/data/ListRaces";
-import { getListRaceSkills } from "@/models/data/ListSkills";
 import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
 
@@ -15,14 +14,13 @@ export default defineComponent({
   setup() {
     const currentIndex = ref(0);
     const allRaces = ref(getListRaces());
-    const allSkills = ref(getListRaceSkills());
 
     const previousImage = ref("");
     const currentImage = ref("");
     const nextImage = ref("");
 
     const title = PageTitles.races;
-    return { title, allRaces, allSkills, currentIndex, previousImage, currentImage, nextImage };
+    return { title, allRaces, currentIndex, previousImage, currentImage, nextImage };
   },
 
   mounted() {
@@ -70,9 +68,5 @@ export default defineComponent({
       else this.currentIndex = this.currentIndex + 1;
       this.updateRace();
     },
-
-    getSkills(raceCode: string) {
-      return this.allSkills.filter(skill => skill.race && skill.race.code === raceCode);
-    }
   }
 });

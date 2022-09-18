@@ -49,15 +49,15 @@ const downloadPDF = async(character: ArlenorCharacter, allPowers: ArlenorPower[]
   const x_txt_scale = 38;
   const y_txt_scale = 12.5;
   const y_line_scale = 31.925;
-  const iconCapacity = await require("../assets/icons/capacities/capacity_60.png");
 
   x = 243.4;
   y += 19.45;
-  for(let i = 0; i < 4; i++) {
-    doc.addImage(iconCapacity, "JPEG", x, y, 20, 20);
-    doc.text("Nom de la compétence raciale", x + x_txt_scale, y + y_txt_scale);
+  const raceSkills = character.race ? character.race.getSkills() : [];
+  raceSkills.forEach(raceSkill => {
+    doc.addImage(raceSkill.image, "JPEG", x, y, 20, 20);
+    doc.text(raceSkill.name, x + x_txt_scale, y + y_txt_scale);
     y += y_line_scale;
-  }
+  });
 
   // --- PROFIL
   x = 28;
