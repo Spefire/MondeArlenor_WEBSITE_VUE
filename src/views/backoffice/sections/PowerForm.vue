@@ -99,7 +99,7 @@
         </div>
       </div>
       <div class="layout-col-33 form-element">
-        <span>Durée du pouvoir</span>
+        <span>Durée et rechargement du pouvoir</span>
         <div class="dropdown">
           <select
             class="dropdown-select"

@@ -12,8 +12,8 @@
           &nbsp;•&nbsp;
           <i
             class="icon icon-hour-glass"
-            title="Durée du pouvoir" />&nbsp;
-          <span title="Durée du pouvoir">{{ power.duration.Libelle }}</span>
+            title="Durée et rechargement du pouvoir" />&nbsp;
+          <span title="Durée et rechargement du pouvoir">{{ power.duration.Libelle }}</span>
           &nbsp;•&nbsp;
           <i
             class="icon icon-dice"

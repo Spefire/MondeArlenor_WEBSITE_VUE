@@ -18,6 +18,9 @@ export default defineComponent({
     },
     currentSpeciality() {
       this.updateSpecialityPowers();
+    },
+    allPowers() {
+      this.updateSpecialityPowers();
     }
   },
 

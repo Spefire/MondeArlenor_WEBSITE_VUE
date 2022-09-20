@@ -32,7 +32,7 @@ export default defineComponent({
   },
 
   mounted() {
-    this.store.commit("loadAllPowers");
+    this.store.commit("loadAllPowers", true);
   },
 
   computed: {
@@ -73,7 +73,7 @@ export default defineComponent({
           await api.sendAllPower(finalResults);
           alert("Importation des pouvoirs réussie.");
 
-          this.store.commit("loadAllPowers");
+          this.store.commit("loadAllPowers", true);
         });
       }
     },

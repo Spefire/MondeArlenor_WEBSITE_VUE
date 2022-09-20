@@ -11,8 +11,8 @@ export default createStore({
     allPowers: null as ArlenorPower[] | null
   },
   mutations: {
-    async loadAllPowers(state) {
-      if (!state.allPowers) {
+    async loadAllPowers(state, payload = false) {
+      if (!state.allPowers || payload) {
         const allPowers = await api.readAllPower();
         state.allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
       }

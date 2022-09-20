@@ -25,7 +25,7 @@
       <div class="crystals-layout margin-top-2">
         <div class="layout-bloc crystals-center">
           <div class="crystals-section-top">
-            <h3 class="margin-bottom-1">Groupe de la classe&nbsp;:<br>{{ currentSpeciality.group.name }}</h3>
+            <h3 class="margin-bottom-1">Groupe de la classe<br>{{ currentSpeciality.group.name }}</h3>
             <img
               class="crystal-img margin-bottom-1 rounded"
               :src="currentSpeciality.group.image"
@@ -43,7 +43,7 @@
           </div>
           <div class="crystals-separator" />
           <div class="crystals-section-top">
-            <h3 class="margin-bottom-1">Compétences de la classe</h3>
+            <h3 class="margin-bottom-1">Compétences héritées</h3>
             <div
               v-if="currentSpeciality.weaponSkill"
               class="power-line">
@@ -98,6 +98,9 @@
         <div class="layout-bloc crystals-left">
           <h3 class="margin-bottom-1">Pouvoirs de la classe</h3>
           <div
+            v-if="ranks.length === 0"
+            class="text-center margin-top-1">Aucun pouvoir</div>
+          <div
             v-for="(rank, indexRank) in ranks"
             class="powers-content"
             :key="indexRank">
@@ -124,61 +127,47 @@
         </div>
       
         <div class="layout-bloc crystals-right">
-          <h3 class="margin-bottom-1">Détail du pouvoir</h3>
+          <h3 class="margin-bottom-1">Détails du pouvoir</h3>
           <div class="power-separator" />
           <template v-if="selectedPower">
             <div>
               {{ selectedPower.type.Libelle }}
               {{ selectedPower.speciality ? '(de la classe)' : '(du groupe)' }}
             </div>
-            <img
-              class="crystal-img margin-top-1"
-              :src="selectedPower.image"
-              :alt="selectedPower.name">
-            <h2 class="margin-top-05">{{ selectedPower.name }}</h2>
+            <PowerImage
+              class="power-img-layout big margin-top-1"
+              :power="selectedPower" />
+            <h2 class="margin-top-1">{{ selectedPower.name }}</h2>
             <div class="power-separator" />
             <div>
               {{ selectedPower.description ? selectedPower.description : 'Aucune description' }}
             </div>
-            <div
-              v-if="selectedPower.effect0"
-              class="power-separator" />
-            <div v-if="selectedPower.effect0">
-              <span class="text-bold">Simple<br></span>
-              {{ selectedPower.effect0 }}
-            </div>
-            <div
-              v-if="selectedPower.effect1"
-              class="margin-top-05">
-              <span class="text-bold">Complexe<br></span>
-              {{ selectedPower.effect1 }}
-            </div>
-            <div
-              v-if="selectedPower.effect2"
-              class="margin-top-05">
-              <span class="text-bold">Difficile<br></span>
-              {{ selectedPower.effect2 }}
-            </div>
-            <div
-              v-if="selectedPower.effect3"
-              class="margin-top-05">
-              <span class="text-bold">Epique<br></span>
-              {{ selectedPower.effect3 }}
-            </div>
             <div class="power-separator" />
             <div>
-              Jets à réaliser :
-              <span title="Jets du lanceur">Pas définis</span>
+              <i
+                class="icon icon-enlarge"
+                title="Portée du pouvoir" />&nbsp;
+              <span title="Portée du pouvoir">{{ selectedPower.range.Libelle }}</span>
             </div>
-            <div>
-              Jets en opposition :
-              <span title="Jets de la cible">Pas définis</span>
+            <div class="margin-top-05">
+              <i
+                class="icon icon-hour-glass"
+                title="Durée et rechargement du pouvoir" />&nbsp;
+              <span title="Durée et rechargement du pouvoir">{{ selectedPower.duration.Libelle }}</span>
             </div>
-            <div class="margin-top-05">{{ getCasting(selectedPower.chanelingProperty) }}</div>
-            <div>{{ getReloading(selectedPower.durationProperty) }}</div>
+            <div class="margin-top-05">
+              <i
+                class="icon icon-dice"
+                title="Tests du pouvoir" />&nbsp;
+              <span title="Tests du pouvoir">{{ selectedPower.tests.Libelle }}</span>
+            </div>
+            <div class="margin-top-05 margin-bottom-05">
+              <i class="icon icon-spinner9" />&nbsp;
+              <span>{{ selectedPower.chaneling ? "Avec" : "Sans" }} canalisation</span>
+            </div>
           </template>
           <template v-if="!selectedPower">
-            <div>Pas de pouvoir sélectionné.</div>
+            <div>Pas de pouvoir sélectionné</div>
           </template>
         </div>
       </div>
