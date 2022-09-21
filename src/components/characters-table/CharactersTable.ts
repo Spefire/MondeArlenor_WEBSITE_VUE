@@ -42,7 +42,6 @@ export default defineComponent({
   methods: {
     changeFilteredCharacters() {
       this.filteredCharacters = this.allCharacters;
-      console.warn(this.selectedRace);
       if (this.selectedRace) this.filteredCharacters = this.filteredCharacters
         .filter(character => character.race?.code === this.selectedRace);
       if (this.searchName) this.filteredCharacters = this.filteredCharacters.filter(character => character.name.toLowerCase().indexOf(this.searchName.toLowerCase()) !== -1);

@@ -1,17 +1,17 @@
 <template>
   <div class="layout-row margin-top-1">
     <div class="layout-col-50 form-element">
-      <span>Sélection d'une race :</span>
+      <span>Sélection d'un type :</span>
       <div class="dropdown">
         <select
           class="dropdown-select"
-          v-model="selectedRace"
-          @change="changeFilteredCharacters">
+          v-model="selectedType"
+          @change="changeFilteredStuffs">
           <option :value="null">-</option>
           <option
-            v-for="(race, index) in allRaces"
-            :value="race.code"
-            :key="index">{{ race.name }} ({{ race.name }})</option>
+            v-for="(type, index) in allTypes"
+            :value="type.Code"
+            :key="index">{{ type.Libelle }}</option>
         </select>
       </div>
     </div>
@@ -20,7 +20,7 @@
       <input
         type="text"
         v-model="searchName"
-        @keyup="changeFilteredCharacters">
+        @keyup="changeFilteredStuffs">
     </div>
   </div>
 
@@ -31,9 +31,8 @@
       <tr>
         <th
           colspan="2"
-          class="col-40">Nom du personnage</th>
-        <th class="col-20">Race</th>
-        <th class="col-20">Classes</th>
+          class="col-50">Nom de l'équipement</th>
+        <th class="col-30">Type de l'équipement</th>
         <th class="col-20">Actions</th>
       </tr>
 
@@ -42,56 +41,53 @@
 
       <!---------- Aucun --------->
       <tr
-        v-if="filteredCharacters.length === 0"
+        v-if="filteredStuffs.length === 0"
         class="table-line">
         <td
-          colspan="5"
+          colspan="4"
           class="col-100 text-center">
-          Aucun personnage
+          Aucun équipement
         </td>
       </tr>
       
       <template
-        v-for="(character, index) in filteredCharacters"
+        v-for="(stuff, index) in filteredStuffs"
         :key="index">
 
         <!---------- Ligne --------->
         <tr
           class="table-line"
-          :class="{ selected : selectedCharacter === character }">
+          :class="{ selected : selectedStuff === stuff }">
           <td class="col-20">
             <div
               class="power-img-layout"
-              :title="character.name">
+              :title="stuff.type.Libelle">
               <img
-                v-if="character.image"
+                v-if="stuff.image"
                 class="power-img"
-                :src="character.image"
-                :alt="character.name">
+                :src="stuff.image"
+                :alt="stuff.type.Libelle">
             </div>
           </td>
           <td 
-            class="col-20 pointer"
-            @click="seeMore(character)">
-            {{ character.name }}
+            class="col-30 pointer"
+            @click="seeMore(stuff)">
+            {{ stuff.name }}
           </td>
-          <td class="col-20">
-            {{ character.name }}
-          </td>
-          <td class="col-20">
-            {{ character.name }}
+          <td class="col-30">
+            {{ stuff.type.Libelle }}
           </td>
           <td class="col-20">
             <button
               class="link-button"
-              title="Télécharger"
-              @click="downloadCharacter(character)">
-              <i class="icon icon-folder-upload" />
+              title="Modifier"
+              @click="editStuff(stuff)">
+              <i class="icon icon-pencil" />
             </button>
             <button
               class="link-button alert-button margin-left-1"
               title="Supprimer"
-              @click="deleteCharacter(character)">
+              @click="deleteStuff(stuff)">
               <i class="icon icon-bin2" />
             </button>
           </td>
@@ -99,10 +95,10 @@
 
         <!---------- Description --------->
         <tr
-          v-if="selectedCharacter === character"
+          v-if="selectedStuff === stuff"
           class="table-line selected">
-          <td colspan="5">
-            <p>{{ character.description ? character.description : "Aucune description disponible" }}</p>
+          <td colspan="4">
+            <p>{{ stuff.description ? stuff.description : "Aucune description disponible" }}</p>
           </td>
         </tr>
 
@@ -111,4 +107,4 @@
   </table>
 </template>
 
-<script lang="ts" src="./CharactersTable.ts"></script>
+<script lang="ts" src="./StuffsTable.ts"></script>

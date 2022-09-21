@@ -1,5 +1,5 @@
 import { ArlenorGroup } from "./ArlenorGroup";
-import { ArlenorSkill, SkillsEnum } from "./ArlenorSkill";
+import { ArlenorSkill, SkillTypesEnum } from "./ArlenorSkill";
 import { getSpeSkills } from "./data/ListDefaultSkills";
 
 export class ArlenorSpeciality {
@@ -27,9 +27,9 @@ export class ArlenorSpeciality {
 
   public setSkills(): void {
     const list = getSpeSkills(this.group.code, this.code);
-    this.weaponSkill = list.find(skill => skill.type === SkillsEnum.CompetenceArme) ?? null;
-    this.armorSkill = list.find(skill => skill.type === SkillsEnum.CompetenceArmure) ?? null;
-    this.chanelingProperty = list.find(skill => skill.type === SkillsEnum.ProprieteCanalisation) ?? null;
-    this.durationProperty = list.find(skill => skill.type === SkillsEnum.ProprieteTemps) ?? null;
+    this.weaponSkill = list.find(skill => skill.type === SkillTypesEnum.CompetenceArme) ?? null;
+    this.armorSkill = list.find(skill => skill.type === SkillTypesEnum.CompetenceArmure) ?? null;
+    this.chanelingProperty = list.find(skill => skill.type === SkillTypesEnum.ProprieteCanalisation) ?? null;
+    this.durationProperty = list.find(skill => skill.type === SkillTypesEnum.ProprieteTemps) ?? null;
   }
 }

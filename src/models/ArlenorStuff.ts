@@ -1,5 +1,5 @@
 import { ArlenorAPI } from "./ArlenorAPI";
-import { ArlenorEnum } from "./ArlenorEnum";
+import { ArlenorEnum, getEnumByCode } from "./ArlenorEnum";
 import { ArlenorGroup } from "./ArlenorGroup";
 import { ArlenorRace } from "./ArlenorRace";
 import { ArlenorSpeciality } from "./ArlenorSpeciality";
@@ -8,7 +8,7 @@ export class ArlenorStuff extends ArlenorAPI {
 
   public name: string;
   public image: string;
-  public type: ArlenorEnum;
+  public codeType: string;
 
   // Pour les compétences de race
   public race: ArlenorRace | null;
@@ -19,10 +19,14 @@ export class ArlenorStuff extends ArlenorAPI {
   public specialities: ArlenorSpeciality[];
   public caracts: ArlenorEnum[];
 
+  get type(): ArlenorEnum {
+    return getEnumByCode(this.codeType, StuffTypesEnum);
+  }
+
   constructor() {
     super();
     this.name = "";
-    this.type = StuffsEnum.CompetenceAutre;
+    this.codeType = StuffTypesEnum.CompetenceAutre.Code;
     this.description = "";
     this.image = "";
     this.race = null;
@@ -35,7 +39,7 @@ export class ArlenorStuff extends ArlenorAPI {
 
   public init(name: string, type: ArlenorEnum): void {
     this.name = name;
-    this.type = type;
+    this.codeType = type.Code;
   }
 
   public initGrpSpe(group: ArlenorGroup | null, specialities: ArlenorSpeciality[]): void {
@@ -44,22 +48,22 @@ export class ArlenorStuff extends ArlenorAPI {
   }
 
   public setImage(): void {
-    if (this.type.Code === StuffsEnum.CompetenceArme.Code) {
+    if (this.type.Code === StuffTypesEnum.CompetenceArme.Code) {
       this.image = require("./../assets/icons/skills/armes.png");
     }
-    else if (this.type.Code === StuffsEnum.CompetenceArmure.Code) {
+    else if (this.type.Code === StuffTypesEnum.CompetenceArmure.Code) {
       this.image = require("./../assets/icons/skills/armures.png");
     }
-    else if (this.type.Code === StuffsEnum.ProprieteCanalisation.Code) {
+    else if (this.type.Code === StuffTypesEnum.ProprieteCanalisation.Code) {
       this.image = require("./../assets/icons/skills/incantation.png");
     }
-    else if (this.type.Code === StuffsEnum.ProprieteTemps.Code) {
+    else if (this.type.Code === StuffTypesEnum.ProprieteTemps.Code) {
       this.image = require("./../assets/icons/skills/rechargement.png");
     }
   }
 }
 
-export class StuffsEnum {
+export class StuffTypesEnum {
   // Compétences de race
   static CompetenceRace: ArlenorEnum = { Code: "ABL_RACE", Libelle: "Compétence de race" };
   // Compétences de groupe et de classe/spécialité
