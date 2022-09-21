@@ -1,5 +1,7 @@
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { ArlenorPower } from "@/models/ArlenorPower";
+import { ArlenorSkill } from "@/models/ArlenorSkill";
+import { ArlenorStuff } from "@/models/ArlenorStuff";
 import { CelestiaQuizz } from "@/models/CelestiaQuizz";
 import api from "@/utils/api";
 import { createStore } from "vuex";
@@ -9,7 +11,9 @@ export default createStore({
     character: new ArlenorCharacter(),
     quizz: new CelestiaQuizz(),
     allCharacters: null as ArlenorCharacter[] | null,
-    allPowers: null as ArlenorPower[] | null
+    allPowers: null as ArlenorPower[] | null,
+    allSkills: null as ArlenorSkill[] | null,
+    allStuffs: null as ArlenorStuff[] | null
   },
   mutations: {
     async loadAllCharacters(state, payload = false) {
@@ -24,11 +28,29 @@ export default createStore({
         state.allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
       }
     },
+    async loadAllSkills(state, payload = false) {
+      if (!state.allSkills || payload) {
+        const allSkills = await api.readAllSkill();
+        state.allSkills = allSkills.sort((a, b) => a.name.localeCompare(b.name));
+      }
+    },
+    async loadAllStuffs(state, payload = false) {
+      if (!state.allStuffs || payload) {
+        const allStuffs = await api.readAllStuff();
+        state.allStuffs = allStuffs.sort((a, b) => a.name.localeCompare(b.name));
+      }
+    },
     changeAllCharacters(state, payload: ArlenorCharacter[]) {
       state.allCharacters = payload.sort((a, b) => a.name.localeCompare(b.name));
     },
     changeAllPowers(state, payload: ArlenorPower[]) {
       state.allPowers = payload.sort((a, b) => a.name.localeCompare(b.name));
+    },
+    changeAllSkills(state, payload: ArlenorSkill[]) {
+      state.allSkills = payload.sort((a, b) => a.name.localeCompare(b.name));
+    },
+    changeAllStuffs(state, payload: ArlenorStuff[]) {
+      state.allStuffs = payload.sort((a, b) => a.name.localeCompare(b.name));
     },
     changeCharacterRace(state, payload: ArlenorCharacter) {
       state.character.race = payload.race;

@@ -48,19 +48,19 @@
           class="onglets-nav-item"
           :class="{ selected : backChoice === 4 }"
           @click="changeBackChoice(4)">
-          Le quizz en détails
+          L'équipement
         </span>
         <span
           class="onglets-nav-item"
           :class="{ selected : backChoice === 5 }"
           @click="changeBackChoice(5)">
-          Les résultats finaux
+          Le quizz en détails
         </span>
         <span
           class="onglets-nav-item"
           :class="{ selected : backChoice === 6 }"
           @click="changeBackChoice(6)">
-          -
+          Les résultats finaux
         </span>
       </div>
 
@@ -74,13 +74,13 @@
         <PowersSection />
       </template>
       <template v-if="backChoice === 4">
-        <QuizzSection />
+        <StuffsSection />
       </template>
       <template v-if="backChoice === 5">
-        <ResultsSection />
+        <QuizzSection />
       </template>
       <template v-if="backChoice === 6">
-        En attente...
+        <ResultsSection />
       </template>
     </div>
   </div>
