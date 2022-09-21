@@ -8,14 +8,24 @@ export default createStore({
   state: {
     character: new ArlenorCharacter(),
     quizz: new CelestiaQuizz(),
+    allCharacters: null as ArlenorCharacter[] | null,
     allPowers: null as ArlenorPower[] | null
   },
   mutations: {
+    async loadAllCharacters(state, payload = false) {
+      if (!state.allCharacters || payload) {
+        const allCharacters = await api.readAllCharacter();
+        state.allCharacters = allCharacters.sort((a, b) => a.name.localeCompare(b.name));
+      }
+    },
     async loadAllPowers(state, payload = false) {
       if (!state.allPowers || payload) {
         const allPowers = await api.readAllPower();
         state.allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
       }
+    },
+    changeAllCharacters(state, payload: ArlenorCharacter[]) {
+      state.allCharacters = payload.sort((a, b) => a.name.localeCompare(b.name));
     },
     changeAllPowers(state, payload: ArlenorPower[]) {
       state.allPowers = payload.sort((a, b) => a.name.localeCompare(b.name));
