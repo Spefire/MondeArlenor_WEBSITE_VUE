@@ -1,5 +1,5 @@
 <template>
-  <table class="layout-bloc margin-top-1">
+  <table class="layout-bloc">
     <tbody>
       
       <!---------- Aucun --------->
@@ -72,4 +72,5 @@
   </table>
 </template>
 
+<style lang="scss" scoped src="./PowersSelectionTable.scss"></style>
 <script lang="ts" src="./PowersSelectionTable.ts"></script>

@@ -88,4 +88,18 @@
   .race-grid {
     margin: -10px;
   }
+
+  .power-line {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    .power-txt {
+      margin-left: 10px;
+      text-align: left;
+    }
+  }
 }
