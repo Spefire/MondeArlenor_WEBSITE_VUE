@@ -3,7 +3,7 @@
     <div class="creation-form" />
     <div class="creation-form">
       <p>
-        Aucune compétence possible.
+        Aucun équipement possible.
       </p>
     </div>
   </div>
@@ -31,4 +31,4 @@
 </template>
 
 <style lang="scss" scoped src="./../CreationView.scss"></style>
-<script lang="ts" src="./SkillsForm.ts"></script>
+<script lang="ts" src="./StuffForm.ts"></script>

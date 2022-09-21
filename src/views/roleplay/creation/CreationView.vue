@@ -8,11 +8,12 @@
       <template v-if="selection == 0">Introduction</template>
       <template v-if="selection == 1">Choix de la race</template>
       <template v-if="selection == 2">Choix des caractéristiques</template>
-      <template v-if="selection == 3">Choix des compétences</template>
-      <template v-if="selection == 4">Choix du cristal primaire</template>
-      <template v-if="selection == 5">Choix du cristal secondaire</template>
+      <template v-if="selection == 3">Choix du cristal primaire</template>
+      <template v-if="selection == 4">Choix du cristal secondaire</template>
+      <template v-if="selection == 5">Choix des compétences</template>
       <template v-if="selection == 6">Choix de l'identité</template>
-      <template v-if="selection == 7">Récapitulatif</template>
+      <template v-if="selection == 7">Choix de l'équipement</template>
+      <template v-if="selection == 8">Récapitulatif</template>
       <span
         v-if="hasModification"
         title="A des modifications en cours">&nbsp;*</span>
@@ -64,30 +65,35 @@
       @changeStep="changeModifs()"
       @previousStep="decreaseSelection()"
       @nextStep="increaseSelection()" />
-    <SkillsForm
-      v-if="selection == 3"
-      @changeStep="changeModifs()"
-      @previousStep="decreaseSelection()"
-      @nextStep="increaseSelection()" />
     <CrystalForm
-      v-if="selection == 4"
+      v-if="selection == 3"
       :index-crystal="0"
       @changeStep="changeModifs()"
       @previousStep="decreaseSelection()"
       @nextStep="increaseSelection()" />
     <CrystalForm
-      v-if="selection == 5"
+      v-if="selection == 4"
       :index-crystal="1"
       @changeStep="changeModifs()"
       @previousStep="decreaseSelection()"
       @nextStep="increaseSelection()" />
-    <IdentityForm
+    <SkillsForm
+      v-if="selection == 5"
+      @changeStep="changeModifs()"
+      @previousStep="decreaseSelection()"
+      @nextStep="increaseSelection()" />
+    <StuffForm
       v-if="selection == 6"
+      @changeStep="changeModifs()"
+      @previousStep="decreaseSelection()"
+      @nextStep="increaseSelection()" />
+    <IdentityForm
+      v-if="selection == 7"
       @previousStep="decreaseSelection()"
       @changeStep="changeModifs()"
       @nextStep="increaseSelection()" />
 
-    <template v-if="selection == 7">
+    <template v-if="selection == 8">
       <div class="creation-content">
         <div class="creation-form">
           <img
@@ -169,6 +175,10 @@
       <div class="dotline" />
       <li
         :class="{'active': selection == 7 }"
+        class="dot" />
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 8 }"
         class="dot" />
       <div class="dotline" />
     </ul>

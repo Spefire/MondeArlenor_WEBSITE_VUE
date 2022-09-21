@@ -110,10 +110,10 @@ export default defineComponent({
       const nbRankC = this.form.idsPowers[PowerRanksEnum.Commun.Code].length;
       
       this.form.isNbPowersValid = (
-        nbRankS === this.level.maxRankS
-        && nbRankA === this.level.maxRankA
-        && nbRankB === this.level.maxRankB
-        && nbRankC === this.level.maxRankC
+        nbRankS === this.level.maxRankS[this.indexCrystal]
+        && nbRankA === this.level.maxRankA[this.indexCrystal]
+        && nbRankB === this.level.maxRankB[this.indexCrystal]
+        && nbRankC === this.level.maxRankC[this.indexCrystal]
       ) ? true : null;
     },
 

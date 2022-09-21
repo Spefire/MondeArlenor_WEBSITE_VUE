@@ -10,6 +10,7 @@ import CrystalForm from "./forms/CrystalForm.vue";
 import IdentityForm from "./forms/IdentityForm.vue";
 import RaceForm from "./forms/RaceForm.vue";
 import SkillsForm from "./forms/SkillsForm.vue";
+import StuffForm from "./forms/StuffForm.vue";
 
 export default defineComponent({
   name: "CreationView",
@@ -17,8 +18,9 @@ export default defineComponent({
   components: {
     RaceForm,
     CaractsForm,
-    SkillsForm,
     CrystalForm,
+    SkillsForm,
+    StuffForm,
     IdentityForm,
   },
 
@@ -55,7 +57,7 @@ export default defineComponent({
     },
     passCreation(): void {
       this.store.commit("initCharacter");
-      this.selection = 7;
+      this.selection = 8;
     },
     restartCreation(): void {
       this.store.commit("resetCharacter");
