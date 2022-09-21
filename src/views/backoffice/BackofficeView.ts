@@ -8,6 +8,7 @@ import PowersSection from "./sections/PowersSection.vue";
 import QuizzSection from "./sections/QuizzSection.vue";
 import ResultsSection from "./sections/ResultsSection.vue";
 import SkillsSection from "./sections/SkillsSection.vue";
+import StuffsSection from "./sections/StuffsSection.vue";
 
 export default defineComponent({
   name: "BackofficeView",
@@ -18,6 +19,7 @@ export default defineComponent({
     QuizzSection,
     ResultsSection,
     SkillsSection,
+    StuffsSection,
   },
   
   data() {
@@ -29,7 +31,7 @@ export default defineComponent({
   },
 
   setup () {
-    const backChoice = ref(3);
+    const backChoice = ref(1);
     const isOpen = ref(false);
     return { backChoice, isOpen, v$: useVuelidate() };
   },
