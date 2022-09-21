@@ -120,6 +120,11 @@ export default defineComponent({
     },
 
     checkPowers(spe: ArlenorSpeciality) {
+      if (this.indexCrystal === 1) {
+        const character: ArlenorCharacter = this.store.state.character;
+        if (spe.code === character.crystals[0].codeSpeciality) return false;
+      }
+
       const listGrp = this.allPowers.filter(power => power.group?.code === spe.group.code && !power.speciality);
       const listSpe = this.allPowers.filter(power => power.speciality?.code === spe.code);
       const list = listGrp.concat(listSpe);

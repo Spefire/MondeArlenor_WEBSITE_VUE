@@ -39,11 +39,13 @@ export default defineComponent({
 
   methods: {
     decreaseSelection(): void {
-      this.selection--;
+      if (this.selection === 5 && this.character.level.numLevel < 5) this.selection -= 2;
+      else this.selection--;
       this.hasModification = false;
     },
     increaseSelection(): void {
-      this.selection++;
+      if (this.selection === 3 && this.character.level.numLevel < 5) this.selection += 2;
+      else this.selection++;
       this.hasModification = false;
     },
     changeModifs(): void {
