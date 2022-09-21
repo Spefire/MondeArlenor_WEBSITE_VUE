@@ -1,13 +1,11 @@
+import { ArlenorAPI } from "./ArlenorAPI";
 import { ArlenorEnum, getEnumByCode } from "./ArlenorEnum";
 import { ArlenorGroup } from "./ArlenorGroup";
 import { ArlenorSpeciality } from "./ArlenorSpeciality";
 import { ArlenorGroups } from "./data/ListGroups";
 import { ArlenorSpecialities } from "./data/ListSpecialities";
 
-export class ArlenorPower {
-  public id = "";
-  public hour = "00:00";
-  public date = "01/01/1990";
+export class ArlenorPower extends ArlenorAPI {
 
   public isVerified: boolean;
 
@@ -82,6 +80,7 @@ export class ArlenorPower {
   }
 
   constructor() {
+    super();
     this.isVerified = false;
 
     this.name = "";
@@ -119,15 +118,6 @@ export class ArlenorPower {
     this.codeDuration = powerDB.codeDuration;
     this.chaneling = powerDB.chaneling ? true : false;
     this.codeTests = powerDB.codeTests;
-  }
-
-  public initTime(): void {
-    function pad(s: number) { return (s < 10) ? "0" + s : s; }
-    const date = new Date();
-    const hours = (date.getHours() < 10 ? "0" : "") + date.getHours();
-    const minutes = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
-    this.hour = hours + ":" + minutes;
-    this.date = [pad(date.getDate()), pad(date.getMonth()+1), date.getFullYear()].join("/");
   }
 }
 

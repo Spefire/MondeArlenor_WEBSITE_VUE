@@ -1,6 +1,6 @@
 import { ArlenorEnum } from "./ArlenorEnum";
 import { ArlenorSkill } from "./ArlenorSkill";
-import { getListRaceSkills } from "./data/ListSkills";
+import { getListRaceSkills } from "./data/ListDefaultSkills";
 
 export class ArlenorRace {
   public name: string;

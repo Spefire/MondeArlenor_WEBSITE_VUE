@@ -37,3 +37,13 @@ export class ResponseSkill {
     this.value_skill = "";
   }
 }
+
+export class ResponseStuff {
+  public ref_stuff: string;
+  public value_stuff: string;
+  
+  constructor() {
+    this.ref_stuff = "";
+    this.value_stuff = "";
+  }
+}

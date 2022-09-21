@@ -2,9 +2,10 @@
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
+import { ArlenorStuff } from "@/models/ArlenorStuff";
 import { CelestiaQuizz } from "@/models/CelestiaQuizz";
 
-import { ResponsePower, ResponseQuizz } from "./api_models";
+import { ResponseCharacter, ResponsePower, ResponseQuizz, ResponseSkill, ResponseStuff } from "./api_models";
 import requests from "./requests";
 
 // --- QUIZZ ---------------------------------------------------------------------------
@@ -30,23 +31,97 @@ const sendQuizz = async(quizz: CelestiaQuizz): Promise<string> => {
 
 // --- CHARACTER ---------------------------------------------------------------------------
 const readAllCharacter = async(): Promise<ArlenorCharacter[]>  => {
-  const result: ArlenorCharacter[] = await requests.requestGet("character");
-  return result;
+  const results: ResponseCharacter[] = await requests.requestGet("character");
+
+  const finalResults: ArlenorCharacter[] = [];
+  results.forEach((obj: ResponseCharacter) => {
+    const character = new ArlenorCharacter();
+    character.id = obj.ref_character;
+    character.initByJSON(obj.value_character);
+    finalResults.push(character);
+  });
+
+  return finalResults;
 };
 
 const sendCharacter = async(character: ArlenorCharacter): Promise<string> => {
+  character.initTime();
   const result: string = await requests.requestPost("character", character);
+  return result;
+};
+
+const updateCharacter = async(character: ArlenorCharacter): Promise<string> => {
+  character.initTime();
+  const result: string = await requests.requestPut("character", character);
+  return result;
+};
+
+const deleteCharacter = async(character: ArlenorCharacter): Promise<string> => {
+  const result: string = await requests.requestDelete("character", character.id);
   return result;
 };
 
 // --- SKILL ---------------------------------------------------------------------------
 const readAllSkill = async(): Promise<ArlenorSkill[]>  => {
-  const result: ArlenorSkill[] = await requests.requestGet("skill");
-  return result;
+  const results: ResponseSkill[] = await requests.requestGet("skill");
+
+  const finalResults: ArlenorSkill[] = [];
+  results.forEach((obj: ResponseSkill) => {
+    const skill = new ArlenorSkill();
+    skill.id = obj.ref_skill;
+    skill.initByJSON(obj.value_skill);
+    finalResults.push(skill);
+  });
+
+  return finalResults;
 };
 
 const sendSkill = async(skill: ArlenorSkill): Promise<string> => {
+  skill.initTime();
   const result: string = await requests.requestPost("skill", skill);
+  return result;
+};
+
+const updateSkill = async(skill: ArlenorSkill): Promise<string> => {
+  skill.initTime();
+  const result: string = await requests.requestPut("skill", skill);
+  return result;
+};
+
+const deleteSkill = async(skill: ArlenorSkill): Promise<string> => {
+  const result: string = await requests.requestDelete("skill", skill.id);
+  return result;
+};
+
+// --- STUFF ---------------------------------------------------------------------------
+const readAllStuff = async(): Promise<ArlenorStuff[]>  => {
+  const results: ResponseStuff[] = await requests.requestGet("stuff");
+
+  const finalResults: ArlenorStuff[] = [];
+  results.forEach((obj: ResponseStuff) => {
+    const stuff = new ArlenorStuff();
+    stuff.id = obj.ref_stuff;
+    stuff.initByJSON(obj.value_stuff);
+    finalResults.push(stuff);
+  });
+
+  return finalResults;
+};
+
+const sendStuff = async(stuff: ArlenorStuff): Promise<string> => {
+  stuff.initTime();
+  const result: string = await requests.requestPost("stuff", stuff);
+  return result;
+};
+
+const updateStuff = async(stuff: ArlenorStuff): Promise<string> => {
+  stuff.initTime();
+  const result: string = await requests.requestPut("stuff", stuff);
+  return result;
+};
+
+const deleteStuff = async(stuff: ArlenorStuff): Promise<string> => {
+  const result: string = await requests.requestDelete("stuff", stuff.id);
   return result;
 };
 
@@ -99,12 +174,20 @@ export default {
   readAllQuizz,
   readAllCharacter,
   readAllSkill,
+  readAllStuff,
   readAllPower,
   sendQuizz,
   sendCharacter,
   sendSkill,
+  sendStuff,
   sendPower,
-  sendAllPower,
+  updateCharacter,
+  updateSkill,
+  updateStuff,
   updatePower,
-  deletePower
+  deleteCharacter,
+  deleteSkill,
+  deleteStuff,
+  deletePower,
+  sendAllPower,
 };

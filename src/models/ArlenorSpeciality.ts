@@ -1,6 +1,6 @@
 import { ArlenorGroup } from "./ArlenorGroup";
 import { ArlenorSkill, SkillsEnum } from "./ArlenorSkill";
-import { getSpeSkills } from "./data/ListSkills";
+import { getSpeSkills } from "./data/ListDefaultSkills";
 
 export class ArlenorSpeciality {
   public name: string;

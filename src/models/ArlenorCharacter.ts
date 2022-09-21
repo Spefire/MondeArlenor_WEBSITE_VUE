@@ -1,3 +1,4 @@
+import { ArlenorAPI } from "./ArlenorAPI";
 import { ArlenorCaracts } from "./ArlenorCaracts";
 import { ArlenorCrystal } from "./ArlenorCrystal";
 import { ArlenorLevel } from "./ArlenorLevel";
@@ -5,7 +6,8 @@ import { ArlenorRace } from "./ArlenorRace";
 import { getListRaces } from "./data/ListRaces";
 import { ArlenorSpecialities } from "./data/ListSpecialities";
 
-export class ArlenorCharacter {
+export class ArlenorCharacter extends ArlenorAPI {
+  
   public level: ArlenorLevel;
   public avatar: string;
   public name: string;
@@ -39,6 +41,7 @@ export class ArlenorCharacter {
   }
 
   constructor() {
+    super();
     this.level = new ArlenorLevel(1);
     this.avatar = "";
     this.name = "";
@@ -54,7 +57,7 @@ export class ArlenorCharacter {
     this.crystals = [new ArlenorCrystal(), new ArlenorCrystal()];
   }
 
-  init(): void {
+  public init(): void {
     this.level = new ArlenorLevel(1);
     this.avatar = "";
     this.name = "Jérémy Lécuyer (aka Spefire)";

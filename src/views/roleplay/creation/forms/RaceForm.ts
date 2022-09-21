@@ -1,7 +1,7 @@
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { ArlenorRace, DifficultyEnum } from "@/models/ArlenorRace";
+import { getListRaceSkills } from "@/models/data/ListDefaultSkills";
 import { getListRaces } from "@/models/data/ListRaces";
-import { getListRaceSkills } from "@/models/data/ListSkills";
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 import { defineComponent } from "vue";
