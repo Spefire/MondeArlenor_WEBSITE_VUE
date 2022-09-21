@@ -3,14 +3,14 @@
     
     <div class="layout-row">
       <div class="layout-col-50 form-element">
-        <span>Nom de l'équipement <span required-libelle>*</span></span>
+        <span>Nom de la compétence <span required-libelle>*</span></span>
         <input
           type="text"
           class="text-center"
           v-model.trim.lazy="v$.form.name.$model">
       </div>
       <div class="layout-col-50 form-element">
-        <span>Type d'équipement</span>
+        <span>Type de compétence</span>
         <div class="dropdown">
           <select
             class="dropdown-select"
@@ -25,7 +25,7 @@
     </div>
 
     <div class="form-element">
-      <span>Description de l'équipement</span>
+      <span>Description de la compétence</span>
       <textarea
         v-model.trim.lazy="v$.form.description.$model"
         maxlength="180" />
@@ -41,4 +41,4 @@
     
 </template>
 
-<script lang="ts" src="./StuffForm.ts"></script>
+<script lang="ts" src="./SkillForm.ts"></script>
