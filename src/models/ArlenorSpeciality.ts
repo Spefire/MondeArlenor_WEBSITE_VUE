@@ -26,7 +26,7 @@ export class ArlenorSpeciality {
   }
 
   public setSkills(): void {
-    const list = getSpeSkills(this.group.code, this.code);
+    const list = getSpeSkills(this.code);
     this.weaponSkill = list.find(skill => skill.type === SkillTypesEnum.CompetenceArme) ?? null;
     this.armorSkill = list.find(skill => skill.type === SkillTypesEnum.CompetenceArmure) ?? null;
     this.chanelingProperty = list.find(skill => skill.type === SkillTypesEnum.ProprieteCanalisation) ?? null;

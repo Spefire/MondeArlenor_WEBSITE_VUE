@@ -1,6 +1,7 @@
 import { ArlenorEnum } from "./ArlenorEnum";
 import { ArlenorSkill } from "./ArlenorSkill";
-import { getListRaceSkills } from "./data/ListDefaultSkills";
+import { getListRaces } from "./data/ListRaces";
+import { getListRaceSkills } from "./data/ListRaceSkills";
 
 export class ArlenorRace {
   public name: string;
@@ -35,6 +36,13 @@ export class ArlenorRace {
   public getSkills(): ArlenorSkill[] {
     const allSkills = getListRaceSkills();
     return allSkills.filter(skill => skill.race && skill.race.code === this.code);
+  }
+
+  public static getRace(code: string): ArlenorRace {
+    const arlenorRaces = getListRaces();
+    const result = arlenorRaces.find(race => race.code === code);
+    if (!result) console.error("ERROR getRace : ", code);
+    return result || arlenorRaces[0];
   }
 }
 

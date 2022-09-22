@@ -1,65 +1,87 @@
 import { ArlenorAPI } from "./ArlenorAPI";
+import { CaractNomEnum } from "./ArlenorCaracts";
 import { ArlenorEnum, getEnumByCode } from "./ArlenorEnum";
-import { ArlenorGroup } from "./ArlenorGroup";
 import { ArlenorRace } from "./ArlenorRace";
 import { ArlenorSpeciality } from "./ArlenorSpeciality";
+import { ArlenorSpecialities } from "./data/ListSpecialities";
 
 export class ArlenorStuff extends ArlenorAPI {
 
   public name: string;
-  public image: string;
-  public codeType: string;
-
-  // Pour les compétences de race
-  public race: ArlenorRace | null;
   public description: string;
+  public urlImage: string;
+  
+  get image(): string | null {
+    if (this.urlImage) {
+      const images = require.context("./../assets/icons/capacities/", false, /\.png$/);
+      return images(this.urlImage);
+    }
+    if (this.codeType === StuffTypesEnum.CompetenceArme.Code) return require("./../assets/icons/skills/armes.png");
+    else if (this.type.Code === StuffTypesEnum.CompetenceArmure.Code) return require("./../assets/icons/skills/armures.png");
+    else if (this.type.Code === StuffTypesEnum.ProprieteCanalisation.Code) return require("./../assets/icons/skills/incantation.png");
+    else if (this.type.Code === StuffTypesEnum.ProprieteTemps.Code) return require("./../assets/icons/skills/rechargement.png");
+    return null;
+  }
 
-  // Pour les autres compétences
-  public group: ArlenorGroup | null;
-  public specialities: ArlenorSpeciality[];
-  public caracts: ArlenorEnum[];
-
+  // Pour toutes les compétences
+  public codeType: string;
   get type(): ArlenorEnum {
     return getEnumByCode(this.codeType, StuffTypesEnum);
+  }
+
+  public codesCaracts: string[];
+  get caracts(): ArlenorEnum[] {
+    const results: ArlenorEnum[] = [];
+    this.codesCaracts.forEach(codeCaracts => {
+      results.push(getEnumByCode(codeCaracts, CaractNomEnum));
+    });
+    return results;
+  }
+
+  // Pour les compétences de race
+  public codeRace: string | null;
+  get race(): ArlenorRace | null {
+    if (!this.codeRace) return null;
+    return ArlenorRace.getRace(this.codeRace);
+  }
+
+  // Pour les autres compétences
+  public codeSpeciality: string | null;
+  get speciality(): ArlenorSpeciality | null {
+    if (!this.codeSpeciality) return null;
+    return ArlenorSpecialities.getSpeciality(this.codeSpeciality);
   }
 
   constructor() {
     super();
     this.name = "";
-    this.codeType = StuffTypesEnum.CompetenceAutre.Code;
     this.description = "";
-    this.image = "";
-    this.race = null;
-    this.group = null;
-    this.specialities = [];
-    this.caracts = [];
+    this.urlImage = "";
 
-    this.setImage();
+    this.codeType = StuffTypesEnum.CompetenceAutre.Code;
+    this.codesCaracts = [];
+    this.codeRace = null;
+    this.codeSpeciality = null;
+  }
+
+  public initByJSON(value: string): void {
+    const powerDB = JSON.parse(value);
+    this.date = powerDB.date;
+    this.hour = powerDB.hour;
+
+    this.name = powerDB.name;
+    this.description = powerDB.description;
+    this.urlImage = powerDB.urlImage;
+
+    this.codeType = powerDB.codeType;
+    this.codesCaracts = powerDB.codesCaracts;
+    this.codeRace = powerDB.codeRace;
+    this.codeSpeciality = powerDB.codeSpeciality;
   }
 
   public init(name: string, type: ArlenorEnum): void {
     this.name = name;
     this.codeType = type.Code;
-  }
-
-  public initGrpSpe(group: ArlenorGroup | null, specialities: ArlenorSpeciality[]): void {
-    this.group = (group ? group : specialities[0].group);
-    this.specialities = specialities;
-  }
-
-  public setImage(): void {
-    if (this.type.Code === StuffTypesEnum.CompetenceArme.Code) {
-      this.image = require("./../assets/icons/skills/armes.png");
-    }
-    else if (this.type.Code === StuffTypesEnum.CompetenceArmure.Code) {
-      this.image = require("./../assets/icons/skills/armures.png");
-    }
-    else if (this.type.Code === StuffTypesEnum.ProprieteCanalisation.Code) {
-      this.image = require("./../assets/icons/skills/incantation.png");
-    }
-    else if (this.type.Code === StuffTypesEnum.ProprieteTemps.Code) {
-      this.image = require("./../assets/icons/skills/rechargement.png");
-    }
   }
 }
 

@@ -126,6 +126,11 @@ export class ArlenorSpecialities {
     return Object.values(arlenorSpecialities);
   }
 
+  public static getSpecialitiesByGroup(codeGroup: string): ArlenorSpeciality[] {
+    const arlenorSpecialities = ArlenorSpecialities.getListSpecialities();
+    return arlenorSpecialities.filter(spe => spe.group.code === codeGroup);
+  }
+
   public static getSpeciality(code: string): ArlenorSpeciality {
     const arlenorSpecialities = new ArlenorSpecialities();
     const listSpecialities = Object.values(arlenorSpecialities);

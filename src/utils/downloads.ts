@@ -54,7 +54,7 @@ const downloadPDF = async(character: ArlenorCharacter, allPowers: ArlenorPower[]
   y += 19.45;
   const raceSkills = character.race ? character.race.getSkills() : [];
   raceSkills.forEach(raceSkill => {
-    doc.addImage(raceSkill.image, "JPEG", x, y, 20, 20);
+    if (raceSkill.image) doc.addImage(raceSkill.image, "JPEG", x, y, 20, 20);
     doc.text(raceSkill.name, x + x_txt_scale, y + y_txt_scale);
     y += y_line_scale;
   });
