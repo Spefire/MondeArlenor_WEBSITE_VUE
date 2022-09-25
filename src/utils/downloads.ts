@@ -1,9 +1,10 @@
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { ArlenorPower, PowerRanksEnum } from "@/models/ArlenorPower";
+import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import jsPDF from "jspdf";
 
-const downloadPDF = async(character: ArlenorCharacter, allPowers: ArlenorPower[]): Promise<void> => {
+const downloadPDF = async(character: ArlenorCharacter, allSkills: ArlenorSkill[], allPowers: ArlenorPower[]): Promise<void> => {
   const doc = new jsPDF("p", "px", "a4");
   const width = doc.internal.pageSize.getWidth();
   const height = doc.internal.pageSize.getHeight();
@@ -84,21 +85,29 @@ const downloadPDF = async(character: ArlenorCharacter, allPowers: ArlenorPower[]
   doc.setFontSize(10);
 
   // --- COMPETENCES
-  const iconSkill = await require("../assets/icons/skills/armes.png");
+  const speSkills = character.crystalsSkills;
+  const choiceSkills = allSkills.filter(skill => character.idsSkills.includes(skill.id));
+  const skills = speSkills.concat(choiceSkills);
 
   x = 34.6;
   y = 35.8;
   for(let i = 0; i < 5; i++) {
-    doc.addImage(iconSkill, "JPEG", x, y, 20, 20);
-    doc.text("Nom de la compétence", x + x_txt_scale - 1, y + y_txt_scale);
+    if (skills.length > i) {
+      const skill = skills[i];
+      if (skill.image) doc.addImage(skill.image, "JPEG", x, y, 20, 20);
+      doc.text(skill.name, x + x_txt_scale - 1, y + y_txt_scale);
+    }
     y += y_line_scale;
   }
 
   x = 243.4;
   y = 35.8;
   for(let i = 0; i < 5; i++) {
-    doc.addImage(iconSkill, "JPEG", x, y, 20, 20);
-    doc.text("Nom de la compétence", x + x_txt_scale, y + y_txt_scale);
+    if (skills.length > (i+5)) {
+      const skill = skills[i+5];
+      if (skill.image) doc.addImage(skill.image, "JPEG", x, y, 20, 20);
+      doc.text(skill.name, x + x_txt_scale, y + y_txt_scale);
+    }
     y += y_line_scale;
   }
 

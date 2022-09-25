@@ -68,9 +68,11 @@ export default defineComponent({
       this.selection = 0;
     },
     async downloadCharacter() {
+      let allSkills = await api.readAllSkill();
       let allPowers = await api.readAllPower();
+      allSkills = allSkills.sort((a, b) => a.name.localeCompare(b.name));
       allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
-      downloads.downloadPDF(this.character, allPowers);
+      downloads.downloadPDF(this.character, allSkills, allPowers);
     }
   },
 

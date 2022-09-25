@@ -20,7 +20,8 @@ export default defineComponent({
 
   data (props) {
     const allTypes: ArlenorEnum[] = Object.values(SkillTypesEnum).filter(skillEnum => {
-      return (skillEnum.Code !== SkillTypesEnum.ProprieteCanalisation.Code
+      return (skillEnum.Code !== SkillTypesEnum.CompetenceArmure.Code
+        && skillEnum.Code !== SkillTypesEnum.ProprieteCanalisation.Code
         && skillEnum.Code !== SkillTypesEnum.ProprieteTemps.Code);
     });
 
