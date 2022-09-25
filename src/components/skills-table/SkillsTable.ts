@@ -1,5 +1,8 @@
+import { ArlenorEnum } from "@/models/ArlenorEnum";
 import { ArlenorSkill, SkillTypesEnum } from "@/models/ArlenorSkill";
 import { defineComponent, PropType, Ref, ref } from "vue";
+
+import ToggleButton from "../toggle-button/ToggleButton.vue";
 
 export default defineComponent({
   name: "SkillsTable",
@@ -9,19 +12,24 @@ export default defineComponent({
       required: true
     },
   },
-  components: {},
+  components: { ToggleButton },
   emits: ["edit", "delete", "update"],
 
   setup() {
+    const isEditable = ref(false);
     const selectedSkill: Ref<ArlenorSkill | null> = ref(null);
     const filteredSkills: Ref<ArlenorSkill[]> = ref([]);
     
-    const allTypes = Object.values(SkillTypesEnum);
+    const allTypes: ArlenorEnum[] = Object.values(SkillTypesEnum).filter(skillEnum => {
+      return (skillEnum.Code !== SkillTypesEnum.ProprieteCanalisation.Code
+        && skillEnum.Code !== SkillTypesEnum.ProprieteTemps.Code);
+    });
     const selectedType: Ref<string | null> = ref(null);
 
     const searchName = ref("");
 
     return {
+      isEditable,
       selectedSkill, filteredSkills,
       allTypes, selectedType,
       searchName
@@ -39,6 +47,10 @@ export default defineComponent({
   },
 
   methods: {
+    toggleEditable() {
+      this.isEditable = !this.isEditable;
+      this.changeFilteredSkills();
+    },
     changeFilteredSkills() {
       this.filteredSkills = this.allSkills;
       if (this.selectedType) this.filteredSkills = this.filteredSkills.filter(skill => {
@@ -46,6 +58,7 @@ export default defineComponent({
         else return true;
       });
       if (this.searchName) this.filteredSkills = this.filteredSkills.filter(skill => skill.name.toLowerCase().indexOf(this.searchName.toLowerCase()) !== -1);
+      if (this.isEditable) this.filteredSkills = this.filteredSkills.filter(skill => skill.isEditable);
       this.filteredSkills.sort((a, b) => a.name.localeCompare(b.name));
       this.$emit("update", this.filteredSkills);
     },

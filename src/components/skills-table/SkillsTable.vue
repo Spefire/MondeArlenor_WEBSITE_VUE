@@ -1,6 +1,12 @@
 <template>
   <div class="layout-row margin-top-1">
-    <div class="layout-col-50 form-element">
+    <div class="layout-col-33 form-element">
+      <ToggleButton
+        :text="'Compétences éditables'"
+        :value="isEditable"
+        @change="toggleEditable" />
+    </div>
+    <div class="layout-col-33 form-element">
       <span>Sélection d'un type :</span>
       <div class="dropdown">
         <select
@@ -15,7 +21,7 @@
         </select>
       </div>
     </div>
-    <div class="layout-col-50 form-element">
+    <div class="layout-col-33 form-element">
       <span>Recherche par nom :</span>
       <input
         type="text"
@@ -73,23 +79,31 @@
             class="col-30 pointer"
             @click="seeMore(skill)">
             {{ skill.name }}
+            <template v-if="skill.codeSpeciality">
+              - {{ skill.speciality.name }}
+            </template>
+            <template v-if="skill.codeRace">
+              - {{ skill.race.name }}
+            </template>
           </td>
           <td class="col-30">
             {{ skill.type.Libelle }}
           </td>
           <td class="col-20">
-            <button
-              class="link-button"
-              title="Modifier"
-              @click="editSkill(skill)">
-              <i class="icon icon-pencil" />
-            </button>
-            <button
-              class="link-button alert-button margin-left-1"
-              title="Supprimer"
-              @click="deleteSkill(skill)">
-              <i class="icon icon-bin2" />
-            </button>
+            <template v-if="skill.isEditable">
+              <button
+                class="link-button"
+                title="Modifier"
+                @click="editSkill(skill)">
+                <i class="icon icon-pencil" />
+              </button>
+              <button
+                class="link-button alert-button margin-left-1"
+                title="Supprimer"
+                @click="deleteSkill(skill)">
+                <i class="icon icon-bin2" />
+              </button>
+            </template>
           </td>
         </tr>
 

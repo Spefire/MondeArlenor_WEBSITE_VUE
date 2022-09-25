@@ -13,7 +13,7 @@ export function getListRaces(): ArlenorRace[] {
   les autres races étant des <b>Humains</b> ayant subit des mutations.
   Ils aiment autant construire que détruire, ils sont aussi savants qu'ignorants... ils sont polyvalents.
   Situés principalement à Faradel et aux alentours, les <b>Humains</b> servent souvent la garnison faradélienne.`;
-  humain.image = require("./../../assets/images/races/p_humain.png");
+  humain.image = require("./../../assets/images/races/p_humain.jpg");
   humain.locations = ["L'Empire Faradélien", "Le Régime Jirakanien"];
   listRaces.push(humain);
 
@@ -31,7 +31,7 @@ export function getListRaces(): ArlenorRace[] {
   <br/>&emsp;
   En dehors de ça, les <b>Elfes</b> ont obtenu la capacité de communier entre eux dans leurs rêves.
   Ils occupent ainsi des places importantes en politique, ou dans les domaines scientifiques.`;
-  elfe.image = require("./../../assets/images/races/p_elfe.png");
+  elfe.image = require("./../../assets/images/races/p_elfe.jpg");
   elfe.locations = ["L'Empire Faradélien", "Le Régime Jirakanien"];
   listRaces.push(elfe);
 
@@ -49,7 +49,7 @@ export function getListRaces(): ArlenorRace[] {
   Les <b>Nains</b>, rejetés et discriminés, se sont alors regroupés dans les hautes montagnes de Kazador pour y fonder un royaume.
   La rumeur dit qu'ils y cachent un grand secret...
   Il n'est pas rare de voir des <b>Nains</b> à Jirakan, mais le plus souvent, ils ne sont pas libres et servent d'esclaves avec les Mutants.`;
-  nain.image = require("./../../assets/images/races/p_nain.png");
+  nain.image = require("./../../assets/images/races/p_nain.jpg");
   nain.locations = ["Le Régime Jirakanien", "Les Montagnes de Kazador"];
   listRaces.push(nain);
 
@@ -66,7 +66,7 @@ export function getListRaces(): ArlenorRace[] {
   Les Humains et les Elfes les considèrent comme des bêtes, des sauvages, et une loi faradélienne, même, condamnent leur existence...
   Les <b>Mutants</b> ont peu souvent confiance en eux, et finissent par vivre cachés : seuls, en camouflant du mieux qu’ils le peuvent leur partie animale.
   Cependant un groupe de résistants a commencé à se fonder dans les souterrains de Faradel, ce qui leur redonne espoir.`;
-  mutant.image = require("./../../assets/images/races/p_mutant.png");
+  mutant.image = require("./../../assets/images/races/p_mutant.jpg");
   mutant.locations = ["L'Empire Faradélien", "Le Régime Jirakanien", "La Forêt d'Imerys"];
   listRaces.push(mutant);
 
@@ -85,7 +85,7 @@ export function getListRaces(): ArlenorRace[] {
   <br/>&emsp;
   Dans la forêt de Miryden, les <b>Pans</b> vivent cachés et sont connectés entre eux via Nébulys (telle une intelligence collective).
   Et le fait de s'éloigner de la forêt, les déconnecterait et rendrait certains vulnérables, déprimés, voire fous.`;
-  pan.image = require("./../../assets/images/races/p_pan.png");
+  pan.image = require("./../../assets/images/races/p_pan.jpg");
   pan.locations = ["Inconnue"];
   listRaces.push(pan);
 
@@ -105,7 +105,7 @@ export function getListRaces(): ArlenorRace[] {
   <br/>&emsp;
   Les <b>Arléniens</b> sont tatoués : ils n'arrivent pas à utiliser les cristaux dans leur état solide...
   Ils ont alors un rituel qui transforme le cristal en encre puis en tatouage.`;
-  arlenien.image = require("./../../assets/images/races/p_arlenien.png");
+  arlenien.image = require("./../../assets/images/races/p_arlenien.jpg");
   arlenien.locations = ["Inconnue"];
   listRaces.push(arlenien);
 
@@ -123,7 +123,7 @@ export function getListRaces(): ArlenorRace[] {
   <br/>&emsp;
   Ces <b>Célestiens</b>, nommés mages, possèdent en eux un coeur de cristal qui leur procure des pouvoirs élémentaires.
   Et peuvent communier avec des familiers afin d'améliorer leurs capacités magiques.`;
-  celestien.image = require("./../../assets/images/races/p_celestien.png");
+  celestien.image = require("./../../assets/images/races/p_celestien.jpg");
   celestien.locations = ["L'Île Célestia"];
   listRaces.push(celestien);
 

@@ -1,10 +1,21 @@
 <template>
   <div class="creation-content">
-    <div class="creation-form" />
     <div class="creation-form">
-      <p>
-        Aucune compétence possible.
-      </p>
+      <div class="form-element">
+        <span>Compétences acquises par la race et les pouvoirs</span>
+      </div>
+    </div>
+    <div class="creation-form">
+      <div class="form-element">
+        <span>Compétences <span required-libelle>*</span></span>
+
+        <SkillsSelectionTable
+          :level="level"
+          :ids-skills="form.idsSkills"
+          :filtered-skills="allSkills"
+          @add="addSkill"
+          @remove="removeSkill" />
+      </div>
     </div>
   </div>
 

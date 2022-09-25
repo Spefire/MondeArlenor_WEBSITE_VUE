@@ -1,4 +1,5 @@
 import ToggleButton from "@/components/toggle-button/ToggleButton.vue";
+import { ArlenorEnum } from "@/models/ArlenorEnum";
 import { ArlenorSkill, SkillTypesEnum } from "@/models/ArlenorSkill";
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
@@ -18,7 +19,10 @@ export default defineComponent({
   emits: ["submit"],
 
   data (props) {
-    const allTypes = Object.values(SkillTypesEnum);
+    const allTypes: ArlenorEnum[] = Object.values(SkillTypesEnum).filter(skillEnum => {
+      return (skillEnum.Code !== SkillTypesEnum.ProprieteCanalisation.Code
+        && skillEnum.Code !== SkillTypesEnum.ProprieteTemps.Code);
+    });
 
     return {
       allTypes,

@@ -10,6 +10,13 @@ export class ArlenorSkill extends ArlenorAPI {
   public name: string;
   public description: string;
   public urlImage: string;
+
+  get code(): string {
+    let code = this.name;
+    code = code.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+    code = code.replace(/\s/g, "");
+    return code.toUpperCase();
+  }
   
   get image(): string | null {
     if (this.urlImage) {
@@ -52,6 +59,10 @@ export class ArlenorSkill extends ArlenorAPI {
     return ArlenorSpecialities.getSpeciality(this.codeSpeciality);
   }
 
+  get isEditable(): boolean {
+    return (!this.codeRace && !this.codeSpeciality);
+  }
+
   constructor() {
     super();
     this.name = "";
@@ -86,13 +97,11 @@ export class ArlenorSkill extends ArlenorAPI {
 }
 
 export class SkillTypesEnum {
-  // Compétences de race
-  static CompetenceRace: ArlenorEnum = { Code: "ABL_RACE", Libelle: "Compétence de race" };
   // Compétences de groupe et de classe/spécialité
   static CompetenceArme: ArlenorEnum = { Code: "ABL_ARME", Libelle: "Compétence d'arme" };
   static CompetenceArmure: ArlenorEnum = { Code: "ABL_ARMURE", Libelle: "Compétence d'armure" };
   static ProprieteCanalisation: ArlenorEnum = { Code: "PROP_CAN", Libelle: "Canalisation" };
   static ProprieteTemps: ArlenorEnum = { Code: "PROP_TEMPS", Libelle: "Durée et recharge" };
-  // Autres compétences
+  // Compétences de race et autres compétences
   static CompetenceAutre: ArlenorEnum = { Code: "ABL_OTHER", Libelle: "Autre compétence" };
 }

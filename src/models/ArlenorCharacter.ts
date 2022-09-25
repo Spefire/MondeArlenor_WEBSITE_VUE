@@ -21,6 +21,7 @@ export class ArlenorCharacter extends ArlenorAPI {
   public race: ArlenorRace | null;
   public caracts: ArlenorCaracts;
   public crystals: ArlenorCrystal[];
+  public idsSkills: string[];
 
   get initiative(): number {
     return this.caracts.hab + this.caracts.int;
@@ -55,6 +56,7 @@ export class ArlenorCharacter extends ArlenorAPI {
     this.race = null;
     this.caracts = new ArlenorCaracts();
     this.crystals = [new ArlenorCrystal(), new ArlenorCrystal()];
+    this.idsSkills = [];
   }
 
   public init(): void {
@@ -89,5 +91,7 @@ export class ArlenorCharacter extends ArlenorAPI {
     const crystal02 = new ArlenorCrystal();
     crystal02.codeSpeciality = specialities.DanseurMartial.code;
     this.crystals = [crystal01, crystal02];
+    
+    this.idsSkills = [];
   }
 }

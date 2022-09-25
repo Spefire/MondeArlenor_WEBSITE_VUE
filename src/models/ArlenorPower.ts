@@ -20,7 +20,7 @@ export class ArlenorPower extends ArlenorAPI {
   public codeDuration: string;
   public chaneling: boolean;
   public codeTests: string;
-    
+  
   get code(): string {
     let code = this.name;
     code = code.normalize("NFD").replace(/\p{Diacritic}/gu, "");
