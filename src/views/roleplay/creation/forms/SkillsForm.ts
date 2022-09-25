@@ -78,7 +78,7 @@ export default defineComponent({
       this.updateForm();
     },
     checkNbSkills() {
-      const nbSkills = this.form.idsSkills.length;
+      const nbSkills = this.form.idsSkills.length + this.speSkills.length;
       this.form.isNbSkillsValid = (nbSkills === this.level.maxSkills) ? true : null;
     },
     updateForm() {

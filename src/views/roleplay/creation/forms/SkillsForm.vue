@@ -34,15 +34,15 @@
       </div>
 
       <div
-        v-if="form.idsSkills.length !== this.level.maxSkills"
+        v-if="(speSkills.length + form.idsSkills.length) !== this.level.maxSkills"
         class="layout-bloc margin-top-1"
         required-libelle>
         Compétences restantes à sélectionner :
-        {{ level.maxSkills - form.idsSkills.length }}
+        {{ level.maxSkills - (form.idsSkills.length + speSkills.length) }}
       </div>
 
       <div
-        v-if="form.idsSkills.length === this.level.maxSkills"
+        v-if="(form.idsSkills.length + speSkills.length) === this.level.maxSkills"
         class="layout-bloc margin-top-1">
         Toutes les compétences ont été sélectionnées.
       </div>
@@ -56,6 +56,7 @@
           :level="level"
           :ids-skills="form.idsSkills"
           :filtered-skills="allSkills"
+          :fixed-skills="speSkills"
           @add="addSkill"
           @remove="removeSkill" />
       </div>

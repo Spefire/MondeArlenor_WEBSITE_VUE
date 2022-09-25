@@ -18,6 +18,10 @@ export default defineComponent({
       type: Array as PropType<ArlenorSkill[]>,
       required: true
     },
+    fixedSkills: {
+      type: Array as PropType<ArlenorSkill[]>,
+      required: true
+    },
   },
   components: { },
   emits: ["add", "remove"],
@@ -57,7 +61,7 @@ export default defineComponent({
     },
     checkDisabled(skill: ArlenorSkill) {
       if (this.checkSkill(skill)) return false;
-      return this.idsSkills.length >= this.level.maxSkills;
+      return (this.idsSkills.length + this.fixedSkills.length) >= this.level.maxSkills;
     },
     seeMore(skill: ArlenorSkill) {
       this.selectedSkill = (this.selectedSkill === skill) ? null : skill;

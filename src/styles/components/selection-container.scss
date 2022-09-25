@@ -33,6 +33,10 @@
             background-clip: content-box;
             background-color: $light-secondary-color;
         }
+
+        &.warning {
+            border: 1px solid $warning-color;
+        }
     }
 }
 

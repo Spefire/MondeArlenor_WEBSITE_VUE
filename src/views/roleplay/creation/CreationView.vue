@@ -162,7 +162,8 @@
         class="dot" />
       <div class="dotline" />
       <li
-        :class="{'active': selection == 4 }"
+        :class="{'active': selection == 4,
+                 'warning': character.level.numLevel < 5}"
         class="dot" />
       <div class="dotline" />
       <li
@@ -170,7 +171,8 @@
         class="dot" />
       <div class="dotline" />
       <li
-        :class="{'active': selection == 6 }"
+        :class="{'active': selection == 6,
+                 'warning': true }"
         class="dot" />
       <div class="dotline" />
       <li
