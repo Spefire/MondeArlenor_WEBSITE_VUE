@@ -23,6 +23,7 @@
       </p>
       <p>
         Note : Tous les dessins, images et illustrations de ce site ne sont pas libres de droit.<br>
+        Certaines sont ma propriété. D'autres viennent de Pixabay, ou sont générées avec MidJourney et Wonder.<br>
         Merci de ne pas les utiliser sans mon autorisation.
       </p>
     </div>
