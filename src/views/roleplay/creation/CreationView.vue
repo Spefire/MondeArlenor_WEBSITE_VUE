@@ -11,8 +11,8 @@
       <template v-if="selection == 3">Choix du cristal primaire</template>
       <template v-if="selection == 4">Choix du cristal secondaire</template>
       <template v-if="selection == 5">Choix des compétences</template>
-      <template v-if="selection == 6">Choix de l'identité</template>
-      <template v-if="selection == 7">Choix de l'équipement</template>
+      <template v-if="selection == 6">Choix de l'équipement</template>
+      <template v-if="selection == 7">Choix de l'identité</template>
       <template v-if="selection == 8">Récapitulatif</template>
       <span
         v-if="hasModification"

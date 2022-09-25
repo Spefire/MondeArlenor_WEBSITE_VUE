@@ -1,12 +1,5 @@
 <template>
-  <div class="creation-content">
-    <div class="creation-form" />
-    <div class="creation-form">
-      <p>
-        Aucun équipement possible.
-      </p>
-    </div>
-  </div>
+  <div class="creation-content" />
 
   <div class="creation-content-nav">
     <button

@@ -21,18 +21,12 @@ export default defineComponent({
     const crystal01 = character.crystals[0];
     let spe01;
     if (crystal01) spe01 = crystal01.speciality;
-    if (spe01) spe01.setSkills();
 
     const crystal02 = character.crystals[1];
     let spe02;
     if (crystal02) spe02 = crystal02.speciality;
-    if (spe02) spe02.setSkills();
 
-    const speSkills = [];
-    if (spe01?.weaponSkill) speSkills.push(spe01?.weaponSkill);
-    if (spe01?.armorSkill) speSkills.push(spe01?.armorSkill);
-    if (spe02?.weaponSkill) speSkills.push(spe02?.weaponSkill);
-    if (spe02?.armorSkill) speSkills.push(spe02?.armorSkill);
+    const speSkills = character.crystalsSkills;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const idsSkills: Ref<any> = ref(character.idsSkills);
