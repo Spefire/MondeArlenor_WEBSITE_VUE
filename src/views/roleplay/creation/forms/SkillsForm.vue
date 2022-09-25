@@ -1,10 +1,53 @@
 <template>
   <div class="creation-content">
     <div class="creation-form">
-      <div class="form-element">
-        <span>Compétences acquises par la race et les pouvoirs</span>
+      <div class="layout-bloc form-element zone-element zone-element-semifree">
+        <div class="zone-header">
+          <div class="text-center">
+            <h2>Compétences obtenues par les classes</h2>
+          </div>
+        </div>
+        <div class="zone-description margin-top-1">
+          <div
+            v-for="(speSkill, indexSkill) in speSkills"
+            class="power-line"
+            :key="indexSkill">
+            <div class="power-img-layout">
+              <img
+                class="power-img"
+                :src="speSkill.image"
+                :alt="speSkill.name">
+            </div>
+            <span class="power-txt">{{ speSkill.name }}</span>
+          </div>
+        </div>
+        <p 
+          v-if="!spe02"
+          class="zone-comment margin-top-1">
+          Classe concernée : {{ spe01.name }}
+        </p>
+        <p
+          v-if="spe02"
+          class="zone-comment margin-top-1">
+          Classes concernées : {{ spe01.name }}, {{ spe02.name }}
+        </p>
+      </div>
+
+      <div
+        v-if="form.idsSkills.length !== this.level.maxSkills"
+        class="layout-bloc margin-top-1"
+        required-libelle>
+        Compétences restantes à sélectionner :
+        {{ level.maxSkills - form.idsSkills.length }}
+      </div>
+
+      <div
+        v-if="form.idsSkills.length === this.level.maxSkills"
+        class="layout-bloc margin-top-1">
+        Toutes les compétences ont été sélectionnées.
       </div>
     </div>
+
     <div class="creation-form">
       <div class="form-element">
         <span>Compétences <span required-libelle>*</span></span>

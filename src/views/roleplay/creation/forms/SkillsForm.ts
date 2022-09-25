@@ -1,8 +1,6 @@
 import SkillsSelectionTable from "@/components/skills-selection-table/SkillsSelectionTable.vue";
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
-import { ArlenorSkill, SkillTypesEnum } from "@/models/ArlenorSkill";
-import { getListDefaultSkills } from "@/models/data/ListDefaultSkills";
-import { getListRaceSkills } from "@/models/data/ListRaceSkills";
+import { ArlenorSkill } from "@/models/ArlenorSkill";
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 import { defineComponent, Ref, ref } from "vue";
@@ -20,12 +18,21 @@ export default defineComponent({
 
     const character: ArlenorCharacter = store.state.character;
 
-    const skills = getListDefaultSkills().filter(skill => {
-      return (skill.codeType !== SkillTypesEnum.ProprieteCanalisation.Code
-        && skill.codeType !== SkillTypesEnum.ProprieteTemps.Code);
-    });
-    const defaultSkills: Ref<ArlenorSkill[]> = ref(skills);
-    const racesSkills: Ref<ArlenorSkill[]> = ref(getListRaceSkills());
+    const crystal01 = character.crystals[0];
+    let spe01;
+    if (crystal01) spe01 = crystal01.speciality;
+    if (spe01) spe01.setSkills();
+
+    const crystal02 = character.crystals[1];
+    let spe02;
+    if (crystal02) spe02 = crystal02.speciality;
+    if (spe02) spe02.setSkills();
+
+    const speSkills = [];
+    if (spe01?.weaponSkill) speSkills.push(spe01?.weaponSkill);
+    if (spe01?.armorSkill) speSkills.push(spe01?.armorSkill);
+    if (spe02?.weaponSkill) speSkills.push(spe02?.weaponSkill);
+    if (spe02?.armorSkill) speSkills.push(spe02?.armorSkill);
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const idsSkills: Ref<any> = ref(character.idsSkills);
@@ -35,7 +42,7 @@ export default defineComponent({
     return {
       store,
       level,
-      defaultSkills, racesSkills,
+      spe01, spe02, speSkills,
       form: {
         idsSkills,
         isNbSkillsValid,

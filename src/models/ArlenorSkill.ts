@@ -27,7 +27,7 @@ export class ArlenorSkill extends ArlenorAPI {
     else if (this.type.Code === SkillTypesEnum.CompetenceArmure.Code) return require("./../assets/icons/skills/armures.png");
     else if (this.type.Code === SkillTypesEnum.ProprieteCanalisation.Code) return require("./../assets/icons/skills/incantation.png");
     else if (this.type.Code === SkillTypesEnum.ProprieteTemps.Code) return require("./../assets/icons/skills/rechargement.png");
-    return null;
+    return require("./../assets/icons/skills/autres.png");
   }
 
   // Pour toutes les compétences
