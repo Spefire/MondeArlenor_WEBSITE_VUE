@@ -1,7 +1,10 @@
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
+import { ArlenorLevel } from "@/models/ArlenorLevel";
 import { PageTitles } from "@/models/PagesTitles";
 import api from "@/utils/api";
 import downloads from "@/utils/downloads";
+import useVuelidate from "@vuelidate/core";
+import { between, required } from "@vuelidate/validators";
 import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
 
@@ -24,16 +27,47 @@ export default defineComponent({
     IdentityForm,
   },
 
-  setup() {
+  data () {
     const store = useStore();
+    return {
+      store,
+      form: {
+        id: null,
+        numLevel: 1,
+      },
+    };
+  },
+
+  setup() {
     const selection = ref(0);
     const hasModification = ref(false);
-    return { store, selection, hasModification };
+    return {
+      v$: useVuelidate(),
+      selection,
+      hasModification
+    };
   },
-  
+
+  mounted() {
+    this.store.commit("loadAllCharacters");
+  },
+
   computed: {
     character(): ArlenorCharacter {
       return this.store.state.character;
+    },
+    allCharacters(): ArlenorCharacter[] {
+      return this.store.state.allCharacters || [];
+    },
+  },
+
+  validations: {
+    form: {
+      id: {},
+      numLevel: {
+        required,
+        between: between(1, 20),
+      },
     },
   },
 
@@ -56,16 +90,26 @@ export default defineComponent({
     setSelection(newSelection: number): void {
       this.selection = newSelection;
     },
-    startCreation(): void {
+    startCreation(withReset: boolean): void {
+      if (this.form.id) {
+        const character = this.allCharacters.find(charact => charact.id === this.form.id);
+        this.store.commit("changeCharacter", character);
+      } else if (withReset) {
+        this.store.commit("resetCharacter");
+      }
+      const level = new ArlenorLevel(this.form.numLevel);
+      this.store.commit("changeCharacterLevel", level);
       this.selection = 1;
     },
-    passCreation(): void {
+    /*passCreation(): void {
       this.store.commit("initCharacter");
       this.selection = 8;
-    },
+    },*/
     restartCreation(): void {
       this.store.commit("resetCharacter");
       this.selection = 0;
+      this.form.id = null;
+      this.form.numLevel = 1;
     },
     async downloadCharacter() {
       let allSkills = await api.readAllSkill();

@@ -32,11 +32,6 @@
             &emsp;
             Un personnage est défini par plusieurs choses : <b>ses caractéristiques</b> (et valeurs dérivées), <b>ses compétences principales</b>,
             <b>sa race</b> (parmi celles jouables), <b>son cristal évolutif</b> (ses pouvoirs), pour ensuite finir par quelques finitions.
-            <br>&emsp;
-            Les caractéristiques définissent ce qu’est le personnage, et les compétences ce qu’il sait.
-            Votre personnage sera plus ou moins fort, plus ou moins intelligent, plus ou moins adroit.
-            Et c’est vous qui choisirez si, au cours de sa vie, il a appris à se battre ou s'il a préféré se tourner vers l'érudition,
-            ou encore, vers quel type de magie il s'est tourné...
             <br>
             <br>&emsp;
             Cependant, malgré toutes les valeurs notées sur la fiche de personnage,
@@ -44,15 +39,47 @@
             <br>&emsp;
             Créez alors ici un nouveau personnage du Monde d'Arlénor...
           </div>
+          
+          <div class="layout-row">
+            <div class="layout-col-75 form-element">
+              <span>Personnage <span required-libelle>*</span></span>
+              <div class="dropdown">
+                <select
+                  class="dropdown-select"
+                  v-model.trim.lazy="v$.form.id.$model">
+                  <option :value="null">Nouveau personnage</option>
+                  <option
+                    v-for="(newCharacter, index) in allCharacters"
+                    :value="newCharacter.id"
+                    :key="index">
+                    {{ newCharacter.name }}
+                    (Niveau {{ newCharacter.level.numLevel }})
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="layout-col-25 form-element">
+              <span>Niveau (1-20)<span required-libelle>*</span></span>
+              <input
+                type="number"
+                class="text-center"
+                min="1"
+                max="20"
+                placeholder="1-20"
+                v-model.trim.lazy="v$.form.numLevel.$model">
+            </div>
+          </div>
         </div>
       </div>
       <div class="creation-content-nav">
         <button
           class="link-button"
+          :disabled="v$.form.$invalid"
           @click="startCreation()">Commencer la création</button>
-        <button
+        <!--button
           class="link-button"
-          @click="passCreation()">Passer la création</button>
+          @click="passCreation()">Passer la création</button-->
       </div>
     </template>
 

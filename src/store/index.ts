@@ -1,4 +1,5 @@
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
+import { ArlenorLevel } from "@/models/ArlenorLevel";
 import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { ArlenorStuff } from "@/models/ArlenorStuff";
@@ -51,6 +52,12 @@ export default createStore({
     },
     changeAllStuffs(state, payload: ArlenorStuff[]) {
       state.allStuffs = payload.sort((a, b) => a.name.localeCompare(b.name));
+    },
+    changeCharacter(state, payload: ArlenorCharacter) {
+      state.character = payload;
+    },
+    changeCharacterLevel(state, payload: ArlenorLevel) {
+      state.character.level = payload;
     },
     changeCharacterRace(state, payload: ArlenorCharacter) {
       state.character.race = payload.race;
