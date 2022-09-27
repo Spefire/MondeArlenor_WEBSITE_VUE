@@ -76,7 +76,7 @@
         <button
           class="link-button"
           :disabled="v$.form.$invalid"
-          @click="startCreation()">Commencer la création</button>
+          @click="startCreation(true)">Commencer la création</button>
         <!--button
           class="link-button"
           @click="passCreation()">Passer la création</button-->
@@ -155,7 +155,26 @@
           </div>
 
           <div class="layout-bloc margin-top-1 text-center">
-            Vous pouvez aussi recommencer un nouveau personnage, ou faire des ajustements sur l'actuel.
+            <template v-if="!isSaved">
+              <div>L'enregistrement de votre personnage se fera sur votre navigateur.</div>
+              <button
+                class="link-button margin-top-05"
+                @click="openSavePopup()">Enregistrer le personnage</button>
+            </template>
+
+            <PopupBloc
+              v-if="showSavePopup"
+              :bloc-title="`Enregistrement du personnage`"
+              :has-confirm-button="true"
+              @close="closeSavePopup">
+              Souhaitez-vous vraiment enregistrer <b>{{ character.name }} (Niveau {{ character.level.numLevel }})</b> ?
+              <br><br>
+              En cliquant, vous acceptez sa sauvegarde via les cookies de votre navigateur.
+            </PopupBloc>
+
+            <template v-if="isSaved">
+              <div>Enregistrement effectué !</div>
+            </template>
           </div>
         </div>
       </div>
@@ -166,7 +185,7 @@
           @click="restartCreation()">Créer un nouveau perso</button>
         <button
           class="link-button"
-          @click="startCreation()">Modifier l'actuel</button>
+          @click="startCreation(false)">Modifier l'actuel</button>
       </div>
     </template>
 

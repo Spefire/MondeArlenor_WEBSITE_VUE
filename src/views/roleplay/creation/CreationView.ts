@@ -1,3 +1,4 @@
+import PopupBloc from "@/components/popup/PopupBloc.vue";
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { ArlenorLevel } from "@/models/ArlenorLevel";
 import { PageTitles } from "@/models/PagesTitles";
@@ -25,6 +26,7 @@ export default defineComponent({
     SkillsForm,
     StuffForm,
     IdentityForm,
+    PopupBloc,
   },
 
   data () {
@@ -41,10 +43,14 @@ export default defineComponent({
   setup() {
     const selection = ref(0);
     const hasModification = ref(false);
+    const isSaved = ref(false);
+    const showSavePopup = ref(false);
     return {
       v$: useVuelidate(),
       selection,
-      hasModification
+      hasModification,
+      isSaved,
+      showSavePopup
     };
   },
 
@@ -100,6 +106,7 @@ export default defineComponent({
       const level = new ArlenorLevel(this.form.numLevel);
       this.store.commit("changeCharacterLevel", level);
       this.selection = 1;
+      this.isSaved = false;
     },
     /*passCreation(): void {
       this.store.commit("initCharacter");
@@ -117,7 +124,17 @@ export default defineComponent({
       allSkills = allSkills.sort((a, b) => a.name.localeCompare(b.name));
       allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
       downloads.downloadPDF(this.character, allSkills, allPowers);
-    }
+    },
+    openSavePopup() {
+      this.showSavePopup = true;
+    },
+    async closeSavePopup(withAction: boolean) {
+      this.showSavePopup = false;
+      if (withAction) {
+        console.warn("SAVE !");
+        this.isSaved = true;
+      }
+    },
   },
 
   unmounted() {
