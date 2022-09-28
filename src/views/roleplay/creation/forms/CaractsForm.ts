@@ -17,7 +17,7 @@ export default defineComponent({
     const selectCaract = CaractNomEnum.Force.Code;
     const allRaces = ref(getListRaces());
     const level = store.state.character.level;
-    const race = store.state.character.race;
+    const codeRace = store.state.character.codeRace;
     const totalCaracts = store.state.character.totalCaracts || 5;
     return {
       caractDescriptionEnum,
@@ -25,7 +25,7 @@ export default defineComponent({
       selectCaract,
       allRaces,
       level,
-      race,
+      codeRace,
       form: {
         for: store.state.character.caracts.for || 1,
         hab: store.state.character.caracts.hab || 1,
@@ -87,8 +87,8 @@ export default defineComponent({
     },
     getPointsDeVie() {
       let points = this.level.maxHealth;
-      if (this.race.code === this.allRaces[1].code) points++;
-      if (this.race.code === this.allRaces[4].code) points++;
+      if (this.codeRace === this.allRaces[1].code) points++;
+      if (this.codeRace === this.allRaces[4].code) points++;
       if (parseInt(this.form.ten) <= 1) points--;
       if (parseInt(this.form.ten) >= 5) points++;
       return points;

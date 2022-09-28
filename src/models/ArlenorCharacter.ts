@@ -20,7 +20,13 @@ export class ArlenorCharacter extends ArlenorAPI {
   public traits: string;
   public belives: string;
   public importances: string;
-  public race: ArlenorRace | null;
+
+  public codeRace: string | null;
+  get race(): ArlenorRace | null {
+    if (!this.codeRace) return null;
+    return ArlenorRace.getRace(this.codeRace);
+  }
+
   public caracts: ArlenorCaracts;
   public crystals: ArlenorCrystal[];
   public idsSkills: string[];
@@ -108,7 +114,7 @@ export class ArlenorCharacter extends ArlenorAPI {
     this.traits = "";
     this.belives = "";
     this.importances = "";
-    this.race = null;
+    this.codeRace = null;
     this.caracts = new ArlenorCaracts();
     this.crystals = [new ArlenorCrystal(), new ArlenorCrystal()];
     this.idsSkills = [];
@@ -131,7 +137,7 @@ export class ArlenorCharacter extends ArlenorAPI {
     this.importances = "Son amie Elisa et son copain Zachary";
 
     const races = getListRaces();
-    this.race = races[0];
+    this.codeRace = races[0].code;
     this.caracts = new ArlenorCaracts();
     this.caracts.for = 2;
     this.caracts.hab = 3;
@@ -148,5 +154,48 @@ export class ArlenorCharacter extends ArlenorAPI {
     this.crystals = [crystal01, crystal02];
     
     this.idsSkills = [];
+  }
+
+  public initByJSON(value: string): void {
+    const powerDB = JSON.parse(value);
+    this.date = powerDB.date;
+    this.hour = powerDB.hour;
+
+    this.isLocal = powerDB.name;
+    this.level = new ArlenorLevel(powerDB.level.numLevel);
+    this.avatar = powerDB.avatar;
+    this.name = powerDB.name;
+    this.age = powerDB.age;
+    this.gender = powerDB.gender;
+    this.story = powerDB.story;
+    this.description = powerDB.description;
+    this.traits = powerDB.traits;
+    this.belives = powerDB.belives;
+    this.importances = powerDB.importances;
+
+    this.codeRace = powerDB.codeRace;
+    this.caracts = new ArlenorCaracts();
+    this.caracts.for = powerDB.caracts.for;
+    this.caracts.hab = powerDB.caracts.hab;
+    this.caracts.int = powerDB.caracts.int;
+    this.caracts.ten = powerDB.caracts.ten;
+    this.caracts.cha = powerDB.caracts.cha;
+    this.caracts.mag = powerDB.caracts.mag;
+
+    this.crystals = [];
+    if (powerDB.crystals[0]) {
+      const crystal01 = new ArlenorCrystal();
+      crystal01.codeSpeciality = powerDB.crystals[0]?.codeSpeciality;
+      crystal01.idsPowers = powerDB.crystals[0]?.idsPowers; 
+      this.crystals.push(crystal01);
+    }
+    if (powerDB.crystals[1]) {
+      const crystal02 = new ArlenorCrystal();
+      crystal02.codeSpeciality = powerDB.crystals[1]?.codeSpeciality;
+      crystal02.idsPowers = powerDB.crystals[1]?.idsPowers; 
+      this.crystals.push(crystal02);
+    }
+
+    this.idsSkills = powerDB.idsSkills;
   }
 }

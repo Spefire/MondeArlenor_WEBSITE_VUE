@@ -21,7 +21,7 @@ export default defineComponent({
       allRaces,
       allSkills,
       form: {
-        raceCode: store.state.character.race?.code || allRaces[0].code,
+        raceCode: store.state.character.codeRace || allRaces[0].code,
       },
       isModified: false,
     };
@@ -64,8 +64,7 @@ export default defineComponent({
     },
     save() {
       const newCharacter = new ArlenorCharacter();
-      const race = this.allRaces.find(race => race.code === this.form.raceCode);
-      newCharacter.race = race ? race : this.allRaces[0];
+      newCharacter.codeRace = this.form.raceCode;
       this.store.commit("changeCharacterRace", newCharacter);
     }
   }

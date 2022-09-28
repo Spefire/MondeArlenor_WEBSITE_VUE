@@ -61,7 +61,7 @@ export default createStore({
       state.character.level = payload;
     },
     changeCharacterRace(state, payload: ArlenorCharacter) {
-      state.character.race = payload.race;
+      state.character.codeRace = payload.codeRace;
     },
     changeCharacterCaracts(state, payload: ArlenorCharacter) {
       state.character.caracts.for = payload.caracts.for;
@@ -101,30 +101,22 @@ export default createStore({
       state.quizz.questions[payload.index] = payload.quizz.questions[payload.index];
     },
     loadLocalCharacters(state) {
-      const localCharactersString = localStorage.getItem("localCharacters");
-      let localCharacters: ArlenorCharacter[];
-      if (localCharactersString) localCharacters = JSON.parse(localCharactersString);
-      else localCharacters = [];
-      state.localCharacters = localCharacters;
+      state.localCharacters = instanceCharacters();
     },
     saveLocalCharacter(state, payload: ArlenorCharacter) {
-      let localCharactersString = localStorage.getItem("localCharacters");
-      let localCharacters: ArlenorCharacter[];
-      if (localCharactersString) localCharacters = JSON.parse(localCharactersString);
-      else localCharacters = [];
-      localCharacters.push(payload);
-      state.localCharacters = localCharacters;
-      localCharactersString = JSON.stringify(localCharacters);
+      const characters = instanceCharacters();
+      characters.push(payload);
+      state.localCharacters = characters;
+
+      const localCharactersString = JSON.stringify(characters);
       localStorage.setItem("localCharacters", localCharactersString);
     },
     deleteLocalCharacter(state, payload: string) {
-      let localCharactersString = localStorage.getItem("localCharacters");
-      let localCharacters: ArlenorCharacter[];
-      if (localCharactersString) localCharacters = JSON.parse(localCharactersString);
-      else localCharacters = [];
-      localCharacters = localCharacters.filter(charact => charact.id !== payload);
-      state.localCharacters = localCharacters;
-      localCharactersString = JSON.stringify(localCharacters);
+      let characters = instanceCharacters();
+      characters = characters.filter(charact => charact.id !== payload);
+      state.localCharacters = characters;
+
+      const localCharactersString = JSON.stringify(characters);
       localStorage.setItem("localCharacters", localCharactersString);
     }
   },
@@ -133,3 +125,22 @@ export default createStore({
   modules: {
   }
 });
+
+const instanceCharacters = ():ArlenorCharacter[] => {
+  const localCharactersString = localStorage.getItem("localCharacters");
+
+  let localCharacters: ArlenorCharacter[];
+  if (localCharactersString) localCharacters = JSON.parse(localCharactersString);
+  else localCharacters = [];
+
+  const finalCharacters: ArlenorCharacter[] = [];
+  localCharacters.forEach((obj: ArlenorCharacter) => {
+    const localCharacterString = JSON.stringify(obj);
+    const character = new ArlenorCharacter();
+    character.id = obj.id;
+    character.initByJSON(localCharacterString);
+    finalCharacters.push(character);
+  });
+
+  return finalCharacters;
+};
