@@ -116,6 +116,16 @@ export default createStore({
       state.localCharacters = localCharacters;
       localCharactersString = JSON.stringify(localCharacters);
       localStorage.setItem("localCharacters", localCharactersString);
+    },
+    deleteLocalCharacter(state, payload: string) {
+      let localCharactersString = localStorage.getItem("localCharacters");
+      let localCharacters: ArlenorCharacter[];
+      if (localCharactersString) localCharacters = JSON.parse(localCharactersString);
+      else localCharacters = [];
+      localCharacters = localCharacters.filter(charact => charact.id !== payload);
+      state.localCharacters = localCharacters;
+      localCharactersString = JSON.stringify(localCharacters);
+      localStorage.setItem("localCharacters", localCharactersString);
     }
   },
   actions: {

@@ -76,7 +76,10 @@ export default defineComponent({
       return allCharacters.concat(localCharacters);
     },
     checkDelete(): boolean {
-      return false;
+      if (this.form.id) {
+        const character = this.characters.find(charact => charact.id === this.form.id);
+        return character ? character.isLocal : false;
+      } else return false;
     }
   },
 
@@ -147,6 +150,7 @@ export default defineComponent({
       this.showDeletePopup = false;
       if (withAction) {
         this.store.commit("deleteLocalCharacter",  this.form.id);
+        this.restartCreation();
       }
     },
     openSavePopup() {
@@ -156,8 +160,10 @@ export default defineComponent({
       this.showSavePopup = false;
       if (withAction) {
         this.isSaved = true;
-        this.character.id = random.generateID(20);
-        this.store.commit("saveLocalCharacter",  this.character);
+        const character = this.character;
+        character.id = random.generateID(20);
+        character.isLocal = true;
+        this.store.commit("saveLocalCharacter", character);
       }
     },
   },

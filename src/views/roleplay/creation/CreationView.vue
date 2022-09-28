@@ -80,18 +80,8 @@
           @click="startCreation(true)">Commencer la création</button>
         <button
           v-if="checkDelete"
-          class="link-button"
-          @click="openDeletePopup()">Supprimer le personnage</button>
-
-        <PopupBloc
-          v-if="showDeletePopup"
-          :bloc-title="`Suppression du personnage`"
-          :has-confirm-button="true"
-          @close="closeDeletePopup">
-          Souhaitez-vous vraiment supprimer <b>{{ character.name }} (Niveau {{ character.level.numLevel }})</b> ?
-          <br> <br>
-          Cette action est irréversible.
-        </PopupBloc>
+          class="link-button alert-button"
+          @click="openDeletePopup()">Supprimer le personnage sélectionné</button>
       </div>
     </template>
 
@@ -174,17 +164,6 @@
                 @click="openSavePopup()">Enregistrer le personnage</button>
             </template>
 
-            <PopupBloc
-              v-if="showSavePopup"
-              :bloc-title="`Enregistrement du personnage`"
-              :has-confirm-button="true"
-              @close="closeSavePopup">
-              Souhaitez-vous vraiment enregistrer <b>{{ character.name }} (Niveau {{ character.level.numLevel }})</b> ?
-              <br><br>
-              En cliquant, vous acceptez sa sauvegarde dans le localStorage votre navigateur.<br>
-              Note : En effaçant l'historique de votre navigateur, vos personnages sauvegardés seront effacés.
-            </PopupBloc>
-
             <template v-if="isSaved">
               <div>Enregistrement effectué !</div>
             </template>
@@ -250,6 +229,27 @@
       Cette page ne peut pas être parcourue sur un écran mobile.
     </div>
   </div>
+
+  <PopupBloc
+    v-if="showDeletePopup"
+    :bloc-title="`Suppression du personnage`"
+    :has-confirm-button="true"
+    @close="closeDeletePopup">
+    Souhaitez-vous vraiment supprimer <b>{{ character.name }} (Niveau {{ character.level.numLevel }})</b> ?
+    <br> <br>
+    Cette action est irréversible.
+  </PopupBloc>
+  
+  <PopupBloc
+    v-if="showSavePopup"
+    :bloc-title="`Enregistrement du personnage`"
+    :has-confirm-button="true"
+    @close="closeSavePopup">
+    Souhaitez-vous vraiment enregistrer <b>{{ character.name }} (Niveau {{ character.level.numLevel }})</b> ?
+    <br><br>
+    En cliquant, vous acceptez sa sauvegarde dans le localStorage votre navigateur.<br>
+    Note : En effaçant l'historique de votre navigateur, vos personnages sauvegardés seront effacés.
+  </PopupBloc>
 </template>
 
 <style lang="scss" scoped src="./CreationView.scss"></style>

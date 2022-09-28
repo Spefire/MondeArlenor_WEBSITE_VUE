@@ -9,6 +9,7 @@ import { ArlenorSpecialities } from "./data/ListSpecialities";
 
 export class ArlenorCharacter extends ArlenorAPI {
   
+  public isLocal: boolean;
   public level: ArlenorLevel;
   public avatar: string;
   public name: string;
@@ -96,6 +97,7 @@ export class ArlenorCharacter extends ArlenorAPI {
 
   constructor() {
     super();
+    this.isLocal = false;
     this.level = new ArlenorLevel(1);
     this.avatar = "";
     this.name = "";
