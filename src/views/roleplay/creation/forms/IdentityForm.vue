@@ -28,7 +28,7 @@
       </div>
       <div class="layout-row">
         <div class="layout-col-25 form-element">
-          <span>Âge <span required-libelle>*</span></span>
+          <span>Âge (1-200)<span required-libelle>*</span></span>
           <input
             type="number"
             class="text-center"

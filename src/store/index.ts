@@ -12,6 +12,7 @@ export default createStore({
     character: new ArlenorCharacter(),
     quizz: new CelestiaQuizz(),
     allCharacters: null as ArlenorCharacter[] | null,
+    localCharacters: null as ArlenorCharacter[] | null,
     allPowers: null as ArlenorPower[] | null,
     allSkills: null as ArlenorSkill[] | null,
     allStuffs: null as ArlenorStuff[] | null
@@ -98,6 +99,23 @@ export default createStore({
     // Note : payload : { index, quizz }
     changeQuizz(state, payload) {
       state.quizz.questions[payload.index] = payload.quizz.questions[payload.index];
+    },
+    loadLocalCharacters(state) {
+      const localCharactersString = localStorage.getItem("localCharacters");
+      let localCharacters: ArlenorCharacter[];
+      if (localCharactersString) localCharacters = JSON.parse(localCharactersString);
+      else localCharacters = [];
+      state.localCharacters = localCharacters;
+    },
+    saveLocalCharacter(state, payload: ArlenorCharacter) {
+      let localCharactersString = localStorage.getItem("localCharacters");
+      let localCharacters: ArlenorCharacter[];
+      if (localCharactersString) localCharacters = JSON.parse(localCharactersString);
+      else localCharacters = [];
+      localCharacters.push(payload);
+      state.localCharacters = localCharacters;
+      localCharactersString = JSON.stringify(localCharacters);
+      localStorage.setItem("localCharacters", localCharactersString);
     }
   },
   actions: {

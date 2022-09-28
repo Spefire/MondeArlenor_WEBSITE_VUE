@@ -46,14 +46,15 @@
               <div class="dropdown">
                 <select
                   class="dropdown-select"
-                  v-model.trim.lazy="v$.form.id.$model">
+                  v-model.trim.lazy="v$.form.id.$model"
+                  @change="changeCharacter">
                   <option :value="null">Nouveau personnage</option>
                   <option
-                    v-for="(newCharacter, index) in allCharacters"
-                    :value="newCharacter.id"
+                    v-for="(charact, index) in characters"
+                    :value="charact.id"
                     :key="index">
-                    {{ newCharacter.name }}
-                    (Niveau {{ newCharacter.level.numLevel }})
+                    {{ charact.name }}
+                    (Niveau {{ charact.level.numLevel }})
                   </option>
                 </select>
               </div>
@@ -77,9 +78,20 @@
           class="link-button"
           :disabled="v$.form.$invalid"
           @click="startCreation(true)">Commencer la création</button>
-        <!--button
+        <button
+          v-if="checkDelete"
           class="link-button"
-          @click="passCreation()">Passer la création</button-->
+          @click="openDeletePopup()">Supprimer le personnage</button>
+
+        <PopupBloc
+          v-if="showDeletePopup"
+          :bloc-title="`Suppression du personnage`"
+          :has-confirm-button="true"
+          @close="closeDeletePopup">
+          Souhaitez-vous vraiment supprimer <b>{{ character.name }} (Niveau {{ character.level.numLevel }})</b> ?
+          <br> <br>
+          Cette action est irréversible.
+        </PopupBloc>
       </div>
     </template>
 
@@ -169,7 +181,8 @@
               @close="closeSavePopup">
               Souhaitez-vous vraiment enregistrer <b>{{ character.name }} (Niveau {{ character.level.numLevel }})</b> ?
               <br><br>
-              En cliquant, vous acceptez sa sauvegarde via les cookies de votre navigateur.
+              En cliquant, vous acceptez sa sauvegarde dans le localStorage votre navigateur.<br>
+              Note : En effaçant l'historique de votre navigateur, vos personnages sauvegardés seront effacés.
             </PopupBloc>
 
             <template v-if="isSaved">

@@ -4,6 +4,7 @@ import { ArlenorLevel } from "@/models/ArlenorLevel";
 import { PageTitles } from "@/models/PagesTitles";
 import api from "@/utils/api";
 import downloads from "@/utils/downloads";
+import random from "@/utils/random";
 import useVuelidate from "@vuelidate/core";
 import { between, required } from "@vuelidate/validators";
 import { defineComponent, ref } from "vue";
@@ -44,27 +45,39 @@ export default defineComponent({
     const selection = ref(0);
     const hasModification = ref(false);
     const isSaved = ref(false);
+    const showDeletePopup = ref(false);
     const showSavePopup = ref(false);
     return {
       v$: useVuelidate(),
       selection,
       hasModification,
       isSaved,
+      showDeletePopup,
       showSavePopup
     };
   },
 
   mounted() {
     this.store.commit("loadAllCharacters");
+    this.store.commit("loadLocalCharacters");
+  },
+
+  unmounted() {
+    this.store.commit("resetCharacter");
   },
 
   computed: {
     character(): ArlenorCharacter {
       return this.store.state.character;
     },
-    allCharacters(): ArlenorCharacter[] {
-      return this.store.state.allCharacters || [];
+    characters(): ArlenorCharacter[] {
+      const allCharacters = this.store.state.allCharacters || [];
+      const localCharacters = this.store.state.localCharacters || [];
+      return allCharacters.concat(localCharacters);
     },
+    checkDelete(): boolean {
+      return false;
+    }
   },
 
   validations: {
@@ -78,6 +91,12 @@ export default defineComponent({
   },
 
   methods: {
+    changeCharacter() {
+      if (this.form.id) {
+        const character = this.characters.find(charact => charact.id === this.form.id);
+        if (character) this.form.numLevel = character.level.numLevel;
+      } else this.form.numLevel = 1;
+    },
     decreaseSelection(): void {
       if (this.selection === 5 && this.character.level.numLevel < 5) this.selection -= 2;
       else if (this.selection === 7) this.selection -= 2;
@@ -98,7 +117,7 @@ export default defineComponent({
     },
     startCreation(withReset: boolean): void {
       if (this.form.id) {
-        const character = this.allCharacters.find(charact => charact.id === this.form.id);
+        const character = this.characters.find(charact => charact.id === this.form.id);
         this.store.commit("changeCharacter", character);
       } else if (withReset) {
         this.store.commit("resetCharacter");
@@ -108,10 +127,6 @@ export default defineComponent({
       this.selection = 1;
       this.isSaved = false;
     },
-    /*passCreation(): void {
-      this.store.commit("initCharacter");
-      this.selection = 8;
-    },*/
     restartCreation(): void {
       this.store.commit("resetCharacter");
       this.selection = 0;
@@ -125,19 +140,25 @@ export default defineComponent({
       allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
       downloads.downloadPDF(this.character, allSkills, allPowers);
     },
+    openDeletePopup() {
+      this.showDeletePopup = true;
+    },
+    closeDeletePopup(withAction: boolean) {
+      this.showDeletePopup = false;
+      if (withAction) {
+        this.store.commit("deleteLocalCharacter",  this.form.id);
+      }
+    },
     openSavePopup() {
       this.showSavePopup = true;
     },
-    async closeSavePopup(withAction: boolean) {
+    closeSavePopup(withAction: boolean) {
       this.showSavePopup = false;
       if (withAction) {
-        console.warn("SAVE !");
         this.isSaved = true;
+        this.character.id = random.generateID(20);
+        this.store.commit("saveLocalCharacter",  this.character);
       }
     },
   },
-
-  unmounted() {
-    this.store.commit("resetCharacter");
-  }
 });
