@@ -10,7 +10,7 @@ import { useStore } from "vuex";
 export default defineComponent({
   name: "RaceForm",
   components: {},
-  emits: ["changeStep", "nextStep"],
+  emits: ["changeStep", "previousStep", "nextStep"],
   
   data() {
     const store = useStore();
@@ -24,6 +24,7 @@ export default defineComponent({
         raceCode: store.state.character.codeRace || allRaces[0].code,
       },
       isModified: false,
+      needConfirm: false,
     };
   },
 
@@ -55,7 +56,16 @@ export default defineComponent({
     },
     updateForm() {
       this.isModified = true;
+      this.needConfirm = false,
       this.$emit("changeStep");
+    },
+    cancelForm() {
+      if (this.isModified && !this.needConfirm) {
+        this.needConfirm = true;
+      } else {
+        this.isModified = false;
+        this.$emit("previousStep");
+      }
     },
     submitForm() {
       this.save();

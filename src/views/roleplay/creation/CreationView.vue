@@ -71,6 +71,15 @@
                 v-model.trim.lazy="v$.form.numLevel.$model">
             </div>
           </div>
+
+          <div class="layout-row">
+            <div class="layout-col-75 form-element">
+              <button
+                v-if="checkDelete"
+                class="link-button alert-button"
+                @click="openDeletePopup()">Supprimer le personnage</button>
+            </div>
+          </div>
         </div>
       </div>
       <div class="creation-content-nav">
@@ -78,16 +87,13 @@
           class="link-button"
           :disabled="v$.form.$invalid"
           @click="startCreation(true)">Commencer la création</button>
-        <button
-          v-if="checkDelete"
-          class="link-button alert-button"
-          @click="openDeletePopup()">Supprimer le personnage sélectionné</button>
       </div>
     </template>
 
     <RaceForm
       v-if="selection == 1"
       @changeStep="changeModifs()"
+      @previousStep="decreaseSelection()"
       @nextStep="increaseSelection()" />
     <CaractsForm
       v-if="selection == 2"
