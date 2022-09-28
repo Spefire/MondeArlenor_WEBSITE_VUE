@@ -31,19 +31,16 @@ export class CaractNomEnum {
 export class CaractDescriptionEnum {
   static Aucune: ArlenorEnum = { Code: "", Libelle: "Aucune" };
   static Force: ArlenorEnum = { Code: "FOR", Libelle: `
-  A MODIFIER
   &emsp;
-  Mélange de résistance physique et de puissance brute, la <b>Vigueur</b> évalue la forme physique de votre personnage.
+  La <b>Force</b>, évalue la puissance brute de votre personnage.
   Cette caractéristique est importante pour les personnages combattants, les sportifs
   et tous ceux qui aiment se sortir de situations dangereuses.<br>
-  Note : Une <b>Vigueur</b> à 1 retire un Point de Vie max.<br>
-  Note : Une <b>Vigueur</b> à 5 donne un Point de Vie max.<br>
   <br>
   &emsp;1 : Fragile. Force et endurance limitées, vous vous fatiguez vite.<br>
   &emsp;2 : Moyen. Vous n’avez de problème qu’avec des tours de force inhabituels.<br>
-  &emsp;3 : Costaud. Vous fatiguez rarement et réalisez des tours de force.<br>
+  &emsp;3 : Costaud. Vous réalisez des tours de force.<br>
   &emsp;4 : Fort comme un bœuf. Peu de choses ou de personnes peuvent vous résister.<br>
-  &emsp;5 : Herculéen. Vous résistez à tout et rivalisez de puissance avec les ours.` };
+  &emsp;5 : Herculéen. Vous rivalisez de puissance avec les ours.` };
   static Habilete: ArlenorEnum = { Code: "HAB", Libelle: `
   &emsp;
   L’<b>Habileté</b> représente la capacité du personnage à s’acquitter de tâches de précision, sa finesse,
@@ -67,19 +64,17 @@ export class CaractDescriptionEnum {
   &emsp;4 : Brillant. Vous comprenez rapidement ce que certains mettent des années à apprendre.<br>
   &emsp;5 : Génie. Vous maniez facilement des notions que la majorité des gens sont incapables d’appréhender.` };
   static Tenacite: ArlenorEnum = { Code: "TEN", Libelle: `
-  A MODIFIER
   &emsp;
-  Mélange de résistance physique et de puissance brute, la <b>Vigueur</b> évalue la forme physique de votre personnage.
-  Cette caractéristique est importante pour les personnages combattants, les sportifs
-  et tous ceux qui aiment se sortir de situations dangereuses.<br>
-  Note : Une <b>Vigueur</b> à 1 retire un Point de Vie max.<br>
-  Note : Une <b>Vigueur</b> à 5 donne un Point de Vie max.<br>
+  Définition de la résistance physique, la <b>Ténacité</b> évalue la constitution de votre personnage.
+  Cette caractéristique est importante pour les personnages qui veulent encaisser, ou juste vivre plus longtemps.<br>
+  Note : Une <b>Ténacité</b> à 1 retire un Point de Vie max.<br>
+  Note : Une <b>Ténacité</b> à 5 donne un Point de Vie max.<br>
   <br>
-  &emsp;1 : Fragile. Force et endurance limitées, vous vous fatiguez vite.<br>
-  &emsp;2 : Moyen. Vous n’avez de problème qu’avec des tours de force inhabituels.<br>
-  &emsp;3 : Costaud. Vous fatiguez rarement et réalisez des tours de force.<br>
-  &emsp;4 : Fort comme un bœuf. Peu de choses ou de personnes peuvent vous résister.<br>
-  &emsp;5 : Herculéen. Vous résistez à tout et rivalisez de puissance avec les ours.` };
+  &emsp;1 : Fragile. Résistance limitée, vous tombez malade facilement.<br>
+  &emsp;2 : Moyen. Votre corps vit sa vie, tranquillement, sans plus.<br>
+  &emsp;3 : Résistant. Vous résistez à quelques coups sans problème.<br>
+  &emsp;4 : Rempart. Peu de choses ou de personnes peuvent vous blesser.<br>
+  &emsp;5 : Intuable. Vous résistez à tout, presque tout.` };
   static Charisme: ArlenorEnum = { Code: "CHA", Libelle: `
   &emsp;
   La capacité à s’imposer aux autres, à leur inspirer de la confiance, du respect ou de la crainte,
@@ -92,9 +87,11 @@ export class CaractDescriptionEnum {
   &emsp;4 : Captivant. Leader-né, votre personnalité attire les autres à vous.<br>
   &emsp;5 : Fascinant. Vous pourriez amener n’importe qui à faire n’importe quoi pour vous.` };
   static Magie: ArlenorEnum = { Code: "MAG", Libelle: `
-  A MODIFIER
   &emsp;
   La <b>Magie</b> est la caractéristique déterminant le niveau de facilité à utiliser
   les pouvoirs des cristaux du Monde d'Arlénor et parfois à y résister.
-  Les grands mages ont évidemment un bon niveau dans cette caractéristique.` };
+  Les grands mages ont évidemment un bon niveau dans cette caractéristique.<br>
+  <br>
+  &emsp;1 : Initié. La magie et vous, c'est le feu et la glace, parfois ça peut faire un bon combo... parfois.<br>
+  &emsp;5 : Archimage. Vos cristaux n'ont aucun secret pour vous, vous les exploitez à pleine puissance.` };
 }

@@ -45,8 +45,14 @@ export class ArlenorCharacter extends ArlenorAPI {
   }
 
   get healthMax(): number {
-    // TODO : Changer en fonction de la race et des compétences
-    return this.level.maxHealth;
+    let bonusMalus = 0;
+    if (this.codeRace) {
+      const races = getListRaces();
+      if (this.codeRace === races[1].code || this.codeRace === races[4].code) bonusMalus++;
+    }
+    if (this.caracts.ten >= 5) bonusMalus++;
+    else if (this.caracts.ten <= 1) bonusMalus--;
+    return this.level.maxHealth + bonusMalus;
   }
 
   get crystalsSkills(): ArlenorSkill[] {
