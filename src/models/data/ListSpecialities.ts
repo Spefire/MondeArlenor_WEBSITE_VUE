@@ -109,7 +109,7 @@ export class ArlenorSpecialities {
     this.PretreArlenor.description = "Le Prêtre d'Arlénor utilise des prières pour aider les alliés afin de les purifier, d'augmenter leur chance ou même accéder à des connaissances.";
 
     this.Necromancien = new ArlenorSpeciality("Nécromancien", "Necromancien", groups.Pretre);
-    this.Necromancien.image = require("./../../assets/icons/specialities/necromant.png");
+    this.Necromancien.image = require("./../../assets/icons/specialities/necromancien.png");
     this.Necromancien.description = "Le Nécromant utilise des sorts de sang infligeant des états négatifs à une cible, et des prières permettant d'utiliser les morts à ses propres fins.";
 
     this.Virtuose = new ArlenorSpeciality("Virtuose", "Virtuose", groups.Barde);
