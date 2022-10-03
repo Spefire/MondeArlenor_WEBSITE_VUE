@@ -3,6 +3,8 @@ import { ArlenorLevel } from "@/models/ArlenorLevel";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { defineComponent, PropType, ref, Ref } from "vue";
 
+import SkillsDescription from "../skills-table/SkillsDescription.vue";
+
 export default defineComponent({
   name: "SkillsSelectionTable",
   props: {
@@ -23,7 +25,7 @@ export default defineComponent({
       required: true
     },
   },
-  components: { },
+  components: { SkillsDescription },
   emits: ["add", "remove"],
 
   setup() {
@@ -46,10 +48,11 @@ export default defineComponent({
   methods: {
     updateTypes() {
       this.types = this.filteredSkills.map(skill => skill.type).filter((value, index, categoryArray) => categoryArray.indexOf(value) === index);
-      this.types.sort((a, b) => b.Code.localeCompare(a.Code));
     },
     getSkillsByType(codeType: string) {
-      return this.filteredSkills.filter(skill => skill.codeType === codeType);
+      const skills = this.filteredSkills.filter(skill => skill.codeType === codeType);
+      skills.sort((a, b) => a.name.localeCompare(b.name));
+      return skills;
     },
     changeSkill(value: boolean, skill: ArlenorSkill) {
       if (value) this.$emit("add", skill);

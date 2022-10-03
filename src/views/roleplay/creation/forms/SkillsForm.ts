@@ -1,6 +1,7 @@
 import SkillsSelectionTable from "@/components/skills-selection-table/SkillsSelectionTable.vue";
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
-import { ArlenorSkill } from "@/models/ArlenorSkill";
+import { ArlenorSkill, SkillTypesEnum } from "@/models/ArlenorSkill";
+import { getListDefaultSkills } from "@/models/data/ListDefaultSkills";
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 import { defineComponent, Ref, ref } from "vue";
@@ -33,10 +34,18 @@ export default defineComponent({
     const isNbSkillsValid: Ref<boolean | null> = ref(null);
     const level = character.level;
 
+    const skills = getListDefaultSkills().filter(skill => {
+      return (!skill.codeRace && !skill.codeSpeciality && !speSkills.find(speSkill => speSkill.name === skill.name)
+        && skill.codeType !== SkillTypesEnum.ProprieteCanalisation.Code
+        && skill.codeType !== SkillTypesEnum.ProprieteTemps.Code);
+    });
+    const defaultSkills: Ref<ArlenorSkill[]> = ref(skills);
+
     return {
       store,
       level,
       spe01, spe02, speSkills,
+      defaultSkills,
       form: {
         idsSkills,
         isNbSkillsValid,
@@ -57,7 +66,9 @@ export default defineComponent({
 
   computed: {
     allSkills(): ArlenorSkill[] {
-      return this.store.state.allSkills || [];
+      let allSkills = this.store.state.allSkills || [];
+      allSkills = allSkills.concat(this.defaultSkills);
+      return allSkills;
     },
   },
 

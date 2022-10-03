@@ -22,7 +22,8 @@ export default defineComponent({
     const filteredSkills: Ref<ArlenorSkill[]> = ref([]);
     const currentSkill: Ref<ArlenorSkill | null> = ref(null);
     const skills = getListDefaultSkills().filter(skill => {
-      return (skill.codeType !== SkillTypesEnum.ProprieteCanalisation.Code
+      return (!skill.codeRace && !skill.codeSpeciality
+        && skill.codeType !== SkillTypesEnum.ProprieteCanalisation.Code
         && skill.codeType !== SkillTypesEnum.ProprieteTemps.Code);
     });
     const defaultSkills: Ref<ArlenorSkill[]> = ref(skills);

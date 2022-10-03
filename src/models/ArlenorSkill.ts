@@ -1,5 +1,4 @@
 import { ArlenorAPI } from "./ArlenorAPI";
-import { CaractNomEnum } from "./ArlenorCaracts";
 import { ArlenorEnum, getEnumByCode } from "./ArlenorEnum";
 import { ArlenorRace } from "./ArlenorRace";
 import { ArlenorSpeciality } from "./ArlenorSpeciality";
@@ -37,12 +36,13 @@ export class ArlenorSkill extends ArlenorAPI {
   }
 
   public codesCaracts: string[];
-  get caracts(): ArlenorEnum[] {
-    const results: ArlenorEnum[] = [];
-    this.codesCaracts.forEach(codeCaracts => {
-      results.push(getEnumByCode(codeCaracts, CaractNomEnum));
+  get nameCaracts(): string {
+    let results = "";
+    this.codesCaracts.forEach((codeCaracts, index) => {
+      if (index) results += ", ";
+      results += codeCaracts;
     });
-    return results;
+    return results ? results : "Aucune caractéristique";
   }
 
   // Pour les compétences de race

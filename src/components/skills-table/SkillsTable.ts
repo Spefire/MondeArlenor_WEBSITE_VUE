@@ -3,6 +3,7 @@ import { ArlenorSkill, SkillTypesEnum } from "@/models/ArlenorSkill";
 import { defineComponent, PropType, Ref, ref } from "vue";
 
 import ToggleButton from "../toggle-button/ToggleButton.vue";
+import SkillsDescription from "./SkillsDescription.vue";
 
 export default defineComponent({
   name: "SkillsTable",
@@ -12,7 +13,7 @@ export default defineComponent({
       required: true
     },
   },
-  components: { ToggleButton },
+  components: { ToggleButton, SkillsDescription },
   emits: ["edit", "delete", "update"],
 
   setup() {

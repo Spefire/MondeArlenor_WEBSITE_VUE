@@ -25,7 +25,7 @@
             <div class="table-separator">
               <span class="table-separator-line" />
               <span class="table-separator-title">
-                {{ type.Libelle }}
+                Type : {{ type.Libelle }}
               </span>
               <span class="table-separator-line" />
             </div>
@@ -66,14 +66,9 @@
           </tr>
 
           <!---------- Description --------->
-          <tr
+          <SkillsDescription
             v-if="selectedSkill === skill"
-            class="table-line selected">
-            <td colspan="4">
-              <p>{{ skill.description ? skill.description : "Aucune description disponible" }}</p>
-            </td>
-          </tr>
-
+            :skill="skill" />
         </template>
       </template>
     </tbody>
