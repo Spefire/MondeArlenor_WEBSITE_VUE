@@ -37,6 +37,14 @@ export default defineComponent({
       this.changeFilteredPowers();
     }
   },
+
+  computed: {
+    selectedGroup(): string | null {
+      if (!this.selectedSpeciality) return null;
+      const spe = this.allSpecialities.find(speciality => speciality.code === this.selectedSpeciality);
+      return spe ? spe.group.code : null;
+    }
+  },
   
   mounted() {
     this.changeFilteredPowers();
@@ -47,6 +55,7 @@ export default defineComponent({
       this.filteredPowers = this.allPowers;
       if (this.selectedSpeciality) this.filteredPowers = this.filteredPowers.filter(power => {
         if (power.speciality) return (power.speciality.code === this.selectedSpeciality);
+        if (power.group) return (power.group.code === this.selectedGroup);
         else return true;
       });
       if (this.searchName) this.filteredPowers = this.filteredPowers.filter(power => power.name.toLowerCase().indexOf(this.searchName.toLowerCase()) !== -1);
