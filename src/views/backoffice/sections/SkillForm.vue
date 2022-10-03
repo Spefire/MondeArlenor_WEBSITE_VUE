@@ -31,6 +31,54 @@
         maxlength="180" />
     </div>
 
+    <div class="layout-row">
+      <div class="layout-col-33 form-element">
+        <input
+          type="checkbox"
+          id="skill-for"
+          v-model.trim.lazy="v$.form.checkFor.$model">
+        <label for="skill-for">{{ caractNomEnum.Force.Libelle }}</label>
+      </div>
+      <div class="layout-col-33 form-element">
+        <input
+          type="checkbox"
+          id="skill-hab"
+          v-model.trim.lazy="v$.form.checkHab.$model">
+        <label for="skill-hab">{{ caractNomEnum.Habilete.Libelle }}</label>
+      </div>
+      <div class="layout-col-33 form-element">
+        <input
+          type="checkbox"
+          id="skill-int"
+          v-model.trim.lazy="v$.form.checkInt.$model">
+        <label for="skill-int">{{ caractNomEnum.Intellect.Libelle }}</label>
+      </div>
+    </div>
+
+    <div class="layout-row">
+      <div class="layout-col-33 form-element">
+        <input
+          type="checkbox"
+          id="skill-ten"
+          v-model.trim.lazy="v$.form.checkTen.$model">
+        <label for="skill-ten">{{ caractNomEnum.Tenacite.Libelle }}</label>
+      </div>
+      <div class="layout-col-33 form-element">
+        <input
+          type="checkbox"
+          id="skill-cha"
+          v-model.trim.lazy="v$.form.checkCha.$model">
+        <label for="skill-cha">{{ caractNomEnum.Charisme.Libelle }}</label>
+      </div>
+      <div class="layout-col-33 form-element">
+        <input
+          type="checkbox"
+          id="skill-mag"
+          v-model.trim.lazy="v$.form.checkMag.$model">
+        <label for="skill-mag">{{ caractNomEnum.Magie.Libelle }}</label>
+      </div>
+    </div>
+
     <div class="form-element">
       <button
         class="link-button"
