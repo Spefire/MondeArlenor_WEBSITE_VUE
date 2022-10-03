@@ -15,7 +15,7 @@ export function getListDefaultSkills(): ArlenorSkill[] {
   listSkills = createSkill(listSkills,
     "Courte durée / rechargement",
     SkillTypesEnum.ProprieteTemps,
-    [], [specialities.DanseurMartial, specialities.Derviche, specialities.Elementaliste]
+    [], [specialities.DanseurMartial, specialities.Derviche, specialities.Meteorologue]
   );
   listSkills = createSkill(listSkills,
     "Durée / rechargement normal",
@@ -38,7 +38,7 @@ export function getListDefaultSkills(): ArlenorSkill[] {
   listSkills = createSkill(listSkills,
     "Quelques pouvoirs à canaliser",
     SkillTypesEnum.ProprieteCanalisation,
-    [groups.Enchanteur], [specialities.Exorciste],
+    [groups.Enchanteur], [specialities.Necromancien],
   );
   listSkills = createSkill(listSkills,
     "Beaucoup de pouvoirs à canaliser",
@@ -51,7 +51,7 @@ export function getListDefaultSkills(): ArlenorSkill[] {
     getLibArmure("légères / très mobiles"),
     SkillTypesEnum.CompetenceArmure,
     [groups.Assassin, groups.Sorcier, groups.Enchanteur],
-    [specialities.Derviche, specialities.Escrimeur, specialities.Pelerin, specialities.Guerisseur, specialities.PretreArlenor, specialities.Exorciste],
+    [specialities.Derviche, specialities.Escrimeur, specialities.Pelerin, specialities.Guerisseur, specialities.PretreArlenor, specialities.Necromancien],
   );
   
   listSkills = createSkill(listSkills,

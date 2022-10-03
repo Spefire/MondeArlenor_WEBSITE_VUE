@@ -154,7 +154,7 @@ export class ArlenorCharacter extends ArlenorAPI {
 
     const specialities = new ArlenorSpecialities();
     const crystal01 = new ArlenorCrystal();
-    crystal01.codeSpeciality = specialities.Elementaliste.code;
+    crystal01.codeSpeciality = specialities.Createur.code;
     const crystal02 = new ArlenorCrystal();
     crystal02.codeSpeciality = specialities.DanseurMartial.code;
     this.crystals = [crystal01, crystal02];
