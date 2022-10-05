@@ -102,7 +102,12 @@
   <template v-if="systemChoice === 2">
     <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
-      En attente de rédaction...
+      Pour les actions aux <b>tests de difficulté</b> (combat ou utilisation de pouvoirs), on utilisera cette grille comme référence.
+      <TableDifficulties />
+
+      <br>&emsp;
+      Pour les actions aux <b>tests d'opposition</b> (combat ou utilisation de pouvoirs), on utilisera cette grille comme référence.
+      <TableMarges />
     </div>
 
     <ExpandBloc

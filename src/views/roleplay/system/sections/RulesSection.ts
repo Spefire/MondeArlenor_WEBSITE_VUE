@@ -2,11 +2,16 @@ import ArrowButton from "@/components/arrow-button/ArrowButton.vue";
 import ExpandBloc from "@/components/expand-bloc/ExpandBloc.vue";
 import { defineComponent, ref } from "vue";
 
+import TableDifficulties from "./tables/TableDifficulties.vue";
+import TableMarges from "./tables/TableMarges.vue";
+
 export default defineComponent({
   name: "RulesSection",
   components: {
     ArrowButton,
     ExpandBloc,
+    TableDifficulties,
+    TableMarges,
   },
 
   setup() {
