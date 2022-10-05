@@ -1,21 +1,27 @@
 import ArrowButton from "@/components/arrow-button/ArrowButton.vue";
 import ExpandBloc from "@/components/expand-bloc/ExpandBloc.vue";
+import SkillsTable from "@/components/skills-table/SkillsTable.vue";
 import { CaractDescriptionEnum } from "@/models/ArlenorCaracts";
 import { ArlenorRace, DifficultyEnum } from "@/models/ArlenorRace";
+import { ArlenorSkill, SkillTypesEnum } from "@/models/ArlenorSkill";
+import { getListDefaultSkills } from "@/models/data/ListDefaultSkills";
 import { ArlenorGroups } from "@/models/data/ListGroups";
 import { getListRaces } from "@/models/data/ListRaces";
 import { getListRoles } from "@/models/data/ListRoles";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
-import { defineComponent, ref } from "vue";
+import { defineComponent, Ref, ref } from "vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "PersoSection",
   components: {
     ArrowButton,
     ExpandBloc,
+    SkillsTable,
   },
 
   setup() {
+    const store = useStore();
     const caractDescriptionEnum = CaractDescriptionEnum;
     const allRaces = ref(getListRaces().filter(race => race.difficulty !== DifficultyEnum.Impossible.Code));
     const allSpecialities = ref(ArlenorSpecialities.getListSpecialities());
@@ -25,12 +31,33 @@ export default defineComponent({
     const caractChoice = ref(0);
     const groupChoice = ref("");
     const finitionChoice = ref(0);
+    
+    const skills = getListDefaultSkills().filter(skill => {
+      return (!skill.codeRace && !skill.codeSpeciality
+        && skill.codeType !== SkillTypesEnum.ProprieteCanalisation.Code
+        && skill.codeType !== SkillTypesEnum.ProprieteTemps.Code);
+    });
+    const defaultSkills: Ref<ArlenorSkill[]> = ref(skills);
 
     return {
+      store,
       caractDescriptionEnum,
       allRaces, allSpecialities, allGroups, allRoles,
       persoChoice, caractChoice, groupChoice, finitionChoice,
+      defaultSkills,
     };
+  },
+
+  mounted() {
+    this.store.commit("loadAllSkills");
+  },
+
+  computed: {
+    allSkills(): ArlenorSkill[] {
+      let allSkills = this.store.state.allSkills || [];
+      allSkills = allSkills.concat(this.defaultSkills);
+      return allSkills;
+    },
   },
 
   methods: {

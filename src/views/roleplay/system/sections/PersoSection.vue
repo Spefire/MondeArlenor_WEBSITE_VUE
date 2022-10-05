@@ -178,6 +178,9 @@
       Cette section s’intéresse à ces <b>compétences</b> que les personnages apprennent ou non à utiliser
       et qui les différencient les uns des autres.
     </div>
+    <SkillsTable
+      :all-skills="allSkills"
+      :read-only="true" />
   </template>
   <template v-if="persoChoice === 5">
     <div class="layout-bloc margin-top-1 text-justify">

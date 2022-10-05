@@ -32,7 +32,7 @@ export default defineComponent({
 
   setup () {
     const backChoice = ref(1);
-    const isOpen = ref(false);
+    const isOpen = ref(true);
     return { backChoice, isOpen, v$: useVuelidate() };
   },
 

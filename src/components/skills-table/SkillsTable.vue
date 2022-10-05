@@ -1,5 +1,7 @@
 <template>
-  <div class="layout-row margin-top-1">
+  <div
+    v-if="!readOnly"
+    class="layout-row margin-top-1">
     <div class="layout-col-33 form-element">
       <ToggleButton
         :text="'Compétences éditables'"
@@ -37,9 +39,17 @@
       <tr>
         <th
           colspan="2"
-          class="col-50">Nom de la compétence</th>
-        <th class="col-30">Type de la compétence</th>
-        <th class="col-20">Actions</th>
+          :class="{'col-50': !readOnly, 'col-70': readOnly}">
+          Nom de la compétence
+        </th>
+        <th class="col-30">
+          Type de la compétence
+        </th>
+        <th 
+          v-if="!readOnly"
+          class="col-20">
+          Actions
+        </th>
       </tr>
 
     </thead>
@@ -76,7 +86,8 @@
             </div>
           </td>
           <td 
-            class="col-30 pointer"
+            class="pointer"
+            :class="{'col-30': !readOnly, 'col-50': readOnly }"
             @click="seeMore(skill)">
             {{ skill.name }}
             <template v-if="skill.codeSpeciality">
@@ -89,7 +100,9 @@
           <td class="col-30">
             {{ skill.type.Libelle }}
           </td>
-          <td class="col-20">
+          <td
+            v-if="!readOnly"
+            class="col-20">
             <template v-if="skill.isEditable">
               <button
                 class="link-button"

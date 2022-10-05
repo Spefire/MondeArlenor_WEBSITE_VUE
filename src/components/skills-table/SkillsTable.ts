@@ -12,6 +12,11 @@ export default defineComponent({
       type: Array as PropType<ArlenorSkill[]>,
       required: true
     },
+    readOnly: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
   },
   components: { ToggleButton, SkillsDescription },
   emits: ["edit", "delete", "update"],
