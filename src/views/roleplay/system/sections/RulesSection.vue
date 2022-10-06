@@ -103,8 +103,9 @@
     <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
       Pour les actions aux <b>tests de difficulté</b> (combat ou utilisation de pouvoirs), on utilisera cette grille comme référence.
+      <br>&emsp;
+      <b>Note: les Soins ne sont applicables qu'une seule fois par blessure.</b>
       <TableDifficulties />
-
       <br>&emsp;
       Pour les actions aux <b>tests d'opposition</b> (combat ou utilisation de pouvoirs), on utilisera cette grille comme référence.
       <TableMarges />
@@ -146,26 +147,7 @@
       <b>Un personnage gagne de l'expérience à chaque aventure vécue :</b> en général, il gagne 1 niveau par scénario terminé.<br>
       <br>
       Et à chaque niveau, voici comment le personnage évolue :<br>     
-      <br>Niveau 1 : Rien
-      <br>Niveau 2 : Vie max +1
-      <br>Niveau 3 : Compétences + 1
-      <br>Niveau 4 : Vie max +1
-      <br><b>Niveau 5 : Nouveau cristal / Pouvoirs +2 / Caractéristiques +1</b>
-      <br>Niveau 6 : Vie max +1
-      <br>Niveau 7 : Pouvoirs +1
-      <br>Niveau 8 : Vie max +1
-      <br>Niveau 9 : Compétences + 1
-      <br><b>Niveau 10 : Vie max +1 / Pouvoirs +1 / Caractéristiques +1 / Compétences + 1</b>
-      <br>Niveau 11 : Pouvoirs +1
-      <br>Niveau 12 : Vie max +1
-      <br>Niveau 13 : Compétences + 1
-      <br>Niveau 14 : Vie max +1
-      <br><b>Niveau 15 : Caractéristiques +1 / Pouvoirs +1</b>
-      <br>Niveau 16 : Vie max +1
-      <br>Niveau 17 : Pouvoirs +1
-      <br>Niveau 18 : Vie max +1
-      <br>Niveau 19 : Compétences + 1
-      <br><b>Niveau 20 : Vie max +1 / Pouvoirs +1 / Caractéristiques +2</b>
+      <TableLevels />
     </div>
   </template>
 </template>

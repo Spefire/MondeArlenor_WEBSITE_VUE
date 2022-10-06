@@ -3,6 +3,7 @@ import ExpandBloc from "@/components/expand-bloc/ExpandBloc.vue";
 import { defineComponent, ref } from "vue";
 
 import TableDifficulties from "./tables/TableDifficulties.vue";
+import TableLevels from "./tables/TableLevels.vue";
 import TableMarges from "./tables/TableMarges.vue";
 
 export default defineComponent({
@@ -12,6 +13,7 @@ export default defineComponent({
     ExpandBloc,
     TableDifficulties,
     TableMarges,
+    TableLevels,
   },
 
   setup() {

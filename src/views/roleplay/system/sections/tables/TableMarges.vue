@@ -19,31 +19,31 @@
       </tr>
       <tr>
         <td class="col text-bold">4-8</td>
-        <td class="col">3</td>
+        <td class="col">2</td>
         <td class="col">2 tours</td>
         <td class="col">-1</td>
         <td class="col">-4</td>
       </tr>
       <tr>
         <td class="col text-bold">9-13</td>
-        <td class="col">5</td>
+        <td class="col">3</td>
         <td class="col">3 tours</td>
         <td class="col">-2</td>
         <td class="col">-6</td>
       </tr>
       <tr>
         <td class="col text-bold">14-18</td>
-        <td class="col">8</td>
+        <td class="col">5</td>
         <td class="col">5 tours</td>
         <td class="col">-3</td>
-        <td class="col">-9</td>
+        <td class="col">-10</td>
       </tr>
       <tr>
-        <td class="col text-bold">19+</td>
-        <td class="col">12</td>
+        <td class="col text-bold">19-25</td>
+        <td class="col">8</td>
         <td class="col">8 tours</td>
         <td class="col">-5</td>
-        <td class="col">-12</td>
+        <td class="col">-16</td>
       </tr>
     </tbody>
   </table>

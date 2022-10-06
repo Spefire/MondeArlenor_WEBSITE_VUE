@@ -38,9 +38,9 @@
       <tr>
         <td class="col text-bold">Epique 30</td>
         <td class="col">8</td>
-        <td class="col">4 tours</td>
+        <td class="col">3 tours</td>
         <td class="col">Immense</td>
-        <td class="col">+4</td>
+        <td class="col">+3</td>
         <td class="col">+10</td>
       </tr>
     </tbody>
