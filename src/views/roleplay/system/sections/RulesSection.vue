@@ -102,12 +102,14 @@
   <template v-if="systemChoice === 2">
     <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
-      Pour les actions aux <b>tests de difficulté</b> (combat ou utilisation de pouvoirs), on utilisera cette grille comme référence.
+      Pour les actions aux <b>tests de difficulté</b>, on utilisera cette grille comme référence.
+      Ces tests concernent généralement le personnage lui-même, ou des actions sur des cibles alliées (qui n'opposent pas de résistance).
       <br>&emsp;
       <b>Note: les Soins ne sont applicables qu'une seule fois par blessure.</b>
       <TableDifficulties />
       <br>&emsp;
-      Pour les actions aux <b>tests d'opposition</b> (combat ou utilisation de pouvoirs), on utilisera cette grille comme référence.
+      Pour les actions aux <b>tests d'opposition</b>, on utilisera cette grille comme référence.
+      Les différentes parties de l'action lancent leur dés, et la marge sera la différence entre les résultats.
       <TableMarges />
     </div>
 

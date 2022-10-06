@@ -120,7 +120,7 @@ export function getListRaceSkills(raceCode = ""): ArlenorSkill[] {
   // Célestien
   const skill60 = new ArlenorSkill();
   skill60.init("Coeur de cristal", SkillTypesEnum.CompetenceAutre);
-  skill60.description = "Les célestiens possèdent des pouvoirs élémmentaires particuliers, donnés par une mutation génétique au coeur.";
+  skill60.description = "Les célestiens possèdent des pouvoirs élémentaires particuliers, donnés par une mutation génétique au coeur.";
   skill60.urlImage = "./capacity_60.png";
   skill60.codeRace = races[6].code;
   listSkills.push(skill60);
