@@ -14,7 +14,7 @@
         <td class="col-30">-</td>
       </tr>
       <tr>
-        <td class="col-20 text-bold">Enchevêtrement / Handicap</td>
+        <td class="col-20 text-bold">Enchevêtrement /&nbsp;Handicap</td>
         <td class="col-50">Empêche le personnage de se déplacer et donne un malus.</td>
         <td class="col-30">Malus -4 aux esquives</td>
       </tr>
@@ -51,7 +51,7 @@
         <td class="col-30">-</td>
       </tr>
       <tr>
-        <td class="col-20 text-bold">Folie / Démence</td>
+        <td class="col-20 text-bold">Folie /&nbsp;Démence</td>
         <td class="col-50">Le personnage est fou de rage et attaque l'ami ou ennemi le plus proche, sans distinction.</td>
         <td class="col-30">-</td>
       </tr>
@@ -93,7 +93,7 @@
         <td class="col-30">Bonus +1 aux caractéristiques</td>
       </tr>
       <tr>
-        <td class="col-20 text-bold">Empoisonnement / Hémorragie</td>
+        <td class="col-20 text-bold">Empoisonnement /&nbsp;Hémorragie</td>
         <td class="col-50">Inflige des dégâts bruts à chaque tour.</td>
         <td class="col-30">1 PV chaque tour</td>
       </tr>

@@ -15,13 +15,31 @@
       class="onglets-nav-item"
       :class="{ selected : systemChoice === 2 }"
       @click="changeSystemChoice(2)">
-      2) Le combat et les actions possibles
+      2) Les tableaux de résultats
     </span>
     <span
       class="onglets-nav-item"
       :class="{ selected : systemChoice === 3 }"
       @click="changeSystemChoice(3)">
-      3) L'expérience et les niveaux
+      3) Le combat et les actions possibles
+    </span>
+    <span
+      class="onglets-nav-item"
+      :class="{ selected : systemChoice === 4 }"
+      @click="changeSystemChoice(4)">
+      4) Les soins et guérison
+    </span>
+    <span
+      class="onglets-nav-item"
+      :class="{ selected : systemChoice === 5 }"
+      @click="changeSystemChoice(5)">
+      5) Les altérations d'états
+    </span>
+    <span
+      class="onglets-nav-item"
+      :class="{ selected : systemChoice === 6 }"
+      @click="changeSystemChoice(6)">
+      6) L'expérience et les niveaux
     </span>
   </div>
   <template v-if="systemChoice === 1">
@@ -104,52 +122,55 @@
       &emsp;
       Pour les actions aux <b>tests de difficulté</b>, on utilisera cette grille comme référence.
       Ces tests concernent généralement le personnage lui-même, ou des actions sur des cibles alliées (qui n'opposent pas de résistance).
-      <br>&emsp;
-      <b>Note: les Soins ne sont applicables qu'une seule fois par blessure.</b>
       <TableDifficulties />
       <br>&emsp;
       Pour les actions aux <b>tests d'opposition</b>, on utilisera cette grille comme référence.
       Les différentes parties de l'action lancent leur dés, et la marge sera la différence entre les résultats.
       <TableMarges />
     </div>
+  </template>
+  <template v-if="systemChoice === 3">
+    <div class="layout-bloc margin-top-1 text-justify">
+      &emsp;
+      Voir section initiative.
+    </div>
 
     <ExpandBloc
-      :bloc-title="`L'Initiative`"
+      :bloc-title="'Les actions courtes'"
       :bloc-state="fightChoice === 1"
       @toggle="changeFightChoice(1)">
-      <span>L'Initiative</span>
-    </ExpandBloc>
-        
-    <ExpandBloc
-      :bloc-title="'Les actions courtes'"
-      :bloc-state="fightChoice === 2"
-      @toggle="changeFightChoice(2)">
       <span>Les actions courtes</span>
     </ExpandBloc>
         
     <ExpandBloc
       :bloc-title="'Les actions longues'"
-      :bloc-state="fightChoice === 3"
-      @toggle="changeFightChoice(3)">
+      :bloc-state="fightChoice === 2"
+      @toggle="changeFightChoice(2)">
       <span>Les actions longues</span>
     </ExpandBloc>
-
-    <ExpandBloc
-      :bloc-title="'Les états et affections diverses'"
-      :bloc-state="fightChoice === 4"
-      @toggle="changeFightChoice(4)">
-      <span>Les états et affections diverses</span>
-      <TableEffects />
-    </ExpandBloc>
   </template>
-  <template v-if="systemChoice === 3">
+  <template v-if="systemChoice === 4">
+    <div class="layout-bloc margin-top-1 text-justify">
+      &emsp;
+      Voir section soin et guérison.
+    </div>
+  </template>
+  <template v-if="systemChoice === 5">
+    <div class="layout-bloc margin-top-1 text-justify">
+      &emsp;
+      Voici la liste des différents états possibles.
+      <b>Par défaut, les états ne dure qu'un seul tour.</b>
+      Sinon la durée de leur effet est définie par l'action ou le pouvoir qui l'a engendré.
+      Exception pour le Renversement qui ne dure forcément qu'un tour de combat, et la Pétrification qui dure indéfiniement.
+      <TableEffects />
+    </div>
+  </template>
+  <template v-if="systemChoice === 6">
     <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
       L'expérience d'un personnage du Monde d'Arlénor, ne se définit pas au nombre d'ennemis tués,
       ni au nombre de kilomètres parcourus...<br>
-      <b>Un personnage gagne de l'expérience à chaque aventure vécue :</b> en général, il gagne 1 niveau par scénario terminé.<br>
-      <br>
-      Et à chaque niveau, voici comment le personnage évolue :<br>     
+      <b>Un personnage gagne de l'expérience à chaque aventure vécue :</b> en général, il gagne 1 niveau par scénario terminé.<br>    
       <TableLevels />
     </div>
   </template>
