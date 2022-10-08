@@ -87,12 +87,6 @@
           to="/universe">{{ pages.universe }}</router-link>
         <router-link
           class="link"
-          to="/roleplay">
-          <span class="text-bold margin-right-05">•</span>
-          {{ pages.roleplay }}
-        </router-link>
-        <router-link
-          class="link"
           to="/celestia">
           {{ pages.celestia }}
         </router-link>
@@ -110,20 +104,6 @@
         <router-link
           class="link exact-link"
           to="/universe/races">{{ pages.races }}</router-link>
-      </nav>
-      <nav v-if="onRoleplayRoute">
-        <router-link
-          class="link exact-link"
-          to="/roleplay">{{ pages.beginning }}</router-link>
-        <router-link
-          class="link exact-link"
-          to="/roleplay/system">{{ pages.system }}</router-link>
-        <router-link
-          class="link exact-link"
-          to="/roleplay/crystals?spe=PALADIN">{{ pages.crystals }}</router-link>
-        <router-link
-          class="link exact-link"
-          to="/roleplay/creation">{{ pages.creation }}</router-link>
       </nav>
     </div>
   </header>

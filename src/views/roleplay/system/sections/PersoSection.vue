@@ -224,7 +224,7 @@
                 :title="spe.group.role.name" />
             </div>
             <p class="docs-grid-body">{{ getDescription(spe.description) }}</p>
-            <div class="margin-top-05 margin-bottom-05 hide-on-mobile">
+            <div class="margin-top-05 margin-bottom-05">
               <ArrowButton
                 :link-name="'crystals'"
                 :link-query="{ spe: spe.code }" />
