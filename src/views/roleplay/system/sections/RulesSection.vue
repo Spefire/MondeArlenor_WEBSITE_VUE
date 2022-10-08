@@ -139,6 +139,7 @@
       :bloc-state="fightChoice === 4"
       @toggle="changeFightChoice(4)">
       <span>Les états et affections diverses</span>
+      <TableEffects />
     </ExpandBloc>
   </template>
   <template v-if="systemChoice === 3">
