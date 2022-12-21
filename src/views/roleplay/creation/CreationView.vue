@@ -138,7 +138,7 @@
         </div>
 
         <div class="creation-form">
-          <div class="layout-bloc form-element zone-element zone-element-semifree">
+          <div class="layout-bloc form-element zone-element zone-element-semifree margin-top-0 margin-bottom-0">
             <div
               v-if="character"
               class="zone-header">
