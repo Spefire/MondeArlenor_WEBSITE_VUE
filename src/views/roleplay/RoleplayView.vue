@@ -24,33 +24,10 @@
       <div class="glyphe-container">
         <Glyphe
           class="little"
-          :icon="'book'" />
+          :icon="'perso'" />
       </div>
       <div class="title-container inversed-container">
-        <h2>2. Les règles du jeu</h2>
-        <p>
-          Trouvez ici tous les éléments permettant de comprendre la création de personnage en profondeur ainsi que le système de jeu et des propositions de pouvoirs.
-        </p>
-        <div>
-          <router-link
-            class="link-button"
-            to="/roleplay/system">
-            Comprendre le système de jeu
-          </router-link>
-        </div>
-        <div class="margin-top-1">
-          <router-link
-            class="link-button"
-            to="/roleplay/crystals?spe=PALADIN">
-            Voir les cristaux évolutifs
-          </router-link>
-        </div>
-      </div>
-    </div>
-    <div little-separator />
-    <div class="roleplay-view background-roleplay glyphe-hover">
-      <div class="title-container">
-        <h2>3. La création de personnage</h2>
+        <h2>2. La création de personnage</h2>
         <p>
           Créez votre personnage, des caractéristiques aux compétences, en passant par leurs pouvoirs...
           Accédez dès maintenant à la naissance de votre personnage !
@@ -61,8 +38,31 @@
           Passer à la création !
         </router-link>
       </div>
+    </div>
+    <div little-separator />
+    <div class="roleplay-view background-roleplay glyphe-hover">
+      <div class="title-container">
+        <h2>3. Les règles du jeu</h2>
+        <p>
+          Trouvez ici tous les éléments permettant de comprendre la création de personnage en profondeur ainsi que le système de jeu et des propositions de pouvoirs.
+        </p>
+        <div>
+          <router-link
+            class="link-button"
+            to="/roleplay/crystals?spe=PALADIN">
+            Voir les cristaux évolutifs
+          </router-link>
+        </div>
+        <div class="margin-top-1">
+          <router-link
+            class="link-button"
+            to="/roleplay/system">
+            Comprendre le système de jeu
+          </router-link>
+        </div>
+      </div>
       <div class="glyphe-container">
-        <Glyphe :icon="'perso'" />
+        <Glyphe :icon="'book'" />
       </div>
     </div>
   </div>
