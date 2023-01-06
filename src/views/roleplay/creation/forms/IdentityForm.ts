@@ -1,6 +1,6 @@
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import useVuelidate from "@vuelidate/core";
-import { maxLength, required } from "@vuelidate/validators";
+import { between, maxLength, required } from "@vuelidate/validators";
 import { defineComponent } from "vue";
 import { useStore } from "vuex";
 
@@ -36,21 +36,32 @@ export default defineComponent({
   validations: {
     form: {
       name: {
-        required
+        required,
+        max: maxLength(40)
       },
       age: {
-        required
+        required,
+        between: between(1, 200)
       },
       gender: {
-        required
+        required,
+        max: maxLength(12)
       },
       story: {
-        max: maxLength(440)
+        max: maxLength(800)
       },
-      description: {},
-      traits: {},
-      belives: {},
-      importances: {},
+      description: {
+        max: maxLength(70)
+      },
+      traits: {
+        max: maxLength(70)
+      },
+      belives: {
+        max: maxLength(70)
+      },
+      importances: {
+        max: maxLength(70)
+      },
     },
   },
 

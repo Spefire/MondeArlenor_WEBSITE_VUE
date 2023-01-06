@@ -74,7 +74,7 @@ const downloadPDF = async(character: ArlenorCharacter, allSkills: ArlenorSkill[]
 
   x = 236;
   y = 515.5;
-  doc.text("" + character.story, x, y, {
+  doc.text("" + checkText(character.story), x, y, {
     align: "justify",
     maxWidth: 180,
   });
@@ -158,7 +158,7 @@ const downloadPDF = async(character: ArlenorCharacter, allSkills: ArlenorSkill[]
       doc.text(title, x + x_txt_scale - 1, y + y_txt_scale);
       doc.setFontSize(8);
       doc.text(subtitle, x + x_txt_scale - 1, y + y_txt_scale + 10);
-      doc.text(description, x + 202, y + y_txt_scale - 2, {
+      doc.text(checkText(description), x + 202, y + y_txt_scale - 2, {
         align: "justify",
         maxWidth: 180,
       });
@@ -173,6 +173,10 @@ const downloadPDF = async(character: ArlenorCharacter, allSkills: ArlenorSkill[]
 const checkLibelle = (value: string, max: number, onlyPoint = false) => {
   if (value.length <= (max - (onlyPoint ? 1 : 3))) return value;
   else return value.slice(0, max - (onlyPoint ? 1 : 3)) + (onlyPoint ? "." : "...");
+};
+
+const checkText = (value: string) => {
+  return value.replace("\n", " ");
 };
 
 export default {

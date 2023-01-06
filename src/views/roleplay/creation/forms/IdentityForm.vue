@@ -24,6 +24,7 @@
         <input
           type="text"
           class="text-center"
+          maxlength="40"
           v-model.trim.lazy="v$.form.name.$model">
       </div>
       <div class="layout-row">
@@ -42,6 +43,7 @@
           <input
             type="text"
             class="text-center"
+            maxlength="12"
             placeholder="Masculin, féminin, indéterminé (il, elle, iel)..."
             v-model.trim.lazy="v$.form.gender.$model">
         </div>
@@ -53,6 +55,7 @@
         <span>Description physique</span>
         <input
           type="text"
+          maxlength="70"
           placeholder="Robuste, élégant, frêle, ridé, jeune..."
           v-model.trim.lazy="v$.form.description.$model">
       </div>
@@ -60,6 +63,7 @@
         <span>Traits de caractère</span>
         <input
           type="text"
+          maxlength="70"
           placeholder="Timide, sérieux, charmeur, rêveur, généreux..."
           v-model.trim.lazy="v$.form.traits.$model">
       </div>
@@ -67,6 +71,7 @@
         <span>Idéologies et croyances</span>
         <input
           type="text"
+          maxlength="70"
           placeholder="Allié des mutants, vénération des divinités, esprit scientifique..."
           v-model.trim.lazy="v$.form.belives.$model">
       </div>
@@ -74,6 +79,7 @@
         <span>Personnes ou lieux significatifs</span>
         <input
           type="text"
+          maxlength="70"
           placeholder="Un parent, un ami, la ville natale, un sanctuaire..."
           v-model.trim.lazy="v$.form.importances.$model">
       </div>
@@ -82,7 +88,7 @@
         <textarea
           placeholder="Son enfance, sa motivation dans la vie, l'acquisition de ses pouvoirs, des haut-faits réalisés..."
           v-model.trim.lazy="v$.form.story.$model"
-          maxlength="440" />
+          maxlength="800" />
       </div>
     </div>
   </div>
