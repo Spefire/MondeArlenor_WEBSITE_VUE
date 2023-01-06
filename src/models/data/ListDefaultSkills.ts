@@ -69,13 +69,13 @@ export function getListDefaultSkills(): ArlenorSkill[] {
 
   // Armes
   listSkills = createWeapon(listSkills,
-    getLibArme("à une main, avec bouclier"),
+    getLibArme("bouclier"),
     [], [specialities.Paladin],
     [CaractNomEnum.Force.Code]
   );
   
   listSkills = createWeapon(listSkills,
-    getLibArme("épées à deux mains"),
+    getLibArme("armes à deux mains"),
     [], [specialities.Chevalier],
     [CaractNomEnum.Force.Code]
   );
@@ -87,7 +87,7 @@ export function getListDefaultSkills(): ArlenorSkill[] {
   );
 
   listSkills = createWeapon(listSkills,
-    getLibArme("d'hast"),
+    getLibArme("armes d'hast"),
     [], [specialities.Derviche],
     [CaractNomEnum.Habilete.Code]
   );
@@ -123,19 +123,13 @@ export function getListDefaultSkills(): ArlenorSkill[] {
   );
 
   listSkills = createWeapon(listSkills,
-    getLibArme("orbes mystiques"),
-    [groups.Sorcier], [],
+    getLibArme("catalyseurs"),
+    [groups.Sorcier, groups.Invocateur], [],
     [CaractNomEnum.Intellect.Code]
   );
 
   listSkills = createWeapon(listSkills,
-    getLibArme("sceptres à une main"),
-    [groups.Invocateur], [],
-    [CaractNomEnum.Intellect.Code]
-  );
-
-  listSkills = createWeapon(listSkills,
-    getLibArme("bâtons"),
+    getLibArme("bâtons / sceptres"),
     [groups.Enchanteur, groups.Pretre], [specialities.Guerisseur],
     [CaractNomEnum.Habilete.Code]
   );
@@ -154,7 +148,7 @@ export function getSpeSkills(speCode: string): ArlenorSkill[] {
 }
 
 function getLibArme(lib: string): string {
-  return "Maîtrise d'arme (" + lib + ")";
+  return "Maîtrise (" + lib + ")";
 }
 
 function getLibArmure(lib: string): string {
@@ -167,7 +161,7 @@ function createWeapon(listSkills: ArlenorSkill[], name: string,
   // On généralise les armes
   const newSkill= new ArlenorSkill();
   newSkill.init(name, SkillTypesEnum.CompetenceArme);
-  newSkill.description = "Bonus +4 pour toute attaque avec cette arme.";
+  newSkill.description = "Bonus +4 pour toute action avec.";
   newSkill.codesCaracts = codesCaracts;
   listSkills.push(newSkill);
 
