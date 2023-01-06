@@ -133,3 +133,27 @@ header {
 		}
 	}
 }
+
+.header-toggle-button {
+	position: absolute;
+	z-index: 10;
+	top: 0;
+	left: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 38px;
+	width: 32px;
+	font-size: 16px;
+	transform: translate(-50%, -5px) rotate(90deg);
+	border-radius: 0 20px 20px 0;
+	border: 1px solid $secondary-color;
+	background-color: $black-color;
+	cursor: pointer;
+
+	&.active {
+		top: 90px;
+		transform: translate(-50%, -5px) rotate(-90deg);
+		border-radius: 20px 0 0 20px;
+	}
+}

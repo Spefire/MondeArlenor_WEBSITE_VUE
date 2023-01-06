@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header v-if="showHeader">
     <!-- Tablet / PC section -->
 
     <div class="header-section">
@@ -55,13 +55,13 @@
           to="/roleplay">{{ pages.beginning }}</router-link>
         <router-link
           class="link exact-link"
-          to="/roleplay/system">{{ pages.system }}</router-link>
+          to="/roleplay/creation">{{ pages.creation }}</router-link>
         <router-link
           class="link exact-link"
           to="/roleplay/crystals?spe=PALADIN">{{ pages.crystals }}</router-link>
         <router-link
           class="link exact-link"
-          to="/roleplay/creation">{{ pages.creation }}</router-link>
+          to="/roleplay/system">{{ pages.system }}</router-link>
       </nav>
     </div>
 
@@ -107,6 +107,13 @@
       </nav>
     </div>
   </header>
+  <div
+    v-if="onUniverseRoute || onRoleplayRoute"
+    class="header-toggle-button" 
+    :class="{ active : showHeader }"
+    @click="toggleHeader()">
+    <i class="icon-arrow-right2" />
+  </div>
 </template>
 
 <style lang="scss" scoped src="./Header.scss"></style>
