@@ -96,6 +96,11 @@ export default defineComponent({
       this.form.idsPowers = ArlenorCrystal.resetIdsPowers();
       this.updateForm();
     },
+    
+    getDescription(description: string, length = 0) {
+      if (length) return description.replace("&emsp;","").slice(0, length) + "...";
+      return description.replace("&emsp;","");
+    },
 
     addPower(power: ArlenorPower) {
       this.form.idsPowers[power.codeRank].push(power.id);

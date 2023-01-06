@@ -88,11 +88,6 @@ export default defineComponent({
         return this.specialityPowers.filter(power => power.codeRank === rank && power.speciality);
       }
     },
-    
-    getDescription(description: string, length = 0) {
-      if (length) return description.replace("&emsp;","").slice(0, length) + "...";
-      return description.replace("&emsp;","");
-    },
 
     getCasting(chanelingProperty: number) {
       if (!chanelingProperty) return "Pas d'incantation";

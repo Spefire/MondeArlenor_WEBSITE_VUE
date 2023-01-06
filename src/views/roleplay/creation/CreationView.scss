@@ -3,34 +3,38 @@
 .creation-view {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  min-height: 100vh;
+  justify-content: space-between;
+  min-height: calc(100vh + 20px);
+  max-height: calc(100vh + 20px);
+
+  @include tablet-only {
+    min-height: calc(100vh);
+    max-height: calc(100vh);
+  }
 
   .creation-content {
     position: relative;
     display: flex;
     flex-direction: row;
-    min-height: 50vh;
     width: 80%;
-    margin: 0 10%;
+    margin: 0 10% 20px 10%;
     padding: 20px;
     border: 1px solid;
     border-radius: 5px;
     border-color: $secondary-color;
     background: $background-black-dark;
+    overflow: auto;
 
     @include tablet-only {
       flex-direction: column;
       align-items: center;
-      margin: 0;
     }
   }
 
   .creation-content-nav {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: auto;
 
     button:not(:first-child) {
       margin-left: 20px;

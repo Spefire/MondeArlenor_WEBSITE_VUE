@@ -23,28 +23,11 @@
         class="layout-bloc form-element zone-element zone-element-semifree">
         <div class="zone-header">
           <img
-            class="zone-icon is-little img-rounded"
-            :src="selectedSpeciality.group.image"
-            alt="">
-          <div class="text-center margin-left-1">
-            <h2>{{ selectedSpeciality.group.name }}</h2>
-          </div>
-        </div>
-        <p class="zone-comment margin-top-1">
-          {{ selectedSpeciality.group.description }}
-        </p>
-      </div>
-
-      <div
-        v-if="selectedSpeciality"
-        class="layout-bloc form-element zone-element zone-element-semifree">
-        <div class="zone-header">
-          <img
             class="zone-icon is-little"
             :src="selectedSpeciality.image"
             alt="">
           <div class="text-center margin-left-1">
-            <h2>{{ selectedSpeciality.name }}</h2>
+            <h2>{{ selectedSpeciality.name }} ({{ selectedSpeciality.group.name }})</h2>
           </div>
         </div>
         <div class="zone-description margin-top-1">
@@ -72,6 +55,8 @@
           </div>
         </div>
         <p class="zone-comment margin-top-1">
+          {{ selectedSpeciality.group.description }}<br>
+          -<br>
           {{ selectedSpeciality.description }}
         </p>
       </div>

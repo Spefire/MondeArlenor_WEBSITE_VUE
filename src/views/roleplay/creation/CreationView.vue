@@ -1,10 +1,7 @@
 <template>
   <div class="layout-view background-roleplay creation-view hide-on-mobile">
 
-    <h2 class="text-center margin-top-0">
-      Création de personnage
-    </h2>
-    <h3 class="text-center margin-bottom-1">
+    <h2 class="text-center margin-top-0 margin-bottom-1">
       <template v-if="selection == 0">Introduction</template>
       <template v-if="selection == 1">Choix de la race</template>
       <template v-if="selection == 2">Choix des caractéristiques</template>
@@ -17,11 +14,11 @@
       <span
         v-if="hasModification"
         title="A des modifications en cours">&nbsp;*</span>
-    </h3>
+    </h2>
 
     <template v-if="selection == 0">
       <div class="creation-content">
-        <div class="creation-form">
+        <div class="creation-form flex">
           <img
             class="layout-bloc creation-img-perso"
             src="./../../../assets/images/creation/perso_left.png"
@@ -79,6 +76,11 @@
                 class="link-button alert-button"
                 @click="openDeletePopup()">Supprimer le personnage</button>
             </div>
+          </div>
+
+          <div class="layout-bloc text-justify">
+            &emsp;
+            Note : Pour une meilleure expérience, n'hésitez pas à rétracter le bandeau de navigation en haut à gauche.
           </div>
         </div>
       </div>
