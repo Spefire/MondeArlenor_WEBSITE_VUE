@@ -71,7 +71,7 @@
             <option
               v-for="(rank, index) in allRanks"
               :value="rank.Code"
-              :key="index">{{ rank.Libelle }} ({{ rank.Code }})</option>
+              :key="index">{{ rank.Libelle }}</option>
           </select>
         </div>
       </div>

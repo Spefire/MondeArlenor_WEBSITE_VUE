@@ -3,7 +3,7 @@
     v-if="currentSpeciality"
     class="layout-view background-roleplay crystals-view hide-on-mobile">
 
-    <!-- Menu à droite -->
+    <!-- Menu en haut -->
     <div class="side-menu top">
       <div class="docs-grid-list">
         <div
@@ -96,34 +96,46 @@
       <!-- Pouvoirs -->
       <div class="crystals-layout margin-top-1">
         <div class="layout-bloc crystals-left">
-          <h3 class="margin-bottom-1">Pouvoirs de la classe</h3>
           <div
             v-if="ranks.length === 0"
-            class="text-center margin-top-1">Aucun pouvoir</div>
-          <div
-            v-for="(rank, indexRank) in ranks"
-            class="powers-content"
-            :key="indexRank">
-            <div class="powers-content-title">Rang {{ rank.Libelle }} ({{ rank.Code }})</div>
-            <div
-              v-for="(power, index) in getPowersByRank(rank.Code, true)"
-              class="power-line pointer"
-              :class="{ 'selected' : power.code === selectedPower?.code }"
-              @click="selectPower(power)"
-              :key="index">
-              <PowerImage :power="power" />
-              <span class="power-txt">{{ power.name }}</span>
-            </div>
-            <div
-              v-for="(power, index) in getPowersByRank(rank.Code, false)"
-              class="power-line pointer"
-              :class="{ 'selected' : power.code === selectedPower?.code }"
-              @click="selectPower(power)"
-              :key="index">
-              <PowerImage :power="power" />
-              <span class="power-txt">{{ power.name }}</span>
-            </div>
+            class="text-center">
+            Aucun pouvoir
           </div>
+
+          <template v-if="ranks.length > 0">
+            <h3 class="margin-bottom-1">Pouvoirs liés à la classe ({{ currentSpeciality.name }})</h3>
+            <div
+              v-for="(rank, indexRank) in ranks"
+              class="powers-content"
+              :key="indexRank">
+              <div class="powers-content-title">Rang {{ rank.Libelle }}</div>
+              <div
+                v-for="(power, index) in getPowersByRank(rank.Code, false)"
+                class="power-line pointer"
+                :class="{ 'selected' : power.code === selectedPower?.code }"
+                @click="selectPower(power)"
+                :key="index">
+                <PowerImage :power="power" />
+                <span class="power-txt">{{ power.name }}</span>
+              </div>
+            </div>
+            <h3 class="margin-top-1 margin-bottom-1">Pouvoirs liés au groupe ({{ currentSpeciality.group.name }})</h3>
+            <div
+              v-for="(rank, indexRank) in ranks"
+              class="powers-content"
+              :key="indexRank">
+              <div class="powers-content-title">Rang {{ rank.Libelle }}</div>
+              <div
+                v-for="(power, index) in getPowersByRank(rank.Code, true)"
+                class="power-line pointer"
+                :class="{ 'selected' : power.code === selectedPower?.code }"
+                @click="selectPower(power)"
+                :key="index">
+                <PowerImage :power="power" />
+                <span class="power-txt">{{ power.name }}</span>
+              </div>
+            </div>
+          </template>
         </div>
       
         <div class="layout-bloc crystals-right">

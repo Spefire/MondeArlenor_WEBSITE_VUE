@@ -142,10 +142,10 @@ export class PowerTypesEnum {
 }
 
 export class PowerRanksEnum {
-  static Unique: ArlenorEnum = { Code: "S", Libelle: "Unique" };
-  static TresRare: ArlenorEnum = { Code: "A", Libelle: "Très rare" };
-  static Rare: ArlenorEnum = { Code: "B", Libelle: "Rare" };
-  static Commun: ArlenorEnum = { Code: "C", Libelle: "Commun" };
+  static Unique: ArlenorEnum = { Code: "S", Libelle: "X" };
+  static TresRare: ArlenorEnum = { Code: "A", Libelle: "III" };
+  static Rare: ArlenorEnum = { Code: "B", Libelle: "II" };
+  static Commun: ArlenorEnum = { Code: "C", Libelle: "I" };
 }
 
 export class PowerRangesEnum {

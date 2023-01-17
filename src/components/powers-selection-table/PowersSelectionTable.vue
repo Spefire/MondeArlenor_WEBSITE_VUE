@@ -25,7 +25,7 @@
             <div class="table-separator">
               <span class="table-separator-line" />
               <span class="table-separator-title">
-                Rang {{ rank.Libelle }} ({{ rank.Code }})
+                Rang {{ rank.Libelle }}
               </span>
               <span class="table-separator-line" />
               <span class="table-separator-title">
