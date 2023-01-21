@@ -13,7 +13,7 @@ export class ArlenorLevel {
     this.numLevel = level;
 
     // Niveau 1
-    this.maxCaracts = 16;
+    this.maxCaracts = 15;
     this.maxHealth = 10;
     this.maxSkills = 5;
     this.hasOtherCrystal = false;
@@ -26,7 +26,7 @@ export class ArlenorLevel {
     if (level >= 5) this.maxCaracts++;
     if (level >= 10) this.maxCaracts++;
     if (level >= 15) this.maxCaracts++;
-    if (level >= 20) this.maxCaracts += 2;
+    if (level >= 20) this.maxCaracts++;
 
     // Gestion de la vie max
     this.maxHealth = 10 + Math.floor(level/2);

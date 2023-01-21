@@ -82,7 +82,7 @@
         <td class="col text-bold">19</td><td class="col">-</td><td class="col">-</td><td class="col">+1</td><td class="col">-</td>
       </tr>
       <tr>
-        <td class="col text-bold">20</td><td class="col">+1</td><td class="col">+2</td><td class="col">-</td><td class="col">+1</td>
+        <td class="col text-bold">20</td><td class="col">+1</td><td class="col">+1</td><td class="col">-</td><td class="col">+1</td>
       </tr>
     </tbody>
   </table>
