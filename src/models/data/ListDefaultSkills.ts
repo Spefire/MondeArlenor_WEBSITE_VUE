@@ -181,6 +181,7 @@ function createSkill(listSkills: ArlenorSkill[], name: string, type: ArlenorEnum
       allSpecialities.forEach(spe => {
         const newSkill= new ArlenorSkill();
         newSkill.init(name, type);
+        newSkill.id = "0_grp_skill_" + newSkill.code.toLowerCase();
         newSkill.codeSpeciality = spe.code;
         newSkill.codesCaracts = codesCaracts;
         listSkills.push(newSkill);
@@ -193,6 +194,7 @@ function createSkill(listSkills: ArlenorSkill[], name: string, type: ArlenorEnum
     specialities.forEach(spe => {
       const newSkill = new ArlenorSkill();
       newSkill.init(name, type);
+      newSkill.id = "0_spe_skill_" + newSkill.code.toLowerCase();
       newSkill.codeSpeciality = spe.code;
       newSkill.codesCaracts = codesCaracts;
       listSkills.push(newSkill);
