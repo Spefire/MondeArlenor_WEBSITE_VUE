@@ -52,6 +52,7 @@
                     :key="index">
                     {{ charact.name }}
                     (Niveau {{ charact.level.numLevel }})
+                    ({{ charact.date }} à {{ charact.hour }})
                   </option>
                 </select>
               </div>
