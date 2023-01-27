@@ -161,6 +161,7 @@ function createWeapon(listSkills: ArlenorSkill[], name: string,
   // On généralise les armes
   const newSkill= new ArlenorSkill();
   newSkill.init(name, SkillTypesEnum.CompetenceArme);
+  newSkill.id = "0_weapon_skill_" + newSkill.code.toLowerCase();
   newSkill.description = "Bonus +4 pour toute action avec.";
   newSkill.codesCaracts = codesCaracts;
   listSkills.push(newSkill);
