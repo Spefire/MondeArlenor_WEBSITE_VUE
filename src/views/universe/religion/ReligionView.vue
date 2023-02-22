@@ -28,42 +28,40 @@
   <div little-separator />
 
   <div class="religion-view layout-view background-universe-vertical">
-    <div class="layout-center large">
-      <div class="religion-list">
-        <img
-          v-for="(angel, index) in allAngels"
-          :key="index"
-          :src="(currentDivinity.name === angel.name) ? angel.imageSelected : angel.image"
-          :alt="angel.name"
-          @click="changeSelection(angel)">
-      </div>
-      <div class="religion-description layout-bloc margin-top-1 margin-bottom-1">
-        <h3 class="margin-top-1">{{ currentDivinity.isInversed ? "La Cabale Inversée" : "La Sainte Cabale" }}</h3>
-        <h2>
-          {{ currentDivinity.libNum }}<span class="text-lower">{{ currentDivinity.isInversed ? "i" : "" }}</span>
-          - {{ currentDivinity.name }}, {{ currentDivinity.title }}
-        </h2>
-        <h3>{{ currentDivinity.symbols }}</h3>
-        <p>"{{ currentDivinity.comment }}"<br>- {{ currentDivinity.commentName }}</p>
-        <h3>Pouvoir divin : {{ currentDivinity.powerName }}</h3>
-        <p>{{ currentDivinity.power }}</p>
-      </div>
-      <div class="religion-list">
-        <img
-          v-for="(demon, index) in allDemons"
-          :key="index"
-          :src="(currentDivinity.name === demon.name) ? demon.imageSelected : demon.image"
-          :alt="demon.name"
-          @click="changeSelection(demon)">
-      </div>
-      <div class="layout-bloc margin-top-1">
-        Les informations sur Arlénor, ses divinités et leurs domaines sont tirées des retranscriptions réalisées des tablettes de cristal.<br>
-        <b>Leur existence même, n’est pas considérée comme un mythe.</b><br>
-        <br>
-        Cependant, leur psychologie et leurs caractéristiques physiques peuvent être remises en question ou soumises à interprétation
-        (n’étant pas décrites dans les tablettes).
-        Chaque ange et chaque démon possède un titre lié à sa place dans la Cabale (lié à leur personnalité) et des domaines dans lesquels ils sont maîtres.
-      </div>
+    <div class="religion-list">
+      <img
+        v-for="(angel, index) in allAngels"
+        :key="index"
+        :src="(currentDivinity.name === angel.name) ? angel.imageSelected : angel.image"
+        :alt="angel.name"
+        @click="changeSelection(angel)">
+    </div>
+    <div class="religion-description layout-bloc margin-top-1 margin-bottom-1">
+      <h3 class="margin-top-1">{{ currentDivinity.isInversed ? "La Cabale Inversée" : "La Sainte Cabale" }}</h3>
+      <h2>
+        {{ currentDivinity.libNum }}<span class="text-lower">{{ currentDivinity.isInversed ? "i" : "" }}</span>
+        - {{ currentDivinity.name }}, {{ currentDivinity.title }}
+      </h2>
+      <h3>{{ currentDivinity.symbols }}</h3>
+      <p>"{{ currentDivinity.comment }}"<br>- {{ currentDivinity.commentName }}</p>
+      <h3>Pouvoir divin : {{ currentDivinity.powerName }}</h3>
+      <p>{{ currentDivinity.power }}</p>
+    </div>
+    <div class="religion-list">
+      <img
+        v-for="(demon, index) in allDemons"
+        :key="index"
+        :src="(currentDivinity.name === demon.name) ? demon.imageSelected : demon.image"
+        :alt="demon.name"
+        @click="changeSelection(demon)">
+    </div>
+    <div class="layout-bloc margin-top-1">
+      Les informations sur Arlénor, ses divinités et leurs domaines sont tirées des retranscriptions réalisées des tablettes de cristal.<br>
+      <b>Leur existence même, n’est pas considérée comme un mythe.</b><br>
+      <br>
+      Cependant, leur psychologie et leurs caractéristiques physiques peuvent être remises en question ou soumises à interprétation
+      (n’étant pas décrites dans les tablettes).
+      Chaque ange et chaque démon possède un titre lié à sa place dans la Cabale (lié à leur personnalité) et des domaines dans lesquels ils sont maîtres.
     </div>
   </div>
 </template>

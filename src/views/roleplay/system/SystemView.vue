@@ -1,19 +1,15 @@
 <template>
   <div class="hide-on-mobile">
     <div class="layout-view background-roleplay">
-      <div class="layout-center large">
-        <h2>Les composantes d'un personnage</h2>
-        <PersoSection />
-      </div>
+      <h2>Les composantes d'un personnage</h2>
+      <PersoSection />
     </div>
 
     <div little-separator />
 
     <div class="layout-view background-roleplay">
-      <div class="layout-center large">
-        <h2>Les règles du système</h2>
-        <RulesSection />
-      </div>
+      <h2>Les règles du système</h2>
+      <RulesSection />
     </div>
   </div>
 

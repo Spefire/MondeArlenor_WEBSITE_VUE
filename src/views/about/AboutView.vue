@@ -1,11 +1,11 @@
 <template>
-  <div class="layout-view background">
-    <div class="layout-left">
+  <div class="about-view layout-view background">
+    <div class="about-left">
       <img
         src="./../../assets/images/about.png"
         alt="">
     </div>
-    <div class="layout-right">
+    <div class="about-right">
       <h1>A propos</h1>
       <div separator />
       <h2>Présentation</h2>
@@ -42,3 +42,4 @@
 </template>
 
 <script lang="ts" src="./AboutView.ts"></script>
+<style lang="scss" scoped src="./AboutView.scss"></style>

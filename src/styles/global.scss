@@ -45,6 +45,10 @@ h2 {
   font-weight: normal;
   text-transform: uppercase;
   color: $light-secondary-color;
+
+  @include mobile-only {
+    text-align: center;
+  }
 }
 
 h3 {

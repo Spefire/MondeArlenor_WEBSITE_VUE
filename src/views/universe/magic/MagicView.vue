@@ -23,7 +23,7 @@
   <div little-separator />
 
   <div class="magic-view layout-view background-universe-vertical">
-    <div class="layout-center large magic-container">
+    <div class="magic-container">
       <div class="magic-left">
         <div class="magic-imgs">
           <img

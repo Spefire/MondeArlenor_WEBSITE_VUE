@@ -24,8 +24,9 @@
 
   .crystals-layout {
     display: flex;
+    width: 100%;
 
-    .crystals-center {
+    .crystals-top {
       display: flex;
       align-items: center;
       width: 100%;
@@ -34,20 +35,23 @@
         padding: 10px;
       }
 
-      .crystals-section-top {
+      .crystals-section {
         width: 33.33%;
         margin: 10px 0;
+        text-align: center;
       }
     }
 
     .crystals-left {
       width: calc(66.66% - 5px);
       margin-right: 5px;
+      text-align: center;
     }
 
     .crystals-right {
       width: calc(33.33% - 5px);
       margin-left: 5px;
+      text-align: center;
     }
   }
 

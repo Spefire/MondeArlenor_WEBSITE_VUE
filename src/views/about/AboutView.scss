@@ -1,0 +1,33 @@
+@import "../../styles/variables.scss";
+
+.about-view {
+  flex-direction: row;
+
+  .about-left {
+    width: 40%;
+    margin: auto 5%;
+
+    @include tablet-only {
+      width: 100%;
+    }
+
+    img {
+      height: 550px;
+
+      @include tablet-only {
+        height: 350px;
+      }
+    }
+  }
+
+  .about-right {
+    width: 40%;
+    margin: auto 10% auto 0;
+
+    @include tablet-only {
+      width: 80%;
+      margin: auto 0;
+      text-align: center;
+    }
+  }
+}

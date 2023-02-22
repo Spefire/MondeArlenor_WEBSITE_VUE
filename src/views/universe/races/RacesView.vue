@@ -23,80 +23,78 @@
   <div little-separator />
 
   <div class="races-view layout-view background-universe-vertical">
-    <div class="layout-center large">
-      <div class="races-imgs">
-        <div
-          class="select-button inverted"
-          @click="previousSelection()">
-          <i class="icon icon-arrow-right2" />
-        </div>
-
-        <img
-          @click="previousSelection()"
-          class="races-img"
-          :src="previousImage"
-          alt="">
-        <img
-          class="races-img main"
-          :src="currentImage"
-          alt="">
-        <img
-          @click="nextSelection()"
-          class="races-img"
-          :src="nextImage"
-          alt="">
-
-        <div
-          class="select-button"
-          @click="nextSelection()">
-          <i class="icon icon-arrow-right2" />
-        </div>
+    <div class="races-imgs">
+      <div
+        class="select-button inverted"
+        @click="previousSelection()">
+        <i class="icon icon-arrow-right2" />
       </div>
-      <div class="races-description layout-bloc">
-        <h2>{{ currentRace.name }}</h2>
-        <p class="text-italic">
-          {{ currentRace.infoAge }}
-          <br>
-          Apparence : {{ currentRace.infoAppareance }}
+
+      <img
+        @click="previousSelection()"
+        class="races-img"
+        :src="previousImage"
+        alt="">
+      <img
+        class="races-img main"
+        :src="currentImage"
+        alt="">
+      <img
+        @click="nextSelection()"
+        class="races-img"
+        :src="nextImage"
+        alt="">
+
+      <div
+        class="select-button"
+        @click="nextSelection()">
+        <i class="icon icon-arrow-right2" />
+      </div>
+    </div>
+    <div class="races-description layout-bloc">
+      <h2>{{ currentRace.name }}</h2>
+      <p class="text-italic">
+        {{ currentRace.infoAge }}
+        <br>
+        Apparence : {{ currentRace.infoAppareance }}
+      </p>
+      <p
+        class="text-justify"
+        v-html="currentRace.description" />
+      <div class="section-moreinfos">
+        <p>
+          <span class="text-bold">{{ currentRace.ratioWorld }}%</span> du monde sont des {{ currentRace.name.toLowerCase() }}s
         </p>
-        <p
-          class="text-justify"
-          v-html="currentRace.description" />
-        <div class="section-moreinfos">
-          <p>
-            <span class="text-bold">{{ currentRace.ratioWorld }}%</span> du monde sont des {{ currentRace.name.toLowerCase() }}s
-          </p>
-          <p>
-            <span>Localisations</span>
-            <br>
-            <span
-              v-for="(location, index) in currentRace.locations"
-              :key="index">
-              - {{ location }}<br>
-            </span>
-          </p>
-          <p>
-            <span class="text-bold">{{ currentRace.ratioMagic }}%</span> des {{ currentRace.name.toLowerCase() }}s peuvent utiliser la magie
-          </p>
-        </div>
-      </div>
-      <div class="races-top">
-        <div class="races-grid docs-grid-list">
-          <div
-            v-for="(skill, index) in currentRace.getSkills()"
-            class="docs-grid-element"
+        <p>
+          <span>Localisations</span>
+          <br>
+          <span
+            v-for="(location, index) in currentRace.locations"
             :key="index">
-            <img
-              :src="skill.image"
-              :alt="skill.name">
-            <div class="docs-grid-infos">
-              <div class="docs-grid-header">
-                <span class="text-bold">{{ skill.name }}</span>
-              </div>
-              <p
-                class="docs-grid-body"
-                v-html="skill.description" />
+            - {{ location }}<br>
+          </span>
+        </p>
+        <p>
+          <span class="text-bold">{{ currentRace.ratioMagic }}%</span> des {{ currentRace.name.toLowerCase() }}s peuvent utiliser la magie
+        </p>
+      </div>
+    </div>
+    <div class="races-top">
+      <div class="races-grid docs-grid-list">
+        <div
+          v-for="(skill, index) in currentRace.getSkills()"
+          class="docs-grid-element"
+          :key="index">
+          <img
+            :src="skill.image"
+            :alt="skill.name">
+          <div class="docs-grid-infos">
+            <div class="docs-grid-header">
+              <span class="text-bold">{{ skill.name }}</span>
             </div>
+            <p
+              class="docs-grid-body"
+              v-html="skill.description" />
           </div>
         </div>
       </div>

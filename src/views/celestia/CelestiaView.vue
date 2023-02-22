@@ -21,67 +21,65 @@
   <div little-separator />
 
   <div class="celestia-view layout-view background-celestia-black">
-    <div class="layout-center large">
-      <div class="world-container">
+    <div class="world-container">
 
-        <div class="world-right">
-          <div class="world-icons">
-            <img
-              class="world-map layout-bloc"
-              :src="currentCelestia.image"
-              alt="">
-          </div>
+      <div class="world-right">
+        <div class="world-icons">
+          <img
+            class="world-map layout-bloc"
+            :src="currentCelestia.image"
+            alt="">
         </div>
+      </div>
         
-        <div class="world-left zone-element">
-          <div class="zone-header">
-            <div
-              class="select-button inverted"
-              @click="previousSelection()">
-              <i class="icon icon-arrow-right2" />
-            </div>
-            <div class="text-center margin-bottom-1">
-              <h2>{{ currentCelestia.firstname }} {{ currentCelestia.lastname }}</h2>
-              <h3>{{ currentCelestia.grade }}</h3>
-            </div>
-            <div
-              class="select-button"
-              @click="nextSelection()">
-              <i class="icon icon-arrow-right2" />
-            </div>
+      <div class="world-left zone-element">
+        <div class="zone-header">
+          <div
+            class="select-button inverted"
+            @click="previousSelection()">
+            <i class="icon icon-arrow-right2" />
           </div>
-          <div class="zone-description">
-            <div class="zone-description-bloc text-center">
-              <span />
-              <span>{{ currentCelestia.age }}ans - {{ currentCelestia.astro }} - {{ currentCelestia.mbti }}</span>
-            </div>
-            <div class="zone-description-bloc">
-              <span>Emotion dominante</span><br>
-              <span>{{ currentCelestia.emotion }}</span>
-            </div>
-            <div class="zone-description-bloc">
-              <span>Grade - Familier</span><br>
-              <span>{{ currentCelestia.grade }} - {{ currentCelestia.animal }}</span>
-            </div>
-            <div class="zone-description-bloc">
-              <span>Orientation - Relations</span><br>
-              <span>{{ currentCelestia.orientation }} - {{ currentCelestia.situation }}</span>
-              <span v-html="currentCelestia.relations" />
-            </div>
-            <div class="zone-description-bloc">
-              <span /><br>
-              <span class="text-bold">Qualités : </span>
-              <span>{{ getLibArray(currentCelestia.qualities) }}</span><br>
-              <span class="text-bold">Défauts : </span>
-              <span>{{ getLibArray(currentCelestia.defaults) }}</span>
-            </div>
+          <div class="text-center margin-bottom-1">
+            <h2>{{ currentCelestia.firstname }} {{ currentCelestia.lastname }}</h2>
+            <h3>{{ currentCelestia.grade }}</h3>
           </div>
-          <p
-            class="zone-comment margin-top-1"
-            :title="currentCelestia.comment">
-            "{{ currentCelestia.comment }}"
-          </p>
+          <div
+            class="select-button"
+            @click="nextSelection()">
+            <i class="icon icon-arrow-right2" />
+          </div>
         </div>
+        <div class="zone-description">
+          <div class="zone-description-bloc text-center">
+            <span />
+            <span>{{ currentCelestia.age }}ans - {{ currentCelestia.astro }} - {{ currentCelestia.mbti }}</span>
+          </div>
+          <div class="zone-description-bloc">
+            <span>Emotion dominante</span><br>
+            <span>{{ currentCelestia.emotion }}</span>
+          </div>
+          <div class="zone-description-bloc">
+            <span>Grade - Familier</span><br>
+            <span>{{ currentCelestia.grade }} - {{ currentCelestia.animal }}</span>
+          </div>
+          <div class="zone-description-bloc">
+            <span>Orientation - Relations</span><br>
+            <span>{{ currentCelestia.orientation }} - {{ currentCelestia.situation }}</span>
+            <span v-html="currentCelestia.relations" />
+          </div>
+          <div class="zone-description-bloc">
+            <span /><br>
+            <span class="text-bold">Qualités : </span>
+            <span>{{ getLibArray(currentCelestia.qualities) }}</span><br>
+            <span class="text-bold">Défauts : </span>
+            <span>{{ getLibArray(currentCelestia.defaults) }}</span>
+          </div>
+        </div>
+        <p
+          class="zone-comment margin-top-1"
+          :title="currentCelestia.comment">
+          "{{ currentCelestia.comment }}"
+        </p>
       </div>
     </div>
   </div>
@@ -89,12 +87,12 @@
   <div little-separator />
 
   <div class="celestia-view layout-view background-celestia-vertical">
-    <div class="layout-center large">
-      <h2>Quel mage de Célestia êtes-vous ?</h2>
+    <h2>Quel mage de Célestia êtes-vous ?</h2>
 
-      <div
-        v-if="currentQuestion == 100"
-        class="layout-bloc form-element">
+    <div
+      v-if="currentQuestion == 100"
+      class="layout-bloc text-center">
+      <div class="margin-top-1">
         Le Cercle des Mages Evanell recrute ponctuellement des mages pour défendre les célestiens 
         contre les attaques des Wendigos (titans monstrueux venant de l'En-Bas).<br>
         Le Cercle comporte 9 types de mages élémentaires, qui suivent une formation avant de combattre.<br>
@@ -102,68 +100,68 @@
         <br>
         Le questionnaire commence par des questions sur vous dans la vie réelle,
         puis sur vous si vous étiez mage sur Célestia.
-        <button
-          class="link-button margin-top-1 margin-bottom-1"
-          @click="startQuestion()">Commencer le test</button>
       </div>
-
-      <div
-        v-if="currentQuestion == 200"
-        class="layout-bloc form-element zone-element zone-element-free">
-        <div class="zone-header">
-          <img
-            class="zone-icon"
-            :src="quizz.result.image"
-            alt="">
-          <div class="text-center margin-left-1">
-            <h2>{{ quizz.result.libelle }}</h2>
-            <span v-if="pourcent !== 100">(<b>{{ pourcent }}%</b> des mages)</span>
-          </div>
-        </div>
-        <div class="zone-description margin-top-1">
-          <div class="zone-description-bloc">
-            <span>Axe : </span>
-            <span>{{ quizz.result.axe }}</span>
-          </div>
-          <div class="zone-description-bloc">
-            <span>Symboles : </span>
-            <span>{{ quizz.result.symboles }}</span>
-          </div>
-          <div class="zone-description-bloc">
-            <span />
-            <span v-html="quizz.result.description" />
-          </div>
-        </div>
-        <p class="zone-comment margin-top-1">
-          Feu : {{ quizz.fire }} - Eau : {{ quizz.water }}<br>
-          Air : {{ quizz.wind }} - Terre : {{ quizz.earth }}<br>
-          <br>
-          Alliance Feu-Eau : {{ quizz.fire - quizz.water }} ({{ getLibFireWater() }})<br>
-          Alliance Air-Terre : {{ quizz.wind - quizz.earth }} ({{ getLibWindEarth() }})
-        </p>
-      </div>
-
-      <template 
-        v-for="(question, index) in quizz.questions">
-        <QuizzForm
-          v-if="currentQuestion == index"
-          :index="index"
-          :key="index"
-          @nextQuestion="nextQuestion()" />
-      </template>
-      
-      <ul class="selection-container celestia-selection-steps">
-        <template
-          v-for="(question, index) in quizz.questions"
-          :key="index">
-          <div class="dotline" />
-          <li
-            :class="{'active': currentQuestion == index }"
-            class="dot" />
-        </template>
-        <div class="dotline" />
-      </ul>
+      <button
+        class="link-button margin-top-1 margin-bottom-1"
+        @click="startQuestion()">Commencer le test</button>
     </div>
+
+    <div
+      v-if="currentQuestion == 200"
+      class="layout-bloc form-element zone-element zone-element-free">
+      <div class="zone-header">
+        <img
+          class="zone-icon"
+          :src="quizz.result.image"
+          alt="">
+        <div class="text-center margin-left-1">
+          <h2>{{ quizz.result.libelle }}</h2>
+          <span v-if="pourcent !== 100">(<b>{{ pourcent }}%</b> des mages)</span>
+        </div>
+      </div>
+      <div class="zone-description margin-top-1">
+        <div class="zone-description-bloc">
+          <span>Axe : </span>
+          <span>{{ quizz.result.axe }}</span>
+        </div>
+        <div class="zone-description-bloc">
+          <span>Symboles : </span>
+          <span>{{ quizz.result.symboles }}</span>
+        </div>
+        <div class="zone-description-bloc">
+          <span />
+          <span v-html="quizz.result.description" />
+        </div>
+      </div>
+      <p class="zone-comment margin-top-1">
+        Feu : {{ quizz.fire }} - Eau : {{ quizz.water }}<br>
+        Air : {{ quizz.wind }} - Terre : {{ quizz.earth }}<br>
+        <br>
+        Alliance Feu-Eau : {{ quizz.fire - quizz.water }} ({{ getLibFireWater() }})<br>
+        Alliance Air-Terre : {{ quizz.wind - quizz.earth }} ({{ getLibWindEarth() }})
+      </p>
+    </div>
+
+    <template 
+      v-for="(question, index) in quizz.questions">
+      <QuizzForm
+        v-if="currentQuestion == index"
+        :index="index"
+        :key="index"
+        @nextQuestion="nextQuestion()" />
+    </template>
+      
+    <ul class="selection-container celestia-selection-steps">
+      <template
+        v-for="(question, index) in quizz.questions"
+        :key="index">
+        <div class="dotline" />
+        <li
+          :class="{'active': currentQuestion == index }"
+          class="dot" />
+      </template>
+      <div class="dotline" />
+    </ul>
   </div>
 </template>
 
