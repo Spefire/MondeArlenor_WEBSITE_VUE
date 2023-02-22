@@ -20,6 +20,9 @@ export default defineComponent({
     },
     onRoleplayRoute() {
       return this.$route.path.includes("/roleplay");
+    },
+    onCelestiaRoute() {
+      return this.$route.path.includes("/celestia");
     }
   },
   methods: {

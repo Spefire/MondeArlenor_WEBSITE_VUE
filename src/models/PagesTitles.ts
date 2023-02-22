@@ -1,12 +1,16 @@
 export class PageTitles {
   public static about = "A propos";
+  public static adventure = "L'Aventure";
   public static answers = "Les Réponses";
   public static backoffice = "Le Backoffice"
-  public static beginning = "Le Commencement";
+  public static calendrier = "Le Calendrier";
   public static celestia = "L'Île Célestia";
+  public static cercle = "Le Cercle des Mages";
+  public static chronologie = "La Chronologie Célestienne";
   public static creation = "La Création de personnage";
   public static crystals = "Les Cristaux évolutifs";
-  public static documentation = "La Documentation";
+  public static etincelles = "Les Étincelles de Célestia";
+  public static factions = "Les Factions";
   public static home = "Le Monde d'Arlénor";
   public static legacy = "Mentions légales";
   public static magic = "La Magie des Cristaux";

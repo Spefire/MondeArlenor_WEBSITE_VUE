@@ -11,7 +11,7 @@ import QuizzForm from "./QuizzForm.vue";
 
 export default defineComponent({
   name: "CelestiaView",
-  title: PageTitles.celestia,
+  title: PageTitles.etincelles,
   components: {
     HeadLayout,
     QuizzForm,
@@ -20,7 +20,7 @@ export default defineComponent({
   setup() {
     const store = useStore();
     const quizz = store.state.quizz;
-    const title = PageTitles.celestia;
+    const title = PageTitles.etincelles;
     const currentIndex = ref(0);
     const currentQuestion = ref(100);
     const pourcent = ref(100);

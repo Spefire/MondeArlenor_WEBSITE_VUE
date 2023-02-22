@@ -33,6 +33,9 @@
       :class="{ active : onUniverseRoute}">
       <nav>
         <router-link
+          class="link exact-link"
+          to="/universe/calendrier">{{ pages.calendrier }}</router-link>
+        <router-link
           class="header-subtitle link exact-link"
           to="/universe">{{ pages.worldmap }}</router-link>
         <router-link
@@ -44,6 +47,9 @@
         <router-link
           class="link exact-link"
           to="/universe/races">{{ pages.races }}</router-link>
+        <router-link
+          class="link exact-link"
+          to="/universe/factions">{{ pages.factions }}</router-link>
       </nav>
     </div>
     <div
@@ -51,17 +57,32 @@
       :class="{ active : onRoleplayRoute}">
       <nav>
         <router-link
-          class="header-subtitle link exact-link"
-          to="/roleplay">{{ pages.beginning }}</router-link>
-        <router-link
           class="link exact-link"
           to="/roleplay/creation">{{ pages.creation }}</router-link>
         <router-link
-          class="link exact-link"
-          to="/roleplay/crystals?spe=PALADIN">{{ pages.crystals }}</router-link>
+          class="header-subtitle link exact-link"
+          to="/roleplay">{{ pages.adventure }}</router-link>
         <router-link
           class="link exact-link"
           to="/roleplay/system">{{ pages.system }}</router-link>
+        <router-link
+          class="link exact-link"
+          to="/roleplay/crystals?spe=PALADIN">{{ pages.crystals }}</router-link>
+      </nav>
+    </div>
+    <div
+      class="header-subsection"
+      :class="{ active : onCelestiaRoute}">
+      <nav>
+        <router-link
+          class="link exact-link"
+          to="/celestia/chronologie">{{ pages.chronologie }}</router-link>
+        <router-link
+          class="header-subtitle link exact-link"
+          to="/celestia">{{ pages.etincelles }}</router-link>
+        <router-link
+          class="link exact-link"
+          to="/celestia/cercle">{{ pages.cercle }}</router-link>
       </nav>
     </div>
 
@@ -87,11 +108,12 @@
           to="/universe">{{ pages.universe }}</router-link>
         <router-link
           class="link"
-          to="/celestia">
-          {{ pages.celestia }}
-        </router-link>
+          to="/celestia">{{ pages.celestia }}</router-link>
       </nav>
       <nav v-if="onUniverseRoute">
+        <router-link
+          class="link exact-link"
+          to="/universe/calendrier">{{ pages.calendrier }}</router-link>
         <router-link
           class="link exact-link"
           to="/universe">{{ pages.worldmap }}</router-link>
@@ -104,11 +126,25 @@
         <router-link
           class="link exact-link"
           to="/universe/races">{{ pages.races }}</router-link>
+        <router-link
+          class="link exact-link"
+          to="/universe/factions">{{ pages.factions }}</router-link>
+      </nav>
+      <nav v-if="onCelestiaRoute">
+        <router-link
+          class="link exact-link"
+          to="/celestia/chronologie">{{ pages.chronologie }}</router-link>
+        <router-link
+          class="link exact-link"
+          to="/celestia">{{ pages.etincelles }}</router-link>
+        <router-link
+          class="link exact-link"
+          to="/celestia/cercle">{{ pages.cercle }}</router-link>
       </nav>
     </div>
   </header>
   <div
-    v-if="onUniverseRoute || onRoleplayRoute"
+    v-if="onUniverseRoute || onRoleplayRoute || onCelestiaRoute"
     class="header-toggle-button" 
     :class="{ active : showHeader }"
     @click="toggleHeader()">

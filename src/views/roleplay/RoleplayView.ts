@@ -3,7 +3,7 @@ import { PageTitles } from "@/models/PagesTitles";
 
 export default {
   name: "RoleplayView",
-  title: PageTitles.roleplay,
+  title: PageTitles.adventure,
   components: {
     Glyphe,
   },
