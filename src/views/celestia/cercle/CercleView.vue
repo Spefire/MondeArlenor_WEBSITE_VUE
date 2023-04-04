@@ -2,7 +2,8 @@
   <HeadLayout
     :title="title"
     :image-left="imageLeft"
-    :image-right="imageRight">
+    :image-right="imageRight"
+    :use-class="'background-celestia-black'">
     <div class="layout-bloc">
       Section en cours de développement...
     </div>
@@ -10,7 +11,7 @@
 
   <div little-separator />
 
-  <div class="cercle-view layout-view background-universe-vertical">
+  <div class="cercle-view layout-view background-celestia-vertical">
     <div class="layout-bloc">
       Section en cours de développement...
     </div>

@@ -21,7 +21,7 @@
     </div>
     <div
       :class="{'active': selection == 1 }"
-      class="home-container background-roleplay">
+      class="home-container background-roleplay-reverse">
       <div class="home-subcontainer inversed-container">
         <h3>{{ pages.home }}</h3>
         <h1>{{ pages.roleplay }}</h1>
