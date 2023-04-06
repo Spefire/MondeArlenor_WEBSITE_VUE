@@ -5,11 +5,11 @@
     <div class="header-section">
       <div class="header-main">
         <router-link
-          class="header-icon link logo"
-          to="/" />
-        <router-link
-          class="header-title link"
-          to="/">{{ pages.home }}</router-link>
+          class="header-icon link"
+          to="/">
+          <i class="icon icon-logo margin-right-1" />
+          {{ pages.home }}
+        </router-link>
       </div>
       <nav>
         <router-link
@@ -91,12 +91,15 @@
     <div class="header-mobile-section">
       <div class="header-main">
         <router-link
-          class="header-icon link logo"
-          to="/" />
+          class="header-icon link"
+          to="/">
+          <i class="icon icon-logo" />
+        </router-link>
         <a
-          class="header-menu-icon link list"
+          class="header-icon link"
           @click="toggleList()">
-          <i class="icon icon-stack" /></a>
+          <i class="icon icon-menu" />
+        </a>
       </div>
     </div>
     <div

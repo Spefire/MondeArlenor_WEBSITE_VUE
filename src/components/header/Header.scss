@@ -5,31 +5,13 @@ header {
 	z-index: 10;
 
 	.header-icon {
-		height: 42px;
-		width: 42px;
-		margin: 4px;
-		padding: 0;
-		cursor: pointer;
-		background-size: cover;
-
-		&.logo {
-			background-image: url("../../assets/images/icon_logo.svg");
-
-			&:hover {
-				background-image: url("../../assets/images/icon_logo_hover.svg");
-			}
-		}
-	}
-
-	.header-menu-icon {
-		height: 42px;
-		width: 42px;
-		margin: 4px;
-		font-size: $font-size-xl;
-		line-height: 42px;
-		padding: 3px 0;
+		display: flex;
+		align-items: center;
+		padding: 0 10px;
 
 		i {
+			font-size: 40px;
+			line-height: 40px;
 			cursor: pointer;
 		}
 	}
@@ -49,11 +31,6 @@ header {
 		.header-main {
 			display: flex;
 			align-items: center;
-
-			.header-title {
-				padding-left: 15px;
-				color: $secondary-color;
-			}
 		}
 	}
 
@@ -114,7 +91,9 @@ header {
 
 		.header-main {
 			display: flex;
+			align-items: center;
 			justify-content: space-between;
+			height: 100%;
 			width: 100%;
 			border-bottom: 1px solid $secondary-color;
 		}
