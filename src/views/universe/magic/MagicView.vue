@@ -45,25 +45,25 @@
         </div>
       </div>
       <div class="magic-right">
-        <div class="magic-header">
-          <h2>Propriétés globales aux cristaux</h2>
-          <div class="layout-bloc">
+        <h2 class="text-center">Propriétés globales aux cristaux</h2>
+        <div class="layout-bloc">
+          <div class="text-center">
             Ces propriétés s'appliquent pour les cristaux&nbsp;:<br>
-            énergétiques, instantanés et évolutifs.
+            <b>énergétiques</b>, <b>instantanés</b> et <b>évolutifs</b>.
+          </div>
+          <div class="margin-top-1">
+            - Ils mesurent entre 1 cm et 2 m.<br>
+            - La couleur d'un cristal est liée à son effet, à son pouvoir.<br>
+            - Un cristal est très solide, résistant.<br>
+            - L'utilisateur se lie à un cristal évolutif à la fois.<br>
+            - Plus l'utilisateur utilise ses cristaux, plus le lien entre eux s'intensifie.<br>
+            - Plus l'utilisateur est loin de son cristal, plus il lui est difficile de l'utiliser.<br>
+            - Les cristaux viennent principalement des mines de la cité désertique Jirakan.<br>
+            - Seuls les cristalliens (métier rare et complexe) peuvent les retravailler en leur donnant une forme précise.<br>
+            - Les cristaux ne peuvent pas être séparés en plusieurs parties. Cassés, ils perdent totalement leur pouvoir.<br>
+            - Il existerait des cristaux uniques, dits 'légendaires', aux puissances incommensurables...
           </div>
         </div>
-        <p class="magic-crystals layout-bloc">
-          - Ils mesurent entre 1 cm et 2 m.<br>
-          - La couleur d'un cristal est liée à son effet, à son pouvoir.<br>
-          - Un cristal est très solide, résistant.<br>
-          - L'utilisateur se lie à un cristal évolutif à la fois.<br>
-          - Plus l'utilisateur utilise ses cristaux, plus le lien entre eux s'intensifie.<br>
-          - Plus l'utilisateur est loin de son cristal, plus il lui est difficile de l'utiliser.<br>
-          - Les cristaux viennent principalement des mines de la cité désertique Jirakan.<br>
-          - Seuls les cristalliens (métier rare et complexe) peuvent les retravailler en leur donnant une forme précise.<br>
-          - Les cristaux ne peuvent pas être séparés en plusieurs parties. Cassés, ils perdent totalement leur pouvoir.<br>
-          - Il existerait des cristaux uniques, dits 'légendaires', aux puissances incommensurables...
-        </p>
       </div>
       <div class="magic-top">
         <div class="magic-grid docs-grid-list">

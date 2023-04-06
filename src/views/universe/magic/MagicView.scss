@@ -37,34 +37,13 @@
 
   .magic-right {
     width: 60%;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
 
     @include mobile-only {
       width: 100%;
       margin-top: 20px;
-    }
-
-    .magic-header {
-      display: flex;
-      flex-direction: column;
       text-align: center;
-    }
-
-    .magic-crystals {
-      color: $secondary-color;
-      font-style: italic;
-    }
-
-    .select-button {
-      margin: 0;
-
-      &:first-child {
-        margin-right: 10px;
-      }
-
-      &:last-child {
-        margin-left: 10px;
-      }
     }
   }
 

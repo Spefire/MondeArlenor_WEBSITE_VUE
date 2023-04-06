@@ -18,7 +18,7 @@ export function getListZones(): ArlenorZone[] {
     Les elfes et les humains la considèrent comme la capitale du Monde d'Arlénor, fortement développée militairement et technologiquement.
     <br/><br/>&emsp;
     Sa construction se base sur le principe suivant :
-    <br/>- Le souterain : Faradel possède un souterain difficile d'accès, habité par les habitants les plus pauvres, les clandestins, les mutants...
+    <br/>- Le souterrain : Faradel possède un souterrain difficile d'accès, habité par les habitants les plus pauvres, les clandestins, les mutants...
     toutes les personnes ne voulant pas être retrouvées ou tuées. Un marché noir y est aussi très développé, et aucune milice n'ose s'y interposer.
     <br/>- La partie basse : Faisant trois quarts de la surface de Faradel, elle contient la majorité des habitations et des temples d'Arlénor.
     Comme c'est un vrai labyrinthe de constructions, de bâtiments, de petits magasins, il est très facile de s'y perdre.
