@@ -60,7 +60,7 @@
       seuls quelques très rares individus atteignent ce score.
       <br>&emsp;
       A la création de votre personnage, <b>chaque caractéristique est déjà à 1 et ne peut dépasser 5</b>.
-      Vous pouvez ensuite répartir 8 points supplémentaires, pour un total donc de 13 points.
+      Vous pouvez ensuite répartir 9 points supplémentaires, pour un total donc de 15 points.
     </div>
 
     <ExpandBloc
