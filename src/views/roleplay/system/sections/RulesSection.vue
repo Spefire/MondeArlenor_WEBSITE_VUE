@@ -49,7 +49,7 @@
       le Maitre du Jeu <b>détermine quelle caractéristique de base du personnage est concernée</b>
       (Force, Habileté, Intellect, Ténacité, Charisme, Magie)
       ensuite le joueur prépare autant de dés à 6 faces qu’il a de points dans la caractéristique,
-      en ajoutant / enlèvant autant de dés d'avantages / de désavantages qu'il pourrait avoir à côté
+      en ajoutant / enlèvant autant de dés bonus / malus qu'il pourrait avoir à côté
       (dûs aux compétences, aux équipements ou aux effets appliqués sur le personnage).
       <br>&emsp;
       Le MJ annonce aussi la difficulté rencontrée (Simple, Standard, Complexe, Légendaire).
@@ -93,7 +93,7 @@
       <br>
       Si le livre peut donner l'information, le MJ demandera un lancé en <b>Intellect</b> pour une difficulté <b>Simple</b>.<br>
       Hélios a <b>3 en Intellect</b>, possède une <b>compétence "Rat de bibliothèque"</b>
-      qui lui donne <b>1 dé d'avantage</b> dans la réalisation de cette action.<br>
+      qui lui donne <b>1 dé bonus</b> dans la réalisation de cette action.<br>
       En dehors de ça, Hélios ne possède pas d'effet magique, ni d'équipement qui lui donnerait un autre avantage ou désavantage pour cette action.<br>
       <br>
       Il lance alors <b>(3+1)D6 soit 4D6</b> et fait... <b>3,4,5,2 soit 2 dés gagnants</b>.<br>
@@ -109,9 +109,9 @@
       <b>Ophéliz</b> cherche à trancher les chaînes d'un prisonnier avec son épée.<br>
       <br>
       C'est une épée longue (donc lourde), le MJ demandera un lancé de <b>Force</b> et détermine la difficulté à <b>Complexe</b>.<br>
-      Ophéliz possède une <b>compétence "Armes à une main (épées)"</b> qui lui donne <b>1 dé d'avantage</b> dans la réalisation de cette action.<br>
-      Elle possède en plus un <b>effet magique</b> sur son arme (qui donne <b>1 dé d'avantage</b> sans condition).<br>
-      Et malheureusement pour Ophéliz, dans la prison, il fait nuit et il n'y a pas d'éclairage : le MJ décide alors qu'elle a <b>1 dé de désavantage</b> pour cette action.<br>
+      Ophéliz possède une <b>compétence "Armes à une main (épées)"</b> qui lui donne <b>1 dé bonus</b> dans la réalisation de cette action.<br>
+      Elle possède en plus un <b>effet magique</b> sur son arme (qui donne <b>1 dé bonus</b> sans condition).<br>
+      Et malheureusement pour Ophéliz, dans la prison, il fait nuit et il n'y a pas d'éclairage : le MJ décide alors qu'elle a <b>1 dé malus</b> pour cette action.<br>
       <br>
       Ophéliz a <b>2 en Force</b>, elle alors lance <b>(2+1+1-1)D6 soit 3D6</b> et fait... <b>1,4,3</b> soit 1 dé gagnant.<br>
       <b>Ophéliz échoue...</b><br>
