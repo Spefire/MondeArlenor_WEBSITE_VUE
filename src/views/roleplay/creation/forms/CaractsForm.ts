@@ -18,21 +18,23 @@ export default defineComponent({
     const allRaces = ref(getListRaces());
     const level = store.state.character.level;
     const codeRace = store.state.character.codeRace;
-    const totalCaracts = store.state.character.totalCaracts || 5;
+    const totalCaracts = store.state.character.totalCaracts || 0;
+    const maxCaract = (level >= 10) ? 4 : 3;
     return {
       caractDescriptionEnum,
       store,
       selectCaract,
       allRaces,
       level,
+      maxCaract,
       codeRace,
       form: {
-        for: store.state.character.caracts.for || 1,
-        hab: store.state.character.caracts.hab || 1,
-        int: store.state.character.caracts.int || 1,
-        ten: store.state.character.caracts.ten || 1,
-        cha: store.state.character.caracts.cha || 1,
-        mag: store.state.character.caracts.mag || 1,
+        for: store.state.character.caracts.for || 0,
+        hab: store.state.character.caracts.hab || 0,
+        int: store.state.character.caracts.int || 0,
+        ten: store.state.character.caracts.ten || 0,
+        cha: store.state.character.caracts.cha || 0,
+        mag: store.state.character.caracts.mag || 0,
         pointsLeft: (level.maxCaracts - totalCaracts),
       },
       isModified: false,
@@ -47,22 +49,22 @@ export default defineComponent({
   validations: {
     form: {
       for: {
-        between: between(1, 5),
+        between: between(0, 4),
       },
       hab: {
-        between: between(1, 5),
+        between: between(0, 4),
       },
       int: {
-        between: between(1, 5),
+        between: between(0, 4),
       },
       ten: {
-        between: between(1, 5),
+        between: between(0, 4),
       },
       cha: {
-        between: between(1, 5),
+        between: between(0, 4),
       },
       mag: {
-        between: between(1, 5),
+        between: between(0, 4),
       },
       pointsLeft: {
         sameAs: sameAs(0)
@@ -89,8 +91,8 @@ export default defineComponent({
       let points = this.level.maxHealth;
       if (this.codeRace === this.allRaces[1].code) points++;
       if (this.codeRace === this.allRaces[4].code) points++;
-      if (parseInt(this.form.ten) <= 1) points--;
-      if (parseInt(this.form.ten) >= 5) points++;
+      if (parseInt(this.form.ten) === 0) points--;
+      else if (parseInt(this.form.ten) > 2) points++;
       return points;
     },
     updateForm() {

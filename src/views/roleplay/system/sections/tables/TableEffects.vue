@@ -16,7 +16,7 @@
       <tr>
         <td class="col-20 text-bold">Enchevêtrement /&nbsp;Handicap</td>
         <td class="col-50">Empêche le personnage de se déplacer et donne un malus.</td>
-        <td class="col-30">Malus -4 aux esquives</td>
+        <td class="col-30">1 dé de désavantage, aux esquives</td>
       </tr>
       <tr>
         <td class="col-20 text-bold">Plan étheré</td>
@@ -43,7 +43,7 @@
       <tr>
         <td class="col-20 text-bold">Cécité</td>
         <td class="col-50">Réduit la portée et donne un malus.</td>
-        <td class="col-30">Malus -4 aux actions de précision</td>
+        <td class="col-30">1 dé de désavantage, aux actions de précision</td>
       </tr>
       <tr>
         <td class="col-20 text-bold">Charme</td>
@@ -73,7 +73,7 @@
       <tr>
         <td class="col-20 text-bold">Terreur</td>
         <td class="col-50">Le personnage s'enfuit de terreur et donne un malus.</td>
-        <td class="col-30">Malus -2 aux actions</td>
+        <td class="col-30">1 dé de désavantage</td>
       </tr>
     </tbody>
   </table>
@@ -89,23 +89,23 @@
     <tbody>
       <tr>
         <td class="col-20 text-bold">Bénédiction</td>
-        <td class="col-50">Le personnage voit toutes ses caractéristiques augmenter de 1.</td>
-        <td class="col-30">Bonus +1 aux caractéristiques</td>
+        <td class="col-50">Le personnage voit toutes ses performances augmenter.</td>
+        <td class="col-30">2 dé d'avantage</td>
       </tr>
       <tr>
         <td class="col-20 text-bold">Empoisonnement /&nbsp;Hémorragie</td>
         <td class="col-50">Inflige des dégâts bruts à chaque tour.</td>
-        <td class="col-30">1 PV chaque tour</td>
+        <td class="col-30">-1 PV chaque tour</td>
       </tr>
       <tr>
         <td class="col-20 text-bold">Infection</td>
         <td class="col-50">Le personnage est contagieux et donne un malus.</td>
-        <td class="col-30">Malus -2 pour toute action</td>
+        <td class="col-30">1 dé de désavantage</td>
       </tr>
       <tr>
         <td class="col-20 text-bold">Maladie</td>
         <td class="col-50">Donne un malus.</td>
-        <td class="col-30">Malus -2 pour toute action</td>
+        <td class="col-30">1 dé de désavantage</td>
       </tr>
       <tr>
         <td class="col-20 text-bold">Putréfaction</td>
@@ -114,8 +114,8 @@
       </tr>
       <tr>
         <td class="col-20 text-bold">Maudit</td>
-        <td class="col-50">Le personnage voit toutes ses caractéristiques baisser de 1.</td>
-        <td class="col-30">Malus -1 aux caractéristiques</td>
+        <td class="col-50">Le personnage voit toutes ses performances baisser.</td>
+        <td class="col-30">2 dé de désavantage</td>
       </tr>
     </tbody>
   </table>
@@ -137,7 +137,7 @@
       <tr>
         <td class="col-20 text-bold">Etat de choc</td>
         <td class="col-50">Le personnage est choqué par l'électricité et donne un malus. Subir Humidité provoque Etourdissement.</td>
-        <td class="col-30">Malus -2 aux actions</td>
+        <td class="col-30">1 dé de désavantage</td>
       </tr>
       <tr>
         <td class="col-20 text-bold">Etourdissement</td>
@@ -147,7 +147,7 @@
       <tr>
         <td class="col-20 text-bold">Coup de froid</td>
         <td class="col-50">Le personnage est refroidi et donne un malus. Subir Humidité provoque Gel.</td>
-        <td class="col-30">Malus -2 aux actions</td>
+        <td class="col-30">1 dé de désavantage</td>
       </tr>
       <tr>
         <td class="col-20 text-bold">Gel</td>

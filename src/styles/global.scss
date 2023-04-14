@@ -315,6 +315,7 @@ textarea {
 table {
   width: 100%;
   padding: 0 !important;
+  text-align: left;
   border-spacing: 0;
 
   thead > tr {
@@ -339,7 +340,6 @@ table {
 
   tr {
     display: flex;
-    align-items: center;
     border: none;
   }
 

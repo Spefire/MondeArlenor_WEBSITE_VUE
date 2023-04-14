@@ -15,7 +15,7 @@
       class="onglets-nav-item"
       :class="{ selected : systemChoice === 2 }"
       @click="changeSystemChoice(2)">
-      2) Les tableaux de résultats
+      2) Les réussites et les échecs
     </span>
     <span
       class="onglets-nav-item"
@@ -48,40 +48,38 @@
       Le <b>test classique</b> qui détermine si un personnage réussit ou non une action se réalise de la façon suivante :
       le Maitre du Jeu <b>détermine quelle caractéristique de base du personnage est concernée</b>
       (Force, Habileté, Intellect, Ténacité, Charisme, Magie)
-      ensuite le joueur lance autant de dés à 6 faces qu’il a de points dans la caractéristique,
-      additionne les résultats, puis rajoute à la fin tous les points bonus ou malus
+      ensuite le joueur prépare autant de dés à 6 faces qu’il a de points dans la caractéristique,
+      en ajoutant / enlèvant autant de dés d'avantages / de désavantages qu'il pourrait avoir à côté
       (dûs aux compétences, aux équipements ou aux effets appliqués sur le personnage).
       <br>&emsp;
-      Le MJ compare ensuite le total à la difficulté nécessaire pour la résolution du test.
-      Si le total est supérieur ou égal à cette difficulté, le joueur réussit son action.
+      Le MJ annonce aussi la difficulté rencontrée (Simple, Standard, Complexe, Légendaire).
+      Cela déterminera le nombre de dés gagnants que le joueur doit réaliser pour espérer la réussite de son action.
       <br>
       <br>&emsp;
-      Note : Une <b>réussite critique</b>, c'est quand tous les dés lancés <b>affichent un 6</b>.
-      Le joueur peut alors <b>lancer un dé supplémentaire</b> afin d'améliorer son score.
+      Note : Un <b>dé gagnant</b>, c'est quand un dé affiche un 4, un 5 ou un 6.
       <br>&emsp;
-      Note : Un <b>échec critique</b>, c'est quand tous les dés lancés <b>affichent un 1</b>.
-      Le joueur <b>rate alors automatiquement son test</b>, et le MJ peut décider d'y <b>ajouter une catastrophe</b> en plus de son échec.
+      Note : Un <b>dé perdant</b>, c'est quand un dé affiche un 1, un 2 ou un 3.
     </div>
           
     <div class="layout-bloc margin-top-1 text-center">
       <div class="margin-bottom-1">
-        <b>Action simple : Difficulté 6</b><br>
+        <b>Difficulté simple : 1 dé gagnant</b><br>
         La majorité des personnages peut le faire rapidement, et un spécialiste n’éprouve aucune difficulté.<br>
         <i>Exemple : Obtenir des informations sur une légende urbaine bien connue.</i>
       </div>
       <div class="text-center margin-bottom-1">
-        <b>Action complexe : Difficulté 14</b><br>
+        <b>Difficulté standard : 2 dés gagnants</b><br>
         Ce genre d’action pose de sérieux problèmes aux profanes, mais les personnes entraînées ou naturellement douées les réussissent rapidement.<br>
         <i>Exemple : Conduire un attelage de nuit sur une route cahoteuse.</i>
       </div>
       <div class="text-center margin-bottom-1">
-        <b>Action difficile : Difficulté 20</b><br>
+        <b>Difficulté complexe : 3 dés gagnants</b><br>
         Quasi impossible sans formation à moins de circonstances favorables ou d’un don particulièrement marqué,
         ces actions n’ont de bonne chance d’être réussies que par les spécialistes.<br>
         <i>Exemple : Trouver de quoi se nourrir en hiver pendant plusieurs semaines dans un bois profond.</i>
       </div>
       <div class="text-center">
-        <b>Action épique : Difficulté 30 et plus</b><br>
+        <b>Difficulté légendaire : 4 dés gagnants</b><br>
         Seule une poignée de personnes peuvent espérer réussir un tel défi, qui demande des aptitudes quasi surnaturelles.<br>
         <i>Exemple : Au cours d’une réception, voler la couronne de la Reine, qu’elle porte sur la tête, au vu de tous et sans se faire remarquer.</i>
       </div>
@@ -92,13 +90,16 @@
       :bloc-state="exampleChoice === 1"
       @toggle="changeExampleChoice(1)">
       <b>Hélios</b> cherche dans une bibliothèque une information sur une plante inconnue.<br>
-      Si le livre peut donner l'information, le MJ demandera un test d'<b>Intellect</b>.<br>
-      Hélios a <b>3 en Intellect</b>, il lance <b>3D6</b> et fait... <b>4,5,2 pour un résultat de 11</b>.<br>
-      Hélios possède une <b>compétence "Rat de bibliothèque"</b> qui lui donne un <b>bonus +4</b> dans la réalisation de cette action.<br>
-      En dehors de ça, Hélios ne possède pas d'effet magique, ni d'équipement qui lui donnerait un autre bonus ou un malus pour cette action.<br>
-      <b>Le total est donc 11 + 4 = 15.</b><br>
-      Le MJ avait décidé que pour trouver cette information, c'était une <b>action complexe (difficulté à 14)</b>.<br>
-      <b>Hélios a réussi</b>, il trouve que la plante inconnue est un Hibicus moscheutos.
+      <br>
+      Si le livre peut donner l'information, le MJ demandera un lancé en <b>Intellect</b> pour une difficulté <b>Simple</b>.<br>
+      Hélios a <b>3 en Intellect</b>, possède une <b>compétence "Rat de bibliothèque"</b>
+      qui lui donne <b>1 dé d'avantage</b> dans la réalisation de cette action.<br>
+      En dehors de ça, Hélios ne possède pas d'effet magique, ni d'équipement qui lui donnerait un autre avantage ou désavantage pour cette action.<br>
+      <br>
+      Il lance alors <b>(3+1)D6 soit 4D6</b> et fait... <b>3,4,5,2 soit 2 dés gagnants</b>.<br>
+      <b>Hélios réussit !</b><br>
+      Comme son score maximum est à 5, sa réussite est une réussite simple : pas de complication.<br>
+      Hélios trouve alors que la plante inconnue est un Hibicus moscheutos.
     </ExpandBloc>
 
     <ExpandBloc
@@ -106,33 +107,42 @@
       :bloc-state="exampleChoice === 2"
       @toggle="changeExampleChoice(2)">
       <b>Ophéliz</b> cherche à trancher les chaînes d'un prisonnier avec son épée.<br>
-      C'est une épée longue (donc lourde), le MJ demandera un test de <b>Force</b>.<br>
-      Ophéliz a <b>2 en Force</b>, elle lance <b>2D6</b> et fait... <b>6 et 6</b> ! C'est une <b>réussite critique</b> !
-      Elle a le droit de relancer un dé pour augmenter son score, et fait... <b>5, pour un résultat de 17</b>.<br>
-      Ophéliz possède une <b>compétence "Armes à une main (épées)"</b> qui lui donne un <b>bonus +4</b> dans la réalisation de cette action.<br>
-      Elle possède en plus un <b>effet magique</b> sur son arme (qui donne un <b>bonus +2</b> sans condition).<br>
-      Et malheureusement pour Ophéliz, dans la prison, il fait nuit et il n'y a pas d'éclairage : le MJ décide alors qu'elle a un <b>malus -4</b> pour cette action.<br>
-      <b>Le total est donc 17 + 4 + 2 - 4 = 19.</b><br>
-      Le MJ avait décidé que pour trancher cette chaîne d'un seul coup, c'était une <b>action épique (difficulté à 30)</b>.<br>
-      <b>Ophéliz n'a pas réussi</b>, mais la chaîne s'est un peu abîmée. Le MJ peut lui dire qu'à force la chaîne cédera peut-être...
+      <br>
+      C'est une épée longue (donc lourde), le MJ demandera un lancé de <b>Force</b> et détermine la difficulté à <b>Complexe</b>.<br>
+      Ophéliz possède une <b>compétence "Armes à une main (épées)"</b> qui lui donne <b>1 dé d'avantage</b> dans la réalisation de cette action.<br>
+      Elle possède en plus un <b>effet magique</b> sur son arme (qui donne <b>1 dé d'avantage</b> sans condition).<br>
+      Et malheureusement pour Ophéliz, dans la prison, il fait nuit et il n'y a pas d'éclairage : le MJ décide alors qu'elle a <b>1 dé de désavantage</b> pour cette action.<br>
+      <br>
+      Ophéliz a <b>2 en Force</b>, elle alors lance <b>(2+1+1-1)D6 soit 3D6</b> et fait... <b>1,4,3</b> soit 1 dé gagnant.<br>
+      <b>Ophéliz échoue...</b><br>
+      Comme son score maximum est à 4, son échec est un échec à conséquence.<br>
+      Le MJ décide que dans sa tentative, Ophéliz blesse légèrement le prisonnier.<br>
     </ExpandBloc>
   </template>
   <template v-if="systemChoice === 2">
     <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
-      Pour les actions aux <b>tests de difficulté</b>, on utilisera cette grille comme référence.
-      Ces tests concernent généralement le personnage lui-même, ou des actions sur des cibles alliées (qui n'opposent pas de résistance).
-      <TableDifficulties />
+      Pour les <b>tests de difficulté</b>, on utilisera cette grille de réussites et d'échec comme référence :
+      ces tests concernent généralement le personnage lui-même, ou des actions sur des cibles alliées (qui n'opposent pas de résistance).
       <br>&emsp;
-      Pour les actions aux <b>tests d'opposition</b>, on utilisera cette grille comme référence.
-      Les différentes parties de l'action lancent leur dés, et la marge sera la différence entre les résultats.
-      <TableMarges />
+      Pour les <b>tests d'opposition</b>, on utilisera la même grille : le MJ jugera simplement de la difficulté de l'opposant.<br>
+      <i>
+        Exemple : Pour un type d'ennemi, l'esquiver sera une difficulté Complexe, mais l'attaquer sera une difficulté Simple.<br>
+        Autre exemple : Forcer cette porte sera une difficulté Standard.
+      </i>
+      <TableDifficulties />
+      <br>
+      &emsp;<b>Réussite critique</b> : L'action est réussie de manière exceptionnelle, obtenant un résultat au-delà des attentes.<br>
+      &emsp;<b>Réussite simple</b> : L'action est réussie sans complication ni coût supplémentaire.<br>
+      &emsp;<b>Réussite à coût</b> : L'action est réussie, mais avec des complications mineures ou des coûts supplémentaires.<br>
+      &emsp;<b>Échec simple</b> : L'action échoue, mais sans conséquence.<br>
+      &emsp;<b>Échec à conséquence</b> : L'action échoue, mais avec des conséquences mineures.<br>
+      &emsp;<b>Échec critique</b> : L'action est un échec total, avec des conséquences graves.
     </div>
   </template>
   <template v-if="systemChoice === 3">
     <div class="layout-bloc margin-top-1 text-justify">
-      &emsp;
-      Voir section initiative.
+      En cours d'écriture...
     </div>
 
     <ExpandBloc
@@ -151,8 +161,7 @@
   </template>
   <template v-if="systemChoice === 4">
     <div class="layout-bloc margin-top-1 text-justify">
-      &emsp;
-      Voir section soin et guérison.
+      En cours d'écriture...
     </div>
   </template>
   <template v-if="systemChoice === 5">

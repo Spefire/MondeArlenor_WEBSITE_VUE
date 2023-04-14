@@ -3,45 +3,50 @@
     <thead>
       <tr>
         <th class="col text-bold">Difficulté</th>
-        <th class="col">Soin</th>
-        <th class="col">Durée de l'effet</th>
-        <th class="col">Taille</th>
-        <th class="col">Bonus (caract)</th>
-        <th class="col">Bonus (total)</th>
+        <th class="col">Échec critique</th>
+        <th class="col">Échec à conséquence</th>
+        <th class="col">Échec simple</th>
+        <th class="col">Réussite à coût</th>
+        <th class="col">Réussite simple</th>
+        <th class="col">Réussite critique</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="col text-bold">Simple 6</td>
-        <td class="col">1</td>
-        <td class="col">0 tour</td>
-        <td class="col">Petite</td>
-        <td class="col">0</td>
-        <td class="col">+2</td>
+        <td class="col text-bold">Simple<br>(1 dé gagnant)</td>
+        <td class="col">Score max à 1</td>
+        <td class="col">Score max à 2</td>
+        <td class="col">Score max à 3</td>
+        <td class="col">Score max à 4</td>
+        <td class="col">Score max à 5</td>
+        <td class="col">Score max à 6</td>
       </tr>
       <tr>
-        <td class="col text-bold">Complexe 14</td>
-        <td class="col">3</td>
-        <td class="col">1 tour</td>
-        <td class="col">Normale</td>
-        <td class="col">+1</td>
-        <td class="col">+4</td>
+        <td class="col text-bold">Standard<br>(2 dés gagnants)</td>
+        <td class="col">Max 1-2</td>
+        <td class="col">Max 3-4</td>
+        <td class="col">Max 5-6</td>
+        <td class="col">Max 4</td>
+        <td class="col">Max 5</td>
+        <td class="col">Max 6</td>
       </tr>
       <tr>
-        <td class="col text-bold">Difficile 20</td>
-        <td class="col">5</td>
-        <td class="col">2 tours</td>
-        <td class="col">Grande</td>
-        <td class="col">+2</td>
-        <td class="col">+6</td>
+        <td class="col text-bold">Complexe<br>(3 dés gagnants)</td>
+        <td class="col">Max 1-2</td>
+        <td class="col">Max 3-4</td>
+        <td class="col">Max 5-6</td>
+        <td class="col">Max 4</td>
+        <td class="col">Max 5</td>
+        <td class="col">Max 6</td>
       </tr>
       <tr>
-        <td class="col text-bold">Epique 30</td>
-        <td class="col">8</td>
-        <td class="col">3 tours</td>
-        <td class="col">Immense</td>
-        <td class="col">+3</td>
-        <td class="col">+10</td>
+        <td class="col text-bold">Légendaire<br>(4 dés gagnants)</td>
+        <td class="col">Max 1-2</td>
+        <td class="col">Max 3-4</td>
+        <td class="col">Max 5-6</td>
+        <td class="col">Max 4</td>
+        <td class="col">Max 5</td>
+        <td class="col">Max 6</td>
       </tr>
     </tbody>
   </table>

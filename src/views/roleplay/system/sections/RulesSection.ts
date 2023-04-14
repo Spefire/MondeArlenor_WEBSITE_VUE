@@ -5,7 +5,6 @@ import { defineComponent, ref } from "vue";
 import TableDifficulties from "./tables/TableDifficulties.vue";
 import TableEffects from "./tables/TableEffects.vue";
 import TableLevels from "./tables/TableLevels.vue";
-import TableMarges from "./tables/TableMarges.vue";
 
 export default defineComponent({
   name: "RulesSection",
@@ -13,7 +12,6 @@ export default defineComponent({
     ArrowButton,
     ExpandBloc,
     TableDifficulties,
-    TableMarges,
     TableLevels,
     TableEffects,
   },

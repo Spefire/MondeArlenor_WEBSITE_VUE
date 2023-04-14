@@ -52,8 +52,8 @@
               <td class="col-55">
                 <input
                   type="range"
-                  min="1"
-                  max="5"
+                  min="0"
+                  :max="maxCaract"
                   step="1"
                   v-model.trim.lazy="v$.form.for.$model"
                   @change="changeCaract('FOR')">
@@ -65,8 +65,8 @@
               <td class="col-55">
                 <input
                   type="range"
-                  min="1"
-                  max="5"
+                  min="0"
+                  :max="maxCaract"
                   step="1"
                   v-model.trim.lazy="v$.form.hab.$model"
                   @change="changeCaract('HAB')">
@@ -78,8 +78,8 @@
               <td class="col-55">
                 <input
                   type="range"
-                  min="1"
-                  max="5"
+                  min="0"
+                  :max="maxCaract"
                   step="1"
                   v-model.trim.lazy="v$.form.int.$model"
                   @change="changeCaract('INT')">
@@ -91,8 +91,8 @@
               <td class="col-55">
                 <input
                   type="range"
-                  min="1"
-                  max="5"
+                  min="0"
+                  :max="maxCaract"
                   step="1"
                   v-model.trim.lazy="v$.form.ten.$model"
                   @change="changeCaract('TEN')">
@@ -104,8 +104,8 @@
               <td class="col-55">
                 <input
                   type="range"
-                  min="1"
-                  max="5"
+                  min="0"
+                  :max="maxCaract"
                   step="1"
                   v-model.trim.lazy="v$.form.cha.$model"
                   @change="changeCaract('CHA')">
@@ -117,8 +117,8 @@
               <td class="col-55">
                 <input
                   type="range"
-                  min="1"
-                  max="5"
+                  min="0"
+                  :max="maxCaract"
                   step="1"
                   v-model.trim.lazy="v$.form.mag.$model"
                   @change="changeCaract('MAG')">

@@ -50,8 +50,8 @@ export class ArlenorCharacter extends ArlenorAPI {
       const races = getListRaces();
       if (this.codeRace === races[1].code || this.codeRace === races[4].code) bonusMalus++;
     }
-    if (this.caracts.ten >= 5) bonusMalus++;
-    else if (this.caracts.ten <= 1) bonusMalus--;
+    if (this.caracts.ten > 2) bonusMalus++;
+    else if (this.caracts.ten === 0) bonusMalus--;
     return this.level.maxHealth + bonusMalus;
   }
 
@@ -145,12 +145,12 @@ export class ArlenorCharacter extends ArlenorAPI {
     const races = getListRaces();
     this.codeRace = races[0].code;
     this.caracts = new ArlenorCaracts();
-    this.caracts.for = 2;
-    this.caracts.hab = 3;
-    this.caracts.int = 3;
-    this.caracts.ten = 1;
-    this.caracts.cha = 2;
-    this.caracts.mag = 5;
+    this.caracts.for = 1;
+    this.caracts.hab = 2;
+    this.caracts.int = 2;
+    this.caracts.ten = 0;
+    this.caracts.cha = 1;
+    this.caracts.mag = 4;
 
     const specialities = new ArlenorSpecialities();
     const crystal01 = new ArlenorCrystal();

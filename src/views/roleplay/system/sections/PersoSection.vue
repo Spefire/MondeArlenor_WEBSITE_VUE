@@ -51,16 +51,17 @@
     <div class="layout-bloc margin-top-1 text-justify">
       &emsp;
       Toute personne est dotée de capacités de base qui lui sont inhérentes et qu’il peut utiliser de bien des manières.
-      Ces aptitudes naturelles sont définies par cinq <b>caractéristiques</b> distinctes, chacune évaluée sur une échelle allant de 1 à 5.
+      Ces aptitudes naturelles sont définies par cinq <b>caractéristiques</b> distinctes, chacune évaluée sur une échelle allant de 0 à 4.
       <br>&emsp;
-      Un score de 1 dans une caractéristique indique une vraie faiblesse dans le domaine concerné,
-      tandis qu’un 2 place le personnage dans la moyenne, ni plus ni moins.
-      A partir de 3, la personne dispose d’une facilité particulière dans la caractéristique concernée,
-      et un 4 indique des facultés exceptionnelles. Enfin, un score de 5 représente le maximum des capacités :
+      Un score de 0 dans une caractéristique indique une vraie faiblesse dans le domaine concerné, voire une incapacité,
+      tandis qu’un 1 place le personnage dans la moyenne, ni plus ni moins.
+      A partir de 2, la personne dispose d’une facilité particulière dans la caractéristique concernée,
+      et un 3 indique des facultés exceptionnelles.
+      Enfin, un score de 4 (seulement possible à partir du niveau 10) représente le maximum des capacités :
       seuls quelques très rares individus atteignent ce score.
       <br>&emsp;
-      A la création de votre personnage, <b>chaque caractéristique est déjà à 1 et ne peut dépasser 5</b>.
-      Vous pouvez ensuite répartir 9 points supplémentaires, pour un total donc de 15 points.
+      <b>A la création de votre personnage, chaque caractéristique est déjà à 0 et ne peut donc dépasser 3</b>.
+      Vous pouvez ensuite répartir 9 points supplémentaires.
     </div>
 
     <ExpandBloc
@@ -112,9 +113,9 @@
       Elle est indiquée par ses <b>Points de Vie</b>, ou PV.<br>
       <br>
       <div class="text-center">
-        <b>Indemne</b> (+ de 6 PV) : Aucun malus<br>
-        <b>Blessé</b> (2-5 PV) : - 1D6 aux jets<br>
-        <b>Au seuil de la mort</b> (1 PV) : - 2D6 aux jets<br>
+        <b>Indemne</b> (+ de 5 PV) : Aucun malus<br>
+        <b>Blessé</b> (2-4 PV) : - 1D6 de désavantage<br>
+        <b>Au seuil de la mort</b> (1 PV) : - 2D6 de désavantage<br>
       </div>
       <br>
       Note : Le nombre de PV max peut varier avec la Ténacité et la race choisie.<br>
