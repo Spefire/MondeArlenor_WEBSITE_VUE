@@ -113,9 +113,9 @@
       Elle est indiquée par ses <b>Points de Vie</b>, ou PV.<br>
       <br>
       <div class="text-center">
-        <b>Indemne</b> (+ de 5 PV) : Aucun malus<br>
-        <b>Blessé</b> (2-4 PV) : 1 dé malus, soit -1D6<br>
-        <b>Au seuil de la mort</b> (1 PV) : 2 dé malus, soit -2D6<br>
+        <b>Indemne</b> (60-100% PV max) : Aucun malus<br>
+        <b>Blessé</b> (20-60% PV max) : 1 dé malus, soit -1D6<br>
+        <b>Au seuil de la mort</b> (0-20% PV max) : 2 dé malus, soit -2D6<br>
       </div>
       <br>
       Note : Le nombre de PV max peut varier avec la Ténacité et la race choisie.<br>
