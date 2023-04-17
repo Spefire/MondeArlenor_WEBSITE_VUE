@@ -29,23 +29,10 @@ export class ArlenorPower extends ArlenorAPI {
   }
 
   get image(): string | null {
-    if (this.codeType === PowerTypesEnum.AnatomieSurhumaine.Code) return require("./../assets/icons/powers/anatomie_surhumaine.png");
-    if (this.codeType === PowerTypesEnum.ArmeNaturelle.Code) return require("./../assets/icons/powers/arme_naturelle.png");
-    if (this.codeType === PowerTypesEnum.ArmureNaturelle.Code) return require("./../assets/icons/powers/armure_naturelle.png");
-    if (this.codeType === PowerTypesEnum.Chimerisme.Code) return require("./../assets/icons/powers/chimerisme.png");
-    if (this.codeType === PowerTypesEnum.CoupSpecial.Code) return require("./../assets/icons/powers/coup_special.png");
-    if (this.codeType === PowerTypesEnum.DeplacementSpatial.Code) return require("./../assets/icons/powers/deplacement_spatial.png");
-    if (this.codeType === PowerTypesEnum.Immunite.Code) return require("./../assets/icons/powers/immunite.png");
-    if (this.codeType === PowerTypesEnum.ManipulationTemps.Code) return require("./../assets/icons/powers/manipulation_temps.png");
-    if (this.codeType === PowerTypesEnum.Metamorphose.Code) return require("./../assets/icons/powers/metamorphose.png");
-    if (this.codeType === PowerTypesEnum.PerceptionSpecial.Code) return require("./../assets/icons/powers/perception_special.png");
-    if (this.codeType === PowerTypesEnum.PouvoirMental.Code) return require("./../assets/icons/powers/pouvoir_mental.png");
-    if (this.codeType === PowerTypesEnum.PouvoirSoin.Code) return require("./../assets/icons/powers/pouvoir_soin.png");
-    if (this.codeType === PowerTypesEnum.RayonAttaque.Code) return require("./../assets/icons/powers/rayon_attaque.png");
-    if (this.codeType === PowerTypesEnum.RayonProtection.Code) return require("./../assets/icons/powers/rayon_protection.png");
-    if (this.codeType === PowerTypesEnum.RayonSpecial.Code) return require("./../assets/icons/powers/rayon_special.png");
-    if (this.codeType === PowerTypesEnum.Spiritisme.Code) return require("./../assets/icons/powers/spiritisme.png");
-    if (this.codeType === PowerTypesEnum.Transmutation.Code) return require("./../assets/icons/powers/transmutation.png");
+    if (this.codeType === PowerTypesEnum.Offensive.Code) return require("./../assets/icons/powers/offensive.png");
+    if (this.codeType === PowerTypesEnum.Defensive.Code) return require("./../assets/icons/powers/defensive.png");
+    if (this.codeType === PowerTypesEnum.Utility.Code) return require("./../assets/icons/powers/utility.png");
+    if (this.codeType === PowerTypesEnum.Alteration.Code) return require("./../assets/icons/powers/alteration.png");
     return null;
   }
 
@@ -85,7 +72,7 @@ export class ArlenorPower extends ArlenorAPI {
 
     this.name = "";
     this.description = "";
-    this.codeType = PowerTypesEnum.AnatomieSurhumaine.Code;
+    this.codeType = PowerTypesEnum.Offensive.Code;
     this.codeGroup = null;
     this.codeSpeciality = null;
 
@@ -105,6 +92,36 @@ export class ArlenorPower extends ArlenorAPI {
     this.name = powerDB.name;
     this.description = powerDB.description;
     this.codeType = powerDB.codeType;
+
+    if (this.codeType === PowerTypesEnum.CoupSpecial.Code
+      || this.codeType === PowerTypesEnum.RayonAttaque.Code) {
+      this.codeType = PowerTypesEnum.Offensive.Code;
+    }
+
+    if (this.codeType === PowerTypesEnum.Immunite.Code
+      || this.codeType === PowerTypesEnum.ArmureNaturelle.Code
+      || this.codeType === PowerTypesEnum.PouvoirSoin.Code
+      || this.codeType === PowerTypesEnum.RayonProtection.Code) {
+      this.codeType = PowerTypesEnum.Defensive.Code;
+    }
+
+    if (this.codeType === PowerTypesEnum.Chimerisme.Code
+      || this.codeType === PowerTypesEnum.DeplacementSpatial.Code
+      || this.codeType === PowerTypesEnum.ManipulationTemps.Code
+      || this.codeType === PowerTypesEnum.PerceptionSpecial.Code
+      || this.codeType === PowerTypesEnum.RayonSpecial.Code
+      || this.codeType === PowerTypesEnum.Spiritisme.Code) {
+      this.codeType = PowerTypesEnum.Utility.Code;
+    }
+
+    if (this.codeType === PowerTypesEnum.AnatomieSurhumaine.Code
+      || this.codeType === PowerTypesEnum.ArmeNaturelle.Code
+      || this.codeType === PowerTypesEnum.Metamorphose.Code
+      || this.codeType === PowerTypesEnum.PouvoirMental.Code
+      || this.codeType === PowerTypesEnum.Transmutation.Code) {
+      this.codeType = PowerTypesEnum.Alteration.Code;
+    }
+
     if (powerDB.codeSpeciality) {
       this.codeGroup = null;
       this.codeSpeciality = powerDB.codeSpeciality;
@@ -122,6 +139,11 @@ export class ArlenorPower extends ArlenorAPI {
 }
 
 export class PowerTypesEnum {
+  static Offensive: ArlenorEnum = { Code: "OFF", Libelle: "Pouvoir Offensif" };
+  static Defensive: ArlenorEnum = { Code: "DEF", Libelle: "Pouvoir Défensif" };
+  static Utility: ArlenorEnum = { Code: "UTIL", Libelle: "Pouvoir Utilitaire" };
+  static Alteration: ArlenorEnum = { Code: "ALT", Libelle: "Pouvoir d'Altération" };
+
   static AnatomieSurhumaine: ArlenorEnum = { Code: "ANATOMIE", Libelle: "Anatomie surhumaine" };
   static ArmeNaturelle: ArlenorEnum = { Code: "ARME_NAT", Libelle: "Arme naturelle" };
   static ArmureNaturelle: ArlenorEnum = { Code: "ARMURE_NAT", Libelle: "Armure naturelle" };

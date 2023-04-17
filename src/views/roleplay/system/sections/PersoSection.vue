@@ -234,6 +234,27 @@
         </div>
       </div>
     </ExpandBloc>
+    <div class="layout-bloc margin-top-1 text-justify">
+      &emsp;
+      Chaque pouvoir est défini par les propriétés suivantes...<br>
+      <br><b>Nom du pouvoir</b>
+      <br><b>Type de pouvoir</b>
+      <br>&emsp;- Offensif :
+      Sorts qui infligent des dégâts directs aux ennemis ou qui ont un effet néfaste sur leur santé.
+      <br>&emsp;- Défensif :
+      Sorts qui protègent le lanceur de sorts ou ses alliés, ou qui annulent les effets négatifs des sorts ennemis.
+      <br>&emsp;- Utilitaire :
+      Sorts qui ont des effets non-combattifs, tels que la téléportation, la création d'objets ou de nourriture,
+      ou la divination.
+      <br>&emsp;- Altération :
+      Sorts qui modifient ou altèrent les caractéristiques physiques, mentales ou magiques du lanceur de sorts ou de ses cibles,
+      tels que la métamorphose, la transmutation ou l'enchantement.
+      <br><b>Portée maximum</b>
+      <br>&emsp;- Personnelle / Toucher / A vue / Infinie
+      <br><b>Durée maximum</b>
+      <br>&emsp;- Instantanée / Scène / Journée / Illimitée
+      <br><b>Avec ou sans canalisation</b>
+    </div>
   </template>
   <template v-if="persoChoice === 6">
     <div class="layout-bloc margin-top-1 text-justify">
