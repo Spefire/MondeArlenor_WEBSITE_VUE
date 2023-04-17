@@ -85,7 +85,7 @@
     </div>
 
     <div class="layout-row">
-      <div class="layout-col-33 form-element">
+      <div class="layout-col-50 form-element">
         <span>Portée du pouvoir</span>
         <div class="dropdown">
           <select
@@ -98,7 +98,7 @@
           </select>
         </div>
       </div>
-      <div class="layout-col-33 form-element">
+      <div class="layout-col-50 form-element">
         <span>Durée et rechargement du pouvoir</span>
         <div class="dropdown">
           <select
@@ -108,19 +108,6 @@
               v-for="(duration, index) in allDurations"
               :value="duration.Code"
               :key="index">{{ duration.Libelle }}</option>
-          </select>
-        </div>
-      </div>
-      <div class="layout-col-33 form-element">
-        <span>Cibles de pouvoir</span>
-        <div class="dropdown">
-          <select
-            class="dropdown-select"
-            v-model.trim.lazy="v$.form.codeTests.$model">
-            <option
-              v-for="(tests, index) in allTests"
-              :value="tests.Code"
-              :key="index">{{ tests.Libelle }}</option>
           </select>
         </div>
       </div>

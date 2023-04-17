@@ -151,7 +151,6 @@ const downloadPDF = async(character: ArlenorCharacter, allSkills: ArlenorSkill[]
       const title = checkLibelle(power.name + " (" + power.type.Libelle + ")", 40);
       const subtitle = checkLibelle(power.range.Libelle, 6, true)
         + " - " + checkLibelle(power.duration.Libelle, 6, true)
-        + " - " + power.tests.Libelle
         + " - " + (power.chaneling ? "Avec" : "Sans") + " canalisation";
       const description = checkLibelle(power.description, 185);
 

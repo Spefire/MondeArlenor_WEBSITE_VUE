@@ -251,7 +251,7 @@
       tels que la métamorphose, la transmutation ou l'enchantement.
       <br><b>Portée maximum</b>
       <br>&emsp;- Personnelle / Toucher / A vue / Infinie
-      <br><b>Durée maximum</b>
+      <br><b>Durée maximum (et temps de rechargement)</b>
       <br>&emsp;- Instantanée / Scène / Journée / Illimitée
       <br><b>Avec ou sans canalisation</b>
     </div>

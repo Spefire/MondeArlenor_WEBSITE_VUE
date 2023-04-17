@@ -15,11 +15,6 @@
             title="Durée et rechargement du pouvoir" />&nbsp;
           <span title="Durée et rechargement du pouvoir">{{ power.duration.Libelle }}</span>
           &nbsp;•&nbsp;
-          <i
-            class="icon icon-dice"
-            title="Tests du pouvoir" />&nbsp;
-          <span title="Tests du pouvoir">{{ power.tests.Libelle }}</span>
-          &nbsp;•&nbsp;
           <i class="icon icon-spinner9" />&nbsp;
           <span>{{ power.chaneling ? "Avec" : "Sans" }} canalisation</span>
         </i>

@@ -164,12 +164,6 @@
               title="Durée et rechargement du pouvoir" />&nbsp;
             <span title="Durée et rechargement du pouvoir">{{ selectedPower.duration.Libelle }}</span>
           </div>
-          <div class="margin-top-05">
-            <i
-              class="icon icon-dice"
-              title="Tests du pouvoir" />&nbsp;
-            <span title="Tests du pouvoir">{{ selectedPower.tests.Libelle }}</span>
-          </div>
           <div class="margin-top-05 margin-bottom-05">
             <i class="icon icon-spinner9" />&nbsp;
             <span>{{ selectedPower.chaneling ? "Avec" : "Sans" }} canalisation</span>

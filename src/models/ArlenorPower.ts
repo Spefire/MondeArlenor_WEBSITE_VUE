@@ -19,7 +19,6 @@ export class ArlenorPower extends ArlenorAPI {
   public codeRange: string;
   public codeDuration: string;
   public chaneling: boolean;
-  public codeTests: string;
   
   get code(): string {
     let code = this.name;
@@ -62,10 +61,6 @@ export class ArlenorPower extends ArlenorAPI {
     return getEnumByCode(this.codeDuration, PowerDurationsEnum);
   }
   
-  get tests(): ArlenorEnum {
-    return getEnumByCode(this.codeTests, PowerTestsEnum);
-  }
-
   constructor() {
     super();
     this.isVerified = false;
@@ -80,7 +75,6 @@ export class ArlenorPower extends ArlenorAPI {
     this.codeRange = PowerRangesEnum.Personnelle.Code;
     this.codeDuration = PowerDurationsEnum.Instantanee.Code;
     this.chaneling = false;
-    this.codeTests = PowerTestsEnum.Aucune.Code;
   }
 
   public initByJSON(value: string): void {
@@ -134,7 +128,6 @@ export class ArlenorPower extends ArlenorAPI {
     this.codeRange = powerDB.codeRange;
     this.codeDuration = powerDB.codeDuration;
     this.chaneling = powerDB.chaneling ? true : false;
-    this.codeTests = powerDB.codeTests;
   }
 }
 
@@ -182,10 +175,4 @@ export class PowerDurationsEnum {
   static Scene: ArlenorEnum = { Code: "1", Libelle: "Scène" };
   static Journee: ArlenorEnum = { Code: "2", Libelle: "Journée" };
   static Illimitee: ArlenorEnum = { Code: "3", Libelle: "Illimitée" };
-}
-
-export class PowerTestsEnum {
-  static Aucune: ArlenorEnum = { Code: "0", Libelle: "Aucun test" };
-  static Difficulte: ArlenorEnum = { Code: "1", Libelle: "Test de difficulté" };
-  static Opposition: ArlenorEnum = { Code: "2", Libelle: "Test en opposition" };
 }
