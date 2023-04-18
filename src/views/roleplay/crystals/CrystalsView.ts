@@ -81,11 +81,11 @@ export default defineComponent({
     },
     
     // Affichages
-    getPowersByRank(rank: string, isGroupPower: boolean): ArlenorPower[] {
+    getPowersSection(isGroupPower: boolean): ArlenorPower[] {
       if (isGroupPower) {
-        return this.specialityPowers.filter(power => power.codeRank === rank && !power.speciality);
+        return this.specialityPowers.filter(power => !power.speciality).sort((a, b) => b.rank.Code.localeCompare(a.rank.Code));
       } else {
-        return this.specialityPowers.filter(power => power.codeRank === rank && power.speciality);
+        return this.specialityPowers.filter(power => power.speciality).sort((a, b) => b.rank.Code.localeCompare(a.rank.Code));
       }
     },
 

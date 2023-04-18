@@ -95,44 +95,38 @@
     <!-- Pouvoirs -->
     <div class="crystals-layout margin-top-1">
       <div class="crystals-left layout-bloc">
-        <div v-if="ranks.length === 0">
-          Aucun pouvoir
-        </div>
 
-        <template v-if="ranks.length > 0">
-          <h3 class="margin-bottom-1">Pouvoirs liés à la classe ({{ currentSpeciality.name }})</h3>
+        <h3 class="margin-bottom-1">Liste des Pouvoirs</h3>
+        <div class="powers-content">
+          <div class="powers-content-title">Liés à la classe</div>
           <div
-            v-for="(rank, indexRank) in ranks"
-            class="powers-content"
-            :key="indexRank">
-            <div class="powers-content-title">Rang {{ rank.Libelle }}</div>
-            <div
-              v-for="(power, index) in getPowersByRank(rank.Code, false)"
-              class="power-line pointer"
-              :class="{ 'selected' : power.code === selectedPower?.code }"
-              @click="selectPower(power)"
-              :key="index">
-              <PowerImage :power="power" />
-              <span class="power-txt">{{ power.name }}</span>
-            </div>
+            v-for="(power, index) in getPowersSection(false)"
+            class="power-line pointer"
+            :class="{ 'selected' : power.code === selectedPower?.code }"
+            @click="selectPower(power)"
+            :key="index">
+            <PowerImage :power="power" />
+            <span class="power-txt">{{ power.name }}</span>
           </div>
-          <h3 class="margin-top-1 margin-bottom-1">Pouvoirs liés au groupe ({{ currentSpeciality.group.name }})</h3>
+          <div v-if="getPowersSection(false).length === 0">
+            Aucun pouvoir
+          </div>
+        </div>
+        <div class="powers-content">
+          <div class="powers-content-title">Liés au groupe</div>
           <div
-            v-for="(rank, indexRank) in ranks"
-            class="powers-content"
-            :key="indexRank">
-            <div class="powers-content-title">Rang {{ rank.Libelle }}</div>
-            <div
-              v-for="(power, index) in getPowersByRank(rank.Code, true)"
-              class="power-line pointer"
-              :class="{ 'selected' : power.code === selectedPower?.code }"
-              @click="selectPower(power)"
-              :key="index">
-              <PowerImage :power="power" />
-              <span class="power-txt">{{ power.name }}</span>
-            </div>
+            v-for="(power, index) in getPowersSection(true)"
+            class="power-line pointer"
+            :class="{ 'selected' : power.code === selectedPower?.code }"
+            @click="selectPower(power)"
+            :key="index">
+            <PowerImage :power="power" />
+            <span class="power-txt">{{ power.name }}</span>
           </div>
-        </template>
+          <div v-if="getPowersSection(true).length === 0">
+            Aucun pouvoir
+          </div>
+        </div>
       </div>
       
       <div class="crystals-right layout-bloc">
