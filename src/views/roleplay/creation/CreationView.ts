@@ -1,7 +1,6 @@
 import PopupBloc from "@/components/popup/PopupBloc.vue";
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { ArlenorLevel } from "@/models/ArlenorLevel";
-import { SkillTypesEnum } from "@/models/ArlenorSkill";
 import { getListDefaultSkills } from "@/models/data/ListDefaultSkills";
 import { PageTitles } from "@/models/PagesTitles";
 import api from "@/utils/api";
@@ -142,9 +141,7 @@ export default defineComponent({
       let allSkills = await api.readAllSkill();
       let allPowers = await api.readAllPower();
       const skills = getListDefaultSkills().filter(skill => {
-        return (!skill.codeRace && !skill.codeSpeciality
-        && skill.codeType !== SkillTypesEnum.ProprieteCanalisation.Code
-        && skill.codeType !== SkillTypesEnum.ProprieteTemps.Code);
+        return (!skill.codeRace && !skill.codeSpeciality);
       });
       allSkills = allSkills.concat(skills);
       allSkills = allSkills.sort((a, b) => a.name.localeCompare(b.name));

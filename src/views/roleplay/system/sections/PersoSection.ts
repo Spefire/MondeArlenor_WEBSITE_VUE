@@ -3,7 +3,7 @@ import ExpandBloc from "@/components/expand-bloc/ExpandBloc.vue";
 import SkillsTable from "@/components/skills-table/SkillsTable.vue";
 import { CaractDescriptionEnum } from "@/models/ArlenorCaracts";
 import { ArlenorRace, DifficultyEnum } from "@/models/ArlenorRace";
-import { ArlenorSkill, SkillTypesEnum } from "@/models/ArlenorSkill";
+import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { getListDefaultSkills } from "@/models/data/ListDefaultSkills";
 import { ArlenorGroups } from "@/models/data/ListGroups";
 import { getListRaces } from "@/models/data/ListRaces";
@@ -33,9 +33,7 @@ export default defineComponent({
     const finitionChoice = ref(0);
     
     const skills = getListDefaultSkills().filter(skill => {
-      return (!skill.codeRace && !skill.codeSpeciality
-        && skill.codeType !== SkillTypesEnum.ProprieteCanalisation.Code
-        && skill.codeType !== SkillTypesEnum.ProprieteTemps.Code);
+      return (!skill.codeRace && !skill.codeSpeciality);
     });
     const defaultSkills: Ref<ArlenorSkill[]> = ref(skills);
 

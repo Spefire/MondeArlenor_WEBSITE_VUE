@@ -1,6 +1,6 @@
 import SkillsSelectionTable from "@/components/skills-selection-table/SkillsSelectionTable.vue";
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
-import { ArlenorSkill, SkillTypesEnum } from "@/models/ArlenorSkill";
+import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { getListDefaultSkills } from "@/models/data/ListDefaultSkills";
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
@@ -35,9 +35,7 @@ export default defineComponent({
     const level = character.level;
 
     const skills = getListDefaultSkills().filter(skill => {
-      return (!skill.codeRace && !skill.codeSpeciality && !speSkills.find(speSkill => speSkill.name === skill.name)
-        && skill.codeType !== SkillTypesEnum.ProprieteCanalisation.Code
-        && skill.codeType !== SkillTypesEnum.ProprieteTemps.Code);
+      return (!skill.codeRace && !skill.codeSpeciality && !speSkills.find(speSkill => speSkill.name === skill.name));
     });
     const defaultSkills: Ref<ArlenorSkill[]> = ref(skills);
 

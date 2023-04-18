@@ -25,13 +25,8 @@ export default defineComponent({
     const isEditable = ref(false);
     const selectedSkill: Ref<ArlenorSkill | null> = ref(null);
     const filteredSkills: Ref<ArlenorSkill[]> = ref([]);
-    
-    const allTypes: ArlenorEnum[] = Object.values(SkillTypesEnum).filter(skillEnum => {
-      return (skillEnum.Code !== SkillTypesEnum.ProprieteCanalisation.Code
-        && skillEnum.Code !== SkillTypesEnum.ProprieteTemps.Code);
-    });
+    const allTypes: ArlenorEnum[] = Object.values(SkillTypesEnum);
     const selectedType: Ref<string | null> = ref(null);
-
     const searchName = ref("");
 
     return {

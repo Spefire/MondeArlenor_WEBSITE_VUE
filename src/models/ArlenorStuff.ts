@@ -18,8 +18,6 @@ export class ArlenorStuff extends ArlenorAPI {
     }
     if (this.codeType === StuffTypesEnum.CompetenceArme.Code) return require("./../assets/icons/skills/armes.png");
     else if (this.type.Code === StuffTypesEnum.CompetenceArmure.Code) return require("./../assets/icons/skills/armures.png");
-    else if (this.type.Code === StuffTypesEnum.ProprieteCanalisation.Code) return require("./../assets/icons/skills/incantation.png");
-    else if (this.type.Code === StuffTypesEnum.ProprieteTemps.Code) return require("./../assets/icons/skills/rechargement.png");
     return null;
   }
 
@@ -89,8 +87,6 @@ export class StuffTypesEnum {
   // Compétences de groupe et de classe/spécialité
   static CompetenceArme: ArlenorEnum = { Code: "ABL_ARME", Libelle: "Compétence d'arme" };
   static CompetenceArmure: ArlenorEnum = { Code: "ABL_ARMURE", Libelle: "Compétence d'armure" };
-  static ProprieteCanalisation: ArlenorEnum = { Code: "PROP_CAN", Libelle: "Canalisation" };
-  static ProprieteTemps: ArlenorEnum = { Code: "PROP_TEMPS", Libelle: "Durée et recharge" };
   // Compétences de race et autres compétences
   static CompetenceAutre: ArlenorEnum = { Code: "ABL_OTHER", Libelle: "Autre compétence" };
 }

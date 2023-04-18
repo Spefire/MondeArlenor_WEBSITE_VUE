@@ -89,16 +89,6 @@ export default defineComponent({
       }
     },
 
-    getCasting(chanelingProperty: number) {
-      if (!chanelingProperty) return "Pas d'incantation";
-      return "" + chanelingProperty + " tours d'incantation";
-    },
-  
-    getReloading(durationProperty: number) {
-      if (!durationProperty) return "Utilisation illimitée";
-      return "" + durationProperty + " utilisations par repos long";
-    },
-
     // Actions
     selectPower(power: ArlenorPower | null) {
       this.selectedPower = power;

@@ -1,6 +1,6 @@
 import PopupBloc from "@/components/popup/PopupBloc.vue";
 import SkillsTable from "@/components/skills-table/SkillsTable.vue";
-import { ArlenorSkill, SkillTypesEnum } from "@/models/ArlenorSkill";
+import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { getListDefaultSkills } from "@/models/data/ListDefaultSkills";
 import { getListRaceSkills } from "@/models/data/ListRaceSkills";
 import api from "@/utils/api";
@@ -22,9 +22,7 @@ export default defineComponent({
     const filteredSkills: Ref<ArlenorSkill[]> = ref([]);
     const currentSkill: Ref<ArlenorSkill | null> = ref(null);
     const skills = getListDefaultSkills().filter(skill => {
-      return (!skill.codeRace && !skill.codeSpeciality
-        && skill.codeType !== SkillTypesEnum.ProprieteCanalisation.Code
-        && skill.codeType !== SkillTypesEnum.ProprieteTemps.Code);
+      return (!skill.codeRace && !skill.codeSpeciality);
     });
     const defaultSkills: Ref<ArlenorSkill[]> = ref(skills);
     const racesSkills: Ref<ArlenorSkill[]> = ref(getListRaceSkills());

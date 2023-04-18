@@ -42,7 +42,17 @@
         </div>
         <div class="crystals-separator" />
         <div class="crystals-section">
-          <h3 class="margin-bottom-1">Compétences héritées</h3>
+          <h3 class="margin-bottom-1">Apparence du cristal</h3>
+          <div class="power-line justify-center">
+            <div class="power-img-layout">
+              <img
+                class="power-img"
+                :src="currentSpeciality.crystalImage"
+                :alt="currentSpeciality.crystalName">
+            </div>
+            <span class="power-txt">{{ currentSpeciality.crystalName }}</span>
+          </div>
+          <h3 class="margin-top-1 margin-bottom-1">Compétences héritées</h3>
           <div
             v-if="currentSpeciality.weaponSkill"
             class="power-line">
@@ -64,29 +74,6 @@
                 :alt="currentSpeciality.armorSkill.name">
             </div>
             <span class="power-txt">{{ currentSpeciality.armorSkill.name }}</span>
-          </div>
-          <h3 class="margin-top-1 margin-bottom-1">Propriétés diverses</h3>
-          <div 
-            v-if="currentSpeciality.chanelingProperty"
-            class="power-line">
-            <div class="power-img-layout">
-              <img
-                class="power-img"
-                :src="currentSpeciality.chanelingProperty.image"
-                :alt="currentSpeciality.chanelingProperty.name">
-            </div>
-            <span class="power-txt">{{ currentSpeciality.chanelingProperty.name }}</span>
-          </div>
-          <div 
-            v-if="currentSpeciality.durationProperty"
-            class="power-line">
-            <div class="power-img-layout">
-              <img
-                class="power-img"
-                :src="currentSpeciality.durationProperty.image"
-                :alt="currentSpeciality.durationProperty.name">
-            </div>
-            <span class="power-txt">{{ currentSpeciality.durationProperty.name }}</span>
           </div>
         </div>
       </div>
