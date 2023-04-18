@@ -238,6 +238,8 @@
       &emsp;
       Chaque pouvoir est défini par les propriétés suivantes...<br>
       <br><b>Nom du pouvoir</b>
+      <br><b>Rang (Difficulté approximative)</b>
+      <br>&emsp;- I (Simple) / II (Standard) / III (Complexe)
       <br><b>Type de pouvoir</b>
       <br>&emsp;- Offensif :
       Sorts qui infligent des dégâts directs aux ennemis ou qui ont un effet néfaste sur leur santé.

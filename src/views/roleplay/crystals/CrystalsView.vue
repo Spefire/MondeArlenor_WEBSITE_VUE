@@ -134,8 +134,8 @@
         <div class="power-separator" />
         <template v-if="selectedPower">
           <div>
-            {{ selectedPower.type.Libelle }}
-            {{ selectedPower.speciality ? '(de la classe)' : '(du groupe)' }}
+            {{ selectedPower.type.Libelle }} de Rang
+            {{ selectedPower.rank.Libelle }}
           </div>
           <PowerImage
             class="power-img-layout big margin-top-1"
