@@ -43,14 +43,8 @@
         <div class="crystals-separator" />
         <div class="crystals-section">
           <h3 class="margin-bottom-1">Apparence du cristal</h3>
-          <div class="power-line justify-center">
-            <div class="power-img-layout">
-              <img
-                class="power-img"
-                :src="currentSpeciality.crystalImage"
-                :alt="currentSpeciality.crystalName">
-            </div>
-            <span class="power-txt">{{ currentSpeciality.crystalName }}</span>
+          <div class="justify-center">
+            {{ currentSpeciality.crystalName }}
           </div>
           <h3 class="margin-top-1 margin-bottom-1">Compétences héritées</h3>
           <div

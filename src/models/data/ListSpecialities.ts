@@ -34,25 +34,21 @@ export class ArlenorSpecialities {
     this.Paladin.image = require("./../../assets/icons/specialities/paladin.png");
     this.Paladin.description = "Le Paladin utilise principalement de puissants sorts défensifs. Et à haut-niveau, le paladin devient une véritable forteresse.";
     this.Paladin.crystalName = "Citrine";
-    this.Paladin.crystalImage = require("./../../assets/icons/specialities/crystal_paladin.png");
 
     this.Chevalier = new ArlenorSpeciality("Chevalier", "Chevalier", groups.Gardien);
     this.Chevalier.image = require("./../../assets/icons/specialities/chevalier.png");
     this.Chevalier.description = "Le Chevalier utilise des sorts de récupération pour résister longtemps. Cela lui permet de pouvoir attaquer en même temps de récupérer.";
     this.Chevalier.crystalName = "Topaze jaune";
-    this.Chevalier.crystalImage = require("./../../assets/icons/specialities/crystal_chevalier.png");
 
     this.DanseurMartial = new ArlenorSpeciality("Danseur Martial", "DanseurMartial", groups.Moine);
     this.DanseurMartial.image = require("./../../assets/icons/specialities/danseur_martial.png");
     this.DanseurMartial.description = "Le Danseur martial utilise des sorts d’enchaînements d'attaques à mains nues, ne laissant pas de répit à sa cible.";
     this.DanseurMartial.crystalName = "Amazonite";
-    this.DanseurMartial.crystalImage = require("./../../assets/icons/specialities/crystal_danseur_martial.png");
 
     this.Derviche = new ArlenorSpeciality("Derviche", "Derviche", groups.Moine);
     this.Derviche.image = require("./../../assets/icons/specialities/derviche.png");
     this.Derviche.description = "Le Derviche utilise sa faux pour contrôler la zone de combat : possédant une grande capacité de mouvement, il sait garder ses cibles sous le creux de sa lame.";
     this.Derviche.crystalName = "Aigue-marine";
-    this.Derviche.crystalImage = require("./../../assets/icons/specialities/crystal_derviche.png");
     
     ///
 
@@ -60,31 +56,26 @@ export class ArlenorSpecialities {
     this.LameOmbre.image = require("./../../assets/icons/specialities/lame_ombre.png");
     this.LameOmbre.description = "La Lame de l'Ombre utilise des pouvoirs pour se camoufler et augmenter ses dégâts avec des attaques surprises.";
     this.LameOmbre.crystalName = "Grenat";
-    this.LameOmbre.crystalImage = require("./../../assets/icons/specialities/crystal_lame_ombre.png");
 
     this.Chasseur = new ArlenorSpeciality("Chasseur", "Chasseur", groups.Assassin);
     this.Chasseur.image = require("./../../assets/icons/specialities/chasseur.png");
     this.Chasseur.description = "Le Chasseur utilise ses pouvoirs pour infliger des dégâts à distance et ne pas perdre sa cible de vue. A haut-niveau, c'est un véritable sniper.";
     this.Chasseur.crystalName = "Rubis";
-    this.Chasseur.crystalImage = require("./../../assets/icons/specialities/crystal_chasseur.png");
 
     this.DanseurSabre = new ArlenorSpeciality("Danseur au Sabre", "DanseurSabre", groups.Assassin);
     this.DanseurSabre.image = require("./../../assets/icons/specialities/danseur_sabre.png");
     this.DanseurSabre.description = "Le Danseur au Sabre utilise son sabre comme une prolongation de son corps. Ses danses permettent d’enchaîner des coups tout en se protégeant.";
     this.DanseurSabre.crystalName = "Jaspe";
-    this.DanseurSabre.crystalImage = require("./../../assets/icons/specialities/crystal_danseur_sabre.png");
 
     this.DoubleLame = new ArlenorSpeciality("Double Lame", "DoubleLame", groups.Bretteur);
     this.DoubleLame.image = require("./../../assets/icons/specialities/double_lame.png");
     this.DoubleLame.description = "La Double Lame utilise des capacités d'ambidextrie pour faire passer le plus ennemis sous son courroux. Et à haut-niveau, la Double Lame ressemble à une vraie tornade.";
     this.DoubleLame.crystalName = "Cornaline";
-    this.DoubleLame.crystalImage = require("./../../assets/icons/specialities/crystal_double_lame.png");
 
     this.Escrimeur = new ArlenorSpeciality("Escrimeur", "Escrimeur", groups.Bretteur);
     this.Escrimeur.image = require("./../../assets/icons/specialities/escrimeur.png");
     this.Escrimeur.description = "L'Escrimeur utilise des sorts pour renforcer ses coups en un contre un. Il préfère les duels équitables ce qui augmente son potentiel de dégâts.";
     this.Escrimeur.crystalName = "Opale de feu";
-    this.Escrimeur.crystalImage = require("./../../assets/icons/specialities/crystal_escrimeur.png");
 
     ///
 
@@ -92,37 +83,31 @@ export class ArlenorSpecialities {
     this.Meteorologue.image = require("./../../assets/icons/specialities/meteorologue.png");
     this.Meteorologue.description = "Le Météorologue utilise des sorts liés aux éléments (Foudre, Eau et Glace).";
     this.Meteorologue.crystalName = "Sodalite";
-    this.Meteorologue.crystalImage = require("./../../assets/icons/specialities/crystal_meteorologue.png");
 
     this.Createur = new ArlenorSpeciality("Créateur", "Createur", groups.Sorcier);
     this.Createur.image = require("./../../assets/icons/specialities/createur.png");
     this.Createur.description = "Le Créateur utilise des sorts liés aux éléments (Feu, Terre, Métaux).";
     this.Createur.crystalName = "Saphir";
-    this.Createur.crystalImage = require("./../../assets/icons/specialities/crystal_createur.png");
 
     this.Pelerin = new ArlenorSpeciality("Pèlerin", "Pelerin", groups.Invocateur);
     this.Pelerin.image = require("./../../assets/icons/specialities/pelerin.png");
     this.Pelerin.description = "Le Pèlerin utilise des sorts d'invocation d'entités divines liées à la Lumière et au Destin.";
     this.Pelerin.crystalName = "Malachite";
-    this.Pelerin.crystalImage = require("./../../assets/icons/specialities/crystal_pelerin.png");
 
     this.Dompteur = new ArlenorSpeciality("Dompteur de bêtes", "Dompteur", groups.Invocateur);
     this.Dompteur.image = require("./../../assets/icons/specialities/dompteur.png");
     this.Dompteur.description = "Le Dompteur de Bêtes utilise des capacités de convocation d'animaux existants en tant que familiers. A haut-niveau, il peut même les posséder.";
     this.Dompteur.crystalName = "Jade";
-    this.Dompteur.crystalImage = require("./../../assets/icons/specialities/crystal_dompteur.png");
 
     this.Illusionniste = new ArlenorSpeciality("Illusionniste", "Illusionniste", groups.Enchanteur);
     this.Illusionniste.image = require("./../../assets/icons/specialities/illusionniste.png");
     this.Illusionniste.description = "L'Illusionniste utilise des sorts pour contrôler les sens de ses cibles. Et à haut-niveau l'illusion peut devenir réalité.";
     this.Illusionniste.crystalName = "Fluorite";
-    this.Illusionniste.crystalImage = require("./../../assets/icons/specialities/crystal_illusionniste.png");
 
     this.Envouteur = new ArlenorSpeciality("Envoûteur", "Envouteur", groups.Enchanteur);
     this.Envouteur.image = require("./../../assets/icons/specialities/envouteur.png");
     this.Envouteur.description = "L'Envoûteur utilise des sorts qui affectent ses cibles de divers troubles magiques. Et à haut-niveau, l’envoûtement peut aller jusqu'à la possession.";
     this.Envouteur.crystalName = "Améthyste";
-    this.Envouteur.crystalImage = require("./../../assets/icons/specialities/crystal_envouteur.png");
 
     ///
 
@@ -130,37 +115,31 @@ export class ArlenorSpecialities {
     this.Chaman.image = require("./../../assets/icons/specialities/chaman.png");
     this.Chaman.description = "Le Chaman utilise des sorts permettant d'interagir avec le monde de l'Au-Delà. A haut-niveau, le chaman peut utiliser les capacités d'un défunt.";
     this.Chaman.crystalName = "Péridot";
-    this.Chaman.crystalImage = require("./../../assets/icons/specialities/crystal_chaman.png");
 
     this.Guerisseur = new ArlenorSpeciality("Guérisseur", "Guerisseur", groups.Druide);
     this.Guerisseur.image = require("./../../assets/icons/specialities/guerisseur.png");
     this.Guerisseur.description = "Le Guérisseur utilise des sorts de soins et de récupération. Et à haut-niveau, il peut même réaliser des dopages sur ses alliés.";
-    this.Guerisseur.crystalName = "Emeraude";
-    this.Guerisseur.crystalImage = require("./../../assets/icons/specialities/crystal_guerisseur.png");
+    this.Guerisseur.crystalName = "Émeraude";
 
     this.PretreArlenor = new ArlenorSpeciality("Prêtre d'Arlénor", "PretreArlenor", groups.Pretre);
     this.PretreArlenor.image = require("./../../assets/icons/specialities/pretre_arlenor.png");
     this.PretreArlenor.description = "Le Prêtre d'Arlénor utilise des prières pour aider les alliés afin de les purifier, d'augmenter leur chance ou même accéder à des connaissances.";
     this.PretreArlenor.crystalName = "Pierre de lune";
-    this.PretreArlenor.crystalImage = require("./../../assets/icons/specialities/crystal_pretre_arlenor.png");
 
     this.Necromancien = new ArlenorSpeciality("Nécromancien", "Necromancien", groups.Pretre);
     this.Necromancien.image = require("./../../assets/icons/specialities/necromancien.png");
     this.Necromancien.description = "Le Nécromant utilise des sorts de sang infligeant des états négatifs à une cible, et des prières permettant d'utiliser les morts à ses propres fins.";
     this.Necromancien.crystalName = "Obsidienne";
-    this.Necromancien.crystalImage = require("./../../assets/icons/specialities/crystal_necromancien.png");
 
     this.Virtuose = new ArlenorSpeciality("Virtuose", "Virtuose", groups.Barde);
     this.Virtuose.image = require("./../../assets/icons/specialities/virtuose.png");
     this.Virtuose.description = "Le Virtuose utilise des musiques qui boostent les alliés sur le long terme. Il peut également, mais rarement utiliser des paroles ou des accords particuliers pour des boosts instantanés.";
     this.Virtuose.crystalName = "Quartz rose";
-    this.Virtuose.crystalImage = require("./../../assets/icons/specialities/crystal_virtuose.png");
 
     this.Banshee = new ArlenorSpeciality("Banshee", "Banshee", groups.Barde);
     this.Banshee.image = require("./../../assets/icons/specialities/banshee.png");
     this.Banshee.description = "La Banshee utilise des chants qui perturbent les cibles, leur annonçant une mort proche. Elle peut également mais rarement, infliger des dégâts via sa voix.";
     this.Banshee.crystalName = "Rhodonite";
-    this.Banshee.crystalImage = require("./../../assets/icons/specialities/crystal_banshee.png");
   }
 
   public static getListSpecialities(): ArlenorSpeciality[] {

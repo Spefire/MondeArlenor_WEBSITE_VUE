@@ -8,7 +8,6 @@ export class ArlenorSpeciality {
   public image: string;
   public description: string;
   public crystalName: string;
-  public crystalImage: string;
   public group: ArlenorGroup;
   public weaponSkill: ArlenorSkill | null;
   public armorSkill: ArlenorSkill | null;
@@ -19,7 +18,6 @@ export class ArlenorSpeciality {
     this.image = "";
     this.description = "";
     this.crystalName = "";
-    this.crystalImage = "";
     this.group = group;
     this.weaponSkill = null;
     this.armorSkill = null;
