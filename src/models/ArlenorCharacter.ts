@@ -3,7 +3,6 @@ import { ArlenorCaracts } from "./ArlenorCaracts";
 import { ArlenorCrystal } from "./ArlenorCrystal";
 import { ArlenorLevel } from "./ArlenorLevel";
 import { ArlenorRace } from "./ArlenorRace";
-import { ArlenorSkill } from "./ArlenorSkill";
 import { getListRaces } from "./data/ListRaces";
 import { ArlenorSpecialities } from "./data/ListSpecialities";
 
@@ -53,58 +52,6 @@ export class ArlenorCharacter extends ArlenorAPI {
     if (this.caracts.ten > 2) bonusMalus++;
     else if (this.caracts.ten === 0) bonusMalus--;
     return this.level.maxHealth + bonusMalus;
-  }
-
-  get crystalsSkills(): ArlenorSkill[] {
-    const armures = [
-      "légères / très mobiles",
-      "normales / mobiles",
-      "lourdes / peu mobiles",
-    ];
-
-    const crystal01 = this.crystals[0];
-    let spe01;
-    if (crystal01) spe01 = crystal01.speciality;
-    if (spe01) spe01.setSkills();
-
-    const crystal02 = this.crystals[1];
-    let spe02;
-    if (crystal02) spe02 = crystal02.speciality;
-    if (spe02) spe02.setSkills();
-
-    const speSkills = [];
-    if (spe01) {
-      if (spe01.weaponSkill) speSkills.push(spe01.weaponSkill);
-      if (spe01.armorSkill) speSkills.push(spe01.armorSkill);
-    }
-    if (spe02) {
-      if (spe02.weaponSkill) {
-        if (spe01 && spe01.weaponSkill) {
-          if (spe01.weaponSkill.name !== spe02.weaponSkill.name) speSkills.push(spe02.weaponSkill);
-        } else speSkills.push(spe02.weaponSkill);
-      }
-      if (spe02.armorSkill) {
-        if (spe01 && spe01.armorSkill) {
-
-          let indexArmor01 = -1;
-          if (spe01.armorSkill.name.includes(armures[0])) indexArmor01 = 0;
-          else if (spe01.armorSkill.name.includes(armures[1])) indexArmor01 = 1;
-          else if (spe01.armorSkill.name.includes(armures[2])) indexArmor01 = 2;
-
-          let indexArmor02 = -1;
-          if (spe02.armorSkill.name.includes(armures[0])) indexArmor02 = 0;
-          else if (spe02.armorSkill.name.includes(armures[1])) indexArmor02 = 1;
-          else if (spe02.armorSkill.name.includes(armures[2])) indexArmor02 = 2;
-
-          // Si ce n'est pas la même armure et qu'elle est plus forte
-          if (indexArmor02 > indexArmor01) {
-            speSkills[1] = spe02.armorSkill;
-          }
-        } else speSkills.push(spe02.armorSkill);
-      }
-    }
-    speSkills.sort((a, b) => a.name.localeCompare(b.name));
-    return speSkills;
   }
 
   constructor() {

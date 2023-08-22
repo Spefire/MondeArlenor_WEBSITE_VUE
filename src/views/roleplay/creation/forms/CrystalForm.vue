@@ -30,30 +30,6 @@
             <h2>{{ selectedSpeciality.name }} ({{ selectedSpeciality.group.name }})</h2>
           </div>
         </div>
-        <div class="zone-description margin-top-1">
-          <div
-            v-if="selectedSpeciality.weaponSkill"
-            class="power-line">
-            <div class="power-img-layout">
-              <img
-                class="power-img"
-                :src="selectedSpeciality.weaponSkill.image"
-                :alt="selectedSpeciality.weaponSkill.name">
-            </div>
-            <span class="power-txt">{{ selectedSpeciality.weaponSkill.name }}</span>
-          </div>
-          <div
-            v-if="selectedSpeciality.armorSkill"
-            class="power-line">
-            <div class="power-img-layout">
-              <img
-                class="power-img"
-                :src="selectedSpeciality.armorSkill.image"
-                :alt="selectedSpeciality.armorSkill.name">
-            </div>
-            <span class="power-txt">{{ selectedSpeciality.armorSkill.name }}</span>
-          </div>
-        </div>
         <p class="zone-comment margin-top-1">
           {{ selectedSpeciality.group.description }}<br>
           -<br>

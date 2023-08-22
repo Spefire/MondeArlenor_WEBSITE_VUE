@@ -46,29 +46,6 @@
           <div class="justify-center">
             {{ currentSpeciality.crystalName }}
           </div>
-          <h3 class="margin-top-1 margin-bottom-1">Compétences héritées</h3>
-          <div
-            v-if="currentSpeciality.weaponSkill"
-            class="power-line">
-            <div class="power-img-layout">
-              <img
-                class="power-img"
-                :src="currentSpeciality.weaponSkill.image"
-                :alt="currentSpeciality.weaponSkill.name">
-            </div>
-            <span class="power-txt">{{ currentSpeciality.weaponSkill.name }}</span>
-          </div>
-          <div 
-            v-if="currentSpeciality.armorSkill"
-            class="power-line">
-            <div class="power-img-layout">
-              <img
-                class="power-img"
-                :src="currentSpeciality.armorSkill.image"
-                :alt="currentSpeciality.armorSkill.name">
-            </div>
-            <span class="power-txt">{{ currentSpeciality.armorSkill.name }}</span>
-          </div>
         </div>
       </div>
     </div>

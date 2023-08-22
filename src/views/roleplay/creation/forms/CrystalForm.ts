@@ -67,7 +67,6 @@ export default defineComponent({
     selectedSpeciality(): ArlenorSpeciality | null {
       if (!this.form.codeSpeciality) return null;
       const spe = ArlenorSpecialities.getSpeciality(this.form.codeSpeciality);
-      if (spe) spe.setSkills();
       return spe;
     },
     allPowers(): ArlenorPower[] {

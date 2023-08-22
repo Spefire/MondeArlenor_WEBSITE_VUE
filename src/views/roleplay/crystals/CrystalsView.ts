@@ -55,7 +55,6 @@ export default defineComponent({
       if (this.$route.query.spe) {
         const targetSpeciality = ArlenorSpecialities.getListSpecialities().find(spe => spe.code === this.$route.query.spe);
         this.currentSpeciality = targetSpeciality ? targetSpeciality : null;
-        if (this.currentSpeciality) this.currentSpeciality.setSkills();
         this.selectPower(null);
       } else {
         this.currentSpeciality = null;

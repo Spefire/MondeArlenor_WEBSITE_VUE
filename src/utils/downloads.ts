@@ -85,9 +85,7 @@ const downloadPDF = async(character: ArlenorCharacter, allSkills: ArlenorSkill[]
   doc.setFontSize(10);
 
   // --- COMPETENCES
-  const speSkills = character.crystalsSkills;
-  const choiceSkills = allSkills.filter(skill => character.idsSkills.includes(skill.id));
-  const skills = speSkills.concat(choiceSkills);
+  const skills = allSkills.filter(skill => character.idsSkills.includes(skill.id));
 
   x = 34.6;
   y = 35.8;

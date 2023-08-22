@@ -27,22 +27,20 @@ export default defineComponent({
     let spe02;
     if (crystal02) spe02 = crystal02.speciality;
 
-    const speSkills = character.crystalsSkills;
-
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const idsSkills: Ref<any> = ref(character.idsSkills);
     const isNbSkillsValid: Ref<boolean | null> = ref(null);
     const level = character.level;
 
     const skills = getListDefaultSkills().filter(skill => {
-      return (!skill.codeRace && !skill.codeSpeciality && !speSkills.find(speSkill => speSkill.name === skill.name));
+      return (!skill.codeRace && !skill.codeSpeciality);
     });
     const defaultSkills: Ref<ArlenorSkill[]> = ref(skills);
 
     return {
       store,
       level,
-      spe01, spe02, speSkills,
+      spe01, spe02,
       defaultSkills,
       form: {
         idsSkills,
@@ -87,7 +85,7 @@ export default defineComponent({
       this.updateForm();
     },
     checkNbSkills() {
-      const nbSkills = this.form.idsSkills.length + this.speSkills.length;
+      const nbSkills = this.form.idsSkills.length;
       this.form.isNbSkillsValid = (nbSkills === this.level.maxSkills) ? true : null;
     },
     updateForm() {
