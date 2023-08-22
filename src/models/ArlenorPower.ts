@@ -28,10 +28,11 @@ export class ArlenorPower extends ArlenorAPI {
   }
 
   get image(): string | null {
-    if (this.codeType === PowerTypesEnum.Offensive.Code) return require("./../assets/icons/powers/offensive.png");
-    if (this.codeType === PowerTypesEnum.Defensive.Code) return require("./../assets/icons/powers/defensive.png");
+    if (this.codeType === PowerTypesEnum.Attack.Code) return require("./../assets/icons/powers/attack.png");
+    if (this.codeType === PowerTypesEnum.Defense.Code) return require("./../assets/icons/powers/defense.png");
+    if (this.codeType === PowerTypesEnum.Heal.Code) return require("./../assets/icons/powers/heal.png");
+    if (this.codeType === PowerTypesEnum.Control.Code) return require("./../assets/icons/powers/control.png");
     if (this.codeType === PowerTypesEnum.Utility.Code) return require("./../assets/icons/powers/utility.png");
-    if (this.codeType === PowerTypesEnum.Alteration.Code) return require("./../assets/icons/powers/alteration.png");
     return null;
   }
 
@@ -67,7 +68,7 @@ export class ArlenorPower extends ArlenorAPI {
 
     this.name = "";
     this.description = "";
-    this.codeType = PowerTypesEnum.Offensive.Code;
+    this.codeType = PowerTypesEnum.Attack.Code;
     this.codeGroup = null;
     this.codeSpeciality = null;
 
@@ -87,35 +88,6 @@ export class ArlenorPower extends ArlenorAPI {
     this.description = powerDB.description;
     this.codeType = powerDB.codeType;
 
-    if (this.codeType === PowerTypesEnum.CoupSpecial.Code
-      || this.codeType === PowerTypesEnum.RayonAttaque.Code) {
-      this.codeType = PowerTypesEnum.Offensive.Code;
-    }
-
-    if (this.codeType === PowerTypesEnum.Immunite.Code
-      || this.codeType === PowerTypesEnum.ArmureNaturelle.Code
-      || this.codeType === PowerTypesEnum.PouvoirSoin.Code
-      || this.codeType === PowerTypesEnum.RayonProtection.Code) {
-      this.codeType = PowerTypesEnum.Defensive.Code;
-    }
-
-    if (this.codeType === PowerTypesEnum.Chimerisme.Code
-      || this.codeType === PowerTypesEnum.DeplacementSpatial.Code
-      || this.codeType === PowerTypesEnum.ManipulationTemps.Code
-      || this.codeType === PowerTypesEnum.PerceptionSpecial.Code
-      || this.codeType === PowerTypesEnum.RayonSpecial.Code
-      || this.codeType === PowerTypesEnum.Spiritisme.Code) {
-      this.codeType = PowerTypesEnum.Utility.Code;
-    }
-
-    if (this.codeType === PowerTypesEnum.AnatomieSurhumaine.Code
-      || this.codeType === PowerTypesEnum.ArmeNaturelle.Code
-      || this.codeType === PowerTypesEnum.Metamorphose.Code
-      || this.codeType === PowerTypesEnum.PouvoirMental.Code
-      || this.codeType === PowerTypesEnum.Transmutation.Code) {
-      this.codeType = PowerTypesEnum.Alteration.Code;
-    }
-
     if (powerDB.codeSpeciality) {
       this.codeGroup = null;
       this.codeSpeciality = powerDB.codeSpeciality;
@@ -132,28 +104,17 @@ export class ArlenorPower extends ArlenorAPI {
 }
 
 export class PowerTypesEnum {
-  static Offensive: ArlenorEnum = { Code: "OFF", Libelle: "Pouvoir Offensif" };
-  static Defensive: ArlenorEnum = { Code: "DEF", Libelle: "Pouvoir Défensif" };
-  static Utility: ArlenorEnum = { Code: "UTIL", Libelle: "Pouvoir Utilitaire" };
-  static Alteration: ArlenorEnum = { Code: "ALT", Libelle: "Pouvoir d'Altération" };
+  // Attaque - Pouvoirs qui infligent des dégâts directs aux ennemis.
+  // Défense - Pouvoirs qui protègent le lanceur ou ses alliés.
+  // Soin - Pouvoirs de guérison pour restaurer les points de vie.
+  // Contrôle - Pouvoirs qui entravent les ennemis ou modifient leurs actions.
+  // Utilitaire - Pouvoirs non-combattifs pour diverses situations.
 
-  static AnatomieSurhumaine: ArlenorEnum = { Code: "ANATOMIE", Libelle: "Anatomie surhumaine" };
-  static ArmeNaturelle: ArlenorEnum = { Code: "ARME_NAT", Libelle: "Arme naturelle" };
-  static ArmureNaturelle: ArlenorEnum = { Code: "ARMURE_NAT", Libelle: "Armure naturelle" };
-  static Chimerisme: ArlenorEnum = { Code: "CHIMERISME", Libelle: "Chimérisme" };
-  static CoupSpecial: ArlenorEnum = { Code: "COUP_SPE", Libelle: "Coup spécial" };
-  static DeplacementSpatial: ArlenorEnum = { Code: "DEP_SPATIAL", Libelle: "Déplacement spatial" };
-  static Immunite: ArlenorEnum = { Code: "IMMUNITE", Libelle: "Immunité" };
-  static ManipulationTemps: ArlenorEnum = { Code: "MANIP_TEMPS", Libelle: "Manipulation temporelle" };
-  static Metamorphose: ArlenorEnum = { Code: "METAMORPHOSE", Libelle: "Métamorphose" };
-  static PerceptionSpecial: ArlenorEnum = { Code: "PERCEPTION", Libelle: "Perception spéciale" };
-  static PouvoirMental: ArlenorEnum = { Code: "POUV_MENTAL", Libelle: "Pouvoir mental" };
-  static PouvoirSoin: ArlenorEnum = { Code: "POUV_SOIN", Libelle: "Pouvoir de soin" };
-  static RayonAttaque: ArlenorEnum = { Code: "RAYON_ATK", Libelle: "Rayonnement d'attaque" };
-  static RayonProtection: ArlenorEnum = { Code: "RAYON_DEF", Libelle: "Rayonnement de protection" };
-  static RayonSpecial: ArlenorEnum = { Code: "RAYON_SPE", Libelle: "Rayonnement spécial" };
-  static Spiritisme: ArlenorEnum = { Code: "SPIRITISME", Libelle: "Spiritisme" };
-  static Transmutation: ArlenorEnum = { Code: "TRANSMUTATION", Libelle: "Transmutation" };
+  static Attack: ArlenorEnum = { Code: "OFF", Libelle: "Pouvoir d'Attaque" };
+  static Defense: ArlenorEnum = { Code: "DEF", Libelle: "Pouvoir de Défense" };
+  static Heal: ArlenorEnum = { Code: "HEAL", Libelle: "Pouvoir de Soin" };
+  static Control: ArlenorEnum = { Code: "CTRL", Libelle: "Pouvoir de Contrôle" };
+  static Utility: ArlenorEnum = { Code: "UTIL", Libelle: "Pouvoir Utilitaire" };
 }
 
 export class PowerRanksEnum {
