@@ -5,7 +5,6 @@ import { CaractDescriptionEnum } from "@/models/ArlenorCaracts";
 import { ArlenorRace, DifficultyEnum } from "@/models/ArlenorRace";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { getListDefaultSkills } from "@/models/data/ListDefaultSkills";
-import { ArlenorGroups } from "@/models/data/ListGroups";
 import { getListRaces } from "@/models/data/ListRaces";
 import { getListRoles } from "@/models/data/ListRoles";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
@@ -25,11 +24,10 @@ export default defineComponent({
     const caractDescriptionEnum = CaractDescriptionEnum;
     const allRaces = ref(getListRaces().filter(race => race.difficulty !== DifficultyEnum.Impossible.Code));
     const allSpecialities = ref(ArlenorSpecialities.getListSpecialities());
-    const allGroups = ref(ArlenorGroups.getListGroups());
     const allRoles = ref(getListRoles());
     const persoChoice = ref(1);
     const caractChoice = ref(0);
-    const groupChoice = ref("");
+    const roleChoice = ref("");
     const finitionChoice = ref(0);
     
     const skills = getListDefaultSkills().filter(skill => {
@@ -40,8 +38,8 @@ export default defineComponent({
     return {
       store,
       caractDescriptionEnum,
-      allRaces, allSpecialities, allGroups, allRoles,
-      persoChoice, caractChoice, groupChoice, finitionChoice,
+      allRaces, allSpecialities, allRoles,
+      persoChoice, caractChoice, roleChoice, finitionChoice,
       defaultSkills,
     };
   },
@@ -86,7 +84,7 @@ export default defineComponent({
     },
 
     getSpecialities(roleCode: string) {
-      return this.allSpecialities.filter(spe => spe.group.role.code === roleCode);
+      return this.allSpecialities.filter(spe => spe.role.code === roleCode);
     },
 
     changePersoChoice(choice: number) {
@@ -98,9 +96,9 @@ export default defineComponent({
       else this.caractChoice = choice;
     },
 
-    changeGroupChoice(choice: string) {
-      if (choice === this.groupChoice) this.groupChoice = "";
-      else this.groupChoice = choice;
+    changeRoleChoice(choice: string) {
+      if (choice === this.roleChoice) this.roleChoice = "";
+      else this.roleChoice = choice;
     },
 
     changeFinitionChoice(choice: number) {

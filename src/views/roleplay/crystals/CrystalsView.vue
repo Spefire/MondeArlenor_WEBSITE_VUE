@@ -24,12 +24,13 @@
     <div class="crystals-layout margin-top-2">
       <div class="crystals-top layout-bloc">
         <div class="crystals-section">
-          <h3 class="margin-bottom-1">Groupe de la classe<br>{{ currentSpeciality.group.name }}</h3>
+          <div>Archétype</div>
+          <h3 class="margin-bottom-1">"{{ currentSpeciality.archetypeName01 }}"</h3>
           <img
             class="crystal-img margin-bottom-1 rounded"
-            :src="currentSpeciality.group.image"
-            :alt="currentSpeciality.group.name">
-          <p class="crystals-main-description">{{ currentSpeciality.group.description }}</p>
+            :src="currentSpeciality.otherImage"
+            :alt="currentSpeciality.archetypeName01">
+          <p class="crystals-main-description">{{ currentSpeciality.archetypeDesc01 }}</p>
         </div>
         <div class="crystals-separator" />
         <div class="crystals-section">
@@ -39,13 +40,19 @@
             :alt="currentSpeciality.name">
           <h2>{{ currentSpeciality.name }}</h2>
           <p class="crystals-main-description">{{ currentSpeciality.description }}</p>
+          <p class="crystals-main-description">
+            Apparence : {{ currentSpeciality.appearance }}
+          </p>
         </div>
         <div class="crystals-separator" />
         <div class="crystals-section">
-          <h3 class="margin-bottom-1">Apparence du cristal</h3>
-          <div class="justify-center">
-            {{ currentSpeciality.crystalName }}
-          </div>
+          <div>Archétype</div>
+          <h3 class="margin-bottom-1">"{{ currentSpeciality.archetypeName02 }}"</h3>
+          <img
+            class="crystal-img margin-bottom-1 rounded"
+            :src="currentSpeciality.otherImage"
+            :alt="currentSpeciality.archetypeName02">
+          <p class="crystals-main-description">{{ currentSpeciality.archetypeDesc02 }}</p>
         </div>
       </div>
     </div>
@@ -58,7 +65,7 @@
         <div class="powers-content">
           <div class="powers-content-title">Liés à la classe</div>
           <div
-            v-for="(power, index) in getPowersSection(false)"
+            v-for="(power, index) in powersByRank"
             class="power-line pointer"
             :class="{ 'selected' : power.code === selectedPower?.code }"
             @click="selectPower(power)"
@@ -66,22 +73,7 @@
             <PowerImage :power="power" />
             <span class="power-txt">{{ power.name }}</span>
           </div>
-          <div v-if="getPowersSection(false).length === 0">
-            Aucun pouvoir
-          </div>
-        </div>
-        <div class="powers-content">
-          <div class="powers-content-title">Liés au groupe</div>
-          <div
-            v-for="(power, index) in getPowersSection(true)"
-            class="power-line pointer"
-            :class="{ 'selected' : power.code === selectedPower?.code }"
-            @click="selectPower(power)"
-            :key="index">
-            <PowerImage :power="power" />
-            <span class="power-txt">{{ power.name }}</span>
-          </div>
-          <div v-if="getPowersSection(true).length === 0">
+          <div v-if="powersByRank.length === 0">
             Aucun pouvoir
           </div>
         </div>

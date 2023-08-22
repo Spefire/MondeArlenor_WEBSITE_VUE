@@ -1,155 +1,131 @@
 import { ArlenorSpeciality } from "../ArlenorSpeciality";
-import { ArlenorGroups } from "./ListGroups";
+import { ArlenorRoles } from "./ListRoles";
 
 export class ArlenorSpecialities {
-  public Paladin: ArlenorSpeciality;
-  public Chevalier: ArlenorSpeciality;
-  public DanseurMartial: ArlenorSpeciality;
-  public Derviche: ArlenorSpeciality;
-
-  public LameOmbre: ArlenorSpeciality;
-  public Chasseur: ArlenorSpeciality;
-  public DanseurSabre: ArlenorSpeciality;
-  public DoubleLame: ArlenorSpeciality;
-  public Escrimeur: ArlenorSpeciality;
-
-  public Meteorologue: ArlenorSpeciality;
-  public Createur: ArlenorSpeciality;
-  public Pelerin: ArlenorSpeciality;
-  public Dompteur: ArlenorSpeciality;
-  public Illusionniste: ArlenorSpeciality;
-  public Envouteur: ArlenorSpeciality;
-
-  public Chaman: ArlenorSpeciality;
-  public Guerisseur: ArlenorSpeciality;
-  public PretreArlenor: ArlenorSpeciality;
-  public Necromancien: ArlenorSpeciality;
-  public Virtuose: ArlenorSpeciality;
-  public Banshee: ArlenorSpeciality;
+  public Gardien: ArlenorSpeciality;
+  public Moine: ArlenorSpeciality;
+  public Assassin: ArlenorSpeciality; // Executeur
+  public Bretteur: ArlenorSpeciality;
+  public Sorcier: ArlenorSpeciality; // Elementaliste
+  public Invocateur: ArlenorSpeciality;
+  public Enchanteur: ArlenorSpeciality;
+  public Druide: ArlenorSpeciality;
+  public Pretre: ArlenorSpeciality;
+  public Barde: ArlenorSpeciality;
 
   constructor() {
-    const groups = new ArlenorGroups();
+    const roles = new ArlenorRoles();
 
-    this.Paladin = new ArlenorSpeciality("Paladin", "Paladin", groups.Gardien);
-    this.Paladin.image = require("./../../assets/icons/specialities/paladin.png");
-    this.Paladin.description = "Le Paladin utilise principalement de puissants sorts défensifs. Et à haut-niveau, le paladin devient une véritable forteresse.";
-    this.Paladin.crystalName = "Citrine";
+    this.Gardien = new ArlenorSpeciality("Gardien", "Gardien", "text-yellow", roles.Tank);
+    this.Gardien.description = "Le Gardien est un mage qui est là pour encaisser les coups sur la durée et maintenir ses cibles concentrées sur lui.";
+    this.Gardien.image = require("./../../assets/icons/specialities/gardien_spe.png");
+    this.Gardien.otherImage = require("./../../assets/icons/specialities/gardien.png");
+    this.Gardien.setArchetype(
+      "Paladin", "Le Paladin utilise principalement de puissants sorts défensifs. Et à haut-niveau, le paladin devient une véritable forteresse.",
+      "Chevalier", "Le Chevalier utilise des sorts de récupération pour résister longtemps. Cela lui permet de pouvoir attaquer en même temps de récupérer.",
+      "Citrine, Topaze jaune"
+    );
 
-    this.Chevalier = new ArlenorSpeciality("Chevalier", "Chevalier", groups.Gardien);
-    this.Chevalier.image = require("./../../assets/icons/specialities/chevalier.png");
-    this.Chevalier.description = "Le Chevalier utilise des sorts de récupération pour résister longtemps. Cela lui permet de pouvoir attaquer en même temps de récupérer.";
-    this.Chevalier.crystalName = "Topaze jaune";
+    this.Moine = new ArlenorSpeciality("Moine", "Moine", "text-cyan", roles.Tank);
+    this.Moine.description = "Le Moine est un mage qui n'encaisse pas les coups mais les esquive pour en renvoyer. Il est là pour foncer directement en première ligne lors d'un combat.";
+    this.Moine.image = require("./../../assets/icons/specialities/moine_spe.png");
+    this.Moine.otherImage = require("./../../assets/icons/specialities/moine.png");
+    this.Moine.setArchetype(
+      "Danseur Martial", "Le Danseur martial utilise des sorts d'enchaînements d'attaques à mains nues, ne laissant pas de répit à sa cible.",
+      "Derviche", "Le Derviche utilise sa faux pour contrôler la zone de combat : possédant une grande capacité de mouvement, il sait garder ses cibles sous le creux de sa lame.",
+      "Amazonite, Aigue-marine"
+    );
 
-    this.DanseurMartial = new ArlenorSpeciality("Danseur Martial", "DanseurMartial", groups.Moine);
-    this.DanseurMartial.image = require("./../../assets/icons/specialities/danseur_martial.png");
-    this.DanseurMartial.description = "Le Danseur martial utilise des sorts d’enchaînements d'attaques à mains nues, ne laissant pas de répit à sa cible.";
-    this.DanseurMartial.crystalName = "Amazonite";
+    //
 
-    this.Derviche = new ArlenorSpeciality("Derviche", "Derviche", groups.Moine);
-    this.Derviche.image = require("./../../assets/icons/specialities/derviche.png");
-    this.Derviche.description = "Le Derviche utilise sa faux pour contrôler la zone de combat : possédant une grande capacité de mouvement, il sait garder ses cibles sous le creux de sa lame.";
-    this.Derviche.crystalName = "Aigue-marine";
+    this.Assassin = new ArlenorSpeciality("Assassin", "Assassin", "text-red", roles.DPSPhysique);
+    this.Assassin.description = "L'Assassin est un mage qui fait d'importants dégâts physiques très rapidement, sur une cible précise.";
+    this.Assassin.image = require("./../../assets/icons/specialities/assassin_spe.png");
+    this.Assassin.otherImage = require("./../../assets/icons/specialities/assassin.png");
+    this.Assassin.setArchetype(
+      "Lame de l'Ombre", "La Lame de l'Ombre utilise des pouvoirs pour se camoufler et augmenter ses dégâts avec des attaques surprises.",
+      "Chasseur", "Le Chasseur utilise ses pouvoirs pour infliger des dégâts à distance et ne pas perdre sa cible de vue. A haut-niveau, c'est un véritable sniper.",
+      "Grenat, Rubis"
+    );
+
+    this.Bretteur = new ArlenorSpeciality("Bretteur", "Bretteur", "text-orange", roles.DPSPhysique);
+    this.Bretteur.description = "Le Bretteur est un mage qui aime battre le fer avec ses ennemis. Peu importe le nombre, il enchaine ses coups d'épée.";
+    this.Bretteur.image = require("./../../assets/icons/specialities/bretteur_spe.png");
+    this.Bretteur.otherImage = require("./../../assets/icons/specialities/bretteur.png");
+    this.Bretteur.setArchetype(
+      "Escrimeur", "L'Escrimeur utilise son épée comme une prolongation de son corps. Il préfère les duels équitables ce qui augmente son potentiel de dégâts.",
+      "Double Lame", "La Double Lame utilise des capacités d'ambidextrie pour faire passer le plus ennemis sous son courroux. Et à haut-niveau, la Double Lame ressemble à une vraie tornade.",
+      "Cornaline, Opale de feu"
+    );
     
     ///
 
-    this.LameOmbre = new ArlenorSpeciality("Lame de l'Ombre", "LameOmbre", groups.Assassin);
-    this.LameOmbre.image = require("./../../assets/icons/specialities/lame_ombre.png");
-    this.LameOmbre.description = "La Lame de l'Ombre utilise des pouvoirs pour se camoufler et augmenter ses dégâts avec des attaques surprises.";
-    this.LameOmbre.crystalName = "Grenat";
+    this.Sorcier = new ArlenorSpeciality("Sorcier", "Sorcier", "text-ocean", roles.DPSMagique);
+    this.Sorcier.description = "Le Sorcier est un mage qui fait des dégâts magiques sur plusieurs cibles.";
+    this.Sorcier.image = require("./../../assets/icons/specialities/sorcier_spe.png");
+    this.Sorcier.otherImage = require("./../../assets/icons/specialities/sorcier.png");
+    this.Sorcier.setArchetype(
+      "Météorologue", "Le Météorologue utilise des sorts liés aux éléments (Foudre, Eau et Glace).",
+      "Créateur", "Le Créateur utilise des sorts liés aux éléments (Feu, Terre, Métaux).",
+      "Saphir, Sodalite"
+    );
 
-    this.Chasseur = new ArlenorSpeciality("Chasseur", "Chasseur", groups.Assassin);
-    this.Chasseur.image = require("./../../assets/icons/specialities/chasseur.png");
-    this.Chasseur.description = "Le Chasseur utilise ses pouvoirs pour infliger des dégâts à distance et ne pas perdre sa cible de vue. A haut-niveau, c'est un véritable sniper.";
-    this.Chasseur.crystalName = "Rubis";
+    this.Invocateur = new ArlenorSpeciality("Invocateur", "Invocateur", "text-turquoise", roles.DPSMagique);
+    this.Invocateur.description = "L'Invocateur est un mage qui invoque des entités afin de l'aider tant à combattre qu'en dehors des combats.";
+    this.Invocateur.image = require("./../../assets/icons/specialities/invocateur_spe.png");
+    this.Invocateur.otherImage = require("./../../assets/icons/specialities/invocateur.png");
+    this.Invocateur.setArchetype(
+      "Pèlerin", "Le Pèlerin utilise des sorts d'invocation d'entités divines liées à la Lumière et au Destin.",
+      "Dompteur de bêtes", "Le Dompteur de Bêtes utilise des capacités de convocation d'animaux existants en tant que familiers. A haut-niveau, il peut même les posséder.",
+      "Malachite, Jade"
+    );
 
-    this.DanseurSabre = new ArlenorSpeciality("Danseur au Sabre", "DanseurSabre", groups.Assassin);
-    this.DanseurSabre.image = require("./../../assets/icons/specialities/danseur_sabre.png");
-    this.DanseurSabre.description = "Le Danseur au Sabre utilise son sabre comme une prolongation de son corps. Ses danses permettent d’enchaîner des coups tout en se protégeant.";
-    this.DanseurSabre.crystalName = "Jaspe";
-
-    this.DoubleLame = new ArlenorSpeciality("Double Lame", "DoubleLame", groups.Bretteur);
-    this.DoubleLame.image = require("./../../assets/icons/specialities/double_lame.png");
-    this.DoubleLame.description = "La Double Lame utilise des capacités d'ambidextrie pour faire passer le plus ennemis sous son courroux. Et à haut-niveau, la Double Lame ressemble à une vraie tornade.";
-    this.DoubleLame.crystalName = "Cornaline";
-
-    this.Escrimeur = new ArlenorSpeciality("Escrimeur", "Escrimeur", groups.Bretteur);
-    this.Escrimeur.image = require("./../../assets/icons/specialities/escrimeur.png");
-    this.Escrimeur.description = "L'Escrimeur utilise des sorts pour renforcer ses coups en un contre un. Il préfère les duels équitables ce qui augmente son potentiel de dégâts.";
-    this.Escrimeur.crystalName = "Opale de feu";
-
+    this.Enchanteur = new ArlenorSpeciality("Enchanteur", "Enchanteur", "text-violet", roles.DPSMagique);
+    this.Enchanteur.description = "L'Enchanteur est un mage aux sorts offensifs faibles, s'ils sont utilisés seuls. C'est plutôt un soutien qui joue avec ses cibles pour permettre à des alliés de leur faire des dégâts considérables.";
+    this.Enchanteur.image = require("./../../assets/icons/specialities/enchanteur_spe.png");
+    this.Enchanteur.otherImage = require("./../../assets/icons/specialities/enchanteur.png");
+    this.Enchanteur.setArchetype(
+      "Envoûteur", "L'Envoûteur utilise des sorts qui affectent ses cibles de divers troubles magiques. Et à haut-niveau, l'envoûtement peut aller jusqu'à la possession.",
+      "Illusionniste", "L'Illusionniste utilise des sorts pour contrôler les sens de ses cibles. Et à haut-niveau l'illusion peut devenir réalité.",
+      "Améthyste, Fluorite"
+    );
+    
     ///
 
-    this.Meteorologue = new ArlenorSpeciality("Météorologue", "Meteorologue", groups.Sorcier);
-    this.Meteorologue.image = require("./../../assets/icons/specialities/meteorologue.png");
-    this.Meteorologue.description = "Le Météorologue utilise des sorts liés aux éléments (Foudre, Eau et Glace).";
-    this.Meteorologue.crystalName = "Sodalite";
+    this.Druide = new ArlenorSpeciality("Druide", "Druide", "text-green", roles.Soutien);
+    this.Druide.description = "Le Druide est un mage de soutien qui lie ses sorts à l'énergie de la nature, et pouvant se transformer partiellement ou complètement en un animal.";
+    this.Druide.image = require("./../../assets/icons/specialities/druide_spe.png");
+    this.Druide.otherImage = require("./../../assets/icons/specialities/druide.png");
+    this.Druide.setArchetype(
+      "Guérisseur", "Le Guérisseur utilise des sorts de soins et de récupération. Et à haut-niveau, il peut même réaliser des dopages sur ses alliés.",
+      "Chaman", "Le Chaman utilise des sorts permettant d'interagir avec le monde de l'Au-Delà. A haut-niveau, le chaman peut utiliser les capacités d'un défunt.",
+      "Émeraude, Péridot"
+    );
 
-    this.Createur = new ArlenorSpeciality("Créateur", "Createur", groups.Sorcier);
-    this.Createur.image = require("./../../assets/icons/specialities/createur.png");
-    this.Createur.description = "Le Créateur utilise des sorts liés aux éléments (Feu, Terre, Métaux).";
-    this.Createur.crystalName = "Saphir";
+    this.Pretre = new ArlenorSpeciality("Prêtre", "Pretre", "text-grey", roles.Soutien);
+    this.Pretre.description = "Le Prêtre est un mage de soutien qui adresse des prières pour aider et soigner ses alliés.";
+    this.Pretre.image = require("./../../assets/icons/specialities/pretre_spe.png");
+    this.Pretre.otherImage = require("./../../assets/icons/specialities/pretre.png");
+    this.Pretre.setArchetype(
+      "Prêtre d'Arlénor", "Le Prêtre d'Arlénor utilise des prières pour aider les alliés afin de les purifier, d'augmenter leur chance ou même accéder à des connaissances.",
+      "Nécromancien", "Le Nécromant utilise des sorts de sang infligeant des états négatifs à une cible, et des prières permettant d'utiliser les morts à ses propres fins.",
+      "Pierre de lune, Obsidienne"
+    );
 
-    this.Pelerin = new ArlenorSpeciality("Pèlerin", "Pelerin", groups.Invocateur);
-    this.Pelerin.image = require("./../../assets/icons/specialities/pelerin.png");
-    this.Pelerin.description = "Le Pèlerin utilise des sorts d'invocation d'entités divines liées à la Lumière et au Destin.";
-    this.Pelerin.crystalName = "Malachite";
-
-    this.Dompteur = new ArlenorSpeciality("Dompteur de bêtes", "Dompteur", groups.Invocateur);
-    this.Dompteur.image = require("./../../assets/icons/specialities/dompteur.png");
-    this.Dompteur.description = "Le Dompteur de Bêtes utilise des capacités de convocation d'animaux existants en tant que familiers. A haut-niveau, il peut même les posséder.";
-    this.Dompteur.crystalName = "Jade";
-
-    this.Illusionniste = new ArlenorSpeciality("Illusionniste", "Illusionniste", groups.Enchanteur);
-    this.Illusionniste.image = require("./../../assets/icons/specialities/illusionniste.png");
-    this.Illusionniste.description = "L'Illusionniste utilise des sorts pour contrôler les sens de ses cibles. Et à haut-niveau l'illusion peut devenir réalité.";
-    this.Illusionniste.crystalName = "Fluorite";
-
-    this.Envouteur = new ArlenorSpeciality("Envoûteur", "Envouteur", groups.Enchanteur);
-    this.Envouteur.image = require("./../../assets/icons/specialities/envouteur.png");
-    this.Envouteur.description = "L'Envoûteur utilise des sorts qui affectent ses cibles de divers troubles magiques. Et à haut-niveau, l’envoûtement peut aller jusqu'à la possession.";
-    this.Envouteur.crystalName = "Améthyste";
-
-    ///
-
-    this.Chaman = new ArlenorSpeciality("Chaman", "Chaman", groups.Druide);
-    this.Chaman.image = require("./../../assets/icons/specialities/chaman.png");
-    this.Chaman.description = "Le Chaman utilise des sorts permettant d'interagir avec le monde de l'Au-Delà. A haut-niveau, le chaman peut utiliser les capacités d'un défunt.";
-    this.Chaman.crystalName = "Péridot";
-
-    this.Guerisseur = new ArlenorSpeciality("Guérisseur", "Guerisseur", groups.Druide);
-    this.Guerisseur.image = require("./../../assets/icons/specialities/guerisseur.png");
-    this.Guerisseur.description = "Le Guérisseur utilise des sorts de soins et de récupération. Et à haut-niveau, il peut même réaliser des dopages sur ses alliés.";
-    this.Guerisseur.crystalName = "Émeraude";
-
-    this.PretreArlenor = new ArlenorSpeciality("Prêtre d'Arlénor", "PretreArlenor", groups.Pretre);
-    this.PretreArlenor.image = require("./../../assets/icons/specialities/pretre_arlenor.png");
-    this.PretreArlenor.description = "Le Prêtre d'Arlénor utilise des prières pour aider les alliés afin de les purifier, d'augmenter leur chance ou même accéder à des connaissances.";
-    this.PretreArlenor.crystalName = "Pierre de lune";
-
-    this.Necromancien = new ArlenorSpeciality("Nécromancien", "Necromancien", groups.Pretre);
-    this.Necromancien.image = require("./../../assets/icons/specialities/necromancien.png");
-    this.Necromancien.description = "Le Nécromant utilise des sorts de sang infligeant des états négatifs à une cible, et des prières permettant d'utiliser les morts à ses propres fins.";
-    this.Necromancien.crystalName = "Obsidienne";
-
-    this.Virtuose = new ArlenorSpeciality("Virtuose", "Virtuose", groups.Barde);
-    this.Virtuose.image = require("./../../assets/icons/specialities/virtuose.png");
-    this.Virtuose.description = "Le Virtuose utilise des musiques qui boostent les alliés sur le long terme. Il peut également, mais rarement utiliser des paroles ou des accords particuliers pour des boosts instantanés.";
-    this.Virtuose.crystalName = "Quartz rose";
-
-    this.Banshee = new ArlenorSpeciality("Banshee", "Banshee", groups.Barde);
-    this.Banshee.image = require("./../../assets/icons/specialities/banshee.png");
-    this.Banshee.description = "La Banshee utilise des chants qui perturbent les cibles, leur annonçant une mort proche. Elle peut également mais rarement, infliger des dégâts via sa voix.";
-    this.Banshee.crystalName = "Rhodonite";
+    this.Barde = new ArlenorSpeciality("Barde", "Barde", "text-pink", roles.Soutien);
+    this.Barde.description = "Le Barde est un mage de soutien qui se sert de la musique pour influencer le combat à l'avantage de ses alliés.";
+    this.Barde.image = require("./../../assets/icons/specialities/barde_spe.png");
+    this.Barde.otherImage = require("./../../assets/icons/specialities/barde.png");
+    this.Barde.setArchetype(
+      "Virtuose", "Le Virtuose utilise des musiques qui boostent les alliés sur le long terme. Il peut également, mais rarement utiliser des paroles ou des accords particuliers pour des boosts instantanés.",
+      "Banshee", "La Banshee utilise des chants qui perturbent les cibles, leur annonçant une mort proche. Elle peut également mais rarement, infliger des dégâts via sa voix.",
+      "Quartz rose, Rhodonite"
+    );
   }
 
   public static getListSpecialities(): ArlenorSpeciality[] {
     const arlenorSpecialities = new ArlenorSpecialities();
     return Object.values(arlenorSpecialities);
-  }
-
-  public static getSpecialitiesByGroup(codeGroup: string): ArlenorSpeciality[] {
-    const arlenorSpecialities = ArlenorSpecialities.getListSpecialities();
-    return arlenorSpecialities.filter(spe => spe.group.code === codeGroup);
   }
 
   public static getSpeciality(code: string): ArlenorSpeciality {

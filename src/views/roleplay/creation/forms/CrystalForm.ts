@@ -77,9 +77,7 @@ export default defineComponent({
     },
     filteredPowers(): ArlenorPower[] {
       if (this.selectedSpeciality) {
-        const listGrp = this.allPowers.filter(power => power.group?.code === this.selectedSpeciality?.group.code && !power.speciality);
-        const listSpe = this.allPowers.filter(power => power.speciality?.code === this.selectedSpeciality?.code);
-        const list = listGrp.concat(listSpe);
+        const list = this.allPowers.filter(power => power.speciality.code === this.selectedSpeciality?.code);
         list.sort((a, b) => {
           return a.name.localeCompare(b.name);
         });
@@ -129,10 +127,7 @@ export default defineComponent({
         if (spe.code === character.crystals[0].codeSpeciality) return false;
       }
 
-      const listGrp = this.allPowers.filter(power => power.group?.code === spe.group.code && !power.speciality);
-      const listSpe = this.allPowers.filter(power => power.speciality?.code === spe.code);
-      const list = listGrp.concat(listSpe);
-
+      const list = this.allPowers.filter(power => power.speciality?.code === spe.code);
       if (list.length === 0) return false;
 
       const nbRankS = list.filter(power => power.codeRank === PowerRanksEnum.Unique.Code).length;

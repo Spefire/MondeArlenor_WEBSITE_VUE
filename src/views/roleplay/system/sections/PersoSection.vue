@@ -194,13 +194,13 @@
       dans lesquelles chaque personne peut progresser. Le nombre de cristaux évolutif qu'un détenteur peut avoir est de l'ordre de 1,
       et le nombre de classes qu'un détenteur peut avoir accès est de l'ordre de 2.<br>
       <br>&emsp;
-      Les classes suivantes sont regroupées par rôles, puis par groupe de classe.
+      Les classes suivantes sont regroupées par rôles, puis par classe.
     </div>
     <ExpandBloc
       v-for="(role, indexRole) in allRoles"
       :bloc-title="'Les ' + role.name + 's'"
-      :bloc-state="groupChoice === role.code"
-      @toggle="changeGroupChoice(role.code)"
+      :bloc-state="roleChoice === role.code"
+      @toggle="changeRoleChoice(role.code)"
       :key="indexRole">
       <div class="docs-grid-list grid-2">
         <div
@@ -217,12 +217,10 @@
                 @click="changeSpe(spe.code)">
                 {{ spe.name }}
               </span>
-              -
-              <span class="text-italic">{{ spe.group.name }}</span>
               <i
                 class="margin-left-05"
-                :class="spe.group.role.icon + ' ' + spe.group.color"
-                :title="spe.group.role.name" />
+                :class="spe.role.icon + ' ' + spe.color"
+                :title="spe.role.name" />
             </div>
             <p class="docs-grid-body">{{ getDescription(spe.description) }}</p>
             <div class="margin-top-05 margin-bottom-05">

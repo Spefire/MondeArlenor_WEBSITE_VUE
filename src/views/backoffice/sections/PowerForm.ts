@@ -1,6 +1,5 @@
 import ToggleButton from "@/components/toggle-button/ToggleButton.vue";
 import { ArlenorPower, PowerDurationsEnum, PowerRangesEnum, PowerRanksEnum, PowerTypesEnum } from "@/models/ArlenorPower";
-import { ArlenorGroups } from "@/models/data/ListGroups";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
@@ -20,35 +19,25 @@ export default defineComponent({
   emits: ["submit"],
 
   data (props) {
-    const allGroups = ArlenorGroups.getListGroups().sort((a, b) => a.name.localeCompare(b.name));
     const allSpecialities = ArlenorSpecialities.getListSpecialities().sort((a, b) => a.name.localeCompare(b.name));
     const allTypes = Object.values(PowerTypesEnum);
     const allRanks = Object.values(PowerRanksEnum);
     const allRanges = Object.values(PowerRangesEnum);
     const allDurations = Object.values(PowerDurationsEnum);
 
-    let isGroup = false;
-    let codeGroup = allGroups[0].code;
     let codeSpeciality = allSpecialities[0].code;
-    if (props.currentPower.codeGroup) {
-      isGroup = true;
-      codeGroup = props.currentPower.codeGroup;
-    } else if (props.currentPower.codeSpeciality) {
-      isGroup = false;
+    if (props.currentPower) {
       codeSpeciality = props.currentPower.codeSpeciality;
     }
 
     return {
-      allGroups,
       allSpecialities,
       allTypes,
       allRanks, allRanges, allDurations,
-      isGroup,
       form: {
         name: props.currentPower.name,
         description: props.currentPower.description,
         codeType: props.currentPower.codeType,
-        codeGroup,
         codeSpeciality,
         codeRank: props.currentPower.codeRank,
         codeRange: props.currentPower.codeRange,
@@ -70,7 +59,6 @@ export default defineComponent({
       },
       description: {},
       codeType: {},
-      codeGroup: {},
       codeSpeciality: {},
       codeRank: {},
       codeRange: {},
@@ -81,9 +69,6 @@ export default defineComponent({
   },
 
   methods: {
-    toggleGroup() {
-      this.isGroup = !this.isGroup;
-    },
     submitForm() {
       const newPower = new ArlenorPower();
       newPower.id = this.currentPower.id;
@@ -91,13 +76,7 @@ export default defineComponent({
       newPower.name = this.form.name;
       newPower.description = this.form.description;
       newPower.codeType = this.form.codeType;
-      if (this.isGroup) {
-        newPower.codeGroup = this.form.codeGroup;
-        newPower.codeSpeciality = null;
-      } else {
-        newPower.codeGroup = null;
-        newPower.codeSpeciality = this.form.codeSpeciality;
-      }
+      newPower.codeSpeciality = this.form.codeSpeciality;
       newPower.codeRank = this.form.codeRank;
       newPower.codeRange = this.form.codeRange;
       newPower.codeDuration = this.form.codeDuration;

@@ -120,7 +120,7 @@ const downloadPDF = async(character: ArlenorCharacter, allSkills: ArlenorSkill[]
   const specialities = ArlenorSpecialities.getListSpecialities();
   if (character.crystals.length > 0) {
     const spe = specialities.find(spe => spe.code === character.crystals[0].codeSpeciality);
-    if (spe) doc.text("Classe principale : " + spe.name  + " (" + spe.group.name + ")", x, y, { align: "right" });
+    if (spe) doc.text("Classe principale : " + spe.name, x, y, { align: "right" });
     powersS = powersS.concat(allPowers.filter(power => character.crystals[0].idsPowers[PowerRanksEnum.Unique.Code].includes(power.id)));
     powersA = powersA.concat(allPowers.filter(power => character.crystals[0].idsPowers[PowerRanksEnum.TresRare.Code].includes(power.id)));
     powersB = powersB.concat(allPowers.filter(power => character.crystals[0].idsPowers[PowerRanksEnum.Rare.Code].includes(power.id)));
@@ -128,7 +128,7 @@ const downloadPDF = async(character: ArlenorCharacter, allSkills: ArlenorSkill[]
   }
   if (character.crystals.length > 1) {
     const spe = specialities.find(spe => spe.code === character.crystals[1].codeSpeciality);
-    if (spe) doc.text("Classe secondaire : " + spe.name  + " (" + spe.group.name + ")", x, y+12, { align: "right" });
+    if (spe) doc.text("Classe secondaire : " + spe.name, x, y+12, { align: "right" });
     powersS = powersS.concat(allPowers.filter(power => character.crystals[1].idsPowers[PowerRanksEnum.Unique.Code].includes(power.id)));
     powersA = powersA.concat(allPowers.filter(power => character.crystals[1].idsPowers[PowerRanksEnum.TresRare.Code].includes(power.id)));
     powersB = powersB.concat(allPowers.filter(power => character.crystals[1].idsPowers[PowerRanksEnum.Rare.Code].includes(power.id)));

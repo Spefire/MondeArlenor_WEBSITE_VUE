@@ -11,7 +11,7 @@
           <option
             v-for="(spe, index) in allSpecialities"
             :value="spe.code"
-            :key="index">{{ spe.name }} ({{ spe.group.name }})</option>
+            :key="index">{{ spe.name }}</option>
         </select>
       </div>
     </div>
@@ -67,7 +67,7 @@
             {{ power.name }}
           </td>
           <td class="col-30">
-            {{ getLibSpeGrp(power) }}
+            {{ power.speciality.name }}
           </td>
           <td class="col-20">
             <button

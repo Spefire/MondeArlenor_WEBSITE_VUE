@@ -67,7 +67,7 @@
           to="/roleplay/system">{{ pages.system }}</router-link>
         <router-link
           class="link exact-link"
-          to="/roleplay/crystals?spe=PALADIN">{{ pages.crystals }}</router-link>
+          to="/roleplay/crystals?spe=GARDIEN">{{ pages.crystals }}</router-link>
       </nav>
     </div>
     <div

@@ -23,32 +23,9 @@
         </div>
       </div>
     </div>
-
-    <div class="form-element">
-      <ToggleButton
-        :text="isGroup ? 'Pouvoir de groupe' : 'Pouvoir de classe'"
-        :value="isGroup"
-        @change="toggleGroup" />
-    </div>
     
     <div class="layout-row">
       <div
-        v-if="isGroup"
-        class="layout-col-50 form-element">
-        <span>Groupe</span>
-        <div class="dropdown">
-          <select
-            class="dropdown-select"
-            v-model.trim.lazy="v$.form.codeGroup.$model">
-            <option
-              v-for="(grp, index) in allGroups"
-              :value="grp.code"
-              :key="index">{{ grp.name }}</option>
-          </select>
-        </div>
-      </div>
-      <div
-        v-if="!isGroup"
         class="layout-col-50 form-element">
         <span>Classe</span>
         <div class="dropdown">

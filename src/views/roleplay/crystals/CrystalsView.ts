@@ -44,6 +44,11 @@ export default defineComponent({
     allPowers(): ArlenorPower[] {
       return this.store.state.allPowers || [];
     },
+    powersByRank(): ArlenorPower[] {
+      const powers = this.specialityPowers.slice();
+      powers.sort((a, b) => b.rank.Code.localeCompare(a.rank.Code));
+      return powers;
+    },
   },
 
   methods: {
@@ -64,9 +69,7 @@ export default defineComponent({
     updateSpecialityPowers() {
       if (this.currentSpeciality) {
         const spe = this.currentSpeciality;
-        const listGrp = spe.group.code ? this.allPowers.filter(power => power.group && power.group.code === spe.group.code && !power.speciality) : [];
-        const listSpe = spe.code ? this.allPowers.filter(power => power.speciality && power.speciality.code === spe.code) : [];
-        const list = listGrp.concat(listSpe);
+        const list = spe.code ? this.allPowers.filter(power => power.speciality && power.speciality.code === spe.code) : [];
         list.sort((a, b) => {
           return a.name.localeCompare(b.name);
         });
@@ -78,17 +81,7 @@ export default defineComponent({
         this.ranks = [];
       }
     },
-    
-    // Affichages
-    getPowersSection(isGroupPower: boolean): ArlenorPower[] {
-      if (isGroupPower) {
-        return this.specialityPowers.filter(power => !power.speciality).sort((a, b) => b.rank.Code.localeCompare(a.rank.Code));
-      } else {
-        return this.specialityPowers.filter(power => power.speciality).sort((a, b) => b.rank.Code.localeCompare(a.rank.Code));
-      }
-    },
 
-    // Actions
     selectPower(power: ArlenorPower | null) {
       this.selectedPower = power;
     },

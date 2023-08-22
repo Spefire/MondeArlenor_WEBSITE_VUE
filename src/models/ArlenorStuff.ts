@@ -16,8 +16,8 @@ export class ArlenorStuff extends ArlenorAPI {
       const images = require.context("./../assets/icons/capacities/", false, /\.png$/);
       return images(this.urlImage);
     }
-    if (this.codeType === StuffTypesEnum.CompetenceArme.Code) return require("./../assets/icons/skills/armes.png");
-    else if (this.type.Code === StuffTypesEnum.CompetenceArmure.Code) return require("./../assets/icons/skills/armures.png");
+    if (this.codeType === StuffTypesEnum.Arme.Code) return require("./../assets/icons/skills/armes.png");
+    else if (this.type.Code === StuffTypesEnum.Armure.Code) return require("./../assets/icons/skills/armures.png");
     return null;
   }
 
@@ -56,7 +56,7 @@ export class ArlenorStuff extends ArlenorAPI {
     this.description = "";
     this.urlImage = "";
 
-    this.codeType = StuffTypesEnum.CompetenceAutre.Code;
+    this.codeType = StuffTypesEnum.Arme.Code;
     this.codesCaracts = [];
     this.codeRace = null;
     this.codeSpeciality = null;
@@ -84,9 +84,6 @@ export class ArlenorStuff extends ArlenorAPI {
 }
 
 export class StuffTypesEnum {
-  // Compétences de groupe et de classe/spécialité
-  static CompetenceArme: ArlenorEnum = { Code: "ABL_ARME", Libelle: "Compétence d'arme" };
-  static CompetenceArmure: ArlenorEnum = { Code: "ABL_ARMURE", Libelle: "Compétence d'armure" };
-  // Compétences de race et autres compétences
-  static CompetenceAutre: ArlenorEnum = { Code: "ABL_OTHER", Libelle: "Autre compétence" };
+  static Arme: ArlenorEnum = { Code: "STF_ARME", Libelle: "Arme" };
+  static Armure: ArlenorEnum = { Code: "STF_ARMURE", Libelle: "Armure" };
 }

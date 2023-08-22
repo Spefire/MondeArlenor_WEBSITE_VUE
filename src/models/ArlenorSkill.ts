@@ -95,7 +95,6 @@ export class ArlenorSkill extends ArlenorAPI {
 }
 
 export class SkillTypesEnum {
-  // Compétences de groupe et de classe/spécialité
   static CompetenceArme: ArlenorEnum = { Code: "ABL_ARME", Libelle: "Compétence d'arme" };
   static CompetenceArmure: ArlenorEnum = { Code: "ABL_ARMURE", Libelle: "Compétence d'armure" };
   // Compétences de race et autres compétences

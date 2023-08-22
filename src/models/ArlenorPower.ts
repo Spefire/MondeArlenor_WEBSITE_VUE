@@ -1,8 +1,6 @@
 import { ArlenorAPI } from "./ArlenorAPI";
 import { ArlenorEnum, getEnumByCode } from "./ArlenorEnum";
-import { ArlenorGroup } from "./ArlenorGroup";
 import { ArlenorSpeciality } from "./ArlenorSpeciality";
-import { ArlenorGroups } from "./data/ListGroups";
 import { ArlenorSpecialities } from "./data/ListSpecialities";
 
 export class ArlenorPower extends ArlenorAPI {
@@ -12,8 +10,7 @@ export class ArlenorPower extends ArlenorAPI {
   public name: string;
   public description: string;
   public codeType: string;
-  public codeGroup: string | null;
-  public codeSpeciality: string | null;
+  public codeSpeciality: string;
 
   public codeRank: string;
   public codeRange: string;
@@ -40,13 +37,7 @@ export class ArlenorPower extends ArlenorAPI {
     return getEnumByCode(this.codeType, PowerTypesEnum);
   }
 
-  get group(): ArlenorGroup | null {
-    if (!this.codeGroup) return null;
-    return ArlenorGroups.getGroup(this.codeGroup);
-  }
-
-  get speciality(): ArlenorSpeciality | null {
-    if (!this.codeSpeciality) return null;
+  get speciality(): ArlenorSpeciality {
     return ArlenorSpecialities.getSpeciality(this.codeSpeciality);
   }
 
@@ -64,13 +55,13 @@ export class ArlenorPower extends ArlenorAPI {
   
   constructor() {
     super();
+    const specialities = new ArlenorSpecialities();
     this.isVerified = false;
 
     this.name = "";
     this.description = "";
     this.codeType = PowerTypesEnum.Attack.Code;
-    this.codeGroup = null;
-    this.codeSpeciality = null;
+    this.codeSpeciality = specialities.Gardien.code;
 
     this.codeRank = PowerRanksEnum.Commun.Code;
     this.codeRange = PowerRangesEnum.Personnelle.Code;
@@ -87,14 +78,7 @@ export class ArlenorPower extends ArlenorAPI {
     this.name = powerDB.name;
     this.description = powerDB.description;
     this.codeType = powerDB.codeType;
-
-    if (powerDB.codeSpeciality) {
-      this.codeGroup = null;
-      this.codeSpeciality = powerDB.codeSpeciality;
-    } else if (powerDB.codeGroup) {
-      this.codeGroup = powerDB.codeGroup;
-      this.codeSpeciality = null;
-    }
+    this.codeSpeciality = powerDB.codeSpeciality;
 
     this.codeRank = powerDB.codeRank;
     this.codeRange = powerDB.codeRange;

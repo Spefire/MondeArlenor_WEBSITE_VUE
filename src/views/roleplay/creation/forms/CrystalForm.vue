@@ -13,7 +13,7 @@
               v-for="(spe, index) in allSpecialities"
               :value="spe.code"
               :disabled="!checkPowers(spe)"
-              :key="index">{{ spe.name }} ({{ spe.group.name }})</option>
+              :key="index">{{ spe.name }}</option>
           </select>
         </div>
       </div>
@@ -27,12 +27,10 @@
             :src="selectedSpeciality.image"
             alt="">
           <div class="text-center margin-left-1">
-            <h2>{{ selectedSpeciality.name }} ({{ selectedSpeciality.group.name }})</h2>
+            <h2>{{ selectedSpeciality.name }}</h2>
           </div>
         </div>
         <p class="zone-comment margin-top-1">
-          {{ selectedSpeciality.group.description }}<br>
-          -<br>
           {{ selectedSpeciality.description }}
         </p>
       </div>
