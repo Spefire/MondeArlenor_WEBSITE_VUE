@@ -1,4 +1,5 @@
 import { ArlenorSpeciality } from "../ArlenorSpeciality";
+import { ArlenorSkills } from "./ListDefaultSkills";
 import { ArlenorRoles } from "./ListRoles";
 
 export class ArlenorSpecialities {
@@ -15,14 +16,15 @@ export class ArlenorSpecialities {
 
   constructor() {
     const roles = new ArlenorRoles();
+    const skills = new ArlenorSkills();
 
     this.Gardien = new ArlenorSpeciality("Gardien", "Gardien", "text-yellow", roles.Tank);
     this.Gardien.description = "Le Gardien est un mage qui est là pour encaisser les coups sur la durée et maintenir ses cibles concentrées sur lui.";
     this.Gardien.image = require("./../../assets/icons/specialities/gardien_spe.png");
     this.Gardien.otherImage = require("./../../assets/icons/specialities/gardien.png");
     this.Gardien.setArchetype(
-      "Paladin", "Le Paladin utilise principalement de puissants sorts défensifs. Et à haut-niveau, le paladin devient une véritable forteresse.",
-      "Chevalier", "Le Chevalier utilise des sorts de récupération pour résister longtemps. Cela lui permet de pouvoir attaquer en même temps de récupérer.",
+      "Paladin", skills.WeaponBoucliers, "Le Paladin utilise principalement de puissants sorts défensifs. Et à haut-niveau, le paladin devient une véritable forteresse.",
+      "Chevalier", skills.WeaponDeuxMains, "Le Chevalier utilise des sorts de récupération pour résister longtemps. Cela lui permet de pouvoir attaquer en même temps de récupérer.",
       "Citrine, Topaze jaune"
     );
 
@@ -31,8 +33,8 @@ export class ArlenorSpecialities {
     this.Moine.image = require("./../../assets/icons/specialities/moine_spe.png");
     this.Moine.otherImage = require("./../../assets/icons/specialities/moine.png");
     this.Moine.setArchetype(
-      "Danseur Martial", "Le Danseur martial utilise des sorts d'enchaînements d'attaques à mains nues, ne laissant pas de répit à sa cible.",
-      "Derviche", "Le Derviche utilise sa faux pour contrôler la zone de combat : possédant une grande capacité de mouvement, il sait garder ses cibles sous le creux de sa lame.",
+      "Danseur Martial", skills.WeaponMainsNues, "Le Danseur martial utilise des sorts d'enchaînements d'attaques à mains nues, ne laissant pas de répit à sa cible.",
+      "Derviche", skills.WeaponHast, "Le Derviche utilise sa faux pour contrôler la zone de combat : possédant une grande capacité de mouvement, il sait garder ses cibles sous le creux de sa lame.",
       "Amazonite, Aigue-marine"
     );
 
@@ -43,8 +45,8 @@ export class ArlenorSpecialities {
     this.Assassin.image = require("./../../assets/icons/specialities/assassin_spe.png");
     this.Assassin.otherImage = require("./../../assets/icons/specialities/assassin.png");
     this.Assassin.setArchetype(
-      "Lame de l'Ombre", "La Lame de l'Ombre utilise des pouvoirs pour se camoufler et augmenter ses dégâts avec des attaques surprises.",
-      "Chasseur", "Le Chasseur utilise ses pouvoirs pour infliger des dégâts à distance et ne pas perdre sa cible de vue. A haut-niveau, c'est un véritable sniper.",
+      "Lame de l'Ombre", skills.WeaponDagues, "La Lame de l'Ombre utilise des pouvoirs pour se camoufler et augmenter ses dégâts avec des attaques surprises.",
+      "Chasseur", skills.WeaponArcs, "Le Chasseur utilise ses pouvoirs pour infliger des dégâts à distance et ne pas perdre sa cible de vue. A haut-niveau, c'est un véritable sniper.",
       "Grenat, Rubis"
     );
 
@@ -53,8 +55,8 @@ export class ArlenorSpecialities {
     this.Bretteur.image = require("./../../assets/icons/specialities/bretteur_spe.png");
     this.Bretteur.otherImage = require("./../../assets/icons/specialities/bretteur.png");
     this.Bretteur.setArchetype(
-      "Escrimeur", "L'Escrimeur utilise son épée comme une prolongation de son corps. Il préfère les duels équitables ce qui augmente son potentiel de dégâts.",
-      "Double Lame", "La Double Lame utilise des capacités d'ambidextrie pour faire passer le plus ennemis sous son courroux. Et à haut-niveau, la Double Lame ressemble à une vraie tornade.",
+      "Escrimeur", skills.WeaponEpees, "L'Escrimeur utilise son épée comme une prolongation de son corps. Il préfère les duels équitables ce qui augmente son potentiel de dégâts.",
+      "Double Lame", skills.WeaponAmbidextrie, "La Double Lame utilise des capacités d'ambidextrie pour faire passer le plus ennemis sous son courroux. Et à haut-niveau, la Double Lame ressemble à une vraie tornade.",
       "Cornaline, Opale de feu"
     );
     
@@ -65,8 +67,8 @@ export class ArlenorSpecialities {
     this.Sorcier.image = require("./../../assets/icons/specialities/sorcier_spe.png");
     this.Sorcier.otherImage = require("./../../assets/icons/specialities/sorcier.png");
     this.Sorcier.setArchetype(
-      "Météorologue", "Le Météorologue utilise des sorts liés aux éléments (Foudre, Eau et Glace).",
-      "Créateur", "Le Créateur utilise des sorts liés aux éléments (Feu, Terre, Métaux).",
+      "Météorologue", skills.WeaponCatalyseurs, "Le Météorologue utilise des sorts liés aux éléments (Foudre, Eau et Glace).",
+      "Créateur", skills.WeaponCatalyseurs, "Le Créateur utilise des sorts liés aux éléments (Feu, Terre, Métaux).",
       "Saphir, Sodalite"
     );
 
@@ -75,8 +77,8 @@ export class ArlenorSpecialities {
     this.Invocateur.image = require("./../../assets/icons/specialities/invocateur_spe.png");
     this.Invocateur.otherImage = require("./../../assets/icons/specialities/invocateur.png");
     this.Invocateur.setArchetype(
-      "Pèlerin", "Le Pèlerin utilise des sorts d'invocation d'entités divines liées à la Lumière et au Destin.",
-      "Dompteur de bêtes", "Le Dompteur de Bêtes utilise des capacités de convocation d'animaux existants en tant que familiers. A haut-niveau, il peut même les posséder.",
+      "Pèlerin", skills.WeaponBatons, "Le Pèlerin utilise des sorts d'invocation d'entités divines liées à la Lumière et au Destin.",
+      "Dompteur de bêtes", skills.WeaponArcs, "Le Dompteur de Bêtes utilise des capacités de convocation d'animaux existants en tant que familiers. A haut-niveau, il peut même les posséder.",
       "Malachite, Jade"
     );
 
@@ -85,8 +87,8 @@ export class ArlenorSpecialities {
     this.Enchanteur.image = require("./../../assets/icons/specialities/enchanteur_spe.png");
     this.Enchanteur.otherImage = require("./../../assets/icons/specialities/enchanteur.png");
     this.Enchanteur.setArchetype(
-      "Envoûteur", "L'Envoûteur utilise des sorts qui affectent ses cibles de divers troubles magiques. Et à haut-niveau, l'envoûtement peut aller jusqu'à la possession.",
-      "Illusionniste", "L'Illusionniste utilise des sorts pour contrôler les sens de ses cibles. Et à haut-niveau l'illusion peut devenir réalité.",
+      "Envoûteur", skills.WeaponCatalyseurs, "L'Envoûteur utilise des sorts qui affectent ses cibles de divers troubles magiques. Et à haut-niveau, l'envoûtement peut aller jusqu'à la possession.",
+      "Illusionniste", skills.WeaponBatons, "L'Illusionniste utilise des sorts pour contrôler les sens de ses cibles. Et à haut-niveau l'illusion peut devenir réalité.",
       "Améthyste, Fluorite"
     );
     
@@ -97,8 +99,8 @@ export class ArlenorSpecialities {
     this.Druide.image = require("./../../assets/icons/specialities/druide_spe.png");
     this.Druide.otherImage = require("./../../assets/icons/specialities/druide.png");
     this.Druide.setArchetype(
-      "Guérisseur", "Le Guérisseur utilise des sorts de soins et de récupération. Et à haut-niveau, il peut même réaliser des dopages sur ses alliés.",
-      "Chaman", "Le Chaman utilise des sorts permettant d'interagir avec le monde de l'Au-Delà. A haut-niveau, le chaman peut utiliser les capacités d'un défunt.",
+      "Guérisseur", skills.WeaponBatons, "Le Guérisseur utilise des sorts de soins et de récupération. Et à haut-niveau, il peut même réaliser des dopages sur ses alliés.",
+      "Chaman", skills.WeaponMainsNues, "Le Chaman utilise des sorts permettant d'interagir avec le monde de l'Au-Delà. A haut-niveau, le chaman peut utiliser les capacités d'un défunt.",
       "Émeraude, Péridot"
     );
 
@@ -107,8 +109,8 @@ export class ArlenorSpecialities {
     this.Pretre.image = require("./../../assets/icons/specialities/pretre_spe.png");
     this.Pretre.otherImage = require("./../../assets/icons/specialities/pretre.png");
     this.Pretre.setArchetype(
-      "Prêtre d'Arlénor", "Le Prêtre d'Arlénor utilise des prières pour aider les alliés afin de les purifier, d'augmenter leur chance ou même accéder à des connaissances.",
-      "Nécromancien", "Le Nécromant utilise des sorts de sang infligeant des états négatifs à une cible, et des prières permettant d'utiliser les morts à ses propres fins.",
+      "Prêtre d'Arlénor", skills.WeaponBatons, "Le Prêtre d'Arlénor utilise des prières pour aider les alliés afin de les purifier, d'augmenter leur chance ou même accéder à des connaissances.",
+      "Nécromancien", skills.WeaponCatalyseurs, "Le Nécromant utilise des sorts de sang infligeant des états négatifs à une cible, et des prières permettant d'utiliser les morts à ses propres fins.",
       "Pierre de lune, Obsidienne"
     );
 
@@ -117,8 +119,8 @@ export class ArlenorSpecialities {
     this.Barde.image = require("./../../assets/icons/specialities/barde_spe.png");
     this.Barde.otherImage = require("./../../assets/icons/specialities/barde.png");
     this.Barde.setArchetype(
-      "Virtuose", "Le Virtuose utilise des musiques qui boostent les alliés sur le long terme. Il peut également, mais rarement utiliser des paroles ou des accords particuliers pour des boosts instantanés.",
-      "Banshee", "La Banshee utilise des chants qui perturbent les cibles, leur annonçant une mort proche. Elle peut également mais rarement, infliger des dégâts via sa voix.",
+      "Virtuose", skills.WeaponMusique, "Le Virtuose utilise des musiques qui boostent les alliés sur le long terme. Il peut également, mais rarement utiliser des paroles ou des accords particuliers pour des boosts instantanés.",
+      "Banshee", skills.WeaponMusique, "La Banshee utilise des chants qui perturbent les cibles, leur annonçant une mort proche. Elle peut également mais rarement, infliger des dégâts via sa voix.",
       "Quartz rose, Rhodonite"
     );
   }

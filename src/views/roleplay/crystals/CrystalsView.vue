@@ -31,6 +31,15 @@
             :src="currentSpeciality.otherImage"
             :alt="currentSpeciality.archetypeName01">
           <p class="crystals-main-description">{{ currentSpeciality.archetypeDesc01 }}</p>
+          <div class="power-line justify-center">
+            <div class="power-img-layout">
+              <img
+                class="power-img"
+                :src="currentSpeciality.archetypeSkill01.image"
+                :alt="currentSpeciality.archetypeSkill01.name">
+            </div>
+            <span class="power-txt">{{ currentSpeciality.archetypeSkill01.name }}</span>
+          </div>
         </div>
         <div class="crystals-separator" />
         <div class="crystals-section">
@@ -53,6 +62,15 @@
             :src="currentSpeciality.otherImage"
             :alt="currentSpeciality.archetypeName02">
           <p class="crystals-main-description">{{ currentSpeciality.archetypeDesc02 }}</p>
+          <div class="power-line justify-center">
+            <div class="power-img-layout">
+              <img
+                class="power-img"
+                :src="currentSpeciality.archetypeSkill02.image"
+                :alt="currentSpeciality.archetypeSkill02.name">
+            </div>
+            <span class="power-txt">{{ currentSpeciality.archetypeSkill02.name }}</span>
+          </div>
         </div>
       </div>
     </div>
