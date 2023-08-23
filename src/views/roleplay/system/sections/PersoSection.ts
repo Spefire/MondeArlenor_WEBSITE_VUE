@@ -4,7 +4,7 @@ import SkillsTable from "@/components/skills-table/SkillsTable.vue";
 import { CaractDescriptionEnum } from "@/models/ArlenorCaracts";
 import { ArlenorRace, DifficultyEnum } from "@/models/ArlenorRace";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
-import { getListDefaultSkills } from "@/models/data/ListDefaultSkills";
+import { ArlenorSkills } from "@/models/data/ListDefaultSkills";
 import { getListRaces } from "@/models/data/ListRaces";
 import { getListRoles } from "@/models/data/ListRoles";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
@@ -30,9 +30,7 @@ export default defineComponent({
     const roleChoice = ref("");
     const finitionChoice = ref(0);
     
-    const skills = getListDefaultSkills().filter(skill => {
-      return (!skill.codeRace && !skill.codeSpeciality);
-    });
+    const skills = ArlenorSkills.getListDefaultSkills();
     const defaultSkills: Ref<ArlenorSkill[]> = ref(skills);
 
     return {

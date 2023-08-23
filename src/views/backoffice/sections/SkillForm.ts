@@ -20,9 +20,7 @@ export default defineComponent({
   emits: ["submit"],
 
   data (props) {
-    const allTypes: ArlenorEnum[] = Object.values(SkillTypesEnum).filter(skillEnum => {
-      return (skillEnum.Code !== SkillTypesEnum.CompetenceArmure.Code);
-    });
+    const allTypes: ArlenorEnum[] = Object.values(SkillTypesEnum);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const caractNomEnum: any = CaractNomEnum;
 

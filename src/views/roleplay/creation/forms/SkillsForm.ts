@@ -1,7 +1,7 @@
 import SkillsSelectionTable from "@/components/skills-selection-table/SkillsSelectionTable.vue";
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
-import { getListDefaultSkills } from "@/models/data/ListDefaultSkills";
+import { ArlenorSkills } from "@/models/data/ListDefaultSkills";
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 import { defineComponent, Ref, ref } from "vue";
@@ -32,9 +32,7 @@ export default defineComponent({
     const isNbSkillsValid: Ref<boolean | null> = ref(null);
     const level = character.level;
 
-    const skills = getListDefaultSkills().filter(skill => {
-      return (!skill.codeRace && !skill.codeSpeciality);
-    });
+    const skills = ArlenorSkills.getListDefaultSkills();
     const defaultSkills: Ref<ArlenorSkill[]> = ref(skills);
 
     return {

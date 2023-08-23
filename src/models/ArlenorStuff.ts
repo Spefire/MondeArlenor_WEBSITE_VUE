@@ -12,12 +12,8 @@ export class ArlenorStuff extends ArlenorAPI {
   public urlImage: string;
   
   get image(): string | null {
-    if (this.urlImage) {
-      const images = require.context("./../assets/icons/capacities/", false, /\.png$/);
-      return images(this.urlImage);
-    }
-    if (this.codeType === StuffTypesEnum.Arme.Code) return require("./../assets/icons/skills/armes.png");
-    else if (this.type.Code === StuffTypesEnum.Armure.Code) return require("./../assets/icons/skills/armures.png");
+    if (this.codeType === StuffTypesEnum.Weapon.Code) return require("./../assets/icons/skills/weapon.png");
+    else if (this.type.Code === StuffTypesEnum.Armor.Code) return require("./../assets/icons/skills/armor.png");
     return null;
   }
 
@@ -56,7 +52,7 @@ export class ArlenorStuff extends ArlenorAPI {
     this.description = "";
     this.urlImage = "";
 
-    this.codeType = StuffTypesEnum.Arme.Code;
+    this.codeType = StuffTypesEnum.Weapon.Code;
     this.codesCaracts = [];
     this.codeRace = null;
     this.codeSpeciality = null;
@@ -84,6 +80,6 @@ export class ArlenorStuff extends ArlenorAPI {
 }
 
 export class StuffTypesEnum {
-  static Arme: ArlenorEnum = { Code: "STF_ARME", Libelle: "Arme" };
-  static Armure: ArlenorEnum = { Code: "STF_ARMURE", Libelle: "Armure" };
+  static Weapon: ArlenorEnum = { Code: "WEAPON", Libelle: "Arme" };
+  static Armor: ArlenorEnum = { Code: "ARMOR", Libelle: "Armure" };
 }

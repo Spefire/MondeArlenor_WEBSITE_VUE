@@ -4,9 +4,9 @@ import { ArlenorRoles } from "./ListRoles";
 export class ArlenorSpecialities {
   public Gardien: ArlenorSpeciality;
   public Moine: ArlenorSpeciality;
-  public Assassin: ArlenorSpeciality; // Executeur
+  public Assassin: ArlenorSpeciality;
   public Bretteur: ArlenorSpeciality;
-  public Sorcier: ArlenorSpeciality; // Elementaliste
+  public Sorcier: ArlenorSpeciality;
   public Invocateur: ArlenorSpeciality;
   public Enchanteur: ArlenorSpeciality;
   public Druide: ArlenorSpeciality;

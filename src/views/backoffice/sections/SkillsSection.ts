@@ -1,7 +1,7 @@
 import PopupBloc from "@/components/popup/PopupBloc.vue";
 import SkillsTable from "@/components/skills-table/SkillsTable.vue";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
-import { getListDefaultSkills } from "@/models/data/ListDefaultSkills";
+import { ArlenorSkills } from "@/models/data/ListDefaultSkills";
 import { getListRaceSkills } from "@/models/data/ListRaceSkills";
 import api from "@/utils/api";
 import { defineComponent, Ref, ref } from "vue";
@@ -21,9 +21,7 @@ export default defineComponent({
     const store = useStore();
     const filteredSkills: Ref<ArlenorSkill[]> = ref([]);
     const currentSkill: Ref<ArlenorSkill | null> = ref(null);
-    const skills = getListDefaultSkills().filter(skill => {
-      return (!skill.codeRace && !skill.codeSpeciality);
-    });
+    const skills = ArlenorSkills.getListDefaultSkills();
     const defaultSkills: Ref<ArlenorSkill[]> = ref(skills);
     const racesSkills: Ref<ArlenorSkill[]> = ref(getListRaceSkills());
     const canExport = ref(true);

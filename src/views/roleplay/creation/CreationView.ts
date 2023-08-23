@@ -1,7 +1,7 @@
 import PopupBloc from "@/components/popup/PopupBloc.vue";
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { ArlenorLevel } from "@/models/ArlenorLevel";
-import { getListDefaultSkills } from "@/models/data/ListDefaultSkills";
+import { ArlenorSkills } from "@/models/data/ListDefaultSkills";
 import { PageTitles } from "@/models/PagesTitles";
 import api from "@/utils/api";
 import downloads from "@/utils/downloads";
@@ -140,9 +140,7 @@ export default defineComponent({
     async downloadCharacter() {
       let allSkills = await api.readAllSkill();
       let allPowers = await api.readAllPower();
-      const skills = getListDefaultSkills().filter(skill => {
-        return (!skill.codeRace && !skill.codeSpeciality);
-      });
+      const skills = ArlenorSkills.getListDefaultSkills();
       allSkills = allSkills.concat(skills);
       allSkills = allSkills.sort((a, b) => a.name.localeCompare(b.name));
       allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
