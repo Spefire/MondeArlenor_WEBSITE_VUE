@@ -1,30 +1,21 @@
 <template>
-  <div class="layout-view background-roleplay creation-view hide-on-mobile">
+  <div class="hide-on-mobile">
+    <div
+      v-if="selection == 0"
+      class="layout-view background-roleplay creation-view">
 
-    <h2 class="text-center margin-top-0 margin-bottom-1">
-      <template v-if="selection == 0">Introduction</template>
-      <template v-if="selection == 1">Choix de la race</template>
-      <template v-if="selection == 2">Choix des caractéristiques</template>
-      <template v-if="selection == 3">Choix du cristal primaire</template>
-      <template v-if="selection == 4">Choix du cristal secondaire</template>
-      <template v-if="selection == 5">Choix des compétences</template>
-      <template v-if="selection == 6">Choix de l'équipement</template>
-      <template v-if="selection == 7">Choix de l'identité</template>
-      <template v-if="selection == 8">Récapitulatif</template>
-      <span
-        v-if="hasModification"
-        title="A des modifications en cours">&nbsp;*</span>
-    </h2>
+      <h2 class="text-center margin-top-0 margin-bottom-1">
+        Introduction
+      </h2>
 
-    <template v-if="selection == 0">
       <div class="creation-content">
-        <div class="creation-form flex">
+        <div class="creation-column">
           <img
             class="layout-bloc creation-img-perso"
             src="./../../../assets/images/creation/perso_left.png"
             alt="">
         </div>
-        <div class="creation-form">
+        <div class="creation-column">
           <div class="layout-bloc text-justify">
             &emsp;
             Un personnage est défini par plusieurs choses : <b>ses caractéristiques</b> (et valeurs dérivées), <b>ses compétences principales</b>,
@@ -33,8 +24,6 @@
             <br>&emsp;
             Cependant, malgré toutes les valeurs notées sur la fiche de personnage,
             c'est VOUS qui le ferez vivre via ses actions : on choisit ce que l'on est par nos actes !
-            <br>&emsp;
-            Créez alors ici un nouveau personnage du Monde d'Arlénor...
           </div>
           
           <div class="layout-row">
@@ -85,62 +74,72 @@
           </div>
         </div>
       </div>
+
       <div class="creation-content-nav">
         <button
           class="link-button"
           :disabled="v$.form.$invalid"
           @click="startCreation(true)">Commencer la création</button>
       </div>
+    </div>
+
+    <template v-if="selection != 0 && selection != 8">    
+      <RaceForm
+        :is-disabled="selection != 1"
+        @previousStep="decreaseSelection()"
+        @nextStep="increaseSelection()" />
+      <div little-separator />
+      <CaractsForm
+        :is-disabled="selection != 2"
+        @previousStep="decreaseSelection()"
+        @nextStep="increaseSelection()" />
+      <div little-separator />
+      <CrystalForm
+        :is-disabled="selection != 3"
+        :index-crystal="0"
+        @previousStep="decreaseSelection()"
+        @nextStep="increaseSelection()" />
+      <div little-separator />
+      <CrystalForm
+        v-if="character.level.numLevel < 5"
+        :is-disabled="selection != 4"
+        :index-crystal="1"
+        @previousStep="decreaseSelection()"
+        @nextStep="increaseSelection()" />
+      <div little-separator />
+      <SkillsForm
+        :is-disabled="selection != 5"
+        @previousStep="decreaseSelection()"
+        @nextStep="increaseSelection()" />
+      <div little-separator />
+      <!--StuffForm
+    :is-disabled="selection != 6"
+        @previousStep="decreaseSelection()"
+        @nextStep="increaseSelection()" />
+    <div little-separator /-->
+      <IdentityForm
+        :is-disabled="selection != 7"
+        @previousStep="decreaseSelection()"
+        @nextStep="increaseSelection()" />
     </template>
 
-    <RaceForm
-      v-if="selection == 1"
-      @changeStep="changeModifs()"
-      @previousStep="decreaseSelection()"
-      @nextStep="increaseSelection()" />
-    <CaractsForm
-      v-if="selection == 2"
-      @changeStep="changeModifs()"
-      @previousStep="decreaseSelection()"
-      @nextStep="increaseSelection()" />
-    <CrystalForm
-      v-if="selection == 3"
-      :index-crystal="0"
-      @changeStep="changeModifs()"
-      @previousStep="decreaseSelection()"
-      @nextStep="increaseSelection()" />
-    <CrystalForm
-      v-if="selection == 4"
-      :index-crystal="1"
-      @changeStep="changeModifs()"
-      @previousStep="decreaseSelection()"
-      @nextStep="increaseSelection()" />
-    <SkillsForm
-      v-if="selection == 5"
-      @changeStep="changeModifs()"
-      @previousStep="decreaseSelection()"
-      @nextStep="increaseSelection()" />
-    <StuffForm
-      v-if="selection == 6"
-      @changeStep="changeModifs()"
-      @previousStep="decreaseSelection()"
-      @nextStep="increaseSelection()" />
-    <IdentityForm
-      v-if="selection == 7"
-      @previousStep="decreaseSelection()"
-      @changeStep="changeModifs()"
-      @nextStep="increaseSelection()" />
+    <div
+      v-if="selection == 8"
+      class="layout-view background-roleplay creation-view">
 
-    <template v-if="selection == 8">
+      <h2 class="text-center margin-top-0 margin-bottom-1">
+        Récapitulatif
+      </h2>
+
       <div class="creation-content">
-        <div class="creation-form">
+        <div class="creation-column">
           <img
             class="layout-bloc creation-img-perso"
             src="./../../../assets/images/creation/perso_right.png"
             alt="">
         </div>
 
-        <div class="creation-form">
+        <div class="creation-column">
           <div class="layout-bloc form-element zone-element zone-element-semifree margin-top-0 margin-bottom-0">
             <div
               v-if="character"
@@ -188,49 +187,7 @@
           class="link-button"
           @click="startCreation(false)">Modifier l'actuel</button>
       </div>
-    </template>
-
-    <ul class="selection-container celestia-selection-steps">
-      <div class="dotline" />
-      <li
-        :class="{'active': selection == 0 }"
-        class="dot" />
-      <div class="dotline" />
-      <li
-        :class="{'active': selection == 1 }"
-        class="dot" />
-      <div class="dotline" />
-      <li
-        :class="{'active': selection == 2 }"
-        class="dot" />
-      <div class="dotline" />
-      <li
-        :class="{'active': selection == 3 }"
-        class="dot" />
-      <div class="dotline" />
-      <li
-        :class="{'active': selection == 4,
-                 'warning': character.level.numLevel < 5}"
-        class="dot" />
-      <div class="dotline" />
-      <li
-        :class="{'active': selection == 5 }"
-        class="dot" />
-      <div class="dotline" />
-      <li
-        :class="{'active': selection == 6,
-                 'warning': true }"
-        class="dot" />
-      <div class="dotline" />
-      <li
-        :class="{'active': selection == 7 }"
-        class="dot" />
-      <div class="dotline" />
-      <li
-        :class="{'active': selection == 8 }"
-        class="dot" />
-      <div class="dotline" />
-    </ul>
+    </div>
   </div>
 
   <div class="layout-view background-roleplay show-on-mobile">

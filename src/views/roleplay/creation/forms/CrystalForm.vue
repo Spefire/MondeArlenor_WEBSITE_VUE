@@ -1,6 +1,12 @@
 <template>
-  <div class="creation-content">
-    <div class="creation-form">
+  <CreationForm
+    :form-title="(indexCrystal == 0) ? 'Choix du cristal primaire' : 'Choix du cristal secondaire'"
+    :is-disabled="isDisabled"
+    :is-modified="isModified"
+    :is-invalid="v$.form.$invalid"
+    @outCancel="cancelForm()"
+    @outSubmit="submitForm()">
+    <div class="creation-column">
       <div class="form-element">
         <span>Classe  <span required-libelle>*</span></span>
         <div class="dropdown">
@@ -49,7 +55,7 @@
       </div>
     </div>
 
-    <div class="creation-form">
+    <div class="creation-column">
       <div class="form-element">
         <span>Pouvoirs <span required-libelle>*</span></span>
 
@@ -69,28 +75,7 @@
           @remove="removePower" />
       </div>
     </div>
-  </div>
-
-  <div class="creation-content-nav">
-    <button
-      class="link-button"
-      @click="cancelForm()">
-      <template v-if="!isModified">
-        Précédent
-      </template>
-      <template v-if="isModified">
-        Annuler les modifications
-        <template v-if="needConfirm">
-          (Confirmez ?) 
-        </template>
-      </template>
-    </button>
-
-    <button
-      class="link-button"
-      :disabled="v$.form.$invalid"
-      @click="submitForm()">Suivant</button>
-  </div>
+  </CreationForm>
 </template>
 
 <style lang="scss" scoped src="./../CreationView.scss"></style>

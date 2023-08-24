@@ -1,7 +1,13 @@
 <template>
-  <div class="creation-content">
+  <CreationForm
+    form-title="Choix de la race"
+    :is-disabled="isDisabled"
+    :is-modified="isModified"
+    :is-invalid="v$.form.$invalid"
+    @outCancel="cancelForm()"
+    @outSubmit="submitForm()">
     <!-- Description de la race sélectionnée -->
-    <div class="creation-form">
+    <div class="creation-column">
       <div
         v-if="!currentRace"
         class="creation-description layout-bloc">
@@ -44,7 +50,7 @@
     </div>
 
     <!-- Sélection de la race -->
-    <div class="creation-form">
+    <div class="creation-column">
       <div class="form-element">
         <span>Race du personnage <span required-libelle>*</span></span>
         <div class="dropdown">
@@ -62,47 +68,26 @@
 
       <div
         v-if="currentRace"
-        class="race-grid docs-grid-list grid-2">
+        class="grid-list grid-1">
         <div
           v-for="(skill, index) in getSkills(currentRace.code)"
-          class="docs-grid-element"
+          class="grid-element"
           :key="index">
           <img
             :src="skill.image"
             :alt="skill.name">
-          <div class="docs-grid-infos">
-            <div class="docs-grid-header">
+          <div>
+            <div class="grid-header">
               <span class="text-bold">{{ skill.name }}</span>
             </div>
             <p
-              class="docs-grid-body"
+              class="grid-body"
               v-html="skill.description" />
           </div>
         </div>
       </div>
     </div>
-  </div>
-      
-  <div class="creation-content-nav">
-    <button
-      class="link-button"
-      @click="cancelForm()">
-      <template v-if="!isModified">
-        Précédent
-      </template>
-      <template v-if="isModified">
-        Annuler les modifications
-        <template v-if="needConfirm">
-          (Confirmez ?) 
-        </template>
-      </template>
-    </button>
-
-    <button
-      class="link-button"
-      :disabled="v$.form.$invalid"
-      @click="submitForm()">Suivant</button>
-  </div>
+  </CreationForm>
 </template>
 
 <style lang="scss" scoped src="./../CreationView.scss"></style>

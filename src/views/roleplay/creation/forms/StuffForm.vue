@@ -1,26 +1,11 @@
 <template>
-  <div class="creation-content" />
-
-  <div class="creation-content-nav">
-    <button
-      class="link-button"
-      @click="cancelForm()">
-      <template v-if="!isModified">
-        Précédent
-      </template>
-      <template v-if="isModified">
-        Annuler les modifications
-        <template v-if="needConfirm">
-          (Confirmez ?) 
-        </template>
-      </template>
-    </button>
-
-    <button
-      class="link-button"
-      :disabled="v$.form.$invalid"
-      @click="submitForm()">Suivant</button>
-  </div>
+  <CreationForm
+    form-title="Choix de l'équipement"
+    :is-disabled="isDisabled"
+    :is-modified="isModified"
+    :is-invalid="v$.form.$invalid"
+    @outCancel="cancelForm()"
+    @outSubmit="submitForm()" />
 </template>
 
 <style lang="scss" scoped src="./../CreationView.scss"></style>

@@ -44,14 +44,12 @@ export default defineComponent({
 
   setup() {
     const selection = ref(0);
-    const hasModification = ref(false);
     const isSaved = ref(false);
     const showDeletePopup = ref(false);
     const showSavePopup = ref(false);
     return {
       v$: useVuelidate(),
       selection,
-      hasModification,
       isSaved,
       showDeletePopup,
       showSavePopup
@@ -105,16 +103,11 @@ export default defineComponent({
       if (this.selection === 5 && this.character.level.numLevel < 5) this.selection -= 2;
       else if (this.selection === 7) this.selection -= 2;
       else this.selection--;
-      this.hasModification = false;
     },
     increaseSelection(): void {
       if (this.selection === 3 && this.character.level.numLevel < 5) this.selection += 2;
       else if (this.selection === 5) this.selection += 2;
       else this.selection++;
-      this.hasModification = false;
-    },
-    changeModifs(): void {
-      this.hasModification = true;
     },
     setSelection(newSelection: number): void {
       this.selection = newSelection;

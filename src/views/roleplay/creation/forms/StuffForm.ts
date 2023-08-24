@@ -2,10 +2,19 @@ import useVuelidate from "@vuelidate/core";
 import { defineComponent } from "vue";
 import { useStore } from "vuex";
 
+import CreationForm from "../form/CreationForm.vue";
+
 export default defineComponent({
   name: "StuffForm",
-  components: {},
-  emits: ["changeStep", "previousStep", "nextStep"],
+  components: { CreationForm },
+  props: {
+    isDisabled: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
+  emits: ["previousStep", "nextStep"],
   
   data () {
     const store = useStore();
@@ -13,7 +22,6 @@ export default defineComponent({
       store,
       form: {},
       isModified: false,
-      needConfirm: false,
     };
   },
 
@@ -28,16 +36,10 @@ export default defineComponent({
   methods: {
     updateForm() {
       this.isModified = true;
-      this.needConfirm = false,
-      this.$emit("changeStep");
     },
     cancelForm() {
-      if (this.isModified && !this.needConfirm) {
-        this.needConfirm = true;
-      } else {
-        this.isModified = false;
-        this.$emit("previousStep");
-      }
+      this.isModified = false;
+      this.$emit("previousStep");
     },
     submitForm() {
       this.save();

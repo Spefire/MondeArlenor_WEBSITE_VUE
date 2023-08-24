@@ -1,7 +1,13 @@
 <template>
-  <div class="creation-content">
+  <CreationForm
+    form-title="Choix des caractéristiques"
+    :is-disabled="isDisabled"
+    :is-modified="isModified"
+    :is-invalid="v$.form.$invalid"
+    @outCancel="cancelForm()"
+    @outSubmit="submitForm()">
     <!-- Description de la caractéristique sélectionnée -->
-    <div class="creation-form">
+    <div class="creation-column">
       <div class="creation-description layout-bloc text-justify">
         <template v-if="selectCaract === 'FOR'">
           <h2 class="margin-top-0 text-center">La Force</h2>
@@ -36,10 +42,10 @@
     </div>
 
     <!-- Choix de la caractéristique -->
-    <div class="creation-form">
+    <div class="creation-column">
       <div class="form-element">
-        <span>Caractériques du personnage <span required-libelle>*</span></span>
-        <table class="layout-bloc margin-top-1">
+        <span>Caractéristiques du personnage <span required-libelle>*</span></span>
+        <table class="layout-bloc">
           <thead>
             <tr>
               <th class="col-40">Nom</th>
@@ -147,28 +153,7 @@
         Les Points de Vie sont à : <b>{{ getPointsDeVie() }}</b>
       </div>
     </div>
-  </div>
-
-  <div class="creation-content-nav">
-    <button
-      class="link-button"
-      @click="cancelForm()">
-      <template v-if="!isModified">
-        Précédent
-      </template>
-      <template v-if="isModified">
-        Annuler les modifications
-        <template v-if="needConfirm">
-          (Confirmez ?) 
-        </template>
-      </template>
-    </button>
-
-    <button
-      class="link-button"
-      :disabled="v$.form.$invalid"
-      @click="submitForm()">Suivant</button>
-  </div>
+  </CreationForm>
 </template>
 
 <style lang="scss" scoped src="./../CreationView.scss"></style>

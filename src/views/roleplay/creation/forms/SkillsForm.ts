@@ -7,12 +7,19 @@ import { required } from "@vuelidate/validators";
 import { defineComponent, Ref, ref } from "vue";
 import { useStore } from "vuex";
 
+import CreationForm from "../form/CreationForm.vue";
+
 export default defineComponent({
   name: "SkillsForm",
-  components: {
-    SkillsSelectionTable,
+  components: { CreationForm, SkillsSelectionTable },
+  props: {
+    isDisabled: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
   },
-  emits: ["changeStep", "previousStep", "nextStep"],
+  emits: ["previousStep", "nextStep"],
   
   data () {
     const store = useStore();
@@ -45,7 +52,6 @@ export default defineComponent({
         isNbSkillsValid,
       },
       isModified: false,
-      needConfirm: false,
     };
   },
 
@@ -88,17 +94,11 @@ export default defineComponent({
     },
     updateForm() {
       this.isModified = true;
-      this.needConfirm = false,
       this.checkNbSkills();
-      this.$emit("changeStep");
     },
     cancelForm() {
-      if (this.isModified && !this.needConfirm) {
-        this.needConfirm = true;
-      } else {
-        this.isModified = false;
-        this.$emit("previousStep");
-      }
+      this.isModified = false;
+      this.$emit("previousStep");
     },
     submitForm() {
       this.save();

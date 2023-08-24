@@ -1,6 +1,12 @@
 <template>
-  <div class="creation-content">
-    <div class="creation-form">
+  <CreationForm
+    form-title="Choix de l'identité"
+    :is-disabled="isDisabled"
+    :is-modified="isModified"
+    :is-invalid="v$.form.$invalid"
+    @outCancel="cancelForm()"
+    @outSubmit="submitForm()">
+    <div class="creation-column">
       <div class="form-element">
         <span>Avatar du personnage</span>
         <label
@@ -50,7 +56,7 @@
       </div>
     </div>
 
-    <div class="creation-form">
+    <div class="creation-column">
       <div class="form-element">
         <span>Description physique</span>
         <input
@@ -91,28 +97,7 @@
           maxlength="800" />
       </div>
     </div>
-  </div>
-
-  <div class="creation-content-nav">
-    <button
-      class="link-button"
-      @click="cancelForm()">
-      <template v-if="!isModified">
-        Précédent
-      </template>
-      <template v-if="isModified">
-        Annuler les modifications
-        <template v-if="needConfirm">
-          (Confirmez ?) 
-        </template>
-      </template>
-    </button>
-
-    <button
-      class="link-button"
-      :disabled="v$.form.$invalid"
-      @click="submitForm()">Terminer</button>
-  </div>
+  </CreationForm>
 </template>
 
 <style lang="scss" scoped src="./../CreationView.scss"></style>

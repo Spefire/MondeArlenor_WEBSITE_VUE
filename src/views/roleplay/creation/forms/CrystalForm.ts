@@ -9,18 +9,23 @@ import { required } from "@vuelidate/validators";
 import { defineComponent, ref, Ref } from "vue";
 import { useStore } from "vuex";
 
+import CreationForm from "../form/CreationForm.vue";
+
 export default defineComponent({
   name: "CrystalForm",
+  components: { CreationForm, PowersSelectionTable },
   props: {
     indexCrystal: {
       type: Number,
       required: true,
+    },
+    isDisabled: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
-  components: {
-    PowersSelectionTable,
-  },
-  emits: ["changeStep", "previousStep", "nextStep"],
+  emits: ["previousStep", "nextStep"],
   
   data (props) {
     const store = useStore();
@@ -42,7 +47,6 @@ export default defineComponent({
         isNbPowersValid,
       },
       isModified: false,
-      needConfirm: false,
     };
   },
 
@@ -147,17 +151,11 @@ export default defineComponent({
 
     updateForm() {
       this.isModified = true;
-      this.needConfirm = false,
       this.checkNbPowers();
-      this.$emit("changeStep");
     },
     cancelForm() {
-      if (this.isModified && !this.needConfirm) {
-        this.needConfirm = true;
-      } else {
-        this.isModified = false;
-        this.$emit("previousStep");
-      }
+      this.isModified = false;
+      this.$emit("previousStep");
     },
     submitForm() {
       this.save();
