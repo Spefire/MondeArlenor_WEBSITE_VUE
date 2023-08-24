@@ -2,22 +2,20 @@
   <div
     v-if="!isOpen"
     class="layout-view background hide-on-mobile">
-    <div class="creation-form">
-      <div class="form-element">
-        <span>Clé du backoffice <span required-libelle>*</span></span>
-        <input
-          type="password"
-          class="text-center"
-          v-model.trim.lazy="v$.form.key.$model">
-      </div>
-      <div class="form-element">
-        <button
-          class="link-button"
-          :disabled="v$.form.$invalid"
-          @click="submitForm()">
-          Valider
-        </button>
-      </div>
+    <div class="form-element">
+      <span>Clé du backoffice <span required-libelle>*</span></span>
+      <input
+        type="password"
+        class="text-center"
+        v-model.trim.lazy="v$.form.key.$model">
+    </div>
+    <div class="form-element">
+      <button
+        class="link-button"
+        :disabled="v$.form.$invalid"
+        @click="submitForm()">
+        Valider
+      </button>
     </div>
   </div>
 

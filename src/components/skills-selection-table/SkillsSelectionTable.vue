@@ -75,5 +75,4 @@
   </table>
 </template>
 
-<style lang="scss" scoped src="./SkillsSelectionTable.scss"></style>
 <script lang="ts" src="./SkillsSelectionTable.ts"></script>

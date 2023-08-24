@@ -4,11 +4,11 @@
     class="layout-view background-roleplay crystals-view hide-on-mobile">
 
     <!-- Menu en haut -->
-    <div class="side-menu top">
-      <div class="docs-grid-list">
+    <div class="side-menu">
+      <div class="side-list">
         <div
           v-for="(spe, index) in allSpecialities"
-          class="docs-grid-element"
+          class="side-element"
           :class="{ 'selected' : spe.code === currentSpeciality?.code }"
           :key="index">
           <img

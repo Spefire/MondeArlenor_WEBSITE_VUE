@@ -142,17 +142,17 @@
       Note : Les Célestiens ne sont pas une race jouable vu la différence de magie qu'ils utilisent
       et le lieu où ils se trouvent.
     </div>
-    <div class="docs-grid-list grid-2">
+    <div class="grid-list grid-2 margin-top-1">
       <div
         v-for="(race, index) in allRaces"
-        class="docs-grid-element"
+        class="grid-element"
         :key="index">
         <img
           class="img-rounded"
           :src="race.image"
           :alt="race.name">
-        <div class="docs-grid-infos">
-          <div class="docs-grid-header">
+        <div>
+          <div class="grid-header">
             <span class="text-bold">{{ race.name }}</span>
             <span
               class="text-bold margin-left-05"
@@ -160,7 +160,7 @@
               :title="getDifficultyLibelle(race)">•</span>
           </div>
           <p
-            class="docs-grid-body"
+            class="grid-body"
             v-html="getDescription(race.description, 200)" />
           <div class="margin-top-05 margin-bottom-05">
             <ArrowButton
@@ -202,16 +202,16 @@
       :bloc-state="roleChoice === role.code"
       @toggle="changeRoleChoice(role.code)"
       :key="indexRole">
-      <div class="docs-grid-list grid-2">
+      <div class="grid-list grid-2">
         <div
           v-for="(spe, index) in getSpecialities(role.code)"
-          class="docs-grid-element"
+          class="grid-element"
           :key="index">
           <img
             :src="spe.image"
             :alt="spe.name">
           <div>
-            <div class="docs-grid-header">
+            <div class="grid-header">
               <span
                 class="text-bold"
                 @click="changeSpe(spe.code)">
@@ -222,7 +222,7 @@
                 :class="spe.role.icon + ' ' + spe.color"
                 :title="spe.role.name" />
             </div>
-            <p class="docs-grid-body">{{ getDescription(spe.description) }}</p>
+            <p class="grid-body">{{ getDescription(spe.description) }}</p>
             <div class="margin-top-05 margin-bottom-05">
               <ArrowButton
                 :link-name="'crystals'"

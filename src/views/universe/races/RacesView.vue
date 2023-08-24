@@ -79,23 +79,21 @@
         </p>
       </div>
     </div>
-    <div class="races-top">
-      <div class="races-grid docs-grid-list">
-        <div
-          v-for="(skill, index) in currentRace.getSkills()"
-          class="docs-grid-element"
-          :key="index">
-          <img
-            :src="skill.image"
-            :alt="skill.name">
-          <div class="docs-grid-infos">
-            <div class="docs-grid-header">
-              <span class="text-bold">{{ skill.name }}</span>
-            </div>
-            <p
-              class="docs-grid-body"
-              v-html="skill.description" />
+    <div class="races-items grid-list">
+      <div
+        v-for="(skill, index) in currentRace.getSkills()"
+        class="grid-element"
+        :key="index">
+        <img
+          :src="skill.image"
+          :alt="skill.name">
+        <div>
+          <div class="grid-header">
+            <span class="text-bold">{{ skill.name }}</span>
           </div>
+          <p
+            class="grid-body"
+            v-html="skill.description" />
         </div>
       </div>
     </div>

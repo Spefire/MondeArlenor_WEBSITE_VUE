@@ -12,18 +12,9 @@
     }
   }
 
-  .magic-top {
+  .magic-items {
+    margin-top: 20px;
     width: 100%;
-
-    @include mobile-only {
-      margin-top: 20px;
-      width: 100%;
-    }
-
-    .magic-grid {
-      margin: -10px;
-      margin-top: 10px !important;
-    }
   }
 
   .magic-left {
@@ -83,17 +74,23 @@
 
     .crystal-data01 {
       opacity: 0;
-      animation: 3s infinite alternate animMain, 6s infinite alternate animData;
+      animation:
+        3s infinite alternate animMain,
+        6s infinite alternate animData;
     }
 
     .crystal-data02 {
       opacity: 0;
-      animation: 3s infinite alternate animMain, 4s 2s infinite alternate animData;
+      animation:
+        3s infinite alternate animMain,
+        4s 2s infinite alternate animData;
     }
 
     .crystal-data03 {
       opacity: 0;
-      animation: 3s infinite alternate animMain, 6s 4s infinite alternate animData;
+      animation:
+        3s infinite alternate animMain,
+        6s 4s infinite alternate animData;
     }
 
     @keyframes animMain {

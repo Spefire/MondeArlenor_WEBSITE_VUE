@@ -65,23 +65,21 @@
           </div>
         </div>
       </div>
-      <div class="magic-top">
-        <div class="magic-grid docs-grid-list">
-          <div
-            v-for="(magic, index) in allMagics"
-            class="docs-grid-element"
-            :key="index">
-            <img
-              :src="magic.image"
-              :alt="magic.name">
-            <div class="docs-grid-infos">
-              <div class="docs-grid-header">
-                <span class="text-bold">{{ magic.name }}</span>
-              </div>
-              <p
-                class="docs-grid-body"
-                v-html="magic.description" />
+      <div class="magic-items grid-list">
+        <div
+          v-for="(magic, index) in allMagics"
+          class="grid-element"
+          :key="index">
+          <img
+            :src="magic.image"
+            :alt="magic.name">
+          <div>
+            <div class="grid-header">
+              <span class="text-bold">{{ magic.name }}</span>
             </div>
+            <p
+              class="grid-body"
+              v-html="magic.description" />
           </div>
         </div>
       </div>

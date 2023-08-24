@@ -72,5 +72,4 @@
   </table>
 </template>
 
-<style lang="scss" scoped src="./PowersSelectionTable.scss"></style>
 <script lang="ts" src="./PowersSelectionTable.ts"></script>
