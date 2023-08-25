@@ -27,7 +27,7 @@
 
       <div
         v-if="selectedSpeciality"
-        class="layout-bloc form-element zone-element zone-element-semifree margin-top-1">
+        class="layout-bloc zone-element zone-element-semifree margin-top-1">
         <div class="zone-header">
           <img
             class="zone-icon is-little"

@@ -108,7 +108,7 @@
 
     <div
       v-if="currentQuestion == 200"
-      class="layout-bloc form-element zone-element zone-element-free">
+      class="layout-bloc zone-element zone-element-free">
       <div class="zone-header">
         <img
           class="zone-icon"
