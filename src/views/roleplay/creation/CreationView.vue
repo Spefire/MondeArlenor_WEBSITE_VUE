@@ -16,7 +16,7 @@
             alt="">
         </div>
         <div class="creation-column">
-          <div class="layout-bloc text-justify">
+          <div class="layout-bloc text-justify margin-top-1">
             &emsp;
             Un personnage est défini par plusieurs choses : <b>ses caractéristiques</b> (et valeurs dérivées), <b>ses compétences principales</b>,
             <b>sa race</b> (parmi celles jouables), <b>son cristal évolutif</b> (ses pouvoirs), pour ensuite finir par quelques finitions.
@@ -26,7 +26,7 @@
             c'est VOUS qui le ferez vivre via ses actions : on choisit ce que l'on est par nos actes !
           </div>
           
-          <div class="layout-row">
+          <div class="layout-row margin-top-1">
             <div class="layout-col-75 form-element">
               <span>Personnage <span required-libelle>*</span></span>
               <div class="dropdown">
@@ -48,7 +48,7 @@
             </div>
 
             <div class="layout-col-25 form-element">
-              <span>Niveau (1-20)<span required-libelle>*</span></span>
+              <span>Niveau<span required-libelle>*</span></span>
               <input
                 type="number"
                 class="text-center"
@@ -59,18 +59,13 @@
             </div>
           </div>
 
-          <div class="layout-row">
-            <div class="layout-col-75 form-element">
+          <div class="layout-row margin-top-1">
+            <div class="layout-col-100 form-element">
               <button
                 v-if="checkDelete"
                 class="link-button alert-button"
                 @click="openDeletePopup()">Supprimer le personnage</button>
             </div>
-          </div>
-
-          <div class="layout-bloc text-justify">
-            &emsp;
-            Note : Pour une meilleure expérience, n'hésitez pas à rétracter le bandeau de navigation en haut à gauche.
           </div>
         </div>
       </div>

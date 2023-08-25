@@ -16,7 +16,12 @@
 
 .layout-row {
     display: flex;
+    gap: 20px;
     width: 100%;
+
+    .layout-col-100 {
+        width: 100% !important;
+    }
 
     .layout-col-75 {
         width: 75% !important;

@@ -68,7 +68,7 @@
 
       <div
         v-if="currentRace"
-        class="grid-list grid-1">
+        class="grid-list grid-1 margin-top-1">
         <div
           v-for="(skill, index) in getSkills(currentRace.code)"
           class="grid-element"

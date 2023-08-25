@@ -26,7 +26,7 @@
           accept="image/png, image/jpeg"
           @change="changeAvatar">
       </div>
-      <div class="form-element">
+      <div class="form-element margin-top-1">
         <span>Nom du personnage <span required-libelle>*</span></span>
         <input
           type="text"
@@ -34,9 +34,9 @@
           maxlength="40"
           v-model.trim.lazy="v$.form.name.$model">
       </div>
-      <div class="layout-row">
+      <div class="layout-row margin-top-1">
         <div class="layout-col-25 form-element">
-          <span>Âge (1-200)<span required-libelle>*</span></span>
+          <span>Âge<span required-libelle>*</span></span>
           <input
             type="number"
             class="text-center"
@@ -67,7 +67,7 @@
           placeholder="Robuste, élégant, frêle, ridé, jeune..."
           v-model.trim.lazy="v$.form.description.$model">
       </div>
-      <div class="form-element">
+      <div class="form-element margin-top-1">
         <span>Traits de caractère</span>
         <input
           type="text"
@@ -75,7 +75,7 @@
           placeholder="Timide, sérieux, charmeur, rêveur, généreux..."
           v-model.trim.lazy="v$.form.traits.$model">
       </div>
-      <div class="form-element">
+      <div class="form-element margin-top-1">
         <span>Idéologies et croyances</span>
         <input
           type="text"
@@ -83,7 +83,7 @@
           placeholder="Allié des mutants, vénération des divinités, esprit scientifique..."
           v-model.trim.lazy="v$.form.belives.$model">
       </div>
-      <div class="form-element">
+      <div class="form-element margin-top-1">
         <span>Personnes ou lieux significatifs</span>
         <input
           type="text"
@@ -91,7 +91,7 @@
           placeholder="Un parent, un ami, la ville natale, un sanctuaire..."
           v-model.trim.lazy="v$.form.importances.$model">
       </div>
-      <div class="form-element">
+      <div class="form-element margin-top-1">
         <span>Histoire personnelle et faits divers</span>
         <textarea
           placeholder="Son enfance, sa motivation dans la vie, l'acquisition de ses pouvoirs, des haut-faits réalisés..."

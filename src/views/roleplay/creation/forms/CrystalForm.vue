@@ -27,7 +27,7 @@
 
       <div
         v-if="selectedSpeciality"
-        class="layout-bloc form-element zone-element zone-element-semifree">
+        class="layout-bloc form-element zone-element zone-element-semifree margin-top-1">
         <div class="zone-header">
           <img
             class="zone-icon is-little"
@@ -44,12 +44,12 @@
 
       <div
         v-if="!selectedSpeciality"
-        class="layout-bloc"
+        class="layout-bloc margin-top-1"
         required-libelle>
         <span required-libelle>Pas de classe sélectionnée.</span>
       </div>
 
-      <div class="form-element">
+      <div class="form-element margin-top-2">
         <span>Pouvoirs <span required-libelle>*</span></span>
         <div class="layout-bloc">
           <span
