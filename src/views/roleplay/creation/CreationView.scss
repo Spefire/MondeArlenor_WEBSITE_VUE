@@ -6,31 +6,10 @@
   justify-content: space-between;
   height: calc(100vh - 90px);
 
-  &.is-disabled {
-    &::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      z-index: 20;
-      opacity: 0.4;
-      background: $black-color;
-      pointer-events: none;
-      content: "";
-    }
-
-    * {
-      pointer-events: none !important;
-      cursor: not-allowed;
-    }
-  }
-
   .creation-content {
     position: relative;
     display: flex;
     flex-direction: row;
-    align-items: center;
     height: 100%;
     width: 100%;
     margin-bottom: 20px;
@@ -77,21 +56,22 @@
   .creation-description {
     display: flex;
     flex-direction: column;
-    max-height: 50vh;
+    height: 100%;
     padding: 25px;
+    overflow: auto;
+  }
+
+  .creation-table {
+    display: block;
+    max-height: 100%;
     overflow: auto;
   }
 
   .creation-img-perso {
     display: block;
-    max-height: 50vh;
-    max-width: 50vh;
+    height: 100%;
     margin: auto;
     padding: 0;
-
-    @include tablet-only {
-      max-width: 100%;
-    }
   }
 
   .power-line {

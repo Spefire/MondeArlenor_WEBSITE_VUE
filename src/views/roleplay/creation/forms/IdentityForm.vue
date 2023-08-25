@@ -1,11 +1,12 @@
 <template>
   <CreationForm
     form-title="Choix de l'identité"
-    :is-disabled="isDisabled"
     :is-modified="isModified"
     :is-invalid="v$.form.$invalid"
     @outCancel="cancelForm()"
     @outSubmit="submitForm()">
+    
+    <!------------------------------------------------------------------->
     <div class="creation-column">
       <div class="form-element">
         <span>Avatar du personnage</span>
@@ -56,6 +57,7 @@
       </div>
     </div>
 
+    <!------------------------------------------------------------------->
     <div class="creation-column">
       <div class="form-element">
         <span>Description physique</span>
@@ -100,5 +102,4 @@
   </CreationForm>
 </template>
 
-<style lang="scss" scoped src="./../CreationView.scss"></style>
 <script lang="ts" src="./IdentityForm.ts"></script>

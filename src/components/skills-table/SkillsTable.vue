@@ -32,7 +32,7 @@
     </div>
   </div>
 
-  <table class="layout-bloc margin-top-1">
+  <table class="table-max-height layout-bloc margin-top-1">
     <thead>
       
       <!---------- Entête --------->

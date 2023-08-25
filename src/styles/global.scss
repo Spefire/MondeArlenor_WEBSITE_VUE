@@ -318,6 +318,13 @@ table {
   text-align: left;
   border-spacing: 0;
 
+  &.table-max-height {
+    tbody {
+      max-height: 50vh;
+      overflow: auto;
+    }
+  }
+
   thead > tr {
     display: flex;
     overflow: hidden;
@@ -331,11 +338,6 @@ table {
   tbody {
     display: block;
     width: 100%;
-  }
-
-  tbody {
-    max-height: 50vh;
-    overflow: auto;
   }
 
   tr {

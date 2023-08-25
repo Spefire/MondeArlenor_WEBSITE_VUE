@@ -12,13 +12,6 @@ import CreationForm from "../form/CreationForm.vue";
 export default defineComponent({
   name: "RaceForm",
   components: { CreationForm },
-  props: {
-    isDisabled: {
-      type: Boolean,
-      required: false,
-      default: false
-    }
-  },
   emits: ["previousStep", "nextStep"],
   
   data() {
@@ -50,11 +43,8 @@ export default defineComponent({
 
   computed: {
     currentRace(): ArlenorRace | null {
-      if (this.form.raceCode) {
-        const race = this.allRaces.find(race => race.code === this.form.raceCode);
-        return race ? race : null;
-      }
-      else return null;
+      const race = this.allRaces.find(race => race.code === this.form.raceCode);
+      return race ? race : null;
     },
   },
 

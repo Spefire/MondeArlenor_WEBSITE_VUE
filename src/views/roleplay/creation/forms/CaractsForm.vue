@@ -1,12 +1,12 @@
 <template>
   <CreationForm
     form-title="Choix des caractéristiques"
-    :is-disabled="isDisabled"
     :is-modified="isModified"
     :is-invalid="v$.form.$invalid"
     @outCancel="cancelForm()"
     @outSubmit="submitForm()">
-    <!-- Description de la caractéristique sélectionnée -->
+
+    <!------------------------------------------------------------------->
     <div class="creation-column">
       <div class="creation-description layout-bloc text-justify">
         <template v-if="selectCaract === 'FOR'">
@@ -41,7 +41,7 @@
       </div>
     </div>
 
-    <!-- Choix de la caractéristique -->
+    <!------------------------------------------------------------------->
     <div class="creation-column">
       <div class="form-element">
         <span>Caractéristiques du personnage <span required-libelle>*</span></span>
@@ -156,5 +156,4 @@
   </CreationForm>
 </template>
 
-<style lang="scss" scoped src="./../CreationView.scss"></style>
 <script lang="ts" src="./CaractsForm.ts"></script>

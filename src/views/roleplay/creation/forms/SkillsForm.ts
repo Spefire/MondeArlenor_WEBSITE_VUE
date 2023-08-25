@@ -12,13 +12,6 @@ import CreationForm from "../form/CreationForm.vue";
 export default defineComponent({
   name: "SkillsForm",
   components: { CreationForm, SkillsSelectionTable },
-  props: {
-    isDisabled: {
-      type: Boolean,
-      required: false,
-      default: false
-    }
-  },
   emits: ["previousStep", "nextStep"],
   
   data () {

@@ -1,11 +1,12 @@
 <template>
   <CreationForm
     :form-title="(indexCrystal == 0) ? 'Choix du cristal primaire' : 'Choix du cristal secondaire'"
-    :is-disabled="isDisabled"
     :is-modified="isModified"
     :is-invalid="v$.form.$invalid"
     @outCancel="cancelForm()"
     @outSubmit="submitForm()">
+
+    <!------------------------------------------------------------------->
     <div class="creation-column">
       <div class="form-element">
         <span>Classe  <span required-libelle>*</span></span>
@@ -43,40 +44,44 @@
 
       <div
         v-if="!selectedSpeciality"
-        class="layout-bloc form-element zone-element zone-element-semifree">
-        <div class="zone-header">
-          <div class="text-center margin-left-1">
-            <h2>Pas de classe sélectionnée</h2>
-          </div>
-        </div>
-        <p class="zone-comment margin-top-1">
-          Choisissez une classe avant de sélectionner des pouvoirs.
-        </p>
+        class="layout-bloc"
+        required-libelle>
+        <span required-libelle>Pas de classe sélectionnée.</span>
       </div>
-    </div>
 
-    <div class="creation-column">
       <div class="form-element">
         <span>Pouvoirs <span required-libelle>*</span></span>
-
-        <div 
-          v-if="!selectedSpeciality"
-          class="layout-bloc">
-          Pas de classe sélectionnée.
+        <div class="layout-bloc">
+          <span
+            v-if="!selectedSpeciality"
+            required-libelle>
+            Choisissez une classe avant de sélectionner des pouvoirs.
+          </span>
+          <span
+            v-if="selectedSpeciality && !form.isNbPowersValid"
+            required-libelle>
+            Il reste des pouvoirs à sélectionner...
+          </span>
+          <template v-if="selectedSpeciality && form.isNbPowersValid">
+            Tous les pouvoirs ont été sélectionnés.
+          </template>
         </div>
-
-        <PowersSelectionTable
-          v-if="selectedSpeciality"
-          :index-crystal="indexCrystal"
-          :level="level"
-          :ids-powers="form.idsPowers"
-          :filtered-powers="filteredPowers"
-          @add="addPower"
-          @remove="removePower" />
       </div>
+    </div>
+    
+    <!------------------------------------------------------------------->
+    <div class="creation-column">
+      <PowersSelectionTable
+        v-if="selectedSpeciality"
+        :index-crystal="indexCrystal"
+        :level="level"
+        :ids-powers="form.idsPowers"
+        :filtered-powers="filteredPowers"
+        class="creation-table"
+        @add="addPower"
+        @remove="removePower" />
     </div>
   </CreationForm>
 </template>
 
-<style lang="scss" scoped src="./../CreationView.scss"></style>
 <script lang="ts" src="./CrystalForm.ts"></script>

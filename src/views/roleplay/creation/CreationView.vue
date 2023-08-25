@@ -85,40 +85,33 @@
 
     <template v-if="selection != 0 && selection != 8">    
       <RaceForm
-        :is-disabled="selection != 1"
+        v-if="selection == 1"
         @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
-      <div little-separator />
       <CaractsForm
-        :is-disabled="selection != 2"
+        v-if="selection == 2"
         @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
-      <div little-separator />
       <CrystalForm
-        :is-disabled="selection != 3"
+        v-if="selection == 3"
         :index-crystal="0"
         @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
-      <div little-separator />
       <CrystalForm
-        v-if="character.level.numLevel < 5"
-        :is-disabled="selection != 4"
+        v-if="selection == 4 && character.level.numLevel < 5"
         :index-crystal="1"
         @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
-      <div little-separator />
       <SkillsForm
-        :is-disabled="selection != 5"
+        v-if="selection == 5"
         @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
-      <div little-separator />
       <!--StuffForm
-    :is-disabled="selection != 6"
+        v-if="selection == 6"
         @previousStep="decreaseSelection()"
-        @nextStep="increaseSelection()" />
-    <div little-separator /-->
+        @nextStep="increaseSelection()" /-->
       <IdentityForm
-        :is-disabled="selection != 7"
+        v-if="selection == 7"
         @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
     </template>
@@ -218,5 +211,5 @@
   </PopupBloc>
 </template>
 
-<style lang="scss" scoped src="./CreationView.scss"></style>
+<style lang="scss" src="./CreationView.scss"></style>
 <script lang="ts" src="./CreationView.ts"></script>

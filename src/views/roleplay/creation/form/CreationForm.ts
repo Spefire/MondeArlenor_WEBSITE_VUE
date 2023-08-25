@@ -8,11 +8,6 @@ export default defineComponent({
       required: true,
       default: null
     },
-    isDisabled: {
-      type: Boolean,
-      required: false,
-      default: false
-    },
     isModified: {
       type: Boolean,
       required: false,

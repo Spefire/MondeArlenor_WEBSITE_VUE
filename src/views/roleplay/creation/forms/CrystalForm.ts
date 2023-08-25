@@ -19,11 +19,6 @@ export default defineComponent({
       type: Number,
       required: true,
     },
-    isDisabled: {
-      type: Boolean,
-      required: false,
-      default: false
-    }
   },
   emits: ["previousStep", "nextStep"],
   

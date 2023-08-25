@@ -1,17 +1,17 @@
 <template>
   <CreationForm
     form-title="Choix de la race"
-    :is-disabled="isDisabled"
     :is-modified="isModified"
     :is-invalid="v$.form.$invalid"
     @outCancel="cancelForm()"
     @outSubmit="submitForm()">
-    <!-- Description de la race sélectionnée -->
+
+    <!------------------------------------------------------------------->
     <div class="creation-column">
       <div
         v-if="!currentRace"
-        class="creation-description layout-bloc">
-        Pas de race sélectionnée.
+        class="layout-bloc">
+        <span required-libelle>Pas de race sélectionnée.</span>
       </div>
       <div
         v-if="currentRace"
@@ -30,10 +30,10 @@
           class="text-justify"
           v-html="currentRace.description" />
         <div class="section-moreinfos">
-          <p>
+          <p class="margin-bottom-0">
             <span class="text-bold">{{ currentRace.ratioWorld }}%</span> du monde sont des {{ currentRace.name.toLowerCase() }}s
           </p>
-          <p>
+          <p class="margin-bottom-0">
             <span>Localisations</span>
             <br>
             <span
@@ -42,14 +42,14 @@
               - {{ location }}<br>
             </span>
           </p>
-          <p>
+          <p class="margin-bottom-0">
             <span class="text-bold">{{ currentRace.ratioMagic }}%</span> des {{ currentRace.name.toLowerCase() }}s peuvent utiliser la magie
           </p>
         </div>
       </div>
     </div>
 
-    <!-- Sélection de la race -->
+    <!------------------------------------------------------------------->
     <div class="creation-column">
       <div class="form-element">
         <span>Race du personnage <span required-libelle>*</span></span>
@@ -90,5 +90,4 @@
   </CreationForm>
 </template>
 
-<style lang="scss" scoped src="./../CreationView.scss"></style>
 <script lang="ts" src="./RaceForm.ts"></script>

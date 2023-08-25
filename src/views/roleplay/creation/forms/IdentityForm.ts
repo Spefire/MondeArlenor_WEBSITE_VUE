@@ -9,13 +9,6 @@ import CreationForm from "../form/CreationForm.vue";
 export default defineComponent({
   name: "IdentityForm",
   components: { CreationForm },
-  props: {
-    isDisabled: {
-      type: Boolean,
-      required: false,
-      default: false
-    }
-  },
   emits: ["previousStep", "nextStep"],
 
   data () {
