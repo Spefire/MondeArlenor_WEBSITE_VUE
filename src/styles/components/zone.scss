@@ -56,19 +56,25 @@
         }
     }
 
-    .zone-image + .zone-header {
+    .zone-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .zone-header-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .zone-image + .zone-header-buttons {
         margin-top: 0;
         border-top: 1px solid $secondary-color;
 
         @include tablet-only {
             border-top: none;
         }
-    }
-
-    .zone-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
     }
 
     .zone-description {

@@ -1,5 +1,5 @@
 <template>
-  <div class="hide-on-mobile">
+  <div class="hide-on-mobile is-relative">
     <div
       v-if="selection == 0"
       class="layout-view background-roleplay creation-view">
@@ -16,7 +16,7 @@
             alt="">
         </div>
         <div class="creation-column">
-          <div class="layout-bloc text-justify margin-top-1">
+          <div class="layout-bloc text-justify">
             &emsp;
             Un personnage est défini par plusieurs choses : <b>ses caractéristiques</b> (et valeurs dérivées), <b>ses compétences principales</b>,
             <b>sa race</b> (parmi celles jouables), <b>son cristal évolutif</b> (ses pouvoirs), pour ensuite finir par quelques finitions.
@@ -176,6 +176,48 @@
           @click="startCreation(false)">Modifier l'actuel</button>
       </div>
     </div>
+
+    <ul class="celestia-creation-steps selection-container">
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 0 }"
+        class="dot" />
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 1 }"
+        class="dot" />
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 2 }"
+        class="dot" />
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 3 }"
+        class="dot" />
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 4,
+                 'warning': character.level.numLevel < 5}"
+        class="dot" />
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 5 }"
+        class="dot" />
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 6,
+                 'warning': true }"
+        class="dot" />
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 7 }"
+        class="dot" />
+      <div class="dotline" />
+      <li
+        :class="{'active': selection == 8 }"
+        class="dot" />
+      <div class="dotline" />
+    </ul>
   </div>
 
   <div class="layout-view background-roleplay show-on-mobile">

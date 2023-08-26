@@ -33,7 +33,7 @@
       </div>
         
       <div class="world-left zone-element">
-        <div class="zone-header">
+        <div class="zone-header-buttons">
           <div
             class="select-button inverted"
             @click="previousSelection()">
