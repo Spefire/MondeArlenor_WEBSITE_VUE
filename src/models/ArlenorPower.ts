@@ -56,13 +56,12 @@ export class ArlenorPower extends ArlenorAPI {
   constructor() {
     super();
     const specialities = new ArlenorSpecialities();
-    this.isVerified = false;
 
+    this.isVerified = false;
     this.name = "";
     this.description = "";
     this.codeType = PowerTypesEnum.Attack.Code;
     this.codeSpeciality = specialities.Gardien.code;
-
     this.codeRank = PowerRanksEnum.Commun.Code;
     this.codeRange = PowerRangesEnum.Personnelle.Code;
     this.codeDuration = PowerDurationsEnum.Instantanee.Code;

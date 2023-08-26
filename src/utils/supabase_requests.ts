@@ -9,27 +9,41 @@ const supabase = createClient(url, key);
 
 const requestGet = async(target: string): Promise<any[]>  => {
   const { data } = await supabase.from(target).select();
+  console.warn("requestGet", data);
   return (data || []);
 };
 
 const requestPostAll = async(target: string, items: ArlenorAPI[]): Promise<any[]> => {
-  const { data } = await supabase.from(target).insert(items).select();
+  const newItems: any[] = [];
+  items.forEach(item => {
+    const newItem: any = Object.assign({}, item);
+    delete newItem["id"];
+    newItems.push(newItem);
+  });
+  const { data } = await supabase.from(target).insert(newItems).select();
+  console.warn("requestPostAll", data);
   return (data || []);
 };
 
-const requestPost = async(target: string, item: ArlenorAPI): Promise<any[]> => {
-  const { data } = await supabase.from(target).insert([item]).select();
-  return (data || []);
+const requestPost = async(target: string, item: ArlenorAPI): Promise<number> => {
+  const newItem: any = Object.assign({}, item);
+  delete newItem["id"];
+  const { data } = await supabase.from(target).insert([newItem]).select();
+  const id = (data && data[0].id) ? data[0].id : 0;
+  console.warn("requestPost", id);
+  return id;
 };
 
-const requestPut = async(target: string, item: ArlenorAPI): Promise<any[]> => {
-  const { data } = await supabase.from(target).update(item).eq("id", item.id).select();
-  return (data || []);
+const requestPut = async(target: string, item: ArlenorAPI): Promise<boolean> => {
+  await supabase.from(target).update(item).eq("id", item.id).select();
+  console.warn("requestPut");
+  return true;
 };
 
-const requestDelete = async(target: string, id: string): Promise<any[]> => {
-  const { data } = await supabase.from(target).delete().eq("id", id).select();
-  return (data || []);
+const requestDelete = async(target: string, id: number | null): Promise<boolean> => {
+  await supabase.from(target).delete().eq("id", id).select();
+  console.warn("requestDelete");
+  return true;
 };
 
 export default {

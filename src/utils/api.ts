@@ -1,25 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
-import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { ArlenorStuff } from "@/models/ArlenorStuff";
 import { CelestiaQuizz } from "@/models/CelestiaQuizz";
 
-import { ResponseCharacter, ResponsePower, ResponseQuizz, ResponseSkill, ResponseStuff } from "./api_models";
+import { ResponseCharacter, ResponseQuizz, ResponseSkill, ResponseStuff } from "./api_models";
 import requests from "./requests";
 
 // --- QUIZZ ---------------------------------------------------------------------------
 const readAllQuizz = async(): Promise<CelestiaQuizz[]>  => {
   const results: ResponseQuizz[] = await requests.requestGet("quizz");
-  console.log("readAllQuizz", results);
-
+  
   const finalResults: CelestiaQuizz[] = [];
-  /*results.forEach((obj: ResponseQuizz) => {
+  results.forEach((obj: ResponseQuizz) => {
     const quizz = new CelestiaQuizz();
-    quizz.id = obj.ref_quizz;
-    quizz.initByJSON(obj.value_quizz);
+    quizz.id = obj.ref_quizz ? 0 : 1;
     finalResults.push(quizz);
-  });*/
+  });
 
   return finalResults;
 };
@@ -33,15 +30,13 @@ const sendQuizz = async(quizz: CelestiaQuizz): Promise<string> => {
 // --- CHARACTER ---------------------------------------------------------------------------
 const readAllCharacter = async(): Promise<ArlenorCharacter[]>  => {
   const results: ResponseCharacter[] = await requests.requestGet("character");
-  console.log("readAllCharacter", results);
-
+  
   const finalResults: ArlenorCharacter[] = [];
-  /*results.forEach((obj: ResponseCharacter) => {
+  results.forEach((obj: ResponseCharacter) => {
     const character = new ArlenorCharacter();
-    character.id = obj.ref_character;
-    character.initByJSON(obj.value_character);
+    character.id = obj.ref_character ? 0 : 1;
     finalResults.push(character);
-  });*/
+  });
 
   return finalResults;
 };
@@ -66,15 +61,13 @@ const deleteCharacter = async(character: ArlenorCharacter): Promise<string> => {
 // --- SKILL ---------------------------------------------------------------------------
 const readAllSkill = async(): Promise<ArlenorSkill[]>  => {
   const results: ResponseSkill[] = await requests.requestGet("skill");
-  console.log("readAllSkill", results);
 
   const finalResults: ArlenorSkill[] = [];
-  /*results.forEach((obj: ResponseSkill) => {
+  results.forEach((obj: ResponseSkill) => {
     const skill = new ArlenorSkill();
-    skill.id = obj.ref_skill;
-    skill.initByJSON(obj.value_skill);
+    skill.id = obj.ref_skill ? 0 : 1;
     finalResults.push(skill);
-  });*/
+  });
 
   return finalResults;
 };
@@ -99,15 +92,13 @@ const deleteSkill = async(skill: ArlenorSkill): Promise<string> => {
 // --- STUFF ---------------------------------------------------------------------------
 const readAllStuff = async(): Promise<ArlenorStuff[]>  => {
   const results: ResponseStuff[] = await requests.requestGet("stuff");
-  console.log("readAllStuff", results);
 
   const finalResults: ArlenorStuff[] = [];
-  /*results.forEach((obj: ResponseStuff) => {
+  results.forEach((obj: ResponseStuff) => {
     const stuff = new ArlenorStuff();
-    stuff.id = obj.ref_stuff;
-    stuff.initByJSON(obj.value_stuff);
+    stuff.id = obj.ref_stuff ? 0 : 1;
     finalResults.push(stuff);
-  });*/
+  });
 
   return finalResults;
 };
@@ -129,70 +120,19 @@ const deleteStuff = async(stuff: ArlenorStuff): Promise<string> => {
   return result;
 };
 
-// --- POWER ---------------------------------------------------------------------------
-const readAllPower = async(): Promise<ArlenorPower[]>  => {
-  const results: ResponsePower[] = await requests.requestGet("power");
-  console.log("readAllPower", results);
-
-  const finalResults: ArlenorPower[] = [];
-  /*results.forEach((obj: ResponsePower) => {
-    const power = new ArlenorPower();
-    power.id = obj.ref_power;
-    power.initByJSON(obj.value_power);
-    finalResults.push(power);
-  });*/
-
-  return finalResults;
-};
-
-const sendAllPower = async(powers: ArlenorPower[]): Promise<string> => {
-  powers.forEach(power => power.initTime());
-
-  let result = "";
-  const chunkSize = 20;
-  for (let i = 0; i < powers.length; i += chunkSize) {
-    const chunk = powers.slice(i, i + chunkSize);
-    result = await requests.requestPost("power/all", chunk);
-  }
-
-  return result;
-};
-
-const sendPower = async(power: ArlenorPower): Promise<string> => {
-  power.initTime();
-  const result: string = await requests.requestPost("power", power);
-  return result;
-};
-
-const updatePower = async(power: ArlenorPower): Promise<string> => {
-  power.initTime();
-  const result: string = await requests.requestPut("power", power);
-  return result;
-};
-
-const deletePower = async(power: ArlenorPower): Promise<string> => {
-  const result: string = await requests.requestDelete("power", power.id);
-  return result;
-};
-
 export default {
   readAllQuizz,
   readAllCharacter,
   readAllSkill,
   readAllStuff,
-  readAllPower,
   sendQuizz,
   sendCharacter,
   sendSkill,
   sendStuff,
-  sendPower,
   updateCharacter,
   updateSkill,
   updateStuff,
-  updatePower,
   deleteCharacter,
   deleteSkill,
   deleteStuff,
-  deletePower,
-  sendAllPower,
 };

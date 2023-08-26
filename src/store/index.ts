@@ -4,6 +4,7 @@ import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { ArlenorStuff } from "@/models/ArlenorStuff";
 import { CelestiaQuizz } from "@/models/CelestiaQuizz";
 import api from "@/utils/api";
+import supabase_api from "@/utils/supabase_api";
 import { createStore } from "vuex";
 
 export default createStore({
@@ -26,7 +27,7 @@ export default createStore({
     },
     async loadAllPowers(state, payload = false) {
       if (!state.allPowers || payload) {
-        const allPowers = await api.readAllPower();
+        const allPowers = await supabase_api.getAllPower();
         state.allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
       }
     },

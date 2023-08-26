@@ -2,7 +2,7 @@
 import PopupBloc from "@/components/popup/PopupBloc.vue";
 import PowersTable from "@/components/powers-table/PowersTable.vue";
 import { ArlenorPower } from "@/models/ArlenorPower";
-import api from "@/utils/api";
+import supabase_api from "@/utils/supabase_api";
 import { defineComponent, Ref, ref } from "vue";
 import { useStore } from "vuex";
 
@@ -70,8 +70,8 @@ export default defineComponent({
             finalResults.push(power);
           });*/
 
-          console.log("sendAllPower", parameters);
-          await api.sendAllPower(finalResults);
+          console.log("postAllPower", parameters);
+          await supabase_api.postAllPower(finalResults);
           alert("Importation des pouvoirs réussie.");
 
           this.store.commit("loadAllPowers", true);
@@ -101,17 +101,12 @@ export default defineComponent({
     },
     async closeAddPower(power: ArlenorPower | boolean) {
       this.showAddPopup = false;
-      if (typeof power === "object") {
-        const newPower = power as ArlenorPower;
-        // TODO
-        //const result = await api.sendPower(newPower);
-        //const resultSplit = result.split(" ");
-        //const id = resultSplit[resultSplit.length-1];
-        // newPower.id = id;
-
+      if (power instanceof ArlenorPower) {
+        power.id = await supabase_api.postPower(power);
+        
         // On recharge le store
         const newPowers = this.allPowers.slice();
-        newPowers.push(newPower);
+        newPowers.push(power);
         this.store.commit("changeAllPowers", newPowers);
       }
       this.currentPower = null;
@@ -122,14 +117,13 @@ export default defineComponent({
     },
     async closeEditPower(power: ArlenorPower | boolean) {
       this.showEditPopup = false;
-      if (typeof power === "object") {
-        const newPower = power as ArlenorPower;
-        await api.updatePower(newPower);
+      if (power instanceof ArlenorPower) {
+        await supabase_api.putPower(power);
 
         // On recharge le store
         const newPowers = this.allPowers.slice();
-        const index = newPowers.findIndex(pow => pow.id === newPower.id);
-        newPowers[index] = newPower;
+        const index = newPowers.findIndex(pow => pow.id === power.id);
+        newPowers[index] = power;
         this.store.commit("changeAllPowers", newPowers);
       }
       this.currentPower = null;
@@ -141,7 +135,7 @@ export default defineComponent({
     async closeDeletePower(withAction: boolean) {
       this.showDeletePopup = false;
       if (withAction && this.currentPower) {
-        await api.deletePower(this.currentPower);
+        await supabase_api.deletePower(this.currentPower);
 
         // On recharge le store
         const newPowers = this.allPowers.slice().filter(power => power.id !== this.currentPower?.id);

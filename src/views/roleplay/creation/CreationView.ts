@@ -4,6 +4,7 @@ import { ArlenorSkills } from "@/models/data/ListDefaultSkills";
 import { PageTitles } from "@/models/PagesTitles";
 import api from "@/utils/api";
 import downloads from "@/utils/downloads";
+import supabase_api from "@/utils/supabase_api";
 // import random from "@/utils/random";
 import useVuelidate from "@vuelidate/core";
 import { between, required } from "@vuelidate/validators";
@@ -130,7 +131,7 @@ export default defineComponent({
     },
     async downloadCharacter() {
       let allSkills = await api.readAllSkill();
-      let allPowers = await api.readAllPower();
+      let allPowers = await supabase_api.getAllPower();
       const skills = ArlenorSkills.getListDefaultSkills();
       allSkills = allSkills.concat(skills);
       allSkills = allSkills.sort((a, b) => a.name.localeCompare(b.name));

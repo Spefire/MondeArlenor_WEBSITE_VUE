@@ -8,16 +8,6 @@ export class ResponseCharacter {
   }
 }
 
-export class ResponsePower {
-  public ref_power: string;
-  public value_power: string;
-  
-  constructor() {
-    this.ref_power = "";
-    this.value_power = "";
-  }
-}
-
 export class ResponseQuizz {
   public ref_quizz: string;
   public value_quizz: string;
