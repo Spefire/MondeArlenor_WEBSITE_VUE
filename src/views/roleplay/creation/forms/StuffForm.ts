@@ -21,7 +21,11 @@ export default defineComponent({
   setup () {
     return { v$: useVuelidate() };
   },
-  
+
+  mounted() {
+    this.store.commit("loadAllStuffs");
+  },
+
   validations: {
     form: {},
   },
@@ -41,7 +45,7 @@ export default defineComponent({
     },
     save() {
       /*const newCharacter = new ArlenorCharacter();
-      this.store.commit("changeCharacterIdentity", newCharacter);*/
+      this.store.commit("changeCharacterStuffs", newCharacter);*/
     }
   }
 });

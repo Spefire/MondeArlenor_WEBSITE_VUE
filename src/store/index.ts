@@ -17,6 +17,7 @@ export default createStore({
     allStuffs: null as ArlenorStuff[] | null
   },
   mutations: {
+
     async loadAllCharacters(state, payload = false) {
       if (!state.allCharacters || payload) {
         const allCharacters = await api.readAllCharacter();
@@ -41,6 +42,7 @@ export default createStore({
         state.allStuffs = allStuffs.sort((a, b) => a.name.localeCompare(b.name));
       }
     },
+
     changeAllCharacters(state, payload: ArlenorCharacter[]) {
       state.allCharacters = payload.sort((a, b) => a.name.localeCompare(b.name));
     },
@@ -53,6 +55,8 @@ export default createStore({
     changeAllStuffs(state, payload: ArlenorStuff[]) {
       state.allStuffs = payload.sort((a, b) => a.name.localeCompare(b.name));
     },
+
+    // --- Character ------------------------------------------------------------------------------
     changeCharacter(state, payload: ArlenorCharacter) {
       state.character = payload;
     },
@@ -70,8 +74,7 @@ export default createStore({
       state.character.caracts.cha = payload.caracts.cha;
       state.character.caracts.mag = payload.caracts.mag;
     },
-    // Note : payload : { index, crystal }
-    changeCharacterCrystal(state, payload) {
+    changeCharacterCrystal(state, payload /* Note : { index, crystal } */) {
       state.character.crystals[payload.index] = payload.crystal;
     },
     changeCharacterSkills(state, payload) {
@@ -91,10 +94,6 @@ export default createStore({
     resetCharacter(state) {
       state.character = new ArlenorCharacter();
     },
-    // Note : payload : { index, quizz }
-    changeQuizz(state, payload) {
-      state.quizz.questions[payload.index] = payload.quizz.questions[payload.index];
-    },
     loadLocalCharacters(state) {
       state.localCharacters = instanceCharacters();
     },
@@ -106,7 +105,6 @@ export default createStore({
       const localCharactersString = JSON.stringify(characters);
       localStorage.setItem("localCharacters", localCharactersString);
     },
-    // TODO
     deleteLocalCharacter(state, payload: number) {
       let characters = instanceCharacters();
       characters = characters.filter(charact => charact.id !== payload);
@@ -114,7 +112,12 @@ export default createStore({
 
       const localCharactersString = JSON.stringify(characters);
       localStorage.setItem("localCharacters", localCharactersString);
-    }
+    },
+
+    // --- Quizz ------------------------------------------------------------------------------
+    changeQuizz(state, payload /* Note : { index, quizz } */) {
+      state.quizz.questions[payload.index] = payload.quizz.questions[payload.index];
+    },
   },
   actions: {
   },

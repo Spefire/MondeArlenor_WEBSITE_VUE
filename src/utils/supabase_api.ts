@@ -5,16 +5,15 @@ import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { ArlenorStuff } from "@/models/ArlenorStuff";
 import { CelestiaQuizz } from "@/models/CelestiaQuizz";
 
-import { ResponsePower, ResponseSkill, ResponseStuff } from "./api_models";
 import requests from "./requests";
-import requests_supabase from "./requests_supabase";
+import supabase_requests from "./supabase_requests";
 
 // --- QUIZZ ---------------------------------------------------------------------------
 const getAllQuizz = async(): Promise<CelestiaQuizz[]>  => {
-  return await requests_supabase.requestGet("quizz");
+  return await supabase_requests.requestGet("quizz");
 };
 
-const sendQuizz = async(quizz: CelestiaQuizz): Promise<string> => {
+const postQuizz = async(quizz: CelestiaQuizz): Promise<string> => {
   quizz.initTime();
   const result: string = await requests.requestPost("quizz", quizz);
   return result;
@@ -22,16 +21,16 @@ const sendQuizz = async(quizz: CelestiaQuizz): Promise<string> => {
 
 // --- CHARACTER ---------------------------------------------------------------------------
 const getAllCharacter = async(): Promise<ArlenorCharacter[]>  => {
-  return await requests_supabase.requestGet("character");
+  return await supabase_requests.requestGet("character");
 };
 
-const sendCharacter = async(character: ArlenorCharacter): Promise<string> => {
+const postCharacter = async(character: ArlenorCharacter): Promise<string> => {
   character.initTime();
   const result: string = await requests.requestPost("character", character);
   return result;
 };
 
-const updateCharacter = async(character: ArlenorCharacter): Promise<string> => {
+const putCharacter = async(character: ArlenorCharacter): Promise<string> => {
   character.initTime();
   const result: string = await requests.requestPut("character", character);
   return result;
@@ -44,16 +43,16 @@ const deleteCharacter = async(character: ArlenorCharacter): Promise<string> => {
 
 // --- SKILL ---------------------------------------------------------------------------
 const getAllSkill = async(): Promise<ArlenorSkill[]>  => {
-  return await requests_supabase.requestGet("skill");
+  return await supabase_requests.requestGet("skill");
 };
 
-const sendSkill = async(skill: ArlenorSkill): Promise<string> => {
+const postSkill = async(skill: ArlenorSkill): Promise<string> => {
   skill.initTime();
   const result: string = await requests.requestPost("skill", skill);
   return result;
 };
 
-const updateSkill = async(skill: ArlenorSkill): Promise<string> => {
+const putSkill = async(skill: ArlenorSkill): Promise<string> => {
   skill.initTime();
   const result: string = await requests.requestPut("skill", skill);
   return result;
@@ -66,16 +65,16 @@ const deleteSkill = async(skill: ArlenorSkill): Promise<string> => {
 
 // --- STUFF ---------------------------------------------------------------------------
 const getAllStuff = async(): Promise<ArlenorStuff[]>  => {
-  return await requests_supabase.requestGet("stuff");
+  return await supabase_requests.requestGet("stuff");
 };
 
-const sendStuff = async(stuff: ArlenorStuff): Promise<string> => {
+const postStuff = async(stuff: ArlenorStuff): Promise<string> => {
   stuff.initTime();
   const result: string = await requests.requestPost("stuff", stuff);
   return result;
 };
 
-const updateStuff = async(stuff: ArlenorStuff): Promise<string> => {
+const putStuff = async(stuff: ArlenorStuff): Promise<string> => {
   stuff.initTime();
   const result: string = await requests.requestPut("stuff", stuff);
   return result;
@@ -88,29 +87,25 @@ const deleteStuff = async(stuff: ArlenorStuff): Promise<string> => {
 
 // --- POWER ---------------------------------------------------------------------------
 const getAllPower = async(): Promise<ArlenorPower[]>  => {
-  return await requests_supabase.requestGet("power");
+  return await supabase_requests.requestGet("power");
 };
 
-const sendAllPower = async(powers: ArlenorPower[]): Promise<string> => {
-  powers.forEach(power => power.initTime());
-
-  let result = "";
-  const chunkSize = 20;
-  for (let i = 0; i < powers.length; i += chunkSize) {
-    const chunk = powers.slice(i, i + chunkSize);
-    result = await requests.requestPost("power/all", chunk);
-  }
-
+const postAllPower = async(powers: ArlenorPower[]): Promise<string> => {
+  const result = "";
+  powers.forEach(async(power) => {
+    power.initTime();
+    await requests.requestPost("power", power);
+  });
   return result;
 };
 
-const sendPower = async(power: ArlenorPower): Promise<string> => {
+const postPower = async(power: ArlenorPower): Promise<string> => {
   power.initTime();
   const result: string = await requests.requestPost("power", power);
   return result;
 };
 
-const updatePower = async(power: ArlenorPower): Promise<string> => {
+const putPower = async(power: ArlenorPower): Promise<string> => {
   power.initTime();
   const result: string = await requests.requestPut("power", power);
   return result;
@@ -127,18 +122,18 @@ export default {
   getAllSkill,
   getAllStuff,
   getAllPower,
-  sendQuizz,
-  sendCharacter,
-  sendSkill,
-  sendStuff,
-  sendPower,
-  updateCharacter,
-  updateSkill,
-  updateStuff,
-  updatePower,
+  postQuizz,
+  postCharacter,
+  postSkill,
+  postStuff,
+  postPower,
+  putCharacter,
+  putSkill,
+  putStuff,
+  putPower,
   deleteCharacter,
   deleteSkill,
   deleteStuff,
   deletePower,
-  sendAllPower,
+  postAllPower,
 };
