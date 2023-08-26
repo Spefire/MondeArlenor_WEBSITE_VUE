@@ -5,23 +5,13 @@ import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { ArlenorStuff } from "@/models/ArlenorStuff";
 import { CelestiaQuizz } from "@/models/CelestiaQuizz";
 
-import { ResponseCharacter, ResponsePower, ResponseQuizz, ResponseSkill, ResponseStuff } from "./api_models";
+import { ResponsePower, ResponseSkill, ResponseStuff } from "./api_models";
 import requests from "./requests";
+import requests_supabase from "./requests_supabase";
 
 // --- QUIZZ ---------------------------------------------------------------------------
-const readAllQuizz = async(): Promise<CelestiaQuizz[]>  => {
-  const results: ResponseQuizz[] = await requests.requestGet("quizz");
-  console.log("readAllQuizz", results);
-
-  const finalResults: CelestiaQuizz[] = [];
-  /*results.forEach((obj: ResponseQuizz) => {
-    const quizz = new CelestiaQuizz();
-    quizz.id = obj.ref_quizz;
-    quizz.initByJSON(obj.value_quizz);
-    finalResults.push(quizz);
-  });*/
-
-  return finalResults;
+const getAllQuizz = async(): Promise<CelestiaQuizz[]>  => {
+  return await requests_supabase.requestGet("quizz");
 };
 
 const sendQuizz = async(quizz: CelestiaQuizz): Promise<string> => {
@@ -31,19 +21,8 @@ const sendQuizz = async(quizz: CelestiaQuizz): Promise<string> => {
 };
 
 // --- CHARACTER ---------------------------------------------------------------------------
-const readAllCharacter = async(): Promise<ArlenorCharacter[]>  => {
-  const results: ResponseCharacter[] = await requests.requestGet("character");
-  console.log("readAllCharacter", results);
-
-  const finalResults: ArlenorCharacter[] = [];
-  /*results.forEach((obj: ResponseCharacter) => {
-    const character = new ArlenorCharacter();
-    character.id = obj.ref_character;
-    character.initByJSON(obj.value_character);
-    finalResults.push(character);
-  });*/
-
-  return finalResults;
+const getAllCharacter = async(): Promise<ArlenorCharacter[]>  => {
+  return await requests_supabase.requestGet("character");
 };
 
 const sendCharacter = async(character: ArlenorCharacter): Promise<string> => {
@@ -64,19 +43,8 @@ const deleteCharacter = async(character: ArlenorCharacter): Promise<string> => {
 };
 
 // --- SKILL ---------------------------------------------------------------------------
-const readAllSkill = async(): Promise<ArlenorSkill[]>  => {
-  const results: ResponseSkill[] = await requests.requestGet("skill");
-  console.log("readAllSkill", results);
-
-  const finalResults: ArlenorSkill[] = [];
-  /*results.forEach((obj: ResponseSkill) => {
-    const skill = new ArlenorSkill();
-    skill.id = obj.ref_skill;
-    skill.initByJSON(obj.value_skill);
-    finalResults.push(skill);
-  });*/
-
-  return finalResults;
+const getAllSkill = async(): Promise<ArlenorSkill[]>  => {
+  return await requests_supabase.requestGet("skill");
 };
 
 const sendSkill = async(skill: ArlenorSkill): Promise<string> => {
@@ -97,19 +65,8 @@ const deleteSkill = async(skill: ArlenorSkill): Promise<string> => {
 };
 
 // --- STUFF ---------------------------------------------------------------------------
-const readAllStuff = async(): Promise<ArlenorStuff[]>  => {
-  const results: ResponseStuff[] = await requests.requestGet("stuff");
-  console.log("readAllStuff", results);
-
-  const finalResults: ArlenorStuff[] = [];
-  /*results.forEach((obj: ResponseStuff) => {
-    const stuff = new ArlenorStuff();
-    stuff.id = obj.ref_stuff;
-    stuff.initByJSON(obj.value_stuff);
-    finalResults.push(stuff);
-  });*/
-
-  return finalResults;
+const getAllStuff = async(): Promise<ArlenorStuff[]>  => {
+  return await requests_supabase.requestGet("stuff");
 };
 
 const sendStuff = async(stuff: ArlenorStuff): Promise<string> => {
@@ -130,19 +87,8 @@ const deleteStuff = async(stuff: ArlenorStuff): Promise<string> => {
 };
 
 // --- POWER ---------------------------------------------------------------------------
-const readAllPower = async(): Promise<ArlenorPower[]>  => {
-  const results: ResponsePower[] = await requests.requestGet("power");
-  console.log("readAllPower", results);
-
-  const finalResults: ArlenorPower[] = [];
-  /*results.forEach((obj: ResponsePower) => {
-    const power = new ArlenorPower();
-    power.id = obj.ref_power;
-    power.initByJSON(obj.value_power);
-    finalResults.push(power);
-  });*/
-
-  return finalResults;
+const getAllPower = async(): Promise<ArlenorPower[]>  => {
+  return await requests_supabase.requestGet("power");
 };
 
 const sendAllPower = async(powers: ArlenorPower[]): Promise<string> => {
@@ -176,11 +122,11 @@ const deletePower = async(power: ArlenorPower): Promise<string> => {
 };
 
 export default {
-  readAllQuizz,
-  readAllCharacter,
-  readAllSkill,
-  readAllStuff,
-  readAllPower,
+  getAllQuizz,
+  getAllCharacter,
+  getAllSkill,
+  getAllStuff,
+  getAllPower,
   sendQuizz,
   sendCharacter,
   sendSkill,

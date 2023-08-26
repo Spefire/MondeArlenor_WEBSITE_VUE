@@ -62,10 +62,11 @@ export default defineComponent({
       this.showAddPopup = false;
       if (typeof skill === "object") {
         const newSkill = skill as ArlenorSkill;
-        const result = await api.sendSkill(newSkill);
-        const resultSplit = result.split(" ");
-        const id = resultSplit[resultSplit.length-1];
-        newSkill.id = id;
+        // TODO
+        //const result = await api.sendSkill(newSkill);
+        //const resultSplit = result.split(" ");
+        //const id = resultSplit[resultSplit.length-1];
+        //newSkill.id = id;
 
         // On recharge le store
         const newSkills = this.allSkills.slice();

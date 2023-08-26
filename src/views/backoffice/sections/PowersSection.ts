@@ -64,12 +64,13 @@ export default defineComponent({
         Promise.all([promiseGetParameters]).then(async() => {
 
           const finalResults: ArlenorPower[] = [];
-          parameters.forEach((obj: any) => {
+          /*parameters.forEach((obj: any) => {
             const power = new ArlenorPower();
             power.initByJSON(JSON.stringify(obj));
             finalResults.push(power);
-          });
+          });*/
 
+          console.log("sendAllPower", parameters);
           await api.sendAllPower(finalResults);
           alert("Importation des pouvoirs réussie.");
 
@@ -102,10 +103,11 @@ export default defineComponent({
       this.showAddPopup = false;
       if (typeof power === "object") {
         const newPower = power as ArlenorPower;
-        const result = await api.sendPower(newPower);
-        const resultSplit = result.split(" ");
-        const id = resultSplit[resultSplit.length-1];
-        newPower.id = id;
+        // TODO
+        //const result = await api.sendPower(newPower);
+        //const resultSplit = result.split(" ");
+        //const id = resultSplit[resultSplit.length-1];
+        // newPower.id = id;
 
         // On recharge le store
         const newPowers = this.allPowers.slice();

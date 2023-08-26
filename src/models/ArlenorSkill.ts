@@ -6,17 +6,16 @@ import { ArlenorSpecialities } from "./data/ListSpecialities";
 
 export class ArlenorSkill extends ArlenorAPI {
 
+  // Variables à sauvegarder
   public name: string;
   public description: string;
   public urlImage: string;
+  public codeType: string;
+  public codesCaracts: string[];
+  public codeRace: string | null;
+  public codeSpeciality: string | null;
 
-  get code(): string {
-    let code = this.name;
-    code = code.normalize("NFD").replace(/\p{Diacritic}/gu, "");
-    code = code.replace(/\s/g, "");
-    return code.toUpperCase();
-  }
-  
+  // Variables dérivées
   get image(): string | null {
     if (this.codeType === SkillTypesEnum.Weapon.Code) return require("./../assets/icons/skills/weapon.png");
     else if (this.codeType === SkillTypesEnum.Race.Code) {
@@ -26,13 +25,10 @@ export class ArlenorSkill extends ArlenorAPI {
     else return require("./../assets/icons/skills/other.png");
   }
 
-  // Pour toutes les compétences
-  public codeType: string;
   get type(): ArlenorEnum {
     return getEnumByCode(this.codeType, SkillTypesEnum);
   }
 
-  public codesCaracts: string[];
   get nameCaracts(): string {
     let results = "";
     this.codesCaracts.forEach((codeCaracts, index) => {
@@ -42,15 +38,11 @@ export class ArlenorSkill extends ArlenorAPI {
     return results ? results : "Aucune caractéristique";
   }
 
-  // Pour les compétences de race
-  public codeRace: string | null;
   get race(): ArlenorRace | null {
     if (!this.codeRace) return null;
     return ArlenorRace.getRace(this.codeRace);
   }
 
-  // Pour les autres compétences
-  public codeSpeciality: string | null;
   get speciality(): ArlenorSpeciality | null {
     if (!this.codeSpeciality) return null;
     return ArlenorSpecialities.getSpeciality(this.codeSpeciality);
@@ -70,21 +62,6 @@ export class ArlenorSkill extends ArlenorAPI {
     this.codesCaracts = [];
     this.codeRace = null;
     this.codeSpeciality = null;
-  }
-
-  public initByJSON(value: string): void {
-    const powerDB = JSON.parse(value);
-    this.date = powerDB.date;
-    this.hour = powerDB.hour;
-
-    this.name = powerDB.name;
-    this.description = powerDB.description;
-    this.urlImage = powerDB.urlImage;
-
-    this.codeType = powerDB.codeType;
-    this.codesCaracts = powerDB.codesCaracts;
-    this.codeRace = powerDB.codeRace;
-    this.codeSpeciality = powerDB.codeSpeciality;
   }
 
   public init(name: string, type: ArlenorEnum): void {

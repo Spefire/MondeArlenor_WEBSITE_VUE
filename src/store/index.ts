@@ -1,5 +1,4 @@
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
-import { ArlenorLevel } from "@/models/ArlenorLevel";
 import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { ArlenorStuff } from "@/models/ArlenorStuff";
@@ -57,8 +56,8 @@ export default createStore({
     changeCharacter(state, payload: ArlenorCharacter) {
       state.character = payload;
     },
-    changeCharacterLevel(state, payload: ArlenorLevel) {
-      state.character.level = payload;
+    changeCharacterLevel(state, payload: number) {
+      state.character.numLevel = payload;
     },
     changeCharacterRace(state, payload: ArlenorCharacter) {
       state.character.codeRace = payload.codeRace;
@@ -89,10 +88,6 @@ export default createStore({
       state.character.belives = payload.belives;
       state.character.importances = payload.importances;
     },
-    initCharacter(state) {
-      state.character = new ArlenorCharacter();
-      state.character.init();
-    },
     resetCharacter(state) {
       state.character = new ArlenorCharacter();
     },
@@ -111,7 +106,8 @@ export default createStore({
       const localCharactersString = JSON.stringify(characters);
       localStorage.setItem("localCharacters", localCharactersString);
     },
-    deleteLocalCharacter(state, payload: string) {
+    // TODO
+    deleteLocalCharacter(state, payload: number) {
       let characters = instanceCharacters();
       characters = characters.filter(charact => charact.id !== payload);
       state.localCharacters = characters;
@@ -133,14 +129,16 @@ const instanceCharacters = ():ArlenorCharacter[] => {
   if (localCharactersString) localCharacters = JSON.parse(localCharactersString);
   else localCharacters = [];
 
-  const finalCharacters: ArlenorCharacter[] = [];
-  localCharacters.forEach((obj: ArlenorCharacter) => {
+  /*
+  TODO
+    const finalCharacters: ArlenorCharacter[] = [];
+    localCharacters.forEach((obj: ArlenorCharacter) => {
     const localCharacterString = JSON.stringify(obj);
     const character = new ArlenorCharacter();
     character.id = obj.id;
     character.initByJSON(localCharacterString);
     finalCharacters.push(character);
-  });
+  });*/
 
-  return finalCharacters;
+  return localCharacters;
 };

@@ -1,3 +1,5 @@
+import { ArlenorAPI } from "./ArlenorAPI";
+
 const QUIZZ_INTENSITY = 3;
 
 export class CelestiaResult {
@@ -110,11 +112,7 @@ class CelestiaQuestion {
   }
 }
 
-export class CelestiaQuizz {
-  public id = "";
-  public hour = "00:00";
-  public date = "01/01/1990";
-
+export class CelestiaQuizz extends ArlenorAPI {
   public questions: CelestiaQuestion[];
   
   public get fire(): number {
@@ -172,6 +170,7 @@ export class CelestiaQuizz {
   }
 
   constructor() {
+    super();
     this.questions = [
       new CelestiaQuestion(
         "Quel est votre signe astrologique ?",
@@ -341,33 +340,5 @@ export class CelestiaQuizz {
         ]
       ),
     ];
-  }
-
-  public initByJSON(value: string): void {
-    const quizzDB = JSON.parse(value);
-    this.date = quizzDB.date;
-    this.hour = quizzDB.hour;
-    
-    this.questions = [];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    quizzDB.questions.forEach((questionDB: any) => {
-      const answers: CelestiaAnswer[] = [];
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      questionDB.answers.forEach((answerDB: any) => {
-        answers.push(new CelestiaAnswer(answerDB.libelle, answerDB.value));
-      });
-      const question = new CelestiaQuestion(questionDB.libelle, answers);
-      question.selection = questionDB.selection;
-      this.questions.push(question);
-    });
-  }
-
-  public initTime(): void {
-    function pad(s: number) { return (s < 10) ? "0" + s : s; }
-    const date = new Date();
-    const hours = (date.getHours() < 10 ? "0" : "") + date.getHours();
-    const minutes = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
-    this.hour = hours + ":" + minutes;
-    this.date = [pad(date.getDate()), pad(date.getMonth()+1), date.getFullYear()].join("/");
   }
 }

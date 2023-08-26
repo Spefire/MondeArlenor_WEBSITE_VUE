@@ -29,7 +29,8 @@ function getLibelle(lib: string): string {
 function createSkill(name: string, codesCaracts: string[] = []): ArlenorSkill {
   const newSkill= new ArlenorSkill();
   newSkill.init(getLibelle(name), SkillTypesEnum.Weapon);
-  newSkill.id = "skill_" + newSkill.code.toLowerCase();
+  // TODO
+  // newSkill.id = "skill_" + newSkill.code.toLowerCase();
   newSkill.description = "Bonus +4 pour toute action avec.";
   newSkill.codesCaracts = codesCaracts;
   return newSkill;

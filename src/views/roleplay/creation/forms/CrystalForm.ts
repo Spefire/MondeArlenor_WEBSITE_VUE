@@ -103,7 +103,7 @@ export default defineComponent({
       this.updateForm();
     },
     removePower(power: ArlenorPower) {
-      this.form.idsPowers[power.codeRank] = this.form.idsPowers[power.codeRank].filter((idPower: string) => idPower !== power.id);
+      this.form.idsPowers[power.codeRank] = this.form.idsPowers[power.codeRank].filter((idPower: number) => idPower !== power.id);
       this.updateForm();
     },
     checkNbPowers() {

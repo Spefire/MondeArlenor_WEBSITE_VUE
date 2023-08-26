@@ -66,7 +66,7 @@ export default defineComponent({
       return this.filteredPowers.filter(power => power.codeRank === rank);
     },
     getNbRank(codeRank: string) {
-      const powers: { [codeRank: string] : string[]; } = this.idsPowers;
+      const powers: { [codeRank: string] : number[]; } = this.idsPowers;
       return powers[codeRank].length;
     },
     changePower(value: boolean, power: ArlenorPower) {
@@ -74,7 +74,7 @@ export default defineComponent({
       else this.$emit("remove", power);
     },
     checkPower(power: ArlenorPower) {
-      const powers: { [codeRank: string] : string[]; } = this.idsPowers;
+      const powers: { [codeRank: string] : number[]; } = this.idsPowers;
       return powers[power.codeRank].find(idPower => idPower === power.id) ? true : false;
     },
     checkDisabled(codeRank: string, power: ArlenorPower) {

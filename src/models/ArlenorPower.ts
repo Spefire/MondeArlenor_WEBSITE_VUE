@@ -5,18 +5,18 @@ import { ArlenorSpecialities } from "./data/ListSpecialities";
 
 export class ArlenorPower extends ArlenorAPI {
 
+  // Variables à sauvegarder
   public isVerified: boolean;
-
   public name: string;
   public description: string;
   public codeType: string;
   public codeSpeciality: string;
-
   public codeRank: string;
   public codeRange: string;
   public codeDuration: string;
   public chaneling: boolean;
   
+  // Variables dérivées
   get code(): string {
     let code = this.name;
     code = code.normalize("NFD").replace(/\p{Diacritic}/gu, "");
@@ -67,23 +67,6 @@ export class ArlenorPower extends ArlenorAPI {
     this.codeRange = PowerRangesEnum.Personnelle.Code;
     this.codeDuration = PowerDurationsEnum.Instantanee.Code;
     this.chaneling = false;
-  }
-
-  public initByJSON(value: string): void {
-    const powerDB = JSON.parse(value);
-    this.date = powerDB.date;
-    this.hour = powerDB.hour;
-    this.isVerified = powerDB.isVerified ? true : false;
-
-    this.name = powerDB.name;
-    this.description = powerDB.description;
-    this.codeType = powerDB.codeType;
-    this.codeSpeciality = powerDB.codeSpeciality;
-
-    this.codeRank = powerDB.codeRank;
-    this.codeRange = powerDB.codeRange;
-    this.codeDuration = powerDB.codeDuration;
-    this.chaneling = powerDB.chaneling ? true : false;
   }
 }
 

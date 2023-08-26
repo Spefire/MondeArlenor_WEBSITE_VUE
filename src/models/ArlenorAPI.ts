@@ -1,15 +1,11 @@
 export class ArlenorAPI {
-  public id = "";
-  public hour = "00:00";
+  public id: number;
   public date = "01/01/1990";
+  public hour = "00:00";
 
   constructor() {
+    this.id = 0;
     this.initTime();
-  }
-
-  public initByJSON(value: string): void {
-    const objectDB = JSON.parse(value);
-    console.warn("objectDB", objectDB);
   }
 
   public initTime(): void {

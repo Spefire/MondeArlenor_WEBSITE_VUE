@@ -10,7 +10,7 @@ export default defineComponent({
   setup() {
     const pages = ref(PageTitles);
     const selection = ref(0);
-    const timeSub: Ref<number | null> = ref(null);
+    const timeSub: Ref<NodeJS.Timeout | null> = ref(null);
 
     return {
       pages,

@@ -1,11 +1,10 @@
 import PopupBloc from "@/components/popup/PopupBloc.vue";
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
-import { ArlenorLevel } from "@/models/ArlenorLevel";
 import { ArlenorSkills } from "@/models/data/ListDefaultSkills";
 import { PageTitles } from "@/models/PagesTitles";
 import api from "@/utils/api";
 import downloads from "@/utils/downloads";
-import random from "@/utils/random";
+// import random from "@/utils/random";
 import useVuelidate from "@vuelidate/core";
 import { between, required } from "@vuelidate/validators";
 import { defineComponent, ref } from "vue";
@@ -77,7 +76,7 @@ export default defineComponent({
     checkDelete(): boolean {
       if (this.form.id) {
         const character = this.characters.find(charact => charact.id === this.form.id);
-        return character ? character.isLocal : false;
+        return character ? true : false;
       } else return false;
     }
   },
@@ -119,8 +118,7 @@ export default defineComponent({
       } else if (withReset) {
         this.store.commit("resetCharacter");
       }
-      const level = new ArlenorLevel(this.form.numLevel);
-      this.store.commit("changeCharacterLevel", level);
+      this.store.commit("changeCharacterLevel", this.form.numLevel);
       this.selection = 1;
       this.isSaved = false;
     },
@@ -157,9 +155,9 @@ export default defineComponent({
       if (withAction) {
         this.isSaved = true;
         const character = this.character;
-        character.id = random.generateID(20);
+        // TODO
+        // character.id = random.generateID(20);
         character.initTime();
-        character.isLocal = true;
         this.store.commit("saveLocalCharacter", character);
       }
     },

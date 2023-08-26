@@ -28,7 +28,7 @@ export default defineComponent({
     if (crystal02) spe02 = crystal02.speciality;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const idsSkills: Ref<any> = ref(character.idsSkills);
+    const idsSkills: Ref<number[]> = ref(character.idsSkills);
     const isNbSkillsValid: Ref<boolean | null> = ref(null);
     const level = character.level;
 
@@ -78,7 +78,7 @@ export default defineComponent({
       this.updateForm();
     },
     removeSkill(skill: ArlenorSkill) {
-      this.form.idsSkills = this.form.idsSkills.filter((idSkill: string) => idSkill !== skill.id);
+      this.form.idsSkills = this.form.idsSkills.filter((idSkill: number) => idSkill !== skill.id);
       this.updateForm();
     },
     checkNbSkills() {

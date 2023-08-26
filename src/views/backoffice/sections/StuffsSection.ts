@@ -52,10 +52,11 @@ export default defineComponent({
       this.showAddPopup = false;
       if (typeof stuff === "object") {
         const newStuff = stuff as ArlenorStuff;
-        const result = await api.sendStuff(newStuff);
-        const resultSplit = result.split(" ");
-        const id = resultSplit[resultSplit.length-1];
-        newStuff.id = id;
+        //TODO
+        //const result = await api.sendStuff(newStuff);
+        //const resultSplit = result.split(" ");
+        //const id = resultSplit[resultSplit.length-1];
+        //newStuff.id = id;
 
         // On recharge le store
         const newStuffs = this.allStuffs.slice();
