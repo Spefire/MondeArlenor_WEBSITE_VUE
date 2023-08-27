@@ -6,8 +6,7 @@ export class ArlenorSpeciality {
   public name: string;
   public color: string;
   public role: ArlenorRole;
-  public image: string;
-  public otherImage: string;
+  public urlImage: string;
   public description: string;
   public appearance: string;
   public archetype01: ArlenorArchetype | null;
@@ -20,12 +19,21 @@ export class ArlenorSpeciality {
     return code.toUpperCase();
   }
 
+  get image(): string {
+    const images = require.context("./../assets/icons/specialities/", false, /\.png$/);
+    return images("./" + this.urlImage);
+  }
+
+  get imageForArchetype(): string {
+    const images = require.context("./../assets/icons/archetypes/", false, /\.png$/);
+    return images("./" + this.urlImage);
+  }
+
   constructor(name: string, color: string, role: ArlenorRole) {
     this.name = name;
     this.color = color;
     this.role = role;
-    this.image = "";
-    this.otherImage = "";
+    this.urlImage = "";
     this.description = "";
     this.appearance = "";
     this.archetype01 = null;

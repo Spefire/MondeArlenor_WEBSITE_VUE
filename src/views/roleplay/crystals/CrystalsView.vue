@@ -30,7 +30,7 @@
           <h3 class="margin-bottom-1">"{{ currentSpeciality.archetype01.name }}"</h3>
           <img
             class="crystal-img margin-bottom-1 rounded"
-            :src="currentSpeciality.otherImage"
+            :src="currentSpeciality.imageForArchetype"
             :alt="currentSpeciality.archetype01.name">
           <p class="crystals-main-description">
             {{ currentSpeciality.archetype01.description }}
@@ -68,7 +68,7 @@
           <h3 class="margin-bottom-1">"{{ currentSpeciality.archetype02.name }}"</h3>
           <img
             class="crystal-img margin-bottom-1 rounded"
-            :src="currentSpeciality.otherImage"
+            :src="currentSpeciality.imageForArchetype"
             :alt="currentSpeciality.archetype02.name">
           <p class="crystals-main-description">
             {{ currentSpeciality.archetype02.description }}
