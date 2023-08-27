@@ -66,6 +66,7 @@ export default defineComponent({
       newSkill.id = this.currentSkill.id;
       newSkill.name = this.form.name;
       newSkill.description = this.form.description;
+      newSkill.urlImage = this.currentSkill.urlImage;
       newSkill.codeType = this.form.codeType;
       if (this.form.checkFor) newSkill.codesCaracts.push(CaractNomEnum.Force.Code);
       if (this.form.checkHab) newSkill.codesCaracts.push(CaractNomEnum.Habilete.Code);
@@ -73,6 +74,7 @@ export default defineComponent({
       if (this.form.checkTen) newSkill.codesCaracts.push(CaractNomEnum.Tenacite.Code);
       if (this.form.checkCha) newSkill.codesCaracts.push(CaractNomEnum.Charisme.Code);
       if (this.form.checkMag) newSkill.codesCaracts.push(CaractNomEnum.Magie.Code);
+      newSkill.codeRace = this.currentSkill.codeRace;
       this.$emit("submit", newSkill);
     },
   }

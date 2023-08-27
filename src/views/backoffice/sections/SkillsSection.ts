@@ -67,14 +67,13 @@ export default defineComponent({
     async closeEditSkill(skill: ArlenorSkill | boolean) {
       this.showEditPopup = false;
       if (skill instanceof ArlenorSkill) {
-        skill.id = await supabase_api.postSkill(skill);
-        // await supabase_api.putSkill(skill);
+        await supabase_api.putSkill(skill);
 
         // On recharge le store
-        /*const newSkills = this.allSkills.slice();
-        const index = newSkills.findIndex(pow => pow.id === skill.id);
+        const newSkills = this.allSkills.slice();
+        const index = newSkills.findIndex(ski => ski.id === skill.id);
         newSkills[index] = skill;
-        this.store.commit("changeAllSkills", newSkills);*/
+        this.store.commit("changeAllSkills", newSkills);
       }
       this.currentSkill = null;
     },
