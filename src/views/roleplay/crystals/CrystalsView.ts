@@ -1,6 +1,8 @@
 import PowerImage from "@/components/power-image/PowerImage.vue";
+import { ArlenorArchetype } from "@/models/ArlenorArchetype";
 import { ArlenorEnum } from "@/models/ArlenorEnum";
 import { ArlenorPower } from "@/models/ArlenorPower";
+import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import { PageTitles } from "@/models/PagesTitles";
@@ -21,6 +23,12 @@ export default defineComponent({
     },
     allPowers() {
       this.updateSpecialityPowers();
+    },
+    allSkills() {
+      this.updateSpecialityPowers();
+    },
+    allArchetypes() {
+      this.updateSpecialityPowers();
     }
   },
 
@@ -38,11 +46,19 @@ export default defineComponent({
   mounted() {
     this.updatePage();
     this.store.commit("loadAllPowers");
+    this.store.commit("loadAllSkills");
+    this.store.commit("loadAllArchetypes");
   },
 
   computed: {
     allPowers(): ArlenorPower[] {
       return this.store.state.allPowers || [];
+    },
+    allSkills(): ArlenorSkill[] {
+      return this.store.state.allSkills || [];
+    },
+    allArchetypes(): ArlenorArchetype[] {
+      return this.store.state.allArchetypes || [];
     },
     powersByRank(): ArlenorPower[] {
       const powers = this.specialityPowers.slice();
@@ -68,6 +84,20 @@ export default defineComponent({
 
     updateSpecialityPowers() {
       if (this.currentSpeciality) {
+        // Archetypes
+        const archetypes = this.allArchetypes.filter(arch => arch.codeSpeciality === this.currentSpeciality?.code);
+        if (this.currentSpeciality && archetypes.length > 0) {
+          this.currentSpeciality.archetype01 = archetypes[0];
+          const skill = this.allSkills.find(skill => skill.id === this.currentSpeciality?.archetype01?.idSkill);
+          if (skill) this.currentSpeciality.archetype01.skill = skill;
+        }
+        if (this.currentSpeciality && archetypes.length > 1) {
+          this.currentSpeciality.archetype02 = archetypes[1];
+          const skill = this.allSkills.find(skill => skill.id === this.currentSpeciality?.archetype02?.idSkill);
+          if (skill) this.currentSpeciality.archetype02.skill = skill;
+        }
+
+        // Pouvoirs
         const spe = this.currentSpeciality;
         const list = spe.code ? this.allPowers.filter(power => power.speciality && power.speciality.code === spe.code) : [];
         list.sort((a, b) => {

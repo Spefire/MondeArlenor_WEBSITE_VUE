@@ -29,6 +29,7 @@
     .crystals-top {
       display: flex;
       align-items: center;
+      justify-content: center;
       width: 100%;
 
       @include tablet-only {

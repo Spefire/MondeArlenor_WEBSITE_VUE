@@ -1,3 +1,4 @@
+import { ArlenorArchetype } from "@/models/ArlenorArchetype";
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
@@ -15,7 +16,8 @@ export default createStore({
     localCharacters: null as ArlenorCharacter[] | null,
     allPowers: null as ArlenorPower[] | null,
     allSkills: null as ArlenorSkill[] | null,
-    allStuffs: null as ArlenorStuff[] | null
+    allStuffs: null as ArlenorStuff[] | null,
+    allArchetypes: null as ArlenorArchetype[] | null,
   },
   mutations: {
 
@@ -41,6 +43,12 @@ export default createStore({
       if (!state.allStuffs || payload) {
         const allStuffs = await api.readAllStuff();
         state.allStuffs = allStuffs.sort((a, b) => a.name.localeCompare(b.name));
+      }
+    },
+    async loadAllArchetypes(state, payload = false) {
+      if (!state.allArchetypes || payload) {
+        const allArchetypes = await supabase_api.getAllArchetype();
+        state.allArchetypes = allArchetypes.sort((a, b) => a.name.localeCompare(b.name));
       }
     },
 

@@ -23,26 +23,33 @@
     <!-- Icone et titre -->
     <div class="crystals-layout margin-top-2">
       <div class="crystals-top layout-bloc">
-        <div class="crystals-section">
+        <div
+          v-if="currentSpeciality.archetype01"
+          class="crystals-section">
           <div>Archétype</div>
-          <h3 class="margin-bottom-1">"{{ currentSpeciality.archetypeName01 }}"</h3>
+          <h3 class="margin-bottom-1">"{{ currentSpeciality.archetype01.name }}"</h3>
           <img
             class="crystal-img margin-bottom-1 rounded"
             :src="currentSpeciality.otherImage"
-            :alt="currentSpeciality.archetypeName01">
-          <p class="crystals-main-description">{{ currentSpeciality.archetypeDesc01 }}</p>
-          <div class="power-line justify-center">
+            :alt="currentSpeciality.archetype01.name">
+          <p class="crystals-main-description">
+            {{ currentSpeciality.archetype01.description }}
+          </p>
+          <div
+            v-if="currentSpeciality.archetype01.skill"
+            class="power-line justify-center">
             <div class="power-img-layout">
               <img
                 class="power-img"
-                :src="currentSpeciality.archetypeSkill01.image"
-                :alt="currentSpeciality.archetypeSkill01.name">
+                :src="currentSpeciality.archetype01.skill.image"
+                :alt="currentSpeciality.archetype01.skill.name">
             </div>
-            <span class="power-txt">{{ currentSpeciality.archetypeSkill01.name }}</span>
+            <span class="power-txt">{{ currentSpeciality.archetype01.skill.name }}</span>
           </div>
         </div>
         <div class="crystals-separator" />
-        <div class="crystals-section">
+        <div 
+          class="crystals-section">
           <img
             class="crystal-img"
             :src="currentSpeciality.image"
@@ -54,22 +61,28 @@
           </p>
         </div>
         <div class="crystals-separator" />
-        <div class="crystals-section">
+        <div 
+          v-if="currentSpeciality.archetype02"
+          class="crystals-section">
           <div>Archétype</div>
-          <h3 class="margin-bottom-1">"{{ currentSpeciality.archetypeName02 }}"</h3>
+          <h3 class="margin-bottom-1">"{{ currentSpeciality.archetype02.name }}"</h3>
           <img
             class="crystal-img margin-bottom-1 rounded"
             :src="currentSpeciality.otherImage"
-            :alt="currentSpeciality.archetypeName02">
-          <p class="crystals-main-description">{{ currentSpeciality.archetypeDesc02 }}</p>
-          <div class="power-line justify-center">
+            :alt="currentSpeciality.archetype02.name">
+          <p class="crystals-main-description">
+            {{ currentSpeciality.archetype02.description }}
+          </p>
+          <div
+            v-if="currentSpeciality.archetype02.skill"
+            class="power-line justify-center">
             <div class="power-img-layout">
               <img
                 class="power-img"
-                :src="currentSpeciality.archetypeSkill02.image"
-                :alt="currentSpeciality.archetypeSkill02.name">
+                :src="currentSpeciality.archetype02.skill.image"
+                :alt="currentSpeciality.archetype02.skill.name">
             </div>
-            <span class="power-txt">{{ currentSpeciality.archetypeSkill02.name }}</span>
+            <span class="power-txt">{{ currentSpeciality.archetype02.skill.name }}</span>
           </div>
         </div>
       </div>

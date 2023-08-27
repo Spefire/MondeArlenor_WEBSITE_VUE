@@ -1,3 +1,4 @@
+import { ArlenorArchetype } from "@/models/ArlenorArchetype";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { ArlenorPower } from "@/models/ArlenorPower";
@@ -34,6 +35,22 @@ const putCharacter = async(character: ArlenorCharacter): Promise<boolean> => {
 
 const deleteCharacter = async(character: ArlenorCharacter): Promise<boolean> => {
   return await supabase_requests.requestDelete("character", character.id);
+};
+
+// --- ARCHETYPE ---------------------------------------------------------------------------
+const getAllArchetype = async(): Promise<ArlenorArchetype[]>  => {
+  const result = await supabase_requests.requestGet("archetype");
+  return transformArchetypes(result);
+};
+
+const transformArchetypes = (archetypes: ArlenorArchetype[]): ArlenorArchetype[] => {
+  const items: ArlenorArchetype[] = [];
+  archetypes.forEach(archetype => {
+    const item = new ArlenorArchetype();
+    Object.assign(item, archetype);
+    items.push(item);
+  });
+  return items;
 };
 
 // --- SKILL ---------------------------------------------------------------------------
@@ -124,6 +141,7 @@ const transformPowers = (powers: ArlenorPower[]): ArlenorPower[] => {
 export default {
   getAllQuizz,
   getAllCharacter,
+  getAllArchetype,
   getAllSkill,
   getAllStuff,
   getAllPower,
