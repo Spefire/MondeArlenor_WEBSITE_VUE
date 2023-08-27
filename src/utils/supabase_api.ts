@@ -38,7 +38,8 @@ const deleteCharacter = async(character: ArlenorCharacter): Promise<boolean> => 
 
 // --- SKILL ---------------------------------------------------------------------------
 const getAllSkill = async(): Promise<ArlenorSkill[]>  => {
-  return await supabase_requests.requestGet("skill");
+  const result = await supabase_requests.requestGet("skill");
+  return transformSkills(result);
 };
 
 const postSkill = async(skill: ArlenorSkill): Promise<number> => {
@@ -53,6 +54,16 @@ const putSkill = async(skill: ArlenorSkill): Promise<boolean> => {
 
 const deleteSkill = async(skill: ArlenorSkill): Promise<boolean> => {
   return await supabase_requests.requestDelete("skill", skill.id);
+};
+
+const transformSkills = (skills: ArlenorSkill[]): ArlenorSkill[] => {
+  const items: ArlenorSkill[] = [];
+  skills.forEach(skill => {
+    const item = new ArlenorSkill();
+    Object.assign(item, skill);
+    items.push(item);
+  });
+  return items;
 };
 
 // --- STUFF ---------------------------------------------------------------------------

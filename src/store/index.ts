@@ -33,7 +33,7 @@ export default createStore({
     },
     async loadAllSkills(state, payload = false) {
       if (!state.allSkills || payload) {
-        const allSkills = await api.readAllSkill();
+        const allSkills = await supabase_api.getAllSkill();
         state.allSkills = allSkills.sort((a, b) => a.name.localeCompare(b.name));
       }
     },

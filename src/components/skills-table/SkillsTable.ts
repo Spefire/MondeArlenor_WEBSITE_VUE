@@ -22,7 +22,6 @@ export default defineComponent({
   emits: ["edit", "delete", "update"],
 
   setup() {
-    const isEditable = ref(false);
     const selectedSkill: Ref<ArlenorSkill | null> = ref(null);
     const filteredSkills: Ref<ArlenorSkill[]> = ref([]);
     const allTypes: ArlenorEnum[] = Object.values(SkillTypesEnum);
@@ -30,7 +29,6 @@ export default defineComponent({
     const searchName = ref("");
 
     return {
-      isEditable,
       selectedSkill, filteredSkills,
       allTypes, selectedType,
       searchName
@@ -48,10 +46,6 @@ export default defineComponent({
   },
 
   methods: {
-    toggleEditable() {
-      this.isEditable = !this.isEditable;
-      this.changeFilteredSkills();
-    },
     changeFilteredSkills() {
       this.filteredSkills = this.allSkills;
       if (this.selectedType) this.filteredSkills = this.filteredSkills.filter(skill => {
@@ -59,7 +53,6 @@ export default defineComponent({
         else return true;
       });
       if (this.searchName) this.filteredSkills = this.filteredSkills.filter(skill => skill.name.toLowerCase().indexOf(this.searchName.toLowerCase()) !== -1);
-      if (this.isEditable) this.filteredSkills = this.filteredSkills.filter(skill => skill.isEditable);
       this.filteredSkills.sort((a, b) => a.name.localeCompare(b.name));
       this.$emit("update", this.filteredSkills);
     },

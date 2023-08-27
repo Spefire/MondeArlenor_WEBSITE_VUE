@@ -2,7 +2,6 @@ import PopupBloc from "@/components/popup/PopupBloc.vue";
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { ArlenorSkills } from "@/models/data/ListDefaultSkills";
 import { PageTitles } from "@/models/PagesTitles";
-import api from "@/utils/api";
 import downloads from "@/utils/downloads";
 import supabase_api from "@/utils/supabase_api";
 // import random from "@/utils/random";
@@ -130,7 +129,7 @@ export default defineComponent({
       this.form.numLevel = 1;
     },
     async downloadCharacter() {
-      let allSkills = await api.readAllSkill();
+      let allSkills = await supabase_api.getAllSkill();
       let allPowers = await supabase_api.getAllPower();
       const skills = ArlenorSkills.getListDefaultSkills();
       allSkills = allSkills.concat(skills);

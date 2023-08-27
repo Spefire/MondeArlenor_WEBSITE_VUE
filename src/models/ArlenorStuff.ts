@@ -6,7 +6,7 @@ export class ArlenorStuff extends ArlenorAPI {
   // Variables à sauvegarder
   public name: string;
   public description: string;
-  public urlImage: string;
+  public urlImage: string | null;
   public codeType: string;
   public codesCaracts: string[];
   
@@ -34,7 +34,7 @@ export class ArlenorStuff extends ArlenorAPI {
     super();
     this.name = "";
     this.description = "";
-    this.urlImage = "";
+    this.urlImage = null;
 
     this.codeType = StuffTypesEnum.Weapon.Code;
     this.codesCaracts = [];

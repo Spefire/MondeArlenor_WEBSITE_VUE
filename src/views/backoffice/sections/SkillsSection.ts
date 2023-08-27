@@ -3,7 +3,7 @@ import SkillsTable from "@/components/skills-table/SkillsTable.vue";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { ArlenorSkills } from "@/models/data/ListDefaultSkills";
 import { getListRaceSkills } from "@/models/data/ListRaceSkills";
-import api from "@/utils/api";
+import supabase_api from "@/utils/supabase_api";
 import { defineComponent, Ref, ref } from "vue";
 import { useStore } from "vuex";
 
@@ -60,17 +60,12 @@ export default defineComponent({
     },
     async closeAddSkill(skill: ArlenorSkill | boolean) {
       this.showAddPopup = false;
-      if (typeof skill === "object") {
-        const newSkill = skill as ArlenorSkill;
-        // TODO
-        //const result = await api.sendSkill(newSkill);
-        //const resultSplit = result.split(" ");
-        //const id = resultSplit[resultSplit.length-1];
-        //newSkill.id = id;
+      if (skill instanceof ArlenorSkill) {
+        skill.id = await supabase_api.postSkill(skill);
 
         // On recharge le store
         const newSkills = this.allSkills.slice();
-        newSkills.push(newSkill);
+        newSkills.push(skill);
         this.store.commit("changeAllSkills", newSkills);
       }
       this.currentSkill = null;
@@ -81,15 +76,15 @@ export default defineComponent({
     },
     async closeEditSkill(skill: ArlenorSkill | boolean) {
       this.showEditPopup = false;
-      if (typeof skill === "object") {
-        const newSkill = skill as ArlenorSkill;
-        await api.updateSkill(newSkill);
+      if (skill instanceof ArlenorSkill) {
+        skill.id = await supabase_api.postSkill(skill);
+        // await supabase_api.putSkill(skill);
 
         // On recharge le store
-        const newSkills = this.allSkills.slice();
-        const index = newSkills.findIndex(pow => pow.id === newSkill.id);
-        newSkills[index] = newSkill;
-        this.store.commit("changeAllSkills", newSkills);
+        /*const newSkills = this.allSkills.slice();
+        const index = newSkills.findIndex(pow => pow.id === skill.id);
+        newSkills[index] = skill;
+        this.store.commit("changeAllSkills", newSkills);*/
       }
       this.currentSkill = null;
     },
@@ -100,7 +95,7 @@ export default defineComponent({
     async closeDeleteSkill(withAction: boolean) {
       this.showDeletePopup = false;
       if (withAction && this.currentSkill) {
-        await api.deleteSkill(this.currentSkill);
+        await supabase_api.deleteSkill(this.currentSkill);
 
         // On recharge le store
         const newSkills = this.allSkills.slice().filter(skill => skill.id !== this.currentSkill?.id);

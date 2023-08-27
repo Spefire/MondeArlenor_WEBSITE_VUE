@@ -2,13 +2,7 @@
   <div
     v-if="!readOnly"
     class="layout-row margin-top-1">
-    <div class="layout-col-33 form-element">
-      <ToggleButton
-        :text="'Compétences éditables'"
-        :value="isEditable"
-        @change="toggleEditable" />
-    </div>
-    <div class="layout-col-33 form-element">
+    <div class="layout-col-50 form-element">
       <span>Sélection d'un type :</span>
       <div class="dropdown">
         <select
@@ -23,7 +17,7 @@
         </select>
       </div>
     </div>
-    <div class="layout-col-33 form-element">
+    <div class="layout-col-50 form-element">
       <span>Recherche par nom :</span>
       <input
         type="text"
@@ -103,20 +97,18 @@
           <td
             v-if="!readOnly"
             class="col-20">
-            <template v-if="skill.isEditable">
-              <button
-                class="link-button"
-                title="Modifier"
-                @click="editSkill(skill)">
-                <i class="icon icon-pencil" />
-              </button>
-              <button
-                class="link-button alert-button margin-left-1"
-                title="Supprimer"
-                @click="deleteSkill(skill)">
-                <i class="icon icon-bin2" />
-              </button>
-            </template>
+            <button
+              class="link-button"
+              title="Modifier"
+              @click="editSkill(skill)">
+              <i class="icon icon-pencil" />
+            </button>
+            <button
+              class="link-button alert-button margin-left-1"
+              title="Supprimer"
+              @click="deleteSkill(skill)">
+              <i class="icon icon-bin2" />
+            </button>
           </td>
         </tr>
 

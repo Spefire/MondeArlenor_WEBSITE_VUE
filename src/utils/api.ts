@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
-import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { ArlenorStuff } from "@/models/ArlenorStuff";
 import { CelestiaQuizz } from "@/models/CelestiaQuizz";
 
-import { ResponseCharacter, ResponseQuizz, ResponseSkill, ResponseStuff } from "./api_models";
+import { ResponseCharacter, ResponseQuizz, ResponseStuff } from "./api_models";
 import requests from "./requests";
 
 // --- QUIZZ ---------------------------------------------------------------------------
@@ -58,37 +57,6 @@ const deleteCharacter = async(character: ArlenorCharacter): Promise<string> => {
   return result;
 };
 
-// --- SKILL ---------------------------------------------------------------------------
-const readAllSkill = async(): Promise<ArlenorSkill[]>  => {
-  const results: ResponseSkill[] = await requests.requestGet("skill");
-
-  const finalResults: ArlenorSkill[] = [];
-  results.forEach((obj: ResponseSkill) => {
-    const skill = new ArlenorSkill();
-    skill.id = obj.ref_skill ? 0 : 1;
-    finalResults.push(skill);
-  });
-
-  return finalResults;
-};
-
-const sendSkill = async(skill: ArlenorSkill): Promise<string> => {
-  skill.initTime();
-  const result: string = await requests.requestPost("skill", skill);
-  return result;
-};
-
-const updateSkill = async(skill: ArlenorSkill): Promise<string> => {
-  skill.initTime();
-  const result: string = await requests.requestPut("skill", skill);
-  return result;
-};
-
-const deleteSkill = async(skill: ArlenorSkill): Promise<string> => {
-  const result: string = await requests.requestDelete("skill", skill.id);
-  return result;
-};
-
 // --- STUFF ---------------------------------------------------------------------------
 const readAllStuff = async(): Promise<ArlenorStuff[]>  => {
   const results: ResponseStuff[] = await requests.requestGet("stuff");
@@ -123,16 +91,12 @@ const deleteStuff = async(stuff: ArlenorStuff): Promise<string> => {
 export default {
   readAllQuizz,
   readAllCharacter,
-  readAllSkill,
   readAllStuff,
   sendQuizz,
   sendCharacter,
-  sendSkill,
   sendStuff,
   updateCharacter,
-  updateSkill,
   updateStuff,
   deleteCharacter,
-  deleteSkill,
   deleteStuff,
 };

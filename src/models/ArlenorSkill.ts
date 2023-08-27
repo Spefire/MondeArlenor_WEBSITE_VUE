@@ -1,28 +1,22 @@
 import { ArlenorAPI } from "./ArlenorAPI";
 import { ArlenorEnum, getEnumByCode } from "./ArlenorEnum";
 import { ArlenorRace } from "./ArlenorRace";
-import { ArlenorSpeciality } from "./ArlenorSpeciality";
-import { ArlenorSpecialities } from "./data/ListSpecialities";
 
 export class ArlenorSkill extends ArlenorAPI {
 
   // Variables à sauvegarder
   public name: string;
   public description: string;
-  public urlImage: string;
+  public urlImage: string | null;
   public codeType: string;
   public codesCaracts: string[];
   public codeRace: string | null;
-  public codeSpeciality: string | null;
 
   // Variables dérivées
   get image(): string | null {
-    if (this.codeType === SkillTypesEnum.Weapon.Code) return require("./../assets/icons/skills/weapon.png");
-    else if (this.codeType === SkillTypesEnum.Race.Code) {
-      const images = require.context("./../assets/icons/skills/", false, /\.png$/);
-      return images(this.urlImage);
-    }
-    else return require("./../assets/icons/skills/other.png");
+    const url = (this.urlImage) ? "./" + this.urlImage : "./other.png";
+    const images = require.context("./../assets/icons/skills/", false, /\.png$/);
+    return images(url);
   }
 
   get type(): ArlenorEnum {
@@ -43,25 +37,15 @@ export class ArlenorSkill extends ArlenorAPI {
     return ArlenorRace.getRace(this.codeRace);
   }
 
-  get speciality(): ArlenorSpeciality | null {
-    if (!this.codeSpeciality) return null;
-    return ArlenorSpecialities.getSpeciality(this.codeSpeciality);
-  }
-
-  get isEditable(): boolean {
-    return (!this.codeRace && !this.codeSpeciality);
-  }
-
   constructor() {
     super();
     this.name = "";
     this.description = "";
-    this.urlImage = "";
+    this.urlImage = null;
 
     this.codeType = SkillTypesEnum.Other.Code;
     this.codesCaracts = [];
     this.codeRace = null;
-    this.codeSpeciality = null;
   }
 
   public init(name: string, type: ArlenorEnum): void {
