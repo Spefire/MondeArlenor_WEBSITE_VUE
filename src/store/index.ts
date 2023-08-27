@@ -83,8 +83,11 @@ export default createStore({
       state.character.caracts.cha = payload.caracts.cha;
       state.character.caracts.mag = payload.caracts.mag;
     },
-    changeCharacterCrystal(state, payload /* Note : { index, crystal } */) {
-      state.character.crystals[payload.index] = payload.crystal;
+    changeCharacterCrystals(state, payload: ArlenorCharacter) {
+      state.character.codeSpeciality01 = payload.codeSpeciality01;
+      state.character.idsPowers01 = payload.idsPowers01;
+      state.character.codeSpeciality02 = payload.codeSpeciality02;
+      state.character.idsPowers02 = payload.idsPowers02;
     },
     changeCharacterSkills(state, payload) {
       state.character.idsSkills = payload.idsSkills;

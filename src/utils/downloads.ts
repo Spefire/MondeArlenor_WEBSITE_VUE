@@ -118,21 +118,23 @@ const downloadPDF = async(character: ArlenorCharacter, allSkills: ArlenorSkill[]
   x = 425;
   y = 212;
   const specialities = ArlenorSpecialities.getListSpecialities();
-  if (character.crystals.length > 0) {
-    const spe = specialities.find(spe => spe.code === character.crystals[0].codeSpeciality);
+  if (character.codeSpeciality01) {
+    const spe = specialities.find(spe => spe.code === character.codeSpeciality01);
     if (spe) doc.text("Classe principale : " + spe.name, x, y, { align: "right" });
-    powersS = powersS.concat(allPowers.filter(power => character.crystals[0].idsPowers[PowerRanksEnum.Unique.Code].includes(power.id)));
-    powersA = powersA.concat(allPowers.filter(power => character.crystals[0].idsPowers[PowerRanksEnum.TresRare.Code].includes(power.id)));
-    powersB = powersB.concat(allPowers.filter(power => character.crystals[0].idsPowers[PowerRanksEnum.Rare.Code].includes(power.id)));
-    powersC = powersC.concat(allPowers.filter(power => character.crystals[0].idsPowers[PowerRanksEnum.Commun.Code].includes(power.id)));
+    const powers01 = allPowers.filter(power => character.idsPowers01.includes(power.id));
+    powersS = powersS.concat(powers01.filter(power => power.code === PowerRanksEnum.Unique.Code));
+    powersA = powersA.concat(powers01.filter(power => power.code === PowerRanksEnum.TresRare.Code));
+    powersB = powersB.concat(powers01.filter(power => power.code === PowerRanksEnum.Rare.Code));
+    powersC = powersC.concat(powers01.filter(power => power.code === PowerRanksEnum.Commun.Code));
   }
-  if (character.crystals.length > 1) {
-    const spe = specialities.find(spe => spe.code === character.crystals[1].codeSpeciality);
+  if (character.codeSpeciality02) {
+    const spe = specialities.find(spe => spe.code === character.codeSpeciality02);
     if (spe) doc.text("Classe secondaire : " + spe.name, x, y+12, { align: "right" });
-    powersS = powersS.concat(allPowers.filter(power => character.crystals[1].idsPowers[PowerRanksEnum.Unique.Code].includes(power.id)));
-    powersA = powersA.concat(allPowers.filter(power => character.crystals[1].idsPowers[PowerRanksEnum.TresRare.Code].includes(power.id)));
-    powersB = powersB.concat(allPowers.filter(power => character.crystals[1].idsPowers[PowerRanksEnum.Rare.Code].includes(power.id)));
-    powersC = powersC.concat(allPowers.filter(power => character.crystals[1].idsPowers[PowerRanksEnum.Commun.Code].includes(power.id)));
+    const powers02 = allPowers.filter(power => character.idsPowers02.includes(power.id));
+    powersS = powersS.concat(powers02.filter(power => power.code === PowerRanksEnum.Unique.Code));
+    powersA = powersA.concat(powers02.filter(power => power.code === PowerRanksEnum.TresRare.Code));
+    powersB = powersB.concat(powers02.filter(power => power.code === PowerRanksEnum.Rare.Code));
+    powersC = powersC.concat(powers02.filter(power => power.code === PowerRanksEnum.Commun.Code));
   }
 
   x = 34.6;

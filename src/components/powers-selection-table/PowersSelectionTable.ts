@@ -65,17 +65,15 @@ export default defineComponent({
     getPowersByRank(rank: string) {
       return this.filteredPowers.filter(power => power.codeRank === rank);
     },
-    getNbRank(codeRank: string) {
-      const powers: { [codeRank: string] : number[]; } = this.idsPowers;
-      return powers[codeRank].length;
+    getNbRank(rank: string) {
+      return this.filteredPowers.filter(power => power.codeRank === rank && this.idsPowers.includes(power.id)).length;
     },
     changePower(value: boolean, power: ArlenorPower) {
       if (value) this.$emit("add", power);
       else this.$emit("remove", power);
     },
     checkPower(power: ArlenorPower) {
-      const powers: { [codeRank: string] : number[]; } = this.idsPowers;
-      return powers[power.codeRank].find(idPower => idPower === power.id) ? true : false;
+      return this.idsPowers.includes(power.id);
     },
     checkDisabled(codeRank: string, power: ArlenorPower) {
       if (this.checkPower(power)) return false;

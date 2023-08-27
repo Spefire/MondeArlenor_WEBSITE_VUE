@@ -240,14 +240,6 @@ textarea {
   height: 15vh;
   width: 100%;
   padding: 10px;
-
-  @include tablet-only {
-    width: 50%;
-  }
-
-  @include mobile-only {
-    width: 100%;
-  }
 }
 
 // Select / Dropdown

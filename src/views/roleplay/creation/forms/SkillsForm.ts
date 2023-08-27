@@ -17,16 +17,6 @@ export default defineComponent({
     const store = useStore();
 
     const character: ArlenorCharacter = store.state.character;
-
-    const crystal01 = character.crystals[0];
-    let spe01;
-    if (crystal01) spe01 = crystal01.speciality;
-
-    const crystal02 = character.crystals[1];
-    let spe02;
-    if (crystal02) spe02 = crystal02.speciality;
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const idsSkills: Ref<number[]> = ref(character.idsSkills);
     const isNbSkillsValid: Ref<boolean | null> = ref(null);
     const level = character.level;
@@ -34,7 +24,6 @@ export default defineComponent({
     return {
       store,
       level,
-      spe01, spe02,
       form: {
         idsSkills,
         isNbSkillsValid,
@@ -58,6 +47,12 @@ export default defineComponent({
     },
   },
 
+  watch: {
+    allSkills: function() {
+      this.checkOldSkills();
+    }
+  },
+
   validations: {
     form: {
       idsSkills: {},
@@ -66,6 +61,10 @@ export default defineComponent({
   },
 
   methods: {
+    checkOldSkills() {
+      const validIdsSkills = this.allSkills.map(skill => skill.id);
+      this.form.idsSkills = this.form.idsSkills.filter(idSkill => validIdsSkills.includes(idSkill));
+    },
     addSkill(skill: ArlenorSkill) {
       this.form.idsSkills.push(skill.id);
       this.updateForm();

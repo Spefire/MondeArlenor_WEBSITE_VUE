@@ -1,6 +1,5 @@
 import PowersSelectionTable from "@/components/powers-selection-table/PowersSelectionTable.vue";
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
-import { ArlenorCrystal } from "@/models/ArlenorCrystal";
 import { ArlenorPower, PowerRanksEnum } from "@/models/ArlenorPower";
 import { ArlenorSpeciality } from "@/models/ArlenorSpeciality";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
@@ -22,16 +21,16 @@ export default defineComponent({
   },
   emits: ["previousStep", "nextStep"],
   
-  data (props) {
+  data () {
     const store = useStore();
 
     const character: ArlenorCharacter = store.state.character;
-    const codeSpeciality: Ref<string | null> = ref(character.crystals[props.indexCrystal].codeSpeciality);
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const idsPowers: Ref<any> = ref(character.crystals[props.indexCrystal].idsPowers);
-    const isNbPowersValid: Ref<boolean | null> = ref(null);
     const level = character.level;
+    const codeSpeciality: Ref<string | null> =
+    (this.indexCrystal === 0) ? ref(character.codeSpeciality01) : ref(character.codeSpeciality02);
+    const idsPowers: Ref<number[]> =
+    (this.indexCrystal === 0) ? ref(character.idsPowers01) : ref(character.idsPowers02);
+    const isNbPowersValid: Ref<boolean | null> = ref(null);
 
     return {
       store,
@@ -87,30 +86,40 @@ export default defineComponent({
     },
   },
 
+  watch: {
+    allPowers: function() {
+      this.checkOldPowers();
+    }
+  },
+
   methods: {
     changeSpeciality() {
-      this.form.idsPowers = ArlenorCrystal.resetIdsPowers();
+      this.form.idsPowers = [];
       this.updateForm();
     },
-    
+    checkOldPowers() {
+      const validIdsPowers = this.allPowers.map(power => power.id);
+      this.form.idsPowers = this.form.idsPowers.filter(idPower => validIdsPowers.includes(idPower));
+    },
     getDescription(description: string, length = 0) {
       if (length) return description.replace("&emsp;","").slice(0, length) + "...";
       return description.replace("&emsp;","");
     },
 
     addPower(power: ArlenorPower) {
-      this.form.idsPowers[power.codeRank].push(power.id);
+      this.form.idsPowers.push(power.id);
       this.updateForm();
     },
     removePower(power: ArlenorPower) {
-      this.form.idsPowers[power.codeRank] = this.form.idsPowers[power.codeRank].filter((idPower: number) => idPower !== power.id);
+      this.form.idsPowers = this.form.idsPowers.filter((idPower: number) => idPower !== power.id);
       this.updateForm();
     },
     checkNbPowers() {
-      const nbRankS = this.form.idsPowers[PowerRanksEnum.Unique.Code].length;
-      const nbRankA = this.form.idsPowers[PowerRanksEnum.TresRare.Code].length;
-      const nbRankB = this.form.idsPowers[PowerRanksEnum.Rare.Code].length;
-      const nbRankC = this.form.idsPowers[PowerRanksEnum.Commun.Code].length;
+      const powersSelected = this.allPowers.filter(power => this.form.idsPowers.includes(power.id)); 
+      const nbRankS = powersSelected.filter(power => power.codeRank === PowerRanksEnum.Unique.Code).length;
+      const nbRankA = powersSelected.filter(power => power.codeRank === PowerRanksEnum.TresRare.Code).length;
+      const nbRankB = powersSelected.filter(power => power.codeRank === PowerRanksEnum.Rare.Code).length;
+      const nbRankC = powersSelected.filter(power => power.codeRank === PowerRanksEnum.Commun.Code).length;
       
       this.form.isNbPowersValid = (
         nbRankS === this.level.maxRankS[this.indexCrystal]
@@ -121,9 +130,10 @@ export default defineComponent({
     },
 
     checkPowers(spe: ArlenorSpeciality) {
+      // Pour tester si une classe est éligible
       if (this.indexCrystal === 1) {
         const character: ArlenorCharacter = this.store.state.character;
-        if (spe.code === character.crystals[0].codeSpeciality) return false;
+        if (spe.code === character.codeSpeciality01) return false;
       }
 
       const list = this.allPowers.filter(power => power.speciality?.code === spe.code);
@@ -158,10 +168,20 @@ export default defineComponent({
       this.$emit("nextStep");
     },
     save() {
-      const newCrystal = new ArlenorCrystal();
-      newCrystal.codeSpeciality = this.form.codeSpeciality;
-      newCrystal.idsPowers = this.form.idsPowers;
-      this.store.commit("changeCharacterCrystal", { index: this.indexCrystal, crystal: newCrystal });
+      const newCharacter = new ArlenorCharacter();
+      const character: ArlenorCharacter = this.store.state.character;
+      if (this.indexCrystal === 0) {
+        newCharacter.codeSpeciality01 = this.form.codeSpeciality;
+        newCharacter.idsPowers01 = this.form.idsPowers;
+        newCharacter.codeSpeciality02 = character.codeSpeciality02;
+        newCharacter.idsPowers02 = character.idsPowers02;
+      } else {
+        newCharacter.codeSpeciality01 = character.codeSpeciality01;
+        newCharacter.idsPowers01 = character.idsPowers01;
+        newCharacter.codeSpeciality02 = this.form.codeSpeciality;
+        newCharacter.idsPowers02 = this.form.idsPowers;
+      }
+      this.store.commit("changeCharacterCrystals", newCharacter);
     }
   }
 });

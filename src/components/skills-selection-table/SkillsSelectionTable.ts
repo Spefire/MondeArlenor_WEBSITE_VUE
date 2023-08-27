@@ -55,8 +55,7 @@ export default defineComponent({
       else this.$emit("remove", skill);
     },
     checkSkill(skill: ArlenorSkill) {
-      const skills = this.idsSkills;
-      return skills.find(idSkill => idSkill === skill.id) ? true : false;
+      return this.idsSkills.includes(skill.id);
     },
     checkDisabled(skill: ArlenorSkill) {
       if (this.checkSkill(skill)) return false;

@@ -39,7 +39,7 @@
           <!---------- Ligne --------->
           <tr
             class="table-line"
-            :class="{ selected : selectedSkill?.code === skill.code }">
+            :class="{ selected : selectedSkill?.id === skill.id }">
             <td class="col-20">
               <div
                 class="power-img-layout"

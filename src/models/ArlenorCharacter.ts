@@ -1,9 +1,10 @@
 import { ArlenorAPI } from "./ArlenorAPI";
 import { ArlenorCaracts } from "./ArlenorCaracts";
-import { ArlenorCrystal } from "./ArlenorCrystal";
 import { ArlenorLevel } from "./ArlenorLevel";
 import { ArlenorRace } from "./ArlenorRace";
+import { ArlenorSpeciality } from "./ArlenorSpeciality";
 import { getListRaces } from "./data/ListRaces";
+import { ArlenorSpecialities } from "./data/ListSpecialities";
 
 export class ArlenorCharacter extends ArlenorAPI {
   
@@ -13,6 +14,7 @@ export class ArlenorCharacter extends ArlenorAPI {
   public name: string;
   public age: number;
   public gender: string;
+  
   public story: string;
   public description: string;
   public traits: string;
@@ -20,13 +22,14 @@ export class ArlenorCharacter extends ArlenorAPI {
   public importances: string;
 
   public codeRace: string | null;
-  public idCaracts: number;
-  public idsCrystals: number[];
   public idsSkills: number[];
+  public codeSpeciality01: string | null;
+  public idsPowers01: number[];
+  public codeSpeciality02: string | null;
+  public idsPowers02: number[];
 
   // Variables du front
   public caracts: ArlenorCaracts;
-  public crystals: ArlenorCrystal[];
 
   // Variables dérivées
   get initiative(): number {
@@ -63,6 +66,16 @@ export class ArlenorCharacter extends ArlenorAPI {
     return ArlenorRace.getRace(this.codeRace);
   }
 
+  get speciality01(): ArlenorSpeciality | null {
+    if (!this.codeSpeciality01) return null;
+    return ArlenorSpecialities.getSpeciality(this.codeSpeciality01);
+  }
+
+  get speciality02(): ArlenorSpeciality | null {
+    if (!this.codeSpeciality02) return null;
+    return ArlenorSpecialities.getSpeciality(this.codeSpeciality02);
+  }
+
   constructor() {
     super();
     this.numLevel = 1;
@@ -70,16 +83,19 @@ export class ArlenorCharacter extends ArlenorAPI {
     this.name = "";
     this.age = 0;
     this.gender = "";
+
     this.story = "";
     this.description = "";
     this.traits = "";
     this.belives = "";
     this.importances = "";
-    this.codeRace = null;
-    this.idCaracts = 0;
+
     this.caracts = new ArlenorCaracts();
-    this.idsCrystals = [];
-    this.crystals = [new ArlenorCrystal(), new ArlenorCrystal()];
+    this.codeRace = null;
     this.idsSkills = [];
+    this.codeSpeciality01 = null;
+    this.idsPowers01 = [];
+    this.codeSpeciality02 = null;
+    this.idsPowers02 = [];
   }
 }
