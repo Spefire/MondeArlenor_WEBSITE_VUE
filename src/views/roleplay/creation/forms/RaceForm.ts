@@ -1,7 +1,7 @@
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { ArlenorRace, DifficultyEnum } from "@/models/ArlenorRace";
+import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { getListRaces } from "@/models/data/ListRaces";
-import { getListRaceSkills } from "@/models/data/ListRaceSkills";
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 import { defineComponent } from "vue";
@@ -17,11 +17,9 @@ export default defineComponent({
   data() {
     const store = useStore();
     const allRaces = getListRaces().filter(race => race.difficulty !== DifficultyEnum.Impossible.Code);
-    const allSkills = getListRaceSkills();
     return {
       store,
       allRaces,
-      allSkills,
       form: {
         raceCode: store.state.character.codeRace || allRaces[0].code,
       },
@@ -31,6 +29,10 @@ export default defineComponent({
 
   setup () {
     return { v$: useVuelidate() };
+  },
+
+  mounted() {
+    this.store.commit("loadAllSkills");
   },
   
   validations: {
@@ -42,6 +44,9 @@ export default defineComponent({
   },
 
   computed: {
+    allSkills(): ArlenorSkill[] {
+      return this.store.state.allSkills || [];
+    },
     currentRace(): ArlenorRace | null {
       const race = this.allRaces.find(race => race.code === this.form.raceCode);
       return race ? race : null;

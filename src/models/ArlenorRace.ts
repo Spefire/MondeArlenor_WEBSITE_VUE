@@ -1,7 +1,5 @@
 import { ArlenorEnum } from "./ArlenorEnum";
-import { ArlenorSkill } from "./ArlenorSkill";
 import { getListRaces } from "./data/ListRaces";
-import { getListRaceSkills } from "./data/ListRaceSkills";
 
 export class ArlenorRace {
   public name: string;
@@ -31,11 +29,6 @@ export class ArlenorRace {
     this.ratioMagic = ratioMagic;
     this.image = "";
     this.locations = [];
-  }
-
-  public getSkills(): ArlenorSkill[] {
-    const allSkills = getListRaceSkills();
-    return allSkills.filter(skill => skill.race && skill.race.code === this.code);
   }
 
   public static getRace(code: string): ArlenorRace {

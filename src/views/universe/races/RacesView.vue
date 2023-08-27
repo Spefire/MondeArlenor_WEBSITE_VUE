@@ -81,7 +81,7 @@
     </div>
     <div class="races-items grid-list">
       <div
-        v-for="(skill, index) in currentRace.getSkills()"
+        v-for="(skill, index) in getSkillsByRace(currentRace.code)"
         class="grid-element"
         :key="index">
         <img

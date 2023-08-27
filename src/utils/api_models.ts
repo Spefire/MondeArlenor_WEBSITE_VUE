@@ -18,16 +18,6 @@ export class ResponseQuizz {
   }
 }
 
-export class ResponseSkill {
-  public ref_skill: string;
-  public value_skill: string;
-  
-  constructor() {
-    this.ref_skill = "";
-    this.value_skill = "";
-  }
-}
-
 export class ResponseStuff {
   public ref_stuff: string;
   public value_stuff: string;

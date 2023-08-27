@@ -4,11 +4,10 @@ import SkillsTable from "@/components/skills-table/SkillsTable.vue";
 import { CaractDescriptionEnum } from "@/models/ArlenorCaracts";
 import { ArlenorRace, DifficultyEnum } from "@/models/ArlenorRace";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
-import { ArlenorSkills } from "@/models/data/ListDefaultSkills";
 import { getListRaces } from "@/models/data/ListRaces";
 import { getListRoles } from "@/models/data/ListRoles";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
-import { defineComponent, Ref, ref } from "vue";
+import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
@@ -29,16 +28,12 @@ export default defineComponent({
     const caractChoice = ref(0);
     const roleChoice = ref("");
     const finitionChoice = ref(0);
-    
-    const skills = ArlenorSkills.getListDefaultSkills();
-    const defaultSkills: Ref<ArlenorSkill[]> = ref(skills);
 
     return {
       store,
       caractDescriptionEnum,
       allRaces, allSpecialities, allRoles,
       persoChoice, caractChoice, roleChoice, finitionChoice,
-      defaultSkills,
     };
   },
 
@@ -48,9 +43,7 @@ export default defineComponent({
 
   computed: {
     allSkills(): ArlenorSkill[] {
-      let allSkills = this.store.state.allSkills || [];
-      allSkills = allSkills.concat(this.defaultSkills);
-      return allSkills;
+      return this.store.state.allSkills || [];
     },
   },
 

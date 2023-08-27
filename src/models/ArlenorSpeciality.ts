@@ -34,14 +34,14 @@ export class ArlenorSpeciality {
     this.archetypeSkill02 = null;
   }
 
-  public setArchetype(name01: string, skill01: ArlenorSkill, desc01: string,
-    name02: string, skill02: ArlenorSkill, desc02: string, appearance: string): void {
+  public setArchetype(name01: string, /*skill01: ArlenorSkill, */desc01: string,
+    name02: string, /*skill02: ArlenorSkill, */desc02: string, appearance: string): void {
     this.archetypeName01 = name01;
     this.archetypeDesc01 = desc01;
-    this.archetypeSkill01= skill01;
+    //this.archetypeSkill01= skill01;
     this.archetypeName02 = name02;
     this.archetypeDesc02 = desc02;
-    this.archetypeSkill02 = skill02;
+    //this.archetypeSkill02 = skill02;
     this.appearance = appearance;
   }
 }

@@ -1,8 +1,10 @@
 import HeadLayout from "@/components/head-layout/HeadLayout.vue";
 import { ArlenorRace } from "@/models/ArlenorRace";
+import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { getListRaces } from "@/models/data/ListRaces";
 import { PageTitles } from "@/models/PagesTitles";
 import { defineComponent, ref } from "vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "RacesView",
@@ -12,6 +14,7 @@ export default defineComponent({
   },
 
   setup() {
+    const store = useStore();
     const currentIndex = ref(0);
     const allRaces = ref(getListRaces());
 
@@ -20,10 +23,11 @@ export default defineComponent({
     const nextImage = ref("");
 
     const title = PageTitles.races;
-    return { title, allRaces, currentIndex, previousImage, currentImage, nextImage };
+    return { store, title, allRaces, currentIndex, previousImage, currentImage, nextImage };
   },
 
   mounted() {
+    this.store.commit("loadAllSkills");
     if (this.$route.query.selection) {
       this.currentIndex = parseInt(this.$route.query.selection.toString());
     }
@@ -31,6 +35,9 @@ export default defineComponent({
   },
 
   computed: {
+    allSkills(): ArlenorSkill[] {
+      return this.store.state.allSkills || [];
+    },
     imageLeft() {
       return require("./../../../assets/images/races/adn_left.png");
     },
@@ -51,6 +58,12 @@ export default defineComponent({
   },
 
   methods: {
+    getSkillsByRace(codeRace: string) {
+      const skills = this.allSkills.filter(skill => skill.codeRace === codeRace);
+      skills.sort((a, b) => a.name.localeCompare(b.name));
+      return skills;
+    },
+
     updateRace() {
       this.previousImage = this.allRaces[this.previousIndex].image;
       this.currentImage = this.allRaces[this.currentIndex].image;

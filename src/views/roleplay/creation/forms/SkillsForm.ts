@@ -1,7 +1,6 @@
 import SkillsSelectionTable from "@/components/skills-selection-table/SkillsSelectionTable.vue";
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
-import { ArlenorSkills } from "@/models/data/ListDefaultSkills";
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 import { defineComponent, Ref, ref } from "vue";
@@ -32,14 +31,10 @@ export default defineComponent({
     const isNbSkillsValid: Ref<boolean | null> = ref(null);
     const level = character.level;
 
-    const skills = ArlenorSkills.getListDefaultSkills();
-    const defaultSkills: Ref<ArlenorSkill[]> = ref(skills);
-
     return {
       store,
       level,
       spe01, spe02,
-      defaultSkills,
       form: {
         idsSkills,
         isNbSkillsValid,
@@ -59,9 +54,7 @@ export default defineComponent({
 
   computed: {
     allSkills(): ArlenorSkill[] {
-      let allSkills = this.store.state.allSkills || [];
-      allSkills = allSkills.concat(this.defaultSkills);
-      return allSkills;
+      return this.store.state.allSkills || [];
     },
   },
 
