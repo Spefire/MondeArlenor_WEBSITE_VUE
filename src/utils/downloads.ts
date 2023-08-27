@@ -22,17 +22,17 @@ const downloadPDF = async(character: ArlenorCharacter, allSkills: ArlenorSkill[]
   // --- CARACTERISTIQUES ET VALEURS DERIVES
   let x = 123;
   let y = 134;
-  doc.text("" + character.caracts.for, x, y, { align: "center" });
+  doc.text("" + character.caractFor, x, y, { align: "center" });
   y += 21;
-  doc.text("" + character.caracts.hab, x, y, { align: "center" });
+  doc.text("" + character.caractHab, x, y, { align: "center" });
   y += 21;
-  doc.text("" + character.caracts.int, x, y, { align: "center" });
+  doc.text("" + character.caractInt, x, y, { align: "center" });
   y += 21;
-  doc.text("" + character.caracts.ten, x, y, { align: "center" });
+  doc.text("" + character.caractTen, x, y, { align: "center" });
   y += 21;
-  doc.text("" + character.caracts.cha, x, y, { align: "center" });
+  doc.text("" + character.caractCha, x, y, { align: "center" });
   y += 21;
-  doc.text("" + character.caracts.mag, x, y, { align: "center" });
+  doc.text("" + character.caractMag, x, y, { align: "center" });
 
   y += 64;
   doc.text("" + character.healthMax, x, y, { align: "center" });

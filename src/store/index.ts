@@ -76,12 +76,12 @@ export default createStore({
       state.character.codeRace = payload.codeRace;
     },
     changeCharacterCaracts(state, payload: ArlenorCharacter) {
-      state.character.caracts.for = payload.caracts.for;
-      state.character.caracts.hab = payload.caracts.hab;
-      state.character.caracts.int = payload.caracts.int;
-      state.character.caracts.ten = payload.caracts.ten;
-      state.character.caracts.cha = payload.caracts.cha;
-      state.character.caracts.mag = payload.caracts.mag;
+      state.character.caractFor = payload.caractFor;
+      state.character.caractHab = payload.caractHab;
+      state.character.caractInt = payload.caractInt;
+      state.character.caractTen = payload.caractTen;
+      state.character.caractCha = payload.caractCha;
+      state.character.caractMag = payload.caractMag;
     },
     changeCharacterCrystals(state, payload: ArlenorCharacter) {
       state.character.codeSpeciality01 = payload.codeSpeciality01;

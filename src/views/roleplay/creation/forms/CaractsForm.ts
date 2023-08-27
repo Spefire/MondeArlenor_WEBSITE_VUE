@@ -1,5 +1,4 @@
-import { CaractDescriptionEnum, CaractNomEnum } from "@/models/ArlenorCaracts";
-import { ArlenorCharacter } from "@/models/ArlenorCharacter";
+import { ArlenorCharacter, CaractDescriptionEnum, CaractNomEnum } from "@/models/ArlenorCharacter";
 import { getListRaces } from "@/models/data/ListRaces";
 import useVuelidate from "@vuelidate/core";
 import { between, sameAs } from "@vuelidate/validators";
@@ -12,7 +11,7 @@ export default defineComponent({
   name: "CaractsForm",
   components: { CreationForm },
   emits: ["previousStep", "nextStep"],
-    
+  
   data() {
     const store = useStore();
     const caractDescriptionEnum = CaractDescriptionEnum;
@@ -31,12 +30,12 @@ export default defineComponent({
       maxCaract,
       codeRace,
       form: {
-        for: store.state.character.caracts.for || 0,
-        hab: store.state.character.caracts.hab || 0,
-        int: store.state.character.caracts.int || 0,
-        ten: store.state.character.caracts.ten || 0,
-        cha: store.state.character.caracts.cha || 0,
-        mag: store.state.character.caracts.mag || 0,
+        for: store.state.character.caractFor || 0,
+        hab: store.state.character.caractHab || 0,
+        int: store.state.character.caractInt || 0,
+        ten: store.state.character.caractTen || 0,
+        cha: store.state.character.caractCha || 0,
+        mag: store.state.character.caractMag || 0,
         pointsLeft: (level.maxCaracts - totalCaracts),
       },
       isModified: false,
@@ -110,12 +109,12 @@ export default defineComponent({
     },
     save() {
       const newCharacter = new ArlenorCharacter();
-      newCharacter.caracts.for = parseInt(this.form.for);
-      newCharacter.caracts.hab = parseInt(this.form.hab);
-      newCharacter.caracts.int = parseInt(this.form.int);
-      newCharacter.caracts.ten = parseInt(this.form.ten);
-      newCharacter.caracts.cha = parseInt(this.form.cha);
-      newCharacter.caracts.mag = parseInt(this.form.mag);
+      newCharacter.caractFor = parseInt(this.form.for);
+      newCharacter.caractHab = parseInt(this.form.hab);
+      newCharacter.caractInt = parseInt(this.form.int);
+      newCharacter.caractTen = parseInt(this.form.ten);
+      newCharacter.caractCha = parseInt(this.form.cha);
+      newCharacter.caractMag = parseInt(this.form.mag);
       this.store.commit("changeCharacterCaracts", newCharacter);
     }
   }

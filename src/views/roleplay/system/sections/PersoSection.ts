@@ -1,7 +1,7 @@
 import ArrowButton from "@/components/arrow-button/ArrowButton.vue";
 import ExpandBloc from "@/components/expand-bloc/ExpandBloc.vue";
 import SkillsTable from "@/components/skills-table/SkillsTable.vue";
-import { CaractDescriptionEnum } from "@/models/ArlenorCaracts";
+import { CaractDescriptionEnum } from "@/models/ArlenorCharacter";
 import { ArlenorRace, DifficultyEnum } from "@/models/ArlenorRace";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { getListRaces } from "@/models/data/ListRaces";

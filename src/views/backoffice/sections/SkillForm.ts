@@ -1,5 +1,5 @@
 import ToggleButton from "@/components/toggle-button/ToggleButton.vue";
-import { CaractNomEnum } from "@/models/ArlenorCaracts";
+import { CaractNomEnum } from "@/models/ArlenorCharacter";
 import { ArlenorEnum } from "@/models/ArlenorEnum";
 import { ArlenorSkill, SkillTypesEnum } from "@/models/ArlenorSkill";
 import useVuelidate from "@vuelidate/core";
