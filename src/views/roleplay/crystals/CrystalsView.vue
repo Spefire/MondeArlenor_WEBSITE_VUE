@@ -93,18 +93,21 @@
       <div class="crystals-left layout-bloc">
 
         <h3 class="margin-bottom-1">Liste des Pouvoirs</h3>
-        <div class="powers-content">
-          <div class="powers-content-title">Liés à la classe</div>
+        <div
+          v-for="(rank, indexRank) in ranks"
+          class="powers-content"
+          :key="indexRank">
+          <div class="powers-content-title">Rang {{ rank.Libelle }}</div>
           <div
-            v-for="(power, index) in powersByRank"
+            v-for="(power, indexPower) in getRankPowers(rank)"
             class="power-line pointer"
             :class="{ 'selected' : power.code === selectedPower?.code }"
             @click="selectPower(power)"
-            :key="index">
+            :key="indexPower">
             <PowerImage :power="power" />
             <span class="power-txt">{{ power.name }}</span>
           </div>
-          <div v-if="powersByRank.length === 0">
+          <div v-if="getRankPowers(rank).length === 0">
             Aucun pouvoir
           </div>
         </div>

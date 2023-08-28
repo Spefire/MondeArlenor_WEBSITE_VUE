@@ -60,16 +60,17 @@ export default defineComponent({
     allArchetypes(): ArlenorArchetype[] {
       return this.store.state.allArchetypes || [];
     },
-    powersByRank(): ArlenorPower[] {
-      const powers = this.specialityPowers.slice();
-      powers.sort((a, b) => b.rank.Code.localeCompare(a.rank.Code));
-      return powers;
-    },
   },
 
   methods: {
     moveToSpe(code:string) {
       this.$router.push({ path: "crystals", query: { spe: code }});
+    },
+
+    getRankPowers(rank: ArlenorEnum): ArlenorPower[] {
+      const powers = this.specialityPowers.filter(power => power.rank.Code === rank.Code);
+      powers.sort((a, b) => b.rank.Code.localeCompare(a.rank.Code));
+      return powers;
     },
 
     updatePage() {
