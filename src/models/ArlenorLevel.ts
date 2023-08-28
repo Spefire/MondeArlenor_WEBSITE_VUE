@@ -12,7 +12,7 @@ export class ArlenorLevel {
     // Niveau 1
     this.maxCaracts = 9;
     this.maxHealth = 5;
-    this.maxSkills = 5;
+    this.maxSkills = 3;
     this.hasOtherCrystal = false;
     this.maxRankS = [0, 0];
     this.maxRankA = [0, 0];
@@ -41,18 +41,22 @@ export class ArlenorLevel {
       this.maxRankC = [2, 2]; // [2, 0] avant
     }
     if (level >= 7) this.maxRankA = [1, 0]; // [0, 0] avant
-    if (level >= 10) this.maxRankB = [1, 1]; // [1, 0] avant
-    if (level >= 11) this.maxRankC = [3, 2]; // [2, 2] avant
-    if (level >= 15) this.maxRankB = [2, 1]; // [1, 1] avant
-    if (level >= 17) this.maxRankA = [1, 1]; // [1, 0] avant
+    if (level >= 10) {
+      this.maxRankB = [1, 1]; // [1, 0] avant
+      this.maxRankC = [3, 2]; // [2, 2] avant
+    }
+    if (level >= 11) this.maxRankC = [3, 3]; // [3, 2] avant
+    if (level >= 13) this.maxRankB = [2, 1]; // [1, 1] avant
+    if (level >= 15) this.maxRankA = [1, 1]; // [1, 1] avant
+    if (level >= 17) this.maxRankB = [2, 2]; // [2, 1] avant
     if (level >= 20) this.maxRankA = [2, 1]; // [1, 1] avant
 
     /*
-    Final
+    Final (13 sorts)
     this.maxRankS = [0, 0];
     this.maxRankA = [2, 1];
-    this.maxRankB = [2, 1];
-    this.maxRankC = [3, 2];
+    this.maxRankB = [2, 2];
+    this.maxRankC = [3, 3];
     */
   }
 }
