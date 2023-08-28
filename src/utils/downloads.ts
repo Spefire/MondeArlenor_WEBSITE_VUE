@@ -39,7 +39,7 @@ const downloadPDF = async(character: ArlenorCharacter, allSkills: ArlenorSkill[]
   y += 21;
   doc.text("" + character.initiative, x, y, { align: "center" });
   y += 21;
-  doc.text("" + character.level.numLevel, x, y, { align: "center" });
+  doc.text("" + character.numLevel, x, y, { align: "center" });
 
   // --- RACE
   x = 326;

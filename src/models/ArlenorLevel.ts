@@ -1,5 +1,4 @@
 export class ArlenorLevel {
-  public numLevel: number;
   public hasOtherCrystal: boolean;
   public maxCaracts: number;
   public maxHealth: number;
@@ -10,8 +9,6 @@ export class ArlenorLevel {
   public maxRankC: number[];
 
   constructor(level: number) {
-    this.numLevel = level;
-
     // Niveau 1
     this.maxCaracts = 9;
     this.maxHealth = 5;

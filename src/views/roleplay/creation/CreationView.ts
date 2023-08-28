@@ -3,7 +3,6 @@ import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { PageTitles } from "@/models/PagesTitles";
 import downloads from "@/utils/downloads";
 import supabase_api from "@/utils/supabase_api";
-// import random from "@/utils/random";
 import useVuelidate from "@vuelidate/core";
 import { between, required } from "@vuelidate/validators";
 import { defineComponent, ref } from "vue";
@@ -34,7 +33,7 @@ export default defineComponent({
     return {
       store,
       form: {
-        id: null,
+        guid: null,
         numLevel: 1,
       },
     };
@@ -67,22 +66,25 @@ export default defineComponent({
     character(): ArlenorCharacter {
       return this.store.state.character;
     },
+    selectedCharacter(): ArlenorCharacter {
+      const character = this.characters.find(charact => charact.guid === this.form.guid);
+      return character || new ArlenorCharacter();
+    },
     characters(): ArlenorCharacter[] {
       const allCharacters = this.store.state.allCharacters || [];
       const localCharacters = this.store.state.localCharacters || [];
       return allCharacters.concat(localCharacters);
     },
     checkDelete(): boolean {
-      if (this.form.id) {
-        const character = this.characters.find(charact => charact.id === this.form.id);
-        return character ? true : false;
+      if (this.form.guid) {
+        return (!this.selectedCharacter || !(this.selectedCharacter?.id) || !(this.selectedCharacter.isVersionOK));
       } else return false;
     }
   },
 
   validations: {
     form: {
-      id: {},
+      guid: {},
       numLevel: {
         required,
         between: between(1, 20),
@@ -91,19 +93,41 @@ export default defineComponent({
   },
 
   methods: {
+    getLibelleCharacter(character: ArlenorCharacter) {
+      if (character.isVersionOK) {
+        let libelle = character.name;
+        libelle += " - " + character.race?.name;
+        libelle += " - Niv " + character.numLevel;
+        if (character.speciality01) libelle += " - " + character.speciality01.name;
+        if (character.speciality02) libelle += "/" + character.speciality02.name;
+        libelle += " (créé le " + character.date + " à " + character.hour + ")";
+        return libelle;
+      } else {
+        let libelle = character.name;
+        libelle += " - Niv " + character.numLevel;
+        libelle += " (ancienne version : à supprimer)";
+        return libelle;
+      }
+    },
+    getSubLibelleCharacter(character: ArlenorCharacter) {
+      let libelle = character.race?.name;
+      libelle += " - Niv " + character.numLevel;
+      if (character.speciality01) libelle += " - " + character.speciality01.name;
+      if (character.speciality02) libelle += "/" + character.speciality02.name;
+      return libelle;
+    },
     changeCharacter() {
-      if (this.form.id) {
-        const character = this.characters.find(charact => charact.id === this.form.id);
-        if (character) this.form.numLevel = character.level.numLevel;
+      if (this.form.guid) {
+        if (this.selectedCharacter) this.form.numLevel = this.selectedCharacter.numLevel;
       } else this.form.numLevel = 1;
     },
     decreaseSelection(): void {
-      if (this.selection === 5 && this.character.level.numLevel < 5) this.selection -= 2;
+      if (this.selection === 5 && this.character.numLevel < 5) this.selection -= 2;
       else if (this.selection === 7) this.selection -= 2;
       else this.selection--;
     },
     increaseSelection(): void {
-      if (this.selection === 3 && this.character.level.numLevel < 5) this.selection += 2;
+      if (this.selection === 3 && this.character.numLevel < 5) this.selection += 2;
       else if (this.selection === 5) this.selection += 2;
       else this.selection++;
     },
@@ -111,9 +135,8 @@ export default defineComponent({
       this.selection = newSelection;
     },
     startCreation(withReset: boolean): void {
-      if (this.form.id) {
-        const character = this.characters.find(charact => charact.id === this.form.id);
-        this.store.commit("changeCharacter", character);
+      if (this.form.guid) {
+        this.store.commit("changeCharacter", this.selectedCharacter);
       } else if (withReset) {
         this.store.commit("resetCharacter");
       }
@@ -124,7 +147,7 @@ export default defineComponent({
     restartCreation(): void {
       this.store.commit("resetCharacter");
       this.selection = 0;
-      this.form.id = null;
+      this.form.guid = null;
       this.form.numLevel = 1;
     },
     async downloadCharacter() {
@@ -140,23 +163,19 @@ export default defineComponent({
     closeDeletePopup(withAction: boolean) {
       this.showDeletePopup = false;
       if (withAction) {
-        this.store.commit("deleteLocalCharacter",  this.form.id);
+        this.store.commit("deleteLocalCharacter",  this.form.guid);
         this.restartCreation();
       }
     },
     openSavePopup() {
       this.showSavePopup = true;
+      this.isSaved = true;
+      const character = this.character;
+      character.initTime();
+      this.store.commit("saveLocalCharacter", character);
     },
-    closeSavePopup(withAction: boolean) {
+    closeSavePopup() {
       this.showSavePopup = false;
-      if (withAction) {
-        this.isSaved = true;
-        const character = this.character;
-        // TODO
-        // character.id = random.generateID(20);
-        character.initTime();
-        this.store.commit("saveLocalCharacter", character);
-      }
     },
   },
 });

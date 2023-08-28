@@ -20,7 +20,6 @@
             &emsp;
             Un personnage est défini par plusieurs choses : <b>ses caractéristiques</b> (et valeurs dérivées), <b>ses compétences principales</b>,
             <b>sa race</b> (parmi celles jouables), <b>son cristal évolutif</b> (ses pouvoirs), pour ensuite finir par quelques finitions.
-            <br>
             <br>&emsp;
             Cependant, malgré toutes les valeurs notées sur la fiche de personnage,
             c'est VOUS qui le ferez vivre via ses actions : on choisit ce que l'on est par nos actes !
@@ -32,16 +31,14 @@
               <div class="dropdown">
                 <select
                   class="dropdown-select"
-                  v-model.trim.lazy="v$.form.id.$model"
+                  v-model.trim.lazy="v$.form.guid.$model"
                   @change="changeCharacter">
                   <option :value="null">Nouveau personnage</option>
                   <option
-                    v-for="(charact, index) in characters"
-                    :value="charact.id"
+                    v-for="(character, index) in characters"
+                    :value="character.guid"
                     :key="index">
-                    {{ charact.name }}
-                    (Niveau {{ charact.level.numLevel }})
-                    ({{ charact.date }} à {{ charact.hour }})
+                    {{ getLibelleCharacter(character) }}
                   </option>
                 </select>
               </div>
@@ -93,7 +90,7 @@
         @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
       <CrystalForm
-        v-if="selection == 4 && character.level.numLevel < 5"
+        v-if="selection == 4 && character.numLevel < 5"
         :index-crystal="1"
         @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
@@ -139,7 +136,7 @@
                 alt="">
               <div class="text-center margin-left-1">
                 <h2>{{ character.name }}</h2>
-                <span>{{ character.age }} ans - {{ character.race.name }} - Niveau {{ character.level.numLevel }}</span>
+                <span>{{ getSubLibelleCharacter(character) }}</span>
               </div>
             </div>
             <div class="zone-description margin-top-1 text-center">
@@ -153,12 +150,10 @@
           </div>
 
           <div class="layout-bloc margin-top-1 text-center">
-            <template v-if="!isSaved">
-              <div>L'enregistrement de votre personnage se fera sur votre navigateur.</div>
-              <button
-                class="link-button margin-top-05"
-                @click="openSavePopup()">Enregistrer le personnage</button>
-            </template>
+            <button
+              v-if="!isSaved"
+              class="link-button"
+              @click="openSavePopup()">Enregistrer le personnage</button>
 
             <template v-if="isSaved">
               <div>Enregistrement effectué !</div>
@@ -197,7 +192,7 @@
       <div class="dotline" />
       <li
         :class="{'active': selection == 4,
-                 'warning': character.level.numLevel < 5}"
+                 'warning': character.numLevel < 5}"
         class="dot" />
       <div class="dotline" />
       <li
@@ -231,19 +226,17 @@
     :bloc-title="`Suppression du personnage`"
     :has-confirm-button="true"
     @close="closeDeletePopup">
-    Souhaitez-vous vraiment supprimer <b>{{ character.name }} (Niveau {{ character.level.numLevel }})</b> ?
-    <br> <br>
+    Souhaitez-vous vraiment supprimer le personnage nommé <b>{{ selectedCharacter.name }} - Niv {{ selectedCharacter.numLevel }}</b> ?
+    <br><br>
     Cette action est irréversible.
   </PopupBloc>
   
   <PopupBloc
     v-if="showSavePopup"
     :bloc-title="`Enregistrement du personnage`"
-    :has-confirm-button="true"
     @close="closeSavePopup">
-    Souhaitez-vous vraiment enregistrer <b>{{ character.name }} (Niveau {{ character.level.numLevel }})</b> ?
+    Votre personnage <b>{{ character.name }} - Niv {{ character.numLevel }}</b> est désormais sauvegardé sur votre navigateur.
     <br><br>
-    En cliquant, vous acceptez sa sauvegarde dans le localStorage votre navigateur.<br>
     Note : En effaçant l'historique de votre navigateur, vos personnages sauvegardés seront effacés.
   </PopupBloc>
 </template>

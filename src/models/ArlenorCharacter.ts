@@ -6,10 +6,14 @@ import { ArlenorSpeciality } from "./ArlenorSpeciality";
 import { getListRaces } from "./data/ListRaces";
 import { ArlenorSpecialities } from "./data/ListSpecialities";
 
+export const CURRENT_CHARACTER_VERSION = 1;
+
 export class ArlenorCharacter extends ArlenorAPI {
   
   // Variables à sauvegarder
+  public version: number;
   public numLevel: number;
+  public guid: string | null;
   public avatar: string;
   public name: string;
   public age: number;
@@ -36,6 +40,10 @@ export class ArlenorCharacter extends ArlenorAPI {
   public importances: string;
 
   // Variables dérivées
+  get isVersionOK(): boolean {
+    return this.version === CURRENT_CHARACTER_VERSION;
+  }
+
   get initiative(): number {
     return this.caractHab + this.caractInt;
   }
@@ -82,7 +90,9 @@ export class ArlenorCharacter extends ArlenorAPI {
 
   constructor() {
     super();
+    this.version = CURRENT_CHARACTER_VERSION;
     this.numLevel = 1;
+    this.guid = null;
     this.avatar = "";
     this.name = "";
     this.age = 0;

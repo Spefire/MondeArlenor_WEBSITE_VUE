@@ -43,7 +43,8 @@ export default defineComponent({
 
   computed: {
     allSkills(): ArlenorSkill[] {
-      return this.store.state.allSkills || [];
+      const skills: ArlenorSkill[] = this.store.state.allSkills || [];
+      return skills.filter(skill => !skill.codeRace);
     },
   },
 

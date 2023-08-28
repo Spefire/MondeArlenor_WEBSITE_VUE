@@ -1,10 +1,11 @@
 import { ArlenorArchetype } from "@/models/ArlenorArchetype";
-import { ArlenorCharacter } from "@/models/ArlenorCharacter";
+import { ArlenorCharacter, CURRENT_CHARACTER_VERSION } from "@/models/ArlenorCharacter";
 import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { ArlenorStuff } from "@/models/ArlenorStuff";
 import { CelestiaQuizz } from "@/models/CelestiaQuizz";
 import api from "@/utils/api";
+import random from "@/utils/random";
 import supabase_api from "@/utils/supabase_api";
 import { createStore } from "vuex";
 
@@ -20,7 +21,6 @@ export default createStore({
     allArchetypes: null as ArlenorArchetype[] | null,
   },
   mutations: {
-
     async loadAllCharacters(state, payload = false) {
       if (!state.allCharacters || payload) {
         const allCharacters = await api.readAllCharacter();
@@ -111,15 +111,44 @@ export default createStore({
     },
     saveLocalCharacter(state, payload: ArlenorCharacter) {
       const characters = instanceCharacters();
-      characters.push(payload);
+
+      // Si c'est un nouveau personnage, on lui génère un guid et on l'ajoute
+      if (!payload.guid) {
+        console.warn("saveLocalCharacter : new character");
+        payload.guid = random.generateID(20);
+        characters.push(payload);
+      }
+      // Sinon, on récupère la version sauvegardée 
+      else {
+        const characterSaved = characters.find(character => character.guid === payload.guid);
+        if (!characterSaved) {
+          console.error("saveLocalCharacter : character not found");
+          return;
+        }
+        // S'il a été trop modifié, on l'ajoute une nouvelle version
+        if (characterSaved?.name !== payload.name
+          || characterSaved?.codeRace !== payload.codeRace
+          || characterSaved?.numLevel !== payload.numLevel) {
+          console.warn("saveLocalCharacter : new character because modified");
+          payload.guid = random.generateID(20);
+          characters.push(payload);
+        }
+        // Sinon on remplace la version sauvegardée 
+        else {
+          console.warn("saveLocalCharacter : replace character");
+          const index = characters.findIndex(character => character.guid === payload.guid);
+          characters[index] = payload;
+        }
+      }
+
       state.localCharacters = characters;
 
       const localCharactersString = JSON.stringify(characters);
       localStorage.setItem("localCharacters", localCharactersString);
     },
-    deleteLocalCharacter(state, payload: number) {
+    deleteLocalCharacter(state, payload: string) {
       let characters = instanceCharacters();
-      characters = characters.filter(charact => charact.id !== payload);
+      characters = characters.filter(charact => charact.guid !== payload);
       state.localCharacters = characters;
 
       const localCharactersString = JSON.stringify(characters);
@@ -137,23 +166,36 @@ export default createStore({
   }
 });
 
-const instanceCharacters = ():ArlenorCharacter[] => {
-  const localCharactersString = localStorage.getItem("localCharacters");
+const instanceCharacters = (): ArlenorCharacter[] => {
+  let localCharactersString = localStorage.getItem("localCharacters");
 
   let localCharacters: ArlenorCharacter[];
   if (localCharactersString) localCharacters = JSON.parse(localCharactersString);
   else localCharacters = [];
 
-  /*
-  TODO
-    const finalCharacters: ArlenorCharacter[] = [];
-    localCharacters.forEach((obj: ArlenorCharacter) => {
-    const localCharacterString = JSON.stringify(obj);
-    const character = new ArlenorCharacter();
-    character.id = obj.id;
-    character.initByJSON(localCharacterString);
-    finalCharacters.push(character);
-  });*/
+  const finalCharacters: ArlenorCharacter[] = [];
+  localCharacters.forEach(character => {
+    const item = new ArlenorCharacter();
+    // Si la version sauvegardée est celle actuelle
+    // Alors aucun soucis, on la prend !
+    if (character.guid && character.version === CURRENT_CHARACTER_VERSION) {
+      Object.assign(item, character);
+      finalCharacters.push(item);
+    }
+    // Sinon, on prend juste son nom, son niveau
+    // Ce sont des propriétés qui ne changeront pas...
+    else if (character.guid) {
+      item.version = character.version;
+      item.numLevel = character.numLevel;
+      item.guid = character.guid;
+      item.name = character.name;
+      finalCharacters.push(item);
+    }
+  });
 
-  return localCharacters;
+  // On sauvegarde le nettoyage
+  localCharactersString = JSON.stringify(finalCharacters);
+  localStorage.setItem("localCharacters", localCharactersString);
+
+  return finalCharacters;
 };
