@@ -35,7 +35,7 @@
         </template>
       
         <template v-if="selectCaract === 'MAG'">
-          <h2 class="margin-top-0 text-center">Le Magie</h2>
+          <h2 class="margin-top-0 text-center">La Magie</h2>
           <span v-html="caractDescriptionEnum.Magie.Libelle" />
         </template>
       </div>

@@ -36,7 +36,7 @@
       </div>
       <div class="layout-row margin-top-1">
         <div class="layout-col-25 form-element">
-          <span>Âge<span required-libelle>*</span></span>
+          <span>Âge</span>
           <input
             type="number"
             class="text-center"
@@ -46,7 +46,7 @@
             v-model.trim.lazy="v$.form.age.$model">
         </div>
         <div class="layout-col-75 form-element">
-          <span>Genre du personnage <span required-libelle>*</span></span>
+          <span>Genre du personnage</span>
           <input
             type="text"
             class="text-center"
