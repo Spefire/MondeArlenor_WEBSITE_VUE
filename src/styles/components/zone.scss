@@ -30,14 +30,14 @@
         background: none;
     }
     &::-webkit-scrollbar-thumb {
-        border-radius: 0.5rem;
+        border-radius: $radius;
     }
 
     .zone-image {
         height: 100%;
         width: 100%;
         margin-top: 2rem;
-        border-bottom: 0.1rem solid $secondary-color;
+        border-bottom: $border;
         mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 
         @include tablet-only {
@@ -48,7 +48,7 @@
     .zone-icon {
         height: 10rem !important;
         width: 10rem !important;
-        border: 0.1rem solid $secondary-color;
+        border: $border;
 
         &.is-little {
             height: 5rem !important;
@@ -70,7 +70,7 @@
 
     .zone-image + .zone-header-buttons {
         margin-top: 0;
-        border-top: 0.1rem solid $secondary-color;
+        border-top: $border;
 
         @include tablet-only {
             border-top: none;
@@ -80,8 +80,8 @@
     .zone-description {
         padding: 1rem;
         overflow-y: auto;
-        border-top: 0.1rem solid $secondary-color;
-        border-bottom: 0.1rem solid $secondary-color;
+        border-top: $border;
+        border-bottom: $border;
 
         .zone-description-bloc {
             margin-bottom: 1rem;

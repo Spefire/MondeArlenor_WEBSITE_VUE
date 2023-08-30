@@ -14,7 +14,7 @@
         font-weight: bold;
         text-transform: uppercase;
         color: $secondary-color;
-        border: 0.1rem solid $secondary-color;
+        border: $border;
         cursor: pointer;
 
         @include mobile-only {

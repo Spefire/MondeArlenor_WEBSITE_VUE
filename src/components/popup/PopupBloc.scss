@@ -13,14 +13,14 @@
 		max-height: 90vh;
 		width: 50vw;
 		margin: 5vh auto;
-		border: 0.1rem solid $light-secondary-color;
+		border: $border;
 		background: $black-color;
 
 		.popup-bloc-header {
 			display: flex;
 			justify-content: space-between;
 			padding: 1.5rem 2rem;
-			border-bottom: 0.1rem solid $light-secondary-color;
+			border-bottom: $border;
 		}
 
 		.popup-bloc-content {
@@ -34,7 +34,7 @@
 			display: flex;
 			justify-content: center;
 			padding: 1.5rem 2rem;
-			border-top: 0.1rem solid $light-secondary-color;
+			border-top: $border;
 		}
 	}
 }

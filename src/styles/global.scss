@@ -130,8 +130,8 @@ input[type="text"],
 input[type="password"],
 input[type="number"],
 textarea {
-  border: 0.1rem solid $secondary-color;
-  border-radius: 0.5rem;
+  border: $border;
+  border-radius: $radius;
   font-size: $font-size-s;
   font-family: $sans-serif-font;
 
@@ -155,7 +155,7 @@ input[type="checkbox"] {
   appearance: none;
   height: 1.8rem;
   width: 1.8rem;
-  border: 0.1rem solid $secondary-color;
+  border: $border;
   border-radius: 0.4rem;
   cursor: pointer;
 
@@ -219,7 +219,7 @@ input[type="radio"] {
   min-width: 1.6rem;
   margin: 0;
   color: $secondary-color;
-  border: 0.1rem solid $secondary-color;
+  border: $border;
   border-radius: 50%;
   appearance: none;
   -webkit-appearance: none;
@@ -253,8 +253,8 @@ textarea {
   overflow: hidden;
   height: 3rem;
   width: 100%;
-  border-radius: 0.5rem;
-  border: 0.1rem solid $secondary-color;
+  border-radius: $radius;
+  border: $border;
   background: $black-color;
 }
 
@@ -301,7 +301,7 @@ textarea {
 
 .dropdown-select > option {
   padding: 1rem;
-  border-radius: 0.5rem;
+  border-radius: $radius;
   background: $black-color;
   cursor: pointer;
 }
@@ -326,7 +326,7 @@ table {
     overflow: hidden;
 
     th {
-      border-bottom: 0.1rem solid $secondary-color;
+      border-bottom: $border;
     }
   }
 

@@ -22,7 +22,7 @@
         margin: 0;
         padding: 0.4rem;
         border-radius: 50%;
-        border: 0.1rem solid $white-color;
+        border: 0.1rem solid $white-color; //TODO
         background-color: $background-black-light;
         transition: 1s ease;
         cursor: pointer;
@@ -43,7 +43,7 @@
         }
 
         &.warning {
-            border: 0.1rem solid $warning-color;
+            border: $border-warning;
         }
     }
 }

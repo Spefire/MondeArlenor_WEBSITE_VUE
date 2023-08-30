@@ -14,9 +14,8 @@
     width: 100%;
     margin-bottom: 2rem;
     padding: 2rem;
-    border: 0.1rem solid;
-    border-radius: 0.5rem;
-    border-color: $secondary-color;
+    border: $border;
+    border-radius: $radius;
     background: $background-black-dark;
     overflow: auto;
   }
@@ -49,7 +48,7 @@
     width: 10rem;
     margin: 0 auto;
     border-radius: 50%;
-    border: 0.2rem solid $secondary-color;
+    border: $border;
     background-color: $background-black-dark;
   }
 

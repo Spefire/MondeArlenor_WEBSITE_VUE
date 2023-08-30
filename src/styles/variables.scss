@@ -37,10 +37,14 @@ $spacing-l: 2rem;
 $spacing-m: 1rem;
 $spacing-s: 0.5rem;
 
+$radius: 0.5rem;
+$border: 0.1rem solid $secondary-color;
+$border-warning: 0.1rem solid $warning-color;
+
 // Variables pour le responsive
 $breakpoints: (
     tablet: 1023px,
-    mobile: 67.4rem
+    mobile: 674px
 );
 
 @mixin tablet-only {

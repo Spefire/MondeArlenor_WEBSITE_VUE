@@ -5,7 +5,7 @@ iframe {
   height: 28vw;
   width: 50vw;
   margin-bottom: 2rem;
-  border-radius: 0.5rem;
+  border-radius: $radius;
   border: 0.2rem solid $black-color;
   background: $black-color;
 
@@ -33,7 +33,7 @@ iframe {
     text-align: left;
     overflow: hidden;
     border-radius: 0.5rem;
-    border: 0.1rem solid $secondary-color;
+    border: $border;
     background: $background-black-dark;
 
     @include tablet-only {

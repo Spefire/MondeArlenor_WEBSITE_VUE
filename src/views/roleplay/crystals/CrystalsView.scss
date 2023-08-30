@@ -5,7 +5,7 @@
 
   .crystal-img {
     height: 12.5rem;
-    border: 0.1rem solid $secondary-color;
+    border: $border;
     background: $black-color;
 
     &.rounded {
@@ -95,7 +95,7 @@
     grid-gap: 1rem;
     margin-top: 2.4rem;
     padding: 1.5rem 0;
-    border: 0.1rem solid $secondary-color;
+    border: $border;
     background: $black-color;
 
     @include tablet-only {
@@ -108,7 +108,7 @@
       left: 2rem;
       padding: 0 1rem;
       text-transform: uppercase;
-      border: 0.1rem solid $secondary-color;
+      border: $border;
       background: $black-color;
     }
 

@@ -3,8 +3,8 @@
     top: 0;
     padding: 0;
     border-top: none !important;
-    border-radius: 0 0 0.5rem 0.5rem;
-    border: 0.1rem solid $secondary-color;
+    border-radius: 0 0 $radius $radius;
+    border: $border;
     background: $black-color;
     overflow: auto;
 
@@ -13,7 +13,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-        border-radius: 0 0 0.5rem 0.5rem;
+        border-radius: 0 0 $radius $radius;
     }
 
     .side-list {
@@ -30,7 +30,7 @@
             img {
                 height: 4rem;
                 width: 4rem;
-                border: 0.1rem solid $secondary-color;
+                border: $border;
                 background: $black-color;
                 pointer-events: all;
                 cursor: pointer;

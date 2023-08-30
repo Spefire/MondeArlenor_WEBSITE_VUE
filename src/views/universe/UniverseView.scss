@@ -18,8 +18,8 @@
     padding: 0 2rem;
     text-align: left;
     overflow: hidden;
-    border-radius: 0.5rem;
-    border: 0.1rem solid $secondary-color;
+    border: $border;
+    border-radius: $radius;
     background: $background-black-dark;
 
     @include tablet-only {

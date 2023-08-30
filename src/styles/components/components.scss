@@ -28,8 +28,8 @@
   text-align: center;
   text-transform: uppercase;
   color: $light-secondary-color;
-  border-radius: 0.5rem;
-  border: 0.1rem solid $secondary-color;
+  border-radius: $radius;
+  border: $border;
   background-color: transparent;
   cursor: pointer;
   outline: none;
@@ -40,13 +40,13 @@
 
   &.alert-button {
     color: $warning-color;
-    border: 0.1rem solid $warning-color;
+    border: $border-warning;
   }
 
   &:disabled,
   &:disabled:hover {
     color: $warning-color;
-    border: 0.1rem solid $warning-color;
+    border: $border-warning;
     background-color: $background-black-light !important;
     cursor: default;
   }
@@ -60,7 +60,7 @@
   line-height: 3.6rem;
   text-align: center;
   border-radius: 50%;
-  border: 0.2rem solid $white-color;
+  border: 0.2rem solid $white-color; //TODO
   background-color: $background-black-dark;
   cursor: pointer;
 
@@ -116,9 +116,8 @@
     width: 100%;
     padding: 1rem;
     text-align: left;
-    border: 0.1rem solid;
-    border-radius: 0.5rem;
-    border-color: $secondary-color;
+    border: $border;
+    border-radius: $radius;
     border-spacing: 0;
     background: $background-black-dark;
 
@@ -126,7 +125,7 @@
       height: 6rem;
       width: 6rem;
       margin-right: 1rem;
-      border: 0.1rem solid $secondary-color;
+      border: $border;
       pointer-events: none;
     }
 
@@ -156,7 +155,7 @@
     z-index: 1;
     height: 3.2rem;
     width: 3.2rem;
-    border: 0.1rem solid $secondary-color;
+    border: $border;
     transform: translate(-50%, -50%) rotate(-45deg);
     content: "";
   }
@@ -168,7 +167,7 @@
     z-index: 1;
     height: 3.6rem;
     width: 3.6rem;
-    border: 0.1rem solid $secondary-color;
+    border: $border;
     transform: translate(-50%, -50%);
     content: "";
   }
@@ -180,7 +179,7 @@
     z-index: 10;
     height: 3.2rem;
     width: 3.2rem;
-    border: 0.1rem solid $secondary-color;
+    border: $border;
     transform: translate(-50%, -50%);
     pointer-events: none;
   }
