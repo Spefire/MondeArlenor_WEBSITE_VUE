@@ -183,7 +183,7 @@
       </div>
     </div>
 
-    <ul class="celestia-creation-steps selection-container">
+    <ul class="creation-steps selection-container">
       <div class="dotline" />
       <li
         :class="{'active': selection == 0 }"

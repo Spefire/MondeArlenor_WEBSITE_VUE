@@ -151,7 +151,7 @@
         @nextQuestion="nextQuestion()" />
     </template>
       
-    <ul class="selection-container celestia-selection-steps">
+    <ul class="celestia-steps selection-container">
       <template
         v-for="(question, index) in quizz.questions"
         :key="index">
