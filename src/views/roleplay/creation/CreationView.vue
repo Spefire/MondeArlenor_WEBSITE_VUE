@@ -12,7 +12,7 @@
         <div class="creation-column">
           <img
             class="layout-bloc creation-img-perso"
-            src="./../../../assets/images/creation/perso_left.png"
+            src="./../../../assets/images/creation/intro_perso.png"
             alt="">
         </div>
         <div class="creation-column">
@@ -128,7 +128,7 @@
         <div class="creation-column">
           <img
             class="layout-bloc creation-img-perso"
-            src="./../../../assets/images/creation/perso_right.png"
+            src="./../../../assets/images/creation/end_perso.png"
             alt="">
         </div>
 
@@ -148,16 +148,16 @@
               </div>
             </div>
             <div class="zone-description margin-top-1 text-center">
-              Votre personnage est désormais fini, il ne reste plus qu'à lui donner vie !<br>
-              Vous pouvez télécharger alors sa fiche perso, en PDF, et la présenter à votre Maître du Jeu.<br>
+              Votre personnage est désormais fini,
+              <br>il ne reste plus qu'à lui donner vie.
               <br><b>Bienvenue dans le Monde d'Arlénor !</b>
             </div>
             <button
-              class="link-button full-width margin-top-1"
-              @click="downloadCharacter(false, false)">Télécharger la fiche perso (version&nbsp;imprimable)</button>
+              class="link-button margin-top-1"
+              @click="downloadCharacter(false, false)">Télécharger la fiche perso<br>(version&nbsp;imprimable)</button>
             <button
-              class="link-button full-width margin-top-1"
-              @click="downloadCharacter(false, true)">Télécharger la fiche perso (version&nbsp;colorée)</button>
+              class="link-button margin-top-1"
+              @click="downloadCharacter(false, true)">Télécharger la fiche perso<br>(version&nbsp;colorée)</button>
           </div>
 
           <div class="layout-bloc margin-top-1 text-center">
