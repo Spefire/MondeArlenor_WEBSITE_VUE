@@ -65,6 +65,32 @@
         <Glyphe :icon="'perso'" />
       </div>
     </div>
+    <div little-separator />
+    <div class="roleplay-view background-roleplay-black glyphe-hover">
+      <div class="glyphe-container">
+        <div class="glyphe-view">
+          <img
+            class="glyphe-logo"
+            src="../../assets/images/creation/fvtt.png"
+            alt="">
+        </div>
+      </div>
+      <div class="title-container inversed-container">
+        <h2>Foundry Virtual Tabletop</h2>
+        <p>
+          Trouvez ici le système de jeu du Monde d'Arlénor, pour y jouer sur Foundry VTT.
+        </p>
+        <div>
+          <a
+            class="link-button"
+            href="https://foundryvtt.com/packages/arlenor"
+            target="_blank"
+            rel="noopener noreferrer">
+            Foundry VTT
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="layout-view background-roleplay show-on-mobile">

@@ -38,5 +38,11 @@
     @include mobile-only {
       display: none;
     }
+
+    .glyphe-logo {
+      display: block;
+      width: 80%;
+      margin: auto;
+    }
   }
 }
