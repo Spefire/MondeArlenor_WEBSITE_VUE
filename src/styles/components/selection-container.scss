@@ -8,21 +8,21 @@
     transform: translateY(-50%);
 
     .dotline {
-        height: 60px;
-        width: 1px;
+        height: 6rem;
+        width: 0.1rem;
         background-color: $white-color;
     }
 
     .dot {
         position: relative;
         display: inline-block;
-        height: 20px;
-        min-width: 20px;
-        width: 20px;
+        height: 2rem;
+        min-width: 2rem;
+        width: 2rem;
         margin: 0;
-        padding: 4px;
+        padding: 0.4rem;
         border-radius: 50%;
-        border: 1px solid $white-color;
+        border: 0.1rem solid $white-color;
         background-color: $background-black-light;
         transition: 1s ease;
         cursor: pointer;
@@ -34,7 +34,7 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                padding: 4px;
+                padding: 0.4rem;
                 border-radius: 50%;
                 background-clip: content-box;
                 background-color: $light-secondary-color;
@@ -43,7 +43,7 @@
         }
 
         &.warning {
-            border: 1px solid $warning-color;
+            border: 0.1rem solid $warning-color;
         }
     }
 }
@@ -52,27 +52,27 @@
     position: relative;
     right: auto;
     top: auto;
-    margin-top: 20px;
+    margin-top: 2rem;
     flex-direction: row;
     justify-content: center;
     transform: none;
 
     .dotline {
-        height: 1px;
-        min-width: 20px;
+        height: 0.1rem;
+        min-width: 2rem;
     }
 
     @include tablet-only {
         .dot {
-            height: 14px;
-            min-width: 14px;
-            width: 14px;
-            margin: 2px;
+            height: 1.4rem;
+            min-width: 1.4rem;
+            width: 1.4rem;
+            margin: 0.2rem;
         }
 
         .dotline {
-            height: 1px;
-            min-width: 12px;
+            height: 0.1rem;
+            min-width: 1.2rem;
         }
     }
 
@@ -87,7 +87,7 @@
     }
 
     .dot {
-        margin: 4px;
+        margin: 0.4rem;
         border-radius: 0;
         transform: rotate(45deg);
         cursor: default;
@@ -100,6 +100,6 @@
     }
 
     .dotline {
-        height: 20px;
+        height: 2rem;
     }
 }

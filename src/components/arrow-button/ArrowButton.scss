@@ -14,14 +14,14 @@ a {
 		transition: 0.5s;
 
 		@include mobile-only {
-			margin-right: 10px;
+			margin-right: $spacing-m;
 			font-size: $font-size-m;
 			transform: scaleX(1);
 		}
 	}
 
 	&:hover i {
-		margin-right: 10px;
+		margin-right: $spacing-m;
 		font-size: $font-size-m;
 		transform: scaleX(1);
 	}

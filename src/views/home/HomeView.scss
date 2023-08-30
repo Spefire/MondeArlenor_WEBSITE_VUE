@@ -12,8 +12,8 @@
     }
 
     &::after {
-      top: 50px;
-      bottom: 51px;
+      top: 5rem;
+      bottom: 5.1rem;
     }
 
     .home-subcontainer {
@@ -30,8 +30,8 @@
         transform: translateX(20%) translateY(-50%);
 
         p {
-          margin-top: 10px;
-          margin-bottom: 10px;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
         }
       }
 
@@ -48,14 +48,14 @@
       }
 
       img {
-        height: 200px;
-        width: 375px;
-        margin-left: -30px;
+        height: 20rem;
+        width: 37.5rem;
+        margin-left: -3rem;
 
         @include mobile-only {
-          height: 125px;
-          width: 250px;
-          margin-left: -20px;
+          height: 12.5rem;
+          width: 25rem;
+          margin-left: -2rem;
         }
       }
     }

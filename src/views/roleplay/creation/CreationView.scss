@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100vh - 90px);
+  height: calc(100vh - 9rem);
 
   .creation-content {
     position: relative;
@@ -12,10 +12,10 @@
     flex-direction: row;
     height: 100%;
     width: 100%;
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid;
-    border-radius: 5px;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border: 0.1rem solid;
+    border-radius: 0.5rem;
     border-color: $secondary-color;
     background: $background-black-dark;
     overflow: auto;
@@ -27,7 +27,7 @@
     margin-top: auto;
 
     button:not(:first-child) {
-      margin-left: 20px;
+      margin-left: 2rem;
     }
   }
 }
@@ -37,19 +37,19 @@
   text-align: center;
 
   &:first-child {
-    margin-right: 20px;
+    margin-right: 2rem;
   }
 
   &:last-child {
-    margin-left: 20px;
+    margin-left: 2rem;
   }
 
   .creation-img {
-    height: 100px;
-    width: 100px;
+    height: 10rem;
+    width: 10rem;
     margin: 0 auto;
     border-radius: 50%;
-    border: 2px solid $secondary-color;
+    border: 0.2rem solid $secondary-color;
     background-color: $background-black-dark;
   }
 
@@ -57,7 +57,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: 25px;
+    padding: 2.5rem;
     overflow: auto;
   }
 
@@ -80,11 +80,11 @@
     align-items: center;
 
     &:not(:last-child) {
-      margin-bottom: 10px;
+      margin-bottom: 1rem;
     }
 
     .power-txt {
-      margin-left: 10px;
+      margin-left: 1rem;
       text-align: left;
     }
   }

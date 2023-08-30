@@ -1,6 +1,6 @@
 .zone-element {
-    min-height: 525px;
-    max-height: 525px;
+    min-height: 52.5rem;
+    max-height: 52.5rem;
     overflow-y: scroll !important;
 
     &.zone-element-free {
@@ -24,20 +24,20 @@
     }
 
     &::-webkit-scrollbar {
-        width: 6px;
+        width: 0.6rem;
     }
     &::-webkit-scrollbar-track {
         background: none;
     }
     &::-webkit-scrollbar-thumb {
-        border-radius: 5px;
+        border-radius: 0.5rem;
     }
 
     .zone-image {
         height: 100%;
         width: 100%;
-        margin-top: 20px;
-        border-bottom: 1px solid $secondary-color;
+        margin-top: 2rem;
+        border-bottom: 0.1rem solid $secondary-color;
         mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 
         @include tablet-only {
@@ -46,13 +46,13 @@
     }
 
     .zone-icon {
-        height: 100px !important;
-        width: 100px !important;
-        border: 1px solid $secondary-color;
+        height: 10rem !important;
+        width: 10rem !important;
+        border: 0.1rem solid $secondary-color;
 
         &.is-little {
-            height: 50px !important;
-            width: 50px !important;
+            height: 5rem !important;
+            width: 5rem !important;
         }
     }
 
@@ -70,7 +70,7 @@
 
     .zone-image + .zone-header-buttons {
         margin-top: 0;
-        border-top: 1px solid $secondary-color;
+        border-top: 0.1rem solid $secondary-color;
 
         @include tablet-only {
             border-top: none;
@@ -78,13 +78,13 @@
     }
 
     .zone-description {
-        padding: 10px;
+        padding: 1rem;
         overflow-y: auto;
-        border-top: 1px solid $secondary-color;
-        border-bottom: 1px solid $secondary-color;
+        border-top: 0.1rem solid $secondary-color;
+        border-bottom: 0.1rem solid $secondary-color;
 
         .zone-description-bloc {
-            margin-bottom: 10px;
+            margin-bottom: 1rem;
 
             span:first-child {
                 font-weight: bold;

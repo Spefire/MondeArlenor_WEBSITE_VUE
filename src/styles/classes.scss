@@ -36,15 +36,15 @@
 }
 
 .margin-top-2 {
-  margin-top: 32px !important;
+  margin-top: 2rem !important;
 }
 
 .margin-top-1 {
-  margin-top: 16px !important;
+  margin-top: 1rem !important;
 }
 
 .margin-top-05 {
-  margin-top: 8px !important;
+  margin-top: 0.5rem !important;
 }
 
 .margin-top-0 {
@@ -52,11 +52,11 @@
 }
 
 .margin-bottom-1 {
-  margin-bottom: 16px !important;
+  margin-bottom: 1rem !important;
 }
 
 .margin-bottom-05 {
-  margin-bottom: 8px !important;
+  margin-bottom: 0.5rem !important;
 }
 
 .margin-bottom-0 {
@@ -64,19 +64,19 @@
 }
 
 .margin-right-05 {
-  margin-right: 8px !important;
+  margin-right: 0.5rem !important;
 }
 
 .margin-right-1 {
-  margin-right: 16px !important;
+  margin-right: 1rem !important;
 }
 
 .margin-left-05 {
-  margin-left: 8px !important;
+  margin-left: 0.5rem !important;
 }
 
 .margin-left-1 {
-  margin-left: 16px !important;
+  margin-left: 1rem !important;
 }
 
 .text-bold {
@@ -190,8 +190,8 @@
 
   @include mobile-only {
     display: block !important;
-    margin: 10px;
-    padding: 5px;
+    margin: 1rem;
+    padding: 0.5rem;
     text-align: center;
     color: $warning-color;
   }

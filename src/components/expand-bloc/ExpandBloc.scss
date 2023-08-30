@@ -2,13 +2,13 @@
 
 .expand-bloc {
 	width: 100%;
-	line-height: 1.5;
-	border-radius: 5px;
+	// TODO line-height: 1.5;
+	border-radius: 0.5rem;
 	background: $background-black-dark;
 	overflow: hidden;
 
 	.expand-bloc-title {
-		padding: 10px 25px;
+		padding: $spacing-m $spacing-l;
 		font-family: $serif-font;
 		font-weight: bold;
 		text-transform: uppercase;
@@ -22,13 +22,13 @@
 	}
 
 	.expand-bloc-content {
-		padding: 0 25px;
+		padding: 0 $spacing-l;
 		max-height: 0;
 		overflow: hidden;
 
 		&.selected {
-			padding-top: 10px;
-			padding-bottom: 10px;
+			padding-top: $spacing-m;
+			padding-bottom: $spacing-m;
 			max-height: none;
 		}
 	}

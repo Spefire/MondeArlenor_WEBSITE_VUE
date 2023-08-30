@@ -12,8 +12,8 @@
 	}
 
 	img {
-		height: 400px;
-		margin: 0 20px;
+		height: 40rem;
+		margin: 0 2rem;
 	}
 
 	.head-text {
@@ -32,7 +32,7 @@
 	display: none;
 	flex-direction: column;
 	justify-content: space-evenly;
-	padding: 20px 0;
+	padding: 2rem 0;
 
 	@include tablet-only {
 		display: flex;
@@ -42,22 +42,22 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-top: 10px;
+		margin-top: 1rem;
 
 		img {
 			width: 15%;
 		}
 
 		h1 {
-			width: calc(70% - 20px);
-			padding: 20px 10px;
+			width: calc(70% - 2rem);
+			padding: 2rem 1rem;
 			text-align: center;
 		}
 	}
 
 	.head-text {
 		width: 80%;
-		margin: 20px auto 0 auto;
+		margin: 2rem auto 0 auto;
 		text-align: center;
 	}
 }

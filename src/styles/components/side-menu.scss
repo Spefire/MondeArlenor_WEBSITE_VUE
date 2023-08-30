@@ -3,17 +3,17 @@
     top: 0;
     padding: 0;
     border-top: none !important;
-    border-radius: 0 0 5px 5px;
-    border: 1px solid $secondary-color;
+    border-radius: 0 0 0.5rem 0.5rem;
+    border: 0.1rem solid $secondary-color;
     background: $black-color;
     overflow: auto;
 
     &::-webkit-scrollbar {
-        height: 6px;
+        height: 0.6rem;
     }
 
     &::-webkit-scrollbar-thumb {
-        border-radius: 0 0 5px 5px;
+        border-radius: 0 0 0.5rem 0.5rem;
     }
 
     .side-list {
@@ -21,16 +21,16 @@
         flex-direction: row;
 
         .side-element {
-            padding: 5px 10px;
+            padding: 0.5rem 1rem;
 
             &.selected {
                 background: $secondary-color;
             }
 
             img {
-                height: 40px;
-                width: 40px;
-                border: 1px solid $secondary-color;
+                height: 4rem;
+                width: 4rem;
+                border: 0.1rem solid $secondary-color;
                 background: $black-color;
                 pointer-events: all;
                 cursor: pointer;

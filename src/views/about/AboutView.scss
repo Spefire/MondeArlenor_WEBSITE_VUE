@@ -12,10 +12,10 @@
     }
 
     img {
-      height: 550px;
+      height: 55rem;
 
       @include tablet-only {
-        height: 350px;
+        height: 35rem;
       }
     }
   }

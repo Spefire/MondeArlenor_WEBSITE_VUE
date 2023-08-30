@@ -10,14 +10,18 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  font-size: $font-size-m;
-  font-family: $sans-serif-font;
 }
 
 body {
   z-index: 1;
+  font-size: 62.5%;
   color: $white-color;
   background: $black-color;
+
+  * {
+    font-size: $font-size-m;
+    font-family: $sans-serif-font;
+  }
 }
 
 // Titres
@@ -38,7 +42,7 @@ h1 {
 }
 
 h2 {
-  margin: 15px 0;
+  margin: 1.5rem 0;
   font-size: $font-size-l;
   line-height: $font-size-l;
   font-family: $serif-font;
@@ -53,12 +57,12 @@ h2 {
 
 h3 {
   margin: 0;
-  font-size: $font-size-ml;
+  font-size: $font-size-m;
   text-transform: uppercase;
 }
 
 p {
-  margin: 0 0 15px 0;
+  margin: 0 0 1.5rem 0;
   line-height: 135%;
 }
 
@@ -79,7 +83,7 @@ img {
 // Scrollbar
 
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 1.2rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -102,11 +106,11 @@ input[type="file"] {
 
 input[type="text"],
 input[type="password"] {
-  width: 200px;
+  width: 20rem;
 }
 
 input[type="number"] {
-  width: 60px;
+  width: 6rem;
   -moz-appearance: textfield;
 }
 
@@ -126,8 +130,8 @@ input[type="text"],
 input[type="password"],
 input[type="number"],
 textarea {
-  border: 1px solid $secondary-color;
-  border-radius: 5px;
+  border: 0.1rem solid $secondary-color;
+  border-radius: 0.5rem;
   font-size: $font-size-s;
   font-family: $sans-serif-font;
 
@@ -138,8 +142,8 @@ textarea {
 input[type="text"],
 input[type="password"],
 input[type="number"] {
-  height: 30px;
-  padding: 0 10px;
+  height: 3rem;
+  padding: 0 1rem;
   overflow: hidden;
 
   @include mobile-only {
@@ -149,19 +153,19 @@ input[type="number"] {
 
 input[type="checkbox"] {
   appearance: none;
-  height: 18px;
-  width: 18px;
-  border: 1px solid $secondary-color;
-  border-radius: 4px;
+  height: 1.8rem;
+  width: 1.8rem;
+  border: 0.1rem solid $secondary-color;
+  border-radius: 0.4rem;
   cursor: pointer;
 
   &::before {
     content: "";
     display: block;
-    height: 10px;
-    width: 10px;
-    margin: 3px;
-    border-radius: 2px;
+    height: 1rem;
+    width: 1rem;
+    margin: 0.3rem;
+    border-radius: 0.2rem;
     transform: scale(0);
     transition: 100ms transform ease-in-out;
     background: $secondary-color;
@@ -179,17 +183,17 @@ input[type="checkbox"] {
 }
 
 input[type="range"] {
-  height: 6px;
+  height: 0.6rem;
   width: 100%;
-  border-radius: 2px;
+  border-radius: 0.2rem;
   background: $white-color;
   -webkit-appearance: none;
   outline: none;
 
   &::-webkit-slider-thumb {
-    height: 22px;
-    width: 22px;
-    border: 4px solid $black-color;
+    height: 2.2rem;
+    width: 2.2rem;
+    border: 0.4rem solid $black-color;
     border-radius: 50%;
     background: $secondary-color;
     -webkit-appearance: none;
@@ -199,9 +203,9 @@ input[type="range"] {
 
   &::-moz-range-thumb,
   &::-webkit-slider-thumb {
-    height: 22px;
-    width: 22px;
-    border: 4px solid $black-color;
+    height: 2.2rem;
+    width: 2.2rem;
+    border: 0.4rem solid $black-color;
     border-radius: 50%;
     background: $secondary-color;
     cursor: pointer;
@@ -211,19 +215,19 @@ input[type="range"] {
 input[type="radio"] {
   display: grid;
   place-content: center;
-  height: 16px;
-  min-width: 16px;
+  height: 1.6rem;
+  min-width: 1.6rem;
   margin: 0;
   color: $secondary-color;
-  border: 1px solid $secondary-color;
+  border: 0.1rem solid $secondary-color;
   border-radius: 50%;
   appearance: none;
   -webkit-appearance: none;
   cursor: pointer;
 
   &::before {
-    height: 8px;
-    min-width: 8px;
+    height: 0.8rem;
+    min-width: 0.8rem;
     border-radius: 50%;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
@@ -239,7 +243,7 @@ input[type="radio"] {
 textarea {
   height: 15vh;
   width: 100%;
-  padding: 10px;
+  padding: 1rem;
 }
 
 // Select / Dropdown
@@ -247,10 +251,10 @@ textarea {
 .dropdown {
   position: relative;
   overflow: hidden;
-  height: 30px;
+  height: 3rem;
   width: 100%;
-  border-radius: 5px;
-  border: 1px solid $secondary-color;
+  border-radius: 0.5rem;
+  border: 0.1rem solid $secondary-color;
   background: $black-color;
 }
 
@@ -258,17 +262,17 @@ textarea {
   content: "";
   position: absolute;
   z-index: 2;
-  top: 10px;
-  right: 10px;
+  top: 1rem;
+  right: 1rem;
   width: 0;
   height: 0;
-  border: 5px dashed;
+  border: 0.5rem dashed;
   border-color: $black-color transparent;
   pointer-events: none;
 }
 
 .dropdown:after {
-  margin-top: 2px;
+  margin-top: 0.2rem;
   border-bottom: none;
   border-top-style: solid;
   border-top-color: $secondary-color;
@@ -276,11 +280,11 @@ textarea {
 
 .dropdown-select {
   position: relative;
-  height: 30px;
+  height: 3rem;
   width: 100%;
   margin: 0;
-  padding: 0px 30px 0px 10px;
-  line-height: 30px;
+  padding: 0 3rem 0 1rem;
+  line-height: 3rem;
   font-size: $font-size-s;
   font-family: $sans-serif-font;
   color: $white-color;
@@ -296,8 +300,8 @@ textarea {
 }
 
 .dropdown-select > option {
-  padding: 10px;
-  border-radius: 5px;
+  padding: 1rem;
+  border-radius: 0.5rem;
   background: $black-color;
   cursor: pointer;
 }
@@ -322,7 +326,7 @@ table {
     overflow: hidden;
 
     th {
-      border-bottom: 1px solid $secondary-color;
+      border-bottom: 0.1rem solid $secondary-color;
     }
   }
 
@@ -339,7 +343,7 @@ table {
 
   th,
   td {
-    padding: 5px;
+    padding: 0.5rem;
     text-align: center;
   }
 

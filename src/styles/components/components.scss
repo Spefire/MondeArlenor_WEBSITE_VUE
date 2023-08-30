@@ -3,9 +3,9 @@
 .link {
   position: relative;
   display: inline-block;
-  height: 40px;
-  padding: 0 20px;
-  line-height: 40px;
+  height: 4rem;
+  padding: 0 2rem;
+  line-height: 4rem;
   font-size: $font-size-m;
   font-family: $sans-serif-font;
   text-transform: uppercase;
@@ -21,15 +21,15 @@
 .link-button {
   display: inline-block;
   width: fit-content;
-  padding: 5px 15px;
+  padding: 0.5rem 1.5rem;
   font-size: $font-size-m;
   font-family: $sans-serif-font;
   line-height: $font-size-m;
   text-align: center;
   text-transform: uppercase;
   color: $light-secondary-color;
-  border-radius: 5px;
-  border: 1px solid $secondary-color;
+  border-radius: 0.5rem;
+  border: 0.1rem solid $secondary-color;
   background-color: transparent;
   cursor: pointer;
   outline: none;
@@ -40,27 +40,27 @@
 
   &.alert-button {
     color: $warning-color;
-    border: 1px solid $warning-color;
+    border: 0.1rem solid $warning-color;
   }
 
   &:disabled,
   &:disabled:hover {
     color: $warning-color;
-    border: 1px solid $warning-color;
+    border: 0.1rem solid $warning-color;
     background-color: $background-black-light !important;
     cursor: default;
   }
 }
 
 .select-button {
-  height: 36px;
-  width: 36px;
-  min-width: 36px;
-  margin: 0 10px;
-  line-height: 36px;
+  height: 3.6rem;
+  width: 3.6rem;
+  min-width: 3.6rem;
+  margin: 0 1rem;
+  line-height: 3.6rem;
   text-align: center;
   border-radius: 50%;
-  border: 2px solid $white-color;
+  border: 0.2rem solid $white-color;
   background-color: $background-black-dark;
   cursor: pointer;
 
@@ -89,7 +89,7 @@
 .grid-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 1rem;
 
   &.grid-2 {
     grid-template-columns: repeat(2, 1fr);
@@ -114,24 +114,24 @@
   .grid-element {
     display: flex;
     width: 100%;
-    padding: 10px;
+    padding: 1rem;
     text-align: left;
-    border: 1px solid;
-    border-radius: 5px;
+    border: 0.1rem solid;
+    border-radius: 0.5rem;
     border-color: $secondary-color;
     border-spacing: 0;
     background: $background-black-dark;
 
     img {
-      height: 60px;
-      width: 60px;
-      margin-right: 10px;
-      border: 1px solid $secondary-color;
+      height: 6rem;
+      width: 6rem;
+      margin-right: 1rem;
+      border: 0.1rem solid $secondary-color;
       pointer-events: none;
     }
 
     .grid-header {
-      margin-bottom: 10px;
+      margin-bottom: 1rem;
       font-family: $serif-font;
       color: $secondary-color;
       text-transform: uppercase;
@@ -146,17 +146,17 @@
 
 .power-img-layout {
   position: relative;
-  height: 40px;
-  min-width: 40px;
+  height: 4rem;
+  min-width: 4rem;
 
   &.after::after {
     position: absolute;
     top: 50%;
     left: 50%;
     z-index: 1;
-    height: 32px;
-    width: 32px;
-    border: 1px solid $secondary-color;
+    height: 3.2rem;
+    width: 3.2rem;
+    border: 0.1rem solid $secondary-color;
     transform: translate(-50%, -50%) rotate(-45deg);
     content: "";
   }
@@ -166,9 +166,9 @@
     top: 50%;
     left: 50%;
     z-index: 1;
-    height: 36px;
-    width: 36px;
-    border: 1px solid $secondary-color;
+    height: 3.6rem;
+    width: 3.6rem;
+    border: 0.1rem solid $secondary-color;
     transform: translate(-50%, -50%);
     content: "";
   }
@@ -178,9 +178,9 @@
     top: 50%;
     left: 50%;
     z-index: 10;
-    height: 32px;
-    width: 32px;
-    border: 1px solid $secondary-color;
+    height: 3.2rem;
+    width: 3.2rem;
+    border: 0.1rem solid $secondary-color;
     transform: translate(-50%, -50%);
     pointer-events: none;
   }
@@ -190,34 +190,34 @@
     top: 50%;
     left: 50%;
     z-index: 100;
-    height: 32px;
-    width: 32px;
+    height: 3.2rem;
+    width: 3.2rem;
     transform: translate(-50%, -50%);
     pointer-events: none;
   }
 }
 
 .power-img-layout.big {
-  height: 160px;
-  min-width: 160px;
+  height: 16rem;
+  min-width: 16rem;
 
   &.after::after {
-    height: 128px;
-    width: 128px;
+    height: 12.8rem;
+    width: 12.8rem;
   }
 
   &.before::before {
-    height: 144px;
-    width: 144px;
+    height: 14.4rem;
+    width: 14.4rem;
   }
 
   .power-img {
-    height: 128px;
-    width: 128px;
+    height: 12.8rem;
+    width: 12.8rem;
   }
 
   .power-img-ok {
-    height: 128px;
-    width: 128px;
+    height: 12.8rem;
+    width: 12.8rem;
   }
 }

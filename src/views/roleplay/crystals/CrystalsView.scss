@@ -1,24 +1,24 @@
 @import "../../../styles/variables.scss";
 
 .crystals-view {
-  padding-top: 50px !important;
+  padding-top: 5rem !important;
 
   .crystal-img {
-    height: 125px;
-    border: 1px solid $secondary-color;
+    height: 12.5rem;
+    border: 0.1rem solid $secondary-color;
     background: $black-color;
 
     &.rounded {
-      height: 75px;
+      height: 7.5rem;
       border-radius: 50%;
 
       @include tablet-only {
-        height: 50px;
+        height: 5rem;
       }
     }
 
     @include tablet-only {
-      height: 75px;
+      height: 7.5rem;
     }
   }
 
@@ -33,44 +33,44 @@
       width: 100%;
 
       @include tablet-only {
-        padding: 10px;
+        padding: 1rem;
       }
 
       .crystals-section {
         width: 33.33%;
-        margin: 10px 0;
+        margin: 1rem 0;
         text-align: center;
       }
     }
 
     .crystals-left {
-      width: calc(66.66% - 5px);
-      margin-right: 5px;
+      width: calc(66.66% - 0.5rem);
+      margin-right: 0.5rem;
       text-align: center;
     }
 
     .crystals-right {
-      width: calc(33.33% - 5px);
-      margin-left: 5px;
+      width: calc(33.33% - 0.5rem);
+      margin-left: 0.5rem;
       text-align: center;
     }
   }
 
   .crystals-separator {
     height: 100%;
-    width: 1px;
-    margin: 0 25px;
+    width: 0.1rem;
+    margin: 0 2.5rem;
     background: $secondary-color;
 
     @include tablet-only {
-      margin: 0 10px;
+      margin: 0 1rem;
     }
   }
 
   .power-separator {
-    height: 1px;
+    height: 0.1rem;
     width: 100%;
-    margin: 15px 0;
+    margin: 1.5rem 0;
     background: $secondary-color;
   }
 
@@ -79,11 +79,11 @@
     align-items: center;
 
     &:not(:last-child) {
-      margin-bottom: 10px;
+      margin-bottom: 1rem;
     }
 
     .power-txt {
-      margin-left: 10px;
+      margin-left: 1rem;
       text-align: left;
     }
   }
@@ -92,10 +92,10 @@
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
-    margin-top: 24px;
-    padding: 15px 0;
-    border: 1px solid $secondary-color;
+    grid-gap: 1rem;
+    margin-top: 2.4rem;
+    padding: 1.5rem 0;
+    border: 0.1rem solid $secondary-color;
     background: $black-color;
 
     @include tablet-only {
@@ -104,18 +104,18 @@
 
     .powers-content-title {
       position: absolute;
-      top: -15px;
-      left: 20px;
-      padding: 0 10px;
+      top: -1.5rem;
+      left: 2rem;
+      padding: 0 1rem;
       text-transform: uppercase;
-      border: 1px solid $secondary-color;
+      border: 0.1rem solid $secondary-color;
       background: $black-color;
     }
 
     .power-line {
       width: auto;
       margin: 0;
-      padding: 0 10px;
+      padding: 0 1rem;
 
       &.selected {
         color: $black-color;

@@ -8,9 +8,9 @@
 	.switch {
 		position: relative;
 		display: inline-block;
-		height: 28px;
-		min-width: 48px;
-		width: 48px;
+		height: 2.8rem;
+		min-width: 4.8rem;
+		width: 4.8rem;
 	}
 
 	/* Hide default HTML checkbox */
@@ -21,7 +21,7 @@
 	}
 
 	.switch-text {
-		margin-left: 10px;
+		margin-left: 1rem;
 	}
 
 	/* The slider */
@@ -31,7 +31,7 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		border: 1px solid $secondary-color;
+		border: 0.1rem solid $secondary-color;
 		background-color: $background-black-dark;
 		transition: 0.4s;
 		cursor: pointer;
@@ -39,10 +39,10 @@
 
 	.slider:before {
 		position: absolute;
-		left: 4px;
-		bottom: 4px;
-		height: 18px;
-		width: 18px;
+		left: 0.4rem;
+		bottom: 0.4rem;
+		height: 1.8rem;
+		width: 1.8rem;
 		background-color: $white-color;
 		transition: 0.4s;
 		content: "";
@@ -53,12 +53,12 @@
 	}
 
 	input:checked + .slider:before {
-		transform: translateX(20px);
+		transform: translateX(2rem);
 	}
 
 	/* Rounded sliders */
 	.slider.round {
-		border-radius: 14px;
+		border-radius: 1.4rem;
 	}
 
 	.slider.round:before {
