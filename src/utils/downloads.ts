@@ -4,14 +4,17 @@ import { ArlenorSkill } from "@/models/ArlenorSkill";
 import { ArlenorSpecialities } from "@/models/data/ListSpecialities";
 import jsPDF from "jspdf";
 
-const downloadPDF = async(character: ArlenorCharacter, allSkills: ArlenorSkill[], allPowers: ArlenorPower[]): Promise<void> => {
+const downloadPDF = async(isColored: boolean, character: ArlenorCharacter, allSkills: ArlenorSkill[], allPowers: ArlenorPower[]): Promise<void> => {
   const doc = new jsPDF("p", "px", "a4");
   const width = doc.internal.pageSize.getWidth();
   const height = doc.internal.pageSize.getHeight();
 
-  const backgroundRecto = await require("../assets/files/Fiche_PersoVide_Recto.jpeg");
+  const backgroundRecto = (isColored) ?
+    await require("../assets/files/FichePerso_Recto_Colo.jpeg")
+    : await require("../assets/files/FichePerso_Recto.jpeg");
   doc.addImage(backgroundRecto, "JPEG", 0, 0, width, height);
   doc.setFontSize(10);
+  if (isColored) doc.setTextColor(255, 255, 255);
 
   // --- AVATAR ET IDENTITE
   if (character.avatar) doc.addImage(character.avatar, "JPEG", 9.5, 10.5, 95.5, 82.25);
@@ -80,7 +83,9 @@ const downloadPDF = async(character: ArlenorCharacter, allSkills: ArlenorSkill[]
   });
 
   doc.addPage();
-  const backgroundVerso = await require("../assets/files/Fiche_PersoVide_Verso.jpeg");
+  const backgroundVerso = (isColored) ?
+    await require("../assets/files/FichePerso_Verso_Colo.jpeg")
+    : await require("../assets/files/FichePerso_Verso.jpeg");
   doc.addImage(backgroundVerso, "JPEG", 0, 0, width, height);
   doc.setFontSize(10);
 

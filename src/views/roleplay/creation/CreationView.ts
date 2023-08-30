@@ -66,20 +66,17 @@ export default defineComponent({
     character(): ArlenorCharacter {
       return this.store.state.character;
     },
-    selectedCharacter(): ArlenorCharacter {
-      const character = this.characters.find(charact => charact.guid === this.form.guid);
-      return character || new ArlenorCharacter();
+    selectedCharacter(): ArlenorCharacter | null {
+      if (this.form.guid) {
+        const character = this.characters.find(charact => charact.guid === this.form.guid);
+        return character ? character : null;
+      } else return null;
     },
     characters(): ArlenorCharacter[] {
       const allCharacters = this.store.state.allCharacters || [];
       const localCharacters = this.store.state.localCharacters || [];
       return allCharacters.concat(localCharacters);
     },
-    checkDelete(): boolean {
-      if (this.form.guid) {
-        return (!this.selectedCharacter || !(this.selectedCharacter?.id) || !(this.selectedCharacter.isVersionOK));
-      } else return false;
-    }
   },
 
   validations: {
@@ -150,12 +147,15 @@ export default defineComponent({
       this.form.guid = null;
       this.form.numLevel = 1;
     },
-    async downloadCharacter() {
+    async downloadCharacter(isSelectedCharacter: boolean, isColored: boolean) {
       let allSkills = await supabase_api.getAllSkill();
       let allPowers = await supabase_api.getAllPower();
       allSkills = allSkills.sort((a, b) => a.name.localeCompare(b.name));
       allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
-      downloads.downloadPDF(this.character, allSkills, allPowers);
+      if (isSelectedCharacter && this.selectedCharacter)
+        downloads.downloadPDF(isColored, this.selectedCharacter, allSkills, allPowers);
+      else
+        downloads.downloadPDF(isColored, this.character, allSkills, allPowers);
     },
     openDeletePopup() {
       this.showDeletePopup = true;

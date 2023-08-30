@@ -56,13 +56,21 @@
             </div>
           </div>
 
-          <div class="layout-row margin-top-1">
-            <div class="layout-col-100 form-element">
+          <div 
+            v-if="selectedCharacter"
+            class="layout-row margin-top-1">
+            <div class="layout-col-75 form-element">
               <button
-                v-if="checkDelete"
-                class="link-button alert-button"
+                class="link-button full-width"
+                @click="downloadCharacter(true, false)">Télécharger la fiche perso (version&nbsp;imprimable)</button>
+              <button
+                class="link-button full-width margin-top-1"
+                @click="downloadCharacter(true, true)">Télécharger la fiche perso (version&nbsp;colorée)</button>
+              <button
+                class="link-button full-width margin-top-1 alert-button"
                 @click="openDeletePopup()">Supprimer le personnage</button>
             </div>
+            <div class="layout-col-25" />
           </div>
         </div>
       </div>
@@ -145,8 +153,11 @@
               <br><b>Bienvenue dans le Monde d'Arlénor !</b>
             </div>
             <button
-              class="link-button margin-top-1"
-              @click="downloadCharacter()">Télécharger la fiche perso</button>
+              class="link-button full-width margin-top-1"
+              @click="downloadCharacter(false, false)">Télécharger la fiche perso (version&nbsp;imprimable)</button>
+            <button
+              class="link-button full-width margin-top-1"
+              @click="downloadCharacter(false, true)">Télécharger la fiche perso (version&nbsp;colorée)</button>
           </div>
 
           <div class="layout-bloc margin-top-1 text-center">
