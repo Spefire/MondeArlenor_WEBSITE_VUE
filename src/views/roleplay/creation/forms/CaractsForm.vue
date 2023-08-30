@@ -148,9 +148,18 @@
         Tous les points ont été répartis.
       </div>
 
+      <div
+        v-if="hasPbCaract"
+        class="layout-bloc margin-top-1"
+        required-libelle>
+        Une des caractéristiques est à 0
+        <br>Cela signifie 0 dé à lancer, soit un échec par défaut.
+        Cela peut rendre votre personnage intéressant à jouer, mais aussi plus difficile.
+      </div>
+
       <div class="layout-bloc margin-top-1">
-        Le Bonus d'Initiative est à : <b>{{ getInitiative() }}</b><br>
-        Les Points de Vie sont à : <b>{{ getPointsDeVie() }}</b>
+        Le Bonus d'Initiative est à : <b>{{ getInitiative() }}</b>
+        <br>Les Points de Vie sont à : <b>{{ getPointsDeVie() }}</b>
       </div>
     </div>
   </CreationForm>

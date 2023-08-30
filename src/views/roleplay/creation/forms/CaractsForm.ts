@@ -72,6 +72,17 @@ export default defineComponent({
     },
   },
 
+  computed: {
+    hasPbCaract(): boolean {
+      return !this.form.for || this.form.for === "0"
+        || !this.form.hab || this.form.hab === "0"
+        || !this.form.int || this.form.int === "0"
+        || !this.form.cha || this.form.cha === "0"
+        || !this.form.ten || this.form.ten === "0"
+        || !this.form.mag || this.form.mag === "0";
+    },
+  },
+
   methods: {
     changeCaract(caract: string) {
       this.selectCaract = caract;
