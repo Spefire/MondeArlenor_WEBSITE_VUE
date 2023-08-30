@@ -98,7 +98,7 @@
         @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />
       <CrystalForm
-        v-if="selection == 4 && character.numLevel < 5"
+        v-if="selection == 4 && character.numLevel > 5"
         :index-crystal="1"
         @previousStep="decreaseSelection()"
         @nextStep="increaseSelection()" />

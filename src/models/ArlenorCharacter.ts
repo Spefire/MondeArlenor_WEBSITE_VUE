@@ -16,7 +16,7 @@ export class ArlenorCharacter extends ArlenorAPI {
   public guid: string | null;
   public avatar: string;
   public name: string;
-  public age: number;
+  public age: number | null;
   public gender: string;
   
   public caractFor: number;
@@ -95,7 +95,7 @@ export class ArlenorCharacter extends ArlenorAPI {
     this.guid = null;
     this.avatar = "";
     this.name = "";
-    this.age = 0;
+    this.age = null;
     this.gender = "";
 
     this.story = "";

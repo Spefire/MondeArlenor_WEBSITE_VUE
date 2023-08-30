@@ -31,7 +31,7 @@
         <input
           type="text"
           class="text-center"
-          maxlength="40"
+          maxlength="35"
           v-model.trim.lazy="v$.form.name.$model">
       </div>
       <div class="layout-row margin-top-1">
