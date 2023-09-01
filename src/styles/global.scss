@@ -288,6 +288,8 @@ textarea {
   border-radius: 0;
   background: rgba(0, 0, 0, 0) !important;
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   cursor: pointer;
 }
 

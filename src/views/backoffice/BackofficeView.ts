@@ -2,6 +2,7 @@ import { PageTitles } from "@/models/PagesTitles";
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 import { defineComponent, ref } from "vue";
+import { useStore } from "vuex";
 
 import CharactersSection from "./sections/CharactersSection.vue";
 import PowersSection from "./sections/PowersSection.vue";
@@ -31,9 +32,16 @@ export default defineComponent({
   },
 
   setup () {
+    const store = useStore();
     const backChoice = ref(1);
-    const isOpen = ref(false);
-    return { backChoice, isOpen, v$: useVuelidate() };
+    const isOpen = ref(store.state.isAdmin);
+    if (isOpen.value) store.commit("setAdmin", true);
+    
+    return { 
+      store,
+      backChoice, isOpen,
+      v$: useVuelidate()
+    };
   },
 
   validations: {
@@ -49,7 +57,10 @@ export default defineComponent({
       this.backChoice = choice;
     },
     submitForm() {
-      if (this.form.key === process.env.VUE_APP_BO_KEY) this.isOpen = true;
+      if (this.form.key === process.env.VUE_APP_BO_KEY) {
+        this.isOpen = true;
+        this.store.commit("setAdmin", true);
+      }
     }
   }
 });
