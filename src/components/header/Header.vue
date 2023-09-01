@@ -9,6 +9,7 @@
           to="/">
           <i class="icon icon-logo margin-right-1" />
           {{ pages.home }}
+          {{ isAdmin ? '(Admin)' : '' }}
         </router-link>
       </div>
       <nav>
