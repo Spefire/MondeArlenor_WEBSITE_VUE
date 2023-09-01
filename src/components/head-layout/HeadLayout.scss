@@ -5,15 +5,15 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 5vh 0;
+	padding: $spacing-l 0;
 
 	@include tablet-only {
 		display: none;
 	}
 
 	img {
-		height: 40rem;
-		margin: 0 2rem;
+		height: 25rem;
+		margin: 0 $spacing-l;
 	}
 
 	.head-text {
@@ -32,7 +32,7 @@
 	display: none;
 	flex-direction: column;
 	justify-content: space-evenly;
-	padding: 2rem 0;
+	padding: $spacing-l 0;
 
 	@include tablet-only {
 		display: flex;
@@ -42,22 +42,21 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-top: 1rem;
 
 		img {
 			width: 15%;
 		}
 
 		h1 {
-			width: calc(70% - 2rem);
-			padding: 2rem 1rem;
+			width: calc(70% - $spacing-l);
+			padding: $spacing-l $spacing-m;
 			text-align: center;
 		}
 	}
 
 	.head-text {
 		width: 80%;
-		margin: 2rem auto 0 auto;
+		margin: $spacing-l auto 0 auto;
 		text-align: center;
 	}
 }

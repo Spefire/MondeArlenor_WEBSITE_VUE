@@ -7,11 +7,11 @@ header {
 	.header-icon {
 		display: flex;
 		align-items: center;
-		padding: 0 1rem;
+		padding: 0 $spacing-m;
 
 		i {
-			font-size: 4rem;
-			line-height: 4rem;
+			font-size: calc($nav-height - $spacing-m);
+			line-height: calc($nav-height - $spacing-m);
 			cursor: pointer;
 		}
 	}
@@ -21,7 +21,7 @@ header {
 		align-items: center;
 		justify-content: space-between;
 		position: relative;
-		height: 5rem;
+		height: $nav-height;
 		background-color: $black-color;
 
 		@include mobile-only {
@@ -55,7 +55,7 @@ header {
 		}
 
 		&.active {
-			height: 4rem;
+			height: $nav-height;
 			transform: translateY(0%) scaleY(1);
 		}
 
@@ -82,7 +82,7 @@ header {
 		align-items: center;
 		justify-content: space-between;
 		position: relative;
-		height: 5rem;
+		height: $nav-height;
 		background-color: $black-color;
 
 		@include mobile-only {

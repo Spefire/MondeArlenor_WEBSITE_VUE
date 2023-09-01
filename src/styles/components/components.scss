@@ -3,11 +3,11 @@
 .link {
   position: relative;
   display: inline-block;
-  height: 4rem;
-  padding: 0 2rem;
-  line-height: 4rem;
+  height: $nav-height;
+  padding: 0 $spacing-m;
   font-size: $font-size-m;
   font-family: $sans-serif-font;
+  line-height: $nav-height;
   text-transform: uppercase;
   transition: 0.5s;
 
@@ -21,7 +21,7 @@
 .link-button {
   display: inline-block;
   width: fit-content;
-  padding: 0.5rem 1.5rem;
+  padding: $spacing-s $spacing-m;
   font-size: $font-size-m;
   font-family: $sans-serif-font;
   line-height: $font-size-m;
@@ -53,14 +53,14 @@
 }
 
 .select-button {
-  height: 3.6rem;
-  width: 3.6rem;
-  min-width: 3.6rem;
+  height: 2.2rem;
+  width: 2.2rem;
+  min-width: 2.2rem;
   margin: 0 1rem;
-  line-height: 3.6rem;
+  line-height: 2.2rem;
   text-align: center;
   border-radius: 50%;
-  border: 0.2rem solid $white-color; //TODO
+  border: 0.2rem solid $white-color;
   background-color: $background-black-dark;
   cursor: pointer;
 
@@ -114,7 +114,7 @@
   .grid-element {
     display: flex;
     width: 100%;
-    padding: 1rem;
+    padding: $spacing-m;
     text-align: left;
     border: $border;
     border-radius: $radius;
@@ -122,15 +122,15 @@
     background: $background-black-dark;
 
     img {
-      height: 6rem;
-      width: 6rem;
-      margin-right: 1rem;
+      height: 4rem;
+      width: 4rem;
+      margin-right: $spacing-m;
       border: $border;
       pointer-events: none;
     }
 
     .grid-header {
-      margin-bottom: 1rem;
+      margin-bottom: $spacing-m;
       font-family: $serif-font;
       color: $secondary-color;
       text-transform: uppercase;

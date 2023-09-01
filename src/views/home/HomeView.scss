@@ -12,8 +12,8 @@
     }
 
     &::after {
-      top: 5rem;
-      bottom: 5.1rem;
+      top: $nav-height;
+      bottom: calc($nav-height + 0.1rem);
     }
 
     .home-subcontainer {
@@ -30,8 +30,8 @@
         transform: translateX(20%) translateY(-50%);
 
         p {
-          margin-top: 1rem;
-          margin-bottom: 1rem;
+          margin-top: $spacing-m;
+          margin-bottom: $spacing-m;
         }
       }
 
@@ -48,14 +48,12 @@
       }
 
       img {
-        height: 20rem;
-        width: 37.5rem;
-        margin-left: -3rem;
+        height: 12rem;
+        margin-left: -2rem;
 
         @include mobile-only {
-          height: 12.5rem;
-          width: 25rem;
-          margin-left: -2rem;
+          height: 8rem;
+          margin-left: -1rem;
         }
       }
     }

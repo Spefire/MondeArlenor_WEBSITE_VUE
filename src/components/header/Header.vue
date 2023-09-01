@@ -7,7 +7,7 @@
         <router-link
           class="header-icon link"
           to="/">
-          <i class="icon icon-logo margin-right-1" />
+          <i class="icon icon-logo margin-right-05" />
           {{ pages.home }}
         </router-link>
       </div>
