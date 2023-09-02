@@ -2,6 +2,7 @@ import PopupBloc from "@/components/popup/PopupBloc.vue";
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { PageTitles } from "@/models/PagesTitles";
 import downloads from "@/utils/downloads";
+import random from "@/utils/random";
 import supabase_api from "@/utils/supabase_api";
 import useVuelidate from "@vuelidate/core";
 import { between, required } from "@vuelidate/validators";
@@ -184,6 +185,7 @@ export default defineComponent({
       const character = this.character;
       character.initTime();
       character.isBDD = true;
+      character.guid = random.generateID(20);
       await supabase_api.postCharacter(character);
       this.isSaved = true;
       this.showSavePopup = true;
