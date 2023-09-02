@@ -169,7 +169,7 @@
 
             <button
               v-if="isAdmin && !isSaved"
-              class="link-button"
+              class="link-button margin-top-1"
               @click="openSavePopupBDD()">Enregistrer le personnage en BDD</button>
 
             <template v-if="isSaved">
