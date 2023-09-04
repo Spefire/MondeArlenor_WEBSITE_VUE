@@ -23,63 +23,63 @@
   <div class="celestia-view layout-view background-celestia-black">
     <div class="celestia-container">
 
-      <div class="celestia-right">
-        <div class="celestia-icons">
-          <img
-            class="celestia-character layout-bloc"
-            :src="currentCelestia.image"
-            alt="">
-        </div>
+      <div class="celestia-left">
+        <img
+          class="celestia-character layout-bloc"
+          :src="currentCelestia.image"
+          alt="">
       </div>
         
-      <div class="celestia-left section">
-        <div class="section-header-buttons">
-          <div
-            class="section-button inverted"
-            @click="previousSelection()">
-            <i class="icon icon-arrow-right2" />
+      <div class="celestia-right">
+        <div class="layout-bloc section">
+          <div class="section-header-buttons">
+            <div
+              class="section-button inverted"
+              @click="previousSelection()">
+              <i class="icon icon-arrow-right2" />
+            </div>
+            <div class="text-center margin-bottom-1">
+              <h2>{{ currentCelestia.firstname }} {{ currentCelestia.lastname }}</h2>
+              <h3>{{ currentCelestia.grade }}</h3>
+            </div>
+            <div
+              class="section-button"
+              @click="nextSelection()">
+              <i class="icon icon-arrow-right2" />
+            </div>
           </div>
-          <div class="text-center margin-bottom-1">
-            <h2>{{ currentCelestia.firstname }} {{ currentCelestia.lastname }}</h2>
-            <h3>{{ currentCelestia.grade }}</h3>
+          <div class="section-description">
+            <div class="section-description-bloc text-center">
+              <span />
+              <span>{{ currentCelestia.age }}ans - {{ currentCelestia.astro }} - {{ currentCelestia.mbti }}</span>
+            </div>
+            <div class="section-description-bloc">
+              <span>Emotion dominante</span><br>
+              <span>{{ currentCelestia.emotion }}</span>
+            </div>
+            <div class="section-description-bloc">
+              <span>Grade - Familier</span><br>
+              <span>{{ currentCelestia.grade }} - {{ currentCelestia.animal }}</span>
+            </div>
+            <div class="section-description-bloc">
+              <span>Orientation - Relations</span><br>
+              <span>{{ currentCelestia.orientation }} - {{ currentCelestia.situation }}</span>
+              <span v-html="currentCelestia.relations" />
+            </div>
+            <div class="section-description-bloc">
+              <span /><br>
+              <span class="text-bold">Qualités : </span>
+              <span>{{ getLibArray(currentCelestia.qualities) }}</span><br>
+              <span class="text-bold">Défauts : </span>
+              <span>{{ getLibArray(currentCelestia.defaults) }}</span>
+            </div>
           </div>
-          <div
-            class="section-button"
-            @click="nextSelection()">
-            <i class="icon icon-arrow-right2" />
-          </div>
+          <p
+            class="section-comment margin-top-1"
+            :title="currentCelestia.comment">
+            "{{ currentCelestia.comment }}"
+          </p>
         </div>
-        <div class="section-description">
-          <div class="section-description-bloc text-center">
-            <span />
-            <span>{{ currentCelestia.age }}ans - {{ currentCelestia.astro }} - {{ currentCelestia.mbti }}</span>
-          </div>
-          <div class="section-description-bloc">
-            <span>Emotion dominante</span><br>
-            <span>{{ currentCelestia.emotion }}</span>
-          </div>
-          <div class="section-description-bloc">
-            <span>Grade - Familier</span><br>
-            <span>{{ currentCelestia.grade }} - {{ currentCelestia.animal }}</span>
-          </div>
-          <div class="section-description-bloc">
-            <span>Orientation - Relations</span><br>
-            <span>{{ currentCelestia.orientation }} - {{ currentCelestia.situation }}</span>
-            <span v-html="currentCelestia.relations" />
-          </div>
-          <div class="section-description-bloc">
-            <span /><br>
-            <span class="text-bold">Qualités : </span>
-            <span>{{ getLibArray(currentCelestia.qualities) }}</span><br>
-            <span class="text-bold">Défauts : </span>
-            <span>{{ getLibArray(currentCelestia.defaults) }}</span>
-          </div>
-        </div>
-        <p
-          class="section-comment margin-top-1"
-          :title="currentCelestia.comment">
-          "{{ currentCelestia.comment }}"
-        </p>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 .section {
-    min-height: 52.5rem;
-    max-height: 52.5rem;
-    overflow-y: scroll !important;
+    min-height: 30rem;
+    max-height: 30rem;
+    overflow-y: auto !important;
 
     &.is-height-free {
         min-height: auto;

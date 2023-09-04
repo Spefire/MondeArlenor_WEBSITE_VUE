@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100vh - 9rem);
+  height: calc(100vh - $nav-height * 3);
 
   .creation-content {
     position: relative;
@@ -12,8 +12,8 @@
     flex-direction: row;
     height: 100%;
     width: 100%;
-    margin-bottom: 2rem;
-    padding: 2rem;
+    margin-bottom: $spacing-l;
+    padding: $spacing-l;
     border: $border;
     border-radius: $radius;
     background: $background-black-dark;
@@ -26,7 +26,7 @@
     margin-top: auto;
 
     button:not(:first-child) {
-      margin-left: 2rem;
+      margin-left: $spacing-l;
     }
   }
 }
@@ -36,16 +36,16 @@
   text-align: center;
 
   &:first-child {
-    margin-right: 2rem;
+    margin-right: $spacing-l;
   }
 
   &:last-child {
-    margin-left: 2rem;
+    margin-left: $spacing-l;
   }
 
   .creation-img {
-    height: 10rem;
-    width: 10rem;
+    height: 8rem;
+    width: 8rem;
     margin: 0 auto;
     border-radius: 50%;
     border: $border;
@@ -56,7 +56,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: 2.5rem;
+    padding: $spacing-l;
     overflow: auto;
   }
 
@@ -79,11 +79,11 @@
     align-items: center;
 
     &:not(:last-child) {
-      margin-bottom: 1rem;
+      margin-bottom: $spacing-m;
     }
 
     .power-txt {
-      margin-left: 1rem;
+      margin-left: $spacing-m;
       text-align: left;
     }
   }
@@ -93,8 +93,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 20rem;
-  width: 20rem;
+  height: 12rem;
+  width: 12rem;
   text-align: center;
   border-radius: $radius;
   border: $border;
@@ -103,7 +103,7 @@
   cursor: pointer;
 
   img {
-    height: 20rem !important;
-    width: 20rem !important;
+    height: 12rem !important;
+    width: 12rem !important;
   }
 }

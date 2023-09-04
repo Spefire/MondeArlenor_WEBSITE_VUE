@@ -1,12 +1,6 @@
 @import "../../../styles/variables.scss";
 
 .races-view {
-  height: 100vh;
-
-  @include mobile-only {
-    height: auto;
-  }
-
   .races-imgs {
     display: flex;
     align-items: center;
@@ -68,10 +62,6 @@
 
     @include tablet-only {
       width: 100%;
-    }
-
-    @include mobile-only {
-      height: auto;
     }
   }
 }

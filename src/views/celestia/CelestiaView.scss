@@ -4,9 +4,9 @@ iframe {
   // Format 16/9
   height: 28vw;
   width: 50vw;
-  margin-bottom: 2rem;
+  margin-bottom: $spacing-l;
   border-radius: $radius;
-  border: 0.2rem solid $black-color;
+  border: 0.1rem solid $black-color;
   background: $black-color;
 
   @include tablet-only {
@@ -21,6 +21,7 @@ iframe {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 100%;
 
     @include tablet-only {
       flex-direction: column;
@@ -28,51 +29,35 @@ iframe {
   }
 
   .celestia-left {
-    width: 45%;
-    padding: 0 2rem;
-    text-align: left;
-    overflow: hidden;
-    border-radius: $radius;
-    border: $border;
-    background: $background-black-dark;
+    width: calc(50% - $spacing-m);
+    margin-right: $spacing-m;
+    text-align: center;
 
-    @include tablet-only {
-      width: 100%;
-      margin-top: 2rem;
-    }
-  }
-
-  .celestia-right {
-    width: 45%;
-    margin-right: 10%;
-
-    @include tablet-only {
+    @include mobile-only {
       width: 100%;
       margin-right: 0;
     }
 
-    .celestia-icons {
-      text-align: right;
-
-      @include tablet-only {
-        text-align: center;
-      }
-    }
-
     .celestia-character {
-      height: 50vh;
-      width: 50vh;
-      max-height: 44rem;
-      max-width: 44rem;
+      width: 100%;
+      max-height: 30rem;
+      max-width: 30rem;
       padding: 0;
 
       @include tablet-only {
         height: auto;
-        width: 100%;
-        max-height: 44rem;
-        max-width: 44rem;
-        margin: auto;
       }
+    }
+  }
+
+  .celestia-right {
+    width: calc(50% - $spacing-m);
+    margin-left: $spacing-m;
+
+    @include mobile-only {
+      width: 100%;
+      margin-top: $spacing-m;
+      margin-left: 0;
     }
   }
 
