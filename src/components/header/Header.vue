@@ -1,5 +1,5 @@
 <template>
-  <header v-if="showHeader">
+  <header>
     <!-- Tablet / PC section -->
 
     <div class="header-section">
@@ -146,13 +146,6 @@
       </nav>
     </div>
   </header>
-  <div
-    v-if="onUniverseRoute || onRoleplayRoute || onCelestiaRoute"
-    class="header-toggle-button" 
-    :class="{ active : showHeader }"
-    @click="toggleHeader()">
-    <i class="icon-arrow-right2" />
-  </div>
 </template>
 
 <style lang="scss" scoped src="./Header.scss"></style>

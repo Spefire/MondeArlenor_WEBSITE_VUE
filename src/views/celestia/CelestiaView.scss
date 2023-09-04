@@ -75,4 +75,51 @@ iframe {
       }
     }
   }
+
+  .quizz-question {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-m;
+    min-height: 8rem;
+    min-width: 50%;
+    margin-top: $spacing-m;
+    margin-bottom: $spacing-m;
+
+    &.multiple {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include tablet-only {
+      min-height: 10rem;
+      min-width: 100%;
+    }
+
+    @include mobile-only {
+      min-height: auto;
+    }
+
+    .quizz-answer {
+      display: flex;
+      align-items: center;
+      text-align: left;
+      cursor: pointer;
+
+      label {
+        margin-left: $spacing-m;
+        margin-right: $spacing-m;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      @include mobile-only {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+        input[type="radio"] {
+          margin-bottom: $spacing-m;
+        }
+      }
+    }
+  }
 }

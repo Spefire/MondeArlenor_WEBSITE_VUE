@@ -1,15 +1,17 @@
 <template>
-  <div class="layout-bloc form-element">
+  <div class="layout-bloc form-element full-width">
     <b v-if="index < 10">Partie : "Dans le monde réel"<br></b>
     <b v-if="index >= 10">Partie : "Sur l'île de Célestia"<br></b>
     <span>
       {{ index+1 }} - {{ question }} <span required-libelle>*</span>
     </span>
 
-    <div class="creation-radios">
+    <div
+      class="quizz-question"
+      :class="{ multiple : answers.length > 8 }">
       <div
         v-for="(answer, indexAnswer) in answers"
-        class="creation-radio"
+        class="quizz-answer"
         :key="indexAnswer">
         <input
           type="radio"

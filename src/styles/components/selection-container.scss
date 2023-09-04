@@ -1,3 +1,7 @@
+$dot-size: 1.6rem;
+$padding-size: 0.25rem;
+$line-size: 0.1rem;
+
 .selection-container {
     position: absolute;
     top: 50%;
@@ -8,21 +12,20 @@
     transform: translateY(-50%);
 
     .dotline {
-        height: 6rem;
-        width: 0.1rem;
+        height: calc($dot-size * 3);
+        width: $line-size;
         background-color: $white-color;
     }
 
     .dot {
         position: relative;
         display: inline-block;
-        height: 2rem;
-        min-width: 2rem;
-        width: 2rem;
+        height: $dot-size;
+        min-width: $dot-size;
+        width: $dot-size;
         margin: 0;
-        padding: 0.4rem;
         border-radius: 50%;
-        border: 0.1rem solid $white-color; //TODO
+        border: 0.1rem solid $white-color;
         background-color: $background-black-light;
         transition: 1s ease;
         cursor: pointer;
@@ -34,7 +37,7 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                padding: 0.4rem;
+                padding: $padding-size;
                 border-radius: 50%;
                 background-clip: content-box;
                 background-color: $light-secondary-color;
@@ -52,27 +55,26 @@
     position: relative;
     right: auto;
     top: auto;
-    margin-top: 2rem;
+    margin-top: $spacing-l;
     flex-direction: row;
     justify-content: center;
     transform: none;
 
     .dotline {
-        height: 0.1rem;
-        min-width: 2rem;
+        height: $line-size;
+        min-width: $dot-size;
     }
 
     @include tablet-only {
-        .dot {
-            height: 1.4rem;
-            min-width: 1.4rem;
-            width: 1.4rem;
-            margin: 0.2rem;
+        .dotline {
+            height: calc($line-size / 3 * 2);
+            min-width: calc($dot-size / 3 * 2);
         }
 
-        .dotline {
-            height: 0.1rem;
-            min-width: 1.2rem;
+        .dot {
+            height: calc($dot-size / 3 * 2);
+            min-width: calc($dot-size / 3 * 2);
+            width: calc($dot-size / 3 * 2);
         }
     }
 
@@ -87,7 +89,7 @@
     }
 
     .dot {
-        margin: 0.4rem;
+        margin: $padding-size;
         border-radius: 0;
         transform: rotate(45deg);
         cursor: default;
@@ -100,6 +102,6 @@
     }
 
     .dotline {
-        height: 2rem;
+        height: $dot-size;
     }
 }

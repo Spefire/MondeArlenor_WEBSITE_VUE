@@ -1,13 +1,13 @@
 [separator] {
-	height: 1.2rem;
-	margin-top: 1.5rem;
-	margin-bottom: 1rem;
+	height: $spacing-m;
+	margin-top: $spacing-m;
+	margin-bottom: $spacing-m;
 	border-top: 0.5rem solid $secondary-color;
 	border-bottom: 0.1rem solid $light-secondary-color;
 }
 
 [little-separator] {
-	height: 1.2rem;
+	height: $spacing-m;
 	border-top: 0.5rem solid $secondary-color;
 	border-bottom: 0.1rem solid $light-secondary-color;
 }

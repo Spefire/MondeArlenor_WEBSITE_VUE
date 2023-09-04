@@ -36,27 +36,31 @@
 }
 
 .margin-top-2 {
-  margin-top: 2rem !important;
+  margin-top: $spacing-l !important;
 }
 
 .margin-top-1 {
-  margin-top: 1rem !important;
+  margin-top: $spacing-m !important;
 }
 
 .margin-top-05 {
-  margin-top: 0.5rem !important;
+  margin-top: $spacing-s !important;
 }
 
 .margin-top-0 {
   margin-top: 0 !important;
 }
 
+.margin-bottom-2 {
+  margin-bottom: $spacing-l !important;
+}
+
 .margin-bottom-1 {
-  margin-bottom: 1rem !important;
+  margin-bottom: $spacing-m !important;
 }
 
 .margin-bottom-05 {
-  margin-bottom: 0.5rem !important;
+  margin-bottom: $spacing-s !important;
 }
 
 .margin-bottom-0 {
@@ -64,19 +68,19 @@
 }
 
 .margin-right-05 {
-  margin-right: 0.5rem !important;
+  margin-right: $spacing-s !important;
 }
 
 .margin-right-1 {
-  margin-right: 1rem !important;
+  margin-right: $spacing-m !important;
 }
 
 .margin-left-05 {
-  margin-left: 0.5rem !important;
+  margin-left: $spacing-s !important;
 }
 
 .margin-left-1 {
-  margin-left: 1rem !important;
+  margin-left: $spacing-m !important;
 }
 
 .text-bold {
@@ -190,8 +194,8 @@
 
   @include mobile-only {
     display: block !important;
-    margin: 1rem;
-    padding: 0.5rem;
+    margin: $spacing-m;
+    padding: $spacing-s;
     text-align: center;
     color: $warning-color;
   }

@@ -9,7 +9,7 @@
 
     .onglets-nav-item {
         flex-basis: calc(100% / 3);
-        padding: 1rem;
+        padding: $spacing-m;
         font-family: $serif-font;
         font-weight: bold;
         text-transform: uppercase;

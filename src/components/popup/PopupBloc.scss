@@ -19,21 +19,21 @@
 		.popup-bloc-header {
 			display: flex;
 			justify-content: space-between;
-			padding: 1.5rem 2rem;
+			padding: $spacing-m $spacing-l;
 			border-bottom: $border;
 		}
 
 		.popup-bloc-content {
 			display: block;
 			text-align: center;
-			padding: 1.5rem 2rem;
+			padding: $spacing-m $spacing-l;
 			overflow: auto;
 		}
 
 		.popup-bloc-footer {
 			display: flex;
 			justify-content: center;
-			padding: 1.5rem 2rem;
+			padding: $spacing-m $spacing-l;
 			border-top: $border;
 		}
 	}

@@ -9,7 +9,7 @@
     overflow: auto;
 
     &::-webkit-scrollbar {
-        height: 0.6rem;
+        height: $spacing-s;
     }
 
     &::-webkit-scrollbar-thumb {
@@ -21,15 +21,15 @@
         flex-direction: row;
 
         .side-element {
-            padding: 0.5rem 1rem;
+            padding: $spacing-xs $spacing-m;
 
             &.selected {
                 background: $secondary-color;
             }
 
             img {
-                height: 4rem;
-                width: 4rem;
+                height: 2.5rem;
+                width: 2.5rem;
                 border: $border;
                 background: $black-color;
                 pointer-events: all;

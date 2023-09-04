@@ -16,7 +16,7 @@
 
 .layout-row {
     display: flex;
-    gap: 2rem;
+    gap: $spacing-m;
     width: 100%;
 
     .layout-col-100 {
@@ -51,7 +51,7 @@
     background: $background-black-dark;
 
     &::-webkit-scrollbar {
-        width: 0.6rem;
+        width: $spacing-s;
     }
     &::-webkit-scrollbar-track {
         background: none;

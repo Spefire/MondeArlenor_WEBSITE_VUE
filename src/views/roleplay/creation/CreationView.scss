@@ -88,3 +88,22 @@
     }
   }
 }
+
+.creation-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20rem;
+  width: 20rem;
+  text-align: center;
+  border-radius: $radius;
+  border: $border;
+  background: $background-black-dark;
+  overflow: hidden;
+  cursor: pointer;
+
+  img {
+    height: 20rem !important;
+    width: 20rem !important;
+  }
+}

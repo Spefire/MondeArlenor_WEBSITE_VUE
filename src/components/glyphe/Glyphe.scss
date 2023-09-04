@@ -1,25 +1,25 @@
 @import "../../styles/variables.scss";
 
 .glyphe-view {
-	height: 30rem;
-	width: 30rem;
-	perspective: 60rem;
+	height: 20rem;
+	width: 20rem;
+	perspective: 40rem;
 
 	@include tablet-only {
-		height: 20rem;
-		width: 20rem;
+		height: 15rem;
+		width: 15rem;
 		perspective: 30rem;
 	}
 
 	&.little {
-		height: 25rem;
-		width: 25rem;
-		perspective: 50rem;
+		height: 15rem;
+		width: 15rem;
+		perspective: 30rem;
 
 		@include tablet-only {
-			height: 15rem;
-			width: 15rem;
-			perspective: 30rem;
+			height: 10rem;
+			width: 10rem;
+			perspective: 20rem;
 		}
 	}
 
@@ -31,13 +31,13 @@
 		width: 100%;
 		border-radius: 50%;
 		box-shadow:
-			0 0 0.4rem $primary-color,
-			inset 0 0 0.4rem $primary-color;
+			0 0 0.2rem $primary-color,
+			inset 0 0 0.2rem $primary-color;
 
 		@include tablet-only {
 			box-shadow:
-				0 0 0.2rem $primary-color,
-				inset 0 0 0.2rem $primary-color;
+				0 0 0.1rem $primary-color,
+				inset 0 0 0.1rem $primary-color;
 		}
 	}
 }

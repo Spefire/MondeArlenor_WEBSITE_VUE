@@ -46,7 +46,7 @@ header {
 
 		@include tablet-only {
 			.link {
-				font-size: 1rem;
+				font-size: $font-size-s;
 			}
 		}
 
@@ -117,33 +117,5 @@ header {
 			justify-content: space-evenly;
 			border-bottom: $border;
 		}
-	}
-}
-
-.header-toggle-button {
-	position: absolute;
-	z-index: 25;
-	top: 0;
-	left: 5rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 3.8rem;
-	width: 3.2rem;
-	font-size: 1.6rem;
-	transform: translate(-50%, -0.5rem) rotate(90deg);
-	border-radius: 0 2rem 2rem 0;
-	border: $border;
-	background-color: $black-color;
-	cursor: pointer;
-
-	&.active {
-		top: 9rem;
-		transform: translate(-50%, -0.5rem) rotate(-90deg);
-		border-radius: 2rem 0 0 2rem;
-	}
-
-	@include mobile-only {
-		display: none;
 	}
 }

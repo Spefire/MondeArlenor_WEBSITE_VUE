@@ -83,7 +83,7 @@ img {
 // Scrollbar
 
 ::-webkit-scrollbar {
-  width: 1.2rem;
+  width: $spacing-m;
 }
 
 ::-webkit-scrollbar-track {
@@ -104,14 +104,10 @@ input[type="file"] {
   display: none;
 }
 
-input[type="text"],
-input[type="password"] {
-  width: 20rem;
-}
-
 input[type="number"] {
-  width: 6rem;
+  -webkit-appearance: textfield;
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 input::-webkit-inner-spin-button,
@@ -132,9 +128,8 @@ input[type="number"],
 textarea {
   border: $border;
   border-radius: $radius;
-  font-size: $font-size-s;
+  font-size: $font-size-m;
   font-family: $sans-serif-font;
-
   color: $white-color;
   background: $black-color;
 }
@@ -142,8 +137,8 @@ textarea {
 input[type="text"],
 input[type="password"],
 input[type="number"] {
-  height: 3rem;
-  padding: 0 1rem;
+  height: $input-height;
+  padding: 0 $spacing-m;
   overflow: hidden;
 
   @include mobile-only {
@@ -188,6 +183,8 @@ input[type="range"] {
   border-radius: 0.2rem;
   background: $white-color;
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   outline: none;
 
   &::-webkit-slider-thumb {
@@ -243,7 +240,7 @@ input[type="radio"] {
 textarea {
   height: 15vh;
   width: 100%;
-  padding: 1rem;
+  padding: $spacing-m;
 }
 
 // Select / Dropdown
@@ -251,7 +248,7 @@ textarea {
 .dropdown {
   position: relative;
   overflow: hidden;
-  height: 3rem;
+  height: $input-height;
   width: 100%;
   border-radius: $radius;
   border: $border;
@@ -262,8 +259,8 @@ textarea {
   content: "";
   position: absolute;
   z-index: 2;
-  top: 1rem;
-  right: 1rem;
+  top: $spacing-m;
+  right: $spacing-m;
   width: 0;
   height: 0;
   border: 0.5rem dashed;
@@ -272,7 +269,6 @@ textarea {
 }
 
 .dropdown:after {
-  margin-top: 0.2rem;
   border-bottom: none;
   border-top-style: solid;
   border-top-color: $secondary-color;
@@ -280,17 +276,19 @@ textarea {
 
 .dropdown-select {
   position: relative;
-  height: 3rem;
+  height: $input-height;
   width: 100%;
   margin: 0;
-  padding: 0 3rem 0 1rem;
-  font-size: $font-size-s;
+  padding: 0 $input-height 0 $spacing-m;
+  font-size: $font-size-m;
   font-family: $sans-serif-font;
   color: $white-color;
   border: 0;
   border-radius: 0;
   background: rgba(0, 0, 0, 0) !important;
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   cursor: pointer;
 }
 
@@ -299,7 +297,7 @@ textarea {
 }
 
 .dropdown-select > option {
-  padding: 1rem;
+  padding: $spacing-m;
   border-radius: $radius;
   background: $black-color;
   cursor: pointer;
@@ -342,7 +340,7 @@ table {
 
   th,
   td {
-    padding: 0.5rem;
+    padding: $spacing-s;
     text-align: center;
   }
 

@@ -4,13 +4,18 @@
 	display: inline-flex;
 	align-items: center;
 
+	$height-size: 2rem;
+	$width-size: 3.2rem;
+	$padding-size: 0.3rem;
+	$circle-size: calc($height-size - $padding-size * 2 - 0.1rem * 2);
+
 	/* The switch - the box around the slider */
 	.switch {
 		position: relative;
 		display: inline-block;
-		height: 2.8rem;
-		min-width: 4.8rem;
-		width: 4.8rem;
+		height: $height-size;
+		min-width: $width-size;
+		width: $width-size;
 	}
 
 	/* Hide default HTML checkbox */
@@ -21,7 +26,7 @@
 	}
 
 	.switch-text {
-		margin-left: 1rem;
+		margin-left: $spacing-m;
 	}
 
 	/* The slider */
@@ -39,10 +44,10 @@
 
 	.slider:before {
 		position: absolute;
-		left: 0.4rem;
-		bottom: 0.4rem;
-		height: 1.8rem;
-		width: 1.8rem;
+		left: $padding-size;
+		bottom: $padding-size;
+		height: $circle-size;
+		width: $circle-size;
 		background-color: $white-color;
 		transition: 0.4s;
 		content: "";
@@ -53,12 +58,12 @@
 	}
 
 	input:checked + .slider:before {
-		transform: translateX(2rem);
+		transform: translateX($circle-size);
 	}
 
 	/* Rounded sliders */
 	.slider.round {
-		border-radius: 1.4rem;
+		border-radius: calc($height-size / 2);
 	}
 
 	.slider.round:before {
