@@ -1,12 +1,18 @@
 @import "../../../styles/variables.scss";
 
 .races-view {
+  height: 100vh;
+
+  @include mobile-only {
+    height: auto;
+  }
+
   .races-imgs {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 70%;
-    margin: 0 auto 2.4rem auto;
+    margin-bottom: $spacing-m;
 
     @include tablet-only {
       width: 100%;
@@ -14,9 +20,9 @@
   }
 
   .races-img {
-    height: 12.5rem;
-    width: 12.5rem;
-    margin: 0 2rem;
+    height: 8rem;
+    width: 8rem;
+    margin: 0 $spacing-l;
     border-radius: 50%;
     border: $border;
     background-color: $background-black-dark;
@@ -27,9 +33,9 @@
     }
 
     &.main {
-      height: 20rem;
-      width: 20rem;
-      margin: 0 1rem;
+      height: 14rem;
+      width: 14rem;
+      margin: 0 $spacing-m;
       border: 1rem double $secondary-color;
       cursor: default;
 
@@ -40,29 +46,27 @@
 
       @include mobile-only {
         display: block;
-        height: 12.5rem;
-        width: 12.5rem;
+        height: 8rem;
+        width: 8rem;
         border: $border;
       }
     }
   }
 
   .races-items {
-    margin-top: 2rem;
     width: 100%;
+    margin-top: $spacing-l;
   }
 
   .races-description {
     display: flex;
     flex-direction: column;
-    height: 35rem;
     width: 70%;
     margin: auto;
     overflow: auto;
     text-align: center;
 
     @include tablet-only {
-      height: 42.5rem;
       width: 100%;
     }
 
