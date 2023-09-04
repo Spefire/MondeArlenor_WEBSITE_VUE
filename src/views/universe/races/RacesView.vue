@@ -25,7 +25,7 @@
   <div class="races-view layout-view background-universe-vertical">
     <div class="races-imgs">
       <div
-        class="select-button inverted"
+        class="section-button inverted"
         @click="previousSelection()">
         <i class="icon icon-arrow-right2" />
       </div>
@@ -46,7 +46,7 @@
         alt="">
 
       <div
-        class="select-button"
+        class="section-button"
         @click="nextSelection()">
         <i class="icon icon-arrow-right2" />
       </div>

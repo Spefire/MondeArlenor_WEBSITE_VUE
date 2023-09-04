@@ -1,7 +1,7 @@
 @import "../../styles/variables.scss";
 
-.world-view {
-  .world-container {
+.universe-view {
+  .universe-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -11,11 +11,11 @@
     }
   }
 
-  .world-left {
+  .universe-left {
     min-height: 40vw;
     max-height: 40vw;
     width: 35%;
-    padding: 0 2rem;
+    padding: 0 $spacing-m;
     text-align: left;
     overflow: hidden;
     border: $border;
@@ -26,11 +26,11 @@
       min-height: auto;
       max-height: none;
       width: 100%;
-      margin-top: 2rem;
+      margin-top: $spacing-l;
     }
   }
 
-  .world-right {
+  .universe-right {
     width: 60%;
     margin-left: 5%;
 
@@ -39,25 +39,25 @@
       margin-left: 0;
     }
 
-    .world-title {
-      margin: 0 1rem;
+    .universe-title {
+      margin: 0 $spacing-m;
       text-align: center;
     }
 
-    .world-map-section {
+    .universe-map-section {
       position: relative;
 
-      .world-map {
+      .universe-map {
         width: 100%;
         padding: 0;
       }
 
-      .world-map-target {
+      .universe-map-target {
         position: absolute;
         top: 0;
         left: 0;
         font-size: 1.75vw;
-        filter: drop-shadow(0 0 0.4rem $black-color);
+        filter: drop-shadow(0 0 0.2rem $black-color);
         transform: translate(-50%, -50%);
       }
     }

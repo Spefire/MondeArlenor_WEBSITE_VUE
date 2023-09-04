@@ -7,11 +7,11 @@
     </span>
 
     <div
-      class="quizz-question"
+      class="celestia-question"
       :class="{ multiple : answers.length > 8 }">
       <div
         v-for="(answer, indexAnswer) in answers"
-        class="quizz-answer"
+        class="celestia-answer"
         :key="indexAnswer">
         <input
           type="radio"

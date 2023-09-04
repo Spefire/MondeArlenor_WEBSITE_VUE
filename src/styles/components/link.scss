@@ -51,37 +51,3 @@
     cursor: default;
   }
 }
-
-.select-button {
-  height: 2.2rem;
-  width: 2.2rem;
-  min-width: 2.2rem;
-  margin: 0 1rem;
-  line-height: 2.2rem;
-  text-align: center;
-  border-radius: 50%;
-  border: 0.2rem solid $white-color;
-  background-color: $background-black-dark;
-  cursor: pointer;
-
-  &.inverted {
-    transform: scaleX(-1);
-  }
-}
-
-.section-moreinfos {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-grow: 3;
-  font-style: italic;
-  color: $secondary-color;
-
-  @include mobile-only {
-    flex-direction: column;
-  }
-
-  p {
-    flex: 1;
-  }
-}

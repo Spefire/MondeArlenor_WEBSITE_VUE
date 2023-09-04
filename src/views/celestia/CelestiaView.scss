@@ -11,13 +11,13 @@ iframe {
 
   @include tablet-only {
     height: 45vw;
-    width: calc(80vw - 1.2rem); // 80% - scrollbar
+    width: calc(80vw - 1rem); // 80% - scrollbar
     margin-top: 0;
   }
 }
 
 .celestia-view {
-  .world-container {
+  .celestia-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -27,7 +27,7 @@ iframe {
     }
   }
 
-  .world-left {
+  .celestia-left {
     width: 45%;
     padding: 0 2rem;
     text-align: left;
@@ -42,7 +42,7 @@ iframe {
     }
   }
 
-  .world-right {
+  .celestia-right {
     width: 45%;
     margin-right: 10%;
 
@@ -51,7 +51,7 @@ iframe {
       margin-right: 0;
     }
 
-    .world-icons {
+    .celestia-icons {
       text-align: right;
 
       @include tablet-only {
@@ -59,7 +59,7 @@ iframe {
       }
     }
 
-    .world-map {
+    .celestia-character {
       height: 50vh;
       width: 50vh;
       max-height: 44rem;
@@ -76,7 +76,7 @@ iframe {
     }
   }
 
-  .quizz-question {
+  .celestia-question {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: $spacing-m;
@@ -98,7 +98,7 @@ iframe {
       min-height: auto;
     }
 
-    .quizz-answer {
+    .celestia-answer {
       display: flex;
       align-items: center;
       text-align: left;
