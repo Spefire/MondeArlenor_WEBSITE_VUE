@@ -1,0 +1,66 @@
+.power-img-layout {
+    --height-size: 3rem;
+    --padding-size: 0.3rem;
+
+    &.big {
+        --height-size: 10rem;
+        --padding-size: 1rem;
+    }
+
+    $height-size: var(--height-size);
+    $padding-size: var(--padding-size);
+    $after-size: calc($height-size - $padding-size * 2);
+    $before-size: calc($height-size - $padding-size);
+
+    position: relative;
+    height: $height-size;
+    min-width: $height-size;
+    margin: calc(0rem - $padding-size);
+
+    &.after::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        height: $after-size;
+        width: $after-size;
+        border: $border;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        content: "";
+    }
+
+    &.before::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        height: $before-size;
+        width: $before-size;
+        border: $border;
+        transform: translate(-50%, -50%);
+        content: "";
+    }
+
+    .power-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 10;
+        height: $after-size;
+        width: $after-size;
+        border: $border;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+    }
+
+    .power-img-ok {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 100;
+        height: $after-size;
+        width: $after-size;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+    }
+}
