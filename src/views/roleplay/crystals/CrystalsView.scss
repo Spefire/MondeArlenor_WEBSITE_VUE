@@ -4,21 +4,21 @@
   padding-top: 5rem !important;
 
   .crystal-img {
-    height: 12.5rem;
+    height: 8rem;
     border: $border;
     background: $black-color;
 
     &.rounded {
-      height: 7.5rem;
+      height: 6rem;
       border-radius: 50%;
 
       @include tablet-only {
-        height: 5rem;
+        height: 4rem;
       }
     }
 
     @include tablet-only {
-      height: 7.5rem;
+      height: 6rem;
     }
   }
 
@@ -33,25 +33,25 @@
       width: 100%;
 
       @include tablet-only {
-        padding: 1rem;
+        padding: $spacing-m;
       }
 
       .crystals-section {
         width: 33.33%;
-        margin: 1rem 0;
+        margin: $spacing-m 0;
         text-align: center;
       }
     }
 
     .crystals-left {
-      width: calc(66.66% - 0.5rem);
-      margin-right: 0.5rem;
+      width: calc(66.66% - $spacing-s);
+      margin-right: $spacing-s;
       text-align: center;
     }
 
     .crystals-right {
-      width: calc(33.33% - 0.5rem);
-      margin-left: 0.5rem;
+      width: calc(33.33% - $spacing-s);
+      margin-left: $spacing-s;
       text-align: center;
     }
   }
@@ -59,18 +59,14 @@
   .crystals-separator {
     height: 100%;
     width: 0.1rem;
-    margin: 0 2.5rem;
+    margin: 0 $spacing-m;
     background: $secondary-color;
-
-    @include tablet-only {
-      margin: 0 1rem;
-    }
   }
 
   .power-separator {
     height: 0.1rem;
     width: 100%;
-    margin: 1.5rem 0;
+    margin: $spacing-m 0;
     background: $secondary-color;
   }
 
@@ -79,11 +75,11 @@
     align-items: center;
 
     &:not(:last-child) {
-      margin-bottom: 1rem;
+      margin-bottom: $spacing-m;
     }
 
     .power-txt {
-      margin-left: 1rem;
+      margin-left: $spacing-m;
       text-align: left;
     }
   }
@@ -92,9 +88,9 @@
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem;
-    margin-top: 2.4rem;
-    padding: 1.5rem 0;
+    grid-gap: $spacing-m;
+    margin-top: $spacing-l;
+    padding: $spacing-m 0;
     border: $border;
     background: $black-color;
 
@@ -104,9 +100,9 @@
 
     .powers-content-title {
       position: absolute;
-      top: -1.5rem;
-      left: 2rem;
-      padding: 0 1rem;
+      top: calc(0rem - $font-size-m);
+      left: $spacing-l;
+      padding: 0 $spacing-m;
       text-transform: uppercase;
       border: $border;
       background: $black-color;
@@ -115,7 +111,7 @@
     .power-line {
       width: auto;
       margin: 0;
-      padding: 0 1rem;
+      padding: 0 $spacing-m;
 
       &.selected {
         color: $black-color;
