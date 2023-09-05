@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     width: 70%;
-    margin: 0 auto 24px auto;
+    margin-bottom: $spacing-m;
 
     @include tablet-only {
       width: 100%;
@@ -14,11 +14,11 @@
   }
 
   .races-img {
-    height: 125px;
-    width: 125px;
-    margin: 0 20px;
+    height: 8rem;
+    width: 8rem;
+    margin: 0 $spacing-l;
     border-radius: 50%;
-    border: 2px solid $secondary-color;
+    border: $border;
     background-color: $background-black-dark;
     cursor: pointer;
 
@@ -27,10 +27,10 @@
     }
 
     &.main {
-      height: 200px;
-      width: 200px;
-      margin: 0 10px;
-      border: 10px double $secondary-color;
+      height: 14rem;
+      width: 14rem;
+      margin: 0 $spacing-m;
+      border: 0.6rem double $secondary-color;
       cursor: default;
 
       @include tablet-only {
@@ -40,34 +40,28 @@
 
       @include mobile-only {
         display: block;
-        height: 125px;
-        width: 125px;
-        border: 2px solid $secondary-color;
+        height: 8rem;
+        width: 8rem;
+        border: $border;
       }
     }
   }
 
   .races-items {
-    margin-top: 20px;
     width: 100%;
+    margin-top: $spacing-l;
   }
 
   .races-description {
     display: flex;
     flex-direction: column;
-    height: 350px;
     width: 70%;
     margin: auto;
     overflow: auto;
     text-align: center;
 
     @include tablet-only {
-      height: 425px;
       width: 100%;
-    }
-
-    @include mobile-only {
-      height: auto;
     }
   }
 }

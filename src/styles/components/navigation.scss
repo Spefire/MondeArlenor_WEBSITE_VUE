@@ -9,12 +9,12 @@
 
     .onglets-nav-item {
         flex-basis: calc(100% / 3);
-        padding: 10px;
+        padding: $spacing-m;
         font-family: $serif-font;
         font-weight: bold;
         text-transform: uppercase;
         color: $secondary-color;
-        border: 1px solid $secondary-color;
+        border: $border;
         cursor: pointer;
 
         @include mobile-only {

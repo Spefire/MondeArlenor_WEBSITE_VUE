@@ -27,17 +27,17 @@
 
       <div
         v-if="selectedSpeciality"
-        class="layout-bloc zone-element zone-element-semifree margin-top-1">
-        <div class="zone-header">
+        class="layout-bloc section is-height-semifree margin-top-1">
+        <div class="section-header">
           <img
-            class="zone-icon is-little"
+            class="section-icon is-little"
             :src="selectedSpeciality.image"
             alt="">
           <div class="text-center margin-left-1">
             <h2>{{ selectedSpeciality.name }}</h2>
           </div>
         </div>
-        <p class="zone-comment margin-top-1">
+        <p class="section-comment margin-top-1">
           {{ selectedSpeciality.description }}
         </p>
       </div>

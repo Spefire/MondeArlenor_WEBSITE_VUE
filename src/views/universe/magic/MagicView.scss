@@ -13,16 +13,16 @@
   }
 
   .magic-items {
-    margin-top: 20px;
     width: 100%;
+    margin-top: $spacing-l;
   }
 
   .magic-left {
     width: 40%;
 
     @include mobile-only {
-      margin-top: 20px;
       width: 80%;
+      margin-top: $spacing-l;
     }
   }
 
@@ -33,7 +33,7 @@
 
     @include mobile-only {
       width: 100%;
-      margin-top: 20px;
+      margin-top: $spacing-l;
       text-align: center;
     }
   }
@@ -42,8 +42,8 @@
     position: relative;
     height: 30vw !important;
     width: 30vw !important;
-    max-height: 460px;
-    max-width: 460px;
+    max-height: 30rem;
+    max-width: 30rem;
     margin: auto;
 
     @include mobile-only {
@@ -59,8 +59,8 @@
       bottom: 0;
       height: 30vw !important;
       width: 30vw !important;
-      max-height: 460px;
-      max-width: 460px;
+      max-height: 30rem;
+      max-width: 30rem;
 
       @include mobile-only {
         height: 50vw !important;
@@ -98,7 +98,7 @@
         transform: translateY(0);
       }
       to {
-        transform: translateY(-50px);
+        transform: translateY(-5rem);
       }
     }
 

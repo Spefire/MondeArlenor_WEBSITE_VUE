@@ -1,5 +1,5 @@
 <template>
-  <div class="popup-zone">
+  <div class="popup-wrapper">
     <div class="popup-bloc">
       <div class="popup-bloc-header">
         <h3>{{ blocTitle }}</h3>

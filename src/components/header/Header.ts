@@ -32,9 +32,6 @@ export default defineComponent({
     }
   },
   methods: {
-    toggleHeader() {
-      this.showHeader = !this.showHeader;
-    },
     toggleList() {
       this.showSubmenu = !this.showSubmenu;
     }

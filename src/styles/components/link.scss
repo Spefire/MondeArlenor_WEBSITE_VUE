@@ -1,0 +1,52 @@
+@import "@/styles/variables.scss";
+
+.link {
+  position: relative;
+  display: inline-block;
+  height: $nav-height;
+  padding: 0 $spacing-m;
+  font-size: $font-size-m;
+  font-family: $sans-serif-font;
+  line-height: $nav-height;
+  text-transform: uppercase;
+  transition: 0.5s;
+
+  &:hover,
+  &:not(.exact-link).router-link-active,
+  &.exact-link.router-link-exact-active {
+    color: $secondary-color;
+  }
+}
+
+.link-button {
+  display: inline-block;
+  width: fit-content;
+  padding: $spacing-s $spacing-m;
+  font-size: $font-size-m;
+  font-family: $sans-serif-font;
+  text-align: center;
+  text-transform: uppercase;
+  color: $light-secondary-color;
+  border-radius: $radius;
+  border: $border;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background-color: $background-black-light;
+  }
+
+  &.alert-button {
+    color: $warning-color;
+    border: $border-warning;
+  }
+
+  &:disabled,
+  &:disabled:hover {
+    color: $warning-color;
+    border: $border-warning;
+    background-color: $background-black-light !important;
+    cursor: default;
+  }
+}

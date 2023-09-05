@@ -4,74 +4,106 @@ iframe {
   // Format 16/9
   height: 28vw;
   width: 50vw;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: 2px solid $black-color;
+  margin-bottom: $spacing-l;
+  border-radius: $radius;
+  border: 0.1rem solid $black-color;
   background: $black-color;
 
   @include tablet-only {
     height: 45vw;
-    width: calc(80vw - 12px); // 80% - scrollbar
+    width: calc(80vw - 1rem); // 80% - scrollbar
     margin-top: 0;
   }
 }
 
 .celestia-view {
-  .world-container {
+  .celestia-container {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 100%;
 
     @include tablet-only {
       flex-direction: column;
     }
   }
 
-  .world-left {
-    width: 45%;
-    padding: 0 20px;
-    text-align: left;
-    overflow: hidden;
-    border-radius: 5px;
-    border: 1px solid $secondary-color;
-    background: $background-black-dark;
+  .celestia-left {
+    width: calc(50% - $spacing-m);
+    margin-right: $spacing-m;
+    text-align: center;
 
-    @include tablet-only {
-      width: 100%;
-      margin-top: 20px;
-    }
-  }
-
-  .world-right {
-    width: 45%;
-    margin-right: 10%;
-
-    @include tablet-only {
+    @include mobile-only {
       width: 100%;
       margin-right: 0;
     }
 
-    .world-icons {
-      text-align: right;
-
-      @include tablet-only {
-        text-align: center;
-      }
-    }
-
-    .world-map {
-      height: 50vh;
-      width: 50vh;
-      max-height: 440px;
-      max-width: 440px;
+    .celestia-character {
+      width: 100%;
+      max-height: 30rem;
+      max-width: 30rem;
       padding: 0;
 
       @include tablet-only {
         height: auto;
-        width: 100%;
-        max-height: 440px;
-        max-width: 440px;
-        margin: auto;
+      }
+    }
+  }
+
+  .celestia-right {
+    width: calc(50% - $spacing-m);
+    margin-left: $spacing-m;
+
+    @include mobile-only {
+      width: 100%;
+      margin-top: $spacing-m;
+      margin-left: 0;
+    }
+  }
+
+  .celestia-question {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-m;
+    min-height: 8rem;
+    min-width: 50%;
+    margin-top: $spacing-m;
+    margin-bottom: $spacing-m;
+
+    &.multiple {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include tablet-only {
+      min-height: 10rem;
+      min-width: 100%;
+    }
+
+    @include mobile-only {
+      min-height: auto;
+    }
+
+    .celestia-answer {
+      display: flex;
+      align-items: center;
+      text-align: left;
+      cursor: pointer;
+
+      label {
+        margin-left: $spacing-m;
+        margin-right: $spacing-m;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      @include mobile-only {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+        input[type="radio"] {
+          margin-bottom: $spacing-m;
+        }
       }
     }
   }

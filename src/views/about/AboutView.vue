@@ -16,19 +16,17 @@
       </p>
       <h3>Contact / Questions</h3>
       <p>Vous pouvez me contacter sur <a href="mailto:spefire@gmail.com">spefire@gmail.com</a></p>
-      <h2>Projets</h2>
-      <h3>Le Monde d'Arlénor</h3>
+      <h2>Le Projet</h2>
       <p class="text-justify">
-        &emsp;Ce projet est né avec ma découverte du jeu de rôles en 2014.
+        &emsp;Le Monde d'Arlénor est né avec ma découverte du jeu de rôles en 2014.
         J'avais envie de contrôler le monde dans lequel vivrait mes joueurs et créer mes propres scénarios très rapidement.
         En janvier 2015, le Monde d'Arlénor est né. Mes premiers joueurs ont vécu une première campagne de 8 scénarios. 
         Seulement, je souhaitais partager cet univers au delà du jeu de rôles... d'où ce site !
       </p>
-      <h3>Livret "Etincelles"</h3>
       <p class="text-justify">
         &emsp;Célestia est une sorte d'extension du Monde d'Arlénor : une île céleste encore inexplorée par les joueurs.
         Je l'ai créé pour y faire vivre mes OCs (mes propres personnages) et partager leurs histoires.
-        Le livret a pour but de partager ces dernières.
+        Un jour, mes joueurs les rencontreront...
       </p>
       <h2>Remerciements</h2>
       <p class="text-justify">

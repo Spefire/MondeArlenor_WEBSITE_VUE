@@ -2,32 +2,44 @@
 
 a {
 	position: relative;
-	display: block;
-	height: 80px;
-	width: 80px;
-	margin: 0 20px;
-	line-height: 80px;
-	font-size: $font-size-xl;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 5rem;
+	width: 5rem;
+	line-height: 5rem;
+	margin: 0 $spacing-m;
 	text-align: center;
 	transition: 0.5s;
+
+	.icon {
+		font-size: $font-size-xl;
+	}
 
 	&:hover {
 		color: $light-secondary-color;
 	}
 
 	@include mobile-only {
-		height: 40px;
-		width: 40px;
-		margin: 20px 40px;
-		line-height: 40px;
+		height: $font-size-l;
+		width: $font-size-l;
+		line-height: $font-size-l;
+		margin: $spacing-m $spacing-l;
+
+		.icon {
+			font-size: $font-size-l;
+		}
 	}
 
 	&.small {
-		height: 40px;
-		width: 40px;
-		margin: 0 20px;
-		line-height: 40px;
-		font-size: $font-size-l;
+		height: $font-size-l;
+		width: $font-size-l;
+		line-height: $font-size-l;
+		margin: 0 $spacing-l;
+
+		.icon {
+			font-size: $font-size-l;
+		}
 	}
 
 	span {
@@ -42,7 +54,7 @@ a {
 
 	span:nth-child(1),
 	span:nth-child(3) {
-		height: 1px;
+		height: 0.1rem;
 		width: 100%;
 	}
 
@@ -73,7 +85,7 @@ a {
 	span:nth-child(2),
 	span:nth-child(4) {
 		height: 100%;
-		width: 1px;
+		width: 0.1rem;
 	}
 
 	span:nth-child(2) {

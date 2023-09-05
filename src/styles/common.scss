@@ -1,15 +1,15 @@
 [separator] {
-	height: 12px;
-	margin-top: 15px;
-	margin-bottom: 10px;
-	border-top: 5px solid $secondary-color;
-	border-bottom: 1px solid $light-secondary-color;
+	height: $spacing-m;
+	margin-top: $spacing-m;
+	margin-bottom: $spacing-m;
+	border-top: 0.5rem solid $secondary-color;
+	border-bottom: 0.1rem solid $light-secondary-color;
 }
 
 [little-separator] {
-	height: 12px;
-	border-top: 5px solid $secondary-color;
-	border-bottom: 1px solid $light-secondary-color;
+	height: $spacing-m;
+	border-top: 0.5rem solid $secondary-color;
+	border-bottom: 0.1rem solid $light-secondary-color;
 }
 
 [required-libelle] {

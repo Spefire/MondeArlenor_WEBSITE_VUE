@@ -1,33 +1,38 @@
 @import "../../styles/variables.scss";
 
 .about-view {
+  min-height: calc(100vh - $nav-height * 2);
   flex-direction: row;
 
-  .about-left {
-    width: 40%;
-    margin: auto 5%;
+  @include mobile-only {
+    flex-direction: column;
+  }
 
-    @include tablet-only {
+  .about-left,
+  .about-right {
+    width: calc(50% - $spacing-m * 2);
+    margin: auto $spacing-m;
+
+    @include mobile-only {
+      width: 100%;
+    }
+  }
+
+  .about-left {
+    img {
       width: 100%;
     }
 
-    img {
-      height: 550px;
-
-      @include tablet-only {
-        height: 350px;
-      }
+    @include mobile-only {
+      margin: 0 0 $spacing-l 0;
     }
   }
 
   .about-right {
-    width: 40%;
-    margin: auto 10% auto 0;
+    text-align: center;
 
-    @include tablet-only {
-      width: 80%;
-      margin: auto 0;
-      text-align: center;
+    @include mobile-only {
+      margin: 0;
     }
   }
 }

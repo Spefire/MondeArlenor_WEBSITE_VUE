@@ -1,5 +1,5 @@
 <template>
-  <header v-if="showHeader">
+  <header>
     <!-- Tablet / PC section -->
 
     <div class="header-section">
@@ -7,7 +7,7 @@
         <router-link
           class="header-icon link"
           to="/">
-          <i class="icon icon-logo margin-right-1" />
+          <i class="icon icon-logo margin-right-05" />
           {{ pages.home }}
           {{ isAdmin ? '(Admin)' : '' }}
         </router-link>
@@ -147,13 +147,6 @@
       </nav>
     </div>
   </header>
-  <div
-    v-if="onUniverseRoute || onRoleplayRoute || onCelestiaRoute"
-    class="header-toggle-button" 
-    :class="{ active : showHeader }"
-    @click="toggleHeader()">
-    <i class="icon-arrow-right2" />
-  </div>
 </template>
 
 <style lang="scss" scoped src="./Header.scss"></style>

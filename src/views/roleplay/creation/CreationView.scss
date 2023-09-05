@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100vh - 90px);
+  height: calc(100vh - $nav-height * 2);
 
   .creation-content {
     position: relative;
@@ -12,11 +12,10 @@
     flex-direction: row;
     height: 100%;
     width: 100%;
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid;
-    border-radius: 5px;
-    border-color: $secondary-color;
+    margin-bottom: $spacing-l;
+    padding: $spacing-l;
+    border: $border;
+    border-radius: $radius;
     background: $background-black-dark;
     overflow: auto;
   }
@@ -27,7 +26,7 @@
     margin-top: auto;
 
     button:not(:first-child) {
-      margin-left: 20px;
+      margin-left: $spacing-l;
     }
   }
 }
@@ -37,19 +36,19 @@
   text-align: center;
 
   &:first-child {
-    margin-right: 20px;
+    margin-right: $spacing-l;
   }
 
   &:last-child {
-    margin-left: 20px;
+    margin-left: $spacing-l;
   }
 
   .creation-img {
-    height: 100px;
-    width: 100px;
+    height: 8rem;
+    width: 8rem;
     margin: 0 auto;
     border-radius: 50%;
-    border: 2px solid $secondary-color;
+    border: $border;
     background-color: $background-black-dark;
   }
 
@@ -57,7 +56,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: 25px;
+    padding: $spacing-l;
     overflow: auto;
   }
 
@@ -80,12 +79,31 @@
     align-items: center;
 
     &:not(:last-child) {
-      margin-bottom: 10px;
+      margin-bottom: $spacing-m;
     }
 
     .power-txt {
-      margin-left: 10px;
+      margin-left: $spacing-m;
       text-align: left;
     }
+  }
+}
+
+.creation-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 12rem;
+  width: 12rem;
+  text-align: center;
+  border-radius: $radius;
+  border: $border;
+  background: $background-black-dark;
+  overflow: hidden;
+  cursor: pointer;
+
+  img {
+    height: 12rem !important;
+    width: 12rem !important;
   }
 }

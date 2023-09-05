@@ -2,11 +2,11 @@
   <div class="layout-row flex-wrap margin-top-1">
     <div
       v-for="(result, indexResult) in allResults"
-      class="layout-bloc layout-col-45 margin-top-1 zone-element zone-element-free"
+      class="layout-bloc layout-col-45 margin-top-1 section is-height-free"
       :key="indexResult">
-      <div class="zone-header">
+      <div class="section-header">
         <img
-          class="zone-icon img-rounded"
+          class="section-icon img-rounded"
           :src="result.image"
           alt="">
         <div class="text-center margin-left-1">

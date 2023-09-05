@@ -7,11 +7,11 @@ header {
 	.header-icon {
 		display: flex;
 		align-items: center;
-		padding: 0 10px;
+		padding: 0 $spacing-m;
 
 		i {
-			font-size: 40px;
-			line-height: 40px;
+			font-size: calc($nav-height - $spacing-m);
+			line-height: calc($nav-height - $spacing-m);
 			cursor: pointer;
 		}
 	}
@@ -21,7 +21,7 @@ header {
 		align-items: center;
 		justify-content: space-between;
 		position: relative;
-		height: 50px;
+		height: $nav-height;
 		background-color: $black-color;
 
 		@include mobile-only {
@@ -39,14 +39,14 @@ header {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: 0px;
+		height: 0;
 		transform: translateY(-50%) scaleY(0);
 		transition: 0.5s;
 		background-color: $black-color;
 
 		@include tablet-only {
 			.link {
-				font-size: 10px;
+				font-size: $font-size-s;
 			}
 		}
 
@@ -55,13 +55,13 @@ header {
 		}
 
 		&.active {
-			height: 40px;
+			height: $nav-height;
 			transform: translateY(0%) scaleY(1);
 		}
 
 		.header-subtitle {
-			border-left: 1px solid $secondary-color;
-			border-right: 1px solid $secondary-color;
+			border-left: $border;
+			border-right: $border;
 		}
 	}
 
@@ -82,7 +82,7 @@ header {
 		align-items: center;
 		justify-content: space-between;
 		position: relative;
-		height: 50px;
+		height: $nav-height;
 		background-color: $black-color;
 
 		@include mobile-only {
@@ -95,13 +95,13 @@ header {
 			justify-content: space-between;
 			height: 100%;
 			width: 100%;
-			border-bottom: 1px solid $secondary-color;
+			border-bottom: $border;
 		}
 	}
 
 	.header-mobile-subsection {
 		position: relative;
-		top: 1px;
+		top: 0.1rem;
 		bottom: 0;
 		z-index: 1;
 		display: none;
@@ -115,35 +115,7 @@ header {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-evenly;
-			border-bottom: 1px solid $secondary-color;
+			border-bottom: $border;
 		}
-	}
-}
-
-.header-toggle-button {
-	position: absolute;
-	z-index: 25;
-	top: 0;
-	left: 50px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 38px;
-	width: 32px;
-	font-size: 16px;
-	transform: translate(-50%, -5px) rotate(90deg);
-	border-radius: 0 20px 20px 0;
-	border: 1px solid $secondary-color;
-	background-color: $black-color;
-	cursor: pointer;
-
-	&.active {
-		top: 90px;
-		transform: translate(-50%, -5px) rotate(-90deg);
-		border-radius: 20px 0 0 20px;
-	}
-
-	@include mobile-only {
-		display: none;
 	}
 }

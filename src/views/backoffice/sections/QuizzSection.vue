@@ -5,7 +5,7 @@
     <div class="layout-row flex-wrap margin-top-1">
       <div 
         v-for="(question, indexQuestion) in newQuizz.questions"
-        class="layout-col-45 layout-bloc margin-top-1 zone-element zone-element-free"
+        class="layout-col-45 layout-bloc margin-top-1 section is-height-free"
         :key="indexQuestion">
         <span>{{ indexQuestion+1 }}) {{ question.libelle }}</span>
         <br><br>

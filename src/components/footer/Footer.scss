@@ -2,12 +2,13 @@
 
 footer {
 	position: relative;
+	bottom: 0.1rem;
 	z-index: 10;
 
 	.footer-infos {
 		display: flex;
-		height: 250px;
-		border-top: 1px solid $secondary-color;
+		height: 15rem;
+		border-top: $border;
 		background-color: $black-color;
 
 		@include mobile-only {
@@ -18,7 +19,7 @@ footer {
 		.footer-left {
 			display: flex;
 			width: 50%;
-			margin: 20px 0;
+			margin: $spacing-l 0;
 
 			@include mobile-only {
 				width: 100%;
@@ -26,8 +27,12 @@ footer {
 
 			.footer-container {
 				width: 50%;
-				padding: 0 20px;
+				padding: 0 $spacing-l;
 				margin: auto;
+
+				@include mobile-only {
+					padding: 0;
+				}
 
 				&:first-child {
 					text-align: center;
@@ -45,7 +50,7 @@ footer {
 
 				img {
 					text-align: center;
-					max-height: 150px;
+					max-height: 8rem;
 					max-width: 100%;
 				}
 			}
@@ -56,13 +61,13 @@ footer {
 			justify-content: center;
 			align-items: center;
 			width: 50%;
-			margin: 20px 0;
-			border-left: 1px solid $secondary-color;
+			margin: $spacing-l 0;
+			border-left: $border;
 
 			@include mobile-only {
 				width: 100%;
 				margin: 0;
-				border-top: 1px solid $secondary-color;
+				border-top: $border;
 				border-left: none;
 			}
 		}
@@ -72,8 +77,8 @@ footer {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		height: 50px;
-		border-top: 1px solid $secondary-color;
+		height: $nav-height;
+		border-top: $border;
 		background-color: $black-color;
 
 		nav {
@@ -99,9 +104,8 @@ footer {
 			@include mobile-only {
 				display: flex;
 				justify-content: center;
-				height: 80px;
 				width: 100%;
-				border-top: 1px solid $secondary-color;
+				border-top: $border;
 				background-color: $black-color;
 			}
 		}
@@ -109,9 +113,9 @@ footer {
 		nav {
 			display: flex;
 			align-items: center;
-			height: 50px;
+			height: $nav-height;
 			width: 100%;
-			border-top: 1px solid $secondary-color;
+			border-top: $border;
 			background-color: $black-color;
 
 			@include mobile-only {
@@ -122,9 +126,8 @@ footer {
 		.footer-section {
 			display: flex;
 			align-items: center;
-			height: 50px;
-			width: 240px;
-			border-top: 1px solid $secondary-color;
+			height: $nav-height;
+			border-top: $border;
 			background-color: $black-color;
 
 			@include mobile-only {

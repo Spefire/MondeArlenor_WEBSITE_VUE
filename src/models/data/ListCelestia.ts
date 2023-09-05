@@ -14,7 +14,6 @@ export function getListCelestias(): ArlenorCelestia[] {
   <br/>- Sinon elle reste plutôt seule`;
   celestia01.emotion = "Désespoir";
   celestia01.grade = "Mage de Lumière";
-  celestia01.animal = "Papillon (???)";
   celestia01.image = require("./../../assets/images/celestia/perso01.jpg");
   celestia01.qualities = ["Sensible", "Timide", "Réservée", "Prudente", "Rêveuse"];
   celestia01.defaults = ["Anxieuse", "Lunatique", "Complexée", "Distraite"];
@@ -32,7 +31,6 @@ export function getListCelestias(): ArlenorCelestia[] {
   <br/>- Sinon il est ami avec Delphyn et Diana, mais il a du mal avec Alice`;
   celestia02.emotion = "Peur";
   celestia02.grade = "Mage de Feu";
-  celestia02.animal = "Renard (Lucy)";
   celestia02.image = require("./../../assets/images/celestia/perso02.jpg");
   celestia02.qualities = ["Amical", "Empathique", "Loyal", "Coopératif", "Protecteur"];
   celestia02.defaults = ["Anxieux", "Crédule", "Influençable", "Peureux"];
@@ -49,7 +47,6 @@ export function getListCelestias(): ArlenorCelestia[] {
   <br/>- Il apprécie Alice et ne la supporte pas en même temps`;
   celestia03.emotion = "Colère";
   celestia03.grade = "Mage de Glace";
-  celestia03.animal = "Loup (???)";
   celestia03.image = require("./../../assets/images/celestia/perso03.jpg");
   celestia03.qualities = ["Audacieux", "Déterminé", "Protecteur", "Indépendant"];
   celestia03.defaults = ["Aigri", "Colérique", "Froid", "Impulsif", "Bagarreur"];
@@ -66,7 +63,6 @@ export function getListCelestias(): ArlenorCelestia[] {
   <br/>- Elle a un ptit faible pour Sheila, même si elle ne veut pas se l'avouer`;
   celestia04.emotion = "Dégoût";
   celestia04.grade = "Elite de Magma";
-  celestia04.animal = "Serpent fer de lance (???)";
   celestia04.image = require("./../../assets/images/celestia/perso04.jpg");
   celestia04.qualities = ["Ambitieuse", "Rusée", "Sûre d'elle", "Franche"];
   celestia04.defaults = ["Arrogante", "Hautaine", "Individualiste", "Envieuse"];
@@ -84,7 +80,6 @@ export function getListCelestias(): ArlenorCelestia[] {
   <br/>- Elle apprécie tout le monde, y compris Alice et Romain qui lui font un peu peur`;
   celestia05.emotion = "Tristesse";
   celestia05.grade = "Mage de Vie";
-  celestia05.animal = "Chat blanc (???)";
   celestia05.image = require("./../../assets/images/celestia/perso05.jpg");
   celestia05.qualities = ["Affectueuse", "Attentionnée", "Brillante", "Timide"];
   celestia05.defaults = ["Étourdie", "Naïve", "Maladroite"];
@@ -101,7 +96,6 @@ export function getListCelestias(): ArlenorCelestia[] {
   <br/>- Elle évite tout contact avec des personnes autres que sa soeur`;
   celestia06.emotion = "Tristesse";
   celestia06.grade = "Mage de Vie";
-  celestia06.animal = "Chat noir (???)";
   celestia06.image = require("./../../assets/images/celestia/perso06.jpg");
   celestia06.qualities = ["Juste", "Mature", "Patiente", "Réfléchie"];
   celestia06.defaults = ["Asociale", "Silencieuse", "Paresseuse"];

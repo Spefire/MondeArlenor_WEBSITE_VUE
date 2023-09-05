@@ -43,7 +43,7 @@
         - {{ currentDivinity.name }}, {{ currentDivinity.title }}
       </h2>
       <h3>{{ currentDivinity.symbols }}</h3>
-      <p>"{{ currentDivinity.comment }}"<br>- {{ currentDivinity.commentName }}</p>
+      <p class="religion-comment">"{{ currentDivinity.comment }}"<br>- {{ currentDivinity.commentName }}</p>
       <h3>Pouvoir divin : {{ currentDivinity.powerName }}</h3>
       <p>{{ currentDivinity.power }}</p>
     </div>

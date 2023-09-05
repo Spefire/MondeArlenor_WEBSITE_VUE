@@ -27,17 +27,30 @@ $warning-color: $red-color;
 $serif-font: "Noto Serif", Georgia, serif;
 $sans-serif-font: "Montserrat", Helvetica, sans-serif;
 
-$font-size-xxl: 64px;
-$font-size-xl: 32px;
-$font-size-l: 24px;
-$font-size-ml: 18px;
-$font-size-m: 14px;
-$font-size-s: 12px;
+$font-size-xxl: 3rem;
+$font-size-xl: 1.8rem;
+$font-size-l: 1.2rem;
+$font-size-m: 0.85rem;
+$font-size-s: 0.6rem;
+
+$spacing-l: 2rem;
+$spacing-m: 1rem;
+$spacing-s: 0.5rem;
+$spacing-xs: 0.25rem;
+
+$radius: 0.5rem;
+
+$border: 0.1rem solid $secondary-color;
+$border-white: 0.1rem solid $white-color;
+$border-warning: 0.1rem solid $warning-color;
+
+$nav-height: 3rem;
+$input-height: 2.5rem;
 
 // Variables pour le responsive
 $breakpoints: (
     tablet: 1023px,
-    mobile: 674px,
+    mobile: 674px
 );
 
 @mixin tablet-only {

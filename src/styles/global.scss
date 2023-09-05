@@ -10,14 +10,19 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  font-size: $font-size-m;
-  font-family: $sans-serif-font;
 }
 
 body {
   z-index: 1;
+  font-size: 62.5%;
   color: $white-color;
   background: $black-color;
+
+  * {
+    font-size: $font-size-m;
+    font-family: $sans-serif-font;
+    line-height: 135%;
+  }
 }
 
 // Titres
@@ -38,9 +43,9 @@ h1 {
 }
 
 h2 {
-  margin: 15px 0;
-  font-size: $font-size-l;
-  line-height: $font-size-l;
+  margin: $spacing-m 0;
+  font-size: $font-size-xl;
+  line-height: $font-size-xl;
   font-family: $serif-font;
   font-weight: normal;
   text-transform: uppercase;
@@ -53,13 +58,12 @@ h2 {
 
 h3 {
   margin: 0;
-  font-size: $font-size-ml;
+  font-size: $font-size-l;
   text-transform: uppercase;
 }
 
 p {
-  margin: 0 0 15px 0;
-  line-height: 135%;
+  margin: 0 0 $spacing-m 0;
 }
 
 ul {
@@ -79,7 +83,7 @@ img {
 // Scrollbar
 
 ::-webkit-scrollbar {
-  width: 12px;
+  width: $spacing-m;
 }
 
 ::-webkit-scrollbar-track {
@@ -100,14 +104,10 @@ input[type="file"] {
   display: none;
 }
 
-input[type="text"],
-input[type="password"] {
-  width: 200px;
-}
-
 input[type="number"] {
-  width: 60px;
+  -webkit-appearance: textfield;
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 input::-webkit-inner-spin-button,
@@ -126,11 +126,10 @@ input[type="text"],
 input[type="password"],
 input[type="number"],
 textarea {
-  border: 1px solid $secondary-color;
-  border-radius: 5px;
-  font-size: $font-size-s;
+  border: $border;
+  border-radius: $radius;
+  font-size: $font-size-m;
   font-family: $sans-serif-font;
-
   color: $white-color;
   background: $black-color;
 }
@@ -138,8 +137,8 @@ textarea {
 input[type="text"],
 input[type="password"],
 input[type="number"] {
-  height: 30px;
-  padding: 0 10px;
+  height: $input-height;
+  padding: 0 $spacing-m;
   overflow: hidden;
 
   @include mobile-only {
@@ -148,20 +147,26 @@ input[type="number"] {
 }
 
 input[type="checkbox"] {
+  $height-size: 1.4rem;
+  $padding-size: 0.3rem;
+  $border-size: 0.1rem;
+
+  height: $height-size;
+  width: $height-size;
+  border: $border;
+  border-radius: $radius;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
-  height: 18px;
-  width: 18px;
-  border: 1px solid $secondary-color;
-  border-radius: 4px;
   cursor: pointer;
 
   &::before {
     content: "";
     display: block;
-    height: 10px;
-    width: 10px;
-    margin: 3px;
-    border-radius: 2px;
+    height: calc($height-size - $padding-size * 2 - $border-size);
+    width: calc($height-size - $padding-size * 2 - $border-size);
+    margin: $padding-size;
+    border-radius: calc($border-size * 2);
     transform: scale(0);
     transition: 100ms transform ease-in-out;
     background: $secondary-color;
@@ -179,17 +184,21 @@ input[type="checkbox"] {
 }
 
 input[type="range"] {
-  height: 6px;
+  $height-size: 0.4rem;
+
+  height: $height-size;
   width: 100%;
-  border-radius: 2px;
+  border-radius: calc($height-size / 2);
   background: $white-color;
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   outline: none;
 
   &::-webkit-slider-thumb {
-    height: 22px;
-    width: 22px;
-    border: 4px solid $black-color;
+    height: calc($height-size * 4);
+    width: calc($height-size * 4);
+    border: $height-size solid $black-color;
     border-radius: 50%;
     background: $secondary-color;
     -webkit-appearance: none;
@@ -199,9 +208,9 @@ input[type="range"] {
 
   &::-moz-range-thumb,
   &::-webkit-slider-thumb {
-    height: 22px;
-    width: 22px;
-    border: 4px solid $black-color;
+    height: calc($height-size * 4);
+    width: calc($height-size * 4);
+    border: $height-size solid $black-color;
     border-radius: 50%;
     background: $secondary-color;
     cursor: pointer;
@@ -209,21 +218,23 @@ input[type="range"] {
 }
 
 input[type="radio"] {
+  $height-size: 1.5rem;
+
   display: grid;
   place-content: center;
-  height: 16px;
-  min-width: 16px;
+  height: $height-size;
+  min-width: $height-size;
   margin: 0;
   color: $secondary-color;
-  border: 1px solid $secondary-color;
+  border: $border;
   border-radius: 50%;
   appearance: none;
   -webkit-appearance: none;
   cursor: pointer;
 
   &::before {
-    height: 8px;
-    min-width: 8px;
+    height: calc($height-size / 2);
+    min-width: calc($height-size / 2);
     border-radius: 50%;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
@@ -239,7 +250,17 @@ input[type="radio"] {
 textarea {
   height: 15vh;
   width: 100%;
-  padding: 10px;
+  padding: $spacing-m;
+
+  &::-webkit-scrollbar {
+    width: $spacing-s;
+  }
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: $radius;
+  }
 }
 
 // Select / Dropdown
@@ -247,10 +268,10 @@ textarea {
 .dropdown {
   position: relative;
   overflow: hidden;
-  height: 30px;
+  height: $input-height;
   width: 100%;
-  border-radius: 5px;
-  border: 1px solid $secondary-color;
+  border-radius: $radius;
+  border: $border;
   background: $black-color;
 }
 
@@ -258,17 +279,16 @@ textarea {
   content: "";
   position: absolute;
   z-index: 2;
-  top: 10px;
-  right: 10px;
+  top: $spacing-m;
+  right: $spacing-m;
   width: 0;
   height: 0;
-  border: 5px dashed;
+  border: 0.5rem dashed;
   border-color: $black-color transparent;
   pointer-events: none;
 }
 
 .dropdown:after {
-  margin-top: 2px;
   border-bottom: none;
   border-top-style: solid;
   border-top-color: $secondary-color;
@@ -276,12 +296,11 @@ textarea {
 
 .dropdown-select {
   position: relative;
-  height: 30px;
+  height: $input-height;
   width: 100%;
   margin: 0;
-  padding: 0px 30px 0px 10px;
-  line-height: 30px;
-  font-size: $font-size-s;
+  padding: 0 $input-height 0 $spacing-m;
+  font-size: $font-size-m;
   font-family: $sans-serif-font;
   color: $white-color;
   border: 0;
@@ -298,8 +317,8 @@ textarea {
 }
 
 .dropdown-select > option {
-  padding: 10px;
-  border-radius: 5px;
+  padding: $spacing-m;
+  border-radius: $radius;
   background: $black-color;
   cursor: pointer;
 }
@@ -324,7 +343,7 @@ table {
     overflow: hidden;
 
     th {
-      border-bottom: 1px solid $secondary-color;
+      border-bottom: $border;
     }
   }
 
@@ -341,7 +360,7 @@ table {
 
   th,
   td {
-    padding: 5px;
+    padding: $spacing-s;
     text-align: center;
   }
 

@@ -134,13 +134,13 @@
         </div>
 
         <div class="creation-column">
-          <div class="layout-bloc zone-element zone-element-semifree">
+          <div class="layout-bloc section is-height-semifree">
             <div
               v-if="character"
-              class="zone-header">
+              class="section-header">
               <img
                 v-if="character.avatar"
-                class="zone-icon img-rounded"
+                class="section-icon img-rounded"
                 :src="character.avatar"
                 alt="">
               <div class="text-center margin-left-1">
@@ -148,7 +148,7 @@
                 <span>{{ getSubLibelleCharacter(character) }}</span>
               </div>
             </div>
-            <div class="zone-description margin-top-1 text-center">
+            <div class="section-description margin-top-1 text-center">
               Votre personnage est désormais fini,
               <br>il ne reste plus qu'à lui donner vie.
               <br><b>Bienvenue dans le Monde d'Arlénor !</b>

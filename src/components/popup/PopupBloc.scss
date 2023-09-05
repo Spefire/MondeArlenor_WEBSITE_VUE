@@ -1,6 +1,6 @@
 @import "../../styles/variables.scss";
 
-.popup-zone {
+.popup-wrapper {
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -13,28 +13,28 @@
 		max-height: 90vh;
 		width: 50vw;
 		margin: 5vh auto;
-		border: 1px solid $light-secondary-color;
+		border: $border;
 		background: $black-color;
 
 		.popup-bloc-header {
 			display: flex;
 			justify-content: space-between;
-			padding: 15px 20px;
-			border-bottom: 1px solid $light-secondary-color;
+			padding: $spacing-m $spacing-l;
+			border-bottom: $border;
 		}
 
 		.popup-bloc-content {
 			display: block;
 			text-align: center;
-			padding: 15px 20px;
+			padding: $spacing-m $spacing-l;
 			overflow: auto;
 		}
 
 		.popup-bloc-footer {
 			display: flex;
 			justify-content: center;
-			padding: 15px 20px;
-			border-top: 1px solid $light-secondary-color;
+			padding: $spacing-m $spacing-l;
+			border-top: $border;
 		}
 	}
 }
