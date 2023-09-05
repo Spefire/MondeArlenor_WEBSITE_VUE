@@ -20,7 +20,7 @@
       </div>
     </div>
     <div little-separator />
-    <div class="roleplay-view background-roleplay-black glyphe-hover">
+    <div class="roleplay-view background-roleplay-black-reverse glyphe-hover">
       <div class="glyphe-container">
         <Glyphe 
           class="little"
@@ -66,7 +66,7 @@
       </div>
     </div>
     <div little-separator />
-    <div class="roleplay-view background-roleplay-black glyphe-hover">
+    <div class="roleplay-view background-roleplay-black-reverse glyphe-hover">
       <div class="glyphe-container">
         <div class="glyphe-view">
           <img
