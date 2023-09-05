@@ -251,6 +251,16 @@ textarea {
   height: 15vh;
   width: 100%;
   padding: $spacing-m;
+
+  &::-webkit-scrollbar {
+    width: $spacing-s;
+  }
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: $radius;
+  }
 }
 
 // Select / Dropdown
