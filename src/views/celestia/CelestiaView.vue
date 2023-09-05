@@ -165,5 +165,5 @@
   </div>
 </template>
 
-<style lang="scss" scoped src="./CelestiaView.scss"></style>
+<style lang="scss" src="./CelestiaView.scss"></style>
 <script lang="ts" src="./CelestiaView.ts"></script>

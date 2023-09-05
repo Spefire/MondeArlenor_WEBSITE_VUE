@@ -147,20 +147,26 @@ input[type="number"] {
 }
 
 input[type="checkbox"] {
-  appearance: none;
-  height: 1.8rem;
-  width: 1.8rem;
+  $height-size: 1.4rem;
+  $padding-size: 0.3rem;
+  $border-size: 0.1rem;
+
+  height: $height-size;
+  width: $height-size;
   border: $border;
-  border-radius: 0.4rem;
+  border-radius: $radius;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   cursor: pointer;
 
   &::before {
     content: "";
     display: block;
-    height: 1rem;
-    width: 1rem;
-    margin: 0.3rem;
-    border-radius: 0.2rem;
+    height: calc($height-size - $padding-size * 2 - $border-size);
+    width: calc($height-size - $padding-size * 2 - $border-size);
+    margin: $padding-size;
+    border-radius: calc($border-size * 2);
     transform: scale(0);
     transition: 100ms transform ease-in-out;
     background: $secondary-color;
@@ -178,9 +184,11 @@ input[type="checkbox"] {
 }
 
 input[type="range"] {
-  height: 0.6rem;
+  $height-size: 0.4rem;
+
+  height: $height-size;
   width: 100%;
-  border-radius: 0.2rem;
+  border-radius: calc($height-size / 2);
   background: $white-color;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -188,9 +196,9 @@ input[type="range"] {
   outline: none;
 
   &::-webkit-slider-thumb {
-    height: 2.2rem;
-    width: 2.2rem;
-    border: 0.4rem solid $black-color;
+    height: calc($height-size * 4);
+    width: calc($height-size * 4);
+    border: $height-size solid $black-color;
     border-radius: 50%;
     background: $secondary-color;
     -webkit-appearance: none;
@@ -200,9 +208,9 @@ input[type="range"] {
 
   &::-moz-range-thumb,
   &::-webkit-slider-thumb {
-    height: 2.2rem;
-    width: 2.2rem;
-    border: 0.4rem solid $black-color;
+    height: calc($height-size * 4);
+    width: calc($height-size * 4);
+    border: $height-size solid $black-color;
     border-radius: 50%;
     background: $secondary-color;
     cursor: pointer;
@@ -210,10 +218,12 @@ input[type="range"] {
 }
 
 input[type="radio"] {
+  $height-size: 1.5rem;
+
   display: grid;
   place-content: center;
-  height: 1.6rem;
-  min-width: 1.6rem;
+  height: $height-size;
+  min-width: $height-size;
   margin: 0;
   color: $secondary-color;
   border: $border;
@@ -223,8 +233,8 @@ input[type="radio"] {
   cursor: pointer;
 
   &::before {
-    height: 0.8rem;
-    min-width: 0.8rem;
+    height: calc($height-size / 2);
+    min-width: calc($height-size / 2);
     border-radius: 50%;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
