@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="section-description">
-          <p v-html="currentZone.description" />
+          <span v-html="currentZone.description" />
         </div>
         <p
           v-if="currentZone.comment"

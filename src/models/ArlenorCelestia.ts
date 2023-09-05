@@ -9,7 +9,6 @@ export class ArlenorCelestia {
   public relations: string;
   public emotion: string;
   public grade: string;
-  public animal: string;
   public image: string;
   public qualities: string[];
   public defaults: string[];
@@ -26,7 +25,6 @@ export class ArlenorCelestia {
     this.relations = "";
     this.emotion = "";
     this.grade = "";
-    this.animal = "";
     this.image = "";
     this.qualities = [];
     this.defaults = [];

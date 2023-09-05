@@ -82,14 +82,6 @@
         overflow-y: auto;
         border-top: $border;
         border-bottom: $border;
-
-        .section-description-bloc {
-            margin-bottom: $spacing-m;
-
-            span:first-child {
-                font-weight: bold;
-            }
-        }
     }
 
     .section-comment {

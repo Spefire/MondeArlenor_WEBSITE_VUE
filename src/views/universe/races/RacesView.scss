@@ -30,7 +30,7 @@
       height: 14rem;
       width: 14rem;
       margin: 0 $spacing-m;
-      border: 1rem double $secondary-color;
+      border: 0.6rem double $secondary-color;
       cursor: default;
 
       @include tablet-only {

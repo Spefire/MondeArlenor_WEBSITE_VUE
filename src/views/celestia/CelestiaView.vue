@@ -49,25 +49,21 @@
             </div>
           </div>
           <div class="section-description">
-            <div class="section-description-bloc text-center">
-              <span />
-              <span>{{ currentCelestia.age }}ans - {{ currentCelestia.astro }} - {{ currentCelestia.mbti }}</span>
+            <div class="margin-bottom-1 text-center">
+              <span>{{ currentCelestia.age }} ans - {{ currentCelestia.astro }} - {{ currentCelestia.mbti }}</span>
             </div>
-            <div class="section-description-bloc">
-              <span>Emotion dominante</span><br>
-              <span>{{ currentCelestia.emotion }}</span>
+            <div class="margin-bottom-1">
+              <span class="text-bold">Emotion dominante : </span>
+              <span>{{ currentCelestia.emotion }}</span><br>
+              <span class="text-bold">Grade : </span>
+              <span>{{ currentCelestia.grade }}</span>
             </div>
-            <div class="section-description-bloc">
-              <span>Grade - Familier</span><br>
-              <span>{{ currentCelestia.grade }} - {{ currentCelestia.animal }}</span>
-            </div>
-            <div class="section-description-bloc">
-              <span>Orientation - Relations</span><br>
+            <div class="margin-bottom-1">
+              <span class="text-bold">Orientation - Relations</span><br>
               <span>{{ currentCelestia.orientation }} - {{ currentCelestia.situation }}</span>
               <span v-html="currentCelestia.relations" />
             </div>
-            <div class="section-description-bloc">
-              <span /><br>
+            <div>
               <span class="text-bold">Qualités : </span>
               <span>{{ getLibArray(currentCelestia.qualities) }}</span><br>
               <span class="text-bold">Défauts : </span>
@@ -120,16 +116,15 @@
         </div>
       </div>
       <div class="section-description margin-top-1">
-        <div class="section-description-bloc">
-          <span>Axe : </span>
+        <div class="margin-bottom-1">
+          <span class="text-bold">Axe : </span>
           <span>{{ quizz.result.axe }}</span>
         </div>
-        <div class="section-description-bloc">
-          <span>Symboles : </span>
+        <div class="margin-bottom-1">
+          <span class="text-bold">Symboles : </span>
           <span>{{ quizz.result.symboles }}</span>
         </div>
-        <div class="section-description-bloc">
-          <span />
+        <div>
           <span v-html="quizz.result.description" />
         </div>
       </div>
