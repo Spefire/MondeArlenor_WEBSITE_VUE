@@ -11,6 +11,7 @@ export const CURRENT_CHARACTER_VERSION = 1;
 export class ArlenorCharacter extends ArlenorAPI {
   
   // Variables à sauvegarder
+  public isBDD: boolean;
   public version: number;
   public numLevel: number;
   public guid: string | null;
@@ -90,6 +91,7 @@ export class ArlenorCharacter extends ArlenorAPI {
 
   constructor() {
     super();
+    this.isBDD = false;
     this.version = CURRENT_CHARACTER_VERSION;
     this.numLevel = 1;
     this.guid = null;

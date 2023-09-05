@@ -67,6 +67,7 @@
                 class="link-button full-width margin-top-1"
                 @click="downloadCharacter(true, true)">Télécharger la fiche perso (version&nbsp;colorée)</button>
               <button
+                v-if="!selectedCharacter.isBDD"
                 class="link-button full-width margin-top-1 alert-button"
                 @click="openDeletePopup()">Supprimer le personnage</button>
             </div>
@@ -165,6 +166,11 @@
               v-if="!isSaved"
               class="link-button"
               @click="openSavePopup()">Enregistrer le personnage</button>
+
+            <button
+              v-if="isAdmin && !isSaved"
+              class="link-button margin-top-1"
+              @click="openSavePopupBDD()">Enregistrer le personnage en BDD</button>
 
             <template v-if="isSaved">
               <div>Enregistrement effectué !</div>

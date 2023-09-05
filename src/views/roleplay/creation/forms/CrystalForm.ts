@@ -50,6 +50,7 @@ export default defineComponent({
 
   mounted() {
     this.store.commit("loadAllPowers");
+    this.checkOldPowers();
     this.checkNbPowers();
   },
   
@@ -89,6 +90,7 @@ export default defineComponent({
   watch: {
     allPowers: function() {
       this.checkOldPowers();
+      this.checkNbPowers();
     }
   },
 
@@ -100,6 +102,7 @@ export default defineComponent({
     checkOldPowers() {
       const validIdsPowers = this.allPowers.map(power => power.id);
       this.form.idsPowers = this.form.idsPowers.filter(idPower => validIdsPowers.includes(idPower));
+      console.warn("this.form.idsPowers", this.form.idsPowers);
     },
     getDescription(description: string, length = 0) {
       if (length) return description.replace("&emsp;","").slice(0, length) + "...";
@@ -115,7 +118,8 @@ export default defineComponent({
       this.updateForm();
     },
     checkNbPowers() {
-      const powersSelected = this.allPowers.filter(power => this.form.idsPowers.includes(power.id)); 
+      const powersSelected = this.allPowers.filter(power => this.form.idsPowers.includes(power.id));
+      console.warn("checkNbPowers", powersSelected);
       const nbRankS = powersSelected.filter(power => power.codeRank === PowerRanksEnum.Unique.Code).length;
       const nbRankA = powersSelected.filter(power => power.codeRank === PowerRanksEnum.TresRare.Code).length;
       const nbRankB = powersSelected.filter(power => power.codeRank === PowerRanksEnum.Rare.Code).length;

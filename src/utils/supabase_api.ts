@@ -1,5 +1,4 @@
 import { ArlenorArchetype } from "@/models/ArlenorArchetype";
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { ArlenorPower } from "@/models/ArlenorPower";
 import { ArlenorSkill } from "@/models/ArlenorSkill";
@@ -20,7 +19,8 @@ const postQuizz = async(quizz: CelestiaQuizz): Promise<number> => {
 
 // --- CHARACTER ---------------------------------------------------------------------------
 const getAllCharacter = async(): Promise<ArlenorCharacter[]>  => {
-  return await supabase_requests.requestGet("character");
+  const result = await supabase_requests.requestGet("character");
+  return transformCharacters(result);
 };
 
 const postCharacter = async(character: ArlenorCharacter): Promise<number> => {
@@ -35,6 +35,16 @@ const putCharacter = async(character: ArlenorCharacter): Promise<boolean> => {
 
 const deleteCharacter = async(character: ArlenorCharacter): Promise<boolean> => {
   return await supabase_requests.requestDelete("character", character.id);
+};
+
+const transformCharacters = (characters: ArlenorCharacter[]): ArlenorCharacter[] => {
+  const items: ArlenorCharacter[] = [];
+  characters.forEach(character => {
+    const item = new ArlenorCharacter();
+    Object.assign(item, character);
+    items.push(item);
+  });
+  return items;
 };
 
 // --- ARCHETYPE ---------------------------------------------------------------------------

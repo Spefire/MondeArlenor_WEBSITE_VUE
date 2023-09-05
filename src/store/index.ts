@@ -11,6 +11,7 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
+    isAdmin: false,
     character: new ArlenorCharacter(),
     quizz: new CelestiaQuizz(),
     allCharacters: null as ArlenorCharacter[] | null,
@@ -21,9 +22,13 @@ export default createStore({
     allArchetypes: null as ArlenorArchetype[] | null,
   },
   mutations: {
+    setAdmin(state, payload = false) {
+      state.isAdmin = payload;
+    },
+
     async loadAllCharacters(state, payload = false) {
       if (!state.allCharacters || payload) {
-        const allCharacters = await api.readAllCharacter();
+        const allCharacters = await supabase_api.getAllCharacter();
         state.allCharacters = allCharacters.sort((a, b) => a.name.localeCompare(b.name));
       }
     },

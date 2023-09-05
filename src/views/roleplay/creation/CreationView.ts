@@ -2,6 +2,7 @@ import PopupBloc from "@/components/popup/PopupBloc.vue";
 import { ArlenorCharacter } from "@/models/ArlenorCharacter";
 import { PageTitles } from "@/models/PagesTitles";
 import downloads from "@/utils/downloads";
+import random from "@/utils/random";
 import supabase_api from "@/utils/supabase_api";
 import useVuelidate from "@vuelidate/core";
 import { between, required } from "@vuelidate/validators";
@@ -63,6 +64,9 @@ export default defineComponent({
   },
 
   computed: {
+    isAdmin(): boolean {
+      return this.store.state.isAdmin;
+    },
     character(): ArlenorCharacter {
       return this.store.state.character;
     },
@@ -75,6 +79,8 @@ export default defineComponent({
     characters(): ArlenorCharacter[] {
       const allCharacters = this.store.state.allCharacters || [];
       const localCharacters = this.store.state.localCharacters || [];
+      console.warn("allCharacters", allCharacters);
+      console.warn("localCharacters", localCharacters);
       return allCharacters.concat(localCharacters);
     },
   },
@@ -97,7 +103,7 @@ export default defineComponent({
         libelle += " - Niv " + character.numLevel;
         if (character.speciality01) libelle += " - " + character.speciality01.name;
         if (character.speciality02) libelle += "/" + character.speciality02.name;
-        libelle += " (créé le " + character.date + " à " + character.hour + ")";
+        if (!character.isBDD) libelle += " (" + character.date + " " + character.hour + ")";
         return libelle;
       } else {
         let libelle = character.name;
@@ -168,11 +174,21 @@ export default defineComponent({
       }
     },
     openSavePopup() {
-      this.showSavePopup = true;
-      this.isSaved = true;
       const character = this.character;
       character.initTime();
+      character.isBDD = false;
       this.store.commit("saveLocalCharacter", character);
+      this.isSaved = true;
+      this.showSavePopup = true;
+    },
+    async openSavePopupBDD() {
+      const character = this.character;
+      character.initTime();
+      character.isBDD = true;
+      character.guid = random.generateID(20);
+      await supabase_api.postCharacter(character);
+      this.isSaved = true;
+      this.showSavePopup = true;
     },
     closeSavePopup() {
       this.showSavePopup = false;
