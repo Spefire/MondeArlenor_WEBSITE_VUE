@@ -1,6 +1,7 @@
 @import "../../styles/variables.scss";
 
 .about-view {
+  min-height: calc(100vh - $nav-height * 2);
   flex-direction: row;
 
   @include mobile-only {

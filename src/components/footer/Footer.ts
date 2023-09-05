@@ -18,7 +18,7 @@ export default defineComponent({
   },
   computed: {
     displayLarge() {
-      return this.$route.path !== "/";
+      return (this.$route.path !== "/" && this.$route.path !== "/about" && this.$route.path !== "/legacy");
     }
   }
 });

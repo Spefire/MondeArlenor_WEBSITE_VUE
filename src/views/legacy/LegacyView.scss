@@ -1,0 +1,15 @@
+@import "../../styles/variables.scss";
+
+.legacy-view {
+  min-height: calc(100vh - $nav-height * 2);
+
+  .legacy-center {
+    width: calc(50%);
+    margin: auto 0;
+    text-align: center;
+
+    @include mobile-only {
+      width: 100%;
+    }
+  }
+}
