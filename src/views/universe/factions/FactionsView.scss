@@ -1,4 +1,30 @@
 @import "../../../styles/variables.scss";
 
 .factions-view {
+    .faction-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        @include mobile-only {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    .faction-image {
+        height: 10rem;
+        width: 10rem;
+
+        @include mobile-only {
+            margin: $spacing-m;
+        }
+    }
+
+    .faction-values {
+        margin: 0 !important;
+        color: $secondary-color;
+        font-style: italic;
+    }
 }
