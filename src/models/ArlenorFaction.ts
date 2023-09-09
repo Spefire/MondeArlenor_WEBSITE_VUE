@@ -8,17 +8,17 @@ export class ArlenorFaction {
 
   // Variables dérivées
   get image(): string | null {
-    //if (this.urlImage) {
-    const images = require.context("./../assets/images/factions/", false, /\.png$/);
-    return images("./faction.png" /*+ this.urlImage */);
-    //} else return null;
+    if (this.urlImage) {
+      const images = require.context("./../assets/images/factions/", false, /\.png$/);
+      return images("./" + this.urlImage);
+    } else return null;
   }
 
-  constructor(isOff: boolean, title: string, description: string, values: string[], location: string) {
-    this.urlImage = "";
+  constructor(isOff: boolean, urlImage: string, title: string, description: string, values: string[], location: string) {
     this.isOff = isOff;
     this.title = title;
     this.description = description;
+    this.urlImage = urlImage;
     this.values = values;
     this.location = location;
   }
