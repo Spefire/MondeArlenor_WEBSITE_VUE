@@ -163,6 +163,16 @@ export default defineComponent({
       else
         downloads.downloadPDF(isColored, this.character, allSkills, allPowers);
     },
+    async exportInsta(isSelectedCharacter: boolean) {
+      let allSkills = await supabase_api.getAllSkill();
+      let allPowers = await supabase_api.getAllPower();
+      allSkills = allSkills.sort((a, b) => a.name.localeCompare(b.name));
+      allPowers = allPowers.sort((a, b) => a.name.localeCompare(b.name));
+      if (isSelectedCharacter && this.selectedCharacter)
+        downloads.exportInsta(this.selectedCharacter, allSkills, allPowers);
+      else
+        downloads.exportInsta(this.character, allSkills, allPowers);
+    },
     openDeletePopup() {
       this.showDeletePopup = true;
     },

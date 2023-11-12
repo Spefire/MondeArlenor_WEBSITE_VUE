@@ -67,6 +67,9 @@
                 class="link-button full-width margin-top-1"
                 @click="downloadCharacter(true, true)">Télécharger la fiche perso (version&nbsp;colorée)</button>
               <button
+                class="link-button full-width margin-top-1"
+                @click="exportInsta(true)">Exporter au format Instagram</button>
+              <button
                 v-if="!selectedCharacter.isBDD"
                 class="link-button full-width margin-top-1 alert-button"
                 @click="openDeletePopup()">Supprimer le personnage</button>
@@ -159,6 +162,9 @@
             <button
               class="link-button margin-top-1"
               @click="downloadCharacter(false, true)">Télécharger la fiche perso<br>(version&nbsp;colorée)</button>
+            <button
+              class="link-button margin-top-1"
+              @click="exportInsta(false)">Exporter au format Instagram</button>
           </div>
 
           <div class="layout-bloc margin-top-1 text-center">
