@@ -50,12 +50,12 @@ export class CelestiaResults {
     this.Air = new CelestiaResult("Mage de l'Air",
       "Emotion", "Sensibilité, Rêverie, Progrès",
       `Les Airs sont principalement en retrait, analysant chaque point faible avant d'agir : un coup pour un mort.
-       Leur arme de prédilection est l'arc, mais cela n'empêche pas certains de danser avec des lames.`);
+      Leur arme de prédilection est l'arc, mais cela n'empêche pas certains de danser avec des lames.`);
     this.Air.image = require("./../assets/images/symboles/s_air.png");
     this.Eau = new CelestiaResult("Mage de l'Eau",
       "Communication", "Coopération, Goût du jeu, Altruisme",
       `Les Eaux sont principalement des mages de soutien en arrière file. La plupart préparent des potions en avance :
-      soit offensives pour modifier l'Eau qu'ils contrôlent, soit défensives pour aller les alliés et effectuer des soins.`);
+      soit offensives pour modifier l'Eau qu'ils contrôlent, soit défensives pour aider les alliés et effectuer des soins.`);
     this.Eau.image = require("./../assets/images/symboles/s_eau.png");
     this.Terre = new CelestiaResult("Mage de Terre",
       "Raison", "Confiance, Vertu, Sens du devoir",
@@ -184,8 +184,8 @@ export class CelestiaQuizz extends ArlenorAPI {
       new CelestiaQuestion(
         "Quel trait de caractère vous correspond le plus ?",
         [
-          new CelestiaAnswer("Enthousiaste", "F"),
-          new CelestiaAnswer("Réfléchi", "A"),
+          new CelestiaAnswer("Déterminé.e", "F"),
+          new CelestiaAnswer("Réfléchi.e", "A"),
           new CelestiaAnswer("Altruiste", "E"),
           new CelestiaAnswer("Fiable", "T"),
         ]
@@ -221,9 +221,9 @@ export class CelestiaQuizz extends ArlenorAPI {
         "Qu'est-ce que vous avez le plus de mal à supporter ?",
         [
           new CelestiaAnswer("Le mensonge", "T"),
-          new CelestiaAnswer("L'envahissement", "A"),
+          new CelestiaAnswer("Le confinement", "A"),
           new CelestiaAnswer("La solitude", "E"),
-          new CelestiaAnswer("L'ennui", "F"),
+          new CelestiaAnswer("L'échec", "F"),
         ]
       ),
       new CelestiaQuestion(
@@ -282,7 +282,7 @@ export class CelestiaQuizz extends ArlenorAPI {
         [
           new CelestiaAnswer("La bibliothèque", "A"),
           new CelestiaAnswer("Les jardins et les serres", "T"),
-          new CelestiaAnswer("La salle tactique et le terrain d’entraînement", "F"),
+          new CelestiaAnswer("La salle tactique et le terrain d'entraînement", "F"),
           new CelestiaAnswer("Les salles communes et le réfectoire", "E"),
         ]
       ),
@@ -291,12 +291,12 @@ export class CelestiaQuizz extends ArlenorAPI {
         [
           new CelestiaAnswer("Botanique et étude des terrains", "TT"),
           new CelestiaAnswer("Combat terrestre et rapproché", "FF"),
-          new CelestiaAnswer("Soins et potions", "EE"),
+          new CelestiaAnswer("Science des potions", "EE"),
           new CelestiaAnswer("Combat aérien et à distance", "AA"),
           new CelestiaAnswer("Technologie et magie", "FA"),
-          new CelestiaAnswer("Familiers et métamorphose", "ET"),
-          new CelestiaAnswer("Magie constructive", "AE"),
-          new CelestiaAnswer("Armes et artefacts", "FT"),
+          new CelestiaAnswer("Médecine et soins", "ET"),
+          new CelestiaAnswer("Magie créative et tactique", "AE"),
+          new CelestiaAnswer("Armes, gadgets et artefacts", "FT"),
         ]
       ),
       new CelestiaQuestion(
@@ -304,12 +304,12 @@ export class CelestiaQuizz extends ArlenorAPI {
         [
           new CelestiaAnswer("Botanique et étude des terrains", "TT"),
           new CelestiaAnswer("Combat terrestre et rapproché", "FF"),
-          new CelestiaAnswer("Soins et potions", "EE"),
+          new CelestiaAnswer("Science des potions", "EE"),
           new CelestiaAnswer("Combat aérien et à distance", "AA"),
           new CelestiaAnswer("Technologie et magie", "FA"),
-          new CelestiaAnswer("Familiers et métamorphose", "ET"),
-          new CelestiaAnswer("Magie constructive", "AE"),
-          new CelestiaAnswer("Armes et artefacts", "FT"),
+          new CelestiaAnswer("Médecine et soins", "ET"),
+          new CelestiaAnswer("Magie créative et tactique", "AE"),
+          new CelestiaAnswer("Armes, gadgets et artefacts", "FT"),
         ]
       ),
       new CelestiaQuestion(
@@ -331,10 +331,10 @@ export class CelestiaQuizz extends ArlenorAPI {
         ]
       ),
       new CelestiaQuestion(
-        "Quel serait votre familier ?",
+        "Quel serait votre animal totem ?",
         [
-          new CelestiaAnswer("Un animal ailé", "A"),
-          new CelestiaAnswer("Un mammifère terrestre", "F"),
+          new CelestiaAnswer("Un animal à plumes", "A"),
+          new CelestiaAnswer("Un mammifère à poils", "F"),
           new CelestiaAnswer("Un animal aquatique", "E"),
           new CelestiaAnswer("Un reptile", "T"),
         ]
